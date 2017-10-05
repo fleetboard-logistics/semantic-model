@@ -1,0 +1,13 @@
+{
+	"sender": {
+      "id": "4974",
+      "ediId": "SCHAESW",
+      "name": "Schäflein Spedition GmbH",
+      "street": "Am Etzberg 7",
+      "countryCode": "DE",
+      "zipCode": "97521",
+      "city": "Röhtlein"
+    },
+    "receiver": { "ediId": "KOCHMBH"},
+    "x-networkId": "CL"
+}
