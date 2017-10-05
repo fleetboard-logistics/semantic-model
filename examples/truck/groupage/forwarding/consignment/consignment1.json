@@ -1,13 +1,28 @@
 {
-	"sender": {
-      "id": "4974",
-      "ediId": "SCHAESW",
-      "name": "Schäflein Spedition GmbH",
-      "street": "Am Etzberg 7",
-      "countryCode": "DE",
-      "zipCode": "97521",
-      "city": "Röhthein"
-    },
-    "receiver": { "ediId": "KOCHMBH"},
-    "x-networkId": "CL"
+  "$schema": "http://localhost:81/consignment.json#",
+  "sender": {
+    "id": "4974",
+    "ediId": "SCHAESW",
+    "name": "Schäflein Spedition GmbH",
+    "street": "Am Etzberg 7",
+    "countryCode": "DE",
+    "zipCode": "97521",
+    "city": "Röthlein"
+  },
+  "receiver": {
+    "ediId": "KOCHMBH"
+  },
+  "networkId": {
+    "codelist": "CL",
+    "networkId": "CL",
+    "product": "CL"
+  },
+  "additionalPartners": [
+    { "partnerId": "5079" },
+    { "partnerId": "5583" }
+  ],
+  "orderingParty": {
+    "name": "We-sell-you-stuff Inc"
+  },
+  "x-customTag": "Test"
 }
