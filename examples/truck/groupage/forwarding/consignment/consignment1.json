@@ -6,7 +6,7 @@
       "street": "Am Etzberg 7",
       "countryCode": "DE",
       "zipCode": "97521",
-      "city": "Röhtlein"
+      "city": "Röhthein"
     },
     "receiver": { "ediId": "KOCHMBH"},
     "x-networkId": "CL"
