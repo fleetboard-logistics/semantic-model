@@ -1,5 +1,5 @@
 {
-  "$schema": "http://localhost:81/consignment.json#",
+  "$schema": "../../../../../model/transport/truck/groupage/forwarding/consignment.json#",
   "sender": {
     "id": "4974",
     "ediId": "SCHAESW",
