@@ -18,8 +18,12 @@
     "product": "CL"
   },
   "additionalPartners": [
-    { "partnerId": "5079" },
-    { "partnerId": "5583" }
+    {
+      "partnerId": "5079"
+    },
+    {
+      "partnerId": "5583"
+    }
   ],
   "orderingParty": {
     "name": "We-sell-you-stuff Inc"

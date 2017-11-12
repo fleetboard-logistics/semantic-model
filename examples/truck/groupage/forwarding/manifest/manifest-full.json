@@ -1,0 +1,424 @@
+{
+    "$schema": "../../../../../model/transport/truck/groupage/forwarding/manifest.json#",
+    "manifestId": "A123456",
+    "shippingDate": "2017-12-31",
+    "carrier": {
+        "name": "Frachführer GmbH",
+        "additionalAddressLines": [
+            "Abteilung Ladungsverkehre"
+        ],
+        "street": "Musterstr. 11",
+        "city": "Musterstadt",
+        "zipCode": "12345",
+        "countryCode": "DE",
+        "townarea": "Ortsteil"
+    },
+    "sender": {
+        "ediId": "SCHAESW"
+    },
+    "receiver": {
+        "ediId": "HELLM00"
+    },
+    "networkId": {
+        "networkId": "CL",
+        "product": "CL",
+        "codelist": "CL"
+    },
+    "additionalLoadingEquipment": {
+        "eurPallets": 0,
+        "eurBoxes": 0
+    },
+    "vehicles": [
+        {
+            "registration": "KT EK 1234"
+        }
+    ],
+    "loadUnits": [
+        {
+            "identification": "1234-456489",
+            "seals": [
+                {
+                    "code": "13123454648"
+                },
+                {
+                    "code": "13123454648"
+                }
+            ]
+        }
+    ],
+    "additionalPartners": [
+        {
+            "partnerId": "Hub"
+        }
+    ],
+    "shippingPartner": {
+        "partnerId": "4123"
+    },
+    "receivingPartner": {
+        "partnerId": "3214"
+    },
+    "lines": [
+        {
+            "lineNo": 1,
+            "consignment": {
+                "consignmentNoShippingPartner": "4564646426",
+                "consignmentNoReceivingPartner": "4564646426",
+                "shippingDate": "2017-12-31",
+                "shippingPartner": {
+                    "partnerId": "4123"
+                },
+                "receivingPartner": {
+                    "partnerId": "3214"
+                },
+                "sender": {
+                    "ediId": "SCHAESW"
+                },
+                "receiver": {
+                    "ediId": "HELLM00"
+                },
+                "networkId": {
+                    "networkId": "CL",
+                    "product": "CL",
+                    "codelist": "CL"
+                },
+                "orderingParty": {
+                    "name": "Auftraggeber"
+                },
+                "routing": {
+                    "shipper": {
+                        "name": "Versender"
+                    },
+                    "loadingAddress": {
+                        "name": "Versender"
+                    },
+                    "consignee": {
+                        "name": "Versender"
+                    },
+                    "unloadingAddress": {
+                        "name": "Versender"
+                    }
+                },
+                "services": {
+                    "notifications": {
+                        "generalNotificationAddress": {
+                            "name": "Will alles wissen Inc."
+                        },
+                        "afterDelivery": {
+                            "name": "Monteur"
+                        },
+                        "beforeDelivery": {
+                            "name": "Ansprechpartner",
+                            "leadTimeSecondsMinimum": 3600,
+                            "leadTimeSecondsMaximum": null
+                        },
+                        "byDriver": {
+                            "name": "Ansprechpartner"
+                        }
+                    },
+                    "anonymity": {
+                        "neutralShipper": {
+                            "name": "Abweichender Versender",
+                            "street": "Musterstrasse 1"
+                        },
+                        "neutralConsignee": {
+                            "name": "Abweichender Empfänger",
+                            "street": "Musterstrasse 1"
+                        }
+                    },
+                    "timeSlotBooking": {
+                        "byDeliveringPartner": {
+                            "name": "Info"
+                        },
+                        "preBookedTimeslot": {
+                            "info": "Info"
+                        }
+                    },
+                    "timeOptions": {
+                        "notAfter": {
+                            "date": "2017-12-31"
+                        },
+                        "fixedDay": {
+                            "date": "2017-12-31"
+                        },
+                        "fixedWeek": {
+                            "year": "2017",
+                            "weekOfYear": "30"
+                        },
+                        "weekendSaturday": {
+                            "timeFrom": "09:00",
+                            "timeUntil": "18:00"
+                        },
+                        "nextDay": {
+                            "timeFrom": "09:00",
+                            "timeUntil": "18:00"
+                        },
+                        "evening": {
+                            "timeFrom": "20:00",
+                            "timeUntil": "22:00"
+                        }
+                    },
+                    "deliveryOptions": {
+                        "liftingPlatform": true,
+                        "pointOfUseDelivery1Person": true,
+                        "pointOfUseDelivery2Persons": true,
+                        "shelfService": true,
+                        "useSpecificLastMileProvider": {
+                            "name": "NSE"
+                        },
+                        "cashOnDelivery": {
+                            "amount": 123.45,
+                            "currency": "EUR",
+                            "acceptCash": true,
+                            "acceptCheque": true
+                        },
+                        "pickupByConsignee": true,
+                        "workRequest": {
+                            "info": ""
+                        },
+                        "deliveryOnlyWithDeliveryNote": true,
+                        "digitalDeliveryNote": false,
+                        "deliveryNoteOnGoods": true,
+                        "deliveryWithoutReceiptAllowed": false,
+                        "podOnOriginalDeliveryNote": false
+                    },
+                    "loadingOptions": {
+                        "directPickup": true
+                    },
+                    "unloadingOptions": {
+                        "directDelivery": true,
+                        "alreadyReceived": {
+                            "surplusConsignmentNo": "564666544",
+                            "shippingDate": "2017-12-31"
+                        },
+                        "missingFromPreviousManifest": {
+                            "manifestId": "123456646",
+                            "shippingDate": "2017-12-31"
+                        }
+                    },
+                    "gateway": {
+                        "priority": true
+                    },
+                    "handlingInstructions": {
+                        "customsGoods": true,
+                        "handleWithCare": true,
+                        "orientation": {
+                            "vertical": true,
+                            "horizontal": true
+                        },
+                        "stacking": {
+                            "forbidden": true,
+                            "allowed": true
+                        },
+                        "temperatureRestrictions": {
+                            "temperatureMinCelsius": 0.0,
+                            "temperatureMaxCelsius": 100.0
+                        },
+                        "food": {
+                            "haccp": true
+                        }
+                    },
+                    "returnOfGoods": {
+                        "emptyPackaging": true
+                    }
+                },
+                "externalServices": {
+                    "archive": {
+                        "automaticDownloadOfPod": true
+                    }
+                },
+                "information": {
+                    "remarksInvoice": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "remarksPickup": [
+                        ""
+                    ],
+                    "remarksDelivery": [
+                        ""
+                    ],
+                    "remarksGeneral": [
+                        ""
+                    ]
+                },
+                "references": {
+                    "returnOfPreviousConsignent": {
+                        "consignmentNoShippingPartner": "4564646426",
+                        "shippingDate": "2017-12-31",
+                        "shippingPartner": {
+                            "partnerId": "4123"
+                        }
+                    },
+                    "forwardedFor": {
+                        "partnerId": "4123"
+                    },
+                    "pickupOrder": {
+                        "pickupOrderNo": "1545664",
+                        "partnerId": "4123"
+                    },
+                    "deliveryNote": "54564456",
+                    "customerOrderNo": "45645646645",
+                    "customerOrderDate": "2017-12-31",
+                    "orderEntrySystemReference": "45644499418"
+                },
+                "billing": {
+                    "freightPayer": {
+                        "name": "56456466"
+                    },
+                    "tariff": "asdasasd",
+                    "routingOrder": {
+                        "partnerId": "4956"
+                    },
+                    "deliveryTerms": "4554",
+                    "logisticModel": "123",
+                    "costsAndCharges": {}
+                },
+                "customsInformation": {
+                    "declaringPary": {
+                        "name": "asdasdad"
+                    },
+                    "deliverAfterDutyPaid": {
+                        "name": "asdasdad"
+                    },
+                    "presentationDeadline": "2017-12-31",
+                    "clearedForFreeTransitWithinEU": true,
+                    "envelopeForCustomsDocuments": true,
+                    "presentationToCustomsRequired": true,
+                    "valueAtBorderCrossing": {
+                        "amount": 0.0,
+                        "currency": "EUR"
+                    },
+                    "cityUnloading": "",
+                    "customsOffice": "",
+                    "customsProcess": "",
+                    "customsType": "",
+                    "districtUnloading": "",
+                    "importCustomsOffice": "",
+                    "parentDocumentId": "",
+                    "parentDocumentType": "",
+                    "routeBorder": "",
+                    "routeInland": "",
+                    "statisticsFlag": "",
+                    "transferType": "",
+                    "countryConsignor": "",
+                    "countryImporter": "",
+                    "countryLoading": "",
+                    "countryOfOrigin": "",
+                    "countryUnloading": "",
+                    "documents": [
+                        {
+                            "type": "Name",
+                            "number": "154564555",
+                            "date": "2017-12-31"
+                        }
+                    ]
+                },
+                "content": {
+                    "nonHazardousWaste": true,
+                    "loadingAids": true,
+                    "packagingPool": "ProviderId",
+                    "highValueGoods": true,
+                    "highConsequencesDangerousGoods": true,
+                    "insuranceValue": {
+                        "amount": 0.0,
+                        "currency": "EUR"
+                    },
+                    "volumeCubicmeter": 0.0,
+                    "loadingMeter": 0.0,
+                    "grossWeightKilogram": 0.0,
+                    "areaPalletBays": 0.0,
+                    "chargeableWeightKilogram": 0.0,
+                    "lengthMeter": 0.0,
+                    "widthMeter": 0.0,
+                    "heightMeter": 0.0,
+                    "lines": [
+                        {
+                            "lineNo": 1,
+                            "handlingUnitCount": 1,
+                            "handlingUnitType": "FP",
+                            "innerPackageCount": 10,
+                            "innerPackageType": "CO",
+                            "content": "Ware",
+                            "refNo": "",
+                            "volumeCubicmeter": 0.0,
+                            "loadingMeter": 0.0,
+                            "grossWeightKilogram": 0.0,
+                            "areaPalletBays": 0.0,
+                            "chargeableWeightKilogram": 0.0,
+                            "lengthMeter": 0.0,
+                            "widthMeter": 0.0,
+                            "heightMeter": 0.0,
+                            "customsInformation": {
+                                "goodsNo": "",
+                                "processCode": "",
+                                "netweightKilogram": 0.0,
+                                "rawWeightKilogram": 0.0,
+                                "countryOfOrigin": "DE",
+                                "customsValue": {
+                                    "amount": 0.0,
+                                    "currency": "EUR"
+                                },
+                                "statisticalValue": {
+                                    "amount": 0.0,
+                                    "currency": "EUR"
+                                },
+                                "documents": [
+                                    {
+                                        "type": "Name",
+                                        "number": "154564555",
+                                        "date": "2017-12-31"
+                                    }
+                                ]
+                            },
+                            "barcodes": [
+                                {
+                                    "code": "00341234567890123456",
+                                    "masterBarcode": "00341234567890123456",
+                                    "batch": "",
+                                    "bestBefore": "2017-12-31"
+                                }
+                            ],
+                            "dangerousGoods": [
+                                {
+                                    "quantity": 1,
+                                    "grossWeightKilogram": 0.0,
+                                    "unNo": "5912",
+                                    "multiplier": 3,
+                                    "uniqueKey": "",
+                                    "substanceName": "Umweltgefährdender Stoff, flüssig, N.A.G",
+                                    "technicalNameIfNotOtherwiseSpecified": "Di-Hydro-Mono-Oxid",
+                                    "labelMainRisk": "",
+                                    "labelSubRisk1": "",
+                                    "labelSubRisk2": "",
+                                    "labelSubRisk3": "",
+                                    "packagingDescription": "",
+                                    "netExplosiveMassKilogram": 0.0,
+                                    "transportCategory": "",
+                                    "limitedQuantity": true,
+                                    "totalPointsADR": 1000,
+                                    "tunnelRestriction": "",
+                                    "packagingGroup": "",
+                                    "classificationCode": "",
+                                    "exemptedQuantity": true,
+                                    "netWeightKilogram": 0.0,
+                                    "volumeLiter": 0.0,
+                                    "highConsequencesDangerousGoods": true,
+                                    "adrRelease": "",
+                                    "packagingClass": "",
+                                    "references": {
+                                        "fireworksBamNo": "1313"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "additionalLoadingEquipment": {
+                        "eurPallets": 0,
+                        "eurBoxes": 0
+                    }
+                }
+            }
+        }
+    ]
+}

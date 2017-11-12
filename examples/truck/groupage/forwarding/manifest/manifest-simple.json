@@ -1,0 +1,83 @@
+{
+    "$schema": "../../../../../model/transport/truck/groupage/forwarding/manifest.json#",
+    "manifestId": "A123456",
+    "shippingDate": "2017-12-31",
+    "shippingPartner": {
+        "partnerId": "1234"
+    },
+    "receivingPartner": {
+        "partnerId": "4321"
+    },
+    "carrier": {
+        "name": "Frachführer GmbH",
+    },
+    "vehicles": [
+        {
+            "registration": "KT EK 123"
+        }
+    ],
+    "loadUnits": [
+        {
+            "identification": "WAB 12345",
+            "seals": [
+                {
+                    "code": "1234567890"
+                }
+            ]
+        }
+    ],
+    "lines": [
+        {
+            "lineNo": 1,
+            "consignment": {
+                "consignmentNoShippingPartner": "1234567890",
+                "routing": {
+                    "shipper": {
+                        "name": "Versender GmbH",
+                        "street": "Teststrasse 1",
+                        "zipCode": "12345",
+                        "city": "Musterort",
+                        "countryCode": "DE"
+                    },
+                    "consignee": {
+                        "name": "Empfänger GmbH",
+                        "street": "Teststrasse 1",
+                        "zipCode": "98765",
+                        "city": "Teststadt",
+                        "countryCode": "DE"
+                    }
+                },
+                "services": {
+                    "timeOptions": {
+                        "nextDay": {
+                            "timeFrom": "10:00"
+                        }
+                    }
+                },
+                "references": {
+                    "customerOrderNo": "1234-5647890"
+                },
+                "content": {
+                    "insuranceValue": {
+                        "amount": 1000.0,
+                        "currency": "EUR"
+                    },
+                    "lines": [
+                        {
+                            "lineNo": 1,
+                            "handlingUnitCount": 1,
+                            "handlingUnitType": "FP",
+                            "content": "Ware",
+                            "grossWeightKilogram": 100,
+                            "barcodes": [
+                                {
+                                    "code": "00341234567890123456"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
