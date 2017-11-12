@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../../../model/transport/truck/groupage/forwarding/manifest.json#",
+    "$schema": "https://raw.githubusercontent.com/ocora-io/semantic-model/master/model/transport/truck/groupage/forwarding/manifest.json#",
     "manifestId": "A123456",
     "shippingDate": "2017-12-31",
     "shippingPartner": {
@@ -9,7 +9,7 @@
         "partnerId": "4321"
     },
     "carrier": {
-        "name": "Frachführer GmbH",
+        "name": "Frachführer GmbH"
     },
     "vehicles": [
         {
