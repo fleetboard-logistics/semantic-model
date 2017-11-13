@@ -1052,7 +1052,7 @@
                 "shippingDate": {
                   "title": "Shipping date",
                   "titleMap": {
-                    "de": "Verladedatum"
+                    "de": "Sendungsdatum"
                   },
                   "description": "The date of the manifest which contained the surplus goods",
                   "descriptionMap": {
@@ -1092,7 +1092,7 @@
                 "shippingDate": {
                   "title": "Shipping date",
                   "titleMap": {
-                    "de": "Versand-Datum"
+                    "de": "Sendungsdatum"
                   },
                   "description": "The date of the manifest which included the consignment",
                   "descriptionMap": {
@@ -1531,7 +1531,7 @@
             "shippingDate": {
               "title": "Shipping date",
               "titleMap": {
-                "de": "Versanddatum"
+                "de": "Sendungsdatum"
               },
               "description": "The date when the original shipment was forwarded",
               "descriptionMap": {
