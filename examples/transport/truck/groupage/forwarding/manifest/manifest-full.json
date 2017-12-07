@@ -19,7 +19,7 @@
     "receiver": {
         "ediId": "HELLM00"
     },
-    "networkId": {
+    "network": {
         "networkId": "CL",
         "product": "CL",
         "codelist": "CL"
