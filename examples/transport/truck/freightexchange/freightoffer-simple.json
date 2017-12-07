@@ -1,0 +1,25 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ocora-io/semantic-model/master/model/transport/truck/freightexchange/freightoffer.json#",
+    "freightId": "45456456",
+    "receiver": {
+        "partnerId": "TimoCom"
+    },
+    "startAddress": {
+        "city": "München",
+        "country": "DE"
+    },
+    "startFrom": "2017-01-01T10:00:00",
+    "startUntil": "2017-01-01T12:00:00",
+    "endAddress": {
+        "city": "Volkach",
+        "zipCode": "97332",
+        "country": "DE"
+    },
+    "endFrom": "2017-01-01T10:00:00",
+    "endUntil": "2017-01-01T12:00:00",
+    "content": {
+        "content": "Paletten",
+        "loadingMeter": 5,
+        "grossWeightKilogram": 12000
+    }
+}
