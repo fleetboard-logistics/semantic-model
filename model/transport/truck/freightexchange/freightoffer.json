@@ -1,0 +1,448 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "@id": "http://ocora.io/model/transport/truck/freightexchnage/freightoffer.json",
+    "title": "Freight offer",
+    "titleMap": {
+        "de": "Frachtangebot"
+    },
+    "description": "An description of the goods available to be transported",
+    "descriptionMap": {
+        "de": "Beschreibung von Waren, die für einen Transport bereitstehen"
+    },
+    "type": "object",
+    "properties": {
+        "freightId": {
+            "type": "string"
+        },
+        "sender": {
+            "title": "Data Origin",
+            "titleMap": {
+                "de": "Daten-Quelle"
+            },
+            "description": "The sender of the current record.",
+            "descriptionMap": {
+                "de": "Der Versender des Datensatzes."
+            },
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/partnerIdentification"
+                },
+                {
+                    "properties": {
+                        "contact": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "mobilePhone": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "receiver": {
+            "title": "Data Recipient",
+            "titleMap": {
+                "de": "Daten-Empfänger"
+            },
+            "description": "The intended recipient of the the current record.",
+            "descriptionMap": {
+                "de": "Der Empfänger des Datensatzes."
+            },
+            "$ref": "#/definitions/partnerIdentification"
+        },
+        "startAddress": {
+            "title": "Loading address",
+            "titleMap": {
+                "de": "Ladestelle"
+            },
+            "description": "The place where the goods are picked up. E.g. the address of the shipper's warehouse.",
+            "descriptionMap": {
+                "de": "Der Ort, an dem die Ware abgeholt wird, z.B. ein spzielles Lager des Versenders."
+            },
+            "type": "object",
+            "$ref": "#/definitions/nameAndAddress"
+        },
+        "startFrom": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "startUntil": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "endAddress": {
+            "title": "Unloading address",
+            "titleMap": {
+                "de": "Abladestelle"
+            },
+            "description": "The drop of point for the consignment, e.g. the exact address of the warehouse if the consignee has multiple warehouses.",
+            "descriptionMap": {
+                "de": "Abweichende Abladestelle, falls die Ware nicht direkt zum Empfänger zugestellt werden soll."
+            },
+            "type": "object",
+            "$ref": "#/definitions/nameAndAddress"
+        },
+        "endFrom": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "endUntil": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "route": {
+            "type": "object",
+            "properties": {
+                "loadingStops": {
+                    "type": "number"
+                },
+                "unloadingStops": {
+                    "type": "number"
+                },
+                "stops": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/nameAndAddress"
+                            },
+                            {
+                                "properties": {
+                                    "isLoadingStop": {
+                                        "type": "boolean"
+                                    },
+                                    "isUnloadingStop": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
+        "content": {
+            "title": "Content",
+            "titleMap": {
+                "de": "Inhalt"
+            },
+            "description": "Describes the nature and quantity of the goods in this consignment",
+            "descriptionMap": {
+                "de": "Beschreibt den Inhalt und die Mengen in dieser Sendung"
+            },
+            "type": "object",
+            "properties": {
+                "loadingMeter": {
+                    "title": "Loading meters (m)",
+                    "titleMap": {
+                        "de": "Lademeter (m)"
+                    },
+                    "description": "Length of the area occupied on a 2.4 m wide container",
+                    "descriptionMap": {
+                        "de": "Länge der Fläche, die die Sendung in einem 2,4 m breiten Transportgefäß einnimmt"
+                    },
+                    "type": "number"
+                },
+                "grossWeightKilogram": {
+                    "title": "Gross weight (kg)",
+                    "titleMap": {
+                        "de": "Brutto-Gewicht (kg)"
+                    },
+                    "description": "Weight of the consignment including all packaging",
+                    "descriptionMap": {
+                        "de": "Gewicht der Sendung inkl. allen Verpackungsmaterialien"
+                    },
+                    "type": "number"
+                },
+                "content": {
+                    "title": "Content",
+                    "titleMap": {
+                        "de": "Inhalt / Warenbezeichnung"
+                    },
+                    "description": "A short description of the nature of the goods contained within the packages",
+                    "descriptionMap": {
+                        "de": "Kurz Beschreibung der Art der Ware, die in den Verpackungen enthalten ist"
+                    },
+                    "type": "string"
+                },
+                "dangerousGoods": {
+                    "title": "High Consequences Dangerous Goods (HCDG)",
+                    "titleMap": {
+                        "de": "Besonders gefährliche Güter (BGG / HCDG)"
+                    },
+                    "description": "This consignment contains dangerous goods which must be handeled unter the terms of HCDG",
+                    "descriptionMap": {
+                        "de": "Diese Sendung enthält besonders gefährliche Güter, die nach den Vorschriften für BGG / HCDG behandlet werden müssen"
+                    },
+                    "type": "boolean"
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
+        "references": {
+            "title": "References",
+            "titleMap": {
+                "de": "Referenzen"
+            },
+            "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
+            "descriptionMap": {
+                "de": "Nummern aus verschiedenen Quellen, die diese Sendung identifizieren oder Vereise von dieser Sendung auf andere Geschäftsvorgänge"
+            },
+            "type": "object",
+            "properties": {
+                "customerOrderNo": {
+                    "title": "Customer order no",
+                    "titleMap": {
+                        "de": "Auftragsnummer Versender"
+                    },
+                    "description": "A reference of the shipper for this consignment",
+                    "descriptionMap": {
+                        "de": "Die Refernenz-Nummer des Versender für diese Sendung"
+                    },
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
+        "information": {
+            "title": "Information",
+            "titleMap": {
+                "de": "Informationen"
+            },
+            "description": "General information about the freight",
+            "descriptionMap": {
+                "de": "Allgemeine Informationen zur Fracht"
+            },
+            "type": "object",
+            "properties": {
+                "remarksInternal": {
+                    "title": "Internal remarks",
+                    "titleMap": {
+                        "de": "Interne Bemerkungen"
+                    },
+                    "description": "Free text information for internal use",
+                    "descriptionMap": {
+                        "de": "Freitext für interne Zwecke"
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
+        "contracting": {
+            "type": "object",
+            "properties": {
+                "initialBid": {
+                    "type": "object",
+                    "properties": {
+                        "amount": {
+                            "type": "number"
+                        },
+                        "currency": {
+                            "type": "string"
+                        }
+                    },
+                    "patternProperties": {
+                        "x-.*": {},
+                        "\\$.*": {}
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
+        "services": {
+            "type": "object",
+            "properties": {
+                "vehicleRequirements": {
+                    "type": "object",
+                    "properties": {
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string"
+                                },
+                                "othersPossible": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "drawBarTruck": {
+                            "type": "boolean"
+                        },
+                        "juggernautTruck": {
+                            "type": "boolean"
+                        },
+                        "small": {
+                            "type": "boolean"
+                        },
+                        "remarks": {
+                            "type": "string"
+                        }
+                    },
+                    "patternProperties": {
+                        "x-.*": {},
+                        "\\$.*": {}
+                    },
+                    "additionalProperties": false
+                },
+                "specialTour": {
+                    "type": "boolean"
+                },
+                "closedUserGroup": {
+                    "type": "boolean"
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        }
+    },
+    "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "nameAndAddress": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "additionalAddressLines": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "street": {
+                    "type": "string"
+                },
+                "countryCode": {
+                    "type": "string"
+                },
+                "zipCode": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "townarea": {
+                    "type": "string"
+                }
+            }
+        },
+        "partnerIdentification": {
+            "type": "object",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/ediId"
+                },
+                {
+                    "$ref": "#/definitions/partnerId"
+                },
+                {
+                    "$ref": "#/definitions/address"
+                }
+            ]
+        },
+        "ediId": {
+            "type": "object",
+            "properties": {
+                "ediId": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "ediId"
+            ]
+        },
+        "partnerId": {
+            "type": "object",
+            "properties": {
+                "partnerId": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "partnerId"
+            ]
+        },
+        "address": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "additionalAddressLines": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "street": {
+                    "type": "string"
+                },
+                "countryCode": {
+                    "type": "string"
+                },
+                "zipCode": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "townarea": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ocora-io/semantic-model/master/model/transport/truck/freightexchange/freightoffer.json#",
+    "freightId": "45456456",
+    "sender": {
+        "ediId": "45645465",
+        "contact": {
+            "Name": "Max Mustermann"
+        }
+    },
+    "receiver": {
+        "partnerId": "LoadFox"
+    },
+    "startAddress": {
+        "city": "München",
+        "country": "DE"
+    },
+    "startFrom": "2017-01-01T10:00:00",
+    "startUntil": "2017-01-01T12:00:00",
+    "endAddress": {
+        "city": "Volkach",
+        "zipCode": "97332",
+        "country": "DE"
+    },
+    "endFrom": "2017-01-01T10:00:00",
+    "endUntil": "2017-01-01T12:00:00",
+    "route": {
+        "loadingStops": 1,
+        "unloadingStops": 1,
+        "stops": [
+            {
+                "city": "München",
+                "country": "DE",
+                "isLoadingStop": true
+            },
+            {
+                "city": "Volkach",
+                "zipCode": "97332",
+                "country": "DE",
+                "isUnloadingStop": true
+            }
+        ]
+    },
+    "content": {
+        "content": "Kühlschränke",
+        "dangerousGoods": false,
+        "loadingMeter": 5,
+        "grossWeightKilogram": 3600
+    },
+    "references": {
+        "customerOrderNo": ""
+    },
+    "information": {
+        "remarksInternal": [
+            "Dringend!"
+        ]
+    },
+    "contracting": {
+        "initialBid": {
+            "amount": 0,
+            "currency": "EUR"
+        }
+    },
+    "services": {
+        "vehicleRequirements": {
+            "body": {
+                "type": "Plane",
+                "othersPossible": true
+            },
+            "drawBarTruck": false,
+            "juggernautTruck": false,
+            "small": false,
+            "remarks": "LKW muss sauber sein"
+        },
+        "specialTour": false,
+        "closedUserGroup": true        
+    }
+}
