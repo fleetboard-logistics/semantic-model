@@ -177,19 +177,19 @@
       "examples": [
         {
           "ediFormat": "REL100",
-          "location": "A00.65-99",
+          "location": "Q00.10-44",
           "networkId": "CL",
           "value": "4974"
         },
         {
           "ediFormat": "REL100",
-          "location": "A00.65-99",
+          "location": "Q00.10-44",
           "networkId": "SYA",
           "value": "3100"
         },
         {
           "ediFormat": "EDIFACT",
-          "location": "SG5/SG9/NAD+CS/Field3035"
+          "location": "SG1/NAD+CS/Field3035"
         }
       ],
       "$ref": "#/definitions/partnerIdentification"
@@ -206,48 +206,48 @@
       "examples": [
         {
           "ediFormat": "REL100",
-          "location": "A00.100-134",
+          "location": "Q00.45-79",
           "networkId": "CL",
           "value": "4974"
         },
         {
           "ediFormat": "REL100",
-          "location": "A00.100-134",
+          "location": "Q00.45-79",
           "networkId": "SYA",
           "value": "3100"
         },
         {
           "ediFormat": "EDIFACT",
-          "location": "SG5/SG9/NAD+CZ/Field3035"
+          "location": "SG1/NAD+CZ/Field3035"
         }
       ],
       "$ref": "#/definitions/partnerIdentification"
     },
     "reportingPartner": {
-      "title": "Receiving partner",
+      "title": "Reporting partner",
       "titleMap": {
-        "de": "Empfangspartner"
+        "de": "Meldender partner"
       },
-      "description": "The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery.",
+      "description": "The partner which is reporting the event.",
       "descriptionMap": {
-        "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
+        "de": "Der Partner, der das Ereignis meldet."
       },
       "examples": [
         {
           "ediFormat": "REL100",
-          "location": "A00.100-134",
+          "location": "Q00.80-114",
           "networkId": "CL",
           "value": "4974"
         },
         {
           "ediFormat": "REL100",
-          "location": "A00.100-134",
+          "location": "Q00.80-114",
           "networkId": "SYA",
           "value": "3100"
         },
         {
           "ediFormat": "EDIFACT",
-          "location": "SG5/SG9/NAD+CZ/Field3035"
+          "location": "SG1/NAD+CS/Field3035"
         }
       ],
       "$ref": "#/definitions/partnerIdentification"
@@ -262,11 +262,33 @@
       "descriptionMap": {
         "de": "Ereignisse, die durch die Überprüfung und Verarbeitung der Daten entstehen."
       },
+      "examples": [
+        {
+          "ediFormat": "REL100",
+          "location": "Q10.109-111",
+          "networkId": "CL",
+          "value": "16"
+        },
+        {
+          "ediFormat": "EDIFACT",
+          "location": "SG4/SG5/STS+F11/C555/Field9011"
+        }
+      ],
       "properties": {
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "exceptions": {
           "type": "object",
@@ -274,34 +296,70 @@
           "description": "Detailed information about the exceptions that occured while processing the data. Use (null) to report successful processing of the data",
           "properties": {
             "invalidData": {
-              "type":"object",
+              "type": "object",
               "title": "Wrong data",
               "description": "The data is incomplete, missing or wrong",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "04"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "invalidPackageType": {
-              "type":"object",
+              "type": "object",
               "title": "Wrong package type",
               "description": "Wrong, incomplete or missing package type information",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "30"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "invalidDangerousGoodInformation": {
-              "type":"object",
+              "type": "object",
               "title": "Invalid Dangerous good information",
               "description": "Wrong, incomplete or missing information about the dangerous goods",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "763"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             }
           },
           "patternProperties": {
@@ -313,7 +371,23 @@
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -336,42 +410,100 @@
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "exceptions": {
           "type": "object",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while processing the consignment. Use (null) to report successful processing of the consignment",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "00"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ],
           "properties": {
             "incompatible": {
-              "type":"object",
+              "type": "object",
               "title": "Incompatible",
               "description": "The shipment is not within the agreed specifications (e.g. to heavy / big / ...)",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "02"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "incomplete": {
-              "type":"object",
+              "type": "object",
               "title": "Incomplete",
               "description": "There are some packages missing from this consignment",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "03 or 08"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
-            "untilmatelyLost": {
-              "type":"object",
+            "ultimatelyLost": {
+              "type": "object",
               "title": "Ultimately lost",
               "description": "Consignment is utimately lost and will no longer be searched for",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "38"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             }
           },
           "patternProperties": {
@@ -383,7 +515,23 @@
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -406,7 +554,17 @@
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "exceptions": {
           "type": "object",
@@ -414,34 +572,70 @@
           "description": "Detailed information about the exceptions that occured while processing the consignment. Use (null) to report successful processing of the consignment",
           "properties": {
             "lateArrival": {
-              "type":"object",
+              "type": "object",
               "title": "Late arrival",
               "description": "The consigment arrived too late for normal processing",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "01"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "missing": {
-              "type":"object",
+              "type": "object",
               "title": "Missing",
               "description": "The consignment did not arrive or parts of the consignment are missing",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "05"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "damaged": {
-              "type":"object",
+              "type": "object",
               "title": "Damaged",
               "description": "The consignment was damaged on arrival",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "06"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             }
           },
           "patternProperties": {
@@ -453,7 +647,23 @@
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -476,7 +686,17 @@
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "exceptions": {
           "type": "object",
@@ -484,42 +704,78 @@
           "description": "Detailed information about the exceptions that occured while planning the delivery of the consignment. Use (null) to report successful processing of the consignment",
           "properties": {
             "outsideDeliveryArea": {
-              "type":"object",
+              "type": "object",
               "title": "Outside delivery area",
               "description": "The address of the consignee is not within the area served",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "07"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "plannedForSecondTour": {
-              "type":"object",
+              "type": "object",
               "title": "Planned for second tour",
               "description": "The consignment will be picked up and deliverd later on the day",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "14"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "notInDelivery": {
-              "type":"object",
+              "type": "object",
               "title": "Not in delivery",
               "description": "The consignment will not be delivered today",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "20"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "timeSlotFromConsignee": {
-              "type":"object",
+              "type": "object",
               "title": "Time slot from consignee",
               "description": "The consignee has provided a time slot for delivery",
               "properties": {
-                "newDeliveryDate":{
-                  "type":"string",
+                "newDeliveryDate": {
+                  "type": "string",
                   "title": "New delivery date / time",
                   "description": "The new date / time when the delivery will be performed"
                 }
@@ -528,17 +784,41 @@
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "33"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "badWeatherConditions": {
-              "type":"object",
+              "type": "object",
               "title": "Bad weather conditions",
               "description": "The weather does not permit delivery.",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "35"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             }
           },
           "patternProperties": {
@@ -550,7 +830,23 @@
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -573,22 +869,56 @@
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "exceptions": {
           "type": "object",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while planning the delivery of the consignment. Use (null) to report successful processing of the consignment",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "40"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ],
           "properties": {
             "noCapacity": {
-              "type":"object",
+              "type": "object",
               "title": "No capacity available",
               "description": "There is no suficient capcity available to perfom delivery at the moment",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "10"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             }
           },
           "patternProperties": {
@@ -600,7 +930,23 @@
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -623,52 +969,146 @@
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "exceptions": {
           "type": "object",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that caused the delivery to be fail",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "57"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ],
           "properties": {
             "abortedDueToLongWaitingTime": {
-              "type":"object",
+              "type": "object",
               "title": "Aborted due to long waiting time",
               "description": "The delivery attempt was aborted due to too long waiting time at the consignee",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "21"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "rejected": {
-              "type":"object",
+              "type": "object",
               "title": "Rejected",
               "description": "The consignee has rejected the consignment",
               "properties": {
                 "damaged": {
                   "type": "object",
                   "title": "Damaged",
-                  "description": "The delivery was rejected because the consignment is damaged"
+                  "description": "The delivery was rejected because the consignment is damaged",
+                  "examples": [
+                    {
+                      "ediFormat": "REL100",
+                      "location": "Q10.109-111",
+                      "networkId": "CL",
+                      "value": "60"
+                    },
+                    {
+                      "ediFormat": "EDIFACT",
+                      "location": "SG4/SG5/STS+F11/C555/Field9011"
+                    }
+                  ]
                 },
                 "incomplete": {
                   "type": "object",
                   "title": "Incomplete",
-                  "description": "The delivery was rejected because some parts of the consignment are missing"
+                  "description": "The delivery was rejected because some parts of the consignment are missing",
+                  "examples": [
+                    {
+                      "ediFormat": "REL100",
+                      "location": "Q10.109-111",
+                      "networkId": "CL",
+                      "value": "61"
+                    },
+                    {
+                      "ediFormat": "EDIFACT",
+                      "location": "SG4/SG5/STS+F11/C555/Field9011"
+                    }
+                  ]
                 },
                 "tooLate": {
                   "type": "object",
                   "title": "Too late",
-                  "description": "The delivery rejected because it was performed after the deadline"
+                  "description": "The delivery rejected because it was performed after the deadline",
+                  "examples": [
+                    {
+                      "ediFormat": "REL100",
+                      "location": "Q10.109-111",
+                      "networkId": "CL",
+                      "value": "62"
+                    },
+                    {
+                      "ediFormat": "EDIFACT",
+                      "location": "SG4/SG5/STS+F11/C555/Field9011"
+                    }
+                  ]
                 },
                 "missingDocumentation": {
                   "type": "object",
                   "title": "Missing documentation",
-                  "description": "The delivery was rejected because required documentation (e.g. delivery note) was missing"
+                  "description": "The delivery was rejected because required documentation (e.g. delivery note) was missing",
+                  "examples": [
+                    {
+                      "ediFormat": "REL100",
+                      "location": "Q10.109-111",
+                      "networkId": "CL",
+                      "value": "63"
+                    },
+                    {
+                      "ediFormat": "EDIFACT",
+                      "location": "SG4/SG5/STS+F11/C555/Field9011"
+                    }
+                  ]
                 },
                 "notOrdered": {
                   "type": "object",
                   "title": "Not ordered",
-                  "description": "The delivery was rejected because the consignee never ordered the goods"
+                  "description": "The delivery was rejected because the consignee never ordered the goods",
+                  "examples": [
+                    {
+                      "ediFormat": "REL100",
+                      "location": "Q10.109-111",
+                      "networkId": "CL",
+                      "value": "65"
+                    },
+                    {
+                      "ediFormat": "EDIFACT",
+                      "location": "SG4/SG5/STS+F11/C555/Field9011"
+                    }
+                  ]
                 }
               },
               "patternProperties": {
@@ -678,24 +1118,48 @@
               "additionalProperties": false
             },
             "closed": {
-              "type":"object",
+              "type": "object",
               "title": "Closed",
               "description": "The consignee was closed",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "67"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "difficulties": {
-              "type":"object",
+              "type": "object",
               "title": "Difficulties",
               "description": "There were difficulties delivering the goods",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "68"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             }
           },
           "patternProperties": {
@@ -709,10 +1173,54 @@
           "title": "Return consigment no",
           "description": "Number of the consignment which is used to return the goods to the shipper"
         },
+        "signee": {
+          "type": "string",
+          "title": "Signee",
+          "description": "Name of the person which rejected the consignment",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.163-197",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/NAD+P/C080/Field3036"
+            }
+          ]
+        },
+        "waitTime": {
+          "type": "string",
+          "title": "Wait time",
+          "description": "Time spent waiting during delivery",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.159-162",
+              "networkId": "CL"
+            }
+          ]
+        },
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -735,42 +1243,100 @@
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "exceptions": {
           "type": "object",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while planning the delivery of the consignment. Use (null) to report successful processing of the consignment",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "50"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ],
           "properties": {
             "incomplete": {
-              "type":"object",
+              "type": "object",
               "title": "Incomplete",
               "description": "Some parts were missing and thus not delivered",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "51"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "damaged": {
-              "type":"object",
+              "type": "object",
               "title": "Damaged",
               "description": "The consignment was damaged",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "52"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             },
             "partiallyRejected": {
-              "type":"object",
+              "type": "object",
               "title": "Partially rejected",
               "description": "The consignment was partially rejected",
               "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "ediFormat": "REL100",
+                  "location": "Q10.109-111",
+                  "networkId": "CL",
+                  "value": "54"
+                },
+                {
+                  "ediFormat": "EDIFACT",
+                  "location": "SG4/SG5/STS+F11/C555/Field9011"
+                }
+              ]
             }
           },
           "patternProperties": {
@@ -779,10 +1345,54 @@
           },
           "additionalProperties": false
         },
+        "signee": {
+          "type": "string",
+          "title": "Signee",
+          "description": "Name of the person which signed for the receipt of the good",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.163-197",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/NAD+P/C080/Field3036"
+            }
+          ]
+        },
+        "waitTime": {
+          "type": "string",
+          "title": "Wait time",
+          "description": "Time spent waiting during delivery",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.159-162",
+              "networkId": "CL"
+            }
+          ]
+        },
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -793,48 +1403,124 @@
     },
     "completion": {
       "type": "object",
-      "title": "Delivery successful",
+      "title": "Work completed - forwarded",
       "titleMap": {
-        "de": "Zugestellt"
+        "de": "Abgeschlossen - Weiterleitung"
       },
-      "description": "Events indicating successful delivery",
+      "description": "Events indicating successful completion of a task, consignment has been forwarded",
       "descriptionMap": {
-        "de": "Ereignisse, die bei einer erfolgreichen Zustellung entstehen."
+        "de": "Ereignisse, die eine erfolgreiche Erledigung der Aufgabe und Weiterleitung anzeigen."
       },
       "properties": {
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "completedBy": {
           "type": "object",
           "title": "Completed by",
           "description": "Completed by another party",
-          "properties": {
-          },
+          "properties": {},
           "patternProperties": {
             "x-.*": {},
             "\\$.*": {}
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "28"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ]
         },
         "forwarded": {
           "type": "object",
           "title": "Forwarded",
           "description": "Consignment was forwarded",
-          "properties": {
-          },
+          "properties": {},
           "patternProperties": {
             "x-.*": {},
             "\\$.*": {}
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "29"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ]
+        },
+        "signee": {
+          "type": "string",
+          "title": "Signee",
+          "description": "Name of the person which signed for the receipt of the good",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.163-197",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/NAD+P/C080/Field3036"
+            }
+          ]
+        },
+        "waitTime": {
+          "type": "string",
+          "title": "Wait time",
+          "description": "Time spent waiting during delivery",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.159-162",
+              "networkId": "CL"
+            }
+          ]
         },
         "remarks": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -857,48 +1543,107 @@
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "billingDeliveryTerm": {
           "type": "object",
           "title": "Billing - Delivery term",
           "description": "A new delivery term that should be considered for billing",
-          "properties": {
-          },
+          "properties": {},
           "patternProperties": {
             "x-.*": {},
             "\\$.*": {}
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "634"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ]
         },
         "billingAreaPalletBays": {
           "type": "object",
           "title": "Billing - Area (in pallet bays)",
           "description": "The area occupied by the consignment - expressed in standard pallet sizes",
-          "properties": {
-          },
+          "properties": {},
           "patternProperties": {
             "x-.*": {},
             "\\$.*": {}
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "636"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ]
         },
         "billingLoadingMeter": {
           "type": "object",
           "title": "Billing - Loading meter",
           "description": "The area occupied by the consignment - expressed in loading meters",
-          "properties": {
-          },
+          "properties": {},
           "patternProperties": {
             "x-.*": {},
             "\\$.*": {}
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.109-111",
+              "networkId": "CL",
+              "value": "637"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/STS+F11/C555/Field9011"
+            }
+          ]
         },
         "message": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
@@ -917,16 +1662,54 @@
       "descriptionMap": {
         "de": "Ereignisse, die die Stornierung der Sendung betreffen."
       },
+      "examples": [
+        {
+          "ediFormat": "REL100",
+          "location": "Q10.109-111",
+          "networkId": "CL",
+          "value": "690"
+        },
+        {
+          "ediFormat": "EDIFACT",
+          "location": "SG4/SG5/STS+F11/C555/Field9011"
+        }
+      ],
       "properties": {
         "eventDateTime": {
           "type": "string",
           "title": "Event date/time",
-          "description": "Date and time when the event occured"
+          "description": "Date and time when the event occured",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.112-119"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/DTM+334/C507/Field2380"
+            }
+          ]
         },
         "message": {
           "type": "string",
           "title": "Remarks (free form)",
-          "description": "Additional remarks"
+          "description": "Additional remarks",
+          "examples": [
+            {
+              "ediFormat": "REL100",
+              "location": "Q10.198-267",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "REL100",
+              "location": "Q11.73-213",
+              "networkId": "CL"
+            },
+            {
+              "ediFormat": "EDIFACT",
+              "location": "SG4/SG5/FTX/C108/Field4440"
+            }
+          ]
         }
       },
       "patternProperties": {
