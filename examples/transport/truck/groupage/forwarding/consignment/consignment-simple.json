@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/ocora-io/semantic-model/master/model/transport/truck/groupage/forwarding/consignment.json#",
+    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/groupage/forwarding/consignment.json#",
     "consignmentNoShippingPartner": "1234567890",
     "shippingDate": "2017-12-31",
     "shippingPartner": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "@id": "http://ocora.io/model/transport/truck/groupage/forwarding/consignment.json",
+  "@id": "http://conizi.io/model/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "titleMap": {
     "de": "Sendung"

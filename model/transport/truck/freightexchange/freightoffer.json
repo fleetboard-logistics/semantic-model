@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "@id": "http://ocora.io/model/transport/truck/freightexchnage/freightoffer.json",
+    "@id": "http://conizi.io/model/transport/truck/freightexchnage/freightoffer.json",
     "title": "Freight offer",
     "titleMap": {
         "de": "Frachtangebot"
