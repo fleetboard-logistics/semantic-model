@@ -1,0 +1,33 @@
+{
+    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/groupage/forwarding/consignment-event.json#",
+    "sender": {
+        "id": "4974",
+        "ediId": "SCHAESW",
+        "name": "Schäflein Spedition GmbH",
+        "street": "Am Etzberg 7",
+        "countryCode": "DE",
+        "zipCode": "97521",
+        "city": "Röthlein"
+    },
+    "receiver": {
+        "ediId": "KOCHMBH"
+    },
+    "shippingPartner": {
+        "partnerId": "1234"
+    },
+    "receivingPartner": {
+        "partnerId": "4321"
+    },
+    "reportingPartner": {
+        "partnerId": "4321"
+    },
+    "consignmentNoShippingPartner": "1234567890",
+    "consignmentNoReceivingPartner": "1234567890",
+    "deliverySuccessful": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "incomplete": {}
+        },
+        "remarks": "1 Package missing"
+    }
+}
