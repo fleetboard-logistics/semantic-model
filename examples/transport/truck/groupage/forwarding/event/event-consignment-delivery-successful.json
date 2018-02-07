@@ -24,6 +24,7 @@
     "consignmentNoShippingPartner": "1234567890",
     "consignmentNoReceivingPartner": "1234567890",
     "deliverySuccessful": {
-        "eventDateTime": "2017-12-31T08:15:12"
+        "eventDateTime": "2017-12-31T08:15:12",
+        "signee": "Mueller"
     }
 }
