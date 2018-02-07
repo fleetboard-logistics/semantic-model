@@ -644,53 +644,7 @@
                 "\\$.*": {}
               },
               "additionalProperties": false
-            },
-            /*
-            "flex": {
-              "type": "object",
-              "properties": {
-                "timeFrom": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "timeUntil": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              },
-              "additionalProperties": false
-            },
-            "vario": {
-              "type": "object",
-              "properties": {
-                "timeFrom": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "timeUntil": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              },
-              "additionalProperties": false
-            },
-            */
+            },            
             "evening": {
               "title": "Evening",
               "titleMap": {
