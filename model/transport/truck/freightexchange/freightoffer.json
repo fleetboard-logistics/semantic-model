@@ -122,6 +122,14 @@
                                     },
                                     "isUnloadingStop": {
                                         "type": "boolean"
+                                    },
+                                    "begin": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "end": {
+                                        "type": "string",
+                                        "format": "date-time"
                                     }
                                 }
                             }
@@ -187,6 +195,17 @@
                     "description": "This consignment contains dangerous goods which must be handeled unter the terms of HCDG",
                     "descriptionMap": {
                         "de": "Diese Sendung enthält besonders gefährliche Güter, die nach den Vorschriften für BGG / HCDG behandlet werden müssen"
+                    },
+                    "type": "boolean"
+                },
+                "palletExchange": {
+                    "title": "Pallet exchange",
+                    "titleMap": {
+                        "de": "Palettentausch"
+                    },
+                    "description": "This consignment includes a palett exchange",
+                    "descriptionMap": {
+                        "de": "Diese Sendung beinhaltet einen Lademitteltausch / Palettentausch"
                     },
                     "type": "boolean"
                 }
@@ -306,13 +325,31 @@
                             },
                             "additionalProperties": false
                         },
-                        "drawBarTruck": {
+                        "mega": {
                             "type": "boolean"
                         },
-                        "juggernautTruck": {
+                        "jumbo": {
                             "type": "boolean"
                         },
                         "small": {
+                            "type": "boolean"
+                        },
+                        "boxBody": {
+                            "type": "boolean"
+                        },
+                        "plateau": {
+                            "type": "boolean"
+                        },
+                        "reefer": {
+                            "type": "boolean"
+                        },
+                        "liftingPlatform": {
+                            "type": "boolean"
+                        },
+                        "onBoadForklift": {
+                            "type": "boolean"
+                        },
+                        "coilTrough": {
                             "type": "boolean"
                         },
                         "remarks": {
