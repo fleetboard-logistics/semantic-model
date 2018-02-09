@@ -363,6 +363,9 @@
                         "coilTrough": {
                             "type": "boolean"
                         },
+                        "tarpaulin": {
+                            "type": "boolean"
+                        },
                         "remarks": {
                             "type": "string"
                         }
