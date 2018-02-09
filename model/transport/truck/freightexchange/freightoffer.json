@@ -366,6 +366,18 @@
                         "tarpaulin": {
                             "type": "boolean"
                         },
+                        "container": {
+                            "type": "boolean"
+                        },
+                        "silo": {
+                            "type": "boolean"
+                        },
+                        "joloda": {
+                            "type": "boolean"
+                        },
+                        "walkingFloor": {
+                            "type": "boolean"
+                        },
                         "remarks": {
                             "type": "string"
                         }
