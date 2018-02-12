@@ -23,8 +23,7 @@
             "descriptionMap": {
                 "de": "Der Versender des Datensatzes."
             },
-            "anyOf": [
-                {
+            "anyOf": [{
                     "$ref": "#/definitions/partnerIdentification"
                 },
                 {
@@ -111,8 +110,7 @@
                     "type": "array",
                     "items": {
                         "type": "object",
-                        "anyOf": [
-                            {
+                        "anyOf": [{
                                 "$ref": "#/definitions/nameAndAddress"
                             },
                             {
@@ -323,8 +321,23 @@
                         "body": {
                             "type": "object",
                             "properties": {
-                                "type": {
-                                    "type": "string"
+                                "mega": {
+                                    "type": "boolean"
+                                },
+                                "jumbo": {
+                                    "type": "boolean"
+                                },
+                                "small": {
+                                    "type": "boolean"
+                                },
+                                "boxBody": {
+                                    "type": "boolean"
+                                },
+                                "plateau": {
+                                    "type": "boolean"
+                                },
+                                "tarpaulin": {
+                                    "type": "boolean"
                                 },
                                 "othersPossible": {
                                     "type": "boolean"
@@ -336,32 +349,42 @@
                             },
                             "additionalProperties": false
                         },
-                        "mega": {
-                            "type": "boolean"
-                        },
-                        "jumbo": {
-                            "type": "boolean"
-                        },
-                        "small": {
-                            "type": "boolean"
-                        },
-                        "boxBody": {
-                            "type": "boolean"
-                        },
-                        "plateau": {
-                            "type": "boolean"
-                        },
-                        "reefer": {
-                            "type": "boolean"
-                        },
-                        "liftingPlatform": {
-                            "type": "boolean"
-                        },
-                        "onBoadForklift": {
-                            "type": "boolean"
-                        },
-                        "coilTrough": {
-                            "type": "boolean"
+                        "equipment": {
+                            "type": "object",
+                            "properties": {
+                                "reefer": {
+                                    "type": "boolean"
+                                },
+                                "liftingPlatform": {
+                                    "type": "boolean"
+                                },
+                                "onBoadForklift": {
+                                    "type": "boolean"
+                                },
+                                "coilTrough": {
+                                    "type": "boolean"
+                                },
+                                "container": {
+                                    "type": "boolean"
+                                },
+                                "silo": {
+                                    "type": "boolean"
+                                },
+                                "joloda": {
+                                    "type": "boolean"
+                                },
+                                "walkingFloor": {
+                                    "type": "boolean"
+                                },
+                                "othersPossible": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         },
                         "remarks": {
                             "type": "string"
@@ -424,8 +447,7 @@
         },
         "partnerIdentification": {
             "type": "object",
-            "anyOf": [
-                {
+            "anyOf": [{
                     "$ref": "#/definitions/ediId"
                 },
                 {
