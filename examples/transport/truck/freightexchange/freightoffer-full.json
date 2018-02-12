@@ -2,76 +2,97 @@
     "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/freightexchange/freightoffer.json#",
     "freightId": "45456456",
     "sender": {
-        "ediId": "45645465",
-        "contact": {
-            "Name": "Max Mustermann"
-        }
+        "ediId": "b117210-5330-1234-567-212344"
     },
     "receiver": {
         "partnerId": "LoadFox"
     },
     "startAddress": {
-        "city": "München",
-        "country": "DE"
+        "name": "Mr. Mueller",
+        "additionalAddressLines": [],
+        "countryCode": "DE",
+        "zipCode": "60486",
+        "city": "Frankfurt am Main"
     },
-    "startFrom": "2017-01-01T10:00:00",
-    "startUntil": "2017-01-01T12:00:00",
+    "startFrom": "2018-02-12T13:28:00",
+    "startUntil": "2018-02-12T17:28:00",
     "endAddress": {
-        "city": "Volkach",
-        "zipCode": "97332",
-        "country": "DE"
+        "name": "Mr. Maier",
+        "additionalAddressLines": [],
+        "countryCode": "DE",
+        "zipCode": "80331",
+        "city": "München"
     },
-    "endFrom": "2017-01-01T10:00:00",
-    "endUntil": "2017-01-01T12:00:00",
+    "endFrom": "2018-02-13T08:00:00",
+    "endUntil": "2018-02-13T16:00:00",
     "route": {
         "loadingStops": 1,
         "unloadingStops": 1,
-        "stops": [
-            {
-                "city": "München",
-                "country": "DE",
-                "isLoadingStop": true
+        "stops": [{
+                "City": "Frankfurt am Main",
+                "Country": "DE",
+                "ZipCode": "60486",
+                "Name": "Mr. Test",
+                "IsLoadingStop": true,
+                "IsUnloadingStop": false,
+                "Begin": "2018-02-12T13:28:00",
+                "End": "2018-02-12T17:28:00"
             },
             {
-                "city": "Volkach",
-                "zipCode": "97332",
-                "country": "DE",
-                "isUnloadingStop": true
+                "City": "München",
+                "Country": "DE",
+                "ZipCode": "80331",
+                "Name": "aasdfa",
+                "IsLoadingStop": false,
+                "IsUnloadingStop": true,
+                "Begin": "2018-02-13T08:00:00",
+                "End": "2018-02-13T16:00:00"
             }
         ]
     },
     "content": {
-        "content": "Kühlschränke",
-        "dangerousGoods": false,
-        "loadingMeter": 5,
-        "grossWeightKilogram": 3600
+        "loadingMeter": 10.56,
+        "grossWeightKilogram": 15000.0,
+        "content": "Pallete",
+        "quantity": 2.0,
+        "dangerousGoods": true,
+        "palletExchange": false
     },
-    "references": {
-        "customerOrderNo": ""
-    },
+    "references": {},
     "information": {
-        "remarksInternal": [
-            "Dringend!"
-        ]
+        "remarksInternal": []
     },
     "contracting": {
         "initialBid": {
-            "amount": 0,
+            "amount": 412.98,
             "currency": "EUR"
         }
     },
     "services": {
         "vehicleRequirements": {
             "body": {
-                "type": "Plane",
-                "othersPossible": true
+                "mega": false,
+                "jumbo": false,
+                "small": false,
+                "boxBody": true,
+                "plateau": false,
+                "tarpaulin": true,
+                "othersPossible": false
             },
-            "drawBarTruck": false,
-            "juggernautTruck": false,
-            "small": false,
-            "remarks": "LKW muss sauber sein"
+            "equipment": {
+                "reefer": true,
+                "liftingPlatform": false,
+                "onBoadForklift": false,
+                "coilTrough": true,
+                "container": false,
+                "silo": false,
+                "joloda": false,
+                "walkingFloor": false,
+                "othersPossible": false
+            },
+            "remarks": "This is an example!"
         },
         "specialTour": false,
-        "closedUserGroup": true        
+        "closedUserGroup": false
     }
 }
