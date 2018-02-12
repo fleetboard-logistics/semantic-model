@@ -339,6 +339,9 @@
                                 "tarpaulin": {
                                     "type": "boolean"
                                 },
+                                "container": {
+                                    "type": "boolean"
+                                },
                                 "othersPossible": {
                                     "type": "boolean"
                                 }
@@ -358,13 +361,10 @@
                                 "liftingPlatform": {
                                     "type": "boolean"
                                 },
-                                "onBoadForklift": {
+                                "onBoardForklift": {
                                     "type": "boolean"
                                 },
                                 "coilTrough": {
-                                    "type": "boolean"
-                                },
-                                "container": {
                                     "type": "boolean"
                                 },
                                 "silo": {
