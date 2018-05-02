@@ -534,6 +534,29 @@
               },
               "additionalProperties": false
             },
+            "notBefore": {
+              "title": "Not before",
+              "titleMap": {
+                "de": "Ab-Termin"
+              },
+              "description": "The consignment must not be deliverd before the given date",
+              "descriptionMap": {
+                "de": "Die Sendung darf nicht vor dem angegebenen Datum zugestellt werden."
+              },
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              },
+              "additionalProperties": false
+            },
             "fixedDay": {
               "title": "Fixed day",
               "titleMap": {

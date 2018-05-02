@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "@id": "http://conizi.io/model/transport/truck/groupage/forwarding/consignment-event-bulk.json",
+    "title": "Consignment events - bulk send",
+    "titleMap": {
+        "de": "Ereignisse / Status zu unterschiedlichen Sendungen"
+    },
+    "description": "Events for different consignments, that can be send in bulk, which occured during the processing of the referenced consignments.",
+    "descriptionMap": {
+        "de": "Ereignisse (Status) zu unterschiedlichen Sendungen, die im Block geschick werden können, die  während der Abarbeitung der referenzierten Sendungen aufgetreten sind."
+    },
+    "type": "object",
+    "properties": {
+        "events": {
+            "type":"array",
+            "items": {
+                "properties": {
+                    "event": {
+                        "$ref": "consignment-event.json"
+                    }
+                }
+            }
+        }
+    }
+}
