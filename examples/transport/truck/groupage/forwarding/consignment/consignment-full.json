@@ -1,32 +1,156 @@
-{
-  "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/groupage/forwarding/consignment.json#",
-  "sender": {
-    "id": "4974",
-    "ediId": "SCHAESW",
-    "name": "Schäflein Spedition GmbH",
-    "street": "Am Etzberg 7",
-    "countryCode": "DE",
-    "zipCode": "97521",
-    "city": "Röthlein"
-  },
-  "receiver": {
-    "ediId": "KOCHMBH"
-  },
-  "networkId": {
-    "codelist": "CL",
-    "networkId": "CL",
-    "product": "CL"
-  },
-  "additionalPartners": [
-    {
-      "partnerId": "5079"
+{ 
+    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/groupage/forwarding/consignment.json#",
+    "sender": {
+        "ediId": "VER4999"
     },
-    {
-      "partnerId": "5583"
+    "receiver": {
+        "ediId": "EMP4888"
+    },
+    "shippingPartner": {
+        "partnerId": "4999",
+        "name": "Versandparter GmbH"
+    },
+    "receivingPartner": {
+        "partnerId": "4888",
+        "name": "Empfangpartner AG"
+    },
+    "networkId": {
+        "codelist": "CL",
+        "networkId": "CL",
+        "product": "CL"
+    },
+    "shippingDate": "2018-05-02",
+    "consignmentNoShippingPartner": "4711",
+    "references": {
+        "deliveryNote": "L138821",
+        "customerOrderNo": "A19993234",
+        "customerOrderDate": "2018-04-28"
+    },
+    "information": {
+        "remarksDelivery": [
+            "Bitte nicht knicken!",
+            "A-Kunde"
+        ]
+    },
+    "routing": {
+        "shipper": {
+            "name": "Meyer GmbH",
+            "street": "Meyerstraße 10",
+            "zipCode": "97424",
+            "city": "Schweinfurt",
+            "countryCode": "DE",
+            "additionalAddressLines": [
+                "z.H. Herr Meyer",
+                "Tor 2a"
+            ],
+            "townarea": "Hafen West"
+        },
+        "consignee": {
+            "name": "Max Mustermann",
+            "street": "Musterstraße 1",
+            "zipCode": "97332",
+            "city": "Würzburg",
+            "countryCode": "DE"
+        }
+    },
+    "billing": {
+        "deliveryTerms": "Frei Haus",
+        "freightPayer": {
+            "name": "Meyer Holding AG",
+            "street": "Meyerstraße 1",
+            "zipCode": "97424",
+            "city": "Schweinfurt",
+            "countryCode": "DE"
+        },
+        "logisticModel": "LG1423"
+    },
+    "content": {
+        "additionalLoadingEquipment": {
+            "eurBoxes": 2,
+            "eurPallets": 3
+        },
+        "areaPalletBays": 4,
+        "chargeableWeightKilogram": 800,
+        "grossWeightKilogram": 1200,
+        "highConsequencesDangerousGoods": true,
+        "highValueGoods": false,
+        "insuranceValue": {
+            "amount": 4500,
+            "currency": "EUR"
+        },
+        "loadingMeter": 3,
+        "lines": [
+            {
+                "lineNo": 1,
+                "refNo": "L138821",
+                "content": "Tolle Ware",
+                "handlingUnitCount": 2,
+                "handlingUnitType": "FP",
+                "innerPackageCount": 10,
+                "innerPackageType": "CO",
+                "lengthMeter": 1.2,
+                "widthMeter": 0.8,
+                "heightMeter": 0.8,
+                "volumeCubicmeter": 1.54,
+                "chargeableWeightKilogram": 800,
+                "grossWeightKilogram": 1200,
+                "areaPalletBays": 4,
+                "barcodes": [
+                    {
+                        "code": "00341827336742371821"
+                    },
+                    {
+                        "code": "00340018273648712201"
+                    }
+                ],
+                "dangerousGoods": [
+                    {
+                        "adrRelease": "2018",
+                        "unNo": "UN189201",
+                        "classificationCode": "A",
+                        "grossWeightKilogram": 500,
+                        "highConsequencesDangerousGoods": true,
+                        "quantity": 20,
+                        "packagingDescription": "Fässer",
+                        "packagingClass": "4711",
+                        "labelMainRisk": "1",
+                        "labelSubRisk1": "3",
+                        "exemptedQuantity": true,
+                        "multiplier": 3,
+                        "netExplosiveMassKilogram": 20,
+                        "substanceName": "CO2",
+                        "totalPointsADR": 600,
+                        "transportCategory": "I",
+                        "tunnelRestriction": "R1",
+                        "volumeLiter": 2.5
+                    }
+                ]
+            }
+        ]
+    },
+    "services": {
+        "deliveryOptions": {
+            "cashOnDelivery": {
+                "acceptCash": true,
+                "amount": 5600,
+                "currency": "EUR"
+            },
+            "deliveryNoteOnGoods": true,
+            "podOnOriginalDeliveryNote": true
+        },
+        "handlingInstructions": {
+            "handleWithCare": true
+        },
+        "notifications": {
+            "byDriver": {},
+            "beforeDelivery": {
+                "name": "09721 17462312"
+            }
+        },
+        "timeOptions": {
+            "fixedDay": {
+                "date": "2018-05-04"
+            }
+        }
     }
-  ],
-  "orderingParty": {
-    "name": "We-sell-you-stuff Inc"
-  },
-  "x-customTag": "Test"
 }
