@@ -10,6 +10,11 @@
     "de": "Eine Sendung, die von einem Partner zu einem anderen Partner übermittelt wird. In der Regel als Teil eines Borderos."
   },
   "type": "object",
+  "required": [
+    "shippingDate",
+    "shippingPartner",
+    "receivingPartner"
+  ],
   "properties": {
     "consignmentNoShippingPartner": {
       "title": "Consignment number of the shipping partner",
@@ -44,6 +49,7 @@
       },
       "type": "string"
     },
+
     "sender": {
       "title": "Data Origin",
       "titleMap": {
@@ -53,8 +59,7 @@
       "descriptionMap": {
         "de": "Der Versender des Datensatzes. Dies ist in der Regel der Versandpartner bzw. der beauftragende Partner. Er kann jedoch abweichen, wenn ein Dritter eine Kopie erzeugt und weiterleitet."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "packageHeader.senderMailboxId",
           "networkId": "CL",
@@ -82,8 +87,7 @@
       "descriptionMap": {
         "de": "Der Empfänger des Datensatzes. Dies ist in der Regel der Empfangspartner bzw. der beauftragte Partner. Er kann jedoch abweichen, wenn der Datensatz gezielt an ein anderes System übertragen werden soll."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "packageHeader.receiverMailboxId",
           "networkId": "CL",
@@ -188,8 +192,7 @@
       "descriptionMap": {
         "de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "A00.65-99",
           "networkId": "CL",
@@ -217,8 +220,7 @@
       "descriptionMap": {
         "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "A00.100-134",
           "networkId": "CL",
@@ -358,8 +360,7 @@
               "descriptionMap": {
                 "de": "Die Zustellung ist unter der angebenen Adresse innerhalb der angegebenen Zeitfensters zu avisieren."
               },
-              "anyOf": [
-                {
+              "anyOf": [{
                   "$ref": "#/definitions/nameAndAddress"
                 },
                 {
@@ -667,7 +668,7 @@
                 "\\$.*": {}
               },
               "additionalProperties": false
-            },            
+            },
             "evening": {
               "title": "Evening",
               "titleMap": {
@@ -1554,8 +1555,7 @@
           "descriptionMap": {
             "de": "Referenz zu einem Abholauftrag aus dem diese Sendung entstanden ist"
           },
-          "anyOf": [
-            {
+          "anyOf": [{
               "type": "object",
               "properties": {
                 "pickupOrderNo": {
@@ -2573,8 +2573,7 @@
     },
     "partnerIdentification": {
       "type": "object",
-      "anyOf": [
-        {
+      "anyOf": [{
           "$ref": "#/definitions/ediId"
         },
         {
