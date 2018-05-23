@@ -557,10 +557,10 @@
                                 }
                             ]
                         },
-                        "archieved": {
+                        "archived": {
                             "type": "object",
-                            "title": "Archieved",
-                            "description": "Documents have been archieved",
+                            "title": "Archived",
+                            "description": "Documents have been archived",
                             "properties": {
                                 "pod": {
                                     "type": "boolean"
