@@ -1,0 +1,150 @@
+{
+  "definitions": {
+    "DeliveryAttemptFailed": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "eventDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "failMessage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "eventDateTime",
+        "failMessage"
+      ]
+    },
+    "DeliverySuccessful": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "eventDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "signee": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "SuccessMessage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "eventDateTime",
+        "signee",
+        "SuccessMessage"
+      ]
+    },
+    "FreightExchangeDocument": {
+      "type": "object",
+      "properties": {
+        "internalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "externalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "correlationId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stateTransmitted": {
+          "type": "boolean"
+        },
+        "stateOpen": {
+          "type": "boolean"
+        },
+        "stateBooked": {
+          "type": "boolean"
+        },
+        "stateExpired": {
+          "type": "boolean"
+        },
+        "stateDeleted": {
+          "type": "boolean"
+        },
+        "stateError": {
+          "type": "boolean"
+        },
+        "shouldBeCanceled": {
+          "type": "boolean"
+        },
+        "freightExchange": {
+          "type": "string"
+        },
+        "responseDocument": {}
+      },
+      "required": [
+        "internalId",
+        "externalId",
+        "correlationId",
+        "stateTransmitted",
+        "stateOpen",
+        "stateBooked",
+        "stateExpired",
+        "stateDeleted",
+        "stateError",
+        "shouldBeCanceled",
+        "responseDocument"
+      ]
+    },
+    "Receiver": {
+      "type": "object",
+      "properties": {
+        "partnerId": {
+          "type": "string"
+        }
+      }
+    },
+    "Sender": {
+      "type": "object",
+      "properties": {
+        "ediId": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "sender": {
+      "$ref": "#/definitions/Sender"
+    },
+    "receiver": {
+      "$ref": "#/definitions/Receiver"
+    },
+    "freightExchangeDocument": {
+      "$ref": "#/definitions/FreightExchangeDocument"
+    },
+    "deliveryAttemptFailed": {
+      "$ref": "#/definitions/DeliveryAttemptFailed"
+    },
+    "deliverySuccessful": {
+      "$ref": "#/definitions/DeliverySuccessful"
+    }
+  }
+}
