@@ -1682,7 +1682,7 @@
                         "abortedDueToLongWaitingTime": {
                             "type": "object",
                             "title": "Aborted due to long waiting time",
-                            "description": "The delivery attempt was aborted due to too long waiting time at the consignee",
+                            "description": "The delivery attempt was aborted due to too long waiting time at the consignee.",
                             "patternProperties": {
                                 "x-.*": {},
                                 "\\$.*": {}
