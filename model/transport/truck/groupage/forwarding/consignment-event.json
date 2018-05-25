@@ -557,10 +557,10 @@
                                 }
                             ]
                         },
-                        "archived": {
+                        "archieved": {
                             "type": "object",
-                            "title": "Archived",
-                            "description": "Documents have been archived",
+                            "title": "Archieved",
+                            "description": "Documents have been archieved",
                             "properties": {
                                 "pod": {
                                     "type": "boolean"
@@ -747,6 +747,92 @@
                                     "location": "SG4/SG5/STS+F11/C555/Field9011"
                                 }
                             ]
+                        }
+                    },
+                    "patternProperties": {
+                        "x-.*": {},
+                        "\\$.*": {}
+                    },
+                    "additionalProperties": false
+                },
+                "remarks": {
+                    "type": "string",
+                    "title": "Remarks (free form)",
+                    "description": "Additional remarks",
+                    "examples": [
+                        {
+                            "ediFormat": "REL100",
+                            "location": "Q10.198-267",
+                            "networkId": "CL"
+                        },
+                        {
+                            "ediFormat": "REL100",
+                            "location": "Q11.73-213",
+                            "networkId": "CL"
+                        },
+                        {
+                            "ediFormat": "EDIFACT",
+                            "location": "SG4/SG5/FTX/C108/Field4440"
+                        }
+                    ]
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
+        "crossDock": {
+            "type": "object",
+            "title": "Cross dock",
+            "titleMap": {
+                "de": "Umschlag"
+            },
+            "description": "Events occured while cross docking the consignment. (i.e. HUB or gateway cross dock)",
+            "descriptionMap": {
+                "de": "Ereignisse, die während des Umschlags entstehen. (z.B. Hub- oder Gateway-Umschlag)"
+            },
+            "properties": {
+                "eventDateTime": {
+                    "type": "string",
+                    "title": "Event date/time",
+                    "description": "Date and time when the event occured",
+                    "examples": [
+                        {
+                            "ediFormat": "REL100",
+                            "location": "Q10.112-119"
+                        },
+                        {
+                            "ediFormat": "EDIFACT",
+                            "location": "SG4/SG5/DTM+334/C507/Field2380"
+                        }
+                    ]
+                },
+                "exceptions": {
+                    "type": "object",
+                    "title": "Exceptions",
+                    "description": "Detailed information about the exceptions that occured while processing the consignment. Use (null) to report successful cross dock of the consignment",
+                    "properties": {
+                        "loaded": {
+                            "type": "object",
+                            "title": "Loaded",
+                            "description": "The consigment was loaded",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "halted": {
+                            "type": "object",
+                            "title": "Halted",
+                            "description": "The consignment has stopped at the cross dock.",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -1354,6 +1440,50 @@
                         "\\$.*": {}
                     },
                     "additionalProperties": false
+                },
+                "remarks": {
+                    "type": "string",
+                    "title": "Remarks (free form)",
+                    "description": "Additional remarks",
+                    "examples": [
+                        {
+                            "ediFormat": "REL100",
+                            "location": "Q10.198-267",
+                            "networkId": "CL"
+                        },
+                        {
+                            "ediFormat": "REL100",
+                            "location": "Q11.73-213",
+                            "networkId": "CL"
+                        },
+                        {
+                            "ediFormat": "EDIFACT",
+                            "location": "SG4/SG5/FTX/C108/Field4440"
+                        }
+                    ]
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
+        "arrivalAtReceiver": {
+            "type": "object",
+            "title": "Arrival at receiver",
+            "titleMap": {
+                "de": "Ankunft beim Empfänger"
+            },
+            "description": "Events occured while arriving the receiver.",
+            "descriptionMap": {
+                "de": "Ereignisse, die während der Ankunft beim Empfänger entstehen"
+            },
+            "properties": {
+                "eventDateTime": {
+                    "type": "string",
+                    "title": "Event date/time",
+                    "description": "Date and time when the event occured"
                 },
                 "remarks": {
                     "type": "string",
