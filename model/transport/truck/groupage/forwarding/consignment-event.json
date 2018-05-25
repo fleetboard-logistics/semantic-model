@@ -483,6 +483,26 @@
                                 }
                             ]
                         },
+                        "signingInformation": {
+                            "type": "object",
+                            "title": "Signing Information",
+                            "description": "Transmission of the receipt, the delivery date and the delivery time",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "releaseAuthorizationReceived": {
+                            "type": "object",
+                            "title": "Release authorization received",
+                            "description": "Receiver allows dropoff",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
                         "ultimatelyLost": {
                             "type": "object",
                             "title": "Ultimately lost",
@@ -514,6 +534,9 @@
                                     "type": "boolean"
                                 },
                                 "sourcePartner": {
+                                    "type": "boolean"
+                                },
+                                "receivingPartner": {
                                     "type": "boolean"
                                 }
                             },
@@ -726,6 +749,16 @@
                                 }
                             ]
                         },
+                        "partlyMissing": {
+                            "type": "object",
+                            "title": "Partly Missing",
+                            "description": "Partly missing in the entrance (additional information number and type of packaging)",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
                         "damaged": {
                             "type": "object",
                             "title": "Damaged",
@@ -747,6 +780,36 @@
                                     "location": "SG4/SG5/STS+F11/C555/Field9011"
                                 }
                             ]
+                        },
+                        "packagingDifferences": {
+                            "type": "object",
+                            "title": "Packaging Differences",
+                            "description": "Packaging differences (additional information number and packaging)",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "notVerifiable": {
+                            "type": "object",
+                            "title": "Not Verifiable",
+                            "description": "Welded pallet, no guarantee for content, as not testable (only applies to non-scannable pallets)",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "quantityDifferences": {
+                            "type": "object",
+                            "title": "Quantity Differences",
+                            "description": "Quantity difference Bordero / Discharge (acquisition error)",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -966,6 +1029,66 @@
                                 }
                             ]
                         },
+                        "noTimeSlotForAgreedDeliveryTime": {
+                            "type": "object",
+                            "title": "No time slot for agreed delivery time",
+                            "description": "No time slot for agreed delivery time",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "invalidShipmentInformation": {
+                            "type": "object",
+                            "title": "Invalid Shipment Information",
+                            "description": "Not in delivery - incomplete / incorrect shipment information",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "damaged": {
+                            "type": "object",
+                            "title": "Damaged",
+                            "description": "Not in delivery - goods damaged",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "returnAccordingToDisposal": {
+                            "type": "object",
+                            "title": "Return according to disposal",
+                            "description": "Not delivered - refused consignment, return according to disposal",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "returnDisposalMissing": {
+                            "type": "object",
+                            "title": "Return Disposal Missing",
+                            "description": "Not delivered - refused consignment, return - order missing",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "inResearch": {
+                            "type": "object",
+                            "title": "In Research",
+                            "description": "Not on delivery - broadcast in search",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
                         "timeSlotFromConsignee": {
                             "type": "object",
                             "title": "Time slot from consignee",
@@ -1035,14 +1158,144 @@
                             "title": "Space issue",
                             "description": "There is a space issue for the delivery.",
                             "titleMap": {
-                                "de": "Platzproblem auf der Zustelltour"
+                                "de": "Platzproblem auf der Zustelltour."
                             },
                             "patternProperties": {
                                 "x-.*": {},
                                 "\\$.*": {}
                             },
                             "additionalProperties": false
-                        }
+                        },
+                        "consignmentNotComplete": {
+                            "type": "object",
+                            "title": "Consignment not complete",
+                            "description": "Not in delivery - consignment incomplete.",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung - Sendung unvollständig."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "selfCollector": {
+                            "type": "object",
+                            "title": "Self collector",
+                            "description": "Not on delivery - Recipient is self-collector.",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung - Empfänger ist Selbstabholer."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "holidays": {
+                            "type": "object",
+                            "title": "Holidays",
+                            "description": "Not on delivery - regional holiday.",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung - regionaler Feiertag."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "customs": {
+                            "type": "object",
+                            "title": "Customs",
+                            "description": "Not on delivery - Customs goods.",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung - Zollgut."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "waitingForNotification": {
+                            "type": "object",
+                            "title": "Waiting for notificationtons",
+                            "description": "Not in delivery - Advice of delivery according to EDI.",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung - Avisvorschrift lt. DFÜ."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "missingDocumentation": {
+                            "type": "object",
+                            "title": "Missing documentation",
+                            "description": "Not in delivery - Delivery note missing / Accompanying documents incomplete.",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung - Lieferschein fehlt/Begleitpapiere unvollständig."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "lateArrival": {
+                            "type": "object",
+                            "title": "Late Arrival",
+                            "description": "Not in delivery - long-distance traffic from VP / HUB delayed (E2 status).",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung - Fernverkehr vom VP/HUB verspätet (E2-Status)."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "standardDeliveryTimeSufficient": {
+                            "type": "object",
+                            "title": "Standard delivery time sufficient",
+                            "description": "Not in delivery, Flex according to specification VP.",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung, Flex lt. Vorgabe VP."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "gatewayRouting": {
+                            "type": "object",
+                            "title": "Gateway Routing",
+                            "description": "Loaded from Gateway to...",
+                            "titleMap": {
+                                "de": "Von Gateway verladen an..."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "rejectedByReceiver": {
+                            "type": "object",
+                            "title": "Gateway Routing",
+                            "description": "Not in delivery by telephone refusal to accept...",
+                            "titleMap": {
+                                "de": "Nicht in Zustellung telefonisch annahmeverweigert..."
+                            },
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
                     },
                     "patternProperties": {
                         "x-.*": {},
@@ -1559,7 +1812,7 @@
                         "abortedDueToLongWaitingTime": {
                             "type": "object",
                             "title": "Aborted due to long waiting time",
-                            "description": "The delivery attempt was aborted due to too long waiting time at the consignee",
+                            "description": "The delivery attempt was aborted due to too long waiting time at the consignee.",
                             "patternProperties": {
                                 "x-.*": {},
                                 "\\$.*": {}
@@ -1577,6 +1830,16 @@
                                     "location": "SG4/SG5/STS+F11/C555/Field9011"
                                 }
                             ]
+                        },
+                        "AbortedDueWeatherCondition": {
+                            "type": "object",
+                            "title": "Aborted due weather condition",
+                            "description": "The delivery attempt was aborted, because of weather conditions",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         },
                         "rejected": {
                             "type": "object",
@@ -1633,6 +1896,11 @@
                                             "location": "SG4/SG5/STS+F11/C555/Field9011"
                                         }
                                     ]
+                                },
+                                "timeIssue": {
+                                    "type": "object",
+                                    "title": "Time Issue",
+                                    "description": "Not delivered - Lack of time on delivery tour",
                                 },
                                 "missingDocumentation": {
                                     "type": "object",
@@ -1907,6 +2175,16 @@
                                 }
                             ]
                         },
+                        "serviceIncomplete": {
+                            "type": "object",
+                            "title": "Service incomplete",
+                            "description": "Delivered but incomplete",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
                         "damaged": {
                             "type": "object",
                             "title": "Damaged",
@@ -1972,6 +2250,26 @@
                                     "location": "SG4/SG5/STS+F11/C555/Field9011"
                                 }
                             ]
+                        },
+                        "noReceipt": {
+                            "type": "object",
+                            "title": "No receipt",
+                            "description": "Served, delivery not assignable",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "forwardedToExternalProvider": {
+                            "type": "object",
+                            "title": "Forwarded to external provider",
+                            "description": "Delivered, Messe- / Haus- / Inselspediteur handed over",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         },
                         "releaseAuthorization": {
                             "type": "object",
@@ -2375,8 +2673,7 @@
             },
             "additionalProperties": false
         },
-        "x-dummy": {
-        }
+        "x-dummy": {}
     },
     "patternProperties": {
         "x-.*": {},
