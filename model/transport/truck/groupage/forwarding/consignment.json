@@ -49,7 +49,6 @@
       },
       "type": "string"
     },
-
     "sender": {
       "title": "Data Origin",
       "titleMap": {
@@ -59,7 +58,8 @@
       "descriptionMap": {
         "de": "Der Versender des Datensatzes. Dies ist in der Regel der Versandpartner bzw. der beauftragende Partner. Er kann jedoch abweichen, wenn ein Dritter eine Kopie erzeugt und weiterleitet."
       },
-      "examples": [{
+      "examples": [
+        {
           "ediFormat": "REL100",
           "location": "packageHeader.senderMailboxId",
           "networkId": "CL",
@@ -87,7 +87,8 @@
       "descriptionMap": {
         "de": "Der Empfänger des Datensatzes. Dies ist in der Regel der Empfangspartner bzw. der beauftragte Partner. Er kann jedoch abweichen, wenn der Datensatz gezielt an ein anderes System übertragen werden soll."
       },
-      "examples": [{
+      "examples": [
+        {
           "ediFormat": "REL100",
           "location": "packageHeader.receiverMailboxId",
           "networkId": "CL",
@@ -192,7 +193,8 @@
       "descriptionMap": {
         "de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
       },
-      "examples": [{
+      "examples": [
+        {
           "ediFormat": "REL100",
           "location": "A00.65-99",
           "networkId": "CL",
@@ -220,7 +222,8 @@
       "descriptionMap": {
         "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
       },
-      "examples": [{
+      "examples": [
+        {
           "ediFormat": "REL100",
           "location": "A00.100-134",
           "networkId": "CL",
@@ -323,7 +326,7 @@
             "return": {
               "title": "Return",
               "titleMap": {
-                "de": "Zurück"
+                "de": "Retoure"
               },
               "description": "Packaging material return",
               "descriptionMap": {
@@ -354,13 +357,13 @@
               "type": "string"
             },
             "pickup": {
-              "title": "Package collection order",
+              "title": "Package pickup",
               "titleMap": {
-                "de": "Packmittelabholauftrag"
+                "de": "Packmittelabholung"
               },
-              "description": "Package collection order",
+              "description": "Package pickup",
               "descriptionMap": {
-                "de": "Packmittelabholauftrag"
+                "de": "Packmittelabholung"
               },
               "type": "string"
             }
@@ -370,9 +373,9 @@
             "titleMap": {
               "de": "Sonderfahrt"
             },
-            "description": "Special fare to the clearing tariff",
+            "description": "The transport is produced via special run (and with special fares)",
             "descriptionMap": {
-              "de": "Sonderfahrt zum Clearingtarif"
+              "de": "Der Transport erfolgt per Sonderfahrt (und zu abweichenden Tarifen)"
             },
             "type": "object"
           },
@@ -420,7 +423,8 @@
                 "descriptionMap": {
                   "de": "Die Zustellung ist unter der angebenen Adresse innerhalb der angegebenen Zeitfensters zu avisieren."
                 },
-                "anyOf": [{
+                "anyOf": [
+                  {
                     "$ref": "#/definitions/nameAndAddress"
                   },
                   {
@@ -623,15 +627,27 @@
                 "titleMap": {
                   "de": "Fixtermin"
                 },
-                "description": "The consignment must be delivered at the given date.",
+                "description": "The consignment must be delivered at the given date (and in the given time window).",
                 "descriptionMap": {
-                  "de": "Die Sendung muss exakt an dem angegebenen Datum zugestellt werden."
+                  "de": "Die Sendung muss exakt an dem angegebenen Datum (und innerhalb des angegebenen Zeitfensters) zugestellt werden."
                 },
                 "type": "object",
                 "properties": {
                   "date": {
                     "type": [
                       "string"
+                    ]
+                  },
+                  "timeFrom": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "timeUntil": {
+                    "type": [
+                      "string",
+                      "null"
                     ]
                   }
                 },
@@ -1587,14 +1603,6 @@
                   "de": "Der VP der Ursprungs-Sendung"
                 },
                 "$ref": "#/definitions/partnerIdentification"
-              },
-              "subsequentDelivery": {
-                "title": "Subsequent Delivery",
-                "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
-                "descriptionMap": {
-                  "de": "Nachlieferung zu unserem Bordero vom: ... (Zusatztext) (Sendungs-Nr. des Versand- und Empfangspartners sind zusätzlich zu übertragen)"
-                },
-                "$ref": "#/definitions/partnerIdentification"
               }
             },
             "patternProperties": {
@@ -1614,6 +1622,57 @@
             },
             "$ref": "#/definitions/partnerIdentification"
           },
+          "subsequentDelivery": {
+            "title": "Subsequent Delivery",
+            "titleMap": {
+              "de": "Nachlieferung zur Sendung"
+            },
+            "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
+            "descriptionMap": {
+              "de": "Nachlieferung zu unserem Bordero vom: ... (Zusatztext) (Sendungs-Nr. des Versand- und Empfangspartners sind zusätzlich zu übertragen)"
+            },
+            "type": "object",
+            "properties": {
+              "consignmentNoShippingPartner": {
+                "title": "Consignment number of the consignment for that the subsequent delivery is",
+                "titleMap": {
+                  "de": "Sendungsnummer der Sendung zu der die Nachlieferung erfolgt"
+                },
+                "description": "The consignment number of the original consignment",
+                "descriptionMap": {
+                  "de": "Sendungsnummer der Original-Sendung, zu der die Nachlieferung erfolgt."
+                },
+                "type": "string"
+              },
+              "shippingDate": {
+                "title": "Shipping date",
+                "titleMap": {
+                  "de": "Sendungsdatum"
+                },
+                "description": "The date when the original shipment was forwarded",
+                "descriptionMap": {
+                  "de": "Versanddatum der Ursprungssendung"
+                },
+                "type": "string"
+              },
+              "shippingPartner": {
+                "title": "Shipping partner",
+                "titleMap": {
+                  "de": "Versandpartner"
+                },
+                "description": "The partner which originally forwarded the consignment",
+                "descriptionMap": {
+                  "de": "Der VP der Ursprungs-Sendung"
+                },
+                "$ref": "#/definitions/partnerIdentification"
+              }
+            },
+            "patternProperties": {
+              "x-.*": {},
+              "\\$.*": {}
+            },
+            "additionalProperties": false
+          },
           "pickupOrder": {
             "title": "Pickup order",
             "titleMap": {
@@ -1623,7 +1682,8 @@
             "descriptionMap": {
               "de": "Referenz zu einem Abholauftrag aus dem diese Sendung entstanden ist"
             },
-            "anyOf": [{
+            "anyOf": [
+              {
                 "type": "object",
                 "properties": {
                   "pickupOrderNo": {
@@ -2641,7 +2701,8 @@
       },
       "partnerIdentification": {
         "type": "object",
-        "anyOf": [{
+        "anyOf": [
+          {
             "$ref": "#/definitions/ediId"
           },
           {
@@ -2708,3 +2769,4 @@
       }
     }
   }
+}
