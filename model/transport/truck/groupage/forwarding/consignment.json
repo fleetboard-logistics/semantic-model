@@ -1427,39 +1427,534 @@
           "\\$.*": {}
         },
         "additionalProperties": false
+      }
+    },
+    "externalServices": {
+      "title": "External services",
+      "titleMap": {
+        "de": "Externe Dienste"
       },
-      "externalServices": {
-        "title": "External services",
-        "titleMap": {
-          "de": "Externe Dienste"
+      "description": "Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)",
+      "descriptionMap": {
+        "de": "Dienste, die nicht durch die Partner, die den physischen Transport durchführen, sondern durch Dritte erbracht werden (z.B. zentrale Dienste der Netzwerke)"
+      },
+      "type": "object",
+      "properties": {
+        "archive": {
+          "title": "Digital archive",
+          "titleMap": {
+            "de": "Elektronisches Archiv"
+          },
+          "description": "Functions provided by the digtal archive systems",
+          "descriptionMap": {
+            "de": "Funktionen des elektronichen Archives"
+          },
+          "type": "object",
+          "properties": {
+            "automaticDownloadOfPod": {
+              "title": "PoD push",
+              "titleMap": {
+                "de": "Bereitstellung Anliefernachweis"
+              },
+              "description": "The proof of delivery document is provided for automatic download",
+              "descriptionMap": {
+                "de": "Automatische Bereitstellung des PoD zum Download"
+              },
+              "type": "boolean"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      },
+      "additionalProperties": false
+    },
+    "information": {
+      "title": "Information",
+      "titleMap": {
+        "de": "Informationen"
+      },
+      "description": "General information about the consignment",
+      "descriptionMap": {
+        "de": "Allgemeine Informationen zur Sendung"
+      },
+      "type": "object",
+      "properties": {
+        "remarksInvoice": {
+          "title": "Invoice remarks",
+          "titleMap": {
+            "de": "Bemerkungen Abrechnung"
+          },
+          "description": "Free text information for the invoice",
+          "descriptionMap": {
+            "de": "Freitext Bemerkungen für die Abrechnung"
+          },
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "description": "Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)",
-        "descriptionMap": {
-          "de": "Dienste, die nicht durch die Partner, die den physischen Transport durchführen, sondern durch Dritte erbracht werden (z.B. zentrale Dienste der Netzwerke)"
+        "remarksPickup": {
+          "title": "Pickup remarks",
+          "titleMap": {
+            "de": "Bemerkungen Abholung"
+          },
+          "description": "Free text information for the pick up",
+          "descriptionMap": {
+            "de": "Freitext Bemerkungen für die Abholung"
+          },
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "type": "object",
-        "properties": {
-          "archive": {
-            "title": "Digital archive",
-            "titleMap": {
-              "de": "Elektronisches Archiv"
+        "remarksDelivery": {
+          "title": "Delivery remarks",
+          "titleMap": {
+            "de": "Bemerkungen Zustellung"
+          },
+          "description": "Free text information for the delivery",
+          "descriptionMap": {
+            "de": "Freitext Bemerkungen für die Zustellung"
+          },
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remarksGeneral": {
+          "title": "General remarks",
+          "titleMap": {
+            "de": "Bemerkungen Allgemein"
+          },
+          "description": "Free text information",
+          "descriptionMap": {
+            "de": "Freitext Bemerkungen"
+          },
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      },
+      "additionalProperties": false
+    },
+    "references": {
+      "title": "References",
+      "titleMap": {
+        "de": "Referenzen"
+      },
+      "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
+      "descriptionMap": {
+        "de": "Nummern aus verschiedenen Quellen, die diese Sendung identifizieren oder Vereise von dieser Sendung auf andere Geschäftsvorgänge"
+      },
+      "type": "object",
+      "properties": {
+        "returnOfPreviousConsignent": {
+          "title": "Return of previous consignment",
+          "titleMap": {
+            "de": "Rücklieferung"
+          },
+          "description": "Reference to another consignment which content is return using this consignment",
+          "descriptionMap": {
+            "de": "Rücklieferung des Inhalts einer anderen Sendung unter einer neuen Sendungsnummer"
+          },
+          "type": "object",
+          "properties": {
+            "consignmentNoShippingPartner": {
+              "title": "Consignment number of the consignment being returned",
+              "titleMap": {
+                "de": "Sendungsnummer der Sendung die zurückgeliefert wird"
+              },
+              "description": "The consignment number of the original consignment being returned",
+              "descriptionMap": {
+                "de": "Sendungsnummer der Original-Sendung, die mit dieser Sendung returniert wird."
+              },
+              "type": "string"
             },
-            "description": "Functions provided by the digtal archive systems",
-            "descriptionMap": {
-              "de": "Funktionen des elektronichen Archives"
+            "shippingDate": {
+              "title": "Shipping date",
+              "titleMap": {
+                "de": "Sendungsdatum"
+              },
+              "description": "The date when the original shipment was forwarded",
+              "descriptionMap": {
+                "de": "Versanddatum der Ursprungssendung"
+              },
+              "type": "string"
             },
+            "shippingPartner": {
+              "title": "Shipping partner",
+              "titleMap": {
+                "de": "Versandpartner"
+              },
+              "description": "The partner which originally forwarded the consignment",
+              "descriptionMap": {
+                "de": "Der VP der Ursprungs-Sendung"
+              },
+              "$ref": "#/definitions/partnerIdentification"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
+        },
+        "forwardedFor": {
+          "title": "Forwarded for",
+          "titleMap": {
+            "de": "Weitergeleitet im Auftrag von"
+          },
+          "description": "The partner for which the consignment was processed by the shipping partner (e.g. routing order)",
+          "descriptionMap": {
+            "de": "Kennung des Partners, in dessen Auftrag die Sendung abgefertigt wurde (z.B. auf Basis einer Routing Order)"
+          },
+          "$ref": "#/definitions/partnerIdentification"
+        },
+        "subsequentDelivery": {
+          "title": "Subsequent Delivery",
+          "titleMap": {
+            "de": "Nachlieferung zur Sendung"
+          },
+          "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
+          "descriptionMap": {
+            "de": "Nachlieferung zu unserem Bordero vom: ... (Zusatztext) (Sendungs-Nr. des Versand- und Empfangspartners sind zusätzlich zu übertragen)"
+          },
+          "type": "object",
+          "properties": {
+            "consignmentNoShippingPartner": {
+              "title": "Consignment number of the consignment for that the subsequent delivery is",
+              "titleMap": {
+                "de": "Sendungsnummer der Sendung zu der die Nachlieferung erfolgt"
+              },
+              "description": "The consignment number of the original consignment",
+              "descriptionMap": {
+                "de": "Sendungsnummer der Original-Sendung, zu der die Nachlieferung erfolgt."
+              },
+              "type": "string"
+            },
+            "shippingDate": {
+              "title": "Shipping date",
+              "titleMap": {
+                "de": "Sendungsdatum"
+              },
+              "description": "The date when the original shipment was forwarded",
+              "descriptionMap": {
+                "de": "Versanddatum der Ursprungssendung"
+              },
+              "type": "string"
+            },
+            "shippingPartner": {
+              "title": "Shipping partner",
+              "titleMap": {
+                "de": "Versandpartner"
+              },
+              "description": "The partner which originally forwarded the consignment",
+              "descriptionMap": {
+                "de": "Der VP der Ursprungs-Sendung"
+              },
+              "$ref": "#/definitions/partnerIdentification"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
+        },
+        "pickupOrder": {
+          "title": "Pickup order",
+          "titleMap": {
+            "de": "Abholauftrag"
+          },
+          "description": "Reference to a pickup order which resulted in this consignment",
+          "descriptionMap": {
+            "de": "Referenz zu einem Abholauftrag aus dem diese Sendung entstanden ist"
+          },
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "pickupOrderNo": {
+                  "type": "string"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              },
+              "additionalProperties": false
+            },
+            {
+              "$ref": "#/definitions/partnerIdentification"
+            }
+          ]
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "titleMap": {
+            "de": "Lieferschein"
+          },
+          "description": "The delivery note of the shipper which describes the content of this consignment",
+          "descriptionMap": {
+            "de": "Lieferschein-Nummer des Versenders, die den Inhalt der Sendung beschreibt"
+          },
+          "type": "string"
+        },
+        "customerOrderNo": {
+          "title": "Customer order no",
+          "titleMap": {
+            "de": "Auftragsnummer Versender"
+          },
+          "description": "A reference of the shipper for this consignment",
+          "descriptionMap": {
+            "de": "Die Refernenz-Nummer des Versender für diese Sendung"
+          },
+          "type": "string"
+        },
+        "customerOrderDate": {
+          "title": "Customer order date",
+          "titleMap": {
+            "de": "Kunden-Auftragsdatum"
+          },
+          "description": "Date when the order was places with the shipping partner",
+          "descriptionMap": {
+            "de": "Datum des Auftrags-Eingang beim VP"
+          },
+          "type": "string"
+        },
+        "orderEntrySystemReference": {
+          "title": "Order entry system reference",
+          "titleMap": {
+            "de": "Referenz Nr Auftragserfassung"
+          },
+          "description": "A unqiue reference number from the system which was used to enter the order details",
+          "descriptionMap": {
+            "de": "Referenz-Nummer des Systems, das zur Auftragserfassung genutzt wurde"
+          },
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      },
+      "additionalProperties": false
+    },
+    "billing": {
+      "title": "Billing information",
+      "titleMap": {
+        "de": "Abrechnungs-Informationen"
+      },
+      "description": "Information for invoicing and clearing",
+      "descriptionMap": {
+        "de": "Informationen für die Rechnungslegung und das Clearing"
+      },
+      "type": "object",
+      "properties": {
+        "freightPayer": {
+          "title": "Freight payer",
+          "titleMap": {
+            "de": "Frachtzahler"
+          },
+          "description": "The party which receives the invoice (if different from the shipper) ",
+          "descriptionMap": {
+            "de": "Die Person oder Firma, an die die Rechnung gesendet wird (falls abweichend vom Versender)"
+          },
+          "type": "object",
+          "$ref": "#/definitions/nameAndAddress"
+        },
+        "tariff": {
+          "title": "Tariff",
+          "titleMap": {
+            "de": "Tarif"
+          },
+          "description": "Use to specify a special tariff to be used for freight calculation (e.g. heady goods, ...)",
+          "descriptionMap": {
+            "de": "Abweichender Tarif für die Frachtberechnung (z.B. Schwerguttarif)"
+          },
+          "type": "string"
+        },
+        "routingOrder": {
+          "title": "Routing order",
+          "titleMap": {
+            "de": "Routing order"
+          },
+          "description": "Use to specify that the consignment results of a standing pickup order and specifies the partner which issued this pickup order and thus should be billed.",
+          "descriptionMap": {
+            "de": "Gibt den Partner, in dessem Auftrag die Sendung abgeholt wurde bei stehenden Abholaufträgen an. Wird genutzt, um ein Clearing gemäß den vereinbarten Raten für das Beschaffungswesen durchzuführen."
+          },
+          "$ref": "#/definitions/partnerIdentification"
+        },
+        "deliveryTerms": {
+          "title": "Delivery terms",
+          "titleMap": {
+            "de": "Frankatur"
+          },
+          "description": "Use to specify under which terms the consignment is process and which legs are billed to whom",
+          "descriptionMap": {
+            "de": "Gibt die Franktur der Sendung an, die bestimmt, welche Teilstrecken an wen verrechnet werden"
+          },
+          "type": "string"
+        },
+        "logisticModel": {
+          "title": "Logistic model",
+          "titleMap": {
+            "de": "Logistikmodell"
+          },
+          "description": "Used to active special billing and clearing conditions the partners have agreed on",
+          "descriptionMap": {
+            "de": "Aktiviert spezielle Abrechnungs- und Clearing-Prozesse, auf die sich die Partner zuvor geeinigt haben"
+          },
+          "type": "string"
+        },
+        "costsAndCharges": {
+          "title": "Costs and charges",
+          "titleMap": {
+            "de": "Kosten ung Gebühren"
+          },
+          "description": "Used to transfer detailed information about the fees",
+          "descriptionMap": {
+            "de": "Detailierte informationen zu den anfallenden Beträgen."
+          },
+          "type": "object",
+          "properties": {},
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      },
+      "additionalProperties": false
+    },
+    "customsInformation": {
+      "title": "Customs information",
+      "titleMap": {
+        "de": "Verzollungsinformationen"
+      },
+      "description": "Used to specifiy information necessary in the customs process",
+      "descriptionMap": {
+        "de": "Informationen zur Sendung, die für die Verzollung notwendig sind"
+      },
+      "type": "object",
+      "properties": {
+        "declaringPary": {
+          "type": "object",
+          "$ref": "#/definitions/nameAndAddress"
+        },
+        "deliverAfterDutyPaid": {
+          "type": "object",
+          "$ref": "#/definitions/nameAndAddress"
+        },
+        "presentationDeadline": {
+          "type": "string"
+        },
+        "clearedForFreeTransitWithinEU": {
+          "type": "boolean"
+        },
+        "envelopeForCustomsDocuments": {
+          "type": "boolean"
+        },
+        "presentationToCustomsRequired": {
+          "type": "boolean"
+        },
+        "valueAtBorderCrossing": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
+        },
+        "cityUnloading": {
+          "type": "string"
+        },
+        "customsOffice": {
+          "type": "string"
+        },
+        "customsProcess": {
+          "type": "string"
+        },
+        "customsType": {
+          "type": "string"
+        },
+        "districtUnloading": {
+          "type": "string"
+        },
+        "importCustomsOffice": {
+          "type": "string"
+        },
+        "parentDocumentId": {
+          "type": "string"
+        },
+        "parentDocumentType": {
+          "type": "string"
+        },
+        "routeBorder": {
+          "type": "string"
+        },
+        "routeInland": {
+          "type": "string"
+        },
+        "statisticsFlag": {
+          "type": "string"
+        },
+        "transferType": {
+          "type": "string"
+        },
+        "countryConsignor": {
+          "type": "string"
+        },
+        "countryImporter": {
+          "type": "string"
+        },
+        "countryLoading": {
+          "type": "string"
+        },
+        "countryOfOrigin": {
+          "type": "string"
+        },
+        "countryUnloading": {
+          "type": "string"
+        },
+        "documents": {
+          "type": "array",
+          "item": {
             "type": "object",
             "properties": {
-              "automaticDownloadOfPod": {
-                "title": "PoD push",
-                "titleMap": {
-                  "de": "Bereitstellung Anliefernachweis"
-                },
-                "description": "The proof of delivery document is provided for automatic download",
-                "descriptionMap": {
-                  "de": "Automatische Bereitstellung des PoD zum Download"
-                },
-                "type": "boolean"
+              "type": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
               }
             },
             "patternProperties": {
@@ -1468,226 +1963,465 @@
             },
             "additionalProperties": false
           }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        },
-        "additionalProperties": false
+        }
       },
-      "information": {
-        "title": "Information",
-        "titleMap": {
-          "de": "Informationen"
-        },
-        "description": "General information about the consignment",
-        "descriptionMap": {
-          "de": "Allgemeine Informationen zur Sendung"
-        },
-        "type": "object",
-        "properties": {
-          "remarksInvoice": {
-            "title": "Invoice remarks",
-            "titleMap": {
-              "de": "Bemerkungen Abrechnung"
-            },
-            "description": "Free text information for the invoice",
-            "descriptionMap": {
-              "de": "Freitext Bemerkungen für die Abrechnung"
-            },
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "remarksPickup": {
-            "title": "Pickup remarks",
-            "titleMap": {
-              "de": "Bemerkungen Abholung"
-            },
-            "description": "Free text information for the pick up",
-            "descriptionMap": {
-              "de": "Freitext Bemerkungen für die Abholung"
-            },
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "remarksDelivery": {
-            "title": "Delivery remarks",
-            "titleMap": {
-              "de": "Bemerkungen Zustellung"
-            },
-            "description": "Free text information for the delivery",
-            "descriptionMap": {
-              "de": "Freitext Bemerkungen für die Zustellung"
-            },
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "remarksGeneral": {
-            "title": "General remarks",
-            "titleMap": {
-              "de": "Bemerkungen Allgemein"
-            },
-            "description": "Free text information",
-            "descriptionMap": {
-              "de": "Freitext Bemerkungen"
-            },
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        },
-        "additionalProperties": false
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
       },
-      "references": {
-        "title": "References",
-        "titleMap": {
-          "de": "Referenzen"
+      "additionalProperties": false
+    },
+    "content": {
+      "title": "Content",
+      "titleMap": {
+        "de": "Inhalt"
+      },
+      "description": "Describes the nature and quantity of the goods in this consignment",
+      "descriptionMap": {
+        "de": "Beschreibt den Inhalt und die Mengen in dieser Sendung"
+      },
+      "type": "object",
+      "properties": {
+        "nonHazardousWaste": {
+          "title": "Non hazardous waste",
+          "titleMap": {
+            "de": "Ungefährlicher Abfall"
+          },
+          "description": "The content has no value and is not dangerous",
+          "descriptionMap": {
+            "de": "Inhalt der Sendung ist wertlos und nicht gefährlich"
+          },
+          "type": "boolean"
         },
-        "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
-        "descriptionMap": {
-          "de": "Nummern aus verschiedenen Quellen, die diese Sendung identifizieren oder Vereise von dieser Sendung auf andere Geschäftsvorgänge"
+        "loadingAids": {
+          "title": "Loading aids",
+          "titleMap": {
+            "de": "Packmittel-Sendung"
+          },
+          "description": "The consignment only consists of loading aids which are transported and does not contain real goods",
+          "descriptionMap": {
+            "de": "Packmittel-Sendung, ohne echte Ware."
+          },
+          "type": "boolean"
         },
-        "type": "object",
-        "properties": {
-          "returnOfPreviousConsignent": {
-            "title": "Return of previous consignment",
-            "titleMap": {
-              "de": "Rücklieferung"
+        "packagingPool": {
+          "title": "Packaging pool",
+          "titleMap": {
+            "de": "Packmittel-Pool"
+          },
+          "description": "Name of the packaging pool which is used to handle to loading aids from this consignment",
+          "descriptionMap": {
+            "de": "Name des Packmittel pools, über den die Verpackungen in dieser Sendung abgewickelt werden"
+          },
+          "type": "string"
+        },
+        "highValueGoods": {
+          "title": "High value goods",
+          "titleMap": {
+            "de": "Hochwertige Güter"
+          },
+          "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
+          "descriptionMap": {
+            "de": "Die Sendung enthält Waren von hohem Wert, die höhere Versicherungsgebühren  oder ein höheres Diebstahl-Risiko haben"
+          },
+          "type": "boolean"
+        },
+        "highConsequencesDangerousGoods": {
+          "title": "High Consequences Dangerous Goods (HCDG)",
+          "titleMap": {
+            "de": "Besonders gefährliche Güter (BGG / HCDG)"
+          },
+          "description": "This consignment contains dangerous goods which must be handeled unter the terms of HCDG",
+          "descriptionMap": {
+            "de": "Diese Sendung enthält besonders gefährliche Güter, die nach den Vorschriften für BGG / HCDG behandlet werden müssen"
+          },
+          "type": "boolean"
+        },
+        "insuranceValue": {
+          "title": "Insurance value",
+          "titleMap": {
+            "de": "Warenwert"
+          },
+          "description": "Value of the goods, used for insurance purposes",
+          "descriptionMap": {
+            "de": "Warenwert für die Transportversicherung"
+          },
+          "type": "object",
+          "properties": {
+            "amount": {
+              "title": "Amount",
+              "titleMap": {
+                "de": "Betrag"
+              },
+              "type": "number"
             },
-            "description": "Reference to another consignment which content is return using this consignment",
+            "currency": {
+              "title": "Currency",
+              "titleMap": {
+                "de": "Währung"
+              },
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
+        },
+        "volumeCubicmeter": {
+          "title": "Volume (m³)",
+          "titleMap": {
+            "de": "Kubatur (m³)"
+          },
+          "description": "Total volume of the consignment",
+          "descriptionMap": {
+            "de": "Kubatur der gesamten Sendung"
+          },
+          "type": "number"
+        },
+        "loadingMeter": {
+          "title": "Loading meters (m)",
+          "titleMap": {
+            "de": "Lademeter (m)"
+          },
+          "description": "Length of the area occupied on a 2.4 m wide container",
+          "descriptionMap": {
+            "de": "Länge der Fläche, die die Sendung in einem 2,4 m breiten Transportgefäß einnimmt"
+          },
+          "type": "number"
+        },
+        "grossWeightKilogram": {
+          "title": "Gross weight (kg)",
+          "titleMap": {
+            "de": "Brutto-Gewicht (kg)"
+          },
+          "description": "Weight of the consignment including all packaging",
+          "descriptionMap": {
+            "de": "Gewicht der Sendung inkl. allen Verpackungsmaterialien"
+          },
+          "type": "number"
+        },
+        "areaPalletBays": {
+          "title": "Pallet bays",
+          "titleMap": {
+            "de": "Stellplätze"
+          },
+          "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
+          "descriptionMap": {
+            "de": "Fläche in Europaletten-Stellplätzen (120 x 80 cm), die durch die Sendung belegt wird"
+          },
+          "type": "number"
+        },
+        "chargeableWeightKilogram": {
+          "title": "Chargable weight (kg)",
+          "titleMap": {
+            "de": "Frachtpflichtiges Gewicht (kg)"
+          },
+          "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums.",
+          "descriptionMap": {
+            "de": "Frachtpflichtiges Gewicht der Sendung zu Abrechnuhszwecken. Wird genutzt, um Sperrigkeiten oder Minima in die Berechnung einfliessen zu lassen"
+          },
+          "type": "number"
+        },
+        "lengthMeter": {
+          "title": "Length (m)",
+          "titleMap": {
+            "de": "Länge (m)"
+          },
+          "description": "Total length of the consignment",
+          "descriptionMap": {
+            "de": "Länge der Sendung"
+          },
+          "type": "number"
+        },
+        "widthMeter": {
+          "title": "Width (m)",
+          "titleMap": {
+            "de": "Breite (m)"
+          },
+          "description": "Total width of the consignment",
+          "descriptionMap": {
+            "de": "Breite der Sendung"
+          },
+          "type": "number"
+        },
+        "heightMeter": {
+          "title": "Height (m)",
+          "titleMap": {
+            "de": "Höhe (m)"
+          },
+          "description": "Total height of the consignment",
+          "descriptionMap": {
+            "de": "Höhe der Sendung"
+          },
+          "type": "number"
+        },
+        "lines": {
+          "title": "Lines",
+          "titleMap": {
+            "de": "Positionen"
+          },
+          "description": "Lines are describing handling units of similar sizes and content for brevity",
+          "descriptionMap": {
+            "de": "Positionen fassen Packstücke mit gleichen Abmessungen und gleichem Inhalt zusammen"
+          },
+          "type": "array",
+          "items": {
+            "title": "Line",
+            "titleMap": {
+              "de": "Position"
+            },
+            "description": "Describes the content and measurements of packages",
             "descriptionMap": {
-              "de": "Rücklieferung des Inhalts einer anderen Sendung unter einer neuen Sendungsnummer"
+              "de": "Beschreibt den Inhalt und die Abmessungen von Packstücken"
             },
             "type": "object",
             "properties": {
-              "consignmentNoShippingPartner": {
-                "title": "Consignment number of the consignment being returned",
+              "lineNo": {
+                "title": "Line no",
                 "titleMap": {
-                  "de": "Sendungsnummer der Sendung die zurückgeliefert wird"
+                  "de": "Positionsnummer"
                 },
-                "description": "The consignment number of the original consignment being returned",
+                "description": "A ordinal number, ordering the line within the consignment",
                 "descriptionMap": {
-                  "de": "Sendungsnummer der Original-Sendung, die mit dieser Sendung returniert wird."
+                  "de": "Ordnungsnummer der Position innerhalb der Sendung"
+                },
+                "type": "integer"
+              },
+              "handlingUnitCount": {
+                "title": "Handling unit count",
+                "titleMap": {
+                  "de": "Anzahl Packstücke"
+                },
+                "description": "The number of the items in this consignment which are handeled individually",
+                "descriptionMap": {
+                  "de": "Anzahl der individuellen Packstücke in dieser Sendung"
+                },
+                "type": "integer"
+              },
+              "handlingUnitType": {
+                "title": "Handling unit type",
+                "titleMap": {
+                  "de": "Art der Packstücke"
+                },
+                "description": "The type of packaging (e.g. pallet, carton box, ...) ouf the outer most packaging",
+                "descriptionMap": {
+                  "de": "Typ (z.B. Europalette, Einwegpallette, Karton) der äußersten Verpackungseinheit"
                 },
                 "type": "string"
               },
-              "shippingDate": {
-                "title": "Shipping date",
+              "innerPackageCount": {
+                "title": "Inner package count",
                 "titleMap": {
-                  "de": "Sendungsdatum"
+                  "de": "Anzahl der Unterverpackungen"
                 },
-                "description": "The date when the original shipment was forwarded",
+                "description": "Used to specify the number of inner packages (e.g. the number of boxes on a pallet)",
                 "descriptionMap": {
-                  "de": "Versanddatum der Ursprungssendung"
+                  "de": "Anzahl der Unterverpackungen, z.B. die Anzahl der Kartons auf einer Palette"
+                },
+                "type": "integer"
+              },
+              "innerPackageType": {
+                "title": "Inner package type",
+                "titleMap": {
+                  "de": "Typ der Unterverpackungen"
+                },
+                "description": "The type of packaging of the inner packages",
+                "descriptionMap": {
+                  "de": "Typ der Unterverpackung"
                 },
                 "type": "string"
               },
-              "shippingPartner": {
-                "title": "Shipping partner",
+              "content": {
+                "title": "Content",
                 "titleMap": {
-                  "de": "Versandpartner"
+                  "de": "Inhalt / Warenbezeichnung"
                 },
-                "description": "The partner which originally forwarded the consignment",
+                "description": "A short description of the nature of the goods contained within the packages",
                 "descriptionMap": {
-                  "de": "Der VP der Ursprungs-Sendung"
-                },
-                "$ref": "#/definitions/partnerIdentification"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            },
-            "additionalProperties": false
-          },
-          "forwardedFor": {
-            "title": "Forwarded for",
-            "titleMap": {
-              "de": "Weitergeleitet im Auftrag von"
-            },
-            "description": "The partner for which the consignment was processed by the shipping partner (e.g. routing order)",
-            "descriptionMap": {
-              "de": "Kennung des Partners, in dessen Auftrag die Sendung abgefertigt wurde (z.B. auf Basis einer Routing Order)"
-            },
-            "$ref": "#/definitions/partnerIdentification"
-          },
-          "subsequentDelivery": {
-            "title": "Subsequent Delivery",
-            "titleMap": {
-              "de": "Nachlieferung zur Sendung"
-            },
-            "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
-            "descriptionMap": {
-              "de": "Nachlieferung zu unserem Bordero vom: ... (Zusatztext) (Sendungs-Nr. des Versand- und Empfangspartners sind zusätzlich zu übertragen)"
-            },
-            "type": "object",
-            "properties": {
-              "consignmentNoShippingPartner": {
-                "title": "Consignment number of the consignment for that the subsequent delivery is",
-                "titleMap": {
-                  "de": "Sendungsnummer der Sendung zu der die Nachlieferung erfolgt"
-                },
-                "description": "The consignment number of the original consignment",
-                "descriptionMap": {
-                  "de": "Sendungsnummer der Original-Sendung, zu der die Nachlieferung erfolgt."
+                  "de": "Kurz Beschreibung der Art der Ware, die in den Verpackungen enthalten ist"
                 },
                 "type": "string"
               },
-              "shippingDate": {
-                "title": "Shipping date",
+              "refNo": {
+                "title": "Reference number",
                 "titleMap": {
-                  "de": "Sendungsdatum"
+                  "de": "Zeichen / Nummer"
                 },
-                "description": "The date when the original shipment was forwarded",
+                "description": "A reference of the ordering party relating to the goods",
                 "descriptionMap": {
-                  "de": "Versanddatum der Ursprungssendung"
+                  "de": "Eine Referenz-Nummer des Versenders für die Waren"
                 },
                 "type": "string"
               },
-              "shippingPartner": {
-                "title": "Shipping partner",
+              "volumeCubicmeter": {
+                "title": "Volume (m³)",
                 "titleMap": {
-                  "de": "Versandpartner"
+                  "de": "Kubatur (m³)"
                 },
-                "description": "The partner which originally forwarded the consignment",
+                "description": "Total volume of the line",
                 "descriptionMap": {
-                  "de": "Der VP der Ursprungs-Sendung"
+                  "de": "Kubatur der gesamten Position"
                 },
-                "$ref": "#/definitions/partnerIdentification"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            },
-            "additionalProperties": false
-          },
-          "pickupOrder": {
-            "title": "Pickup order",
-            "titleMap": {
-              "de": "Abholauftrag"
-            },
-            "description": "Reference to a pickup order which resulted in this consignment",
-            "descriptionMap": {
-              "de": "Referenz zu einem Abholauftrag aus dem diese Sendung entstanden ist"
-            },
-            "anyOf": [
-              {
+                "type": "number"
+              },
+              "loadingMeter": {
+                "title": "Loading meters (m)",
+                "titleMap": {
+                  "de": "Lademeter (m)"
+                },
+                "description": "Length of the area occupied on a 2.4 m wide container",
+                "descriptionMap": {
+                  "de": "Länge der Fläche, die die Position in einem 2,4 m breiten Transportgefäß einnimmt"
+                },
+                "type": "number"
+              },
+              "grossWeightKilogram": {
+                "title": "Gross weight (kg)",
+                "titleMap": {
+                  "de": "Brutto-Gewicht (kg)"
+                },
+                "description": "Weight of the line including all packaging",
+                "descriptionMap": {
+                  "de": "Gewicht der Position inkl. allen Verpackungsmaterialien"
+                },
+                "type": "number"
+              },
+              "areaPalletBays": {
+                "title": "Pallet bays",
+                "titleMap": {
+                  "de": "Stellplätze"
+                },
+                "description": "Area used by the line in terms of standard EUR pallet bays (120 x 80 cm)",
+                "descriptionMap": {
+                  "de": "Fläche in Europaletten-Stellplätzen (120 x 80 cm), die durch die Position belegt wird"
+                },
+                "type": "number"
+              },
+              "chargeableWeightKilogram": {
+                "title": "Chargable weight (kg)",
+                "titleMap": {
+                  "de": "Frachtpflichtiges Gewicht (kg)"
+                },
+                "description": "Virtual weight of the line used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums.",
+                "descriptionMap": {
+                  "de": "Frachtpflichtiges Gewicht der Position zu Abrechnuhszwecken. Wird genutzt, um Sperrigkeiten oder Minima in die Berechnung einfliessen zu lassen"
+                },
+                "type": "number"
+              },
+              "lengthMeter": {
+                "title": "Length (m)",
+                "titleMap": {
+                  "de": "Länge (m)"
+                },
+                "description": "Total length of the line",
+                "descriptionMap": {
+                  "de": "Länge der Position"
+                },
+                "type": "number"
+              },
+              "widthMeter": {
+                "title": "Width (m)",
+                "titleMap": {
+                  "de": "Breite (m)"
+                },
+                "description": "Total width of the line",
+                "descriptionMap": {
+                  "de": "Breite der Position"
+                },
+                "type": "number"
+              },
+              "heightMeter": {
+                "title": "Height (m)",
+                "titleMap": {
+                  "de": "Höhe (m)"
+                },
+                "description": "Total height of the line",
+                "descriptionMap": {
+                  "de": "Höhe der Position"
+                },
+                "type": "number"
+              },
+              "customsInformation": {
+                "title": "Customs information",
+                "titleMap": {
+                  "de": "Verzollungsinformationen"
+                },
+                "description": "Used to specifiy information necessary in the customs process",
+                "descriptionMap": {
+                  "de": "Informationen zur Sendung, die für die Verzollung notwendig sind"
+                },
                 "type": "object",
                 "properties": {
-                  "pickupOrderNo": {
+                  "goodsNo": {
                     "type": "string"
+                  },
+                  "processCode": {
+                    "type": "string"
+                  },
+                  "netweightKilogram": {
+                    "type": "number"
+                  },
+                  "rawWeightKilogram": {
+                    "type": "number"
+                  },
+                  "countryOfOrigin": {
+                    "type": "string"
+                  },
+                  "customsValue": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "number"
+                      },
+                      "currency": {
+                        "type": "string"
+                      }
+                    },
+                    "patternProperties": {
+                      "x-.*": {},
+                      "\\$.*": {}
+                    },
+                    "additionalProperties": false
+                  },
+                  "statisticalValue": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "number"
+                      },
+                      "currency": {
+                        "type": "string"
+                      }
+                    },
+                    "patternProperties": {
+                      "x-.*": {},
+                      "\\$.*": {}
+                    },
+                    "additionalProperties": false
+                  },
+                  "documents": {
+                    "type": "array",
+                    "item": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "number": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        }
+                      },
+                      "patternProperties": {
+                        "x-.*": {},
+                        "\\$.*": {}
+                      },
+                      "additionalProperties": false
+                    }
                   }
                 },
                 "patternProperties": {
@@ -1696,731 +2430,70 @@
                 },
                 "additionalProperties": false
               },
-              {
-                "$ref": "#/definitions/partnerIdentification"
-              }
-            ]
-          },
-          "deliveryNote": {
-            "title": "Delivery note",
-            "titleMap": {
-              "de": "Lieferschein"
-            },
-            "description": "The delivery note of the shipper which describes the content of this consignment",
-            "descriptionMap": {
-              "de": "Lieferschein-Nummer des Versenders, die den Inhalt der Sendung beschreibt"
-            },
-            "type": "string"
-          },
-          "customerOrderNo": {
-            "title": "Customer order no",
-            "titleMap": {
-              "de": "Auftragsnummer Versender"
-            },
-            "description": "A reference of the shipper for this consignment",
-            "descriptionMap": {
-              "de": "Die Refernenz-Nummer des Versender für diese Sendung"
-            },
-            "type": "string"
-          },
-          "customerOrderDate": {
-            "title": "Customer order date",
-            "titleMap": {
-              "de": "Kunden-Auftragsdatum"
-            },
-            "description": "Date when the order was places with the shipping partner",
-            "descriptionMap": {
-              "de": "Datum des Auftrags-Eingang beim VP"
-            },
-            "type": "string"
-          },
-          "orderEntrySystemReference": {
-            "title": "Order entry system reference",
-            "titleMap": {
-              "de": "Referenz Nr Auftragserfassung"
-            },
-            "description": "A unqiue reference number from the system which was used to enter the order details",
-            "descriptionMap": {
-              "de": "Referenz-Nummer des Systems, das zur Auftragserfassung genutzt wurde"
-            },
-            "type": "string"
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        },
-        "additionalProperties": false
-      },
-      "billing": {
-        "title": "Billing information",
-        "titleMap": {
-          "de": "Abrechnungs-Informationen"
-        },
-        "description": "Information for invoicing and clearing",
-        "descriptionMap": {
-          "de": "Informationen für die Rechnungslegung und das Clearing"
-        },
-        "type": "object",
-        "properties": {
-          "freightPayer": {
-            "title": "Freight payer",
-            "titleMap": {
-              "de": "Frachtzahler"
-            },
-            "description": "The party which receives the invoice (if different from the shipper) ",
-            "descriptionMap": {
-              "de": "Die Person oder Firma, an die die Rechnung gesendet wird (falls abweichend vom Versender)"
-            },
-            "type": "object",
-            "$ref": "#/definitions/nameAndAddress"
-          },
-          "tariff": {
-            "title": "Tariff",
-            "titleMap": {
-              "de": "Tarif"
-            },
-            "description": "Use to specify a special tariff to be used for freight calculation (e.g. heady goods, ...)",
-            "descriptionMap": {
-              "de": "Abweichender Tarif für die Frachtberechnung (z.B. Schwerguttarif)"
-            },
-            "type": "string"
-          },
-          "routingOrder": {
-            "title": "Routing order",
-            "titleMap": {
-              "de": "Routing order"
-            },
-            "description": "Use to specify that the consignment results of a standing pickup order and specifies the partner which issued this pickup order and thus should be billed.",
-            "descriptionMap": {
-              "de": "Gibt den Partner, in dessem Auftrag die Sendung abgeholt wurde bei stehenden Abholaufträgen an. Wird genutzt, um ein Clearing gemäß den vereinbarten Raten für das Beschaffungswesen durchzuführen."
-            },
-            "$ref": "#/definitions/partnerIdentification"
-          },
-          "deliveryTerms": {
-            "title": "Delivery terms",
-            "titleMap": {
-              "de": "Frankatur"
-            },
-            "description": "Use to specify under which terms the consignment is process and which legs are billed to whom",
-            "descriptionMap": {
-              "de": "Gibt die Franktur der Sendung an, die bestimmt, welche Teilstrecken an wen verrechnet werden"
-            },
-            "type": "string"
-          },
-          "logisticModel": {
-            "title": "Logistic model",
-            "titleMap": {
-              "de": "Logistikmodell"
-            },
-            "description": "Used to active special billing and clearing conditions the partners have agreed on",
-            "descriptionMap": {
-              "de": "Aktiviert spezielle Abrechnungs- und Clearing-Prozesse, auf die sich die Partner zuvor geeinigt haben"
-            },
-            "type": "string"
-          },
-          "costsAndCharges": {
-            "title": "Costs and charges",
-            "titleMap": {
-              "de": "Kosten ung Gebühren"
-            },
-            "description": "Used to transfer detailed information about the fees",
-            "descriptionMap": {
-              "de": "Detailierte informationen zu den anfallenden Beträgen."
-            },
-            "type": "object",
-            "properties": {},
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            },
-            "additionalProperties": false
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        },
-        "additionalProperties": false
-      },
-      "customsInformation": {
-        "title": "Customs information",
-        "titleMap": {
-          "de": "Verzollungsinformationen"
-        },
-        "description": "Used to specifiy information necessary in the customs process",
-        "descriptionMap": {
-          "de": "Informationen zur Sendung, die für die Verzollung notwendig sind"
-        },
-        "type": "object",
-        "properties": {
-          "declaringPary": {
-            "type": "object",
-            "$ref": "#/definitions/nameAndAddress"
-          },
-          "deliverAfterDutyPaid": {
-            "type": "object",
-            "$ref": "#/definitions/nameAndAddress"
-          },
-          "presentationDeadline": {
-            "type": "string"
-          },
-          "clearedForFreeTransitWithinEU": {
-            "type": "boolean"
-          },
-          "envelopeForCustomsDocuments": {
-            "type": "boolean"
-          },
-          "presentationToCustomsRequired": {
-            "type": "boolean"
-          },
-          "valueAtBorderCrossing": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "type": "number"
-              },
-              "currency": {
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            },
-            "additionalProperties": false
-          },
-          "cityUnloading": {
-            "type": "string"
-          },
-          "customsOffice": {
-            "type": "string"
-          },
-          "customsProcess": {
-            "type": "string"
-          },
-          "customsType": {
-            "type": "string"
-          },
-          "districtUnloading": {
-            "type": "string"
-          },
-          "importCustomsOffice": {
-            "type": "string"
-          },
-          "parentDocumentId": {
-            "type": "string"
-          },
-          "parentDocumentType": {
-            "type": "string"
-          },
-          "routeBorder": {
-            "type": "string"
-          },
-          "routeInland": {
-            "type": "string"
-          },
-          "statisticsFlag": {
-            "type": "string"
-          },
-          "transferType": {
-            "type": "string"
-          },
-          "countryConsignor": {
-            "type": "string"
-          },
-          "countryImporter": {
-            "type": "string"
-          },
-          "countryLoading": {
-            "type": "string"
-          },
-          "countryOfOrigin": {
-            "type": "string"
-          },
-          "countryUnloading": {
-            "type": "string"
-          },
-          "documents": {
-            "type": "array",
-            "item": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "number": {
-                  "type": "string"
-                },
-                "date": {
-                  "type": "string"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              },
-              "additionalProperties": false
-            }
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        },
-        "additionalProperties": false
-      },
-      "content": {
-        "title": "Content",
-        "titleMap": {
-          "de": "Inhalt"
-        },
-        "description": "Describes the nature and quantity of the goods in this consignment",
-        "descriptionMap": {
-          "de": "Beschreibt den Inhalt und die Mengen in dieser Sendung"
-        },
-        "type": "object",
-        "properties": {
-          "nonHazardousWaste": {
-            "title": "Non hazardous waste",
-            "titleMap": {
-              "de": "Ungefährlicher Abfall"
-            },
-            "description": "The content has no value and is not dangerous",
-            "descriptionMap": {
-              "de": "Inhalt der Sendung ist wertlos und nicht gefährlich"
-            },
-            "type": "boolean"
-          },
-          "loadingAids": {
-            "title": "Loading aids",
-            "titleMap": {
-              "de": "Packmittel-Sendung"
-            },
-            "description": "The consignment only consists of loading aids which are transported and does not contain real goods",
-            "descriptionMap": {
-              "de": "Packmittel-Sendung, ohne echte Ware."
-            },
-            "type": "boolean"
-          },
-          "packagingPool": {
-            "title": "Packaging pool",
-            "titleMap": {
-              "de": "Packmittel-Pool"
-            },
-            "description": "Name of the packaging pool which is used to handle to loading aids from this consignment",
-            "descriptionMap": {
-              "de": "Name des Packmittel pools, über den die Verpackungen in dieser Sendung abgewickelt werden"
-            },
-            "type": "string"
-          },
-          "highValueGoods": {
-            "title": "High value goods",
-            "titleMap": {
-              "de": "Hochwertige Güter"
-            },
-            "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
-            "descriptionMap": {
-              "de": "Die Sendung enthält Waren von hohem Wert, die höhere Versicherungsgebühren  oder ein höheres Diebstahl-Risiko haben"
-            },
-            "type": "boolean"
-          },
-          "highConsequencesDangerousGoods": {
-            "title": "High Consequences Dangerous Goods (HCDG)",
-            "titleMap": {
-              "de": "Besonders gefährliche Güter (BGG / HCDG)"
-            },
-            "description": "This consignment contains dangerous goods which must be handeled unter the terms of HCDG",
-            "descriptionMap": {
-              "de": "Diese Sendung enthält besonders gefährliche Güter, die nach den Vorschriften für BGG / HCDG behandlet werden müssen"
-            },
-            "type": "boolean"
-          },
-          "insuranceValue": {
-            "title": "Insurance value",
-            "titleMap": {
-              "de": "Warenwert"
-            },
-            "description": "Value of the goods, used for insurance purposes",
-            "descriptionMap": {
-              "de": "Warenwert für die Transportversicherung"
-            },
-            "type": "object",
-            "properties": {
-              "amount": {
-                "title": "Amount",
+              "barcodes": {
+                "title": "Bar codes / SSCC number",
                 "titleMap": {
-                  "de": "Betrag"
+                  "de": "Barcodes / NVE / SSCC"
                 },
-                "type": "number"
-              },
-              "currency": {
-                "title": "Currency",
-                "titleMap": {
-                  "de": "Währung"
+                "description": "Detailed information about the individual handling units",
+                "descriptionMap": {
+                  "de": "Informationen zu den Packstücken einer Sendung"
                 },
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            },
-            "additionalProperties": false
-          },
-          "volumeCubicmeter": {
-            "title": "Volume (m³)",
-            "titleMap": {
-              "de": "Kubatur (m³)"
-            },
-            "description": "Total volume of the consignment",
-            "descriptionMap": {
-              "de": "Kubatur der gesamten Sendung"
-            },
-            "type": "number"
-          },
-          "loadingMeter": {
-            "title": "Loading meters (m)",
-            "titleMap": {
-              "de": "Lademeter (m)"
-            },
-            "description": "Length of the area occupied on a 2.4 m wide container",
-            "descriptionMap": {
-              "de": "Länge der Fläche, die die Sendung in einem 2,4 m breiten Transportgefäß einnimmt"
-            },
-            "type": "number"
-          },
-          "grossWeightKilogram": {
-            "title": "Gross weight (kg)",
-            "titleMap": {
-              "de": "Brutto-Gewicht (kg)"
-            },
-            "description": "Weight of the consignment including all packaging",
-            "descriptionMap": {
-              "de": "Gewicht der Sendung inkl. allen Verpackungsmaterialien"
-            },
-            "type": "number"
-          },
-          "areaPalletBays": {
-            "title": "Pallet bays",
-            "titleMap": {
-              "de": "Stellplätze"
-            },
-            "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
-            "descriptionMap": {
-              "de": "Fläche in Europaletten-Stellplätzen (120 x 80 cm), die durch die Sendung belegt wird"
-            },
-            "type": "number"
-          },
-          "chargeableWeightKilogram": {
-            "title": "Chargable weight (kg)",
-            "titleMap": {
-              "de": "Frachtpflichtiges Gewicht (kg)"
-            },
-            "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums.",
-            "descriptionMap": {
-              "de": "Frachtpflichtiges Gewicht der Sendung zu Abrechnuhszwecken. Wird genutzt, um Sperrigkeiten oder Minima in die Berechnung einfliessen zu lassen"
-            },
-            "type": "number"
-          },
-          "lengthMeter": {
-            "title": "Length (m)",
-            "titleMap": {
-              "de": "Länge (m)"
-            },
-            "description": "Total length of the consignment",
-            "descriptionMap": {
-              "de": "Länge der Sendung"
-            },
-            "type": "number"
-          },
-          "widthMeter": {
-            "title": "Width (m)",
-            "titleMap": {
-              "de": "Breite (m)"
-            },
-            "description": "Total width of the consignment",
-            "descriptionMap": {
-              "de": "Breite der Sendung"
-            },
-            "type": "number"
-          },
-          "heightMeter": {
-            "title": "Height (m)",
-            "titleMap": {
-              "de": "Höhe (m)"
-            },
-            "description": "Total height of the consignment",
-            "descriptionMap": {
-              "de": "Höhe der Sendung"
-            },
-            "type": "number"
-          },
-          "lines": {
-            "title": "Lines",
-            "titleMap": {
-              "de": "Positionen"
-            },
-            "description": "Lines are describing handling units of similar sizes and content for brevity",
-            "descriptionMap": {
-              "de": "Positionen fassen Packstücke mit gleichen Abmessungen und gleichem Inhalt zusammen"
-            },
-            "type": "array",
-            "items": {
-              "title": "Line",
-              "titleMap": {
-                "de": "Position"
-              },
-              "description": "Describes the content and measurements of packages",
-              "descriptionMap": {
-                "de": "Beschreibt den Inhalt und die Abmessungen von Packstücken"
-              },
-              "type": "object",
-              "properties": {
-                "lineNo": {
-                  "title": "Line no",
+                "type": "array",
+                "items": {
+                  "title": "Handling unit",
                   "titleMap": {
-                    "de": "Positionsnummer"
+                    "de": "Packstück"
                   },
-                  "description": "A ordinal number, ordering the line within the consignment",
+                  "description": "Detailed information about the handling units",
                   "descriptionMap": {
-                    "de": "Ordnungsnummer der Position innerhalb der Sendung"
-                  },
-                  "type": "integer"
-                },
-                "handlingUnitCount": {
-                  "title": "Handling unit count",
-                  "titleMap": {
-                    "de": "Anzahl Packstücke"
-                  },
-                  "description": "The number of the items in this consignment which are handeled individually",
-                  "descriptionMap": {
-                    "de": "Anzahl der individuellen Packstücke in dieser Sendung"
-                  },
-                  "type": "integer"
-                },
-                "handlingUnitType": {
-                  "title": "Handling unit type",
-                  "titleMap": {
-                    "de": "Art der Packstücke"
-                  },
-                  "description": "The type of packaging (e.g. pallet, carton box, ...) ouf the outer most packaging",
-                  "descriptionMap": {
-                    "de": "Typ (z.B. Europalette, Einwegpallette, Karton) der äußersten Verpackungseinheit"
-                  },
-                  "type": "string"
-                },
-                "innerPackageCount": {
-                  "title": "Inner package count",
-                  "titleMap": {
-                    "de": "Anzahl der Unterverpackungen"
-                  },
-                  "description": "Used to specify the number of inner packages (e.g. the number of boxes on a pallet)",
-                  "descriptionMap": {
-                    "de": "Anzahl der Unterverpackungen, z.B. die Anzahl der Kartons auf einer Palette"
-                  },
-                  "type": "integer"
-                },
-                "innerPackageType": {
-                  "title": "Inner package type",
-                  "titleMap": {
-                    "de": "Typ der Unterverpackungen"
-                  },
-                  "description": "The type of packaging of the inner packages",
-                  "descriptionMap": {
-                    "de": "Typ der Unterverpackung"
-                  },
-                  "type": "string"
-                },
-                "content": {
-                  "title": "Content",
-                  "titleMap": {
-                    "de": "Inhalt / Warenbezeichnung"
-                  },
-                  "description": "A short description of the nature of the goods contained within the packages",
-                  "descriptionMap": {
-                    "de": "Kurz Beschreibung der Art der Ware, die in den Verpackungen enthalten ist"
-                  },
-                  "type": "string"
-                },
-                "refNo": {
-                  "title": "Reference number",
-                  "titleMap": {
-                    "de": "Zeichen / Nummer"
-                  },
-                  "description": "A reference of the ordering party relating to the goods",
-                  "descriptionMap": {
-                    "de": "Eine Referenz-Nummer des Versenders für die Waren"
-                  },
-                  "type": "string"
-                },
-                "volumeCubicmeter": {
-                  "title": "Volume (m³)",
-                  "titleMap": {
-                    "de": "Kubatur (m³)"
-                  },
-                  "description": "Total volume of the line",
-                  "descriptionMap": {
-                    "de": "Kubatur der gesamten Position"
-                  },
-                  "type": "number"
-                },
-                "loadingMeter": {
-                  "title": "Loading meters (m)",
-                  "titleMap": {
-                    "de": "Lademeter (m)"
-                  },
-                  "description": "Length of the area occupied on a 2.4 m wide container",
-                  "descriptionMap": {
-                    "de": "Länge der Fläche, die die Position in einem 2,4 m breiten Transportgefäß einnimmt"
-                  },
-                  "type": "number"
-                },
-                "grossWeightKilogram": {
-                  "title": "Gross weight (kg)",
-                  "titleMap": {
-                    "de": "Brutto-Gewicht (kg)"
-                  },
-                  "description": "Weight of the line including all packaging",
-                  "descriptionMap": {
-                    "de": "Gewicht der Position inkl. allen Verpackungsmaterialien"
-                  },
-                  "type": "number"
-                },
-                "areaPalletBays": {
-                  "title": "Pallet bays",
-                  "titleMap": {
-                    "de": "Stellplätze"
-                  },
-                  "description": "Area used by the line in terms of standard EUR pallet bays (120 x 80 cm)",
-                  "descriptionMap": {
-                    "de": "Fläche in Europaletten-Stellplätzen (120 x 80 cm), die durch die Position belegt wird"
-                  },
-                  "type": "number"
-                },
-                "chargeableWeightKilogram": {
-                  "title": "Chargable weight (kg)",
-                  "titleMap": {
-                    "de": "Frachtpflichtiges Gewicht (kg)"
-                  },
-                  "description": "Virtual weight of the line used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums.",
-                  "descriptionMap": {
-                    "de": "Frachtpflichtiges Gewicht der Position zu Abrechnuhszwecken. Wird genutzt, um Sperrigkeiten oder Minima in die Berechnung einfliessen zu lassen"
-                  },
-                  "type": "number"
-                },
-                "lengthMeter": {
-                  "title": "Length (m)",
-                  "titleMap": {
-                    "de": "Länge (m)"
-                  },
-                  "description": "Total length of the line",
-                  "descriptionMap": {
-                    "de": "Länge der Position"
-                  },
-                  "type": "number"
-                },
-                "widthMeter": {
-                  "title": "Width (m)",
-                  "titleMap": {
-                    "de": "Breite (m)"
-                  },
-                  "description": "Total width of the line",
-                  "descriptionMap": {
-                    "de": "Breite der Position"
-                  },
-                  "type": "number"
-                },
-                "heightMeter": {
-                  "title": "Height (m)",
-                  "titleMap": {
-                    "de": "Höhe (m)"
-                  },
-                  "description": "Total height of the line",
-                  "descriptionMap": {
-                    "de": "Höhe der Position"
-                  },
-                  "type": "number"
-                },
-                "customsInformation": {
-                  "title": "Customs information",
-                  "titleMap": {
-                    "de": "Verzollungsinformationen"
-                  },
-                  "description": "Used to specifiy information necessary in the customs process",
-                  "descriptionMap": {
-                    "de": "Informationen zur Sendung, die für die Verzollung notwendig sind"
+                    "de": "Informationen zu einem Packstück"
                   },
                   "type": "object",
                   "properties": {
-                    "goodsNo": {
+                    "code": {
+                      "title": "Bar code / SSCC",
+                      "titleMap": {
+                        "de": "Barcode / NVE / SSCC"
+                      },
+                      "description": "Id of the handling unit, usually printed as machine readable bar code on the package",
+                      "descriptionMap": {
+                        "de": "Id des Packstücks, normalerweise als maschinenlesbarer Barcode auf dem Packstück angedruckt"
+                      },
                       "type": "string"
                     },
-                    "processCode": {
+                    "masterBarcode": {
+                      "title": "Master bar code",
+                      "titleMap": {
+                        "de": "Master Barcode"
+                      },
+                      "description": "Grouping of multiple packages",
+                      "descriptionMap": {
+                        "de": "Gruppierung mehrerer Packstücke"
+                      },
                       "type": "string"
                     },
-                    "netweightKilogram": {
-                      "type": "number"
-                    },
-                    "rawWeightKilogram": {
-                      "type": "number"
-                    },
-                    "countryOfOrigin": {
+                    "batch": {
+                      "title": "Batch",
+                      "titleMap": {
+                        "de": "Charge"
+                      },
+                      "description": "Information identifying the manufacturing batch of the goods in the unit",
+                      "descriptionMap": {
+                        "de": "Information, die die Produktions-Charge der Waren in diesem Packstück angibt"
+                      },
                       "type": "string"
                     },
-                    "customsValue": {
-                      "type": "object",
-                      "properties": {
-                        "amount": {
-                          "type": "number"
-                        },
-                        "currency": {
-                          "type": "string"
-                        }
+                    "bestBefore": {
+                      "title": "Best before",
+                      "titleMap": {
+                        "de": "Mindesthaltbarkeitsdatum (MHD)"
                       },
-                      "patternProperties": {
-                        "x-.*": {},
-                        "\\$.*": {}
+                      "description": "Information about the expiry of goods",
+                      "descriptionMap": {
+                        "de": "Informationen zum Ablauf von Waren"
                       },
-                      "additionalProperties": false
-                    },
-                    "statisticalValue": {
-                      "type": "object",
-                      "properties": {
-                        "amount": {
-                          "type": "number"
-                        },
-                        "currency": {
-                          "type": "string"
-                        }
-                      },
-                      "patternProperties": {
-                        "x-.*": {},
-                        "\\$.*": {}
-                      },
-                      "additionalProperties": false
-                    },
-                    "documents": {
-                      "type": "array",
-                      "item": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string"
-                          },
-                          "number": {
-                            "type": "string"
-                          },
-                          "date": {
-                            "type": "string"
-                          }
-                        },
-                        "patternProperties": {
-                          "x-.*": {},
-                          "\\$.*": {}
-                        },
-                        "additionalProperties": false
-                      }
+                      "type": "string"
                     }
                   },
                   "patternProperties": {
@@ -2429,225 +2502,112 @@
                   },
                   "additionalProperties": false
                 },
-                "barcodes": {
-                  "title": "Bar codes / SSCC number",
-                  "titleMap": {
-                    "de": "Barcodes / NVE / SSCC"
-                  },
-                  "description": "Detailed information about the individual handling units",
-                  "descriptionMap": {
-                    "de": "Informationen zu den Packstücken einer Sendung"
-                  },
-                  "type": "array",
-                  "items": {
-                    "title": "Handling unit",
-                    "titleMap": {
-                      "de": "Packstück"
+                "patternProperties": {
+                  "x-.*": {},
+                  "\\$.*": {}
+                },
+                "additionalProperties": false
+              },
+              "dangerousGoods": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "quantity": {
+                      "type": "integer"
                     },
-                    "description": "Detailed information about the handling units",
-                    "descriptionMap": {
-                      "de": "Informationen zu einem Packstück"
+                    "grossWeightKilogram": {
+                      "type": "number"
                     },
-                    "type": "object",
-                    "properties": {
-                      "code": {
-                        "title": "Bar code / SSCC",
-                        "titleMap": {
-                          "de": "Barcode / NVE / SSCC"
-                        },
-                        "description": "Id of the handling unit, usually printed as machine readable bar code on the package",
-                        "descriptionMap": {
-                          "de": "Id des Packstücks, normalerweise als maschinenlesbarer Barcode auf dem Packstück angedruckt"
-                        },
-                        "type": "string"
+                    "unNo": {
+                      "type": "string"
+                    },
+                    "multiplier": {
+                      "type": "number"
+                    },
+                    "uniqueKey": {
+                      "type": "string"
+                    },
+                    "substanceName": {
+                      "type": "string"
+                    },
+                    "technicalNameIfNotOtherwiseSpecified": {
+                      "type": "string"
+                    },
+                    "labelMainRisk": {
+                      "type": "string"
+                    },
+                    "labelSubRisk1": {
+                      "type": "string"
+                    },
+                    "labelSubRisk2": {
+                      "type": "string"
+                    },
+                    "labelSubRisk3": {
+                      "type": "string"
+                    },
+                    "packagingDescription": {
+                      "type": "string"
+                    },
+                    "netExplosiveMassKilogram": {
+                      "type": "number"
+                    },
+                    "transportCategory": {
+                      "type": "string"
+                    },
+                    "limitedQuantity": {
+                      "type": "boolean"
+                    },
+                    "totalPointsADR": {
+                      "type": "number"
+                    },
+                    "tunnelRestriction": {
+                      "type": "string"
+                    },
+                    "packagingGroup": {
+                      "type": "string"
+                    },
+                    "classificationCode": {
+                      "type": "string"
+                    },
+                    "exemptedQuantity": {
+                      "type": "boolean"
+                    },
+                    "netWeightKilogram": {
+                      "type": "number"
+                    },
+                    "volumeLiter": {
+                      "type": "number"
+                    },
+                    "highConsequencesDangerousGoods": {
+                      "type": "boolean"
+                    },
+                    "adrRelease": {
+                      "type": "string"
+                    },
+                    "packagingClass": {
+                      "type": "string"
+                    },
+                    "references": {
+                      "type": "object",
+                      "properties": {
+                        "fireworksBamNo": {
+                          "type": "string"
+                        }
                       },
-                      "masterBarcode": {
-                        "title": "Master bar code",
-                        "titleMap": {
-                          "de": "Master Barcode"
-                        },
-                        "description": "Grouping of multiple packages",
-                        "descriptionMap": {
-                          "de": "Gruppierung mehrerer Packstücke"
-                        },
-                        "type": "string"
+                      "patternProperties": {
+                        "x-.*": {},
+                        "\\$.*": {}
                       },
-                      "batch": {
-                        "title": "Batch",
-                        "titleMap": {
-                          "de": "Charge"
-                        },
-                        "description": "Information identifying the manufacturing batch of the goods in the unit",
-                        "descriptionMap": {
-                          "de": "Information, die die Produktions-Charge der Waren in diesem Packstück angibt"
-                        },
-                        "type": "string"
-                      },
-                      "bestBefore": {
-                        "title": "Best before",
-                        "titleMap": {
-                          "de": "Mindesthaltbarkeitsdatum (MHD)"
-                        },
-                        "description": "Information about the expiry of goods",
-                        "descriptionMap": {
-                          "de": "Informationen zum Ablauf von Waren"
-                        },
-                        "type": "string"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    },
-                    "additionalProperties": false
+                      "additionalProperties": false
+                    }
                   },
                   "patternProperties": {
                     "x-.*": {},
                     "\\$.*": {}
                   },
                   "additionalProperties": false
-                },
-                "dangerousGoods": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "quantity": {
-                        "type": "integer"
-                      },
-                      "grossWeightKilogram": {
-                        "type": "number"
-                      },
-                      "unNo": {
-                        "type": "string"
-                      },
-                      "multiplier": {
-                        "type": "number"
-                      },
-                      "uniqueKey": {
-                        "type": "string"
-                      },
-                      "substanceName": {
-                        "type": "string"
-                      },
-                      "technicalNameIfNotOtherwiseSpecified": {
-                        "type": "string"
-                      },
-                      "labelMainRisk": {
-                        "type": "string"
-                      },
-                      "labelSubRisk1": {
-                        "type": "string"
-                      },
-                      "labelSubRisk2": {
-                        "type": "string"
-                      },
-                      "labelSubRisk3": {
-                        "type": "string"
-                      },
-                      "packagingDescription": {
-                        "type": "string"
-                      },
-                      "netExplosiveMassKilogram": {
-                        "type": "number"
-                      },
-                      "transportCategory": {
-                        "type": "string"
-                      },
-                      "limitedQuantity": {
-                        "type": "boolean"
-                      },
-                      "totalPointsADR": {
-                        "type": "number"
-                      },
-                      "tunnelRestriction": {
-                        "type": "string"
-                      },
-                      "packagingGroup": {
-                        "type": "string"
-                      },
-                      "classificationCode": {
-                        "type": "string"
-                      },
-                      "exemptedQuantity": {
-                        "type": "boolean"
-                      },
-                      "netWeightKilogram": {
-                        "type": "number"
-                      },
-                      "volumeLiter": {
-                        "type": "number"
-                      },
-                      "highConsequencesDangerousGoods": {
-                        "type": "boolean"
-                      },
-                      "adrRelease": {
-                        "type": "string"
-                      },
-                      "packagingClass": {
-                        "type": "string"
-                      },
-                      "references": {
-                        "type": "object",
-                        "properties": {
-                          "fireworksBamNo": {
-                            "type": "string"
-                          }
-                        },
-                        "patternProperties": {
-                          "x-.*": {},
-                          "\\$.*": {}
-                        },
-                        "additionalProperties": false
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    },
-                    "additionalProperties": false
-                  }
                 }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              },
-              "additionalProperties": false
-            }
-          },
-          "additionalLoadingEquipment": {
-            "title": "Additional loading equipment",
-            "titleMap": {
-              "de": "Zusätzliche Ladehilfsmittel"
-            },
-            "description": "Additional loading aids which are not part of the consignment but which have been added to safely transport the goods",
-            "descriptionMap": {
-              "de": "Ladehilfsmittel, die nicht Teil der Sendung sind, sondern für den sicheren Transport hinzugefügt wurden"
-            },
-            "type": "object",
-            "properties": {
-              "eurPallets": {
-                "title": "EPAL",
-                "titleMap": {
-                  "de": "Euro-Paletten"
-                },
-                "description": "EUR pallets as defined by European Pallet Association (EPAL)",
-                "descriptionMap": {
-                  "de": "Euro-Flachpaletten EUR, gemäß European Pallet Association (EPAL)"
-                },
-                "type": "number"
-              },
-              "eurBoxes": {
-                "title": "EUR box pallets",
-                "description": "EUR Box pallets as defined by European Pallet Association (EPAL)",
-                "titleMap": {
-                  "de": "EUR Gitterboxen"
-                },
-                "descriptionMap": {
-                  "de": "Gitterboxen, gemäß European Pallet Association (EPAL)"
-                },
-                "type": "number"
               }
             },
             "patternProperties": {
@@ -2657,116 +2617,156 @@
             "additionalProperties": false
           }
         },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        },
-        "additionalProperties": false
-      }
-    },
-    "patternProperties": {
-      "x-.*": {},
-      "\\$.*": {}
-    },
-    "additionalProperties": false,
-    "definitions": {
-      "nameAndAddress": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
+        "additionalLoadingEquipment": {
+          "title": "Additional loading equipment",
+          "titleMap": {
+            "de": "Zusätzliche Ladehilfsmittel"
           },
-          "additionalAddressLines": {
-            "type": "array",
-            "items": {
-              "type": "string"
+          "description": "Additional loading aids which are not part of the consignment but which have been added to safely transport the goods",
+          "descriptionMap": {
+            "de": "Ladehilfsmittel, die nicht Teil der Sendung sind, sondern für den sicheren Transport hinzugefügt wurden"
+          },
+          "type": "object",
+          "properties": {
+            "eurPallets": {
+              "title": "EPAL",
+              "titleMap": {
+                "de": "Euro-Paletten"
+              },
+              "description": "EUR pallets as defined by European Pallet Association (EPAL)",
+              "descriptionMap": {
+                "de": "Euro-Flachpaletten EUR, gemäß European Pallet Association (EPAL)"
+              },
+              "type": "number"
+            },
+            "eurBoxes": {
+              "title": "EUR box pallets",
+              "description": "EUR Box pallets as defined by European Pallet Association (EPAL)",
+              "titleMap": {
+                "de": "EUR Gitterboxen"
+              },
+              "descriptionMap": {
+                "de": "Gitterboxen, gemäß European Pallet Association (EPAL)"
+              },
+              "type": "number"
             }
           },
-          "street": {
-            "type": "string"
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
           },
-          "countryCode": {
-            "type": "string"
-          },
-          "zipCode": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "townarea": {
-            "type": "string"
-          }
+          "additionalProperties": false
         }
       },
-      "partnerIdentification": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/definitions/ediId"
-          },
-          {
-            "$ref": "#/definitions/partnerId"
-          },
-          {
-            "$ref": "#/definitions/address"
-          }
-        ]
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
       },
-      "ediId": {
-        "type": "object",
-        "properties": {
-          "ediId": {
+      "additionalProperties": false
+    }
+  },
+  "patternProperties": {
+    "x-.*": {},
+    "\\$.*": {}
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "nameAndAddress": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "type": "array",
+          "items": {
             "type": "string"
           }
         },
-        "required": [
-          "ediId"
-        ]
-      },
-      "partnerId": {
-        "type": "object",
-        "properties": {
-          "partnerId": {
-            "type": "string"
-          }
+        "street": {
+          "type": "string"
         },
-        "required": [
-          "partnerId"
-        ]
-      },
-      "address": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "additionalAddressLines": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "street": {
-            "type": "string"
-          },
-          "countryCode": {
-            "type": "string"
-          },
-          "zipCode": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "townarea": {
-            "type": "string"
-          }
+        "countryCode": {
+          "type": "string"
         },
-        "required": [
-          "name"
-        ]
+        "zipCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "townarea": {
+          "type": "string"
+        }
       }
+    },
+    "partnerIdentification": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ediId"
+        },
+        {
+          "$ref": "#/definitions/partnerId"
+        },
+        {
+          "$ref": "#/definitions/address"
+        }
+      ]
+    },
+    "ediId": {
+      "type": "object",
+      "properties": {
+        "ediId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ediId"
+      ]
+    },
+    "partnerId": {
+      "type": "object",
+      "properties": {
+        "partnerId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "partnerId"
+      ]
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "street": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "townarea": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
     }
   }
 }
