@@ -2767,6 +2767,9 @@
         },
         "townarea": {
           "type": "string"
+        },
+        "referenceNumber": {
+          "type": "string"
         }
       },
       "required": [
