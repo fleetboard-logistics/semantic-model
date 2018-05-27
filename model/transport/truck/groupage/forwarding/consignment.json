@@ -2702,6 +2702,9 @@
         },
         "townarea": {
           "type": "string"
+        },
+        "referenceNumber": {
+          "type": "string"
         }
       }
     },
@@ -2766,9 +2769,6 @@
           "type": "string"
         },
         "townarea": {
-          "type": "string"
-        },
-        "referenceNumber": {
           "type": "string"
         }
       },
