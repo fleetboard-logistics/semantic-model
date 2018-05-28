@@ -58,8 +58,7 @@
       "descriptionMap": {
         "de": "Der Versender des Datensatzes. Dies ist in der Regel der Versandpartner bzw. der beauftragende Partner. Er kann jedoch abweichen, wenn ein Dritter eine Kopie erzeugt und weiterleitet."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "packageHeader.senderMailboxId",
           "networkId": "CL",
@@ -87,8 +86,7 @@
       "descriptionMap": {
         "de": "Der Empfänger des Datensatzes. Dies ist in der Regel der Empfangspartner bzw. der beauftragte Partner. Er kann jedoch abweichen, wenn der Datensatz gezielt an ein anderes System übertragen werden soll."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "packageHeader.receiverMailboxId",
           "networkId": "CL",
@@ -193,8 +191,7 @@
       "descriptionMap": {
         "de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "A00.65-99",
           "networkId": "CL",
@@ -222,8 +219,7 @@
       "descriptionMap": {
         "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
       },
-      "examples": [
-        {
+      "examples": [{
           "ediFormat": "REL100",
           "location": "A00.100-134",
           "networkId": "CL",
@@ -429,8 +425,7 @@
               "descriptionMap": {
                 "de": "Die Zustellung ist unter der angebenen Adresse innerhalb der angegebenen Zeitfensters zu avisieren."
               },
-              "anyOf": [
-                {
+              "anyOf": [{
                   "$ref": "#/definitions/nameAndAddress"
                 },
                 {
@@ -729,6 +724,36 @@
               "description": "The consignment must be delivered on the next working day",
               "descriptionMap": {
                 "de": "Die Sendung muss am nächsten Arbeitstag zugestellt werden"
+              },
+              "type": "object",
+              "properties": {
+                "timeFrom": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "timeUntil": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              },
+              "additionalProperties": false
+            },
+            "sameDay": {
+              "title": "Same day",
+              "titleMap": {
+                "de": "Zustellung am selben Tag"
+              },
+              "description": "The consignment must be delivered on the same day",
+              "descriptionMap": {
+                "de": "Die Sendung muss am gleichen Tag zugestellt werden"
               },
               "type": "object",
               "properties": {
@@ -1688,24 +1713,20 @@
           "descriptionMap": {
             "de": "Referenz zu einem Abholauftrag aus dem diese Sendung entstanden ist"
           },
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "pickupOrderNo": {
-                  "type": "string"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              },
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "pickupOrderNo": {
+              "type": "string"
             },
-            {
+            "orderingParty": {
               "$ref": "#/definitions/partnerIdentification"
             }
-          ]
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
         },
         "deliveryNote": {
           "title": "Delivery note",
@@ -2705,13 +2726,24 @@
         },
         "referenceNumber": {
           "type": "string"
+        },
+        "contactPerson": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "faxNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
         }
       }
     },
     "partnerIdentification": {
       "type": "object",
-      "anyOf": [
-        {
+      "anyOf": [{
           "$ref": "#/definitions/ediId"
         },
         {
