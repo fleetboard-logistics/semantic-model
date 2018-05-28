@@ -2721,7 +2721,7 @@
         "city": {
           "type": "string"
         },
-        "townarea": {
+        "townArea": {
           "type": "string"
         },
         "referenceNumber": {
@@ -2805,7 +2805,7 @@
         "city": {
           "type": "string"
         },
-        "townarea": {
+        "townArea": {
           "type": "string"
         }
       },
