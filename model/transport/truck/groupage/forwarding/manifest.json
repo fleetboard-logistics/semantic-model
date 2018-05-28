@@ -33,6 +33,17 @@
             },
             "type": "string"
         },
+        "trafficType": {
+            "title": "Traffic type",
+            "titleMap": {
+                "de": "Verkehrsart"
+            },
+            "description": "Information about the way of production of that transport (i.e. by HUB, by direct transport, ...)",
+            "descriptionMap": {
+                "de": "Informationen über die Art und Weise, wie der Transport produziert wird (z.B. via HUB, per Direkt-LKW, ...)"
+            },
+            "type": "string"
+        },        
         "sender": {
             "title": "Data Origin",
             "titleMap": {
