@@ -580,7 +580,7 @@
                                 }
                             ]
                         },
-                        "archieved": {
+                        "archived": {
                             "type": "object",
                             "title": "Archieved",
                             "description": "Documents have been archieved",
