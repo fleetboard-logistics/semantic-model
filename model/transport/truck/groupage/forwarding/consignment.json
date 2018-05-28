@@ -1591,7 +1591,7 @@
       },
       "type": "object",
       "properties": {
-        "returnOfPreviousConsignent": {
+        "returnOfPreviousConsignment": {
           "title": "Return of previous consignment",
           "titleMap": {
             "de": "Rücklieferung"
