@@ -2739,7 +2739,12 @@
         "emailAddress": {
           "type": "string"
         }
-      }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      },
+      "additionalProperties": false
     },
     "partnerIdentification": {
       "type": "object",
