@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "@id": "http://conizi.io/model/transport/truck/groupage/forwarding/pickuporder-bulk.json",
+    "title": "pickup order - bulk send",
+    "titleMap": {
+        "de": "Unterschiedliche Abholaufträge"
+    },
+    "description": "Pickup orders, that can be send in bulk.",
+    "descriptionMap": {
+        "de": "Abholaufträge, die im Block geschick werden können."
+    },
+    "type": "object",
+    "properties": {
+        "pickuporders": {
+            "type":"array",
+            "items": {
+                "properties": {
+                    "pickuporder": {
+                        "$ref": "pickuporder.json"
+                    }
+                }
+            }
+        }
+    }
+}
