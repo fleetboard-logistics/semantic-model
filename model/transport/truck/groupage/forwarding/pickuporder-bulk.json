@@ -7,18 +7,14 @@
     },
     "description": "Pickup orders, that can be send in bulk.",
     "descriptionMap": {
-        "de": "Abholaufträge, die im Block geschick werden können."
+        "de": "Abholaufträge, die im Block geschickt werden können."
     },
     "type": "object",
     "properties": {
         "pickuporders": {
             "type":"array",
             "items": {
-                "properties": {
-                    "pickuporder": {
-                        "$ref": "pickuporder.json"
-                    }
-                }
+                "$ref": "pickuporder.json"
             }
         }
     }
