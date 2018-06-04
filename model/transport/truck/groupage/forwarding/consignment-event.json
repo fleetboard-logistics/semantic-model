@@ -9,6 +9,10 @@
     "descriptionMap": {
         "de": "Eine Ereignis (Status), das während der Abarbeitung einer Sendung aufgetreten ist."
     },
+    "required": [
+        "consignmentNoShippingPartner",
+        "shippingPartner"
+    ],
     "type": "object",
     "properties": {
         "consignmentNoShippingPartner": {
