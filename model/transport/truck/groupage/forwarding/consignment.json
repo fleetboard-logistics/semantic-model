@@ -1053,6 +1053,17 @@
                 "de": "Die Waren dürfen ohne Unterschrift am angegebenen Ort abgestellt werden"
               },
               "type": "boolean"
+            },
+            "forAttentionOf": {
+              "title": "For attention",
+              "titleMap": {
+                "de": "Zur Verfügung"
+              },
+              "description": "The delivery is for attention of the given company",
+              "descriptionMap": {
+                "de": "Die Zustellung erfolgt durch Verfügung der angegeben Firma / des angegebenen Verfügungsberechtigten"
+              },
+              "type": "string"
             }
           },
           "patternProperties": {
