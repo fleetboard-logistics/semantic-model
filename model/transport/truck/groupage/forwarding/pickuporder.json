@@ -439,6 +439,17 @@
                 "\\$.*": {}
               },
               "additionalProperties": false
+            },
+            "forAttentionOf": {
+              "title": "For attention",
+              "titleMap": {
+                "de": "Zur Verfügung"
+              },
+              "description": "The pickup is for attention of the given company",
+              "descriptionMap": {
+                "de": "Die Abholung erfolgt durch Verfügung der angegebenen Firma / des angegebenen Verfügungsberechtigten"
+              },
+              "type": "string"
             }
           },
           "patternProperties": {
@@ -975,6 +986,36 @@
               "description": "The consignment must be delivered in the eveneing hours",
               "descriptionMap": {
                 "de": "Die Zustellung muss abends erfolgen"
+              },
+              "type": "object",
+              "properties": {
+                "timeFrom": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "timeUntil": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              },
+              "additionalProperties": false
+            },
+            "sameDayPickup": {
+              "title": "Same day pickup",
+              "titleMap": {
+                "de": "Abholung am selben Tag"
+              },
+              "description": "The googs must be picked up on the same day",
+              "descriptionMap": {
+                "de": "Die Abholung muss am gleichen Tag erfolgen"
               },
               "type": "object",
               "properties": {
