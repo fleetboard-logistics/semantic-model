@@ -1443,7 +1443,7 @@
                         }
                     ]
                 },
-                "cancellationBySourceParner": {
+                "cancellationBySourcePartner": {
                     "titleMap": {
                         "de": "durch Versender (Kunde)"
                     },
