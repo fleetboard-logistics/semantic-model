@@ -218,17 +218,6 @@
             },
             "type": "string"
         },
-        "pickupOrderNo": {
-            "title": "Pickup order number of the contract partner",
-            "titleMap": {
-                "de": "Abholauftragsnummer des Auftraggebenenden Partners"
-            },
-            "description": "Unique identification for the pickup order within the transport management system of the contract partner",
-            "descriptionMap": {
-                "de": "Eindeutige Bezeichnung für den Abholauftrag im Transport-Management-Systen des Auftraggebenden Partners"
-            },
-            "type": "string"
-        },        
         "packageNo": {
             "title": "Package number / Barcode of the package",
             "titleMap": {
