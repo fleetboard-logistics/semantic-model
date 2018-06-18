@@ -1781,7 +1781,7 @@
 								}
 							]
 						},
-						"AbortedDueWeatherCondition": {
+						"abortedDueWeatherCondition": {
 							"type": "object",
 							"title": "Aborted due weather condition",
 							"description": "The delivery attempt was aborted, because of weather conditions",
