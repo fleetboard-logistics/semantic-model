@@ -1791,6 +1791,16 @@
 							},
 							"additionalProperties": false
 						},
+						"timeIssue": {
+							"type": "object",
+							"title": "Time Issue",
+							"description": "Not delivered - Lack of time on delivery tour",
+							"patternProperties": {
+								"x-.*": {},
+								"\\$.*": {}
+							},
+							"additionalProperties": false
+						},						
 						"rejected": {
 							"type": "object",
 							"title": "Rejected",
@@ -1843,11 +1853,6 @@
 											"location": "SG4/SG5/STS+F11/C555/Field9011"
 										}
 									]
-								},
-								"timeIssue": {
-									"type": "object",
-									"title": "Time Issue",
-									"description": "Not delivered - Lack of time on delivery tour"
 								},
 								"missingDocumentation": {
 									"type": "object",
