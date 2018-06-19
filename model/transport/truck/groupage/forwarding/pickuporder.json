@@ -654,6 +654,18 @@
               },
               "type": "object",
               "$ref": "#/definitions/nameAndAddress"
+            },
+            "byDriverBeforePickup": {
+              "title": "By driver before pickup",
+              "titleMap": {
+                "de": "Fahrer-Avis vor der Abholung"
+              },
+              "description": "The driver should call the given contact before pickup",
+              "descriptionMap": {
+                "de": "Kontakt, bei dem sich der Fahrer kurz vor der Abholung melden soll"
+              },
+              "type": "object",
+              "$ref": "#/definitions/nameAndAddress"
             }
           },
           "patternProperties": {
