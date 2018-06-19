@@ -620,6 +620,18 @@
                             "additionalProperties": false
 
                         },
+                        "plannedForDate": {
+                            "titleMap": {
+                                "de": "Abholung für folgendes Datum geplant"
+                            },
+                            "type": "object",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+
+                        },
                         "timeSlotFromConsignee": {
                             "titleMap": {
                                 "de": "anderes Zeitfenster vom Kunden erhalten"
@@ -1482,6 +1494,17 @@
                 "\\$.*": {}
             },
             "additionalProperties": false
+        },
+        "originalEventCode": {
+            "type": "string",
+            "title": "Original event code",
+            "titleMap": {
+                "de": "Original Statuscode"
+            },
+            "description": "Original event code",
+            "descriptionMap": {
+                "de": "Original Statuscode"
+            }
         }
     },
     "patternProperties": {
