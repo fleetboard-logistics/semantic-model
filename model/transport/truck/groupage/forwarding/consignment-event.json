@@ -2589,6 +2589,17 @@
 			},
 			"additionalProperties": false
 		},
+        "originalEventCode": {
+            "type": "string",
+            "title": "Original event code",
+            "titleMap": {
+                "de": "Original Statuscode"
+            },
+            "description": "Original event code",
+            "descriptionMap": {
+                "de": "Original Statuscode"
+            }
+        },		
 		"x-dummy": {}
 	},
 	"patternProperties": {
