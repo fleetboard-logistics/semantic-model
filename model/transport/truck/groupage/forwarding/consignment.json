@@ -1261,6 +1261,17 @@
               },
               "type": "boolean"
             },
+            "customsGoodsResubmissionDate": {
+              "title": "Customs Goods resubmission date",
+              "titleMap": {
+                "de": "Zollware - Widergestellungsfrist"
+              },
+              "description": "The resubmission date for the customs goods",
+              "descriptionMap": {
+                "de": "Die Widergestellungsfrist für Zollgüter"
+              },
+              "type": "string"
+            },
             "handleWithCare": {
               "title": "Handle with care",
               "titleMap": {
