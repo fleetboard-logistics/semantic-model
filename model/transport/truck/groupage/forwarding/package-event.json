@@ -20,8 +20,7 @@
             "descriptionMap": {
                 "de": "Der Versender des Datensatzes. Dies ist in der Regel der Empfangspartner."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "packageHeader.senderMailboxId",
                     "networkId": "CL",
@@ -49,8 +48,7 @@
             "descriptionMap": {
                 "de": "Der Empfänger des Datensatzes. Dies ist in der Regel der Versandpartner. Er kann jedoch abweichen, wenn der Datensatz gezielt an ein anderes System übertragen werden soll."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "packageHeader.receiverMailboxId",
                     "networkId": "CL",
@@ -129,8 +127,7 @@
             "descriptionMap": {
                 "de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "Q00.10-44",
                     "networkId": "CL",
@@ -158,8 +155,7 @@
             "descriptionMap": {
                 "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "Q00.45-79",
                     "networkId": "CL",
@@ -187,8 +183,7 @@
             "descriptionMap": {
                 "de": "Der Partner, der das Ereignis meldet."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "Q00.80-114",
                     "networkId": "CL",
@@ -244,8 +239,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -341,14 +335,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -359,14 +351,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -377,14 +367,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -395,14 +383,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -413,32 +399,44 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
                             "title": "Damaged after packaging removal",
-                            "description": "The content is damaged after the removal of the packaing.",
+                            "description": "The content is damaged after the removal of the packaging.",
                             "patternProperties": {
                                 "x-.*": {},
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -451,8 +449,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -490,8 +487,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -587,14 +583,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -605,14 +599,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -623,14 +615,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -641,14 +631,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -659,14 +647,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -677,14 +663,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -697,8 +697,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -736,8 +735,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -833,14 +831,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -851,14 +847,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -869,14 +863,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -887,14 +879,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -905,14 +895,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -923,14 +911,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -943,8 +945,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -982,8 +983,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -1079,14 +1079,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -1097,14 +1095,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -1115,14 +1111,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -1133,14 +1127,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -1151,14 +1143,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -1169,14 +1159,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -1189,8 +1193,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -1228,8 +1231,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -1325,14 +1327,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -1343,14 +1343,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -1361,14 +1359,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -1379,14 +1375,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -1397,14 +1391,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -1415,14 +1407,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -1435,8 +1441,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -1474,8 +1479,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -1571,14 +1575,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -1589,14 +1591,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -1607,14 +1607,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -1625,14 +1623,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -1643,14 +1639,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -1661,14 +1655,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -1681,8 +1689,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -1720,8 +1727,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -1817,14 +1823,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -1835,14 +1839,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -1853,14 +1855,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -1871,14 +1871,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -1889,14 +1887,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -1907,14 +1903,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -1927,8 +1937,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -1966,8 +1975,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -2063,14 +2071,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -2081,14 +2087,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -2099,14 +2103,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -2117,14 +2119,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -2135,14 +2135,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -2153,14 +2151,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -2173,8 +2185,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -2212,8 +2223,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -2309,14 +2319,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -2327,14 +2335,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -2345,14 +2351,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -2363,14 +2367,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -2381,14 +2383,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -2399,14 +2399,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -2419,8 +2433,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -2458,8 +2471,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -2555,14 +2567,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -2573,14 +2583,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -2591,14 +2599,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -2609,14 +2615,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -2627,14 +2631,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -2645,14 +2647,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -2665,8 +2681,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -2704,8 +2719,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -2801,14 +2815,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -2819,14 +2831,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -2837,14 +2847,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -2855,14 +2863,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -2873,14 +2879,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -2891,14 +2895,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -2911,8 +2929,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -2950,8 +2967,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -3047,14 +3063,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -3065,14 +3079,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -3083,14 +3095,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -3101,14 +3111,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -3119,14 +3127,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -3137,14 +3143,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -3157,8 +3177,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -3196,8 +3215,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -3293,14 +3311,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -3311,14 +3327,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -3329,14 +3343,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -3347,14 +3359,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -3365,14 +3375,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -3383,14 +3391,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -3403,8 +3425,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -3442,8 +3463,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -3539,14 +3559,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -3557,14 +3575,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -3575,14 +3591,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -3593,14 +3607,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -3611,14 +3623,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -3629,14 +3639,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -3649,8 +3673,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -3688,8 +3711,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -3785,14 +3807,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -3803,14 +3823,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -3821,14 +3839,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -3839,14 +3855,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -3857,14 +3871,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -3875,14 +3887,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -3895,8 +3921,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -3934,8 +3959,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -4031,14 +4055,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -4049,14 +4071,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -4067,14 +4087,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -4085,14 +4103,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -4103,14 +4119,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -4121,14 +4135,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -4141,8 +4169,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -4180,8 +4207,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -4277,14 +4303,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -4295,14 +4319,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -4313,14 +4335,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -4331,14 +4351,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -4349,14 +4367,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -4367,14 +4383,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -4387,8 +4417,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -4426,8 +4455,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -4523,14 +4551,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -4541,14 +4567,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -4559,14 +4583,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -4577,14 +4599,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -4595,14 +4615,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -4613,14 +4631,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -4633,8 +4665,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -4672,8 +4703,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -4769,14 +4799,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -4787,14 +4815,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -4805,14 +4831,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -4823,14 +4847,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -4841,14 +4863,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -4859,14 +4879,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -4879,8 +4913,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -4918,8 +4951,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -5015,14 +5047,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -5033,14 +5063,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -5051,14 +5079,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -5069,14 +5095,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -5087,14 +5111,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -5105,14 +5127,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -5125,8 +5161,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -5164,8 +5199,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -5261,14 +5295,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -5279,14 +5311,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -5297,14 +5327,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -5315,14 +5343,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -5333,14 +5359,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "damagedAfterPackagingRemoval": {
                             "type": "object",
@@ -5351,14 +5375,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -5371,8 +5409,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -5410,8 +5447,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -5507,14 +5543,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -5525,14 +5559,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -5543,14 +5575,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -5561,14 +5591,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -5579,14 +5607,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "rejected": {
                             "type": "object",
@@ -5597,14 +5623,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -5617,8 +5657,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -5656,8 +5695,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -5753,14 +5791,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -5771,14 +5807,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -5789,14 +5823,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -5807,14 +5839,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -5825,14 +5855,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -5845,8 +5889,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -5884,8 +5927,7 @@
                     "type": "string",
                     "title": "Event date/time",
                     "description": "Date and time when the event occured",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.112-119"
                         },
@@ -5981,14 +6023,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "09"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "09"
+                            }]
                         },
                         "pressedIn": {
                             "type": "object",
@@ -5999,14 +6039,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "02"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "02"
+                            }]
                         },
                         "open": {
                             "type": "object",
@@ -6017,14 +6055,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "03"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "03"
+                            }]
                         },
                         "wett": {
                             "type": "object",
@@ -6035,14 +6071,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "04"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "04"
+                            }]
                         },
                         "leaked": {
                             "type": "object",
@@ -6053,14 +6087,12 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "05"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "05"
+                            }]
                         },
                         "rejected": {
                             "type": "object",
@@ -6071,14 +6103,28 @@
                                 "\\$.*": {}
                             },
                             "additionalProperties": false,
-                            "examples": [
-                                {
-                                    "ediFormat": "REL100",
-                                    "location": "Q20.91-93",
-                                    "networkId": "SYA",
-                                    "value": "06"
-                                }
-                            ]
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
+                        },
+                        "shrinkWrapped": {
+                            "type": "object",
+                            "title": "Packaging is shrink-wrapped",
+                            "description": "The goods could not be checked, because packaging is shrink-wrapped",
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                            "examples": [{
+                                "ediFormat": "REL100",
+                                "location": "Q20.91-93",
+                                "networkId": "SYA",
+                                "value": "06"
+                            }]
                         }
                     },
                     "patternProperties": {
@@ -6091,8 +6137,7 @@
                     "type": "string",
                     "title": "Remarks (free form)",
                     "description": "Additional remarks",
-                    "examples": [
-                        {
+                    "examples": [{
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
                             "networkId": "CL"
@@ -6153,8 +6198,7 @@
         },
         "partnerIdentification": {
             "type": "object",
-            "anyOf": [
-                {
+            "anyOf": [{
                     "$ref": "#/definitions/ediId"
                 },
                 {
@@ -6219,5 +6263,5 @@
                 "name"
             ]
         }
-    }    
+    }
 }
