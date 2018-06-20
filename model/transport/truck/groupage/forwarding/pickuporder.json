@@ -1916,6 +1916,57 @@
             "de": "Referenz-Nummer des Systems, das zur Auftragserfassung genutzt wurde"
           },
           "type": "string"
+        },
+        "subsequentDelivery": {
+          "title": "Subsequent Delivery",
+          "titleMap": {
+            "de": "Nachlieferung zur Sendung"
+          },
+          "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
+          "descriptionMap": {
+            "de": "Nachlieferung zu unserem Bordero vom: ... (Zusatztext) (Sendungs-Nr. des Versand- und Empfangspartners sind zusätzlich zu übertragen)"
+          },
+          "type": "object",
+          "properties": {
+            "consignmentNoShippingPartner": {
+              "title": "Consignment number of the consignment for that the subsequent delivery is",
+              "titleMap": {
+                "de": "Sendungsnummer der Sendung zu der die Nachlieferung erfolgt"
+              },
+              "description": "The consignment number of the original consignment",
+              "descriptionMap": {
+                "de": "Sendungsnummer der Original-Sendung, zu der die Nachlieferung erfolgt."
+              },
+              "type": "string"
+            },
+            "shippingDate": {
+              "title": "Shipping date",
+              "titleMap": {
+                "de": "Sendungsdatum"
+              },
+              "description": "The date when the original shipment was forwarded",
+              "descriptionMap": {
+                "de": "Versanddatum der Ursprungssendung"
+              },
+              "type": "string"
+            },
+            "shippingPartner": {
+              "title": "Shipping partner",
+              "titleMap": {
+                "de": "Versandpartner"
+              },
+              "description": "The partner which originally forwarded the consignment",
+              "descriptionMap": {
+                "de": "Der VP der Ursprungs-Sendung"
+              },
+              "$ref": "#/definitions/partnerIdentification"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "additionalProperties": false
         }
       },
       "patternProperties": {
