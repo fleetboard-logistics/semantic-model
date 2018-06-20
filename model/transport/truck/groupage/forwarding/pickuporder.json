@@ -12,7 +12,7 @@
   "type": "object",
   "required": [
     "pickupOrderDate",
-	"pickupDate",
+    "pickupDate",
     "pickupOrderNo",
     "orderingPartner",
     "contractedPartner"
@@ -39,8 +39,8 @@
         "de": "Datum, an dem der Abholauftrag vom Auftraggebenden Partner zum Auftragnehmenden Partner übermittelt wurde."
       },
       "type": "string"
-	  },
-	  "pickupDate": {
+    },
+    "pickupDate": {
       "title": "Pickup date",
       "titleMap": {
         "de": "Abholdatum"
@@ -654,6 +654,18 @@
               },
               "type": "object",
               "$ref": "#/definitions/nameAndAddress"
+            },
+            "byDriverBeforePickup": {
+              "title": "By driver before pickup",
+              "titleMap": {
+                "de": "Fahrer-Avis vor der Abholung"
+              },
+              "description": "The driver should call the given contact before pickup",
+              "descriptionMap": {
+                "de": "Kontakt, bei dem sich der Fahrer kurz vor der Abholung melden soll"
+              },
+              "type": "object",
+              "$ref": "#/definitions/nameAndAddress"
             }
           },
           "patternProperties": {
@@ -1066,6 +1078,17 @@
                 "de": "Die Zustellung kann nur mit einem Hebebühnen-Fahrzeug erfolgen."
               },
               "type": "boolean"
+            },
+            "forAttentionOf": {
+              "title": "For attention",
+              "titleMap": {
+                "de": "Zur Verfügung"
+              },
+              "description": "The delivery is for attention of the given company",
+              "descriptionMap": {
+                "de": "Die Zustellung erfolgt durch Verfügung der angegeben Firma / des angegebenen Verfügungsberechtigten"
+              },
+              "type": "string"
             },
             "pointOfUseDelivery1Person": {
               "title": "Point of use delivery - 1 man handling",

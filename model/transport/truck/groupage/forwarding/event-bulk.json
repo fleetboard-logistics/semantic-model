@@ -1,45 +1,46 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "@id": "http://conizi.io/model/transport/truck/groupage/forwarding/event-bulk.json",
-    "title": "events - bulk send",
-    "titleMap": {
-        "de": "Ereignisse / Status zu unterschiedlichen Sendungen, Abholaufträgen oder Packstücken"
-    },
-    "description": "Events for different consignments, pickup orders or packages, that can be send in bulk, which occured during the processing.",
-    "descriptionMap": {
-        "de": "Ereignisse (Status) zu unterschiedlichen Sendungen, Abholaufträgen oder Packstücken, die im Block geschick werden können, die während der Abarbeitung aufgetreten sind."
-    },
-    "type": "object",
-    "properties": {
-        "consignment-events": {
-            "type":"array",
-            "items": {
-                "properties": {
-                    "event": {
-                        "$ref": "consignment-event.json"
-                    }
-                }
-            }
-        },
-        "pickuporder-events": {
-            "type":"array",
-            "items": {
-                "properties": {
-                    "event": {
-                        "$ref": "pickuporder-event.json"
-                    }
-                }
-            }
-        } ,
-        "package-events": {
-            "type":"array",
-            "items": {
-                "properties": {
-                    "event": {
-                        "$ref": "package-event.json"
-                    }
-                }
-            }
-        }        
-    }
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"@id": "http://conizi.io/model/transport/truck/groupage/forwarding/event-bulk.json",
+	"title": "events - bulk send",
+	"titleMap": {
+		"de": "Ereignisse / Status zu unterschiedlichen Sendungen, Abholaufträgen oder Packstücken"
+	},
+	"description": "Events for different consignments, pickup orders or packages, that can be send in bulk, which occured during the processing.",
+	"descriptionMap": {
+		"de": "Ereignisse (Status) zu unterschiedlichen Sendungen, Abholaufträgen oder Packstücken, die im Block geschick werden können, die während der Abarbeitung aufgetreten sind."
+	},
+	"type": "object",
+	"properties": {
+		"consignment-events": {
+			"type": "array",
+			"items": {
+				"properties": {
+					"event": {
+						"$ref": "consignment-event.json"
+					}
+				}
+			}
+		},
+		"pickuporder-events": {
+			"type": "array",
+			"items": {
+				"properties": {
+					"event": {
+						"$ref": "pickuporder-event.json"
+					}
+				}
+			}
+		},
+		"package-events": {
+			"type": "array",
+			"items": {
+				"properties": {
+					"event": {
+						"$ref": "package-event.json"
+					}
+				}
+			}
+		}
+	},
+	"additionalProperties": false
 }
