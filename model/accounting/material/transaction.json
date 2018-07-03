@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+	"@id": "http://conizi.io/model/accounting/material/transaction.json",
+	"title": "Material Accounting Transaction",
+	"titleMap": {
+		"de": "Materialbuchhaltungs-Transaktion"
+	}
+}
