@@ -14,7 +14,7 @@
         "partnerId": "4888",
         "name": "Empfangpartner AG"
     },
-    "networkId": {
+    "network": {
         "codelist": "CL",
         "networkId": "CL",
         "product": "CL"
@@ -43,7 +43,7 @@
                 "z.H. Herr Meyer",
                 "Tor 2a"
             ],
-            "townarea": "Hafen West"
+            "townArea": "Hafen West"
         },
         "consignee": {
             "name": "Max Mustermann",
