@@ -131,7 +131,7 @@
       ],
       "$ref": "#/definitions/partnerIdentification"
     },
-    "networkId": {
+    "network": {
       "title": "Network",
       "titleMap": {
         "de": "Netzwerk"

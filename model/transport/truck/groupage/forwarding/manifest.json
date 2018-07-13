@@ -43,7 +43,7 @@
                 "de": "Informationen über die Art und Weise, wie der Transport produziert wird (z.B. via HUB, per Direkt-LKW, ...)"
             },
             "type": "string"
-        },        
+        },
         "sender": {
             "title": "Data Origin",
             "titleMap": {
@@ -53,8 +53,7 @@
             "descriptionMap": {
                 "de": "Der Versender des Datensatzes. Dies ist in der Regel der Versandpartner bzw. der beauftragende Partner. Er kann jedoch abweichen, wenn ein Dritter eine Kopie erzeugt und weiterleitet."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "packageHeader.senderMailboxId",
                     "networkId": "CL",
@@ -82,8 +81,7 @@
             "descriptionMap": {
                 "de": "Der Empfänger des Datensatzes. Dies ist in der Regel der Empfangspartner bzw. der beauftragte Partner. Er kann jedoch abweichen, wenn der Datensatz gezielt an ein anderes System übertragen werden soll."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "packageHeader.receiverMailboxId",
                     "networkId": "CL",
@@ -114,40 +112,39 @@
             "type": "object",
             "properties": {
                 "networkId": {
-                    "networkId": {
-                        "title": "Name of the network",
-                        "titleMap": {
-                            "de": "Name des Netzwerks"
-                        },
-                        "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network.",
-                        "descriptionMap": {
-                            "de": "Der Name des Netzwerk. Dieser ist in der Regel identisch mit der Code-Liste. Da die Code-Liste des Netzwerks jedoch auch für bilaterale Vereinbarungen genutzt werden kann, kann das Netzwerk als solches unabhängig angegeben werden"
-                        },
-                        "type": "string"
+                    "title": "Name of the network",
+                    "titleMap": {
+                        "de": "Name des Netzwerks"
                     },
-                    "codelist": {
-                        "title": "Name of the code list used",
-                        "titleMap": {
-                            "de": "Name der Codeliste"
-                        },
-                        "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-                        "descriptionMap": {
-                            "de": "Der Name der verwendeten Code-Liste, die angibt, wie ein empfangendes System die Werte zu interpretieren hat"
-                        },
-                        "type": "string"
+                    "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network.",
+                    "descriptionMap": {
+                        "de": "Der Name des Netzwerk. Dieser ist in der Regel identisch mit der Code-Liste. Da die Code-Liste des Netzwerks jedoch auch für bilaterale Vereinbarungen genutzt werden kann, kann das Netzwerk als solches unabhängig angegeben werden"
                     },
-                    "product": {
-                        "title": "Name of the product",
-                        "titleMap": {
-                            "de": "Name des Produkts"
-                        },
-                        "description": "The product allows to distingish different processes within one network, effectively sub classing the network.",
-                        "descriptionMap": {
-                            "de": "Das Produkt erlaubt verschiedene Prozesse innerhalb eines Netzwerks weiter zu unterscheiden und ermöglicht somit eine Unterteilung des Netzwerks in verschiedene Bereiche."
-                        },
-                        "type": "string"
-                    }
+                    "type": "string"
                 },
+                "codelist": {
+                    "title": "Name of the code list used",
+                    "titleMap": {
+                        "de": "Name der Codeliste"
+                    },
+                    "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+                    "descriptionMap": {
+                        "de": "Der Name der verwendeten Code-Liste, die angibt, wie ein empfangendes System die Werte zu interpretieren hat"
+                    },
+                    "type": "string"
+                },
+                "product": {
+                    "title": "Name of the product",
+                    "titleMap": {
+                        "de": "Name des Produkts"
+                    },
+                    "description": "The product allows to distingish different processes within one network, effectively sub classing the network.",
+                    "descriptionMap": {
+                        "de": "Das Produkt erlaubt verschiedene Prozesse innerhalb eines Netzwerks weiter zu unterscheiden und ermöglicht somit eine Unterteilung des Netzwerks in verschiedene Bereiche."
+                    },
+                    "type": "string"
+                },
+
                 "patternProperties": {
                     "x-.*": {},
                     "\\$.*": {}
@@ -178,8 +175,7 @@
             "descriptionMap": {
                 "de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "A00.65-99",
                     "networkId": "CL",
@@ -207,8 +203,7 @@
             "descriptionMap": {
                 "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
             },
-            "examples": [
-                {
+            "examples": [{
                     "ediFormat": "REL100",
                     "location": "A00.100-134",
                     "networkId": "CL",
@@ -337,43 +332,43 @@
         "additionalLoadingEquipment": {
             "title": "Additional loading equipment",
             "titleMap": {
-              "de": "Zusätzliche Ladehilfsmittel"
+                "de": "Zusätzliche Ladehilfsmittel"
             },
             "description": "Additional loading equipment used to securely load the goods into for the passage",
             "descriptionMap": {
-              "de": "Zusätzliche Ladehilsmittel, die zur Ladungssicherung eingesetzt wurden"
+                "de": "Zusätzliche Ladehilsmittel, die zur Ladungssicherung eingesetzt wurden"
             },
             "type": "object",
             "properties": {
-              "eurPallets": {
-                "title": "EPAL",
-                "titleMap": {
-                  "de": "Euro-Paletten"
+                "eurPallets": {
+                    "title": "EPAL",
+                    "titleMap": {
+                        "de": "Euro-Paletten"
+                    },
+                    "description": "EUR pallets as defined by European Pallet Association (EPAL)",
+                    "descriptionMap": {
+                        "de": "Euro-Flachpaletten EUR, gemäß European Pallet Association (EPAL)"
+                    },
+                    "type": "number"
                 },
-                "description": "EUR pallets as defined by European Pallet Association (EPAL)",
-                "descriptionMap": {
-                  "de": "Euro-Flachpaletten EUR, gemäß European Pallet Association (EPAL)"
-                },
-                "type": "number"
-              },
-              "eurBoxes": {
-                "title": "EUR box pallets",
-                "description": "EUR Box pallets as defined by European Pallet Association (EPAL)",
-                "titleMap": {
-                  "de": "EUR Gitterboxen"
-                },
-                "descriptionMap": {
-                  "de": "Gitterboxen, gemäß European Pallet Association (EPAL)"
-                },
-                "type": "number"
-              }
+                "eurBoxes": {
+                    "title": "EUR box pallets",
+                    "description": "EUR Box pallets as defined by European Pallet Association (EPAL)",
+                    "titleMap": {
+                        "de": "EUR Gitterboxen"
+                    },
+                    "descriptionMap": {
+                        "de": "Gitterboxen, gemäß European Pallet Association (EPAL)"
+                    },
+                    "type": "number"
+                }
             },
             "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
+                "x-.*": {},
+                "\\$.*": {}
             },
             "additionalProperties": false
-          },
+        },
         "lines": {
             "titleMap": {
                 "en": "Lines of the manifest",
@@ -438,8 +433,7 @@
         },
         "partnerIdentification": {
             "type": "object",
-            "anyOf": [
-                {
+            "anyOf": [{
                     "$ref": "#/definitions/ediId"
                 },
                 {
