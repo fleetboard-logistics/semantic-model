@@ -22,6 +22,17 @@
             },
             "type": "string"
         },
+        "manifestType": {
+            "title": "Manifest type",
+            "titleMap": {
+                "de": "Bordero-Typ"
+            },
+            "description": "Type of the manifest (STD, INF, AVI)",
+            "descriptionMap": {
+                "de": "Datenart des Borderos"
+            },
+            "type": "string"
+        },
         "shippingDate": {
             "title": "Manifest date",
             "titleMap": {
