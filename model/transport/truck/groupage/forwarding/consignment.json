@@ -1294,6 +1294,17 @@
               },
               "type": "boolean"
             },
+            "emptiesExchange": {
+              "title": "Empties exchange required",
+              "titleMap": {
+                "de": "Ladmittelausch"
+              },
+              "description": "Specifies whether empties should be exchanged with the consignee",
+              "descriptionMap": {
+                "de": "Sollen tauschpflichtige Lademittel beim Empfänger getauscht werden"
+              },
+              "type": "boolean"
+            },
             "orientation": {
               "title": "Orientation",
               "titleMap": {
