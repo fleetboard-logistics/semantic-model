@@ -154,14 +154,14 @@
             "type": "object",
             "$ref": "#/definitions/nameAndAddress"
         },
-        "contractedPartner": {
-            "title": "Contracted partner",
+        "orderingPartner": {
+            "title": "Ordering partner",
             "titleMap": {
-                "de": "Beauftragter Partner"
+                "de": "Auftraggebender Partner"
             },
-            "description": "The partner which is contracted for processing the pickup order.",
+            "description": "The partner which is sending the pickup order to the contracted partner for pickup.",
             "descriptionMap": {
-                "de": "Der Partner, der beauftragt ist die Abholung durchzuführen."
+                "de": "Der Partner, der die Sendung an den Auftragnehmenden Partner zur Abholung sendet."
             },
             "examples": [
                 {
@@ -179,6 +179,35 @@
                 {
                     "ediFormat": "EDIFACT",
                     "location": "SG1/NAD+CS/Field3035"
+                }
+            ],
+            "$ref": "#/definitions/partnerIdentification"
+        },        
+        "contractedPartner": {
+            "title": "Contracted partner",
+            "titleMap": {
+                "de": "Beauftragter Partner"
+            },
+            "description": "The partner which is contracted for processing the pickup order.",
+            "descriptionMap": {
+                "de": "Der Partner, der beauftragt ist die Abholung durchzuführen."
+            },
+            "examples": [
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.45-79",
+                    "networkId": "CL",
+                    "value": "4974"
+                },
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.45-79",
+                    "networkId": "SYA",
+                    "value": "3100"
+                },
+                {
+                    "ediFormat": "EDIFACT",
+                    "location": "SG1/NAD+CZ/Field3035"
                 }
             ],
             "$ref": "#/definitions/partnerIdentification"
