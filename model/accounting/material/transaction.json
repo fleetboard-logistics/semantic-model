@@ -1,0 +1,75 @@
+{
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"@id": "http://conizi.io/model/accounting/material/transaction.json",
+	"title": "Material Accounting Transaction",
+	"titleMap": {
+		"de": "Materialbuchhaltungs-Transaktion"
+	},
+	"required": [
+		"id",
+		"item",
+		"amount",
+		"sourceAccount",
+		"destinationAccount",
+		"bookingDate"
+	],
+	"type": "object",
+	"properties": {
+		"id": {
+			"title": "Unique booking id",
+			"titleMap": {
+				"de": "Buchungs Id"
+			},
+			"type": "string"
+		},
+		"item": {
+			"title": "Booking item",
+			"titleMap": {
+				"de": "Buchungsobjekt"
+			},
+			"type": "string"
+		},
+		"sourceAccount": {
+			"title": "Source Account",
+			"titleMap": {
+				"de": "Ursprungskonto"
+			},
+			"type": "string"
+		},
+		"destinationAccount": {
+			"title": "Destination Account",
+			"titleMap": {
+				"de": "Zielkonto"
+			},
+			"type": "string"
+		},
+		"comment": {
+			"title": "Comment Booking",
+			"titleMap": {
+				"de": "Kommentar zur Buchung"
+			},
+			"type": "string"
+		},
+		"amount": {
+			"title": "Amount",
+			"titleMap": {
+				"de": "Menge"
+			},
+			"type": "number"
+		},
+		"bookingDate": {
+			"title": "Booking Date",
+			"titleMap": {
+				"de": "Bucnungsdatum"
+			},
+			"type": "string"
+		},
+		"referenceNumber": {
+			"title": "Referencenumber",
+			"titleMap": {
+				"de": "Referenznummer"
+			},
+			"type": "string"
+		}
+	}
+}

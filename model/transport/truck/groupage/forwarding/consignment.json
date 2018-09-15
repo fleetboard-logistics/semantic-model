@@ -105,7 +105,7 @@
       ],
       "$ref": "#/definitions/partnerIdentification"
     },
-    "networkId": {
+    "network": {
       "title": "Network",
       "titleMap": {
         "de": "Netzwerk"
@@ -1010,6 +1010,17 @@
               },
               "type": "boolean"
             },
+            "returnOriginalDeliveryNote": {
+              "title": "Original delivery note must be returned as paper",
+              "titleMap": {
+                "de": "Original-Lieferschein muss zurückgesendet werden"
+              },
+              "description": "Original delivery note must be returned with the signature of the recipient to the shipping partner as paper (i.e. not in electronic form).",
+              "descriptionMap": {
+                "de": "Der unterschriebene Original-Lieferschein muss in Papierform zurück gesendet werden"
+              },
+              "type": "boolean"
+            },
             "digitalDeliveryNote": {
               "title": "Digital delivery note",
               "titleMap": {
@@ -1280,6 +1291,17 @@
               "description": "The goods must be handeled with care to prevent damage",
               "descriptionMap": {
                 "de": "Die Ware muss vorsichtig behandelt werden, um Schäden zu vermeiden"
+              },
+              "type": "boolean"
+            },
+            "emptiesExchange": {
+              "title": "Empties exchange required",
+              "titleMap": {
+                "de": "Ladmittelausch"
+              },
+              "description": "Specifies whether empties should be exchanged with the consignee",
+              "descriptionMap": {
+                "de": "Sollen tauschpflichtige Lademittel beim Empfänger getauscht werden"
               },
               "type": "boolean"
             },
@@ -1903,7 +1925,7 @@
       },
       "type": "object",
       "properties": {
-        "declaringPary": {
+        "declaringParty": {
           "type": "object",
           "$ref": "#/definitions/nameAndAddress"
         },

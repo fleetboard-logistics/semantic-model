@@ -104,7 +104,7 @@
 			],
 			"$ref": "#/definitions/partnerIdentification"
 		},
-		"networkId": {
+		"network": {
 			"title": "Network",
 			"titleMap": {
 				"de": "Netzwerk"
@@ -824,7 +824,7 @@
 			},
 			"additionalProperties": false
 		},
-		"crossDock": {
+		"gateway": {
 			"type": "object",
 			"title": "Cross dock",
 			"titleMap": {
@@ -848,6 +848,16 @@
 							"location": "SG4/SG5/DTM+334/C507/Field2380"
 						}
 					]
+				},
+				"loaded" : {
+					"type":"boolean",
+					"title": "The consignment has been loaded",
+					"description": "The consignment has been loaded onto the truck leaving the gateway"
+				},
+				"unloaded" : {
+					"type":"boolean",
+					"title": "The consignment has been unloaded",
+					"description": "The consignment has been unloaded from the truck delivering the consignment to the gateway"
 				},
 				"exceptions": {
 					"type": "object",
