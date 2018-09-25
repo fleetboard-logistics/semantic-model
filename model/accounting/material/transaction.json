@@ -15,6 +15,28 @@
 	],
 	"type": "object",
 	"properties": {
+        "sender": {
+          "title": "Data Origin",
+          "titleMap": {
+            "de": "Daten-Quelle"
+          },
+          "description": "The sender of the current record.",
+          "descriptionMap": {
+            "de": "Der Versender des Datensatzes."
+          },
+          "$ref": "#/definitions/partnerIdentification"
+        },
+        "receiver": {
+          "title": "Data Recipient",
+          "titleMap": {
+            "de": "Daten-Empfänger"
+          },
+          "description": "The intended recipient of the the current record.",
+          "descriptionMap": {
+            "de": "Der Empfänger des Datensatzes."
+          },
+          "$ref": "#/definitions/partnerIdentification"
+        },
 		"id": {
 			"title": "Unique booking id",
 			"titleMap": {
@@ -71,5 +93,79 @@
 			},
 			"type": "string"
 		}
-	}
+	},
+    "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+    },
+    "additionalProperties": false,
+    "definitions": {
+    "partnerIdentification": {
+      "type": "object",
+      "anyOf": [{
+          "$ref": "#/definitions/ediId"
+        },
+        {
+          "$ref": "#/definitions/partnerId"
+        },
+        {
+          "$ref": "#/definitions/address"
+        }
+      ]
+    },
+    "ediId": {
+      "type": "object",
+      "properties": {
+        "ediId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ediId"
+      ]
+    },
+    "partnerId": {
+      "type": "object",
+      "properties": {
+        "partnerId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "partnerId"
+      ]
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "street": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "townArea": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  }
 }
