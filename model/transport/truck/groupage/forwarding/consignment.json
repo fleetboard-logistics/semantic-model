@@ -49,6 +49,17 @@
       },
       "type": "string"
     },
+    "manifestId": {
+      "title": "Manifest id of the shipping partner",
+      "titleMap": {
+        "de": "Borderonummer des Versandpartners"
+      },
+      "description": "Unique identification for the manifest on which the shipment was loaded in the transport management system of the shipping partner.",
+      "descriptionMap": {
+        "de": "Eindeutige Bezeichnung für das Bordero, auf dem die Sendung im Transport-Management-Systen des Versandpartners verladen wurde."
+      },
+      "type": "string"
+    },    
     "sender": {
       "title": "Data Origin",
       "titleMap": {
