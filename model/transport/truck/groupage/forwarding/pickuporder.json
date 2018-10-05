@@ -2155,7 +2155,7 @@
         },
         "documents": {
           "type": "array",
-          "item": {
+          "items": {
             "type": "object",
             "properties": {
               "type": {
@@ -2614,7 +2614,7 @@
                   },
                   "documents": {
                     "type": "array",
-                    "item": {
+                    "items": {
                       "type": "object",
                       "properties": {
                         "type": {
