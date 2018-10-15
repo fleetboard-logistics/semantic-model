@@ -154,14 +154,14 @@
                         "de": "Das Produkt erlaubt verschiedene Prozesse innerhalb eines Netzwerks weiter zu unterscheiden und ermöglicht somit eine Unterteilung des Netzwerks in verschiedene Bereiche."
                     },
                     "type": "string"
-                },
+                }
 
-                "patternProperties": {
-                    "x-.*": {},
-                    "\\$.*": {}
-                },
-                "additionalProperties": false
-            }
+            },
+			"patternProperties": {
+				"x-.*": {},
+				"\\$.*": {}
+			},
+			"additionalProperties": false
         },
         "additionalPartners": {
             "title": "Additional partners",
