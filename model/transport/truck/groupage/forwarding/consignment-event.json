@@ -1615,6 +1615,11 @@
 						}
 					]
 				},
+				"tourNumber": {
+					"type": "string",
+					"title": "Tour number",
+					"description": "Number of the planned / assigned local traffic tour for delivery"
+				},
 				"exceptions": {
 					"type": "object",
 					"title": "Exceptions",
