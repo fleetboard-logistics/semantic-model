@@ -2066,7 +2066,7 @@
       },
       "type": "object",
       "properties": {
-        "declaringPary": {
+        "declaringParty": {
           "type": "object",
           "$ref": "#/definitions/nameAndAddress"
         },
