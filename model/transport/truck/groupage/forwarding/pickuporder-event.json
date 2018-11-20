@@ -426,11 +426,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -582,11 +577,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -734,11 +724,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -792,11 +777,6 @@
                         {
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
-                            "networkId": "CL"
-                        },
-                        {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
                             "networkId": "CL"
                         },
                         {
@@ -856,11 +836,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -917,11 +892,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -975,11 +945,6 @@
                         {
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
-                            "networkId": "CL"
-                        },
-                        {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
                             "networkId": "CL"
                         },
                         {
@@ -1187,11 +1152,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -1272,11 +1232,6 @@
                         {
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
-                            "networkId": "CL"
-                        },
-                        {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
                             "networkId": "CL"
                         },
                         {
@@ -1363,11 +1318,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -1426,11 +1376,6 @@
                         {
                             "ediFormat": "REL100",
                             "location": "Q10.198-267",
-                            "networkId": "CL"
-                        },
-                        {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
                             "networkId": "CL"
                         },
                         {
@@ -1507,11 +1452,6 @@
                             "networkId": "CL"
                         },
                         {
-                            "ediFormat": "REL100",
-                            "location": "Q11.73-213",
-                            "networkId": "CL"
-                        },
-                        {
                             "ediFormat": "EDIFACT",
                             "location": "SG4/SG5/FTX/C108/Field4440"
                         }
@@ -1534,7 +1474,23 @@
             "descriptionMap": {
                 "de": "Original Statuscode"
             }
-        }
+        },
+		"additoinalRemarks": {
+			"type": "string",
+			"title": "Additional remarks (free form)",
+			"description": "Additional remarks",
+			"examples": [
+				{
+					"ediFormat": "REL100",
+					"location": "Q11.73-213",
+					"networkId": "CL"
+				},
+				{
+					"ediFormat": "EDIFACT",
+					"location": "SG4/SG5/FTX/C108/Field4440"
+				}
+			]
+		}
     },
     "patternProperties": {
         "x-.*": {},
