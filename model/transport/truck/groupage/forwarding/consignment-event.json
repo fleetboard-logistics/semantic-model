@@ -2576,8 +2576,7 @@
                 "de": "Original Statuscode"
             }
         },		
-		"additoinalRemarks": {
-			"type": "string",
+		"additionalRemarks": {
 			"title": "Additional remarks (free form)",
 			"description": "Additional remarks",
 			"examples": [
@@ -2590,7 +2589,11 @@
 					"ediFormat": "EDIFACT",
 					"location": "SG4/SG5/FTX/C108/Field4440"
 				}
-			]
+			],
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		},
 		"x-dummy": {}
 	},
