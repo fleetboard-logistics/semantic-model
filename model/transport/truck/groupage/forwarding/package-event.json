@@ -437,6 +437,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -685,6 +750,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -933,6 +1063,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -1181,6 +1376,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -1429,6 +1689,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -1677,6 +2002,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -1925,6 +2315,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -2173,6 +2628,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -2421,6 +2941,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -2669,6 +3254,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -2917,6 +3567,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -3165,6 +3880,97 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "oversized": {
+                            "type": "object",
+                            "title": "Oversized",
+							"description": "Oversized",
+							"descriptionMap": {
+								"de": "Übergröße"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "specialRun": {
+                            "type": "object",
+                            "title": "Special run",
+							"description": "Special run",
+							"descriptionMap": {
+								"de": "Sonderfahrt"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -3413,6 +4219,97 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "oversized": {
+                            "type": "object",
+                            "title": "Oversized",
+							"description": "Oversized",
+							"descriptionMap": {
+								"de": "Übergröße"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "specialRun": {
+                            "type": "object",
+                            "title": "Special run",
+							"description": "Special run",
+							"descriptionMap": {
+								"de": "Sonderfahrt"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -3661,6 +4558,97 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "oversized": {
+                            "type": "object",
+                            "title": "Oversized",
+							"description": "Oversized",
+							"descriptionMap": {
+								"de": "Übergröße"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "specialRun": {
+                            "type": "object",
+                            "title": "Special run",
+							"description": "Special run",
+							"descriptionMap": {
+								"de": "Sonderfahrt"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -3909,6 +4897,97 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "oversized": {
+                            "type": "object",
+                            "title": "Oversized",
+							"description": "Oversized",
+							"descriptionMap": {
+								"de": "Übergröße"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "specialRun": {
+                            "type": "object",
+                            "title": "Special run",
+							"description": "Special run",
+							"descriptionMap": {
+								"de": "Sonderfahrt"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -4157,6 +5236,97 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "oversized": {
+                            "type": "object",
+                            "title": "Oversized",
+							"description": "Oversized",
+							"descriptionMap": {
+								"de": "Übergröße"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "specialRun": {
+                            "type": "object",
+                            "title": "Special run",
+							"description": "Special run",
+							"descriptionMap": {
+								"de": "Sonderfahrt"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -4405,6 +5575,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -4653,6 +5888,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -4901,6 +6201,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -5149,6 +6514,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -5397,6 +6827,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -5645,6 +7140,84 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "wrongAddress": {
+                            "type": "object",
+                            "title": "Wrong address",
+							"description": "Wrong address",
+							"descriptionMap": {
+								"de": "Falsche Adresse"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false,
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -5680,7 +7253,7 @@
             },
             "additionalProperties": false
         },
-        "unloadingAfterDeliveryAttemp": {
+        "unloadingAfterDeliveryAttempt": {
             "type": "object",
             "title": "Unloading by the receiving partner after a delivery attemp",
             "titleMap": {
@@ -5877,6 +7450,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
@@ -6125,6 +7763,71 @@
                                 "networkId": "SYA",
                                 "value": "06"
                             }]
+                        },
+                        "damagedEmptiesContentOk": {
+                            "type": "object",
+                            "title": "Empties damaged content OK",
+							"description": "Empties damaged content OK",
+							"descriptionMap": {
+								"de": "Lademittel defect Packstück in Ordnung"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "spaceIssue": {
+                            "type": "object",
+                            "title": "Space issue",
+							"description": "Space issue",
+							"descriptionMap": {
+								"de": "Platzmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "timeIssue": {
+                            "type": "object",
+                            "title": "Time issue",
+							"description": "Time issue",
+							"descriptionMap": {
+								"de": "Zeitmangel"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "routingError": {
+                            "type": "object",
+                            "title": "Routing error",
+							"description": "Routing error",
+							"descriptionMap": {
+								"de": "Routerfehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
+                        },
+                        "loadingError": {
+                            "type": "object",
+                            "title": "Loading errors",
+							"description": "Loading errors",
+							"descriptionMap": {
+								"de": "Verladefehler"
+							},
+                            "patternProperties": {
+                                "x-.*": {},
+                                "\\$.*": {}
+                            },
+                            "additionalProperties": false
                         }
                     },
                     "patternProperties": {
