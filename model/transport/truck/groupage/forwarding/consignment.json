@@ -2820,7 +2820,7 @@
     "coniziId": {
       "type": "object",
       "properties": {
-        "ediId": {
+        "coniziId": {
           "type": "string"
         }
       },
