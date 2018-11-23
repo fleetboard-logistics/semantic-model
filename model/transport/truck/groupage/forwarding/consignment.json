@@ -2811,7 +2811,21 @@
         },
         {
           "$ref": "#/definitions/address"
+        },
+        {
+          "$ref": "#/definitions/coniziId"
         }
+      ]
+    },
+    "coniziId": {
+      "type": "object",
+      "properties": {
+        "coniziId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coniziId"
       ]
     },
     "ediId": {
