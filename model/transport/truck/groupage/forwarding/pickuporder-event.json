@@ -848,6 +848,62 @@
             },
             "additionalProperties": false
         },
+        "pickupFinishedAtShipper": {
+            "title": "Pickup Finished At Shipper",
+            "titleMap": {
+                "de": "Abholgen bei Versender durchgeführt"
+            },
+            "type": "object",
+            "properties": {
+                "eventDateTime": {
+                    "type": "string",
+                    "title": "Event date/time",
+                    "description": "Date and time when the event occured",
+                    "examples": [
+                        {
+                            "ediFormat": "REL100",
+                            "location": "Q10.112-119"
+                        },
+                        {
+                            "ediFormat": "EDIFACT",
+                            "location": "SG4/SG5/DTM+334/C507/Field2380"
+                        }
+                    ]
+                },
+                "exceptions": {
+                    "type": "object",
+                    "title": "Exceptions",
+                    "description": "Detailed information about the exceptions that occured while the pickup finished at shipper. Use (null) to report successful arrival.",
+                    "properties": {},
+                    "patternProperties": {
+                        "x-.*": {},
+                        "\\$.*": {}
+                    },
+                    "additionalProperties": false
+                },
+                "remarks": {
+                    "type": "string",
+                    "title": "Remarks (free form)",
+                    "description": "Additional remarks",
+                    "examples": [
+                        {
+                            "ediFormat": "REL100",
+                            "location": "Q10.198-267",
+                            "networkId": "CL"
+                        },
+                        {
+                            "ediFormat": "EDIFACT",
+                            "location": "SG4/SG5/FTX/C108/Field4440"
+                        }
+                    ]
+                }
+            },
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            },
+            "additionalProperties": false
+        },
         "pickupLoadingStarted": {
             "title": "Pickup loading started",
             "titleMap": {
