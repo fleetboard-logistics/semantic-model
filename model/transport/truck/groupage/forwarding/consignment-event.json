@@ -780,19 +780,6 @@
 							},
 							"additionalProperties": false
 						},
-						"partlyMissingNoDamage": {
-							"type": "object",
-							"title": "Unloading - not complete, no damage",
-							"description": "Unloading - not complete, no damage",
-							"descriptionMap": {
-								"de": "Sendung nicht komplett ohne Beschädigung."
-							},
-							"patternProperties": {
-								"x-.*": {},
-								"\\$.*": {}
-							},
-							"additionalProperties": false
-						},
 						"partlyMissingDamaged": {
 							"type": "object",
 							"title": "Unloading - not complete, damaged",
