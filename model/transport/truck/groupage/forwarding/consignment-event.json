@@ -779,6 +779,19 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false
+						},
+						"partlyMissingDamaged": {
+							"type": "object",
+							"title": "Unloading - not complete, damaged",
+							"description": "Unloading - not complete, damaged",
+							"descriptionMap": {
+								"de": "Entladung - Ware nicht komplett, beschädigt."
+							},
+							"patternProperties": {
+								"x-.*": {},
+								"\\$.*": {}
+							},
+							"additionalProperties": false
 						}
 					},
 					"patternProperties": {
