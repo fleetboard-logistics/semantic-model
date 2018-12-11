@@ -16,6 +16,17 @@
     "receivingPartner"
   ],
   "properties": {
+    "consignmentObjectId": {
+      "title": "Unique central consignment number",
+      "titleMap": {
+        "de": "Eindeutige zentrale Sendungsnummer"
+      },
+      "description": "Unique identification for the consignment in a central system",
+      "descriptionMap": {
+        "de": "Eindeutige Bezeichnung für die Sendung in einem Zentralsystem"
+      },
+      "type": "string"
+    },    
     "consignmentNoShippingPartner": {
       "title": "Consignment number of the shipping partner",
       "titleMap": {
