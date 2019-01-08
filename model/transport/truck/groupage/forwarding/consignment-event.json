@@ -1707,6 +1707,49 @@
 			},
 			"additionalProperties": false
 		},
+		"estimatedArrivalAtReceiver": {
+			"type": "object",
+			"title": "Estimated time of arrival at receiver",
+			"titleMap": {
+				"de": "Geschätzte Ankunftszeit beim Empfänger"
+			},
+			"description": "Events occured regarding the estimated time of arrival at receiver.",
+			"descriptionMap": {
+				"de": "Ereignisse bezüglich der geschätzen Ankunftszeit beim Empfänger"
+			},
+			"properties": {
+				"eventDateTime": {
+					"type": "string",
+					"title": "Event date/time",
+					"description": "Date and time when the event occured"
+				},
+				"estimatedArrivalTime": {
+					"type": "string",
+					"title": "Estimated arrival date/time",
+					"description": "Date and time of the estimated arrival"
+				},
+				"remarks": {
+					"type": "string",
+					"title": "Remarks (free form)",
+					"description": "Additional remarks",
+					"examples": [{
+							"ediFormat": "REL100",
+							"location": "Q10.198-267",
+							"networkId": "CL"
+						},
+						{
+							"ediFormat": "EDIFACT",
+							"location": "SG4/SG5/FTX/C108/Field4440"
+						}
+					]
+				}
+			},
+			"patternProperties": {
+				"x-.*": {},
+				"\\$.*": {}
+			},
+			"additionalProperties": false
+		},
 		"deliveryAttemptFailed": {
 			"type": "object",
 			"title": "Delivery attempt failed",
