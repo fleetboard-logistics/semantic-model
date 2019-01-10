@@ -178,6 +178,17 @@
       },
       "additionalProperties": false
     },
+    "isPreAdvice": {
+      "title": "isPreAdvice",
+      "titleMap": {
+        "de": "vorab Versenden"
+      },
+      "description": "adds the possibility of sending the consignment (after saving, before approval) to an e.g. a TMS",
+      "descriptionMap": {
+         "de": "bietet die Möglichkeit ob ein Auftrag nach dem Speichern, aber vor dem Freigeben an z.B. ein entsprechendes TMS gesendet werden soll"
+      },
+      "type": "boolean"
+    },
     "additionalPartners": {
       "title": "Additional partners",
       "titleMap": {
