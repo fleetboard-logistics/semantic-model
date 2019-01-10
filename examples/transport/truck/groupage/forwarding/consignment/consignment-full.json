@@ -19,6 +19,7 @@
         "networkId": "CL",
         "product": "CL"
     },
+    "isPreAdvice": false,
     "shippingDate": "2018-05-02",
     "consignmentNoShippingPartner": "4711",
     "references": {
