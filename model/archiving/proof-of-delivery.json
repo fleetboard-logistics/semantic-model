@@ -5,15 +5,6 @@
     "titleMap": {
         "de": "Ablieferbeleg"
     },
-    "required": [
-        "sender",
-        "receiver",
-        "shipper",
-        "consignee",
-        "id",
-        "refNo",
-        "content"
-    ],
     "type": "object",
     "properties": {
         "sender": {
@@ -48,7 +39,19 @@
                 "de": "Die Adresse des Warenversenders. In der Regel der Ort, an dem der Transport der Sendung beginnt."
             },
             "type": "object",
-            "$ref": "#/definitions/nameAndAddress"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/address"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "signature": {
+                            "$ref": "#/definitions/file"
+                        }
+                    }
+                }
+            ]
         },
         "consignee": {
             "title": "Consignee",
@@ -60,7 +63,19 @@
                 "de": "Die Adresse des Warenempfängers."
             },
             "type": "object",
-            "$ref": "#/definitions/nameAndAddress"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/address"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "signature": {
+                            "$ref": "#/definitions/file"
+                        }
+                    }
+                }
+            ]
         },
         "carrier": {
             "title": "Carrier",
@@ -115,6 +130,15 @@
             "type": "boolean"
         }
     },
+    "required": [
+        "sender",
+        "receiver",
+        "shipper",
+        "consignee",
+        "id",
+        "refNo",
+        "content"
+    ],
     "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -202,6 +226,59 @@
             "required": [
                 "name"
             ]
+        },
+        "file": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/fileData"
+                },
+                {
+                    "$ref": "#/definitions/fileReferences"
+                }
+            ]
+        },
+        "fileData": {
+            "type": "object",
+            "required": [
+                "content"
+            ],
+            "properties": {
+                "signatureDate": {
+                    "type": "string"
+                },
+                "fileName": {
+                    "type": "string"
+                },
+                "creationDate": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            }
+        },
+        "fileReferences": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "absoluteUri"
+                ],
+                "properties": {
+                    "signatureDate": {
+                        "type": "string"
+                    },
+                    "absoluteUri": {
+                        "type": "string"
+                    },
+                    "uriValidFrom": {
+                        "type": "string"
+                    },
+                    "uriValidTo": {
+                        "type": "string"
+                    }
+                }
+            }
         }
     }
 }
