@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "@id": "http://conizi.io/model/archiving/pod.json",
+    "@id": "http://conizi.io/model/archiving/proof-of-delivery.json",
     "title": "Proof of Delivery",
     "titleMap": {
         "de": "Ablieferbeleg"
