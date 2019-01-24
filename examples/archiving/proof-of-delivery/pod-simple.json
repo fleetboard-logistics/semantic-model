@@ -1,0 +1,33 @@
+{
+    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/archiving/proof-of-delivery.json#",
+    "Id": "4711",
+    "refNo": "12323132212132",
+    "carrier": {
+        "name": "Frachführer GmbH"
+    },
+    "sender": {
+        "coniziId": "3434-34234-234-234-34"
+    },
+    "receiver": {
+        "ediId": "2323423324324234234"
+    },
+    "consignee": {
+        "name": "Max Mustermann",
+        "street": "Musterstraße 1",
+        "zipCode": "97332",
+        "city": "Würzburg",
+        "countryCode": "DE"
+    },
+    "shipper": {
+        "name": "Meyer GmbH",
+        "street": "Meyerstraße 10",
+        "zipCode": "97424",
+        "city": "Schweinfurt",
+        "countryCode": "DE",
+        "additionalAddressLines": [
+            "z.H. Herr Meyer",
+            "Tor 2a"
+        ],
+        "townArea": "Hafen West"
+    }
+}
