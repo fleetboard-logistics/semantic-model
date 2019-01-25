@@ -39,7 +39,14 @@
                 "de": "Die Adresse des Warenversenders. In der Regel der Ort, an dem der Transport der Sendung beginnt."
             },
             "type": "object",
-            "$ref": "#/definitions/address"
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/address"
+                },
+                {
+                    "$ref": "#/definitions/signature"
+                }
+            ]
         },
         "consignee": {
             "title": "Consignee",
@@ -81,13 +88,33 @@
                 {
                     "$ref": "#/definitions/signature"
                 }
-            ],
-            "additionalProperties": false
+            ]
         },
         "id": {
             "title": "Unique POD Id",
             "titleMap": {
                 "de": "POD Id"
+            },
+            "type": "string"
+        },
+        "documentCreationDate": {
+            "title": "Date this document was created",
+            "titleMap": {
+                "de": "Erstellenungsdatum dieses Documents"
+            },
+            "type": "string"
+        },
+        "plannedShippingDate": {
+            "title": "The planned shipping date",
+            "titleMap": {
+                "de": "Das geplante Datum des Transports"
+            },
+            "type": "string"
+        },
+        "shippingDate": {
+            "title": "The date of shipping/transport",
+            "titleMap": {
+                "de": "Das Datum an dem der Transport stattfindet"
             },
             "type": "string"
         },
@@ -140,6 +167,8 @@
         "consignee",
         "id",
         "refNo",
+        "documentCreationDate",
+        "shippingDate",
         "content"
     ],
     "patternProperties": {
@@ -203,8 +232,18 @@
             "properties": {
                 "signatureAvailable": {
                     "type": "boolean"
+                },
+                "signatureDate": {
+                    "type": "string"
+                },
+                "signeeName": {
+                    "type": "string"
                 }
-            }
+            },
+            "required": [
+                "signatureAvailable",
+                "signatureDate"
+            ]
         },
         "address": {
             "type": "object",
