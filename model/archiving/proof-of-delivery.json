@@ -39,14 +39,7 @@
                 "de": "Die Adresse des Warenversenders. In der Regel der Ort, an dem der Transport der Sendung beginnt."
             },
             "type": "object",
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/address"
-                },
-                {
-                    "$ref": "#/definitions/signature"
-                }
-            ]
+            "$ref": "#/definitions/address"
         },
         "consignee": {
             "title": "Consignee",
@@ -58,13 +51,34 @@
                 "de": "Die Adresse des Warenempfängers."
             },
             "type": "object",
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/address"
+            "$ref": "#/definitions/address"
+        },
+        "signature": {
+            "type": "object",
+            "properties": {
+                "signatureAvailable": {
+                    "type": "boolean"
                 },
-                {
-                    "$ref": "#/definitions/signature"
+                "signatureDate": {
+                    "type": "string"
+                },
+                "signeeName": {
+                    "type": "string"
+                },
+                "signatureContent": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/fileData"
+                        },
+                        {
+                            "$ref": "#/definitions/fileReferences"
+                        }
+                    ]
                 }
+            },
+            "required": [
+                "signatureAvailable",
+                "signatureDate"
             ]
         },
         "carrier": {
@@ -80,15 +94,7 @@
             "patternProperties": {
                 "x-.*": {},
                 "\\$.*": {}
-            },
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/address"
-                },
-                {
-                    "$ref": "#/definitions/signature"
-                }
-            ]
+            }
         },
         "id": {
             "title": "Unique POD Id",
@@ -115,6 +121,13 @@
             "title": "The date of shipping/transport",
             "titleMap": {
                 "de": "Das Datum an dem der Transport stattfindet"
+            },
+            "type": "string"
+        },
+        "arrivalDate": {
+            "title": "The date goods arrived",
+            "titleMap": {
+                "de": "Datum an dem die Ladung ankam"
             },
             "type": "string"
         },
@@ -168,7 +181,6 @@
         "id",
         "refNo",
         "documentCreationDate",
-        "shippingDate",
         "content"
     ],
     "patternProperties": {
@@ -225,24 +237,6 @@
             },
             "required": [
                 "partnerId"
-            ]
-        },
-        "signature": {
-            "type": "object",
-            "properties": {
-                "signatureAvailable": {
-                    "type": "boolean"
-                },
-                "signatureDate": {
-                    "type": "string"
-                },
-                "signeeName": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "signatureAvailable",
-                "signatureDate"
             ]
         },
         "address": {
