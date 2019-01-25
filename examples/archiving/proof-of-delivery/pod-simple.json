@@ -1,8 +1,9 @@
 {
-    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/dev/model/archiving/proof-of-delivery.json#",
+    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/dev/model/archiving/proof-of-delivery.json",
     "id": "4711",
     "refNo": "12323132212132",
     "documentCreationDate": "2019-01-26T15:00:27.87+01:00",
+    "arrivalDate": "2019-01-25T16:00:30.87+01:00",
     "plannedShippingDate": "2019-01-24",
     "shippingDate": "2019-01-25",
     "carrier": {
