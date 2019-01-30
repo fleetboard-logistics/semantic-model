@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/preproduction/model/transport/truck/groupage/forwarding/consignment.json#",
+    "sender": {
+        "ediId": "VER4999"
+    },
+    "receiver": {
+        "ediId": "EMP4888"
+    },
+    "shippingPartner": {
+        "partnerId": "4999",
+        "name": "Versandparter GmbH"
+    },
+    "receivingPartner": {
+        "partnerId": "4888",
+        "name": "Empfangpartner AG"
+    },
+    "shippingDate": "2019-01-02",
+    "consignmentNoShippingPartner": "4711",
+    "routing": {
+        "shipper": {
+            "name": "Meyer GmbH",
+            "street": "Meyerstraße 10",
+            "zipCode": "97424",
+            "city": "Schweinfurt",
+            "countryCode": "DE"
+        },
+        "consignee": {
+            "name": "Max Mustermann",
+            "street": "Musterstraße 1",
+            "zipCode": "97332",
+            "city": "Würzburg",
+            "countryCode": "DE"
+        }
+    }
+}
