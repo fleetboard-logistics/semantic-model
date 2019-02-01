@@ -22,7 +22,7 @@
 			},
 			"description": "Unique identification for the consignment within the transport management system of the shipping partner",
 			"descriptionMap": {
-				"de": "Eindeutige Bezeichnung für die Sendung im Transport-Management-Systen des Versandpartners"
+				"de": "Eindeutige Bezeichnung für die Sendung im Transport-Management-System des Versandpartners"
 			},
 			"type": "string"
 		},
@@ -33,7 +33,18 @@
 			},
 			"description": "Unique identification for the consignment within the transport management system of the receiving partner",
 			"descriptionMap": {
-				"de": "Eindeutige Bezeichnung für die Sendung im Transport-Management-Systen des Empfangspartners"
+				"de": "Eindeutige Bezeichnung für die Sendung im Transport-Management-System des Empfangspartners"
+			},
+			"type": "string"
+		},
+		"consignmentNoDeliveringPartner": {
+			"title": "Consignment number of the delivering partner",
+			"titleMap": {
+				"de": "Sendungsnummer des Lieferpartners"
+			},
+			"description": "Unique identification for the consignment within the transport management system of the delivering partner",
+			"descriptionMap": {
+				"de": "Eindeutige Bezeichnung für die Sendung im Transport-Management-System des Lieferpartners"
 			},
 			"type": "string"
 		},
@@ -2645,6 +2656,28 @@
 			"items": {
 				"type": "string"
 			}
+		},
+		"referenceNumber": {
+			"title": "Reference number",
+			"titleMap": {
+				"de": "Referenznummer"
+			},
+			"description": "Reference number",
+			"descriptionMap": {
+				"de": "Referenznummer"
+			},
+			"type": "string"
+		},
+		"waitDowntimeMinutes": {
+			"title": "Wait/Downtime in minutes",
+			"titleMap": {
+				"de": "Wartezeit/Ausfallzeit in Minuten"
+			},
+			"description": "Wait/Downtime in minutes",
+			"descriptionMap": {
+				"de": "Wartezeit / Ausfallzeit in Minuten"
+			},
+			"type": "integer"
 		},
 		"x-dummy": {}
 	},
