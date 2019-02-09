@@ -68,7 +68,8 @@
 			"descriptionMap": {
 				"de": "Der Versender des Datensatzes. Dies ist in der Regel der Versandpartner bzw. der beauftragende Partner. Er kann jedoch abweichen, wenn ein Dritter eine Kopie erzeugt und weiterleitet."
 			},
-			"examples": [{
+			"examples": [
+				{
 					"ediFormat": "REL100",
 					"location": "packageHeader.senderMailboxId",
 					"networkId": "CL",
@@ -96,7 +97,8 @@
 			"descriptionMap": {
 				"de": "Der Empfänger des Datensatzes. Dies ist in der Regel der Empfangspartner bzw. der beauftragte Partner. Er kann jedoch abweichen, wenn der Datensatz gezielt an ein anderes System übertragen werden soll."
 			},
-			"examples": [{
+			"examples": [
+				{
 					"ediFormat": "REL100",
 					"location": "packageHeader.receiverMailboxId",
 					"networkId": "CL",
@@ -187,7 +189,8 @@
 			"descriptionMap": {
 				"de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
 			},
-			"examples": [{
+			"examples": [
+				{
 					"ediFormat": "REL100",
 					"location": "Q00.10-44",
 					"networkId": "CL",
@@ -215,7 +218,8 @@
 			"descriptionMap": {
 				"de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
 			},
-			"examples": [{
+			"examples": [
+				{
 					"ediFormat": "REL100",
 					"location": "Q00.45-79",
 					"networkId": "CL",
@@ -243,7 +247,8 @@
 			"descriptionMap": {
 				"de": "Der Partner, der das Ereignis meldet."
 			},
-			"examples": [{
+			"examples": [
+				{
 					"ediFormat": "REL100",
 					"location": "Q00.80-114",
 					"networkId": "CL",
@@ -272,7 +277,8 @@
 			"descriptionMap": {
 				"de": "Ereignisse, die durch die Überprüfung und Verarbeitung der Daten entstehen."
 			},
-			"examples": [{
+			"examples": [
+				{
 					"ediFormat": "REL100",
 					"location": "Q10.109-111",
 					"networkId": "CL",
@@ -288,7 +294,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -312,7 +319,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -333,7 +341,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -354,7 +363,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -377,7 +387,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -410,7 +421,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -424,7 +436,8 @@
 					"type": "object",
 					"title": "Exceptions",
 					"description": "Detailed information about the exceptions that occured while processing the consignment. Use (null) to report successful processing of the consignment",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -445,7 +458,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -466,7 +480,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -507,7 +522,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -539,7 +555,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -560,7 +577,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -595,7 +613,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -617,7 +636,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -640,7 +660,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -673,7 +694,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -697,7 +719,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -718,7 +741,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -749,7 +773,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -815,7 +840,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -848,7 +874,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -858,13 +885,13 @@
 						}
 					]
 				},
-				"loaded" : {
-					"type":"boolean",
+				"loaded": {
+					"type": "boolean",
 					"title": "The consignment has been loaded",
 					"description": "The consignment has been loaded onto the truck leaving the gateway"
 				},
-				"unloaded" : {
-					"type":"boolean",
+				"unloaded": {
+					"type": "boolean",
 					"title": "The consignment has been unloaded",
 					"description": "The consignment has been unloaded from the truck delivering the consignment to the gateway"
 				},
@@ -904,7 +931,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -937,7 +965,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -961,7 +990,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -982,7 +1012,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1003,7 +1034,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1091,7 +1123,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1112,7 +1145,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1291,7 +1325,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -1324,7 +1359,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -1348,7 +1384,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1369,7 +1406,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1417,7 +1455,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1438,7 +1477,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1459,7 +1499,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1480,7 +1521,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1501,7 +1543,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1522,7 +1565,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1543,7 +1587,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1566,7 +1611,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -1599,7 +1645,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -1618,7 +1665,8 @@
 					"type": "object",
 					"title": "Exceptions",
 					"description": "Detailed information about the exceptions that occured while planning the delivery of the consignment. Use (null) to report successful processing of the consignment",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -1639,7 +1687,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1662,7 +1711,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -1700,7 +1750,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -1743,7 +1794,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -1776,7 +1828,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -1790,7 +1843,8 @@
 					"type": "object",
 					"title": "Exceptions",
 					"description": "Detailed information about the exceptions that caused the delivery to be fail",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -1811,7 +1865,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -1842,7 +1897,7 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false
-						},						
+						},
 						"rejected": {
 							"type": "object",
 							"title": "Rejected",
@@ -1852,7 +1907,8 @@
 									"type": "object",
 									"title": "Damaged",
 									"description": "The delivery was rejected because the consignment is damaged",
-									"examples": [{
+									"examples": [
+										{
 											"ediFormat": "REL100",
 											"location": "Q10.109-111",
 											"networkId": "CL",
@@ -1868,7 +1924,8 @@
 									"type": "object",
 									"title": "Incomplete",
 									"description": "The delivery was rejected because some parts of the consignment are missing",
-									"examples": [{
+									"examples": [
+										{
 											"ediFormat": "REL100",
 											"location": "Q10.109-111",
 											"networkId": "CL",
@@ -1884,7 +1941,8 @@
 									"type": "object",
 									"title": "Too late",
 									"description": "The delivery rejected because it was performed after the deadline",
-									"examples": [{
+									"examples": [
+										{
 											"ediFormat": "REL100",
 											"location": "Q10.109-111",
 											"networkId": "CL",
@@ -1900,7 +1958,8 @@
 									"type": "object",
 									"title": "Missing documentation",
 									"description": "The delivery was rejected because required documentation (e.g. delivery note) was missing",
-									"examples": [{
+									"examples": [
+										{
 											"ediFormat": "REL100",
 											"location": "Q10.109-111",
 											"networkId": "CL",
@@ -1916,7 +1975,8 @@
 									"type": "object",
 									"title": "Not ordered",
 									"description": "The delivery was rejected because the consignee never ordered the goods",
-									"examples": [{
+									"examples": [
+										{
 											"ediFormat": "REL100",
 											"location": "Q10.109-111",
 											"networkId": "CL",
@@ -1932,7 +1992,8 @@
 									"type": "object",
 									"title": "Missing notification",
 									"description": "The delivery was rejected because of a missing notification",
-									"examples": [{
+									"examples": [
+										{
 											"ediFormat": "REL100",
 											"location": "Q10.109-111",
 											"networkId": "CL",
@@ -1948,7 +2009,8 @@
 									"type": "object",
 									"title": "No payment",
 									"description": "The delivery couldn't be processed because the consignee has not payed",
-									"examples": [{
+									"examples": [
+										{
 											"ediFormat": "REL100",
 											"location": "Q10.109-111",
 											"networkId": "CL",
@@ -1976,7 +2038,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2018,7 +2081,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2046,7 +2110,8 @@
 					"type": "string",
 					"title": "Signee",
 					"description": "Name of the person which rejected the consignment",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.163-197",
 							"networkId": "CL"
@@ -2061,17 +2126,20 @@
 					"type": "string",
 					"title": "Wait time",
 					"description": "Time spent waiting during delivery",
-					"examples": [{
-						"ediFormat": "REL100",
-						"location": "Q10.159-162",
-						"networkId": "CL"
-					}]
+					"examples": [
+						{
+							"ediFormat": "REL100",
+							"location": "Q10.159-162",
+							"networkId": "CL"
+						}
+					]
 				},
 				"remarks": {
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -2104,7 +2172,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -2118,7 +2187,8 @@
 					"type": "object",
 					"title": "Exceptions",
 					"description": "Detailed information about the exceptions that occured while planning the delivery of the consignment. Use (null) to report successful processing of the consignment",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -2139,7 +2209,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2170,7 +2241,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2191,7 +2263,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2212,7 +2285,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2233,7 +2307,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2274,7 +2349,8 @@
 								"\\$.*": {}
 							},
 							"additionalProperties": false,
-							"examples": [{
+							"examples": [
+								{
 									"ediFormat": "REL100",
 									"location": "Q10.109-111",
 									"networkId": "CL",
@@ -2297,7 +2373,8 @@
 					"type": "string",
 					"title": "Signee",
 					"description": "Name of the person which signed for the receipt of the good",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.163-197",
 							"networkId": "CL"
@@ -2312,17 +2389,20 @@
 					"type": "string",
 					"title": "Wait time",
 					"description": "Time spent waiting during delivery",
-					"examples": [{
-						"ediFormat": "REL100",
-						"location": "Q10.159-162",
-						"networkId": "CL"
-					}]
+					"examples": [
+						{
+							"ediFormat": "REL100",
+							"location": "Q10.159-162",
+							"networkId": "CL"
+						}
+					]
 				},
 				"remarks": {
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -2355,7 +2435,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -2375,7 +2456,8 @@
 						"\\$.*": {}
 					},
 					"additionalProperties": false,
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -2397,7 +2479,8 @@
 						"\\$.*": {}
 					},
 					"additionalProperties": false,
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -2413,7 +2496,8 @@
 					"type": "string",
 					"title": "Signee",
 					"description": "Name of the person which signed for the receipt of the good",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.163-197",
 							"networkId": "CL"
@@ -2428,17 +2512,20 @@
 					"type": "string",
 					"title": "Wait time",
 					"description": "Time spent waiting during delivery",
-					"examples": [{
-						"ediFormat": "REL100",
-						"location": "Q10.159-162",
-						"networkId": "CL"
-					}]
+					"examples": [
+						{
+							"ediFormat": "REL100",
+							"location": "Q10.159-162",
+							"networkId": "CL"
+						}
+					]
 				},
 				"remarks": {
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -2471,7 +2558,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -2491,7 +2579,8 @@
 						"\\$.*": {}
 					},
 					"additionalProperties": false,
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -2513,7 +2602,8 @@
 						"\\$.*": {}
 					},
 					"additionalProperties": false,
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -2535,7 +2625,8 @@
 						"\\$.*": {}
 					},
 					"additionalProperties": false,
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.109-111",
 							"networkId": "CL",
@@ -2551,7 +2642,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -2579,7 +2671,8 @@
 			"descriptionMap": {
 				"de": "Ereignisse, die die Stornierung der Sendung betreffen."
 			},
-			"examples": [{
+			"examples": [
+				{
 					"ediFormat": "REL100",
 					"location": "Q10.109-111",
 					"networkId": "CL",
@@ -2595,7 +2688,8 @@
 					"type": "string",
 					"title": "Event date/time",
 					"description": "Date and time when the event occured",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.112-119"
 						},
@@ -2609,7 +2703,8 @@
 					"type": "string",
 					"title": "Remarks (free form)",
 					"description": "Additional remarks",
-					"examples": [{
+					"examples": [
+						{
 							"ediFormat": "REL100",
 							"location": "Q10.198-267",
 							"networkId": "CL"
@@ -2627,17 +2722,17 @@
 			},
 			"additionalProperties": false
 		},
-        "originalEventCode": {
-            "type": "string",
-            "title": "Original event code",
-            "titleMap": {
-                "de": "Original Statuscode"
-            },
-            "description": "Original event code",
-            "descriptionMap": {
-                "de": "Original Statuscode"
-            }
-        },		
+		"originalEventCode": {
+			"type": "string",
+			"title": "Original event code",
+			"titleMap": {
+				"de": "Original Statuscode"
+			},
+			"description": "Original event code",
+			"descriptionMap": {
+				"de": "Original Statuscode"
+			}
+		},
 		"additionalRemarks": {
 			"title": "Additional remarks (free form)",
 			"description": "Additional remarks",
@@ -2718,7 +2813,8 @@
 		},
 		"partnerIdentification": {
 			"type": "object",
-			"anyOf": [{
+			"anyOf": [
+				{
 					"$ref": "#/definitions/ediId"
 				},
 				{
@@ -2726,7 +2822,21 @@
 				},
 				{
 					"$ref": "#/definitions/address"
+				},
+				{
+					"$ref": "#/definitions/coniziId"
 				}
+			]
+		},
+		"coniziId": {
+			"type": "object",
+			"properties": {
+				"coniziId": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"coniziId"
 			]
 		},
 		"ediId": {
