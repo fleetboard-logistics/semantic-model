@@ -39,7 +39,7 @@
                 "de": "Die Adresse des Warenversenders. In der Regel der Ort, an dem der Transport der Sendung beginnt."
             },
             "type": "object",
-            "$ref": "#/definitions/address"
+            "$ref": "#/definitions/partnerIdentification"
         },
         "consignee": {
             "title": "Consignee",
@@ -51,7 +51,7 @@
                 "de": "Die Adresse des Warenempfängers."
             },
             "type": "object",
-            "$ref": "#/definitions/address"
+            "$ref": "#/definitions/partnerIdentification"
         },
         "signature": {
             "type": "object",
