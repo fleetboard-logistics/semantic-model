@@ -2953,10 +2953,7 @@
         "coniziId": {
           "type": "string"
         }
-      },
-      "required": [
-        "coniziId"
-      ]
+      }
     },
     "ediId": {
       "type": "object",
