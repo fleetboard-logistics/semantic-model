@@ -2171,6 +2171,27 @@
 								}
 							]
 						},
+						"incompleteAndDamaged": {
+							"type": "object",
+							"title": "Incomplete and damaged",
+							"description": "Some parts were missing and some were damaged",
+							"patternProperties": {
+								"x-.*": {},
+								"\\$.*": {}
+							},
+							"additionalProperties": false,
+							"examples": [{
+									"ediFormat": "REL100",
+									"location": "Q10.109-111",
+									"networkId": "CL",
+									"value": "51"
+								},
+								{
+									"ediFormat": "EDIFACT",
+									"location": "SG4/SG5/STS+F11/C555/Field9011"
+								}
+							]
+						},
 						"partiallyRejected": {
 							"type": "object",
 							"title": "Partially rejected",

@@ -1,0 +1,323 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "@id": "http://conizi.io/model/archiving/proof-of-delivery.json",
+    "title": "Proof of Delivery",
+    "titleMap": {
+        "de": "Ablieferbeleg"
+    },
+    "type": "object",
+    "properties": {
+        "sender": {
+            "title": "Data Origin",
+            "titleMap": {
+                "de": "Daten-Quelle"
+            },
+            "description": "The sender of the current record.",
+            "descriptionMap": {
+                "de": "Der Versender des Datensatzes."
+            },
+            "$ref": "#/definitions/partnerIdentification"
+        },
+        "receiver": {
+            "title": "Data Recipient",
+            "titleMap": {
+                "de": "Daten-Empfänger"
+            },
+            "description": "The intended recipient of the the current record.",
+            "descriptionMap": {
+                "de": "Der Empfänger des Datensatzes."
+            },
+            "$ref": "#/definitions/partnerIdentification"
+        },
+        "shipper": {
+            "title": "Shipper",
+            "titleMap": {
+                "de": "Versender"
+            },
+            "description": "The address of the party which is sending the goods. This is usually the place where the transport originated",
+            "descriptionMap": {
+                "de": "Die Adresse des Warenversenders. In der Regel der Ort, an dem der Transport der Sendung beginnt."
+            },
+            "type": "object",
+            "$ref": "#/definitions/address"
+        },
+        "consignee": {
+            "title": "Consignee",
+            "titleMap": {
+                "de": "Empfänger"
+            },
+            "description": "The address of the good's recipient",
+            "descriptionMap": {
+                "de": "Die Adresse des Warenempfängers."
+            },
+            "type": "object",
+            "$ref": "#/definitions/address"
+        },
+        "signature": {
+            "type": "object",
+            "properties": {
+                "signatureAvailable": {
+                    "type": "boolean"
+                },
+                "signatureDate": {
+                    "type": "string"
+                },
+                "signeeName": {
+                    "type": "string"
+                },
+                "signatureContent": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/fileData"
+                        },
+                        {
+                            "$ref": "#/definitions/fileReferences"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "signatureAvailable",
+                "signatureDate"
+            ]
+        },
+        "carrier": {
+            "title": "Carrier",
+            "titleMap": {
+                "de": "Frachtführer"
+            },
+            "description": "Company responsible for the actual transport of the goods from the shipping partner to the recipient",
+            "descriptionMap": {
+                "de": "Firma, die für die Durchführung der Tour verantwortlich ist"
+            },
+            "$ref": "#/definitions/address",
+            "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+            }
+        },
+        "id": {
+            "title": "Unique POD Id",
+            "titleMap": {
+                "de": "POD Id"
+            },
+            "type": "string"
+        },
+        "documentCreationDate": {
+            "title": "Date this document was created",
+            "titleMap": {
+                "de": "Erstellenungsdatum dieses Documents"
+            },
+            "type": "string"
+        },
+        "plannedShippingDate": {
+            "title": "The planned shipping date",
+            "titleMap": {
+                "de": "Das geplante Datum des Transports"
+            },
+            "type": "string"
+        },
+        "shippingDate": {
+            "title": "The date of shipping/transport",
+            "titleMap": {
+                "de": "Das Datum an dem der Transport stattfindet"
+            },
+            "type": "string"
+        },
+        "arrivalDate": {
+            "title": "The date goods arrived",
+            "titleMap": {
+                "de": "Datum an dem die Ladung ankam"
+            },
+            "type": "string"
+        },
+        "refNo": {
+            "title": "Reference number",
+            "titleMap": {
+                "de": "Zeichen / Nummer"
+            },
+            "description": "A reference of the ordering party relating to the goods",
+            "descriptionMap": {
+                "de": "Eine Referenz-Nummer des Versenders für die Waren"
+            },
+            "type": "string"
+        },
+        "emptiesExchange": {
+            "title": "Empties exchange required",
+            "titleMap": {
+                "de": "Ladmittelausch"
+            },
+            "description": "Specifies whether empties should be exchanged with the consignee",
+            "descriptionMap": {
+                "de": "Sollen tauschpflichtige Lademittel beim Empfänger getauscht werden"
+            },
+            "type": "boolean"
+        },
+        "content": {
+            "title": "Content",
+            "titleMap": {
+                "de": "Inhalt"
+            },
+            "description": "The content as file.",
+            "descriptionMap": {
+                "de": "Der Inhalt als Datei."
+            },
+            "type": "object",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/fileData"
+                },
+                {
+                    "$ref": "#/definitions/fileReferences"
+                }
+            ]
+        }
+    },
+    "required": [
+        "sender",
+        "receiver",
+        "shipper",
+        "consignee",
+        "id",
+        "refNo",
+        "documentCreationDate",
+        "content"
+    ],
+    "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "partnerIdentification": {
+            "type": "object",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/ediId"
+                },
+                {
+                    "$ref": "#/definitions/partnerId"
+                },
+                {
+                    "$ref": "#/definitions/address"
+                },
+                {
+                    "$ref": "#/definitions/coniziId"
+                }
+            ]
+        },
+        "coniziId": {
+            "type": "object",
+            "properties": {
+                "coniziId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coniziId"
+            ]
+        },
+        "ediId": {
+            "type": "object",
+            "properties": {
+                "ediId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ediId"
+            ]
+        },
+        "partnerId": {
+            "type": "object",
+            "properties": {
+                "partnerId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "partnerId"
+            ]
+        },
+        "address": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "additionalAddressLines": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "street": {
+                    "type": "string"
+                },
+                "countryCode": {
+                    "type": "string"
+                },
+                "zipCode": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "townArea": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "fileData": {
+            "type": "object",
+            "required": [
+                "data"
+            ],
+            "properties": {
+                "contentType": {
+                    "type": "string"
+                },
+                "fileName": {
+                    "type": "string"
+                },
+                "creationDate": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "fileReferences": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "absoluteUri"
+                ],
+                "properties": {
+                    "contentType": {
+                        "type": "string"
+                    },
+                    "fileName": {
+                        "type": "string"
+                    },
+                    "absoluteUri": {
+                        "type": "string"
+                    },
+                    "uriValidFrom": {
+                        "type": "string"
+                    },
+                    "uriValidTo": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    }
+}
