@@ -29,6 +29,93 @@
             },
             "$ref": "#/definitions/partnerIdentification"
         },
+        "shippingPartner": {
+            "title": "Shipping partner",
+            "titleMap": {
+                "de": "Versandpartner"
+            },
+            "description": "The partner which is sending the consignment to the receiving partner for further delivery.",
+            "descriptionMap": {
+                "de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
+            },
+            "examples": [
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.10-44",
+                    "networkId": "CL",
+                    "value": "4974"
+                },
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.10-44",
+                    "networkId": "SYA",
+                    "value": "3100"
+                },
+                {
+                    "ediFormat": "EDIFACT",
+                    "location": "SG1/NAD+CS/Field3035"
+                }
+            ],
+            "$ref": "#/definitions/partnerIdentification"
+        },
+        "receivingPartner": {
+            "title": "Receiving partner",
+            "titleMap": {
+                "de": "Empfangspartner"
+            },
+            "description": "The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery.",
+            "descriptionMap": {
+                "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
+            },
+            "examples": [
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.45-79",
+                    "networkId": "CL",
+                    "value": "4974"
+                },
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.45-79",
+                    "networkId": "SYA",
+                    "value": "3100"
+                },
+                {
+                    "ediFormat": "EDIFACT",
+                    "location": "SG1/NAD+CZ/Field3035"
+                }
+            ],
+            "$ref": "#/definitions/partnerIdentification"
+        },
+        "reportingPartner": {
+            "title": "Reporting partner",
+            "titleMap": {
+                "de": "Meldender partner"
+            },
+            "description": "The partner which is reporting the event.",
+            "descriptionMap": {
+                "de": "Der Partner, der das Ereignis meldet."
+            },
+            "examples": [
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.80-114",
+                    "networkId": "CL",
+                    "value": "4974"
+                },
+                {
+                    "ediFormat": "REL100",
+                    "location": "Q00.80-114",
+                    "networkId": "SYA",
+                    "value": "3100"
+                },
+                {
+                    "ediFormat": "EDIFACT",
+                    "location": "SG1/NAD+CS/Field3035"
+                }
+            ],
+            "$ref": "#/definitions/partnerIdentification"
+        },
         "shipper": {
             "title": "Shipper",
             "titleMap": {
