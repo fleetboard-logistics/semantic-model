@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/dev/model/archiving/proof-of-delivery.json",
+    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/archiving/proof-of-delivery.json",
     "id": "4711",
     "refNo": "12323132212132",
     "documentCreationDate": "2019-01-26T15:00:27.87+01:00",
@@ -20,8 +20,7 @@
         "street": "Musterstraße 1",
         "zipCode": "97082",
         "city": "Würzburg",
-        "countryCode": "DE",
-        "signatureAvailable": false
+        "countryCode": "DE"
     },
     "shipper": {
         "name": "Meyer GmbH",
