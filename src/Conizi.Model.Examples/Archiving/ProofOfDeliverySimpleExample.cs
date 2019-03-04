@@ -13,8 +13,7 @@ namespace Conizi.Model.Examples.Archiving
     {
         public ProofOfDeliverySimpleExample()
         {
-            this.Schema =
-                "https://raw.githubusercontent.com/conizi/semantic-model/master/model/archiving/proof-of-delivery.json";
+           
             this.Id = "12345678";
             this.DocumentCreationDate = DateTime.Now.AddHours(-2);
             this.ArrivalDate = DateTime.Now.AddDays(-1);
@@ -25,7 +24,7 @@ namespace Conizi.Model.Examples.Archiving
                 Name = "Freight Driver GmbH",
                 City = "Freiburg"
             };
-            this.Receiver = new EdiReceiver
+            this.Receiver = new EdiPartnerIdentification
             {
                 ConiziId = "4545454545454545454"
             };

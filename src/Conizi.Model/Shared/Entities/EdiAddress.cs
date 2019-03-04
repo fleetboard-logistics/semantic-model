@@ -5,7 +5,8 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
-    [JsonObject("address", IsReference = true, ItemIsReference = true)]
+    [DisplayName("Address relevant fields")]
+    [JsonObject("address")]
     public class EdiAddress
     {
         [JsonRequired]

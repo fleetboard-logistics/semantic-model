@@ -5,9 +5,9 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     public class ConsignmentEvent : EdiDocument
     {
-        public EdiPartner ShippingPartner { get; set; }
-        public EdiPartner ReceivingPartner { get; set; }
-        public EdiPartner ReportingPartner { get; set; }
+        public EdiPartnerIdentification ShippingPartner { get; set; }
+        public EdiPartnerIdentification ReceivingPartner { get; set; }
+        public EdiPartnerIdentification ReportingPartner { get; set; }
 
         public string ConsignmentNoShippingPartner { get; set; }
 

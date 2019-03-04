@@ -16,92 +16,110 @@
   <Namespace>System.ComponentModel</Namespace>
   <Namespace>Conizi.Model.Shared.Entities</Namespace>
   <Namespace>System.Runtime.Serialization</Namespace>
+  <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding</Namespace>
 </Query>
 
-public class PartnerIdentitifcation
-{
+public enum Ti {
+	AnyOf,
+	AllOf,
+	OneOf
+};
+
+class TiItem {
 	public string Name { get; set; }
-	public string Test { get; set; }
+	public PropertyInfo Info { get; set; }
+	public Ti Kind {get; set; }
 }
-
-public class ExampleAttribute : Attribute
-{
-	public Type ExampleType { get; set; }
-	public bool HasExampleValue { get; set; }
-	public object ExampleValue { get; set; }
-
-	public ExampleAttribute(Type exampleType)
-	{
-		this.ExampleType = exampleType;
-	}
-
-
-	public ExampleAttribute(object exampleType)
-	{
-		this.ExampleType = exampleType.GetType();
-		this.HasExampleValue = true;
-		this.ExampleValue = ExampleValue;
-	}
-}
-
-public class PartnerIdentificationExample : PartnerIdentitifcation
-{
-	public PartnerIdentificationExample()
-	{
-		this.Name = "ExampleName";
-		this.Test = "exampleTest";
-	}
-}
-
 
 class ExampleGenerationProvider : JSchemaGenerationProvider
 {
-	private readonly List<string> oneOfItems = new List<string>();
-	
+	private readonly List<TiItem> ofItems = new List<TiItem>();
+
 	public override JSchema GetSchema(JSchemaTypeGenerationContext context)
 	{
 		// Handle Schema Definition Attribute
 		if (context.ObjectType.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziSchemaAttribute)))
 		{
+
+			foreach (var prop in context.ObjectType.GetProperties().Where(p => p.CustomAttributes.Any()))
+			{
+				foreach (var customAttr in prop.GetCustomAttributes())
+				{
+					switch (customAttr)
+					{
+						case ConiziOneOfAttribute oneOf:
+							this.ofItems.Add(new TiItem {
+								Name = prop.Name,
+								Info = prop,
+								Kind =Ti.OneOf
+							});
+							break;
+
+						case ConiziAnyOfAttribute anyOf:
+							this.ofItems.Add(new TiItem
+							{
+								Name = prop.Name,
+								Info = prop,
+								Kind = Ti.AnyOf
+							});
+							break;
+
+						case ConiziAllOfAttribute allOf:
+							this.ofItems.Add(new TiItem
+							{
+								Name = prop.Name,
+								Info = prop,
+								Kind = Ti.AllOf
+							});
+							break;
+					}
+				}
+			}
+
 			var generator = context.Generator;
 			var schema = generator.Generate(context.ObjectType);
 			var attr = context.ObjectType.GetCustomAttribute<ConiziSchemaAttribute>();
 			schema.Id = new Uri(attr.Id);
 			schema.SchemaVersion = new Uri("http://json-schema.org/draft-06/schema#");
 			
-			foreach(var prop in context.ObjectType.GetProperties().Where(p=>p.CustomAttributes.Any()))
-			{
-			    foreach(var customAttr in prop.GetCustomAttributes()) {
-					switch(customAttr)
-					{
-						case ConiziOneOfAttribute oneOf:
-							this.oneOfItems.Add(prop.Name);
-						break;
-
-						case ConiziAnyOfAttribute anyOf:
-							break;
-					}
-				}
-			}
-			
+			return schema;
 		}
 
-		
+	
+		if (context.ObjectType.CustomAttributes.Any(a => a.AttributeType == typeof(KnownTypeAttribute)))
+		{
+			var generator = context.Generator;
+			var schema = generator.Generate(context.ObjectType);
+			
+			foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a.GetType() == typeof(KnownTypeAttribute)).Cast<KnownTypeAttribute>())
+			{
+				var prop = context.MemberProperty.PropertyName.ToLower();
+				var schemaOf = generator.Generate(attr.Type);
+				
+				var item =this.ofItems.FirstOrDefault(a=>string.Equals(a.Name, prop, StringComparison.OrdinalIgnoreCase));
+				
+				if(item == null)
+				continue;
+				
+				switch(item.Kind) {
+					case Ti.OneOf:
+						schema.OneOf.Add(schemaOf);
+						break;
 
-//		//if (context.ObjectType.IsGenericType && context.ObjectType.GetGenericTypeDefinition() == typeof(ConiziOneOf<,>))
-//		if (context.ObjectType.GetProperties().Any(p => p.ReflectedType == typeof(EdiFileBase)))
-//		{
-//			var generator = context.Generator;
-//			var schema = generator.Generate(context.ObjectType);
-//			
-//
-//			foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a.GetType() == typeof(KnownTypeAttribute)).Cast<KnownTypeAttribute>())
-//			{
-//				var schemaOneOf = generator.Generate(attr.Type);
-//				schema.OneOf.Add(schemaOneOf);
-//			}
-//			return schema;
-//		}
+					case Ti.AnyOf:
+						schema.AnyOf.Add(schemaOf);
+						break;
+
+					case Ti.AllOf:
+						schema.AllOf.Add(schemaOf);
+						break;
+				}
+					
+				
+			
+			}
+			return schema;
+		}
 		
 		return null;
 	}
@@ -122,9 +140,7 @@ void Main()
 	generator.ContractResolver = new CamelCasePropertyNamesContractResolver();
 	generator.GenerationProviders.Add(new ExampleGenerationProvider());
 
-	JSchema schema = generator.Generate(typeof(Conizi.Model.Test));
+	JSchema schema = generator.Generate(typeof(Consignment));
 
 	schema.ToString().Dump();
 }
-
-// Define other methods and classes here

@@ -16,22 +16,18 @@ namespace Conizi.Model.Shared.Entities
         public EdiFileReference FileReference { get; set; }
     }
 
-    [JsonObject("oneOf", IsReference =  false, ItemIsReference =  false)]
-    public class ConiziOneOf<T1, T2>
-    {
-
-    }
-
+    [JsonObject("FileContent")]
     [KnownType(typeof(EdiFileData))]
     [KnownType(typeof(EdiFileReference))]
-    public abstract class EdiFileBase
+    public class EdiFileBase
     {
-        public string FileName { get; set; }
     }
 
     [JsonObject("fileData", IsReference = false)]
     public class EdiFileData : EdiFileBase
-    {  
+    {
+        public string FileName { get; set; }
+
         public string ContentType { get; set; }
 
         [Required] public byte[] Data { get; set; }
@@ -40,6 +36,8 @@ namespace Conizi.Model.Shared.Entities
     [JsonObject("fileReference", IsReference = false)]
     public class EdiFileReference : EdiFileBase
     {
+        public string FileName { get; set; }
+
         public string ContentType { get; set; }
 
         [Url] [Required] public string AbsoluteUri { get; set; }

@@ -10,9 +10,14 @@ namespace Conizi.Model
     [ConiziSchema("http://conizi.io/model/test.json", "test.json")]
     public class Test
     {
-        [JsonProperty(Required = Required.Always)]
+        public EdiPartnerIdentification ReceivingPartner { get; set; }
+        public EdiPartnerIdentification ShippingPartner { get; set; }
+
+        [JsonProperty("content", IsReference = false, ItemIsReference = false)]
         [ConiziOneOf]
         public EdiFileBase Content { get; set; }
+
+        public EdiSignature Signature { get; set; }
 
 
     }
