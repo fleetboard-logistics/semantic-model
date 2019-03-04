@@ -26,6 +26,7 @@ namespace Conizi.Model.Shared.Entities
     [JsonObject("fileData", IsReference = false)]
     public class EdiFileData : EdiFileBase
     {
+
         public string FileName { get; set; }
 
         public string ContentType { get; set; }

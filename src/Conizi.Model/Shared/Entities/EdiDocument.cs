@@ -5,9 +5,9 @@ namespace Conizi.Model.Shared.Entities
 {
     public class EdiDocument
     {
-        [JsonProperty("receiver", IsReference = true)]
+        [JsonProperty("receiver")]
         public EdiPartnerIdentification Receiver { get; set; }
-        [JsonProperty("sender", IsReference = true)]
+        [JsonProperty("sender")]
         public EdiPartnerIdentification Sender { get; set; }
         public EdiNetwork Network { get; set; }
     }

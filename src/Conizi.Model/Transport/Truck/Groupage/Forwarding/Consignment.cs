@@ -22,7 +22,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public string ConsignmentNoReceivingPartner { get; set; }
 
         [DisplayName("Shipping date")]
-        [JsonProperty(Required = Required.Always)]
+        [JsonRequired]
         public DateTime ShippingDate { get; set; }
 
         [DisplayName("Manifest id of the shipping partner")]
@@ -33,6 +33,15 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 
         [JsonProperty("additionPartners")]
         public EdiPartnerIdentification AdditionalPartners { get; set; }
+
+        public EdiAddress OrderingParty { get; set; }
+
+        [JsonRequired]
+        public EdiPartnerIdentification ShippingPartner { get; set; }
+
+        [JsonRequired]
+        public EdiPartnerIdentification ReceivingPartner { get; set; }
+        public EdiRouting Routing { get; set; }
 
 
 
