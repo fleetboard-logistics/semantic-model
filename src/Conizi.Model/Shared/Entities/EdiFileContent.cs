@@ -8,14 +8,7 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
-    [JsonObject("content")]
-    public class EdiFileContent
-    {
-        public EdiFileData FileData { get; set; }
-
-        public EdiFileReference FileReference { get; set; }
-    }
-
+   
     [JsonObject("FileContent")]
     [KnownType(typeof(EdiFileData))]
     [KnownType(typeof(EdiFileReference))]
@@ -23,7 +16,7 @@ namespace Conizi.Model.Shared.Entities
     {
     }
 
-    [JsonObject("fileData", IsReference = false)]
+    [JsonObject("fileData")]
     public class EdiFileData : EdiFileBase
     {
 

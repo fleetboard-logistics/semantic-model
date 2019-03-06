@@ -6,11 +6,11 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Attributes
 {
-    public class ConiziAllowAdditionalAttribute : Attribute
+    public class ConiziAdditionalPropertiesAttribute : Attribute
     {
         public bool AllowAdditionalProperties { get; set; }
 
-        public ConiziAllowAdditionalAttribute(bool allowAdditionalProperties = true)
+        public ConiziAdditionalPropertiesAttribute(bool allowAdditionalProperties = false)
         {
             this.AllowAdditionalProperties = allowAdditionalProperties;
         }

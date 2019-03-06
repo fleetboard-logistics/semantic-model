@@ -19,73 +19,33 @@
   <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding</Namespace>
 </Query>
 
-public enum Ti {
-	AnyOf,
-	AllOf,
-	OneOf
-};
-
-class TiItem {
-	public string Name { get; set; }
-	public PropertyInfo Info { get; set; }
-	public Ti Kind {get; set; }
-}
 
 class ExampleGenerationProvider : JSchemaGenerationProvider
 {
-	private readonly List<TiItem> ofItems = new List<TiItem>();
-
+	private void HandleAdditionalPropeties(Type typeObject, JSchema schema) 
+	{
+		if(!typeObject.CustomAttributes.Any(a=>a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute))) 
+			return;
+			
+		var attr = typeObject.CustomAttributes.FirstOrDefault(a=>a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute));
+			
+		schema.AllowAdditionalProperties = Convert.ToBoolean(attr.ConstructorArguments[0].Value);
+	}
+	
 	public override JSchema GetSchema(JSchemaTypeGenerationContext context)
 	{
 		// Handle Schema Definition Attribute
 		if (context.ObjectType.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziSchemaAttribute)))
 		{
-
-			foreach (var prop in context.ObjectType.GetProperties().Where(p => p.CustomAttributes.Any()))
-			{
-				foreach (var customAttr in prop.GetCustomAttributes())
-				{
-					switch (customAttr)
-					{
-						case ConiziOneOfAttribute oneOf:
-							this.ofItems.Add(new TiItem {
-								Name = prop.Name,
-								Info = prop,
-								Kind =Ti.OneOf
-							});
-							break;
-
-						case ConiziAnyOfAttribute anyOf:
-							this.ofItems.Add(new TiItem
-							{
-								Name = prop.Name,
-								Info = prop,
-								Kind = Ti.AnyOf
-							});
-							break;
-
-						case ConiziAllOfAttribute allOf:
-							this.ofItems.Add(new TiItem
-							{
-								Name = prop.Name,
-								Info = prop,
-								Kind = Ti.AllOf
-							});
-							break;
-					}
-				}
-			}
-
 			var generator = context.Generator;
 			var schema = generator.Generate(context.ObjectType);
 			var attr = context.ObjectType.GetCustomAttribute<ConiziSchemaAttribute>();
 			schema.Id = new Uri(attr.Id);
 			schema.SchemaVersion = new Uri("http://json-schema.org/draft-06/schema#");
-			
 			return schema;
 		}
 
-	
+		//Check if anyOf etc. is used
 		if (context.ObjectType.CustomAttributes.Any(a => a.AttributeType == typeof(KnownTypeAttribute)))
 		{
 			var generator = context.Generator;
@@ -93,34 +53,44 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 			
 			foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a.GetType() == typeof(KnownTypeAttribute)).Cast<KnownTypeAttribute>())
 			{
-				var prop = context.MemberProperty.PropertyName.ToLower();
 				var schemaOf = generator.Generate(attr.Type);
-				
-				var item =this.ofItems.FirstOrDefault(a=>string.Equals(a.Name, prop, StringComparison.OrdinalIgnoreCase));
-				
-				if(item == null)
-				continue;
-				
-				switch(item.Kind) {
-					case Ti.OneOf:
-						schema.OneOf.Add(schemaOf);
-						break;
+				HandleAdditionalPropeties(attr.Type, schemaOf);
+		
+				foreach(var custAttr in context.ObjectType.GetCustomAttributes())
+				{
+										
+					switch (custAttr)
+					{
+						case ConiziOneOfAttribute oneOf:
+							schema.OneOf.Add(schemaOf);
+							break;
 
-					case Ti.AnyOf:
-						schema.AnyOf.Add(schemaOf);
-						break;
+						case ConiziAnyOfAttribute oneOf:
+							schema.AnyOf.Add(schemaOf);
+							break;
 
-					case Ti.AllOf:
-						schema.AllOf.Add(schemaOf);
-						break;
+						case ConiziAllOfAttribute allOf:
+							schema.AllOf.Add(schemaOf);
+							break;
+					}
 				}
-					
 				
 			
 			}
 			return schema;
 		}
 		
+		if (context.ObjectType == typeof(DateTime)) 
+		{
+			if (context.MemberProperty.AttributeProvider.GetAttributes(typeof(ConiziDateOnlyAttribute), true).Any())
+			{
+				var generator = context.Generator;
+				var schema = generator.Generate(context.ObjectType);
+				schema.Format = "date";
+				return schema;
+			}
+		}
+				
 		return null;
 	}
 }

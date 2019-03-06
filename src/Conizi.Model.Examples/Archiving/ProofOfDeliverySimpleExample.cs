@@ -24,7 +24,7 @@ namespace Conizi.Model.Examples.Archiving
                 Name = "Freight Driver GmbH",
                 City = "Freiburg"
             };
-            this.Receiver = new EdiPartnerIdentification
+            this.Receiver = new EdiConiziIdentification()
             {
                 ConiziId = "4545454545454545454"
             };
