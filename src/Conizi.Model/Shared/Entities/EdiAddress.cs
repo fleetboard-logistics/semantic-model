@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Address relevant fields")]
     [JsonObject("address")]
     [ConiziAdditionalProperties(false)]
-    public class EdiAddress : EdiPartnerIdentificationBase
+    public class EdiAddress : EdiPartnerIdentification
     {
         [JsonRequired]
         [DisplayName("Name of the address")]

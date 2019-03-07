@@ -11,16 +11,16 @@ namespace Conizi.Model.Shared.Entities
     [KnownType(typeof(EdiAddress))]
     [KnownType(typeof(EdiIdIdentification))]
     [KnownType(typeof(EdiConiziIdentification))]
-    [KnownType(typeof(EdiPartnerIdentification))]
+    [KnownType(typeof(EdiPartner))]
     [ConiziAnyOf]
     [JsonObject("partnerIdentification")]
-    public class EdiPartnerIdentificationBase
+    public class EdiPartnerIdentification
     {
         
     }
 
     [JsonObject("ediId")]
-    public class EdiIdIdentification : EdiPartnerIdentificationBase
+    public class EdiIdIdentification : EdiPartnerIdentification
     {
         [JsonRequired]
         [DisplayName("The Edi Id (e.g. CONIZVK)")]
@@ -28,7 +28,7 @@ namespace Conizi.Model.Shared.Entities
     }
 
     [JsonObject("partnerId")]
-    public class EdiPartnerIdentification : EdiPartnerIdentificationBase
+    public class EdiPartner : EdiPartnerIdentification
     {
         [JsonRequired]
         [DisplayName("The PartnerId (e.g. 1234)")]
@@ -36,7 +36,7 @@ namespace Conizi.Model.Shared.Entities
     }
 
     [JsonObject("coniziId")]
-    public class EdiConiziIdentification : EdiPartnerIdentificationBase
+    public class EdiConiziIdentification : EdiPartnerIdentification
     {
         [JsonRequired]
         [DisplayName("The conizi id for internal routing purposes")]

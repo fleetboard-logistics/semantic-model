@@ -22,16 +22,16 @@
 
 class ExampleGenerationProvider : JSchemaGenerationProvider
 {
-	private void HandleAdditionalPropeties(Type typeObject, JSchema schema) 
+	private void HandleAdditionalPropeties(Type typeObject, JSchema schema)
 	{
-		if(!typeObject.CustomAttributes.Any(a=>a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute))) 
+		if (!typeObject.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute)))
 			return;
-			
-		var attr = typeObject.CustomAttributes.FirstOrDefault(a=>a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute));
-			
+
+		var attr = typeObject.CustomAttributes.FirstOrDefault(a => a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute));
+
 		schema.AllowAdditionalProperties = Convert.ToBoolean(attr.ConstructorArguments[0].Value);
 	}
-	
+
 	public override JSchema GetSchema(JSchemaTypeGenerationContext context)
 	{
 		// Handle Schema Definition Attribute
@@ -50,15 +50,15 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 		{
 			var generator = context.Generator;
 			var schema = generator.Generate(context.ObjectType);
-			
+
 			foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a.GetType() == typeof(KnownTypeAttribute)).Cast<KnownTypeAttribute>())
 			{
 				var schemaOf = generator.Generate(attr.Type);
 				HandleAdditionalPropeties(attr.Type, schemaOf);
-		
-				foreach(var custAttr in context.ObjectType.GetCustomAttributes())
+
+				foreach (var custAttr in context.ObjectType.GetCustomAttributes())
 				{
-										
+
 					switch (custAttr)
 					{
 						case ConiziOneOfAttribute oneOf:
@@ -74,24 +74,28 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 							break;
 					}
 				}
-				
-			
 			}
 			return schema;
 		}
-		
-		if (context.ObjectType == typeof(DateTime)) 
+
+		if (context.ObjectType == typeof(DateTime))
 		{
 			if (context.MemberProperty.AttributeProvider.GetAttributes(typeof(ConiziDateOnlyAttribute), true).Any())
 			{
 				var generator = context.Generator;
 				var schema = generator.Generate(context.ObjectType);
 				schema.Format = "date";
+				schema.Title = context.SchemaTitle;
+				schema.Description = context.SchemaDescription;
 				return schema;
 			}
 		}
-				
-		return null;
+
+		var defaultGenerator = context.Generator;
+		var defaultSchema = defaultGenerator.Generate(context.ObjectType);
+		HandleAdditionalPropeties(context.ObjectType, defaultSchema);
+		
+		return defaultSchema;
 	}
 }
 

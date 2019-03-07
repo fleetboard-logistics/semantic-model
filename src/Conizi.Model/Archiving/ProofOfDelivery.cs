@@ -12,10 +12,10 @@ namespace Conizi.Model.Archiving
     public class ProofOfDelivery : EdiDocument 
     {
         [JsonProperty(Required = Required.Always)]
-        public new EdiPartnerIdentificationBase Sender { get; set; }
+        public new EdiPartnerIdentification Sender { get; set; }
 
         [JsonProperty(Required = Required.Always)]
-        public new EdiPartnerIdentificationBase Receiver { get; set; }
+        public new EdiPartnerIdentification Receiver { get; set; }
 
         [JsonProperty(Required = Required.Always)]
         public EdiAddress Consignee { get; set; }
@@ -25,8 +25,8 @@ namespace Conizi.Model.Archiving
 
         public EdiAddress Carrier { get; set; }
 
-        public EdiPartnerIdentificationBase ReceivingPartner { get; set; }
-        public EdiPartnerIdentificationBase ShippingPartner { get; set; }
+        public EdiPartnerIdentification ReceivingPartner { get; set; }
+        public EdiPartnerIdentification ShippingPartner { get; set; }
 
         [JsonProperty("content")]
         public EdiFileBase Content { get; set; }

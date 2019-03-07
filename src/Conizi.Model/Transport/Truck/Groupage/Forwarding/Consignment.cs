@@ -32,15 +32,15 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Is a pre advice")]
         public bool IsPreAdvice { get; set; }
 
-        public EdiPartnerIdentificationBase AdditionalPartners { get; set; }
+        public EdiPartnerIdentification AdditionalPartners { get; set; }
 
         public EdiAddress OrderingParty { get; set; }
 
         [JsonRequired]
-        public EdiPartnerIdentificationBase ShippingPartner { get; set; }
+        public EdiPartnerIdentification ShippingPartner { get; set; }
 
         [JsonRequired]
-        public EdiPartnerIdentificationBase ReceivingPartner { get; set; }
+        public EdiPartnerIdentification ReceivingPartner { get; set; }
 
         public EdiRouting Routing { get; set; }
 

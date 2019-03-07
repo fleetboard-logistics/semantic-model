@@ -19,5 +19,7 @@ namespace Conizi.Model.Shared.Entities
 
         public EdiAnonymity Anonymity { get; set; }
 
+        public EdiTimeSlotBooking TimeSlotBooking { get; set; }
+
     }
 }
