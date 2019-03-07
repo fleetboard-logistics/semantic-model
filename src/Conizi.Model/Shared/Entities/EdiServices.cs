@@ -21,5 +21,7 @@ namespace Conizi.Model.Shared.Entities
 
         public EdiTimeSlotBooking TimeSlotBooking { get; set; }
 
+        public EdiTimeOptions TimeOptions { get; set; }
+
     }
 }
