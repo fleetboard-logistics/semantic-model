@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -6,6 +7,7 @@ namespace Conizi.Model.Shared.Entities
     [JsonObject("network")]
     [DisplayName("Network")]
     [Description("The network under which rules the consignment should be processed")]
+    [ConiziAdditionalProperties(false)]
     public class EdiNetwork
     {
         [DisplayName("Name of the network")]

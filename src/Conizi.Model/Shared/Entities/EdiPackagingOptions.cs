@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel;
+using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
     [JsonObject("packagingOptions")]
+    [DisplayName("Packaging Options")]
+    [ConiziAdditionalProperties(false)]
     public class EdiPackagingOptions
     {
         [DisplayName("Return")]

@@ -46,7 +46,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 
         public EdiServices  Services { get; set; }
 
+        public EdiExternalServices ExternalServices { get; set; }
 
+        public EdiInformation Information { get; set; }
+
+        public EdiReferences References { get; set; }
 
 
     }

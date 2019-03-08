@@ -19,7 +19,6 @@
   <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding</Namespace>
 </Query>
 
-
 class ExampleGenerationProvider : JSchemaGenerationProvider
 {
 	private void HandleAdditionalPropeties(Type typeObject, JSchema schema)
@@ -55,6 +54,8 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 			{
 				var schemaOf = generator.Generate(attr.Type);
 				HandleAdditionalPropeties(attr.Type, schemaOf);
+				schemaOf.Title = context.SchemaTitle;
+				schemaOf.Description = context.SchemaDescription;
 
 				foreach (var custAttr in context.ObjectType.GetCustomAttributes())
 				{
@@ -91,10 +92,24 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 			}
 		}
 
+		if (context.ObjectType == typeof(string) && context.MemberProperty?.AttributeProvider != null)
+		{	
+			if (context.MemberProperty.AttributeProvider.GetAttributes(typeof(ConiziTimeOnlyAttribute), true).Any())
+			{
+				var generator = context.Generator;
+				var schema = generator.Generate(context.ObjectType);
+				schema.Format = "time";
+				schema.Title = context.SchemaTitle;
+				schema.Description = context.SchemaDescription;
+				return schema;
+			}
+		}
+
 		var defaultGenerator = context.Generator;
 		var defaultSchema = defaultGenerator.Generate(context.ObjectType);
 		HandleAdditionalPropeties(context.ObjectType, defaultSchema);
-		
+		defaultSchema.Title = context.SchemaTitle;
+		defaultSchema.Description = context.SchemaDescription;
 		return defaultSchema;
 	}
 }
