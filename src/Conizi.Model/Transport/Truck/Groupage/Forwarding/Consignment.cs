@@ -52,6 +52,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 
         public EdiReferences References { get; set; }
 
+        public EdiBilling Billing { get; set; }
 
+        public EdiCustomsInformation CustomsInformation { get; set; }
     }
 }

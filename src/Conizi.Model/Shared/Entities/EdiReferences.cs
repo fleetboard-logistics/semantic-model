@@ -14,6 +14,30 @@ namespace Conizi.Model.Shared.Entities
     public class EdiReferences
     {
         public EdiReturnOfPreviousConsignment ReturnOfPreviousConsignment { get; set; }
+
+      
+        public EdiPartnerIdentification ForwardedFor { get; set; }
+        
+        public EdiSubsequentDelivery SubsequentDelivery { get; set; }
+
+        public EdiPickupOrder PickupOrder { get; set; }
+
+        [DisplayName("Delivery note")]
+        [Description("The delivery note of the shipper which describes the content of this consignment")]
+        public string DeliveryNote { get; set; }  
+
+        [DisplayName("Customer order no")]
+        [Description("A reference of the shipper for this consignment")]
+        public string CustomerOrderNo { get; set; }
+
+        [DisplayName("Customer order date")]
+        [Description("Date when the order was places with the shipping partner")]
+        [ConiziDateOnly]
+        public DateTime CustomerOrderDate { get; set; }
+
+        [DisplayName("Order entry system reference")]
+        [Description("A unqiue reference number from the system which was used to enter the order details")]
+        public string OrderEntrySystemReference { get; set; }
     }
 
 
@@ -32,9 +56,38 @@ namespace Conizi.Model.Shared.Entities
         [ConiziDateOnly]
         public DateTime ShippingDate { get; set; }
 
-        [DisplayName("Shipping partner")]
-        [Description("The partner which originally forwarded the consignment")]
         public EdiPartnerIdentification ShippingPartner { get; set; }
+    }
+   
+    [JsonObject("subsequentDelivery")]
+    [DisplayName("Subsequent Delivery")]
+    [Description("Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)")]
+    [ConiziAdditionalProperties(false)]
+    public class EdiSubsequentDelivery
+    {
+        [DisplayName("Consignment number of the consignment for that the subsequent delivery is")]
+        [Description("The consignment number of the original consignment")]
+        public string ConsignmentNoShippingPartner { get; set; }
+        
+        [DisplayName("Shipping date")]
+        [Description("The date when the original shipment was forwarded")]
+        [ConiziDateOnly]
+        public DateTime ShippingDate { get; set; }
+
+        public EdiPartnerIdentification ShippingPartner { get; set; }
+    }
+    
+    [JsonObject("pickupOrder")]
+    [DisplayName("Pickup order")]
+    [Description("Reference to a pickup order which resulted in this consignment")]
+    [ConiziAdditionalProperties(false)]
+    public class EdiPickupOrder
+    {
+        [DisplayName("Number of the Pickup order")]
+        [Description("Number to the referenced pickup order")]
+        public string PickupOrderNo { get; set; }
+        
+        public EdiPartnerIdentification OrderingParty { get; set; }
     }
 
 }
