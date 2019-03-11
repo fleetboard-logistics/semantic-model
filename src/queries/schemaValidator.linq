@@ -38,6 +38,7 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 		{
 			var generator = context.Generator;
 			var schema = generator.Generate(context.ObjectType);
+			HandleAdditionalPropeties(context.ObjectType, schema);
 			var attr = context.ObjectType.GetCustomAttribute<ConiziSchemaAttribute>();
 			schema.Id = new Uri(attr.Id);
 			schema.SchemaVersion = new Uri("http://json-schema.org/draft-06/schema#");
@@ -116,9 +117,6 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 
 void Main()
 {
-	string _newtonsoftLicense = "3668-KKyc+tNSwrYP/ng0Hlp5pLP791C3DC2FVPw6UIvvtFYEqxyDd8DewJFeFAldSUbmXZOVOvs9ndks4YQTe2cwimy3Rh09Rts6W1smXc47y8as4/lGWmvg+zJO+nLFulygN1aRKdTToZESMLCsjuuKTc8+AOuFnOQWaJ41ybOBMrF7IklkIjozNjY4LCJFeHBpcnlEYXRlIjoiMjAxOS0wNS0zMFQxMToxNzoxMy4zMTg2NTFaIiwiVHlwZSI6Ikpzb25TY2hlbWFTaXRlIn0=";
-
-	Newtonsoft.Json.Schema.License.RegisterLicense(_newtonsoftLicense);
 
 	var generator = new JSchemaGenerator();
 
@@ -130,7 +128,8 @@ void Main()
 	generator.GenerationProviders.Add(new ExampleGenerationProvider());
 	generator.GenerationProviders.Add(new StringEnumGenerationProvider());
 
-	JSchema schema = generator.Generate(typeof(Consignment));
-
+	//JSchema schema = generator.Generate(typeof(Consignment));
+	JSchema schema = generator.Generate(typeof(Manifest));
+	
 	schema.ToString().Dump();
 }

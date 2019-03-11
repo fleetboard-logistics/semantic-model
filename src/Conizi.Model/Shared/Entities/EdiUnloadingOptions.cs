@@ -13,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     {
         [DisplayName("Direct delivery")]
         [Description("The goods are to be deliverd without unloading them at the receiving partners warehouse")]
-        public bool DirectPickup { get; set; }
+        public bool DirectDelivery { get; set; }
 
         public EdiAlreadyReceived AlreadyReceived { get; set; }
 

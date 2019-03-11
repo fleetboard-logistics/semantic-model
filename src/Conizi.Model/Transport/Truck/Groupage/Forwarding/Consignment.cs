@@ -12,6 +12,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [ConiziSchema("http://conizi.io/model/transport/truck/groupage/forwarding/consignment.json", "consignment.json")]
     [DisplayName("Consignment")]
     [Description("A single consignment which is transferred between two partners. Usually used within the context a manifest")]
+    [ConiziAdditionalProperties(false)]
     public class Consignment : EdiDocument
     {
 
@@ -33,7 +34,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Is a pre advice")]
         public bool IsPreAdvice { get; set; }
 
-        public EdiPartnerIdentification AdditionalPartners { get; set; }
+        public List<EdiPartnerIdentification> AdditionalPartners { get; set; }
 
         public EdiAddress OrderingParty { get; set; }
 

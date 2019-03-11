@@ -29,6 +29,8 @@ namespace Conizi.Model.Shared.Entities
 
         public EdiLoadingOptions LoadingOptions { get; set; }
 
+        public EdiUnloadingOptions UnloadingOptions { get; set; }
+
         public EdiGateway EdiGateway { get; set; }
 
         public EdiHandlingInstructions EdiHandlingInstructions { get; set; }

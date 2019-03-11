@@ -74,7 +74,7 @@ namespace Conizi.Model.Shared.Entities
 
         [DisplayName("Inner package type")]
         [Description("The type of packaging of the inner packages")]
-        public string InnerPackageTyp { get; set; }
+        public string InnerPackageType { get; set; }
 
         [DisplayName("Content")]
         [Description("A short description of the nature of the goods contained within the packages")]
