@@ -128,6 +128,7 @@ void Main()
 	generator.SchemaLocationHandling = SchemaLocationHandling.Definitions;
 	generator.ContractResolver = new CamelCasePropertyNamesContractResolver();
 	generator.GenerationProviders.Add(new ExampleGenerationProvider());
+	generator.GenerationProviders.Add(new StringEnumGenerationProvider());
 
 	JSchema schema = generator.Generate(typeof(Consignment));
 

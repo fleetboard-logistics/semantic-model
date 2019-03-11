@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Conizi.Model.Shared.Attributes;
@@ -24,6 +25,7 @@ namespace Conizi.Model.Shared.Entities
     {
         [JsonRequired]
         [DisplayName("The Edi Id (e.g. CONIZVK)")]
+        [StringLength(50)]
         public string EdiId { get; set; }
     }
 
@@ -32,6 +34,7 @@ namespace Conizi.Model.Shared.Entities
     {
         [JsonRequired]
         [DisplayName("The PartnerId (e.g. 1234)")]
+        [MaxLength(50)]
         public string PartnerId { get; set; }
     }
 
@@ -40,6 +43,7 @@ namespace Conizi.Model.Shared.Entities
     {
         [JsonRequired]
         [DisplayName("The conizi id for internal routing purposes")]
+        [MaxLength(50)]
         public string ConiziId { get; set; }
     }
 }

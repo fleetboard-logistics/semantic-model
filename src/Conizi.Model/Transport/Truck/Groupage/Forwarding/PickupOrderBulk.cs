@@ -1,4 +1,6 @@
-﻿namespace Conizi.Model.Shared.Entities
+﻿using Conizi.Model.Shared.Entities;
+
+namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     public class PickupOrderBulk : EdiDocument
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
@@ -44,7 +45,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 
         public EdiRouting Routing { get; set; }
 
-        public EdiServices  Services { get; set; }
+        public EdiServices Services { get; set; }
 
         public EdiExternalServices ExternalServices { get; set; }
 
@@ -55,5 +56,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiBilling Billing { get; set; }
 
         public EdiCustomsInformation CustomsInformation { get; set; }
+
+        public EdiContent Content { get; set; }
     }
 }
