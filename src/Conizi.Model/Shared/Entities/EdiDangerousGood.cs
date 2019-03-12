@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Numerics;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json;
 
@@ -11,6 +12,10 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAdditionalProperties(false)]
     public class EdiDangerousGood
     {
+        [DisplayName("Quantity")]
+        [Description("The quantity")]
+        public int Quantity { get; set; }
+
         [DisplayName("Gross weight (kg)")]
         [Description("Weight of the consignment including all packaging")]
         public Decimal GrossWeightKilogram { get; set; }
@@ -54,6 +59,10 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Net explosive mass in kilogram")]
         [Description("The net explosive mass in kilogram")]
         public Decimal NetExplosiveMassKilogram { get; set; }
+
+        [DisplayName("Transport category")]
+        [Description("The transport category")]
+        public string TransportCategory { get; set; }
 
         [DisplayName("Limited quantity")]
         [Description("Limited quantity")]
