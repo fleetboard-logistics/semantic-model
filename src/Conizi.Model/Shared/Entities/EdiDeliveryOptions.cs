@@ -9,6 +9,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Delivery options")]
     [Description("Requirements for special services or equipment for the delivery")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiDeliveryOptions
     {
         [DisplayName("Lifting Platform")]

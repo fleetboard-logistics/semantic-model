@@ -10,6 +10,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Customs information")]
     [Description("Used to specifiy information necessary in the customs process")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiCustomsInformation
     {
         public EdiAddress DeclaringParty { get; set; }

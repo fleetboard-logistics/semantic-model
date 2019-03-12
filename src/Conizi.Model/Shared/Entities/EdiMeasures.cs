@@ -9,6 +9,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Measures")]
     [Description("Measures of the unit")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiMeasures
     {
         [DisplayName("Volume (m³)")]

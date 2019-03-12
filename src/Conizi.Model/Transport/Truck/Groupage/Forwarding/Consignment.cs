@@ -13,6 +13,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [DisplayName("Consignment")]
     [Description("A single consignment which is transferred between two partners. Usually used within the context a manifest")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class Consignment : EdiDocument
     {
 
@@ -23,7 +24,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Consignment number of the receiving partner")]
         public string ConsignmentNoReceivingPartner { get; set; }
 
-        [DisplayName("Shipping date")]
+        [DisplayName("Shipping date")] 
         [JsonProperty(PropertyName = "shippingDate",Required = Required.Always)]
         [ConiziDateOnly]
         public DateTime ShippingDate { get; set; }

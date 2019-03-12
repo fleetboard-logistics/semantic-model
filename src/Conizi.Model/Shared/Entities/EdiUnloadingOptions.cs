@@ -9,6 +9,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Unloading Options")]
     [Description("Information regarding unloading of the main haul")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiUnloadingOptions
     {
         [DisplayName("Direct delivery")]
@@ -25,6 +26,7 @@ namespace Conizi.Model.Shared.Entities
     [Description(
         "The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiAlreadyReceived
     {
         [DisplayName("Surplus consignment no")]
@@ -42,6 +44,7 @@ namespace Conizi.Model.Shared.Entities
     [Description(
         "The goods for a consigment which already was part of another manifest and had been reported missing on that manifest")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiMissingFromPreviousManifest
     {
         [DisplayName("Manifest id")]

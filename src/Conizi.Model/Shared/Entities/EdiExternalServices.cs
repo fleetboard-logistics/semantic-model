@@ -11,6 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("External services")]
     [Description("Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiExternalServices
     {
         public EdiArchive Archive { get; set; }

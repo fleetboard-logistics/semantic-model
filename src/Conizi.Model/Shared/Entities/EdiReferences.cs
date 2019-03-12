@@ -11,6 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("References")]
     [Description("Numbers of various sources identifing this consignment or references from this consignment to other business processes")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiReferences
     {
         public EdiReturnOfPreviousConsignment ReturnOfPreviousConsignment { get; set; }

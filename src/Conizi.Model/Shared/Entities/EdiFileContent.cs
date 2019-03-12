@@ -12,6 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [JsonObject("FileContent")]
     [KnownType(typeof(EdiFileData))]
     [KnownType(typeof(EdiFileReference))]
+    [ConiziAllowXProperties]
     public class EdiFileBase
     {
     }

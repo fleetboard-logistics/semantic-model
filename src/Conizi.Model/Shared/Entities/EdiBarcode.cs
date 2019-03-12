@@ -8,6 +8,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Bar codes / SSCC number")]
     [Description("Detailed information about the individual handling units")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiBarcode
     {
         [DisplayName("Bar code / SSCC / NVE")]

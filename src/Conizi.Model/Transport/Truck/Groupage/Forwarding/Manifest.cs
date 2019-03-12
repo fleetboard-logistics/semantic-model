@@ -12,6 +12,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [Description(
         "A manifest describes multiple consignments which are forwarded from one partner to another at the same time")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class Manifest : EdiDocument
     {
         [JsonProperty(PropertyName = "manifestId", Required = Required.Always)]
@@ -62,6 +63,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [DisplayName("Vehicle")]
     [Description("Information about the vehicles used in the transport")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+
     public class EdiVehicle
     {
         [DisplayName("Registration")]
@@ -73,6 +76,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [DisplayName("Load units")]
     [Description("Load units (containers, swap bodies, ...) used to transport the goods")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiLoadUnit
     {
         [DisplayName("Identification")]
@@ -87,6 +91,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [DisplayName("Seal")]
     [Description("Seals used to prevent tampering with the goods in the load unit")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiSeal
     {
         [DisplayName("Code / number of the seal")]
@@ -98,6 +103,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [DisplayName("Line")]
     [Description("Line of the manifest")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiManifestLine
     {
         [DisplayName("Line number")]

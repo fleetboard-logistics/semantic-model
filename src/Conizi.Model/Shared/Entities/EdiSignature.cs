@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Shared.Entities
 {
     [JsonObject("signature")]
+    [ConiziAllowXProperties]
     public class EdiSignature
     {
         [JsonProperty(Required = Required.Always)]

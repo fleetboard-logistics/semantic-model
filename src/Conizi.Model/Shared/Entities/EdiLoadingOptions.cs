@@ -9,6 +9,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Loading options")]
     [Description("Information about the loading of the main haul")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiLoadingOptions
     {
         [DisplayName("Direct pickup")]

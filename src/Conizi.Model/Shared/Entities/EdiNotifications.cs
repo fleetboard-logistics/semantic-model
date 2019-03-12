@@ -8,6 +8,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Notifications")]
     [Description("Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiNotifications
     {
         public EdiAddress GeneralNotificationAddress { get; set; }

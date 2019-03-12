@@ -11,6 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Billing information")]
     [Description("Information for invoicing and clearing")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiBilling
     {
         public EdiAddress FreightPayer { get; set; }

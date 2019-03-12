@@ -9,6 +9,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Services")]
     [Description("Special services which can be requested by the ordering party (or the shipping partner)")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiServices
     {
         public EdiPackagingOptions PackagingOptions { get; set; }
@@ -43,6 +44,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Gateway-Options")]
     [Description("Special requirements for the handling of the goods at intermediate hubs / gateways")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiGateway
     {
         [DisplayName("Priority")]
@@ -54,6 +56,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Handling instructions")]
     [Description("Handling instructions for the goods, e.g. to prevent damage")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiHandlingInstructions
     {
         [DisplayName("Customs Goods")]
@@ -80,6 +83,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Orientation")]
     [Description("The goods must be transported in a given orientatien and may not be flipped over")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiOrientation
     {
         [DisplayName("Upright")]
@@ -95,6 +99,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Return of goods")]
     [Description("Services for the return of goods")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiReturnOfGoods
     {
         [DisplayName("Packaging disposal")]

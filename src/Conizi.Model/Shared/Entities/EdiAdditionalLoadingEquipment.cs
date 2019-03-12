@@ -8,6 +8,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Additional loading equipment")]
     [Description("Additional loading aids which are not part of the consignment but which have been added to safely transport the goods")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiAdditionalLoadingEquipment
     {
         [DisplayName("EPAL")]

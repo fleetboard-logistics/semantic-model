@@ -21,6 +21,17 @@
 
 class ExampleGenerationProvider : JSchemaGenerationProvider
 {
+	private void HandleXProperties(Type typeObject, JSchema schema)
+	{
+		if (!typeObject.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziAllowXPropertiesAttribute)))
+			return;
+
+		var attr = typeObject.CustomAttributes.FirstOrDefault(a => a.AttributeType == typeof(ConiziAllowXPropertiesAttribute));
+
+		schema.PatternProperties.Add("x-.*", JSchema.Parse("{}"));
+		schema.PatternProperties.Add("\\$.*", JSchema.Parse("{}"));
+	}
+	
 	private void HandleAdditionalPropeties(Type typeObject, JSchema schema)
 	{
 		if (!typeObject.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute)))
@@ -39,6 +50,7 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 			var generator = context.Generator;
 			var schema = generator.Generate(context.ObjectType);
 			HandleAdditionalPropeties(context.ObjectType, schema);
+			HandleXProperties(context.ObjectType, schema);
 			var attr = context.ObjectType.GetCustomAttribute<ConiziSchemaAttribute>();
 			schema.Id = new Uri(attr.Id);
 			schema.SchemaVersion = new Uri("http://json-schema.org/draft-06/schema#");
@@ -55,6 +67,7 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 			{
 				var schemaOf = generator.Generate(attr.Type);
 				HandleAdditionalPropeties(attr.Type, schemaOf);
+				HandleXProperties(attr.Type, schemaOf);
 				schemaOf.Title = context.SchemaTitle;
 				schemaOf.Description = context.SchemaDescription;
 
@@ -109,6 +122,7 @@ class ExampleGenerationProvider : JSchemaGenerationProvider
 		var defaultGenerator = context.Generator;
 		var defaultSchema = defaultGenerator.Generate(context.ObjectType);
 		HandleAdditionalPropeties(context.ObjectType, defaultSchema);
+		HandleXProperties(context.ObjectType, defaultSchema);
 		defaultSchema.Title = context.SchemaTitle;
 		defaultSchema.Description = context.SchemaDescription;
 		return defaultSchema;

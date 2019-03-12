@@ -12,6 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Information")]
     [Description("General information about the consignment")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiInformation
     {
         [DisplayName("Invoice remarks")]

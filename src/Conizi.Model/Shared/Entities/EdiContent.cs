@@ -12,6 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Content")]
     [Description("Describes the nature and quantity of the goods in this consignment")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiContent : EdiMeasures
     {
         [DisplayName("Non hazardous waste")]

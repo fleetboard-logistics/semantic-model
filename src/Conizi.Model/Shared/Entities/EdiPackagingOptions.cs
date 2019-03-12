@@ -7,6 +7,7 @@ namespace Conizi.Model.Shared.Entities
     [JsonObject("packagingOptions")]
     [DisplayName("Packaging Options")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiPackagingOptions
     {
         [DisplayName("Return")]

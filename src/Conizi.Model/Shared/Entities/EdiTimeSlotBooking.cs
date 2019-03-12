@@ -11,6 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Time slot booking")]
     [Description("Information about time slots which need to be booked or are already booked for this consignment")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiTimeSlotBooking
     {
         public EdiPartnerIdentification ByDeliveryPartner { get; set; }
@@ -23,6 +24,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Pre booked time slot")]
     [Description("A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiPreBookedTimeslot
     {
         [JsonProperty("info", Required = Required.AllowNull)]

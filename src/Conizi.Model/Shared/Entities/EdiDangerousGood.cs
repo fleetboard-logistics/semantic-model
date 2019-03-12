@@ -10,6 +10,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Dangerous goods")]
     [Description("Dangerous goods")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiDangerousGood
     {
         [DisplayName("Quantity")]

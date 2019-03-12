@@ -9,6 +9,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Time options")]
     [Description("Requirements for the delivery or pickup time")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiTimeOptions
     {
         public EdiNotAfter NotAfter { get; set; }
@@ -32,6 +33,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Not after")]
     [Description("The consignment must be deliverd until the given date")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiNotAfter
     {
         public DateTime Date { get; set; }
@@ -41,6 +43,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Not Before")]
     [Description("The consignment must not be deliverd before the given date")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiNotBefore
     {
         public DateTime Date { get; set; }
@@ -50,6 +53,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Fixed day")]
     [Description("The consignment must be delivered at the given date (and in the given time window)")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiFixedDay
     {
         [ConiziDateOnly]
@@ -68,6 +72,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Fixed week")]
     [Description("The consignment must be deliverd within the given week of the year")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiFixedWeek
     {
         public string Year { get; set; }
@@ -78,6 +83,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Saturday")]
     [Description("The consignment should be delivered on a saturday")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiWeekendSaturday
     {
         [DisplayName("Time From")]
@@ -93,6 +99,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Next day")]
     [Description("The consignment must be delivered on the next working day")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiNextDay
     {
    
@@ -109,6 +116,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Same day")]
     [Description("The consignment must be delivered on the same day")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiSameDay
     {
    
@@ -125,6 +133,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Evening")]
     [Description("The consignment must be delivered in the eveneing hours")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiEvening
     {
    
