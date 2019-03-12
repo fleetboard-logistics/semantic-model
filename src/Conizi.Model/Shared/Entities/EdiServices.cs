@@ -32,11 +32,11 @@ namespace Conizi.Model.Shared.Entities
 
         public EdiUnloadingOptions UnloadingOptions { get; set; }
 
-        public EdiGateway EdiGateway { get; set; }
+        public EdiGateway Gateway { get; set; }
 
-        public EdiHandlingInstructions EdiHandlingInstructions { get; set; }
+        public EdiHandlingInstructions HandlingInstructions { get; set; }
 
-        public EdiReturnOfGoods EdiReturnOfGoods { get; set; }
+        public EdiReturnOfGoods ReturnOfGoods { get; set; }
 
     }
 
@@ -65,15 +65,16 @@ namespace Conizi.Model.Shared.Entities
 
         [DisplayName("Customs Goods resubmission date")]
         [Description("The resubmission date for the customs goods")]
-        public string CustomsGoodsResubmissionDate { get; set; }
+        [ConiziDateOnly]
+        public DateTime CustomsGoodsResubmissionDate { get; set; }
 
         [DisplayName("Handle with care")]
         [Description("The goods must be handeled with care to prevent damage")]
-        public string HandleWithCare { get; set; }
+        public bool HandleWithCare { get; set; }
 
         [DisplayName("Empties exchange required")]
         [Description("Specifies whether empties should be exchanged with the consignee")]
-        public string EmptiesExchange { get; set; }
+        public bool EmptiesExchange { get; set; }
 
         public EdiOrientation EdiOrientation { get; set; }
 

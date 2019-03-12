@@ -36,6 +36,7 @@ namespace Conizi.Model.Shared.Entities
 
         [DisplayName("Shipping date")]
         [Description("The date of the manifest which contained the surplus goods")]
+        [ConiziDateOnly]
         public DateTime ShippingDate { get; set; }
     }
 

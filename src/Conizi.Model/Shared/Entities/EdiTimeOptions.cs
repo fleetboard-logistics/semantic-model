@@ -36,6 +36,7 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiNotAfter
     {
+        [ConiziDateOnly]
         public DateTime Date { get; set; }
     }
 
@@ -46,6 +47,7 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiNotBefore
     {
+        [ConiziDateOnly]
         public DateTime Date { get; set; }
     }
 

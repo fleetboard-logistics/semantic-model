@@ -31,12 +31,44 @@ namespace Conizi.Model.Shared.Entities
         public EdiUseSpecificLastMileProvider UseSpecificLastMileProvider { get; set; }
 
         public EdiCashOnDelivery CashOnDelivery { get; set; }
+
+        [DisplayName("Pick up by consignee")]
+        [Description("The consignee will pick up the goods at the receiving partner's warehouse. Do not perform local delivery")]
+        public bool PickupByConsignee { get; set; }
+
+        public EdiWorkRequest WorkRequest { get; set; }
+
+        [DisplayName("Delivery only with delivery note")]
+        [Description("Delivery should only be performed with the delivery note")]
+        public bool DeliveryOnlyWithDeliveryNote { get; set; }
+
+        [DisplayName("Digital delivery note")]
+        [Description("The delivery note has been sent by means of digital communication (and is not attached to the goods)")]
+        public bool DigitalDeliveryNote { get; set; }
+
+        [DisplayName("Delivery note on goods")]
+        [Description("The delivery note is attached to the goods")]
+        public bool DeliveryNoteOnGoods { get; set; }
+
+        [DisplayName("PoD on original delivery note")]
+        [Description("The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner")]
+        public bool PodOnOriginalDeliveryNote { get; set; }
+
+        [DisplayName("Delivery without receipt allowed")]
+        [Description("The goods may be dropped at the designated location without a signature")]
+        public bool DeliveryWithoutReceiptAllowed { get; set; }
+
+        [DisplayName("For attention")]
+        [Description("The delivery is for attention of the given company")]
+        public string ForAttentionOf { get; set; }
+
     }
     
     [JsonObject("useSpecificLastMileProvider")]
     [DisplayName("Specific last mile provider")]
     [Description("A given last mile provider must be used")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiUseSpecificLastMileProvider
     {
         [DisplayName("Name of the provider")]
@@ -48,6 +80,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Cash on delivery")]
     [Description("The goods must only be delivered if the recipient pays the given amount")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiCashOnDelivery
     {
         [DisplayName("Amount")]
@@ -65,5 +98,18 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("acceptCheque")]
         [Description("Specifies if cheques should be accepted")]
         public bool AcceptCheque { get; set; }
+    }
+
+    [JsonObject("workRequest")]
+    [DisplayName("Work request")]
+    [Description("The receiving partner should perform the action specified")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiWorkRequest
+    {
+        [DisplayName("Information")]
+        [Description("A description of the action to be performed")]
+        public string Info { get; set; }
+
     }
 }
