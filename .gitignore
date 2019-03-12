@@ -318,3 +318,4 @@ gitlab-runner-windows-amd64.exe
 /src/Web/Ocora.Static/dll
 /tools/Ocora.Tools.Clients.AdminConsole/bin
 /tools/Ocora.Tools.Clients.AdminConsole/obj
+/src/queries/sort_conizi_files.linq

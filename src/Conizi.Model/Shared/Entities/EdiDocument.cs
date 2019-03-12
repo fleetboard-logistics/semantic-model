@@ -1,12 +1,19 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
     public class EdiDocument
     {
+        [JsonProperty("$schema", Required = Required.DisallowNull)]
+        [DisplayName("Json schema")]
+        [Description("The used json schema")]
+        public string Schema { get; set; }
+
         [JsonProperty("receiver", Required = Required.DisallowNull)]
         public EdiPartnerIdentification Receiver { get; set; }
 
@@ -16,8 +23,25 @@ namespace Conizi.Model.Shared.Entities
         [JsonProperty("network", Required = Required.DisallowNull)]
         public EdiNetwork Network { get; set; }
 
+        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("messageFunctionCode")]
+        [DisplayName("Message function code")]
+        public  EdiMessageFunctionCode MessageFunctionCode { get; set; }
+
         [JsonProperty("converterInfo", Required = Required.DisallowNull)]
         public  ConverterInfo ConverterInfo { get; set; }
+
+        public string SerializeMetaDocument(bool indented = false)
+        {
+           var jsonString = JsonConvert.SerializeObject(this, indented ? Formatting.Indented : Formatting.None);
+           return jsonString;
+        }
+
+        public static EdiDocument DeserializeMetaDocument(string jsonString)
+        {
+            var metaDocument = JsonConvert.DeserializeObject<EdiDocument>(jsonString);
+            return metaDocument;
+        }
     }
 
     [JsonObject("converterInfo")]
@@ -45,6 +69,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Conversion date")]
         [Description("The date of conversion")]
         public DateTime ConversionDate { get; set; }
-
     }
+
+  
 }

@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Conizi.Model\Conizi.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Transport\" />
+  </ItemGroup>
+
 </Project>

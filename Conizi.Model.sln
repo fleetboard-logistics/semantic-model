@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model", "src\Conizi.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Creator", "src\Conizi.Model.Creator\Conizi.Model.Creator.csproj", "{E41D1B70-7DBA-4D79-99DE-DFD19AD406E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conizi.Model.Examples", "src\Conizi.Model.Examples\Conizi.Model.Examples.csproj", "{1345F709-DEBD-4837-9F7B-84CB1919337D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Examples", "src\Conizi.Model.Examples\Conizi.Model.Examples.csproj", "{1345F709-DEBD-4837-9F7B-84CB1919337D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

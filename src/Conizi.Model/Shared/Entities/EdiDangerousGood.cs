@@ -70,7 +70,7 @@ namespace Conizi.Model.Shared.Entities
 
         [DisplayName("Total points ADR")]
         [Description("Total points ADR")]
-        public int TotalPointsAdr { get; set; }
+        public int TotalPointsADR { get; set; }
 
         [DisplayName("Tunnel restriction")]
         [Description("Tunnel restriction")]
