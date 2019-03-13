@@ -12,7 +12,8 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiAddress : EdiPartnerIdentification
     {
-        [JsonRequired]
+
+        //[JsonRequired]
         [DisplayName("Name of the address")]
         public string Name { get; set; }
         [DisplayName("Street of the address")]

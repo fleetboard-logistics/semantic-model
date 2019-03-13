@@ -78,6 +78,9 @@ namespace Conizi.Model.Shared.Entities
 
         public EdiOrientation EdiOrientation { get; set; }
 
+        public EdiStacking Stacking { get; set; }
+
+        public EdiFood Food { get; set; }
     }
     
     [JsonObject("orientation")]
@@ -108,5 +111,34 @@ namespace Conizi.Model.Shared.Entities
         public bool EmptyPackaging { get; set; }
     }
 
+    [JsonObject("stacking")]
+    [DisplayName("Stacking")]
+    [Description("Indicated wheter the goods may or may not be stacked")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiStacking
+    {
+        [DisplayName("Stacking forbidden")]
+        [Description("The goods must not be stacked")]
+        public bool Forbidden { get; set; }
 
+        [DisplayName("Stacking possible")]
+        [Description("Stacking of the goods is safely possible")]
+        public bool Allowed { get; set; }
+    }
+
+    [JsonObject("food")]
+    [DisplayName("Food related regulatory restrictions")]
+    [Description("Special requirements for transporting food")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiFood
+    {
+        [DisplayName("Stacking forbidden")]
+        [Description("The HACCP regulations apply")]
+        public bool Haccp { get; set; }
+
+    }
+
+    
 }
