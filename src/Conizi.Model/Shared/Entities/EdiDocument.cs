@@ -23,11 +23,6 @@ namespace Conizi.Model.Shared.Entities
         [JsonProperty("network", Required = Required.DisallowNull)]
         public EdiNetwork Network { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
-        [JsonProperty("messageFunctionCode")]
-        [DisplayName("Message function code")]
-        public  EdiMessageFunctionCode MessageFunctionCode { get; set; }
-
         [JsonIgnore]
         [JsonProperty("converterInfo", Required = Required.DisallowNull)]
         public  ConverterInfo ConverterInfo { get; set; }

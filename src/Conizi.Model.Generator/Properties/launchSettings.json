@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Conizi.Model.Generator": {
+      "commandName": "Project",
+      "commandLineArgs": "generate"
+    }
+  }
+}
