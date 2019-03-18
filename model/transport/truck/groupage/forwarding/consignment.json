@@ -70,7 +70,18 @@
         "de": "Eindeutige Bezeichnung für das Bordero, auf dem die Sendung im Transport-Management-Systen des Versandpartners verladen wurde."
       },
       "type": "string"
-    },    
+    }, 
+    "tourNumber": {
+      "title": "Tour number",
+      "titleMap": {
+        "de": "Tour Nummer"
+      },
+      "description": "Number of the planned / assigned local traffic tour for delivery.",
+      "descriptionMap": {
+        "de": "Nummer der geplanten / zugewiesenen Nahverkehrstour für die Zustellung."
+      },
+      "type": "string"
+    },       
     "sender": {
       "title": "Data Origin",
       "titleMap": {
