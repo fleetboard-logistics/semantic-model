@@ -1,7 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
+    <!--<TargetFrameworks>netstandard2.0;net452</TargetFrameworks>-->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>André Rüb (sdc4)</Authors>
+    <Company>Fleetboard Logistics GmbH</Company>
+    <Copyright>Fleetboard Logistics GmbH 2019</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://fleetboard-logistics.com/en/index.html</PackageProjectUrl>
+    <PackageTags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/fleetboard-logistics/semantic-model</RepositoryUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>

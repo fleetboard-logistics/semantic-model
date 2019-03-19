@@ -19,7 +19,7 @@ namespace Conizi.Model.Core.Generation
             var schemaAttribute = typeof(TModel).GetCustomAttribute<ConiziSchemaAttribute>();
 
             if(schemaAttribute == null)
-                throw new InvalidOperationException("Class is now valid conizi model!");
+                throw new InvalidOperationException("Class is no valid conizi model!");
 
             var generator = new JSchemaGenerator
             {
@@ -40,13 +40,21 @@ namespace Conizi.Model.Core.Generation
             // Get model shortcut from model id
             var model = Regex.Replace(schemaAttribute.Id, baseUri + "(v([0-9]|\\.)+/)|(\\.json)", String.Empty);
 
-            var match = Regex.Match(schemaAttribute.Id, "^(v([0-9]|[0-9]\\.)+)$");
+            if (string.IsNullOrEmpty(model))
+                throw new InvalidOperationException($"Model could not be extracted from {schemaAttribute.Id}!");
+
+            var match = Regex.Match(schemaAttribute.Id, "(?<version>(v([0-9]|[0-9]\\.)+))");
+
             var version = match.Groups["version"]?.Value;
+
+            if (string.IsNullOrEmpty(version))
+                throw new InvalidOperationException($"Version could not be extracted from {schemaAttribute.Id}!");
 
             var result = new SchemaResult
             { 
                 Id = schemaAttribute.Id,
-                Name = "",
+                Title = schema.Title,
+                Description = schema.Description,
                 Model = model,
                 JSchema = schema,
                 File = schemaAttribute.FileName,

@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
-    [ConiziSchema("https://model.conizi.io/v1.23/transport/truck/groupage/forwarding/consignment.json", "consignment.json")]
+    [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json", "consignment.json")]
     [DisplayName("Consignment")]
     [Description("A single consignment which is transferred between two partners. Usually used within the context a manifest")]
     [ConiziAdditionalProperties(false)]

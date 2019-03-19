@@ -1,0 +1,72 @@
+image: alpine:latest
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  tags:
+    - docker
+  image: docker:git
+  services:
+  - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+  script:
+    - install_dependencies
+    - build
+  only:
+    - branches
+  except:
+    - master
+    # - production
+    # - preproduction
+
+test:
+  stage: test
+  image: mcr.microsoft.com/dotnet/core/sdk:2.2
+  tags:
+    - docker
+  script:
+    - install_dependencies
+    - test
+  only:
+    - branches
+    - tags
+
+.auto_devops: &auto_devops |
+  [[ "$TRACE" ]] && set -x
+  export CI_APPLICATION_REPOSITORY=$CI_REGISTRY_IMAGE/master
+  export CI_APPLICATION_TAG=$CI_COMMIT_SHA
+  export CI_CONTAINER_NAME=ci_job_build_${CI_JOB_ID}
+
+  # If we build a tag, then build a docker image with that tag under the main namespace
+  if [[ $CI_COMMIT_TAG ]]; then
+    export CI_APPLICATION_REPOSITORY=$CI_REGISTRY_IMAGE
+    export CI_APPLICATION_TAG=$CI_COMMIT_TAG
+  fi
+  
+  export TAG=$CI_APPLICATION_TAG
+  export REPOSITORY=$CI_APPLICATION_REPOSITORY
+
+  function install_dependencies() {
+    echo "Installing deps"
+    apk add -U openssl curl tar gzip bash ca-certificates git
+  }
+
+  function build() {
+    echo "Building..."
+    dotnet build
+  }
+  
+  function test() {
+    echo "Testing..."
+    dotnet test .\test\Conizi.Model.UnitTests\Conizi.Model.UnitTests.csproj --filter "Category=UnitTest" -v n 
+  }
+
+before_script:
+  - *auto_devops

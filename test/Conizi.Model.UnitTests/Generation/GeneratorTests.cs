@@ -4,6 +4,7 @@ using System.Xml.XPath;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Generation;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
+using Conizi.Model.UnitTests.Resources;
 using Newtonsoft.Json.Schema;
 using Xunit;
 
@@ -13,7 +14,7 @@ namespace Conizi.Model.UnitTests.Generation
     {
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
-        public void GenerateInvalidModel_ReturnInvalidOperationException()
+        public void GenerateInvalidModel_AssertInvalidOperationException()
         {
             var generator = new Generator();
             Assert.Throws<InvalidOperationException>(() => generator.Generate<System.DateTime>());
@@ -21,7 +22,7 @@ namespace Conizi.Model.UnitTests.Generation
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
-        public void GenerateValidModel_ReturnValidSchema()
+        public void GenerateValidModel_AssertValidSchema()
         {
             var generator = new Generator();
             var result = generator.Generate<Consignment>();
@@ -34,7 +35,7 @@ namespace Conizi.Model.UnitTests.Generation
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
-        public void GenerateValidModel_ReturnValidModel()
+        public void GenerateModel_AssertValidModel()
         {
             var generator = new Generator();
             var result = generator.Generate<Consignment>();
@@ -47,18 +48,67 @@ namespace Conizi.Model.UnitTests.Generation
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
-        public void GenerateValidModel_ReturnValidVersion()
+        public void GenerateModel_AssertModelUriFormatException()
+        {
+            var generator = new Generator();
+            Assert.Throws<UriFormatException>(() => generator.Generate<InvalidModel>());
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateValidModel_AssertValidVersion()
         {
             var generator = new Generator();
             var result = generator.Generate<Consignment>();
 
             Assert.IsType<SchemaResult>(result);
 
-            var valid = Regex.IsMatch("^(v([0-9]|[0-9]\\.)+)$", result.Version);
+            var valid = Regex.IsMatch(result.Version, "^(v([0-9]|[0-9]\\.)+)$");
 
             //Valid version
             Assert.True(valid);
         }
 
+
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateTestModel_AssertUnionTypesCount()
+        {
+
+            var generator = new Generator();
+            var result = generator.Generate<TestModel>();
+
+            Assert.IsType<SchemaResult>(result);
+
+            var schema = result.JSchema;
+
+            Assert.NotNull(schema);
+
+            var content =  schema.Properties["testFileContent"];
+
+            Assert.Equal(2, content.OneOf.Count);
+
+            Assert.Equal(4, schema.Properties["testReceivingPartner"].AnyOf.Count);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateTestModel_AssertValidDateFormats()
+        {
+         
+            var generator = new Generator();
+            var result = generator.Generate<TestModel>();
+
+            Assert.IsType<SchemaResult>(result);
+            
+            var schema = result.JSchema;
+            
+            Assert.Equal("date-time", schema.Properties["testDateTime"].Format);
+            Assert.Equal("date", schema.Properties["testDateOnly"].Format);
+            Assert.Equal("time", schema.Properties["testTimeOnly"].Format);
+        }
+
     }
 }
+
