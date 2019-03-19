@@ -21,10 +21,11 @@ build:
     - build
   only:
     - branches
-  except:
-    - master
-    # - production
-    # - preproduction
+    - tags
+  # except:
+  #   - master
+  #   - production
+  #   - preproduction
 
 test:
   stage: test
@@ -40,15 +41,7 @@ test:
 
 .auto_devops: &auto_devops |
   [[ "$TRACE" ]] && set -x
-  export CI_APPLICATION_REPOSITORY=$CI_REGISTRY_IMAGE/master
   export CI_APPLICATION_TAG=$CI_COMMIT_SHA
-  export CI_CONTAINER_NAME=ci_job_build_${CI_JOB_ID}
-
-  # If we build a tag, then build a docker image with that tag under the main namespace
-  if [[ $CI_COMMIT_TAG ]]; then
-    export CI_APPLICATION_REPOSITORY=$CI_REGISTRY_IMAGE
-    export CI_APPLICATION_TAG=$CI_COMMIT_TAG
-  fi
   
   export TAG=$CI_APPLICATION_TAG
   export REPOSITORY=$CI_APPLICATION_REPOSITORY
