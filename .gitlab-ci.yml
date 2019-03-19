@@ -9,6 +9,7 @@ stages:
 
 build:
   stage: build
+  image: mcr.microsoft.com/dotnet/core/sdk:2.2
   tags:
     - docker
   image: docker:git
