@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
+using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -15,7 +16,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [Description("A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class Tour
+    public class Tour : EdiDocument
     {
         [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("messageFunctionCode")]
