@@ -10,7 +10,7 @@ using Newtonsoft.Json.Serialization;
 namespace Conizi.Model.Core.Generation
 {
     /// <summary>
-    /// The conizi JSIO
+    /// The conizi schema generator
     /// </summary>
     public class Generator
     {
@@ -33,7 +33,6 @@ namespace Conizi.Model.Core.Generation
             generator.GenerationProviders.Add(new ConiziDefaultGenerationProvider());
             generator.GenerationProviders.Add(new StringEnumGenerationProvider());
 
-            //JSchema schema = generator.Generate(typeof(Consignment));
             JSchema schema = generator.Generate(typeof(TModel));
             var baseUri = "https://model.conizi.io/";
 

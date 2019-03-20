@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
+    /// <summary>
+    /// A single consignment which is transferred between two partners. Usually used within the context a manifest
+    /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json", "consignment.json")]
     [DisplayName("Consignment")]
     [Description("A single consignment which is transferred between two partners. Usually used within the context a manifest")]
@@ -16,14 +19,25 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [ConiziAllowXProperties]
     public class Consignment : EdiDocument
     {
-
+        /// <summary>
+        /// Unique central consignment number
+        /// </summary>
         [DisplayName("Unique central consignment number")]
         public string ConsignmentObjectId { get; set; }
+        /// <summary>
+        /// Consignment number of the shipping partner
+        /// </summary>
         [DisplayName("Consignment number of the shipping partner")]
         public string ConsignmentNoShippingPartner { get; set; }
+        /// <summary>
+        /// Consignment number of the receiving partner
+        /// </summary>
         [DisplayName("Consignment number of the receiving partner")]
         public string ConsignmentNoReceivingPartner { get; set; }
 
+        /// <summary>
+        /// Shipping date e.g. 2019-03-06 14:23:57
+        /// </summary>
         [DisplayName("Shipping date")] 
         [JsonProperty(PropertyName = "shippingDate",Required = Required.Always)]
         [ConiziDateOnly]
@@ -38,7 +52,9 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public List<EdiPartnerIdentification> AdditionalPartners { get; set; }
 
         public EdiAddress OrderingParty { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonRequired]
         public EdiPartnerIdentification ShippingPartner { get; set; }
 

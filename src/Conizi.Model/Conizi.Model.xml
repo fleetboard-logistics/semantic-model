@@ -24,5 +24,76 @@
             Indicates if X- Properties should allowed. Default true
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiAddress">
+            <summary>
+            Address information of an object (e.g. sender or receiver)"
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPartnerIdentification">
+            <summary>
+            Base class for all partner identification stuff.
+            Used to allow combining schemas in a JSON Schema <seealson href="https://json-schema.org/understanding-json-schema/reference/combining.html"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiIdIdentification">
+            <summary>
+            Information about the technical sender and receiver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiIdIdentification.EdiId">
+            <summary>
+            Edi Id is used to identify the technical sender or receiver (e.g. CONIZVK)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPartner">
+            <summary>
+            Information about the sending or receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartner.PartnerId">
+            <summary>
+            Partner Id is used to identify the real sender or receiver (e.g. 1234)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiConiziIdentification">
+            <summary>
+            Information about the sending or receiving object on the conizi platform
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiConiziIdentification.ConiziId">
+            <summary>
+            Conizi Id is used to identify the sending or receiving Tenant/Site/App on the conizi platform 
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">
+            <summary>
+            A single consignment which is transferred between two partners. Usually used within the context a manifest
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentObjectId">
+            <summary>
+            Unique central consignment number
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentNoShippingPartner">
+            <summary>
+            Consignment number of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentNoReceivingPartner">
+            <summary>
+            Consignment number of the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingDate">
+            <summary>
+            Shipping date e.g. 2019-03-06 14:23:57
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingPartner">
+            <summary>
+            
+            </summary>
+        </member>
     </members>
 </doc>

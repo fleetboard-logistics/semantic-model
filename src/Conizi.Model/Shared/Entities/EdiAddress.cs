@@ -6,7 +6,11 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
+    /// <summary>
+    /// Address information of an object (e.g. sender or receiver)"
+    /// </summary>
     [DisplayName("Address relevant fields")]
+    [Description("Address information of an object (e.g. sender or receiver)")]
     [JsonObject("address")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]

@@ -9,9 +9,13 @@ namespace Conizi.Model.UnitTests.Resources
     [ConiziSchema("https://model.conizi.io/v1.0/test/test.json", "test.json")]
     [DisplayName("Test Model")]
     [Description("This is the conizi test model")]
-    public class TestModel
+    public class TestModel : EdiDocument
     {
+
+        [JsonRequired]
         public EdiPartnerIdentification TestReceivingPartner { get; set; }
+
+        [JsonRequired]
         public EdiPartner TestShippingPartner { get; set; }
 
         [ConiziDateOnly]

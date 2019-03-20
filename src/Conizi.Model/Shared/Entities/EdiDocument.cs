@@ -14,10 +14,10 @@ namespace Conizi.Model.Shared.Entities
         [Description("The used json schema")]
         public string Schema { get; set; }
 
-        [JsonProperty("receiver", Required = Required.DisallowNull)]
+        [JsonProperty("receiver", Required = Required.Always)]
         public EdiPartnerIdentification Receiver { get; set; }
 
-        [JsonProperty("sender", Required = Required.DisallowNull)]
+        [JsonProperty("sender", Required = Required.Always)]
         public EdiPartnerIdentification Sender { get; set; }
 
         [JsonProperty("network", Required = Required.DisallowNull)]
@@ -26,18 +26,7 @@ namespace Conizi.Model.Shared.Entities
         [JsonIgnore]
         [JsonProperty("converterInfo", Required = Required.DisallowNull)]
         public  ConverterInfo ConverterInfo { get; set; }
-
-        public string SerializeMetaDocument(bool indented = false)
-        {
-           var jsonString = JsonConvert.SerializeObject(this, indented ? Formatting.Indented : Formatting.None);
-           return jsonString;
-        }
-
-        public static EdiDocument DeserializeMetaDocument(string jsonString)
-        {
-            var metaDocument = JsonConvert.DeserializeObject<EdiDocument>(jsonString);
-            return metaDocument;
-        }
+      
     }
 
     [JsonObject("converterInfo")]
