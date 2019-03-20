@@ -14,7 +14,7 @@ namespace Conizi.Model.Core.Generation
     /// </summary>
     public class Generator
     {
-        public SchemaResult Generate<TModel>()
+        public GenerationResult Generate<TModel>()
         {
             var schemaAttribute = typeof(TModel).GetCustomAttribute<ConiziSchemaAttribute>();
 
@@ -49,7 +49,7 @@ namespace Conizi.Model.Core.Generation
             if (string.IsNullOrEmpty(version))
                 throw new InvalidOperationException($"Version could not be extracted from {schemaAttribute.Id}!");
 
-            var result = new SchemaResult
+            var result = new GenerationResult
             { 
                 Id = schemaAttribute.Id,
                 Title = schema.Title,

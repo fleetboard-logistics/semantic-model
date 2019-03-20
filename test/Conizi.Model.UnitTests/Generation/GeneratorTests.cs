@@ -27,7 +27,7 @@ namespace Conizi.Model.UnitTests.Generation
             var generator = new Generator();
             var result = generator.Generate<Consignment>();
 
-            Assert.IsType<SchemaResult>(result);
+            Assert.IsType<GenerationResult>(result);
 
             // Get schema version 6 as default
             Assert.NotEmpty(result.JSchema.ToString(SchemaVersion.Draft6));
@@ -40,7 +40,7 @@ namespace Conizi.Model.UnitTests.Generation
             var generator = new Generator();
             var result = generator.Generate<Consignment>();
 
-            Assert.IsType<SchemaResult>(result);
+            Assert.IsType<GenerationResult>(result);
 
             // Get schema version 6 as default
             Assert.Equal("transport/truck/groupage/forwarding/consignment", result.Model);
@@ -61,7 +61,7 @@ namespace Conizi.Model.UnitTests.Generation
             var generator = new Generator();
             var result = generator.Generate<Consignment>();
 
-            Assert.IsType<SchemaResult>(result);
+            Assert.IsType<GenerationResult>(result);
 
             var valid = Regex.IsMatch(result.Version, "^(v([0-9]|[0-9]\\.)+)$");
 
@@ -79,7 +79,7 @@ namespace Conizi.Model.UnitTests.Generation
             var generator = new Generator();
             var result = generator.Generate<TestModel>();
 
-            Assert.IsType<SchemaResult>(result);
+            Assert.IsType<GenerationResult>(result);
 
             var schema = result.JSchema;
 
@@ -100,7 +100,7 @@ namespace Conizi.Model.UnitTests.Generation
             var generator = new Generator();
             var result = generator.Generate<TestModel>();
 
-            Assert.IsType<SchemaResult>(result);
+            Assert.IsType<GenerationResult>(result);
             
             var schema = result.JSchema;
             

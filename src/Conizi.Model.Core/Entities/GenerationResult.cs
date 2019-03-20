@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json.Schema;
 
 namespace Conizi.Model.Core.Entities
@@ -6,7 +7,7 @@ namespace Conizi.Model.Core.Entities
     /// <summary>
     /// 
     /// </summary>
-    public class SchemaResult
+    public class GenerationResult
     {
         [Required]
         public string Id { get; set; }

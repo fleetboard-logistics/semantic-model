@@ -11,15 +11,16 @@ namespace Conizi.Model.UnitTests.Conversion
 {
     public class ConverterTests
     {
-        [Fact(Skip = "Not yet completed")]
+        [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void SerializerInvalidModel_AssertJsonSerializationException()
         {
             var m = new InvalidModel();
 
-            var ex = Assert.Throws<JsonSerializationException>(() => Converter.Serialize(m));
+            var result = Converter.Serialize(m);
 
-            Assert.Equal("Cannot write a null value for property 'receiver'. Property requires a value. Path ''.", ex.Message);
+            Assert.True(result.HasValidationErrors);
+            Assert.Equal("Invalid URI: The format of the URI could not be determined.", result.ValidationErrors[1]);
         }
 
         [Fact]
@@ -57,6 +58,7 @@ namespace Conizi.Model.UnitTests.Conversion
 
 
             var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
 
         }
 
