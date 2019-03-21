@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net.Mime;
@@ -12,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Schema;
+using Validator = Conizi.Model.Core.Validate.Validator;
 
 namespace Conizi.Model.Generator
 {
@@ -68,6 +71,22 @@ namespace Conizi.Model.Generator
                         return 0;
                     });
                 });
+
+                consoleApp.Command("validate", command =>
+                {
+                    command.Description = "Validate a message vs the associated model";
+                    command.HelpOption("-?|-h|--help");
+
+                    var model = command.Option("-m|--model", "Specify the model that should be used to validate the message", CommandOptionType.SingleValue);
+
+
+                    command.OnExecute(() =>
+                    {
+                        
+                        return 0;
+                    });
+                });
+
 
                 consoleApp.Command("generate", (command) =>
                 {
@@ -139,11 +158,12 @@ namespace Conizi.Model.Generator
 
         }
 
-        private bool ValidateInput(string source, string target)
-        {
-           
+        #region Doing
 
-            return true;
+
+        private bool ValidateInput(string json, out IList<string> validationErrors)
+        {
+            return Validator.ValidateSchema<Manifest>(json, out validationErrors);
         }
 
 
@@ -152,7 +172,7 @@ namespace Conizi.Model.Generator
             var generator = new Core.Generation.Generator();
             var generatorResult = generator.Generate<Manifest>();
 
-            return null;
+            return generatorResult.JSchema.ToString(SchemaVersion.Draft6);
         }
 
         private List<Type> ListAllConiziModels()
@@ -184,5 +204,7 @@ namespace Conizi.Model.Generator
 
             return types;
         }
+
+        #endregion
     }
 }

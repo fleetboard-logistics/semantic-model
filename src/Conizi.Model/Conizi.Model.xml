@@ -19,6 +19,17 @@
             Indicates if Additional Properties should allowed. Default is false
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Attributes.ConiziAdditionalPropertiesAttribute.AllowAdditionalProperties">
+            <summary>
+            Indicates if additional properties should be allowed
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Shared.Attributes.ConiziAdditionalPropertiesAttribute.#ctor(System.Boolean)">
+            <summary>
+            Set value, if additional properties should be allowed
+            </summary>
+            <param name="allowAdditionalProperties"></param>
+        </member>
         <member name="T:Conizi.Model.Shared.Attributes.ConiziAllowXPropertiesAttribute">
             <summary>
             Indicates if X- Properties should allowed. Default true

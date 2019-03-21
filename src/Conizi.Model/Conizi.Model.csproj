@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!--<TargetFrameworks>netstandard2.0;net452</TargetFrameworks>-->
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
     <Authors>André Rüb (sdc4)</Authors>
     <Company>Fleetboard Logistics GmbH</Company>
     <Copyright>Fleetboard Logistics GmbH 2019</Copyright>
@@ -23,10 +23,6 @@
     <DocumentationFile>C:\src\sematicmodel\src\Conizi.Model\Conizi.Model.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Doxygen" Version="1.8.14">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Reflection;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Validate;
@@ -20,7 +19,6 @@ namespace Conizi.Model.Core.Conversion
             if (schemaAttribute == null)
                 throw new InvalidOperationException("Class is no valid conizi model!");
 
-
             if (string.IsNullOrEmpty(model.Schema))
                 model.Schema = schemaAttribute.Id;
 
@@ -38,7 +36,7 @@ namespace Conizi.Model.Core.Conversion
             var conversionResult = new ConversionResult
             {
                 Content = jsonString
-            };
+            }; 
 
             if (ignoreValidation)
                 return conversionResult;
