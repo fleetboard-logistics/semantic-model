@@ -151,6 +151,10 @@
 			}
 		}
 	},
+	"patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+    },
 	"additionalProperties": false,
 	"definitions": {
 		"nameAndAddress": {
