@@ -16,7 +16,7 @@ build:
   - docker:dind
   variables:
     DOCKER_DRIVER: overlay2
-    GENERATOR__JSONSCHEMALICENSE: $CI_APPLICATION_REPOSITORY
+    GENERATOR__JSONSCHEMALICENSE: $GENERATOR_JSONSCHEMALICENSE
   script:
     - install_dependencies
     - build
