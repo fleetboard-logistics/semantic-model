@@ -54,7 +54,7 @@ test:
 
   function build() {
     echo "Building..."
-    dotnet build ./Conizi.Model.sln --configuration NetCore -f dotnetstandard2.0
+    dotnet build ./Conizi.Model.sln --configuration NetCore -f netstandard2.0
   }
   
   function test() {
