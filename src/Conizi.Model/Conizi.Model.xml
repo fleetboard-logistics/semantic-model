@@ -40,6 +40,16 @@
             Address information of an object (e.g. sender or receiver)"
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDocument">
+            <summary>
+            Base document in the conizi context
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDocument.Schema">
+            <summary>
+            The id (URI) of the model
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiPartnerIdentification">
             <summary>
             Base class for all partner identification stuff.
@@ -74,6 +84,47 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiConiziIdentification.ConiziId">
             <summary>
             Conizi Id is used to identify the sending or receiving Tenant/Site/App on the conizi platform 
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase">
+            <summary>
+            Enables the models to add additional pattern (x-) properties
+            Attention: Pattern properties will not be processed in all services and apps, so please use carefully!
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.AddPatternProperty(System.String,System.String)">
+            <summary>
+            Add a pattern property to this object (e.g. x-name2)
+            </summary>
+            <param name="name">The name of the property as string</param>
+            <param name="value">The value of the property as string</param>
+        </member>
+        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.GetPatternPropertyValue(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.GetInstancePatternProperies">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Conizi.Model.Shared.Interfaces.EdiPatternProperty">
+            <summary>
+            Pattern property to handle additional properties (e.g. x-name2)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Interfaces.EdiPatternProperty.Name">
+            <summary>
+            Name of the property as string
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Interfaces.EdiPatternProperty.Value">
+            <summary>
+            Value of the property as string
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">

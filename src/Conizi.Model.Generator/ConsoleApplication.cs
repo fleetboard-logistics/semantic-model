@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net.Mime;
 using System.Reflection;
 using System.Text;
+using System.Threading;
+using Conizi.Model.Core;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Microsoft.Extensions.CommandLineUtils;
@@ -21,17 +23,6 @@ namespace Conizi.Model.Generator
     class ConsoleApplication
     {
 
-        public static string AssemblyDirectory
-        {
-            get
-            {
-                string codeBase = typeof(ConsoleApplication).GetTypeInfo().Assembly.CodeBase;
-                var uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                return Path.GetDirectoryName(path);
-            }
-        }
-
         private readonly string[] args;
         private static IConfiguration _configuration;
         private ILogger<ConsoleApplication> logger;
@@ -39,7 +30,6 @@ namespace Conizi.Model.Generator
         public ConsoleApplication(string[] args)
         {
             this.args = args;
-         
         }
 
         internal void Init()
@@ -58,7 +48,6 @@ namespace Conizi.Model.Generator
 
             try
             {
-
                 consoleApp.Command("list", command =>
                 {
                     command.Description = "List all available conizi C# models";
@@ -66,7 +55,6 @@ namespace Conizi.Model.Generator
 
                     command.OnExecute(() =>
                     {
-                        
                         ListAllConiziModels();
                         return 0;
                     });
@@ -78,12 +66,45 @@ namespace Conizi.Model.Generator
                     command.HelpOption("-?|-h|--help");
 
                     var model = command.Option("-m|--model", "Specify the model that should be used to validate the message", CommandOptionType.SingleValue);
+                    var file = command.Option("-f|--file", "Specify the path to the json message file", CommandOptionType.SingleValue);
 
 
                     command.OnExecute(() =>
                     {
+                        var selectedModel = default(Type);
+
+                        if (model.HasValue())
+                        {
+                            selectedModel = Helper.GetConiziModels().FirstOrDefault(m => m.FullName.Contains(model.Value()));
+
+                            if (selectedModel == null)
+                            {
+                                logger.LogError("Model {Model} could not be found!", model.Value());
+                                return 1;
+                            }
+
+                            Console.WriteLine($"Using Model: {selectedModel.FullName}");
+                        }
+
+                        if (file.HasValue())
+                        {
+                            
+                            if (!File.Exists(file.Value()))
+                            {
+                                logger.LogError("File {File} could not be found!","sfs");
+                                return 1;
+                            }
                         
-                        return 0;
+                            Console.WriteLine($"Using File: {file.Value()}");
+                        }
+                        Console.WriteLine("Validating...");
+                        if(this.ValidateInput(selectedModel,File.ReadAllText(file.Value())))
+                        {
+                            Console.WriteLine("Model is valid");
+                            return 0;
+                        }
+                        Console.WriteLine("Model is invalid!");
+                        return 1;
                     });
                 });
 
@@ -127,7 +148,7 @@ namespace Conizi.Model.Generator
                 });
 
                 consoleApp.Execute(args);
-                Console.ReadLine();
+                Thread.Sleep(500);
             }
             catch(Exception ex)
             {
@@ -161,31 +182,33 @@ namespace Conizi.Model.Generator
         #region Doing
 
 
-        private bool ValidateInput(string json, out IList<string> validationErrors)
+        private bool ValidateInput(Type model, string json)
         {
-            return Validator.ValidateSchema<Manifest>(json, out validationErrors);
+            if(Validator.ValidateSchema(model,json, out var  validationErrors))
+                return true;
+            
+
+            foreach(var error in validationErrors) {
+                Console.WriteLine(error);
+            }
+
+            return false;
         }
 
 
         private string GenerateSchema(bool all = false)
         {
             var generator = new Core.Generation.Generator();
-            var generatorResult = generator.Generate<Manifest>();
+            //var generatorResult = generator.Generate<Manifest>();
 
-            return generatorResult.JSchema.ToString(SchemaVersion.Draft6);
+            //return generatorResult.JSchema.ToString(SchemaVersion.Draft6);
+
+            return null;
         }
 
         private List<Type> ListAllConiziModels()
         {
-            var assembly = Assembly.LoadFrom(Path.Combine(AssemblyDirectory, "Conizi.Model.dll"));
-
-            var schemas = assembly.GetTypes().Where(t =>
-                t.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziSchemaAttribute)));
-
-            Console.WriteLine("Available Models:");
-            Console.WriteLine();
-
-            var types = new List<Type>();
+            var schemas = Helper.GetConiziModels();
 
             foreach (var schema in schemas)
             {
@@ -198,11 +221,9 @@ namespace Conizi.Model.Generator
                 stringBuilder.AppendLine("---");
 
                 Console.Write(stringBuilder.ToString());
-
-                types.Add(schema);
             }
 
-            return types;
+            return schemas.ToList();
         }
 
         #endregion

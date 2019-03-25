@@ -14,11 +14,26 @@ namespace Conizi.Model.Core.Generation
     /// </summary>
     public class Generator
     {
+        /// <summary>
+        /// Register a JsonSchema License if available
+        /// </summary>
+        /// <param name="license"></param>
+        public static void RegisterJsonSchemaLicense(string license)
+        {
+            License.RegisterLicense(license);
+        }
+
         public GenerationResult Generate<TModel>()
         {
-            var schemaAttribute = typeof(TModel).GetCustomAttribute<ConiziSchemaAttribute>();
+            return Generate(typeof(TModel));
+        }
 
-            if(schemaAttribute == null)
+        public GenerationResult Generate(Type modelType)
+        {
+       
+            var schemaAttribute = modelType.GetCustomAttribute<ConiziSchemaAttribute>();
+
+            if (schemaAttribute == null)
                 throw new InvalidOperationException("Class is no valid conizi model!");
 
             var generator = new JSchemaGenerator
@@ -33,7 +48,7 @@ namespace Conizi.Model.Core.Generation
             generator.GenerationProviders.Add(new ConiziDefaultGenerationProvider());
             generator.GenerationProviders.Add(new StringEnumGenerationProvider());
 
-            JSchema schema = generator.Generate(typeof(TModel));
+            JSchema schema = generator.Generate(modelType);
             var baseUri = "https://model.conizi.io/";
 
             // Get model shortcut from model id
@@ -50,7 +65,7 @@ namespace Conizi.Model.Core.Generation
                 throw new InvalidOperationException($"Version could not be extracted from {schemaAttribute.Id}!");
 
             var result = new GenerationResult
-            { 
+            {
                 Id = schemaAttribute.Id,
                 Title = schema.Title,
                 Description = schema.Description,
@@ -63,5 +78,6 @@ namespace Conizi.Model.Core.Generation
 
             return result;
         }
+
     }
 }

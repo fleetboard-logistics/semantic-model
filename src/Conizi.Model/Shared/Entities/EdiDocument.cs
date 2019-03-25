@@ -2,17 +2,24 @@
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
-    public class EdiDocument
+    /// <summary>
+    /// Base document in the conizi context
+    /// </summary>
+    public class EdiDocument : EdiPatternPropertiesBase
     {
-        [JsonProperty("$schema", Required = Required.DisallowNull)]
+        /// <summary>
+        /// The id (URI) of the model
+        /// </summary>
+        [JsonProperty("$schema", Required = Required.Always)]
         [DisplayName("Json schema")]
         [Description("The used json schema")]
-        public string Schema { get; set; }
+        public string Schema { get; internal set; }
 
         [JsonProperty("receiver", Required = Required.Always)]
         public EdiPartnerIdentification Receiver { get; set; }
@@ -25,7 +32,7 @@ namespace Conizi.Model.Shared.Entities
 
         [JsonIgnore]
         [JsonProperty("converterInfo", Required = Required.DisallowNull)]
-        public  ConverterInfo ConverterInfo { get; set; }
+        internal  ConverterInfo ConverterInfo { get; set; }
       
     }
 

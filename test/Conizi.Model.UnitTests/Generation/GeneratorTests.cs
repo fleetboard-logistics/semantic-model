@@ -12,6 +12,16 @@ namespace Conizi.Model.UnitTests.Generation
 {
     public class GeneratorTests
     {
+
+        public GeneratorTests()
+        {
+
+            var license = TestHelper.GetJsonSchemaLicense();
+
+            if (!string.IsNullOrEmpty(license))
+                Generator.RegisterJsonSchemaLicense(license);
+        }
+
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateInvalidModel_AssertInvalidOperationException()

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
+using Conizi.Model.Core.Conversion.Converters;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Validate;
 using Conizi.Model.Shared.Attributes;
@@ -11,8 +13,21 @@ namespace Conizi.Model.Core.Conversion
 {
     public static class Converter
     {
-      
-        public static ConversionResult Serialize<TModel>(TModel model, bool indented = false, bool ignoreValidation = false) where TModel : EdiDocument
+        public static JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        {
+            Formatting = Formatting.Indented,
+            NullValueHandling = NullValueHandling.Include,
+            DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
+            DateFormatHandling = DateFormatHandling.IsoDateFormat,
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            Converters = new List<JsonConverter>
+            {
+                new PatternPropertyConverter()
+            }
+        };
+
+        public static ConversionResult Serialize<TModel>(TModel model, bool indented = false,
+            bool ignoreValidation = false) where TModel : EdiDocument
         {
             var schemaAttribute = typeof(TModel).GetCustomAttribute<ConiziSchemaAttribute>();
 
@@ -22,21 +37,15 @@ namespace Conizi.Model.Core.Conversion
             if (string.IsNullOrEmpty(model.Schema))
                 model.Schema = schemaAttribute.Id;
 
-            var settings = new JsonSerializerSettings
-            {
-                Formatting = indented ? Formatting.Indented : Formatting.None,
-                NullValueHandling = NullValueHandling.Include,
-                DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
-                DateFormatHandling = DateFormatHandling.IsoDateFormat,
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
-            };
+            var settings = SerializerSettings;
+
 
             var jsonString = JsonConvert.SerializeObject(model, settings);
 
             var conversionResult = new ConversionResult
             {
                 Content = jsonString
-            }; 
+            };
 
             if (ignoreValidation)
                 return conversionResult;

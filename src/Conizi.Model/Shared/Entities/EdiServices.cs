@@ -76,7 +76,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("Specifies whether empties should be exchanged with the consignee")]
         public bool EmptiesExchange { get; set; }
 
-        public EdiOrientation EdiOrientation { get; set; }
+        public EdiOrientation Orientation { get; set; }
 
         public EdiStacking Stacking { get; set; }
 
@@ -92,7 +92,7 @@ namespace Conizi.Model.Shared.Entities
     {
         [DisplayName("Upright")]
         [Description("The goods must be transported upright")]
-        public bool Upright { get; set; }
+        public bool Vertical { get; set; }
 
         [DisplayName("Horizontal")]
         [Description("The goods must be transported flat down")]

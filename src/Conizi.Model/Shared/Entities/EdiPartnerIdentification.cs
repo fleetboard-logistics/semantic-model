@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -18,8 +19,9 @@ namespace Conizi.Model.Shared.Entities
     [KnownType(typeof(EdiPartner))]
     [ConiziAnyOf]
     [JsonObject("partnerIdentification")]
-    public abstract class EdiPartnerIdentification
+    public abstract class EdiPartnerIdentification : EdiPatternPropertiesBase
     {
+        
     }
 
     /// <summary>

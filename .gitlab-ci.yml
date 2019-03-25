@@ -45,6 +45,7 @@ test:
   
   export TAG=$CI_APPLICATION_TAG
   export REPOSITORY=$CI_APPLICATION_REPOSITORY
+  export GENERATOR_JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
 
   function install_dependencies() {
     echo "Installing deps"
@@ -53,7 +54,7 @@ test:
 
   function build() {
     echo "Building..."
-    dotnet build
+    dotnet build ./Conizi.Model.sln --configuration NetCore -f dotnetstandard2.0
   }
   
   function test() {

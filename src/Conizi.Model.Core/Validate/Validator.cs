@@ -21,13 +21,19 @@ namespace Conizi.Model.Core.Validate
             //License.RegisterLicense(_newtonsoftLicense);
         }
 
+        public static bool ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
+        {
+            return ValidateSchema(typeof(TModel),jsonMessage, out validationErrors);
+        }
+
         /// <summary>
         /// Validate assigned model vs the specific JSON Schema.
         /// </summary>
+        /// <param name="model"></param>
         /// <param name="jsonMessage">The message as IMessage</param>
         /// <param name="validationErrors">IList<string> of possible ValidationErrors</string></param>
         /// <returns>true/false</returns>
-        public static bool ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
+        public static bool ValidateSchema(Type model, string jsonMessage, out IList<string> validationErrors)
         {
             validationErrors = new List<string>();
 
@@ -42,7 +48,7 @@ namespace Conizi.Model.Core.Validate
             try
             {
                 var generator = new Generator();
-                var generatorResult = generator.Generate<TModel>();
+                var generatorResult = generator.Generate(model);
 
                 var settings = new JSchemaReaderSettings
                 {
@@ -56,7 +62,7 @@ namespace Conizi.Model.Core.Validate
             }
             catch (Exception ex)
             {
-                validationErrors.Add($"Schema Validation Error: Schema may be invalid for model {nameof(TModel)}");
+                validationErrors.Add($"Schema Validation Error: Schema may be invalid for model {nameof(model)}");
                 validationErrors.Add(ex.Message);
                 var error = ex;
                 while (error.InnerException != null)

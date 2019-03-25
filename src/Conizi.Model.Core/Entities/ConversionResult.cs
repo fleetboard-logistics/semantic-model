@@ -21,7 +21,7 @@ namespace Conizi.Model.Core.Entities
         public bool HasValidationErrors { get; private set; }
 
         public string Content { get; set; }
-
+        public string Schema { get; set; }
         public bool IsValidated { get; internal set; }
     }
 }
