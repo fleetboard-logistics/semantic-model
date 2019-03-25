@@ -16,7 +16,6 @@ build:
   - docker:dind
   variables:
     DOCKER_DRIVER: overlay2
-    GENERATOR__JSONSCHEMALICENSE: $GENERATOR_JSONSCHEMALICENSE
   script:
     - install_dependencies
     - build
@@ -45,7 +44,7 @@ test:
   export CI_APPLICATION_TAG=$CI_COMMIT_SHA
   
   export TAG=$CI_APPLICATION_TAG
-  export GENERATOR_JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
+  export GENERATOR__JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
 
   function install_dependencies() {
     echo "Installing deps"
