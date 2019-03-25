@@ -14,6 +14,8 @@ build:
     - docker
   services:
   - docker:dind
+  environment:
+    GENERATOR__JSONSCHEMALICENSE: $CI_APPLICATION_REPOSITORY
   variables:
     DOCKER_DRIVER: overlay2
   script:
@@ -44,7 +46,6 @@ test:
   export CI_APPLICATION_TAG=$CI_COMMIT_SHA
   
   export TAG=$CI_APPLICATION_TAG
-  export REPOSITORY=$CI_APPLICATION_REPOSITORY
   export GENERATOR_JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
 
   function install_dependencies() {
