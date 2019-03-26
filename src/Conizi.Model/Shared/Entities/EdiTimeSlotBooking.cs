@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -12,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Information about time slots which need to be booked or are already booked for this consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiTimeSlotBooking
+    public class EdiTimeSlotBooking : EdiPatternPropertiesBase
     {
         public EdiPartnerIdentification ByDeliveryPartner { get; set; }
 
@@ -25,7 +26,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiPreBookedTimeslot
+    public class EdiPreBookedTimeslot : EdiPatternPropertiesBase
     {
         [JsonProperty("info", Required = Required.AllowNull)]
         public string Info { get; set; }

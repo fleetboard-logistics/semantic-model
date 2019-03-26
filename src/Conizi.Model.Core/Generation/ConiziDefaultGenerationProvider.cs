@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
+using Conizi.Model.Core.Extensions;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
@@ -20,7 +21,8 @@ namespace Conizi.Model.Core.Generation
             if (typeObject.CustomAttributes.All(a => a.AttributeType != typeof(ConiziAllowXPropertiesAttribute)))
                 return;
 
-            var attr = typeObject.CustomAttributes.FirstOrDefault(a => a.AttributeType == typeof(ConiziAllowXPropertiesAttribute));
+            var attr = typeObject.CustomAttributes.FirstOrDefault(a =>
+                a.AttributeType == typeof(ConiziAllowXPropertiesAttribute));
 
             schema.PatternProperties.Add("x-.*", JSchema.Parse("{}"));
             schema.PatternProperties.Add("\\$.*", JSchema.Parse("{}"));
@@ -31,7 +33,8 @@ namespace Conizi.Model.Core.Generation
             if (typeObject.CustomAttributes.All(a => a.AttributeType != typeof(ConiziAdditionalPropertiesAttribute)))
                 return;
 
-            var attr = typeObject.CustomAttributes.FirstOrDefault(a => a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute));
+            var attr = typeObject.CustomAttributes.FirstOrDefault(a =>
+                a.AttributeType == typeof(ConiziAdditionalPropertiesAttribute));
 
             schema.AllowAdditionalProperties = Convert.ToBoolean(attr.ConstructorArguments[0].Value);
         }
@@ -51,13 +54,16 @@ namespace Conizi.Model.Core.Generation
                 return schema;
             }
 
+            var processedProps = new List<string>();
+
             //Check if anyOf etc. is used
             if (context.ObjectType.CustomAttributes.Any(a => a.AttributeType == typeof(KnownTypeAttribute)))
             {
                 var generator = context.Generator;
                 var schema = generator.Generate(context.ObjectType);
 
-                foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a is KnownTypeAttribute).Cast<KnownTypeAttribute>())
+                foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a is KnownTypeAttribute)
+                    .Cast<KnownTypeAttribute>())
                 {
                     var schemaOf = generator.Generate(attr.Type);
                     HandleAdditionalProperties(attr.Type, schemaOf);
@@ -67,23 +73,36 @@ namespace Conizi.Model.Core.Generation
 
                     foreach (var custAttr in context.ObjectType.GetCustomAttributes())
                     {
-
                         switch (custAttr)
                         {
                             case ConiziOneOfAttribute oneOf:
                                 schema.OneOf.Add(schemaOf);
+                                processedProps.Add(attr.Type.Name);
                                 break;
 
                             case ConiziAnyOfAttribute oneOf:
                                 schema.AnyOf.Add(schemaOf);
+                                processedProps.Add(attr.Type.Name);
                                 break;
 
                             case ConiziAllOfAttribute allOf:
                                 schema.AllOf.Add(schemaOf);
+                                processedProps.Add(attr.Type.Name);
                                 break;
                         }
                     }
                 }
+
+                foreach (var prop in context.ObjectType.GetProperties())
+                {
+                    if (!processedProps.Contains(prop.PropertyType.Name))
+                        continue;
+
+                    var ccProp = prop.Name.ToCamelCase();
+
+                    schema.Properties.Remove(ccProp);
+                }
+
                 return schema;
             }
 

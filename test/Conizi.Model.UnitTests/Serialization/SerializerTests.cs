@@ -5,7 +5,7 @@ using Conizi.Model.Core.Conversion;
 using Conizi.Model.Core.Generation;
 using Conizi.Model.Core.Validate;
 using Conizi.Model.Shared.Entities;
-using Conizi.Model.UnitTests.Resources;
+using Conizi.Model.Test.Library.Entities;
 using Xunit;
 
 namespace Conizi.Model.UnitTests.Serialization

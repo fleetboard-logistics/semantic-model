@@ -22,9 +22,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Conizi.Model.Core\Conizi.Model.Core.csproj" />
     <ProjectReference Include="..\..\src\Conizi.Model\Conizi.Model.csproj" />
+    <ProjectReference Include="..\Conizi.Model.Test.Library\Conizi.Model.Test.Library.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Resources\" />
     <Folder Include="Validation\" />
   </ItemGroup>
 

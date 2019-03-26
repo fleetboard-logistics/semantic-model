@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Numerics;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -11,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Dangerous goods")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDangerousGood
+    public class EdiDangerousGood : EdiPatternPropertiesBase
     {
         [DisplayName("Quantity")]
         [Description("The quantity")]

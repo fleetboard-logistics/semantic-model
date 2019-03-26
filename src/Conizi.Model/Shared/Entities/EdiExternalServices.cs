@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -12,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiExternalServices
+    public class EdiExternalServices : EdiPatternPropertiesBase
     {
         public EdiArchive Archive { get; set; }
     }
@@ -21,7 +22,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Digital archive")]
     [Description("Functions provided by the digtal archive systems")]
     [ConiziAdditionalProperties(false)]
-    public class EdiArchive
+    public class EdiArchive : EdiPatternPropertiesBase
     {
         [DisplayName("PoD push")]
         [Description("The proof of delivery document is provided for automatic download")]

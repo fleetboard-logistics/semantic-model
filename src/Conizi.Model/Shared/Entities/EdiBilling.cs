@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -12,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Information for invoicing and clearing")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiBilling
+    public class EdiBilling : EdiPatternPropertiesBase
     {
         public EdiAddress FreightPayer { get; set; }
 

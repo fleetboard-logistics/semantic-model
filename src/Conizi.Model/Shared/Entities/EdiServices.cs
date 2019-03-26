@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -10,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Special services which can be requested by the ordering party (or the shipping partner)")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiServices
+    public class EdiServices : EdiPatternPropertiesBase
     {
         public EdiPackagingOptions PackagingOptions { get; set; }
 
@@ -45,7 +46,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Special requirements for the handling of the goods at intermediate hubs / gateways")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiGateway
+    public class EdiGateway : EdiPatternPropertiesBase
     {
         [DisplayName("Priority")]
         [Description("The consignment must be processed with priority")]
@@ -57,7 +58,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Handling instructions for the goods, e.g. to prevent damage")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiHandlingInstructions
+    public class EdiHandlingInstructions : EdiPatternPropertiesBase
     {
         [DisplayName("Customs Goods")]
         [Description("The goods are subject to customs processing and must be processed according the rules of the local authorities")]
@@ -88,7 +89,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The goods must be transported in a given orientatien and may not be flipped over")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiOrientation
+    public class EdiOrientation : EdiPatternPropertiesBase
     {
         [DisplayName("Upright")]
         [Description("The goods must be transported upright")]
@@ -104,7 +105,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Services for the return of goods")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiReturnOfGoods
+    public class EdiReturnOfGoods : EdiPatternPropertiesBase
     {
         [DisplayName("Packaging disposal")]
         [Description("The packaging of the goods is taken back and dispose")]
@@ -116,7 +117,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Indicated wheter the goods may or may not be stacked")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiStacking
+    public class EdiStacking : EdiPatternPropertiesBase
     {
         [DisplayName("Stacking forbidden")]
         [Description("The goods must not be stacked")]
@@ -132,7 +133,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Special requirements for transporting food")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiFood
+    public class EdiFood : EdiPatternPropertiesBase
     {
         [DisplayName("Stacking forbidden")]
         [Description("The HACCP regulations apply")]

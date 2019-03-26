@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -40,7 +41,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Insurance value")]
     [Description("Value of the goods, used for insurance purposes")]
     [ConiziAdditionalProperties(false)]
-    public class EdiInsuranceValue
+    public class EdiInsuranceValue : EdiPatternPropertiesBase
     {
         [DisplayName("Amount")]
         [Description("Amount")]
@@ -99,7 +100,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Customs information")]
     [Description("Used to specifiy information necessary in the customs process")]
     [ConiziAdditionalProperties(false)]
-    public class EdiContentCustomsInformation
+    public class EdiContentCustomsInformation : EdiPatternPropertiesBase
     {
         [DisplayName("Goods number")]
         [Description("Goods number")]

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -10,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Measures of the unit")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiMeasures
+    public class EdiMeasures : EdiPatternPropertiesBase
     {
         [DisplayName("Volume (m³)")]
         [Description("Total volume of the consignment")]

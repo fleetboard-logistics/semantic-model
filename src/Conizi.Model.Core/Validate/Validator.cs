@@ -13,12 +13,13 @@ namespace Conizi.Model.Core.Validate
     {
 
         public static ConcurrentDictionary<string, EdiDocument> ModelCache = null;
-        private static JSchemaPreloadedResolver _resolver = null;
-
-        
-        static Validator()
+        /// <summary>
+        /// Register a JsonSchema License if available
+        /// </summary>
+        /// <param name="license"></param>
+        public static void RegisterJsonSchemaLicense(string license)
         {
-            //License.RegisterLicense(_newtonsoftLicense);
+            License.RegisterLicense(license);
         }
 
         public static bool ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
@@ -47,8 +48,7 @@ namespace Conizi.Model.Core.Validate
 
             try
             {
-                var generator = new Generator();
-                var generatorResult = generator.Generate(model);
+                var generatorResult = Generator.Generate(model);
 
                 var settings = new JSchemaReaderSettings
                 {

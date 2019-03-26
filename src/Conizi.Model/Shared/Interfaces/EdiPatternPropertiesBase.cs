@@ -25,7 +25,7 @@ namespace Conizi.Model.Shared.Interfaces
         /// </summary>
         /// <param name="name">The name of the property as string</param>
         /// <param name="value">The value of the property as string</param>
-        public void AddPatternProperty(string name, string value)
+        public void AddPatternProperty(string name, object value)
         {
             if (string.IsNullOrEmpty(name) || !name.StartsWith("x-"))
                 throw new ArgumentException("Property name must start with 'x-'");
@@ -44,7 +44,7 @@ namespace Conizi.Model.Shared.Interfaces
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public string GetPatternPropertyValue(string name)
+        public object GetPatternPropertyValue(string name)
         {
 
             return this.PatternProperties.FirstOrDefault(x => x.Name == name)?.Value;
@@ -66,7 +66,7 @@ namespace Conizi.Model.Shared.Interfaces
     /// </summary>
     public class EdiPatternProperty
     {
-        public EdiPatternProperty(string name, string value)
+        public EdiPatternProperty(string name, object value)
         {
             this.Name = name;
             this.Value = value;
@@ -78,8 +78,8 @@ namespace Conizi.Model.Shared.Interfaces
         public string Name { get; set; }
 
         /// <summary>
-        /// Value of the property as string
+        /// Value of the property as value
         /// </summary>
-        public string Value  { get; set; }
+        public object Value  { get; set; }
     }
 }

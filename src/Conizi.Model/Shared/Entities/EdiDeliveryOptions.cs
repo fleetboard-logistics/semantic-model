@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -10,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Requirements for special services or equipment for the delivery")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDeliveryOptions
+    public class EdiDeliveryOptions : EdiPatternPropertiesBase
     {
         [DisplayName("Lifting Platform")]
         [Description("The consignment can only be delivered with a vehicle equipped with a lifting platform")]
@@ -69,7 +70,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("A given last mile provider must be used")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiUseSpecificLastMileProvider
+    public class EdiUseSpecificLastMileProvider : EdiPatternPropertiesBase
     {
         [DisplayName("Name of the provider")]
         [Description("The name of the provider to be used")]
@@ -81,7 +82,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The goods must only be delivered if the recipient pays the given amount")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiCashOnDelivery
+    public class EdiCashOnDelivery : EdiPatternPropertiesBase
     {
         [DisplayName("Amount")]
         [Description("The amount to be paid")]
@@ -105,7 +106,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The receiving partner should perform the action specified")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiWorkRequest
+    public class EdiWorkRequest : EdiPatternPropertiesBase
     {
         [DisplayName("Information")]
         [Description("A description of the action to be performed")]

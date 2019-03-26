@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -9,7 +10,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Additional loading aids which are not part of the consignment but which have been added to safely transport the goods")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiAdditionalLoadingEquipment
+    public class EdiAdditionalLoadingEquipment : EdiPatternPropertiesBase
     {
         [DisplayName("EPAL")]
         [Description("EUR pallets as defined by European Pallet Association (EPAL)")]

@@ -30,7 +30,7 @@ namespace Conizi.Model.Archiving
         public EdiPartnerIdentification ShippingPartner { get; set; }
 
         [JsonProperty("content")]
-        public EdiFileBase Content { get; set; }
+        public EdiFileContent Content { get; set; }
 
         /// <summary>
         ///  POD Id

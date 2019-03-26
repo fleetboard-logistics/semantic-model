@@ -4,38 +4,38 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
    
-    [JsonObject("FileContent")]
+    [JsonObject("fileContent")]
     [KnownType(typeof(EdiFileData))]
     [KnownType(typeof(EdiFileReference))]
+    [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [ConiziOneOf]
-    public class EdiFileBase
+    [ConiziOneOf] 
+    public class EdiFileContent : EdiPatternPropertiesBase
     {
+        public string FileName { get; set; }
+
+        public string ContentType { get; set; }
+
+        public EdiFileData FileData { get; set; }
+
+        public EdiFileReference FileReference { get; set; }
     }
 
     [JsonObject("fileData")]
-    public class EdiFileData : EdiFileBase
+    public class EdiFileData
     {
-
-        public string FileName { get; set; }
-
-        public string ContentType { get; set; }
-
         [Required] public byte[] Data { get; set; }
     }
 
-    [JsonObject("fileReference", IsReference = false)]
-    public class EdiFileReference : EdiFileBase
+    [JsonObject("fileReference")]
+    public class EdiFileReference
     {
-        public string FileName { get; set; }
-
-        public string ContentType { get; set; }
-
         [Url] [Required] public string AbsoluteUri { get; set; }
 
         public DateTime UriValidFrom { get; set; }

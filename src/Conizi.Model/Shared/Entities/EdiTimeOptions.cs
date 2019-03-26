@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -10,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Requirements for the delivery or pickup time")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiTimeOptions
+    public class EdiTimeOptions : EdiPatternPropertiesBase
     {
         public EdiNotAfter NotAfter { get; set; }
 
@@ -34,7 +35,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment must be deliverd until the given date")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiNotAfter
+    public class EdiNotAfter : EdiPatternPropertiesBase
     {
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -45,7 +46,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment must not be deliverd before the given date")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiNotBefore
+    public class EdiNotBefore : EdiPatternPropertiesBase
     {
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -56,7 +57,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment must be delivered at the given date (and in the given time window)")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiFixedDay
+    public class EdiFixedDay : EdiPatternPropertiesBase
     {
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -75,7 +76,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment must be deliverd within the given week of the year")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiFixedWeek
+    public class EdiFixedWeek : EdiPatternPropertiesBase
     {
         public string Year { get; set; }
         public string WeekOfYear { get; set; }
@@ -86,7 +87,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment should be delivered on a saturday")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiWeekendSaturday
+    public class EdiWeekendSaturday : EdiPatternPropertiesBase
     {
         [DisplayName("Time From")]
         [ConiziTimeOnly]
@@ -102,7 +103,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment must be delivered on the next working day")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiNextDay
+    public class EdiNextDay : EdiPatternPropertiesBase
     {
    
         [DisplayName("Time From")]
@@ -119,7 +120,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment must be delivered on the same day")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiSameDay
+    public class EdiSameDay : EdiPatternPropertiesBase
     {
    
         [DisplayName("Time From")]
@@ -136,7 +137,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment must be delivered in the eveneing hours")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiEvening
+    public class EdiEvening : EdiPatternPropertiesBase
     {
    
         [DisplayName("Time From")]

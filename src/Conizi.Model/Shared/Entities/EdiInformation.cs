@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -13,7 +14,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("General information about the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiInformation
+    public class EdiInformation : EdiPatternPropertiesBase
     {
         [DisplayName("Invoice remarks")]
         [Description("Free text information for the invoice")]

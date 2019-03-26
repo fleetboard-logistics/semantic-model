@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -9,7 +10,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiAnonymity
+    public class EdiAnonymity : EdiPatternPropertiesBase
     {
         public EdiAddress NeutralShipper { get; set; }
         public EdiAddress NeutralConsignee { get; set; }

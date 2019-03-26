@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -12,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Numbers of various sources identifing this consignment or references from this consignment to other business processes")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiReferences
+    public class EdiReferences : EdiPatternPropertiesBase
     {
         public EdiReturnOfPreviousConsignment ReturnOfPreviousConsignment { get; set; }
 
@@ -46,7 +47,8 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Return of previous consignment")]
     [Description("Reference to another consignment which content is return using this consignment")]
     [ConiziAdditionalProperties(false)]
-    public class EdiReturnOfPreviousConsignment
+    [ConiziAllowXProperties]
+    public class EdiReturnOfPreviousConsignment : EdiPatternPropertiesBase
     {
         [DisplayName("Consignment number of the consignment being returned")]
         [Description("The consignment number of the original consignment being returned")]
@@ -64,7 +66,8 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Subsequent Delivery")]
     [Description("Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)")]
     [ConiziAdditionalProperties(false)]
-    public class EdiSubsequentDelivery
+    [ConiziAllowXProperties]
+    public class EdiSubsequentDelivery : EdiPatternPropertiesBase
     {
         [DisplayName("Consignment number of the consignment for that the subsequent delivery is")]
         [Description("The consignment number of the original consignment")]
@@ -82,7 +85,8 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Pickup order")]
     [Description("Reference to a pickup order which resulted in this consignment")]
     [ConiziAdditionalProperties(false)]
-    public class EdiPickupOrder
+    [ConiziAllowXProperties]
+    public class EdiPickupOrder : EdiPatternPropertiesBase
     {
         [DisplayName("Number of the Pickup order")]
         [Description("Number to the referenced pickup order")]

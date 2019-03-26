@@ -12,7 +12,7 @@ namespace Conizi.Model.Core.Generation
     /// <summary>
     /// The conizi schema generator
     /// </summary>
-    public class Generator
+    public static class Generator
     {
         /// <summary>
         /// Register a JsonSchema License if available
@@ -23,12 +23,12 @@ namespace Conizi.Model.Core.Generation
             License.RegisterLicense(license);
         }
 
-        public GenerationResult Generate<TModel>()
+        public static GenerationResult Generate<TModel>()
         {
             return Generate(typeof(TModel));
         }
 
-        public GenerationResult Generate(Type modelType)
+        public static GenerationResult Generate(Type modelType)
         {
        
             var schemaAttribute = modelType.GetCustomAttribute<ConiziSchemaAttribute>();

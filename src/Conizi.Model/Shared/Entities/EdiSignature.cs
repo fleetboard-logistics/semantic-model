@@ -1,12 +1,14 @@
 ﻿using System;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
     [JsonObject("signature")]
+    [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiSignature
+    public class EdiSignature : EdiPatternPropertiesBase
     {
         [JsonProperty(Required = Required.Always)]
         public bool SignatureAvailable { get; set; }
@@ -15,6 +17,6 @@ namespace Conizi.Model.Shared.Entities
         public DateTime SignatureDate { get; set; }
 
         [ConiziAnyOf]
-        public EdiFileBase SignatureContent { get; set; }
+        public EdiFileContent SignatureContent { get; set; }
     }
 }

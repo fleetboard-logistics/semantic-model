@@ -1,10 +1,11 @@
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.XPath;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Generation;
+using Conizi.Model.Test.Library.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
-using Conizi.Model.UnitTests.Resources;
 using Newtonsoft.Json.Schema;
 using Xunit;
 
@@ -26,16 +27,14 @@ namespace Conizi.Model.UnitTests.Generation
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateInvalidModel_AssertInvalidOperationException()
         {
-            var generator = new Generator();
-            Assert.Throws<InvalidOperationException>(() => generator.Generate<System.DateTime>());
+            Assert.Throws<InvalidOperationException>(() => Generator.Generate<System.DateTime>());
         }
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateValidModel_AssertValidSchema()
         {
-            var generator = new Generator();
-            var result = generator.Generate<Consignment>();
+            var result = Generator.Generate<Consignment>();
 
             Assert.IsType<GenerationResult>(result);
 
@@ -47,8 +46,7 @@ namespace Conizi.Model.UnitTests.Generation
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateModel_AssertValidModel()
         {
-            var generator = new Generator();
-            var result = generator.Generate<Consignment>();
+            var result = Generator.Generate<Consignment>();
 
             Assert.IsType<GenerationResult>(result);
 
@@ -60,16 +58,14 @@ namespace Conizi.Model.UnitTests.Generation
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateModel_AssertModelUriFormatException()
         {
-            var generator = new Generator();
-            Assert.Throws<UriFormatException>(() => generator.Generate<InvalidModel>());
+            Assert.Throws<UriFormatException>(() => Generator.Generate<InvalidModel>());
         }
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateValidModel_AssertValidVersion()
         {
-            var generator = new Generator();
-            var result = generator.Generate<Consignment>();
+            var result = Generator.Generate<Consignment>();
 
             Assert.IsType<GenerationResult>(result);
 
@@ -86,8 +82,7 @@ namespace Conizi.Model.UnitTests.Generation
         public void GenerateTestModel_AssertUnionTypesCount()
         {
 
-            var generator = new Generator();
-            var result = generator.Generate<TestModel>();
+            var result = Generator.Generate<TestModel>();
 
             Assert.IsType<GenerationResult>(result);
 
@@ -107,8 +102,7 @@ namespace Conizi.Model.UnitTests.Generation
         public void GenerateTestModel_AssertValidDateFormats()
         {
          
-            var generator = new Generator();
-            var result = generator.Generate<TestModel>();
+            var result = Generator.Generate<TestModel>();
 
             Assert.IsType<GenerationResult>(result);
             
@@ -117,6 +111,27 @@ namespace Conizi.Model.UnitTests.Generation
             Assert.Equal("date-time", schema.Properties["testDateTime"].Format);
             Assert.Equal("date", schema.Properties["testDateOnly"].Format);
             Assert.Equal("time", schema.Properties["testTimeOnly"].Format);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateCominedTestModel_AssertCombinedTypes()
+        {
+            var result = Generator.Generate<TestCombinedModel>();
+
+            Assert.IsType<GenerationResult>(result);
+
+            var schema = result.JSchema;
+
+            Assert.NotNull(schema);
+
+            var prop = schema.Properties["testFileContent"];
+
+            Assert.DoesNotContain(prop.Properties, x => x.Key == "fileData");
+
+            Assert.True(prop.OneOf.Count == 2);
+
+
         }
 
     }

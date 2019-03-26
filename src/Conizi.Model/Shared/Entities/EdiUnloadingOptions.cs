@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -10,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Information regarding unloading of the main haul")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiUnloadingOptions
+    public class EdiUnloadingOptions : EdiPatternPropertiesBase
     {
         [DisplayName("Direct delivery")]
         [Description("The goods are to be deliverd without unloading them at the receiving partners warehouse")]
@@ -27,7 +28,7 @@ namespace Conizi.Model.Shared.Entities
         "The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiAlreadyReceived
+    public class EdiAlreadyReceived : EdiPatternPropertiesBase
     {
         [DisplayName("Surplus consignment no")]
         [Description(
@@ -46,7 +47,7 @@ namespace Conizi.Model.Shared.Entities
         "The goods for a consigment which already was part of another manifest and had been reported missing on that manifest")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiMissingFromPreviousManifest
+    public class EdiMissingFromPreviousManifest : EdiPatternPropertiesBase
     {
         [DisplayName("Manifest id")]
         [Description("The manifest which first included the consignment")]

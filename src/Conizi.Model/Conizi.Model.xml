@@ -92,7 +92,7 @@
             Attention: Pattern properties will not be processed in all services and apps, so please use carefully!
             </summary>
         </member>
-        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.AddPatternProperty(System.String,System.String)">
+        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.AddPatternProperty(System.String,System.Object)">
             <summary>
             Add a pattern property to this object (e.g. x-name2)
             </summary>
@@ -124,7 +124,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Interfaces.EdiPatternProperty.Value">
             <summary>
-            Value of the property as string
+            Value of the property as value
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">

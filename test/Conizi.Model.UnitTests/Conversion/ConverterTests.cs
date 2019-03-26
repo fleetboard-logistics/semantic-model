@@ -2,7 +2,7 @@ using System;
 using Conizi.Model.Core.Conversion;
 using Conizi.Model.Core.Generation;
 using Conizi.Model.Shared.Entities;
-using Conizi.Model.UnitTests.Resources;
+using Conizi.Model.Test.Library.Entities;
 using Newtonsoft.Json;
 using Xunit;
 using Xunit.Sdk;

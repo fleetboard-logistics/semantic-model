@@ -198,7 +198,7 @@ namespace Conizi.Model.Generator
 
         private string GenerateSchema(bool all = false)
         {
-            var generator = new Core.Generation.Generator();
+            //var generator = new Core.Generation.Generator();
             //var generatorResult = generator.Generate<Manifest>();
 
             //return generatorResult.JSchema.ToString(SchemaVersion.Draft6);
