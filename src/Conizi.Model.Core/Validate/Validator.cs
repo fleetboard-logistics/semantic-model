@@ -12,7 +12,7 @@ namespace Conizi.Model.Core.Validate
     public class Validator
     {
 
-        public static ConcurrentDictionary<string, EdiDocument> ModelCache = null;
+        public static ConcurrentDictionary<string, EdiModel> ModelCache = null;
         /// <summary>
         /// Register a JsonSchema License if available
         /// </summary>

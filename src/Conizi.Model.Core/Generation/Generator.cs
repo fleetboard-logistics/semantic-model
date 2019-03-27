@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Conizi.Model.Core.Entities;
+using Conizi.Model.Core.Generation.Provider;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;

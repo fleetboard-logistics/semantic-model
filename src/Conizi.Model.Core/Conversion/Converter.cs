@@ -22,12 +22,13 @@ namespace Conizi.Model.Core.Conversion
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
             Converters = new List<JsonConverter>
             {
-                new PatternPropertyConverter()
+                new PatternPropertyConverter(),
+                new CombinedSchemaConverter()
             }
         };
 
-        public static ConversionResult Serialize<TModel>(TModel model, bool indented = false,
-            bool ignoreValidation = false) where TModel : EdiDocument
+        public static SerializationResult Serialize<TModel>(TModel model, bool indented = false,
+            bool ignoreValidation = false) where TModel : EdiModel
         {
             var schemaAttribute = typeof(TModel).GetCustomAttribute<ConiziSchemaAttribute>();
 
@@ -42,7 +43,7 @@ namespace Conizi.Model.Core.Conversion
 
             var jsonString = JsonConvert.SerializeObject(model, settings);
 
-            var conversionResult = new ConversionResult
+            var conversionResult = new SerializationResult
             {
                 Content = jsonString
             };
@@ -58,6 +59,13 @@ namespace Conizi.Model.Core.Conversion
             conversionResult.IsValidated = true;
 
             return conversionResult;
+        }
+
+        public static TModel Deserialize<TModel>(string json) where TModel : EdiModel
+        {
+            var result = JsonConvert.DeserializeObject<TModel>(json, SerializerSettings);
+            
+           return result;
         }
     }
 }

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Text;
 using Conizi.Model.Core.Extensions;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 
-namespace Conizi.Model.Core.Generation
+namespace Conizi.Model.Core.Generation.Provider
 {
     /// <summary>
     /// The default conizi schema generation provider

@@ -4,7 +4,7 @@ using Conizi.Model.Shared.Entities;
 namespace Conizi.Model.Test.Library.Entities
 {
     [ConiziSchema("models/v1/invalidModel.net", "invalidModel.json")]
-    public class InvalidModel : EdiDocument
+    public class InvalidModel : EdiModel
     {
 
     }

@@ -52,10 +52,22 @@ namespace Conizi.Model.UnitTests.Conversion
                 Network = new EdiNetwork
                 {
                     NetworkId = "CL"
+                },
+                TestFileContent = new EdiFileContent
+                {
+                    FileName = "MyFuzzyFile.jpeg",
+                    ContentType = "image/jpeg",
+                    FileReference = new EdiFileReference
+                    {
+                        AbsoluteUri = "http://imnotexistend.org",
+                        UriValidFrom = DateTime.Today,
+                        UriValidTo = DateTime.Now.AddDays(5)
+                    }
                 }
-               
+
             };
 
+            m.TestFileContent.AddPatternProperty("x-cloud-storage", "minio");
 
             var result = Converter.Serialize(m);
             Assert.False(result.HasValidationErrors);

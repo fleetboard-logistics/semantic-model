@@ -13,7 +13,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         "A manifest describes multiple consignments which are forwarded from one partner to another at the same time")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class Manifest : EdiDocument
+    public class Manifest : EdiModel
     {
         [JsonProperty(PropertyName = "manifestId", Required = Required.Always)]
         [DisplayName("Manifest id")]

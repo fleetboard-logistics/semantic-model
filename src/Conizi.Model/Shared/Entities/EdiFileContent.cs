@@ -14,7 +14,7 @@ namespace Conizi.Model.Shared.Entities
     [KnownType(typeof(EdiFileData))]
     [KnownType(typeof(EdiFileReference))]
     [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
+    [ConiziAllowXProperties()]
     [ConiziOneOf] 
     public class EdiFileContent : EdiPatternPropertiesBase
     {

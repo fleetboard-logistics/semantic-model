@@ -10,7 +10,7 @@ namespace Conizi.Model.Test.Library.Entities
     [ConiziSchema("https://model.conizi.io/v1.0/test/test.json", "test.json")]
     [DisplayName("Test Model")]
     [Description("This is the conizi test model")]
-    public class TestModel : EdiDocument
+    public class TestModel : EdiModel
     {
 
         [JsonRequired]
@@ -28,8 +28,8 @@ namespace Conizi.Model.Test.Library.Entities
         [ConiziTimeOnly]
         public DateTime TestDateTime { get; set; }
 
-        [JsonProperty("testFileContent", IsReference = false, ItemIsReference = false)]
-        public EdiFileContent TestFileContentContent { get; set; }
+        [JsonProperty("testFileContent")]
+        public EdiFileContent TestFileContent { get; set; }
 
     }
 }

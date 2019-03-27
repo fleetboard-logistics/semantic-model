@@ -18,7 +18,6 @@ namespace Conizi.Model.Core.Conversion.Converters
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
 
-
             var patternProperties = value as EdiPatternPropertiesBase;
 
             if (patternProperties == null)
@@ -30,6 +29,11 @@ namespace Conizi.Model.Core.Conversion.Converters
                 DefaultValueHandling = Converter.SerializerSettings.DefaultValueHandling,
                 MissingMemberHandling = Converter.SerializerSettings.MissingMemberHandling
             });
+
+            var combinedSchemaConverter = new CombinedSchemaConverter();
+
+            if(combinedSchemaConverter.CheckIfNeeded(value.GetType()))
+                combinedSchemaConverter.HandleCombinedSchemas(o,value.GetType());
 
             foreach (var property in patternProperties.GetInstancePatternProperies())
             {

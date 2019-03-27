@@ -2,8 +2,8 @@
 
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
-    public class PickupOrderBulk : EdiDocument
+    public class PickupOrderBulk : EdiModel
     {
-        public EdiDocument[] Pickuporders { get; set; }
+        public EdiModel[] Pickuporders { get; set; }
     }
 }

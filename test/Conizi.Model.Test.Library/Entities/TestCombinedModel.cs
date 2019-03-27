@@ -18,7 +18,7 @@ namespace Conizi.Model.Test.Library.Entities
         [ConiziTimeOnly]
         public DateTime TestDateTime { get; set; }
 
-        [JsonProperty("testFileContent", IsReference = false, ItemIsReference = false)]
+        [JsonProperty("testFileContent")]
         public EdiFileContent TestFileContentContent { get; set; }
 
     }

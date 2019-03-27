@@ -16,7 +16,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [Description("A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class Tour : EdiDocument
+    public class Tour : EdiModel
     {
         [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("messageFunctionCode")]

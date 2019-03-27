@@ -3,7 +3,7 @@ using Conizi.Model.Shared.Entities;
 
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
-    public class ConsignmentEvent : EdiDocument
+    public class ConsignmentEvent : EdiModel
     {
         public EdiPartnerIdentification ShippingPartner { get; set; }
         public EdiPartnerIdentification ReceivingPartner { get; set; }

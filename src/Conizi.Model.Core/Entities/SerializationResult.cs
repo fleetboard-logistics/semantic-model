@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Conizi.Model.Core.Entities
 {
-     public class ConversionResult
+     public class SerializationResult
     {
         private IList<string> validationErrors;
 
@@ -23,5 +23,10 @@ namespace Conizi.Model.Core.Entities
         public string Content { get; set; }
         public string Schema { get; set; }
         public bool IsValidated { get; internal set; }
+
+        public override string ToString()
+        {
+            return this.Content;
+        }
     }
 }

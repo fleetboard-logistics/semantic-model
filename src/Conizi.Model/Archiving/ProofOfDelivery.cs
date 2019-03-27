@@ -10,7 +10,7 @@ namespace Conizi.Model.Archiving
 
     [ConiziSchema("http://conizi.io/model/archiving/proof-of-delivery.json", "proof-of-delivery.json")]
     [DisplayName("Proof of Delivery")]
-    public class ProofOfDelivery : EdiDocument 
+    public class ProofOfDelivery : EdiModel 
     {
         [JsonProperty(Required = Required.Always)]
         public new EdiPartnerIdentification Sender { get; set; }

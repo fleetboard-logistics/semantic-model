@@ -17,7 +17,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [Description("A single consignment which is transferred between two partners. Usually used within the context a manifest")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class Consignment : EdiDocument
+    public class Consignment : EdiModel
     {
         /// <summary>
         /// Unique central consignment number

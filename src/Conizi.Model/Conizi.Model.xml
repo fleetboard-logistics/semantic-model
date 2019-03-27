@@ -40,12 +40,12 @@
             Address information of an object (e.g. sender or receiver)"
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiDocument">
+        <member name="T:Conizi.Model.Shared.Entities.EdiModel">
             <summary>
-            Base document in the conizi context
+            Base model in the conizi context
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiDocument.Schema">
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.Schema">
             <summary>
             The id (URI) of the model
             </summary>

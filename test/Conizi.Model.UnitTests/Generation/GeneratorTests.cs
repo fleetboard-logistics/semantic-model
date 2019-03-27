@@ -130,8 +130,6 @@ namespace Conizi.Model.UnitTests.Generation
             Assert.DoesNotContain(prop.Properties, x => x.Key == "fileData");
 
             Assert.True(prop.OneOf.Count == 2);
-
-
         }
 
     }

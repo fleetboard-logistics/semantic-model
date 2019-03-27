@@ -1,17 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
-using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
     /// <summary>
-    /// Base document in the conizi context
+    /// Base model in the conizi context
     /// </summary>
-    public class EdiDocument : EdiPatternPropertiesBase
+    public class EdiModel : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The id (URI) of the model
@@ -30,10 +28,6 @@ namespace Conizi.Model.Shared.Entities
         [JsonProperty("network", Required = Required.DisallowNull)]
         public EdiNetwork Network { get; set; }
 
-        [JsonIgnore]
-        [JsonProperty("converterInfo", Required = Required.DisallowNull)]
-        internal  ConverterInfo ConverterInfo { get; set; }
-      
     }
 
     [JsonObject("converterInfo")]
