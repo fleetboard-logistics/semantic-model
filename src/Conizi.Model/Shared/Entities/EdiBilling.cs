@@ -15,7 +15,7 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiBilling : EdiPatternPropertiesBase
     {
-        public EdiAddress FreightPayer { get; set; }
+        public EdiPartnerIdentification FreightPayer { get; set; }
 
         [DisplayName("Tariff")]
         [Description("Use to specify a special tariff to be used for freight calculation (e.g. heavy goods, ...)")]

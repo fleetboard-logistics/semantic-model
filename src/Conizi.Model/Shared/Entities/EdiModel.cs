@@ -20,10 +20,10 @@ namespace Conizi.Model.Shared.Entities
         public string Schema { get; internal set; }
 
         [JsonProperty("receiver", Required = Required.Always)]
-        public EdiPartnerIdentification Receiver { get; set; }
+        public EdiMessageRouting Receiver { get; set; }
 
         [JsonProperty("sender", Required = Required.Always)]
-        public EdiPartnerIdentification Sender { get; set; }
+        public EdiMessageRouting Sender { get; set; }
 
         [JsonProperty("network", Required = Required.DisallowNull)]
         public EdiNetwork Network { get; set; }

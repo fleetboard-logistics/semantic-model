@@ -26,61 +26,61 @@ namespace Conizi.Model.UnitTests.Serialization
         {
             var m = new TestModel
             {
-               Receiver = new EdiAddress
-               {
-                   Name = "Franz Kafka",
-                   City = "Kafka City"
-               },
-               Sender = new EdiPartner
-               {
-                   PartnerId = "4711"
-               },
-               TestReceivingPartner = new EdiIdIdentification()
-               {
-                   EdiId = "KLMN01"
-               },
-               TestShippingPartner = new EdiPartner
-               {
-                   PartnerId = "FRANZKF"
-               }
+                Receiver = new EdiMessageRouting()
+                {
+                    EdiId = "CONIZVK"
+                },
+                Sender = new EdiPartnerIdentification
+                {
+                    PartnerId = "4711"
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
+                    Name = "Franz Kafka",
+                    City = "Kafka City"
+                },
+                TestShippingPartner = new EdiPartnerIdentification
+                {
+                    PartnerId = "FRANZKF"
+                }
             };
 
-          var result =  Converter.Serialize(m);
-          Assert.False(result.HasValidationErrors);
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
         }
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void SerializeTestModel_AssertAddPatternProperties()
         {
-
             var m = new TestModel
             {
-                Receiver = new EdiAddress
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "FRANZKF"
+                },
+                Sender = new EdiMessageRouting
+                {
+                
+                        PartnerId = "4711"
+                },
+                TestReceivingPartner = new EdiPartnerIdentification()
                 {
                     Name = "Franz Kafka",
                     City = "Kafka City"
+                  
                 },
-                Sender = new EdiPartner
-                {
-                    PartnerId = "4711"
-                },
-                TestReceivingPartner = new EdiIdIdentification()
-                {
-                    EdiId = "KLMN01"
-                },
-                TestShippingPartner = new EdiPartner
+                TestShippingPartner = new EdiPartnerIdentification
                 {
                     PartnerId = "FRANZKF"
                 }
             };
 
             m.Receiver.AddPatternProperty("x-name3", "Mister T.");
-           
+
             var result = Converter.Serialize(m);
             Assert.False(result.HasValidationErrors);
             Assert.Contains("x-name3", result.Content);
-
         }
 
         [Fact]
@@ -89,18 +89,19 @@ namespace Conizi.Model.UnitTests.Serialization
         {
             var m = new TestModel
             {
-                Receiver = new EdiAddress
+                Receiver = new EdiMessageRouting
                 {
-                    Name = "Franz Kafka",
-                    City = "Kafka City"
+                    EdiId = "KLMN01",
                 },
-                Sender = new EdiPartner
+                Sender = new EdiMessageRouting
                 {
                     PartnerId = "4711"
                 },
-                TestReceivingPartner = new EdiIdIdentification()
+                TestReceivingPartner = new EdiPartnerIdentification
                 {
-                    EdiId = "KLMN01"
+                    EdiId = "KLMN01",
+                    Name = "Franz Kafka",
+                    City = "Kafka City"
                 },
             };
 
@@ -109,5 +110,4 @@ namespace Conizi.Model.UnitTests.Serialization
             Assert.Contains("Required properties are missing", result.ValidationErrors[0]);
         }
     }
-
 }

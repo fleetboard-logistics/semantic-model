@@ -45,7 +45,30 @@ namespace Conizi.Model.Core.Conversion.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+
+            var jObject = JObject.Load(reader);
+           
+            if (existingValue == null)
+            {
+                existingValue = Activator.CreateInstance(objectType);
+            }
+
+            if(!(existingValue is EdiPatternPropertiesBase patternProps))
+                throw new InvalidOperationException($"Try to use XProperties with unsupported type {objectType}!");
+
+            serializer.Populate(jObject.CreateReader(), existingValue);
+
+            var xProps = jObject.Properties().Where(p => p.Name.StartsWith("x-")).ToList();
+
+            if (!xProps.Any())
+                return existingValue;
+      
+            foreach (var xProp in xProps)
+            {
+                patternProps.AddPatternProperty(xProp.Name, xProp.Value);
+            }
+
+            return existingValue;
         }
 
         public override bool CanConvert(Type objectType)

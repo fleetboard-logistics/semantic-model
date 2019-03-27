@@ -17,7 +17,7 @@ namespace Conizi.Model.Test.Library.Entities
         public EdiPartnerIdentification TestReceivingPartner { get; set; }
 
         [JsonRequired]
-        public EdiPartner TestShippingPartner { get; set; }
+        public EdiPartnerIdentification TestShippingPartner { get; set; }
 
         [ConiziDateOnly]
         public DateTime TestDateOnly { get; set; }

@@ -48,7 +48,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 
         public EdiPartnerIdentification ReceivingPartner { get; set; }
 
-        public EdiAddress Carrier { get; set; }
+        public EdiPartnerIdentification Carrier { get; set; }
 
         public List<EdiVehicle> Vehicles { get; set; }
 

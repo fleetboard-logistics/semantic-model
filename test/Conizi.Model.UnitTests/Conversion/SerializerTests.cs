@@ -30,22 +30,24 @@ namespace Conizi.Model.UnitTests.Conversion
             // Simple test model
             var m = new TestModel
             {
-                Receiver = new EdiIdIdentification
+                Receiver = new EdiPartnerIdentification()
                 {
-                    EdiId = "CONIZIVK"
+                  
+                        EdiId = "CONIZIVK"
                 },
-                Sender = new EdiAddress
+                Sender = new EdiMessageRouting()
+                {
+                    EdiId = "FLELOVK"
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
                 {
                     Name = "Fleetboard Logistics",
                     Street = "Am Alten Bahnhof",
                     HouseNumber = "8",
-                    City = "Volkach"
+                    City = "Volkach",
+                        EdiId = "FLELOVK"
                 },
-                TestReceivingPartner = new EdiIdIdentification
-                {
-                    EdiId = "FLELOVK"
-                },
-                TestShippingPartner = new EdiPartner
+                TestShippingPartner = new EdiPartnerIdentification
                 {
                     PartnerId = "1234"
                 },

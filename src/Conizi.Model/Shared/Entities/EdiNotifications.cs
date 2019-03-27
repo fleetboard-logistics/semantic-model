@@ -12,13 +12,13 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiNotifications : EdiPatternPropertiesBase
     {
-        public EdiAddress GeneralNotificationAddress { get; set; }
+        public EdiPartnerIdentification GeneralNotificationAddress { get; set; }
 
-        public EdiAddress AfterDelivery { get; set; }
+        public EdiPartnerIdentification AfterDelivery { get; set; }
 
-        public EdiAddress BeforeDelivery { get; set; }
+        public EdiPartnerIdentification BeforeDelivery { get; set; }
 
-        public EdiAddress ByDriver { get; set; }
+        public EdiPartnerIdentification ByDriver { get; set; }
 
     }
 }

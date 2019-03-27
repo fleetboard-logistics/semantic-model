@@ -19,12 +19,12 @@ namespace Conizi.Model.Archiving
         public new EdiPartnerIdentification Receiver { get; set; }
 
         [JsonProperty(Required = Required.Always)]
-        public EdiAddress Consignee { get; set; }
+        public EdiPartnerIdentification Consignee { get; set; }
 
         [JsonProperty(Required = Required.Always)]
-        public EdiAddress Shipper { get; set; }
+        public EdiPartnerIdentification Shipper { get; set; }
 
-        public EdiAddress Carrier { get; set; }
+        public EdiPartnerIdentification Carrier { get; set; }
 
         public EdiPartnerIdentification ReceivingPartner { get; set; }
         public EdiPartnerIdentification ShippingPartner { get; set; }

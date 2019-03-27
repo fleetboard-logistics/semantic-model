@@ -94,7 +94,7 @@ namespace Conizi.Model.UnitTests.Generation
 
             Assert.Equal(2, content.OneOf.Count);
 
-            Assert.Equal(4, schema.Properties["testReceivingPartner"].AnyOf.Count);
+           
         }
 
         [Fact]

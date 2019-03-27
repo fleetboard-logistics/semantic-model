@@ -5,6 +5,7 @@ using Conizi.Model.Core.Generation;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Test.Library.Entities;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Xunit;
 using Xunit.Sdk;
 
@@ -28,26 +29,28 @@ namespace Conizi.Model.UnitTests.Conversion
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void DeserializerBasicModel_AssertValidDeserialization()
         {
-            // Simple test model
+          
             // Simple test model
             var m = new TestModel
             {
-                Receiver = new EdiIdIdentification
-                {
+                Receiver = new EdiMessageRouting()
+                { 
+               
                     EdiId = "CONIZIVK"
                 },
-                Sender = new EdiAddress
+                Sender = new EdiMessageRouting()
                 {
+                    EdiId = "FLELOVK",
+                },
+                TestReceivingPartner = new EdiPartnerIdentification{
+               
+                    PartnerId = "2323",
                     Name = "Fleetboard Logistics",
                     Street = "Am Alten Bahnhof",
                     HouseNumber = "8",
                     City = "Volkach"
                 },
-                TestReceivingPartner = new EdiIdIdentification
-                {
-                    EdiId = "FLELOVK"
-                },
-                TestShippingPartner = new EdiPartner
+                TestShippingPartner = new EdiPartnerIdentification
                 {
                     PartnerId = "1234"
                 },
@@ -55,17 +58,17 @@ namespace Conizi.Model.UnitTests.Conversion
                 {
                     NetworkId = "CL"
                 },
-                TestFileContent = new EdiFileContent
-                {
-                    FileName = "MyFuzzyFile.jpeg",
-                    ContentType = "image/jpeg",
-                    FileReference = new EdiFileReference
-                    {
-                        AbsoluteUri = "http://imnotexistend.org",
-                        UriValidFrom = DateTime.Today,
-                        UriValidTo = DateTime.Now.AddDays(5)
-                    }
-                }
+                //TestFileContent = new EdiFileContent
+                //{
+                //    FileName = "MyFuzzyFile.jpeg",
+                //    ContentType = "image/jpeg",
+                //    FileReference = new EdiFileReference
+                //    {
+                //        AbsoluteUri = "http://imnotexistend.org",
+                //        UriValidFrom = DateTime.Today,
+                //        UriValidTo = DateTime.Now.AddDays(5)
+                //    }
+                //}
 
             };
 
@@ -73,6 +76,74 @@ namespace Conizi.Model.UnitTests.Conversion
             Assert.False(result.HasValidationErrors);
 
             var dm = Converter.Deserialize<TestModel>(result.ToString());
+            Assert.IsType<TestModel>(dm);
+        }
+
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void DeserializerBasicModel_AssertValidDeserializationWithXProps()
+        {
+
+            // Simple test model
+            var m = new TestModel
+            {
+                Receiver = new EdiMessageRouting()
+                {
+
+                    EdiId = "CONIZIVK"
+                },
+                Sender = new EdiMessageRouting()
+                {
+                    EdiId = "FLELOVK",
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
+
+                    PartnerId = "2323",
+                    Name = "Fleetboard Logistics",
+                    Street = "Am Alten Bahnhof",
+                    HouseNumber = "8",
+                    City = "Volkach"
+                },
+                TestShippingPartner = new EdiPartnerIdentification
+                {
+                    PartnerId = "1234"
+                },
+                Network = new EdiNetwork
+                {
+                    NetworkId = "CL"
+                },
+                //TestFileContent = new EdiFileContent
+                //{
+                //    FileName = "MyFuzzyFile.jpeg",
+                //    ContentType = "image/jpeg",
+                //    FileReference = new EdiFileReference
+                //    {
+                //        AbsoluteUri = "http://imnotexistend.org",
+                //        UriValidFrom = DateTime.Today,
+                //        UriValidTo = DateTime.Now.AddDays(5)
+                //    }
+                //}
+
+            };
+
+            m.TestReceivingPartner.AddPatternProperty("x-park-lane",37);
+
+            m.Receiver.AddPatternProperty("x-conizi-special", "whats up");
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+
+            var dm = Converter.Deserialize<TestModel>(result.ToString());
+            var prop1 = dm.Receiver.GetPatternPropertyValue("x-conizi-special");
+            Assert.Equal("whats up", prop1.ToString());
+
+            var prop2 = dm.TestReceivingPartner.GetPatternPropertyValue("x-park-lane");
+            Assert.IsType<JValue>(prop2);
+
+
+            Assert.Equal( JTokenType.Integer, ((JValue)prop2).Type);
+            Assert.Equal(37, ((JValue)prop2).Value<Int32>());
         }
     }
 }

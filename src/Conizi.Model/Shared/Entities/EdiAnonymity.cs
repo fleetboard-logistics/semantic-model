@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiAnonymity : EdiPatternPropertiesBase
     {
-        public EdiAddress NeutralShipper { get; set; }
-        public EdiAddress NeutralConsignee { get; set; }
+        public EdiPartnerIdentification NeutralShipper { get; set; }
+        public EdiPartnerIdentification NeutralConsignee { get; set; }
     }
 }

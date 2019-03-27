@@ -51,7 +51,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 
         public List<EdiPartnerIdentification> AdditionalPartners { get; set; }
 
-        public EdiAddress OrderingParty { get; set; }
+        public EdiPartnerIdentification OrderingParty { get; set; }
         /// <summary>
         /// 
         /// </summary>

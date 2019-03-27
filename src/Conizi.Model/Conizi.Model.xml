@@ -35,11 +35,6 @@
             Indicates if X- Properties should allowed. Default true
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiAddress">
-            <summary>
-            Address information of an object (e.g. sender or receiver)"
-            </summary>
-        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiModel">
             <summary>
             Base model in the conizi context
@@ -52,36 +47,25 @@
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiPartnerIdentification">
             <summary>
-            Base class for all partner identification stuff.
-            Used to allow combining schemas in a JSON Schema <seealson href="https://json-schema.org/understanding-json-schema/reference/combining.html"/>
+            Fields to identify the partner or/and further data routing information
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiIdIdentification">
+        <member name="T:Conizi.Model.Shared.Entities.EdiMessageRouting">
             <summary>
-            Information about the technical sender and receiver
+            Routing information to identify the parties involved in the data transfer (e.g. PartnerId, ConiziId...)
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiIdIdentification.EdiId">
-            <summary>
-            Edi Id is used to identify the technical sender or receiver (e.g. CONIZVK)
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiPartner">
-            <summary>
-            Information about the sending or receiving partner
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiPartner.PartnerId">
+        <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.PartnerId">
             <summary>
             Partner Id is used to identify the real sender or receiver (e.g. 1234)
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiConiziIdentification">
+        <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.EdiId">
             <summary>
-            Information about the sending or receiving object on the conizi platform
+            Edi Id is used to identify the technical sender or receiver (e.g. CONIZVK)
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiConiziIdentification.ConiziId">
+        <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.ConiziId">
             <summary>
             Conizi Id is used to identify the sending or receiving Tenant/Site/App on the conizi platform 
             </summary>

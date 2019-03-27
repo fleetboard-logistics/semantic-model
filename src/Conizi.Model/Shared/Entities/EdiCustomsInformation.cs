@@ -14,9 +14,9 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiCustomsInformation : EdiPatternPropertiesBase
     {
-        public EdiAddress DeclaringParty { get; set; }
+        public EdiPartnerIdentification DeclaringParty { get; set; }
 
-        public EdiAddress DeliverAfterDutyPaid { get; set; }
+        public EdiPartnerIdentification DeliverAfterDutyPaid { get; set; }
 
         [DisplayName("Presentation deadline")]
         public string PresentationDeadline { get; set; }
