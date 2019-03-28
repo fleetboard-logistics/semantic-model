@@ -2820,6 +2820,7 @@
 				{
 					"$ref": "#/definitions/partnerId"
 				},
+				{
 					"$ref": "#/definitions/address"
 				},
 				{
