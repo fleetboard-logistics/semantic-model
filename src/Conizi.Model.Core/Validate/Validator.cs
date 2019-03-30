@@ -22,6 +22,30 @@ namespace Conizi.Model.Core.Validate
             License.RegisterLicense(license);
         }
 
+        private static Type ParseModel(string jsonMessage)
+        {
+            var jModel = JObject.Parse(jsonMessage);
+
+            var mProperty = jModel.Property("$schema");
+
+            if (mProperty == null)
+                throw new InvalidOperationException("Message has no schema tag!");
+
+            var modelString = mProperty.Value.Value<string>();
+
+            var model = Helper.GetConiziModel(modelString);
+
+            if (model == null)
+                throw new InvalidOperationException("Model is not available!");
+
+            return model;
+        }
+
+        public static bool ValidateSchema(string jsonMessage, out IList<string> validationErrors)
+        {
+           return ValidateSchema(ParseModel(jsonMessage), jsonMessage, out validationErrors);
+        }
+
         public static bool ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
         {
             return ValidateSchema(typeof(TModel),jsonMessage, out validationErrors);

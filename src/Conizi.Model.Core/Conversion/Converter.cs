@@ -22,7 +22,6 @@ namespace Conizi.Model.Core.Conversion
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
             Converters = new List<JsonConverter>
             {
-                new PatternPropertyConverter(),
                 new CombinedSchemaConverter()
             }
         };

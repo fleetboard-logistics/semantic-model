@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Conizi.Model.Shared.Interfaces
 {
@@ -10,14 +10,16 @@ namespace Conizi.Model.Shared.Interfaces
     /// Enables the models to add additional pattern (x-) properties
     /// Attention: Pattern properties will not be processed in all services and apps, so please use carefully!
     /// </summary>
+    [JsonObject()]
     public abstract class EdiPatternPropertiesBase
     {
-        [JsonIgnore]
-        private List<EdiPatternProperty> PatternProperties { get; }
 
+        [JsonExtensionData(WriteData = true, ReadData = true)]
+        private Dictionary<string, JToken> patternProperties;
+        
         public EdiPatternPropertiesBase()
         {
-            this.PatternProperties = new List<EdiPatternProperty>();
+            this.patternProperties = new Dictionary<string, JToken>();
         }
 
         /// <summary>
@@ -29,14 +31,15 @@ namespace Conizi.Model.Shared.Interfaces
         {
             if (string.IsNullOrEmpty(name) || !name.StartsWith("x-"))
                 throw new ArgumentException("Property name must start with 'x-'");
-            
-            if (this.PatternProperties.Any(x=>x.Name == name))
+
+            if (this.patternProperties.Any(x => x.Key == name))
             {
-                this.PatternProperties.FirstOrDefault(x=>x.Name == name).Value = value;
+                //this.patternProperties.FirstOrDefault(x => x.Key == name).Value = JToken.FromObject(value);
                 return;
             }
 
-            this.PatternProperties.Add(new EdiPatternProperty(name, value));
+            //this.PatternProperties.Add(new EdiPatternProperty(name, value));
+            this.patternProperties.Add(name, JToken.FromObject(value));
         }
 
         /// <summary>
@@ -44,20 +47,20 @@ namespace Conizi.Model.Shared.Interfaces
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public object GetPatternPropertyValue(string name)
+        public JToken GetPatternPropertyValue(string name)
         {
 
-            return this.PatternProperties.FirstOrDefault(x => x.Name == name)?.Value;
+            return this.patternProperties.FirstOrDefault(x => x.Key == name).Value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<EdiPatternProperty> GetInstancePatternProperies()
-        {
-            return this.PatternProperties;
-        }
+        //public List<> GetInstancePatternProperies()
+        //{
+        //    return this.PatternProperties;
+        //}
 
     }
 

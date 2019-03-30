@@ -20,6 +20,21 @@ namespace Conizi.Model.Core
             return schemas;
         }
 
+        public static Type GetConiziModel(string modelId)
+        {
+            var assembly = Assembly.LoadFrom(Path.Combine(AssemblyDirectory, "Conizi.Model.dll"));
+
+            var schemas = assembly.GetTypes().Where(t =>
+                t.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziSchemaAttribute)));
+
+
+            var model = schemas.FirstOrDefault(t =>
+                string.Equals(t.CustomAttributes.First(a => a.AttributeType == typeof(ConiziSchemaAttribute)).ConstructorArguments[0].Value.ToString(), modelId, StringComparison.InvariantCultureIgnoreCase));
+
+            return model == null ? null : model;
+        }
+
+
         public static string AssemblyDirectory
         {
             get

@@ -9,23 +9,24 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Base model in the conizi context
     /// </summary>
-    public class EdiModel : EdiPatternPropertiesBase
+    public class 
+        EdiModel : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The id (URI) of the model
         /// </summary>
-        [JsonProperty("$schema", Required = Required.Always)]
+        [JsonProperty("$schema", Required = Required.Always, Order = -999)]
         [DisplayName("Json schema")]
         [Description("The used json schema")]
         public string Schema { get; internal set; }
 
-        [JsonProperty("receiver", Required = Required.Always)]
+        [JsonProperty("receiver", Required = Required.Always, Order = -998)]
         public EdiMessageRouting Receiver { get; set; }
 
-        [JsonProperty("sender", Required = Required.Always)]
+        [JsonProperty("sender", Required = Required.Always, Order = -997)]
         public EdiMessageRouting Sender { get; set; }
 
-        [JsonProperty("network", Required = Required.DisallowNull)]
+        [JsonProperty("network", Required = Required.DisallowNull, Order = -996)]
         public EdiNetwork Network { get; set; }
 
     }

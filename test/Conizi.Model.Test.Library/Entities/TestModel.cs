@@ -10,6 +10,7 @@ namespace Conizi.Model.Test.Library.Entities
     [ConiziSchema("https://model.conizi.io/v1.0/test/test.json", "test.json")]
     [DisplayName("Test Model")]
     [Description("This is the conizi test model")]
+    [ConiziAllowXProperties]
     public class TestModel : EdiModel
     {
 
@@ -30,6 +31,8 @@ namespace Conizi.Model.Test.Library.Entities
 
         [JsonProperty("testFileContent")]
         public EdiFileContent TestFileContent { get; set; }
+
+        public EdiServices Services { get; set; }
 
     }
 }

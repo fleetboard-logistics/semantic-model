@@ -17,7 +17,27 @@
   <Namespace>Conizi.Model.Shared.Entities</Namespace>
   <Namespace>System.Runtime.Serialization</Namespace>
   <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding</Namespace>
+  <Namespace>Conizi.Model.Shared.Interfaces</Namespace>
 </Query>
+
+public class PatternPropertyConverter : JsonConverter
+{
+	public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+	{
+		throw new NotImplementedException();
+	}
+
+	public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+	{
+		throw new NotImplementedException();
+	}
+
+	public override bool CanConvert(Type objectType)
+	{
+		return objectType == typeof(EdiPatternPropertiesBase);
+	}
+}
+
 
 class ExampleGenerationProvider : JSchemaGenerationProvider
 {

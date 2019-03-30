@@ -90,12 +90,6 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.GetInstancePatternProperies">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Conizi.Model.Shared.Interfaces.EdiPatternProperty">
             <summary>
             Pattern property to handle additional properties (e.g. x-name2)
