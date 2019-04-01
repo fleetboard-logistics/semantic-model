@@ -63,26 +63,4 @@ namespace Conizi.Model.Shared.Interfaces
         //}
 
     }
-
-    /// <summary>
-    /// Pattern property to handle additional properties (e.g. x-name2)
-    /// </summary>
-    public class EdiPatternProperty
-    {
-        public EdiPatternProperty(string name, object value)
-        {
-            this.Name = name;
-            this.Value = value;
-        }
-
-        /// <summary>
-        /// Name of the property as string
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Value of the property as value
-        /// </summary>
-        public object Value  { get; set; }
-    }
 }

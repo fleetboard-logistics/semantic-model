@@ -50,7 +50,7 @@ namespace Conizi.Model.Core.Conversion
             if (ignoreValidation)
                 return conversionResult;
 
-            if (!Validator.ValidateSchema<TModel>(jsonString, out var validationErrors))
+            if (!Validator.ValidateSchema<TModel>(jsonString, out var validationErrors).IsValid)
             {
                 conversionResult.ValidationErrors = validationErrors;
             }

@@ -4,24 +4,8 @@ using System.Text;
 
 namespace Conizi.Model.Core.Entities
 {
-     public class SerializationResult
+     public class SerializationResult :ConverterResult
     {
-        private IList<string> validationErrors;
-
-        public IList<string> ValidationErrors
-        {
-            get => this.validationErrors;
-            internal set
-            {
-                this.validationErrors = value;
-                this.HasValidationErrors = true;
-            }
-        }
-
-        public bool HasValidationErrors { get; private set; }
-
-        public string Content { get; set; }
-        public string Schema { get; set; }
         public bool IsValidated { get; internal set; }
 
         public override string ToString()

@@ -82,6 +82,7 @@ namespace Conizi.Model.Shared.Entities
         public EdiStacking Stacking { get; set; }
 
         public EdiFood Food { get; set; }
+        public EdiTemperatureRestrictions TemperatureRestrictions { get; set; }
     }
     
     [JsonObject("orientation")]
@@ -141,5 +142,19 @@ namespace Conizi.Model.Shared.Entities
 
     }
 
-    
+    [JsonObject("temperatureRestrictions")]
+    [DisplayName("Temperature restrictions")]
+    [Description("Restrictions about the minimum and maximum temperature during the transport and special equipment to be used")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiTemperatureRestrictions : EdiPatternPropertiesBase
+    {
+        [DisplayName("Minimum temperature (°C)")]
+        [Description("The temperature must not drop below the given value during the transport")]
+        public decimal TemperatureMinCelsius { get; set; }
+
+        [DisplayName("Maximum temperature (°C)")]
+        [Description("The temperature must not get greater than the given value")]
+        public decimal TemperatureMaxCelsius { get; set; }
+    }
 }

@@ -45,6 +45,7 @@ namespace Conizi.Model.Archiving
         public string RefNo { get; set; }
 
         public DateTime ShippingDate { get; set; }
+
         [JsonProperty(Required = Required.Always)]
         public DateTime DocumentCreationDate { get; set; }
         public DateTime ArrivalDate { get; set; }

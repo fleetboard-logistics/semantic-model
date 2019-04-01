@@ -113,7 +113,17 @@ namespace Conizi.Model.UnitTests.Conversion
                 Network = new EdiNetwork
                 {
                     NetworkId = "CL"
-                },
+                }, Services = new EdiServices
+                {
+                    TimeOptions = new EdiTimeOptions
+                    {
+                         Evening = new EdiEvening
+                         {
+                             TimeUntil = "19:00:00",
+                             TimeFrom = "18:00:00",
+                         }
+                    }
+                }
                 //TestFileContent = new EdiFileContent
                 //{
                 //    FileName = "MyFuzzyFile.jpeg",
@@ -131,6 +141,7 @@ namespace Conizi.Model.UnitTests.Conversion
             m.TestReceivingPartner.AddPatternProperty("x-park-lane",37);
 
             m.Receiver.AddPatternProperty("x-conizi-special", "whats up");
+            m.Services.TimeOptions.Evening.AddPatternProperty("x-dawn-service", "X");
             var result = Converter.Serialize(m);
             Assert.False(result.HasValidationErrors);
 
@@ -141,9 +152,11 @@ namespace Conizi.Model.UnitTests.Conversion
             var prop2 = dm.TestReceivingPartner.GetPatternPropertyValue("x-park-lane");
             Assert.IsType<JValue>(prop2);
 
+            var prop3 = dm.Services.TimeOptions.Evening.GetPatternPropertyValue("x-dawn-service");
 
             Assert.Equal( JTokenType.Integer, ((JValue)prop2).Type);
             Assert.Equal(37, ((JValue)prop2).Value<Int32>());
+            Assert.Equal("X", prop3.Value<string>());
         }
     }
 }

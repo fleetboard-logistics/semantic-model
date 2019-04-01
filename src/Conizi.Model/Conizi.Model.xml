@@ -90,21 +90,6 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="T:Conizi.Model.Shared.Interfaces.EdiPatternProperty">
-            <summary>
-            Pattern property to handle additional properties (e.g. x-name2)
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Shared.Interfaces.EdiPatternProperty.Name">
-            <summary>
-            Name of the property as string
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Shared.Interfaces.EdiPatternProperty.Value">
-            <summary>
-            Value of the property as value
-            </summary>
-        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">
             <summary>
             A single consignment which is transferred between two partners. Usually used within the context a manifest

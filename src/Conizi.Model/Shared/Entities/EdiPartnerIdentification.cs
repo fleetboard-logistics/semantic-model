@@ -36,7 +36,7 @@ namespace Conizi.Model.Shared.Entities
         public string CountryCode { get; set; }
         [DisplayName("Email of the address")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string EmailAddress { get; set; }
         [Phone]
         [DisplayName("Phone number of the address")]
         public string PhoneNumber { get; set; }

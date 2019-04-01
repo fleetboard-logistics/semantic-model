@@ -2,6 +2,8 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
+using Conizi.Model.Core.Entities;
+using Conizi.Model.Core.Extensions;
 using Conizi.Model.Core.Generation;
 using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json.Linq;
@@ -41,12 +43,12 @@ namespace Conizi.Model.Core.Validate
             return model;
         }
 
-        public static bool ValidateSchema(string jsonMessage, out IList<string> validationErrors)
+        public static ValidationResult ValidateSchema(string jsonMessage, out IList<string> validationErrors)
         {
            return ValidateSchema(ParseModel(jsonMessage), jsonMessage, out validationErrors);
         }
 
-        public static bool ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
+        public static ValidationResult ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
         {
             return ValidateSchema(typeof(TModel),jsonMessage, out validationErrors);
         }
@@ -58,18 +60,16 @@ namespace Conizi.Model.Core.Validate
         /// <param name="jsonMessage">The message as IMessage</param>
         /// <param name="validationErrors">IList<string> of possible ValidationErrors</string></param>
         /// <returns>true/false</returns>
-        public static bool ValidateSchema(Type model, string jsonMessage, out IList<string> validationErrors)
+        public static ValidationResult ValidateSchema(Type model, string jsonMessage, out IList<string> validationErrors)
         {
             validationErrors = new List<string>();
+            var result = new ValidationResult();
 
             var content = jsonMessage;
 
             if (string.IsNullOrEmpty(content))
-            {
-                validationErrors = new List<string> {$"Message is empty!"};
-                return false;
-            }
-
+                return result.CreateError("Message is empty!", model);
+            
             try
             {
                 var generatorResult = Generator.Generate(model);
@@ -82,7 +82,7 @@ namespace Conizi.Model.Core.Validate
                 var schema = JSchema.Parse(generatorResult.JSchema.ToString(SchemaVersion.Draft6), settings);
                 var messageObject = JObject.Parse(content);
                 var valid = messageObject.IsValid(schema, out validationErrors);
-                return valid;
+                return valid ? result.CreateSuccess(schema, model) : result.CreateError(validationErrors, model, schema);
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace Conizi.Model.Core.Validate
                     validationErrors.Add(error.Message);
                 }
 
-                return false;
+                return result;
             }
         }
     }
