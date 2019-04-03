@@ -55,6 +55,7 @@ namespace Conizi.Model.Shared.Entities
 
         [DisplayName("Shipping date")]
         [Description("The date of the manifest which included the consignment")]
+        [ConiziDateOnly]
         public DateTime ShippingDate { get; set; }
     }
 }

@@ -42,7 +42,7 @@ namespace Conizi.Model.Core.Generation
                 DefaultRequired = Newtonsoft.Json.Required.DisallowNull,
                 SchemaIdGenerationHandling = SchemaIdGenerationHandling.None,
                 SchemaPropertyOrderHandling = SchemaPropertyOrderHandling.Default,
-                SchemaLocationHandling = SchemaLocationHandling.Definitions,
+                SchemaLocationHandling = SchemaLocationHandling.Inline,
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             };
 

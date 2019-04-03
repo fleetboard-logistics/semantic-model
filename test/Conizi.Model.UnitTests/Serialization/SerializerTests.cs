@@ -27,7 +27,7 @@ namespace Conizi.Model.UnitTests.Serialization
         {
             var m = new TestModel
             {
-                Receiver = new EdiMessageRouting()
+                Receiver = new EdiPartnerIdentification
                 {
                     EdiId = "CONIZVK"
                 },
@@ -56,12 +56,12 @@ namespace Conizi.Model.UnitTests.Serialization
         {
             var m = new TestModel
             {
-                Receiver = new EdiMessageRouting
+                Receiver = new EdiPartnerIdentification
                 {
                     EdiId = "FRANZKF"
                 },
-                Sender = new EdiMessageRouting
-                {
+                Sender = new EdiPartnerIdentification
+                { 
                     PartnerId = "4711"
                 },
                 TestReceivingPartner = new EdiPartnerIdentification()
@@ -125,11 +125,11 @@ namespace Conizi.Model.UnitTests.Serialization
         {
             var m = new TestModel
             {
-                Receiver = new EdiMessageRouting
+                Receiver = new EdiPartnerIdentification
                 {
                     EdiId = "KLMN01",
                 },
-                Sender = new EdiMessageRouting
+                Sender = new EdiPartnerIdentification
                 {
                     PartnerId = "4711"
                 },

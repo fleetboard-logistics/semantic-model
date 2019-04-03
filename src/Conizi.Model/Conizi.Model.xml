@@ -35,6 +35,11 @@
             Indicates if X- Properties should allowed. Default true
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiAddress">
+            <summary>
+            Fields to save address relevant data
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiModel">
             <summary>
             Base model in the conizi context
@@ -68,6 +73,131 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.ConiziId">
             <summary>
             Conizi Id is used to identify the sending or receiving Tenant/Site/App on the conizi platform 
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTimeSpan">
+            <summary>
+            The time span for an activity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSpan.From">
+            <summary>
+            Time span from
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSpan.Until">
+            <summary>
+            Time span until
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTourStop">
+            <summary>
+            Stop for delivering. Stop for delivering the acutal goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.StopNo">
+            <summary>
+            Stop number. The whole of the stop numbers in the right order defines the order of the stops
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourFuelStopInformation">
+            <summary>
+            Stop to refuel. Stop to refuel the vehicle
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourWayPointInformation">
+            <summary>
+            Way Point Information
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourWayPointInformation.CrossDocking">
+            <summary>
+            Cross Docking
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourBorderCrossInformation">
+            <summary>
+            Information on border crossing
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourLoadingInformation">
+            <summary>
+            Information about loading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourLoadingInformation.ConsignmentObjectIds">
+            <summary>
+            References to the consignments, depending on this stop
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourLoadingInformation.WorkingHours">
+            <summary>
+            Booked time slot for the tour
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourUnloadingInformation">
+            <summary>
+            Information about unloading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourUnloadingInformation.ConsignmentObjectIds">
+            <summary>
+            References to the consignments, depending on this stop
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourUnloadingInformation.WorkingHours">
+            <summary>
+            Booked time slot for the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledArrival">
+            <summary>
+            Scheduled Arrival for refuel
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledDeparture">
+            <summary>
+            Scheduled Arrival after refuel
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledWaitMinutes">
+            <summary>
+            Scheduled wait time in minutes to begin the activity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledHandlingMinutes">
+            <summary>
+            Scheduled time for handling the activity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.Notes">
+            <summary>
+            Notes on the Stop
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourBookedTimeSlot">
+            <summary>
+            Booked time slot for the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourBookedTimeSlot.Gate">
+            <summary>
+            Gate to use
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourBookedTimeSlot.Notes">
+            <summary>
+            Notes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourWorkingHours.FromDateTime">
+            <summary>
+            From Date Time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourWorkingHours.UntilDateTime">
+            <summary>
+            Until Date Time
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase">
@@ -112,12 +242,122 @@
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingDate">
             <summary>
-            Shipping date e.g. 2019-03-06 14:23:57
+            Shipping date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ManifestId">
+            <summary>
+            Manifest (Bordero) id of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.TourNumber">
+            <summary>
+            Tour number. Number of the planned / assigned local traffic tour for delivery.
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingPartner">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicle">
+            <summary>
+            Information about the vehicles used in the transport
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicle.VehicleId">
+            <summary>
+            The Id of the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicle.TruckType">
+            <summary>
+            The truck type
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.TourId">
+            <summary>
+            The Tour Id. A unique identifier assigned to this tour by the devlivering company
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Description">
+            <summary>
+            The Description. A description of the tour, maybe the occasion of the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Route">
+            <summary>
+            The Route. Information about the route to be driven or its identification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.DriverNotes">
+            <summary>
+            Driver Notes. Notes which can be attached by the delivering driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.CarrierNotes">
+            <summary>
+            Carrier Notes. Notes which can be attached by the delivering driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.ShippingDate">
+            <summary>
+            Shipping date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Carrier">
+            <summary>
+            Company responsible for the actual transport of the goods from the shipping partner to the recipient
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.NotificationParties">
+            <summary>
+            Notification Parties
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Consignments">
+            <summary>
+            Consignments. Consignments which are delivered while processing the tour
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourDangerousGoods">
+            <summary>
+            Dangerous goods to be declared contained in a consignment 
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourDangerousGoods.IsAdr">
+            <summary>
+            Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourDangerousGoods.TotalPointAdr">
+            <summary>
+            Total Point to ADR
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourStartOptions">
+            <summary>
+            Tour start options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourStartOptions.DepartureCheck">
+            <summary>
+            Departure Check was made
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourStartOptions.WriteDownMileage">
+            <summary>
+            Write down the mileage
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEndOptions">
+            <summary>
+            Tour end options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEndOptions.WriteDownMileage">
+            <summary>
+            Write down the mileage
             </summary>
         </member>
     </members>

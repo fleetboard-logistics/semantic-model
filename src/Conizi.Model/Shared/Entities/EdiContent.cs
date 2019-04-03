@@ -56,6 +56,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Line")]
     [Description("Lines are describing handling units of similar sizes and content for brevity")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiLine : EdiMeasures
     {
         [DisplayName("Line no")]

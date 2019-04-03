@@ -20,9 +20,6 @@ namespace Conizi.Model.Core.Generation.Provider
             if (typeObject.CustomAttributes.All(a => a.AttributeType != typeof(ConiziAllowXPropertiesAttribute)))
                 return;
 
-            var attr = typeObject.CustomAttributes.FirstOrDefault(a =>
-                a.AttributeType == typeof(ConiziAllowXPropertiesAttribute));
-
             schema.PatternProperties.Add("x-.*", JSchema.Parse("{}"));
             schema.PatternProperties.Add("\\$.*", JSchema.Parse("{}"));
         }

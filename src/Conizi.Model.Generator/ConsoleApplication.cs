@@ -184,7 +184,7 @@ namespace Conizi.Model.Generator
 
         private bool ValidateInput(Type model, string json)
         {
-            if(Validator.ValidateSchema(model,json, out var  validationErrors))
+            if(Validator.ValidateSchema(model,json, out var  validationErrors).IsValid)
                 return true;
             
 

@@ -35,7 +35,7 @@ namespace Conizi.Model.UnitTests.Conversion
                   
                         EdiId = "CONIZIVK"
                 },
-                Sender = new EdiMessageRouting()
+                Sender = new EdiPartnerIdentification
                 {
                     EdiId = "FLELOVK"
                 },

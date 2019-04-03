@@ -26,8 +26,7 @@ namespace Conizi.Model.UnitTests.Validation
         {
             var m = new TestModel
             {
-                Receiver = new EdiMessageRouting()
-                {
+                Receiver = new EdiPartnerIdentification { 
                     EdiId = "CONIZVK"
                 },
                 Sender = new EdiPartnerIdentification
@@ -55,11 +54,11 @@ namespace Conizi.Model.UnitTests.Validation
         {
             var m = new Consignment
             {
-                Receiver = new EdiMessageRouting
+                Receiver = new EdiPartnerIdentification
                 {
                     EdiId = "CONIZVK"
                 },
-                Sender = new EdiMessageRouting
+                Sender = new EdiPartnerIdentification
                 {
                     PartnerId = "4711"
                 },

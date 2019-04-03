@@ -17,9 +17,8 @@ namespace Conizi.Model.Shared.Entities
     [JsonObject("partnerIdentification")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiPartnerIdentification : EdiMessageRouting
+    public class EdiPartnerIdentification : EdiMessageRouting, IAddress
     {
-        //[JsonRequired]
         [DisplayName("Name of the address")]
         public string Name { get; set; }
         [DisplayName("Street of the address")]
@@ -84,7 +83,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("The conizi id for internal routing purposes")]
         [MaxLength(50)]
         public string ConiziId { get; set; }
-        
+
         [JsonProperty("network", Required = Required.DisallowNull)]
         public EdiNetwork Network { get; set; }
     }

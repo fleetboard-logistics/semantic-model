@@ -20,17 +20,17 @@ namespace Conizi.Model.Shared.Entities
         [Description("The used json schema")]
         public string Schema { get; internal set; }
 
-        //[JsonProperty("receiver", Required = Required.Always, Order = -998)]
-        //public EdiMessageRouting Receiver { get; set; }
+        [JsonProperty("receiver", Required = Required.DisallowNull, Order = -998)]
+        public EdiMessageRouting Receiver { get; set; }
 
-        //[JsonProperty("sender", Required = Required.Always, Order = -997)]
-        //public EdiMessageRouting Sender { get; set; }
+        [JsonProperty("sender", Required = Required.DisallowNull, Order = -997)]
+        public EdiMessageRouting Sender { get; set; }
 
-        [JsonProperty("receiver", Required = Required.Always, Order = -998)]
-        public EdiPartnerIdentification Receiver { get; set; }
+        //[JsonProperty("receiver", Required = Required.DisallowNull, Order = -998)]
+        //public EdiPartnerIdentification Receiver { get; set; }
 
-        [JsonProperty("sender", Required = Required.Always, Order = -997)]
-        public EdiPartnerIdentification Sender { get; set; }
+        //[JsonProperty("sender", Required = Required.DisallowNull, Order = -997)]
+        //public EdiPartnerIdentification Sender { get; set; }
 
         [JsonProperty("network", Required = Required.DisallowNull, Order = -996)]
         public EdiNetwork Network { get; set; }

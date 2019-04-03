@@ -33,16 +33,17 @@ namespace Conizi.Model.UnitTests.Conversion
             // Simple test model
             var m = new TestModel
             {
-                Receiver = new EdiMessageRouting()
+                Receiver = new EdiPartnerIdentification
                 { 
                
                     EdiId = "CONIZIVK"
                 },
-                Sender = new EdiMessageRouting()
+                Sender = new EdiPartnerIdentification
                 {
                     EdiId = "FLELOVK",
                 },
-                TestReceivingPartner = new EdiPartnerIdentification{
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
                
                     PartnerId = "2323",
                     Name = "Fleetboard Logistics",
@@ -88,12 +89,12 @@ namespace Conizi.Model.UnitTests.Conversion
             // Simple test model
             var m = new TestModel
             {
-                Receiver = new EdiMessageRouting()
+                Receiver = new EdiPartnerIdentification
                 {
 
                     EdiId = "CONIZIVK"
                 },
-                Sender = new EdiMessageRouting()
+                Sender = new EdiPartnerIdentification
                 {
                     EdiId = "FLELOVK",
                 },
