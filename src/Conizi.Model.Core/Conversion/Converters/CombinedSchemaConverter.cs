@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Text;
 using Conizi.Model.Core.Extensions;
 using Conizi.Model.Shared.Attributes;
-using Conizi.Model.Shared.Entities;
-using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;

@@ -1057,7 +1057,7 @@
 							},
 							"additionalProperties": false
 						},
-						"invalidShipmentInformation": {
+						"invalidShipmentInformation": { 
 							"type": "object",
 							"title": "Invalid Shipment Information",
 							"description": "Not in delivery - incomplete / incorrect shipment information",

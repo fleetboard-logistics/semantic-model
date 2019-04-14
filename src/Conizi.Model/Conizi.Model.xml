@@ -40,6 +40,263 @@
             Fields to save address relevant data
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.Incompatible">
+            <summary>
+            Incompatible. The shipment is not within the agreed specifications (e.g. to heavy / big / ...)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.Incomplete">
+            <summary>
+            Incomplete. There are some packages missing from this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.UltimatelyLost">
+            <summary>
+            Ultimately lost. Consignment is utimately lost and will no longer be searched for
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.DeliveryObscure">
+            <summary>
+            The delivery is obscure
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiUnloadingExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.LateArrival">
+            <summary>
+            The consignment arrived too late for normal processing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.Missing">
+            <summary>
+            The consignment did not arrive or parts of the consignment are missing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.PartlyMissing">
+            <summary>
+            Partly missing in the entrance (additional information number and type of packaging
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.Damaged">
+            <summary>
+            The consignment was damaged on arrival
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.PackagingDifferences">
+            <summary>
+            Packaging differences (additional information number and packaging)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.NotVerifiable">
+            <summary>
+            Welded pallet, no guarantee for content, as not testable (only applies to non-scannable pallets)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.QuantityDifferences">
+            <summary>
+            Quantity difference Bordero / Discharge (acquisition error)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.PartlyMissingDamaged">
+            <summary>
+            Unloading - not complete, damaged
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiGatewayExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the consignment.
+            Use (null) to report successful cross dock of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGatewayExceptions.Loaded">
+            <summary>
+            The consignment was loaded
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGatewayExceptions.Halted">
+            <summary>
+            The consignment did not arrive or parts of the consignment are missing
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while planning the delivery of the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.OutsideDeliveryArea">
+            <summary>
+            The address of the consignee is not within the area served
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.PlannedForSecondTour">
+            <summary>
+            The consignment will be picked up and delivered later on the day
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.NotInDelivery">
+            <summary>
+            The consignment will not be delivered today
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.NoTimeSlotForAgreedDeliveryTime">
+            <summary>
+            No time slot for agreed delivery time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.InvalidShipmentInformation">
+            <summary>
+            Not in delivery - incomplete / incorrect shipment information
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.Damaged">
+            <summary>
+            Not in delivery - goods damaged
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.ReturnAccordingToDisposal">
+            <summary>
+            Not delivered - refused consignment, return according to disposal
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.ReturnDisposalMissing">
+            <summary>
+            Not delivered - refused consignment, return - order missing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.InResearch">
+            <summary>
+            Not on delivery - broadcast in search
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.TimeSlotFromConsignee">
+            <summary>
+            The consignee has provided a time slot for delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.BadWeatherConditions">
+            <summary>
+            The weather does not permit delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.IimeIssue">
+            <summary>
+            There is no time for the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.SpaceIssue">
+            <summary>
+            There is a space issue for the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.ConsignmentNotComplete">
+            <summary>
+            Not in delivery - consignment incomplete
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.SelfCollector">
+            <summary>
+            Not on delivery - Recipient is self-collector
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.Holidays">
+            <summary>
+            Not on delivery - regional holiday
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.Customs">
+            <summary>
+            Not on delivery - Customs goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.WaitingForNotification">
+            <summary>
+            Not in delivery - Advice of delivery according to EDI
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.MissingDocumentation">
+            <summary>
+            Not in delivery - Delivery note missing / Accompanying documents incomplete
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.LateArrival">
+            <summary>
+            Not in delivery - long-distance traffic from VP / HUB delayed (E2 status)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.StandardDeliveryTimeSufficient">
+            <summary>
+            Not in delivery, Flex according to specification VP
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.GatewayRouting">
+            <summary>
+            Loaded from Gateway to...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.RejectedByReceiver">
+            <summary>
+            Receiver rejected, not in delivery by telephone refusal to accept...
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotificationExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the notification of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.NotReached">
+            <summary>
+            The consignee couldn't be reached
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.Disabled">
+            <summary>
+            The (automatic) notification was disabled
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.PickupCustomer">
+            <summary>
+            The consignment was successful, but the goods will be picked up by the customer
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.WrongAddress">
+            <summary>
+            The notification was successful, but the consignment has the wrong address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.DisposalOrdered">
+            <summary>
+            A Disposal was ordered
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.NotInTime">
+            <summary>
+            The receiver has not answered in time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.Canceled">
+            <summary>
+            Notification has been canceled
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.InvalidData">
+            <summary>
+            Some data is invalid for processing a notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.MissingData">
+            <summary>
+            Some data is missing for processing a notification
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiModel">
             <summary>
             Base model in the conizi context
@@ -258,6 +515,199 @@
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingPartner">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent">
+            <summary>
+            An event which occured during the processing of the referenced consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ConsignmentNoShippingPartner">
+            <summary>
+            Consignment number of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ConsignmentNoReceivingPartner">
+            <summary>
+            Consignment number of the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ConsignmentNoDeliveringPartner">
+            <summary>
+            Consignment number of the delivering partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ShippingDate">
+            <summary>
+            Shipping date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ShippingPartner">
+            <summary>
+            The partner which is sending the consignment to the receiving partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ReceivingPartner">
+            <summary>
+            The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ReportingPartner">
+            <summary>
+            The partner which is reporting the event
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Unloading">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Gateway">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.DeliveryPlanning">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Notification">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiGeneralProcessingNotification.Remarks">
+            <summary>
+            Additional remarks
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiArchived">
+            <summary>
+            Documents have been archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiArchived.Pod">
+            <summary>
+            Proof of delivery was archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiArchived.DeliveryNote">
+            <summary>
+            Delivery notes were archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiArchived.CustomsPapers">
+            <summary>
+            Customs papers were archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiArchived.DamagePictures">
+            <summary>
+            Pictures of damages were archived
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiSigningInformation">
+            <summary>
+            Signing Information
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiReleaseAuthorizationReceived">
+            <summary>
+            Release authorization received
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiRedirectedTo">
+            <summary>
+            The consignment is redirected to...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiRedirectedTo.Sender">
+            <summary>
+            Redirected to sender
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiRedirectedTo.SourcePartner">
+            <summary>
+            Redirected to source partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiRedirectedTo.ReceivingPartner">
+            <summary>
+            Redirected to receiving Partner
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiDisposed">
+            <summary>
+            Consignment was disposed
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiUnloading">
+            <summary>
+            Events occured while unloading the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiUnloading.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiEventGateway">
+            <summary>
+            Events occured while cross docking the consignment. (i.e. HUB or gateway cross dock)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiEventGateway.Loaded">
+            <summary>
+            The consignment has been loaded onto the truck leaving the gateway
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiEventGateway.Unloaded">
+            <summary>
+            The consignment has been unloaded from the truck delivering the consignment to the gateway
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiEventGateway.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the consignment.
+            Use (null) to report successful cross dock of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiDeliveryPlanning">
+            <summary>
+            Events occured while planning the delivery of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiDeliveryPlanning.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occured while planning the delivery of the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTrigger">
+            <summary>
+            Event that is a trigger for starting a notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTrigger.Manually">
+            <summary>
+            Start a manual notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTrigger.Automatic">
+            <summary>
+            Start an automatic notification (i.e. automatic notification system via email or SMS)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiEventBase.EventDateTime">
+            <summary>
+            Date and time when the event occured
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiEventBase.Remarks">
+            <summary>
+            Additional remarks
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicle">

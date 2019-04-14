@@ -145,5 +145,31 @@ namespace Conizi.Model.UnitTests.Serialization
             Assert.True(result.HasValidationErrors);
             Assert.Contains("Required properties are missing", result.ValidationErrors[0]);
         }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTestModel_AssertDateTime()
+        {
+            var m = new TestModel
+            {
+                Receiver = new EdiPartnerIdentification
+                {
+                    EdiId = "KLMN01",
+                },
+                Sender = new EdiPartnerIdentification
+                {
+                    PartnerId = "4711"
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
+                    EdiId = "KLMN01",
+                    Name = "Franz Kafka",
+                    City = "Kafka City"
+                },
+                TestDateTime = DateTime.Now
+            };
+
+            var result = Converter.Serialize(m);
+        }
     }
 }
