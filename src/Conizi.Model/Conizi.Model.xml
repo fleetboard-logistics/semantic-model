@@ -40,6 +40,11 @@
             Fields to save address relevant data
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiEmptyClassWAdditionalProps">
+            <summary>
+            Empty class holds additional properties
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions">
             <summary>
             Detailed information about the exceptions that occured while processing the consignment
