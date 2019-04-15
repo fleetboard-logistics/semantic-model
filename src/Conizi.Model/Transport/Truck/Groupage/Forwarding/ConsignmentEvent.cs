@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
-    /// An event which occured during the processing of the referenced consignment
+    /// An event which occured during the processing of the referenced consignment <see cref="Consignment"/>
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
         "consignment-event.json")]
@@ -31,7 +31,6 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// Consignment number of the receiving partner
         /// </summary>
-        [JsonRequired]
         [DisplayName("Consignment number of the receiving partner")]
         [Description(
             "Unique identification for the consignment within the transport management system of the receiving partner")]

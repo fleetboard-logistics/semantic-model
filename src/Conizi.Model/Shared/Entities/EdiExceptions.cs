@@ -244,7 +244,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Time issue")]
         [Description("There is no time for the delivery")]
-        public bool IimeIssue { get; set; }
+        public bool TimeIssue { get; set; }
 
         /// <summary>
         /// There is a space issue for the delivery
