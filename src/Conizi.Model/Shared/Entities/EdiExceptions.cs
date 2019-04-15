@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 
 namespace Conizi.Model.Shared.Entities
@@ -15,7 +16,7 @@ namespace Conizi.Model.Shared.Entities
         "Use (null) to report successful processing of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiNotificationEventExceptions
+    public class EdiNotificationEventExceptions : EdiPatternPropertiesBase
     {
         /// <summary>
         /// Incompatible. The shipment is not within the agreed specifications (e.g. to heavy / big / ...)
@@ -64,7 +65,7 @@ namespace Conizi.Model.Shared.Entities
                  "Use (null) to report successful processing of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiUnloadingExceptions
+    public class EdiUnloadingExceptions : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The consignment arrived too late for normal processing
@@ -132,7 +133,7 @@ namespace Conizi.Model.Shared.Entities
                  "Use (null) to report successful cross dock of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiGatewayExceptions
+    public class EdiGatewayExceptions : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The consignment was loaded
@@ -148,7 +149,6 @@ namespace Conizi.Model.Shared.Entities
         [Description("The consignment has stopped at the cross dock")]
         public bool Halted { get; set; }
 
-       
     }
 
     /// <summary>
@@ -160,7 +160,7 @@ namespace Conizi.Model.Shared.Entities
                  "Use (null) to report successful processing of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDeliveryPlanningExceptions
+    public class EdiDeliveryPlanningExceptions : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The address of the consignee is not within the area served
@@ -332,7 +332,7 @@ namespace Conizi.Model.Shared.Entities
                  "Use (null) to report successful notifcations of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiNotificationExceptions
+    public class EdiNotificationExceptions : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The consignee couldn't be reached
@@ -407,7 +407,7 @@ namespace Conizi.Model.Shared.Entities
                  "Use (null) to report successful starting of the consignment delivery")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDeliveryStartedExceptions
+    public class EdiDeliveryStartedExceptions : EdiPatternPropertiesBase
     {
         /// <summary>
         /// There is no sufficient capacity available to perform delivery at the moment
@@ -415,5 +415,204 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("No capacity available")]
         [Description("There is no sufficient capacity available to perform delivery at the moment")]
         public bool NoCapacity { get; set; }
+    }
+
+    /// <summary>
+    /// Detailed information about the exceptions that caused the delivery to be fail
+    /// </summary>
+    [DisplayName("Exceptions")]
+    [Description("Detailed information about the exceptions that caused the delivery to be fail")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiDeliveryAttemptFailedExceptions : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// The delivery attempt was aborted due to too long waiting time at the consignee
+        /// </summary>
+        [DisplayName("Aborted due to long waiting time")]
+        [Description("The delivery attempt was aborted due to too long waiting time at the consignee")]
+        public bool AbortedDueToLongWaitingTime { get; set; }
+
+        /// <summary>
+        /// The delivery attempt was aborted, because of weather conditions
+        /// </summary>
+        [DisplayName("Aborted due weather condition")]
+        [Description("The delivery attempt was aborted, because of weather conditions")]
+        public bool AbortedDueWeatherCondition { get; set; }
+
+        /// <summary>
+        /// Not delivered - Lack of time on delivery tour
+        /// </summary>
+        [DisplayName("Time Issue")]
+        [Description("Not delivered - Lack of time on delivery tour")]
+        public bool TimeIssue { get; set; }
+
+        /// <summary>
+        /// The consignee has rejected the consignment"
+        /// </summary>
+        public EdiDeliveryAttemptRejected Rejected { get; set; }
+
+        /// <summary>
+        /// The consignee was closed
+        /// </summary>
+        [DisplayName("Closed")]
+        [Description("The consignee was closed")]
+        public bool Closed { get; set; }
+
+        /// <summary>
+        /// Delivery not possible because of a wrong address
+        /// </summary>
+        [DisplayName("Wrong address")]
+        [Description("Delivery not possible because of a wrong address")]
+        public bool WrongAddress { get; set; }
+
+        /// <summary>
+        /// There were difficulties delivering the goods
+        /// </summary>
+        public EdiDeliveryAttemptDifficulties Difficulties { get; set; }
+    }
+
+    /// <summary>
+    /// The consignee has rejected the consignment"
+    /// </summary>
+    [DisplayName("Rejected")]
+    [Description("The consignee has rejected the consignment")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiDeliveryAttemptRejected : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// The delivery was rejected because the consignment is damaged
+        /// </summary>
+        [DisplayName("Damaged")]
+        [Description("The delivery was rejected because the consignment is damaged")]
+        public bool Damaged { get; set; }
+
+        /// <summary>
+        /// The delivery was rejected because some parts of the consignment are missing
+        /// </summary>
+        [DisplayName("Incomplete")]
+        [Description("The delivery was rejected because some parts of the consignment are missing")]
+        public bool Incomplete { get; set; }
+
+        /// <summary>
+        /// The delivery rejected because it was performed after the deadline
+        /// </summary>
+        [DisplayName("Too late")]
+        [Description("The delivery rejected because it was performed after the deadline")]
+        public bool TooLate { get; set; }
+        
+        /// <summary>
+        /// The delivery was rejected because required documentation (e.g. delivery note) was missing
+        /// </summary>
+        [DisplayName("Missing documentation")]
+        [Description("The delivery was rejected because required documentation (e.g. delivery note) was missing")]
+        public bool MissingDocumentation { get; set; }
+
+        /// <summary>
+        /// The delivery was rejected because the consignee never ordered the goods
+        /// </summary>
+        [DisplayName("Not ordered")]
+        [Description("The delivery was rejected because the consignee never ordered the goods")]
+        public bool NotOrdered { get; set; }
+
+        /// <summary>
+        /// The delivery was rejected because of a missing notification
+        /// </summary>
+        [DisplayName("Missing notification")]
+        [Description("The delivery was rejected because of a missing notification")]
+        public bool MissingNotification { get; set; }
+
+        /// <summary>
+        /// The delivery was rejected because required documentation (e.g. delivery note) was missing
+        /// </summary>
+        [DisplayName("No payment")]
+        [Description("The delivery couldn't be processed because the consignee has not payed")]
+        public bool NoPayment { get; set; }
+    }
+
+    /// <summary>
+    /// There were difficulties delivering the goods
+    /// </summary>
+    [DisplayName("Difficulties")]
+    [Description("There were difficulties delivering the goods")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiDeliveryAttemptDifficulties : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// The delivery was not possible because of a missing tail lift
+        /// </summary>
+        [DisplayName("Missing tail lift")]
+        [Description("The delivery was not possible because of a missing tail lift")]
+        public bool TailLift { get; set; }
+    }
+
+    /// <summary>
+    /// Detailed information about the exceptions that occured when consignment was successfully delivered.
+    /// Use (null) to report successful processing of the consignment
+    /// </summary>
+    [DisplayName("Exceptions")]
+    [Description("Detailed information about the exceptions that occured when consignment was successfully delivered." +
+                 "Use (null) to report successful processing of the consignment")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiDeliverySuccessfulExceptions : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// Delivered but incomplete
+        /// </summary>
+        [DisplayName("Service incomplete")]
+        [Description("Delivered but incomplete")]
+        public bool ServiceIncomplete { get; set; }
+
+        /// <summary>
+        /// The consignment was damaged
+        /// </summary>
+        [DisplayName("Damaged")]
+        [Description("The consignment was damaged")]
+        public bool Damaged { get; set; }
+
+        /// <summary>
+        /// Some parts were missing and some were damaged
+        /// </summary>
+        [DisplayName("Incomplete and damaged")]
+        [Description("Some parts were missing and some were damaged")]
+        public bool IncompleteAndDamaged { get; set; }
+
+        /// <summary>
+        /// The consignment was partially rejected
+        /// </summary>
+        [DisplayName("Partially rejected")]
+        [Description("The consignment was partially rejected")]
+        public bool PartiallyRejected { get; set; }
+
+        /// <summary>
+        /// The consignment was partially rejected
+        /// </summary>
+        [DisplayName("To late")]
+        [Description("The delivery was to late")]
+        public bool TooLate { get; set; }
+
+        /// <summary>
+        /// Served, delivery not assignable
+        /// </summary>
+        [DisplayName("No receipt")]
+        [Description("Served, delivery not assignable")]
+        public bool NoReceipt { get; set; }
+
+        /// <summary>
+        /// Delivered, Exhibition- / House carrier- / Inselspediteur handed over
+        /// </summary>
+        [DisplayName("Forwarded to external provider")]
+        [Description("Delivered, Exhibition- / House carrier- / Inselspediteur handed over")]
+        public bool ForwardedToExternalProvider { get; set; }
+
+        /// <summary>
+        /// The goods were deposit as agreed in a signed release authorization
+        /// </summary>
+        [DisplayName("Release authorization")]
+        [Description("The goods were deposit as agreed in a signed release authorization")]
+        public bool ReleaseAuthorization { get; set; }
     }
 }

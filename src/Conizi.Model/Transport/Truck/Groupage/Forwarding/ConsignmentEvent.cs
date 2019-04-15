@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
@@ -39,7 +40,6 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// Consignment number of the delivering partner
         /// </summary>
-        [JsonRequired]
         [DisplayName("Consignment number of the delivering partner")]
         [Description(
             "Unique identification for the consignment within the transport management system of the delivering partner")]
@@ -117,6 +117,54 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// Events occured while arriving the receiver
         /// </summary>
         public EdiEventArrivalAtReceiver ArrivalAtReceiver { get; set; }
+
+        /// <summary>
+        /// Events indicating a failed delivery attempt
+        /// </summary>
+        public EdiEventDeliveryAttemptFailed DeliveryAttemptFailed { get; set; }
+
+        /// <summary>
+        /// Events indicating successful delivery
+        /// </summary>
+        public EdiEventDeliverySuccessful DeliverySuccessful { get; set; }
+
+        /// <summary>
+        /// Events indicating successful completion of a task, consignment has been forwarded
+        /// </summary>
+        public EdiEventCompletion Completion { get; set; }
+
+        /// <summary>
+        /// Events indicating new information that should be added/updated in the consignment
+        /// </summary>
+        public EdiEventChangeRequest ChangeRequest { get; set; }
+
+        /// <summary>
+        /// Original event code
+        /// </summary>
+        [DisplayName("Original event code")]
+        [Description("Original event code")]
+        public string OriginalEventCode { get; set; }
+
+        /// <summary>
+        /// Additional remarks (free form)
+        /// </summary>
+        [DisplayName("Additional remarks")]
+        [Description("Additional remarks (free form)")]
+        public List<string> AdditionalRemarks { get; set; }
+
+        /// <summary>
+        /// Reference number of the parent consignment
+        /// </summary>
+        [DisplayName("Reference number")]
+        [Description("Reference number")]
+        public string ReferenceNumber { get; set; }
+
+        /// <summary>
+        /// Wait/Downtime in minute
+        /// </summary>
+        [DisplayName("Wait/Downtime in minute")]
+        [Description("Wait/Downtime in minute")]
+        public int WaitDowntimeMinutes { get; set; }
     }
 
 
@@ -390,5 +438,147 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Estimated arrival date/time")]
         [Description("Date and time of the estimated arrival")]
         public string EstimatedArrivalTime { get; set; }
+    }
+
+    /// <summary>
+    /// Events indicating a failed delivery attempt
+    /// </summary>
+    [DisplayName("Delivery attempt failed")]
+    [Description("Events indicating a failed delivery attempt")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiEventDeliveryAttemptFailed : EdiEventBase
+    {
+        /// <summary>
+        /// Number of the consignment which is used to return the goods to the shipper
+        /// </summary>
+        [DisplayName("Return consignment no")]
+        [Description("Number of the consignment which is used to return the goods to the shipper")]
+        public string ReturnConsignmentNo { get; set; }
+
+        /// <summary>
+        /// Name of the person which rejected the consignment
+        /// </summary>
+        [DisplayName("Signee")]
+        [Description("Name of the person which rejected the consignment")]
+        public string Signee { get; set; }
+
+        /// <summary>
+        /// Time spent waiting during delivery
+        /// </summary>
+        [DisplayName("Wait time")]
+        [Description("Time spent waiting during delivery")]
+        public string WaitTime { get; set; }
+    }
+
+    /// <summary>
+    ///Events indicating successful delivery
+    /// </summary>
+    [DisplayName("Delivery successful")]
+    [Description("Events indicating successful delivery")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiEventDeliverySuccessful : EdiEventBase
+    {
+        /// <summary>
+        /// Detailed information about the exceptions that occured when consignment was successfully delivered
+        /// </summary>
+        public EdiDeliverySuccessfulExceptions Exceptions { get; set; }
+
+        /// <summary>
+        /// Name of the person which rejected the consignment
+        /// </summary>
+        [DisplayName("Signee")]
+        [Description("Name of the person which rejected the consignment")]
+        public string Signee { get; set; }
+
+        /// <summary>
+        /// Time spent waiting during delivery
+        /// </summary>
+        [DisplayName("Wait time")]
+        [Description("Time spent waiting during delivery")]
+        public string WaitTime { get; set; }
+    }
+
+    /// <summary>
+    ///Events indicating successful completion of a task, consignment has been forwarded
+    /// </summary>
+    [DisplayName("Work completed - forwarded")]
+    [Description("Events indicating successful completion of a task, consignment has been forwarded")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiEventCompletion: EdiEventBase
+    {
+        /// <summary>
+        /// Completed by another party
+        /// </summary>
+        [DisplayName("Completed by")]
+        [Description("Completed by another party")]
+        public bool CompletedBy { get; set; }
+
+        /// <summary>
+        /// Consignment was forwarded
+        /// </summary>
+        [DisplayName("Forwarded")]
+        [Description("Consignment was forwarded")]
+        public bool Forwarded { get; set; }
+
+        /// <summary>
+        /// Name of the person which rejected the consignment
+        /// </summary>
+        [DisplayName("Signee")]
+        [Description("Name of the person which rejected the consignment")]
+        public string Signee { get; set; }
+
+        /// <summary>
+        /// Time spent waiting during delivery
+        /// </summary>
+        [DisplayName("Wait time")]
+        [Description("Time spent waiting during delivery")]
+        public string WaitTime { get; set; }
+    }
+
+    /// <summary>
+    /// Events indicating new information that should be added/updated in the consignment
+    /// </summary>
+    [DisplayName("Change request")]
+    [Description("A new delivery term that should be considered for billing")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiEventChangeRequest : EdiEventBase
+    {
+
+        /// <summary>
+        /// A new delivery term that should be considered for billing
+        /// </summary>
+        [DisplayName("Billing - Delivery term")]
+        [Description("A new delivery term that should be considered for billing")]
+        public bool BillingDeliveryTerm { get; set; }
+
+        /// <summary>
+        /// The area occupied by the consignment - expressed in standard pallet sizes
+        /// </summary>
+        [DisplayName("Billing - Area (in pallet bays)")]
+        [Description("The area occupied by the consignment - expressed in standard pallet sizes")]
+        public string BillingAreaPalletBays { get; set; }
+
+        /// <summary>
+        /// The area occupied by the consignment - expressed in loading meters
+        /// </summary>
+        [DisplayName("Billing - Loading meter")]
+        [Description("The area occupied by the consignment - expressed in loading meters")]
+        public string BillingLoadingMeter { get; set; }
+    }
+
+    /// <summary>
+    /// Events indicating the cancellation of the consignment
+    /// </summary>
+    [DisplayName("Cancellation")]
+    [Description("Events indicating the cancellation of the consignment")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class Cancellation : EdiEventBase
+    {
+
     }
 }

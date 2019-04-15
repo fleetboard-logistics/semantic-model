@@ -1813,7 +1813,7 @@
 			},
 			"additionalProperties": false
 		},
-		"deliveryAttemptFailed": {
+		"deliveryAttemptFailed": {	
 			"type": "object",
 			"title": "Delivery attempt failed",
 			"titleMap": {
