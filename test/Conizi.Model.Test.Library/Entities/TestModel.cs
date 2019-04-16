@@ -26,7 +26,6 @@ namespace Conizi.Model.Test.Library.Entities
         [ConiziTimeOnly]
         public string TestTimeOnly { get; set; }
 
-        [ConiziDateOnly]
         public DateTime TestDateTime { get; set; }
 
         [JsonProperty("testFileContent")]

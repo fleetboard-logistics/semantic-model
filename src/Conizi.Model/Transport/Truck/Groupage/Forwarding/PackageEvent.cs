@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
+using Newtonsoft.Json;
 
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
@@ -14,11 +15,13 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         "package-event.json")]
     [DisplayName("Package event")]
     [Description("An event which occured during the processing of the referenced package")]
-    [ConiziAdditionalProperties(false)]
+    [ConiziAdditionalProperties(true)]
     [ConiziAllowXProperties]
     public class PackageEvent : EdiModel
     {
 
+       
 
     }
+
 }

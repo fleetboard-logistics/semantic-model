@@ -2,6 +2,7 @@ using System;
 using Conizi.Model.Core.Conversion;
 using Conizi.Model.Core.Generation;
 using Conizi.Model.Shared.Entities;
+using Conizi.Model.Shared.Interfaces;
 using Conizi.Model.Test.Library.Entities;
 using Newtonsoft.Json;
 using Xunit;
@@ -32,7 +33,6 @@ namespace Conizi.Model.UnitTests.Conversion
             {
                 Receiver = new EdiPartnerIdentification()
                 {
-                  
                         EdiId = "CONIZIVK"
                 },
                 Sender = new EdiPartnerIdentification
@@ -75,8 +75,6 @@ namespace Conizi.Model.UnitTests.Conversion
             Assert.False(result.HasValidationErrors);
 
         }
-
-
     }
 }
 

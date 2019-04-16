@@ -16,7 +16,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         "pickuporder-event.json")]
     [DisplayName("Pickup order event")]
     [Description("An event which occured during the processing of the referenced pickup order")]
-    [ConiziAdditionalProperties(false)]
+    [ConiziAdditionalProperties(true)]
     [ConiziAllowXProperties]
     public class PickupOrderEvent : EdiModel
     {

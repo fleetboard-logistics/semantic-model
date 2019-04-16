@@ -97,7 +97,25 @@ namespace Conizi.Model.UnitTests.Generation
            
         }
 
-        [Fact(Skip = "modification needed")]
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateTestModel_AssertEvent()
+        {
+
+            var result = Generator.Generate<ConsignmentEvent>();
+
+            Assert.IsType<GenerationResult>(result);
+
+            var schema = result.JSchema;
+
+            Assert.NotNull(schema);
+
+
+
+        }
+
+
+        [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateTestModel_AssertValidDateFormats()
         {

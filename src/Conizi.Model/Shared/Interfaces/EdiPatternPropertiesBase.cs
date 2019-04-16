@@ -10,17 +10,12 @@ namespace Conizi.Model.Shared.Interfaces
     /// Enables the models to add additional pattern (x-) properties
     /// Attention: Pattern properties will not be processed in all services and apps, so please use carefully!
     /// </summary>
-    [JsonObject()]
     public abstract class EdiPatternPropertiesBase
     {
 
         [JsonExtensionData(WriteData = true, ReadData = true)]
         private Dictionary<string, JToken> patternProperties;
-        
-        public EdiPatternPropertiesBase()
-        {
-            this.patternProperties = new Dictionary<string, JToken>();
-        }
+
 
         /// <summary>
         /// Add a pattern property to this object (e.g. x-name2)
@@ -43,6 +38,26 @@ namespace Conizi.Model.Shared.Interfaces
         }
 
         /// <summary>
+        /// Add a pattern property to this object (e.g. x-name2)
+        /// </summary>
+        /// <param name="name">The name of the property as string</param>
+        /// <param name="value">The value of the property as string</param>
+        public static T CreateAndAddPatternProperty<T>(string name, object value)
+        {
+            if (string.IsNullOrEmpty(name) || !name.StartsWith("x-"))
+                throw new ArgumentException("Property name must start with 'x-'");
+            var ts = Activator.CreateInstance<T>();
+            var bs = ts as EdiPatternPropertiesBase;
+
+            if (bs == null)
+                return ts;
+
+            bs.AddPatternProperty(name, value);
+
+            return ts;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="name"></param>
@@ -52,15 +67,5 @@ namespace Conizi.Model.Shared.Interfaces
 
             return this.patternProperties.FirstOrDefault(x => x.Key == name).Value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        //public List<> GetInstancePatternProperies()
-        //{
-        //    return this.PatternProperties;
-        //}
-
     }
 }

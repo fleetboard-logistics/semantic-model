@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using Conizi.Model.Core.Extensions;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 
@@ -19,6 +20,10 @@ namespace Conizi.Model.Core.Generation.Provider
         {
             if (typeObject.CustomAttributes.All(a => a.AttributeType != typeof(ConiziAllowXPropertiesAttribute)))
                 return;
+
+
+            //if(schema.PatternProperties.Any())
+            //    return;
 
             schema.PatternProperties.Add("x-.*", JSchema.Parse("{}"));
             schema.PatternProperties.Add("\\$.*", JSchema.Parse("{}"));
@@ -114,6 +119,20 @@ namespace Conizi.Model.Core.Generation.Provider
                     return schema;
                 }
             }
+
+            //if (context.ObjectType == typeof(EdiEmptyClassWAdditionalProps))
+            //{
+               
+            //        var generator = context.Generator;
+            //        var schema = generator.Generate(context.MemberProperty.PropertyType);
+            //        HandleAdditionalProperties(context.ObjectType, schema);
+            //        HandleXProperties(context.ObjectType, schema);
+            //    schema.Title = context.SchemaTitle;
+            //    schema.Description = context.SchemaDescription;
+            //    //context.
+            //    return schema;
+                
+            //}
 
             if (context.ObjectType == typeof(string) && context.MemberProperty?.AttributeProvider != null)
             {
