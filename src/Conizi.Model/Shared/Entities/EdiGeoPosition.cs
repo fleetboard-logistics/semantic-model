@@ -8,13 +8,13 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Shared.Entities
 {
     /// <summary>
-    /// Data about the current geo location
+    /// Data about the current geo position
     /// </summary>
-    [DisplayName("Geo location")]
-    [Description("Data about the current geo location")]
-    [JsonObject("geoLocation")]
+    [DisplayName("Geo position")]
+    [Description("Data about the current geo position")]
+    [JsonObject("geoPosition")]
     [ConiziAdditionalProperties(false)]
-    public class EdiGeoLocation
+    public class EdiGeoPosition
     {
         /// <summary>
         /// East–west position of a point on the Earth's surface

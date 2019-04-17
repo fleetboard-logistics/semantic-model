@@ -54,7 +54,7 @@ namespace Conizi.Model.Examples.Archiving
     //        };
     //        //this.Content = new EdiFileContent()
     //        //{
-    //        //    FileData = new EdiFileData
+    //        //    BinaryData = new EdiBinaryData
     //        //    {
     //        //        ContentType = "image/png",
     //        //        FileName = "test-pod.png",

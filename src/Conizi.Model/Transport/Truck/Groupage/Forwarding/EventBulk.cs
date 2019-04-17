@@ -8,7 +8,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
 
     /// <summary>
-    /// A single consignment which is transferred between two partners. Usually used within the context a manifest
+    /// Events for different consignments, pickup orders or packages, that can be send in bulk, which occured during the processing <seealso cref="Consignment"/>
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json", "event-bulk.json")]
     [DisplayName("Bulk Event")]

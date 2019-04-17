@@ -449,29 +449,134 @@
             The goods were deposit as agreed in a signed release authorization
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiGeoLocation">
+        <member name="T:Conizi.Model.Shared.Entities.EdiFileContent">
             <summary>
-            Data about the current geo location
+            Transfers file data like a picture, pdf, txt...
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiGeoLocation.Longitude">
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.FileName">
+            <summary>
+            The file name
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.ContentType">
+            <summary>
+            The content type like application/pdf, image/png...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.BinaryData">
+            <summary>
+            The content/data of a file/object
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.FileReference">
+            <summary>
+            Reference to a file in an online storage
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiBinaryData">
+            <summary>
+            The content/data of a file/object
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBinaryData.Length">
+            <summary>
+            The length (bytes) of submitted data
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBinaryData.Data">
+            <summary>
+            The submitted data as byte array, be aware large files > 100KByte should be submitted as <see cref="T:Conizi.Model.Shared.Entities.EdiFileReference"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiFileReference">
+            <summary>
+            Reference to a file in an online storage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.FileId">
+            <summary>
+            Unique Id for a file
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.Length">
+            <summary>
+            The length (bytes) of submitted data
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.AbsoluteUri">
+            <summary>
+            An absolute URL to a file on the online storage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.UriValidFrom">
+            <summary>
+            The URL is valid from date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.UriValidTo">
+            <summary>
+            The URL is valid until date
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiGeoPosition">
+            <summary>
+            Data about the current geo position
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.Longitude">
             <summary>
             East–west position of a point on the Earth's surface
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiGeoLocation.Latitude">
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.Latitude">
             <summary>
             North–south position of a point on the Earth's surface
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiGeoLocation.PlaceName">
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.PlaceName">
             <summary>
             The place name of the current geo position
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiGeoLocation.RecordTime">
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.RecordTime">
             <summary>
             Time the GPS record was created
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiAdditionalLoadingEquipment">
+            <summary>
+            Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAdditionalLoadingEquipment.EurPallets">
+            <summary>
+            EUR pallets as defined by European Pallet Association (EPAL)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAdditionalLoadingEquipment.EurBoxes">
+            <summary>
+            EUR Box pallets as defined by European Pallet Association (EPAL)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange">
+            <summary>
+            Information about loading equipment exchange
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange.Exchanged">
+            <summary>
+            Loading Equipment was exchanged
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange.AmountEurPallets">
+            <summary>
+            Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange.AmountEurBoxes">
+            <summary>
+            Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiModel">
@@ -532,6 +637,11 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.StopNo">
             <summary>
             Stop number. The whole of the stop numbers in the right order defines the order of the stops
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.StopId">
+            <summary>
+            Stop Id. Unique identifier for this stop within the tour
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.TourFuelStopInformation">
@@ -1091,7 +1201,7 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk">
             <summary>
-            A single consignment which is transferred between two partners. Usually used within the context a manifest
+            Events for different consignments, pickup orders or packages, that can be send in bulk, which occured during the processing <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk.ConsignmentEvents">
@@ -1114,6 +1224,11 @@
             List of tour events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent"/>
             </summary>
         </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest">
+            <summary>
+            A manifest describes multiple consignments which are forwarded from one partner to another at the same time
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicle">
             <summary>
             Information about the vehicles used in the transport
@@ -1131,7 +1246,7 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent">
             <summary>
-            An event which occured during the processing of the referenced package <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent"/>
+            An event which occured during the processing of the referenced package
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder">
@@ -1147,6 +1262,12 @@
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent">
             <summary>
             An event which occured during the processing of the referenced pickup order <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour">
+            <summary>
+            A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done,
+            e.g.loading and unloading information about consignments or maintenance stops
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.TourId">
@@ -1254,6 +1375,16 @@
             Event to notify about stop specific incidents
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.VehicleSpecific">
+            <summary>
+            Event to notify about vehicle specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.TourDocuments">
+            <summary>
+            Event to notify about tour specific documents
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourSpecificEvent">
             <summary>
             Event to notify about tour specific incidents
@@ -1339,9 +1470,34 @@
             Exchange of the trailer has been completed
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourSpecificEvent.WaitingTimeStarted">
+            <summary>
+            Waiting time for next action started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourSpecificEvent.WaitingTimeCompleted">
+            <summary>
+            Waiting time for next action completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourSpecificEvent.ReadyToLoad">
+            <summary>
+            Vehicle is ready to load
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourSpecificEvent.ReadyToUnload">
+            <summary>
+            Vehicle is ready to unload
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiStopSpecificEvent">
             <summary>
             Event to notify about stop specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiStopSpecificEvent.StopId">
+            <summary>
+            Unique identifier for this stop. References the stop within the tour <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour"/>
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiStopSpecificEvent.OnWayLoadingPoint">
@@ -1384,12 +1540,122 @@
             Unloading of the vehicle was completed
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiStopSpecificEvent.DocumentsReceived">
+            <summary>
+            Documents has been received
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiStopSpecificEvent.Departure">
+            <summary>
+            Departure, the stop has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiStopSpecificEvent.LoadingEquipmentExchange">
+            <summary>
+            Information on loading equipment exchange at this stop
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent">
+            <summary>
+            Event to notify about vehicle specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.Weight">
+            <summary>
+            Weight of the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.LoadingMeter">
+            <summary>
+            Available loading meter
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.DriverName">
+            <summary>
+            Name of the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.CoDriverName">
+            <summary>
+            Name of the co-driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.MileageStart">
+            <summary>
+            Mileage of the vehicle at tour start
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.MileageFinish">
+            <summary>
+            Mileage of the vehicle at the end of the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.Temperature">
+            <summary>
+            Current temperature in degrees Celsius
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.TruckRegistrationNumber">
+            <summary>
+            Registration number of the truck
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.TrailerRegistrationNumber">
+            <summary>
+            Registration number of the trailer
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiVehicleSpecificEvent.EstimatedArrivalTime">
+            <summary>
+            The current calculated estimated arrival time (ETA)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments">
+            <summary>
+            Event to notify about tour specific documents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments.Signature">
+            <summary>
+            Pictures/Files of signee's signature
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments.Damages">
+            <summary>
+            Pictures/Files of damages
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments.LoadSecuring">
+            <summary>
+            Pictures/Files of load securing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments.DrivingLicense">
+            <summary>
+            Pictures/Files of driving license
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments.ChecklistDepartureControl">
+            <summary>
+            Checklist of departure control available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments.ChecklistInstruction">
+            <summary>
+            Checklist of instructions available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourDocuments.ChecklistVehicleInspection">
+            <summary>
+            Checklist of vehicle inspection available
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourEventBase">
             <summary>
             Base class for a tour based event
             </summary>
         </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourEventBase.GeoLocation">
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EdiTourEventBase.GeoPosition">
             <summary>
             The geo location, the event was recorded
             </summary>

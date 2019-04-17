@@ -25,6 +25,14 @@ namespace Conizi.Model.Shared.Entities
         [Description("The whole of the stop numbers in the right order defines the order of the stops")]
         public int StopNo { get; set; }
 
+        /// <summary>
+        /// Stop Id. Unique identifier for this stop within the tour
+        /// </summary>
+        [DisplayName("Stop Id")]
+        [Description("Unique identifier for this stop within the tour")]
+        [JsonRequired]
+        public string StopId { get; set; }
+
         public EdiAddress Address { get; set; }
 
         public TourFuelStopInformation FuelStopInformation { get; set; }

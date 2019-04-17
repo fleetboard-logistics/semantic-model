@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
-    /// An event which occured during the processing of the referenced package <see cref="PackageEvent"/>
+    /// An event which occured during the processing of the referenced package
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
         "package-event.json")]

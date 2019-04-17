@@ -77,7 +77,7 @@ namespace Conizi.Model.UnitTests.Generation
 
 
 
-        [Fact]
+        [Fact(Skip ="Not longer used at the moment")]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateTestModel_AssertUnionTypesCount()
         {
@@ -131,7 +131,7 @@ namespace Conizi.Model.UnitTests.Generation
             Assert.Equal("time", schema.Properties["testTimeOnly"].Format);
         }
 
-        [Fact]
+        [Fact(Skip = "Not longer used! (at the moment)")]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateCominedTestModel_AssertCombinedTypes()
         {

@@ -20,7 +20,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("The used json schema")]
         public string Schema { get; internal set; }
 
-        [JsonProperty("receiver", Required = Required.DisallowNull, Order = -998)]
+        [JsonProperty("receiver", Required = Required.Always, Order = -998)]
         public EdiMessageRouting Receiver { get; set; }
 
         [JsonProperty("sender", Required = Required.DisallowNull, Order = -997)]

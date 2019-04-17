@@ -38,6 +38,15 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         public EdiStopSpecificEvent StopSpecific { get; set; }
 
+        /// <summary>
+        /// Event to notify about vehicle specific incidents
+        /// </summary>
+        public EdiVehicleSpecificEvent VehicleSpecific { get; set; }
+
+        /// <summary>
+        /// Event to notify about tour specific documents
+        /// </summary>
+        public EdiTourDocuments TourDocuments { get; set; }
     }
 
     /// <summary>
@@ -117,7 +126,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Working Time Completed")]
         [Description("Working time has been ended for the driver")]
-        public bool WorkingTimeCompleted{ get; set; }
+        public bool WorkingTimeCompleted { get; set; }
 
         /// <summary>
         /// Cleaning of the vehicle has been started
@@ -160,6 +169,34 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Trailer Exchange Completed")]
         [Description("Exchange of the trailer has been completed")]
         public bool ChangeSwapBodyCompleted { get; set; }
+
+        /// <summary>
+        /// Waiting time for next action started
+        /// </summary>
+        [DisplayName("Waiting time for next action started")]
+        [Description("Exchange of the trailer has been started")]
+        public bool WaitingTimeStarted { get; set; }
+
+        /// <summary>
+        /// Waiting time for next action completed
+        /// </summary>
+        [DisplayName("Waiting Time Completed")]
+        [Description("Waiting time for next action completed")]
+        public bool WaitingTimeCompleted { get; set; }
+
+        /// <summary>
+        /// Vehicle is ready to load
+        /// </summary>
+        [DisplayName("Ready to load")]
+        [Description("Vehicle is ready to load")]
+        public bool ReadyToLoad { get; set; }
+
+        /// <summary>
+        /// Vehicle is ready to unload
+        /// </summary>
+        [DisplayName("Ready to unload")]
+        [Description("Vehicle is ready to unload")]
+        public bool ReadyToUnload { get; set; }
     }
 
     /// <summary>
@@ -171,6 +208,14 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [ConiziAllowXProperties]
     public class EdiStopSpecificEvent : EdiTourEventBase
     {
+        /// <summary>
+        /// Unique identifier for this stop. References the stop within the tour <see cref="Tour"/>
+        /// </summary>
+        [DisplayName("Stop Id")]
+        [Description("Unique identifier for this stop. References the stop within the tour")]
+        [JsonRequired]
+        public string StopId { get; set; }
+
         /// <summary>
         /// Vehicle is on the way to loading point
         /// </summary>
@@ -197,7 +242,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Loading Completed")]
         [Description("Loading of the vehicle was completed")]
-        public bool LoadingCompleted{ get; set; }
+        public bool LoadingCompleted { get; set; }
 
         /// <summary>
         /// Vehicle is on the way to unloading point
@@ -227,7 +272,155 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("Unloading of the vehicle was completed")]
         public bool UnloadingCompleted { get; set; }
 
+        /// <summary>
+        /// Documents has been received
+        /// </summary>
+        [DisplayName("Documents Received")]
+        [Description("Documents has been received")]
+        public bool DocumentsReceived { get; set; }
 
+        /// <summary>
+        /// Departure, the stop has been completed
+        /// </summary>
+        [DisplayName("Departure")]
+        [Description("Departure, the stop has been completed")]
+        public bool Departure { get; set; }
+
+        /// <summary>
+        /// Information on loading equipment exchange at this stop
+        /// </summary>
+        public EdiLoadingEquipmentExchange LoadingEquipmentExchange { get; set; }
+    }
+
+    /// <summary>
+    /// Event to notify about vehicle specific incidents
+    /// </summary>
+    [DisplayName("Vehicle specific Event")]
+    [Description("Event to notify about vehicle specific incidents")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiVehicleSpecificEvent : EdiTourEventBase
+    {
+        /// <summary>
+        /// Weight of the vehicle
+        /// </summary>
+        [DisplayName("Weight of vehicle")]
+        [Description("Weight of the vehicle in kg")]
+        public decimal Weight { get; set; }
+
+        /// <summary>
+        /// Available loading meter
+        /// </summary>
+        [DisplayName("loading meter")]
+        [Description("Available loading meter")]
+        public decimal LoadingMeter { get; set; }
+
+        /// <summary>
+        /// Name of the driver
+        /// </summary>
+        [DisplayName("Driver Name")]
+        [Description("Name of the driver")]
+        public string DriverName { get; set; }
+
+        /// <summary>
+        /// Name of the co-driver
+        /// </summary>
+        [DisplayName("Co-driver Name")]
+        [Description("Name of the co-driver")]
+        public string CoDriverName { get; set; }
+
+        /// <summary>
+        /// Mileage of the vehicle at tour start
+        /// </summary>
+        [DisplayName("Mileage Start")]
+        [Description("Mileage of the vehicle at tour start")]
+        public decimal MileageStart { get; set; }
+
+        /// <summary>
+        /// Mileage of the vehicle at the end of the tour
+        /// </summary>
+        [DisplayName("Mileage Finish")]
+        [Description("Mileage of the vehicle at the end of the tour")]
+        public decimal MileageFinish { get; set; }
+
+        /// <summary>
+        /// Current temperature in degrees Celsius
+        /// </summary>
+        [DisplayName("Temperature")]
+        [Description("Current temperature in degrees Celsius")]
+        public decimal Temperature { get; set; }
+
+        /// <summary>
+        /// Registration number of the truck
+        /// </summary>
+        [DisplayName("Truck Registration Number")]
+        [Description("The registration number of the truck")]
+        public string TruckRegistrationNumber { get; set; }
+
+        /// <summary>
+        /// Registration number of the trailer
+        /// </summary>
+        [DisplayName("Trailer Registration Number")]
+        [Description("Registration number of the trailer")]
+        public string TrailerRegistrationNumber { get; set; }
+
+        /// <summary>
+        /// The current calculated estimated arrival time (ETA)
+        /// </summary>
+        [DisplayName("Estimated Arrival Time")]
+        [Description("The current calculated estimated arrival time (ETA)")]
+        public DateTime EstimatedArrivalTime { get; set; }
+    }
+
+    /// <summary>
+    /// Event to notify about tour specific documents
+    /// </summary>
+    [DisplayName("Tour Documents")]
+    [Description("Event to notify about tour specific documents")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiTourDocuments : EdiTourEventBase
+    {
+        /// <summary>
+        /// Pictures/Files of signee's signature
+        /// </summary>
+        public List<EdiFileContent> Signature { get; set; }
+
+        /// <summary>
+        /// Pictures/Files of damages
+        /// </summary>
+        public List<EdiFileContent> Damages { get; set; }
+
+        /// <summary>
+        /// Pictures/Files of load securing
+        /// </summary>
+        public List<EdiFileContent> LoadSecuring { get; set; }
+
+        /// <summary>
+        /// Pictures/Files of driving license
+        /// </summary>
+        public List<EdiFileContent> DrivingLicense { get; set; }
+
+        /// <summary>
+        /// Checklist of departure control available
+        /// </summary>
+        [DisplayName("Checklist Departure Control")]
+        [Description("A checklist of departure control is available")]
+        public bool ChecklistDepartureControl { get; set; }
+
+        /// <summary>
+        /// Checklist of instructions available
+        /// </summary>
+        [DisplayName("Checklist Instruction")]
+        [Description("A checklist of vehicle inspection is available")]
+        public bool ChecklistInstruction{ get; set; }
+
+        /// <summary>
+        /// Checklist of vehicle inspection available
+        /// </summary>
+        [DisplayName("ChecklistVehicle Inspection")]
+        [Description("A checklist of vehicle inspection is available")]
+        public bool ChecklistVehicleInspection { get; set; }
     }
 
     /// <summary>
@@ -238,9 +431,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// The geo location, the event was recorded
         /// </summary>
-        [JsonProperty("geoLocation", Order = -9, Required = Required.DisallowNull)]
-        public EdiGeoLocation GeoLocation { get; set; }
-
+        [JsonProperty("geoPosition", Order = -9, Required = Required.DisallowNull)]
+        public EdiGeoPosition GeoPosition { get; set; }
     }
-
 }

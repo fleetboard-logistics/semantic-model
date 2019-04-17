@@ -16,6 +16,10 @@ namespace Conizi.Model.Shared.Interfaces
         [JsonExtensionData(WriteData = true, ReadData = true)]
         private Dictionary<string, JToken> patternProperties;
 
+        public EdiPatternPropertiesBase()
+        {
+            this.patternProperties = new Dictionary<string, JToken>();
+        }
 
         /// <summary>
         /// Add a pattern property to this object (e.g. x-name2)

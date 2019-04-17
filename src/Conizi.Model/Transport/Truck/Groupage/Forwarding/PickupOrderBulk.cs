@@ -9,8 +9,6 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
         "pickuporder-bulk.json")]
-    [DisplayName("Consignment event")]
-    [Description("An event which occured during the processing of the referenced consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class PickupOrderBulk : EdiModel
