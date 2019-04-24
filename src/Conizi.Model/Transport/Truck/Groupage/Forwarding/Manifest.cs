@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
+using Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
@@ -60,73 +61,5 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiAdditionalLoadingEquipment AdditionalLoadingEquipment { get; set; }
 
         public List<EdiManifestLine> Lines { get; set; }
-    }
-
-    /// <summary>
-    /// Information about the vehicles used in the transport
-    /// </summary>
-    [JsonObject("vehicle")]
-    [DisplayName("Vehicle")]
-    [Description("Information about the vehicles used in the transport")]
-    [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
-    public class EdiVehicle
-    {
-        /// <summary>
-        /// The Id of the vehicle
-        /// </summary>
-        [DisplayName("The vehicle id")]
-        public string VehicleId { get; set; }
-
-        [DisplayName("Registration")]
-        [Description("Official registration of the vehicle (e.g. license plate number)")]
-        public string Registration { get; set; }
-
-        /// <summary>
-        /// The truck type
-        /// </summary>
-        [DisplayName("Truck type")]
-        public object TruckType { get; set; }
-    }
-
-    [JsonObject("loadUnits")]
-    [DisplayName("Load units")]
-    [Description("Load units (containers, swap bodies, ...) used to transport the goods")]
-    [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
-    public class EdiLoadUnit
-    {
-        [DisplayName("Identification")]
-        [Description("Identification (e.g. registration number) of the unit")]
-        public string Identification { get; set; }
-
-        public List<EdiSeal> Seals { get; set; }
-
-    }
-
-    [JsonObject("seal")]
-    [DisplayName("Seal")]
-    [Description("Seals used to prevent tampering with the goods in the load unit")]
-    [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
-    public class EdiSeal
-    {
-        [DisplayName("Code / number of the seal")]
-        [Description("Code / number of the seal")]
-        public string Code { get; set; }
-    }
-
-    [JsonObject("manifestLine")]
-    [DisplayName("Line")]
-    [Description("Line of the manifest")]
-    [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
-    public class EdiManifestLine
-    {
-        [DisplayName("Line number")]
-        [Description("Ordinal number of the line within the manifest. Is referenced in other messages such as the unloading report")]
-        public int LineNo { get; set; }
-
-        public Consignment Consignment { get; set; }
     }
 }

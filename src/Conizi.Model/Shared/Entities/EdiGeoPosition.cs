@@ -40,6 +40,13 @@ namespace Conizi.Model.Shared.Entities
         public string PlaceName { get; set; }
 
         /// <summary>
+        /// A coordinate for the What3Words service like index.home.raft
+        /// </summary>
+        [DisplayName("What3words coordinate")]
+        [Description("A coordinate for the What3Words service like index.home.raft")]
+        public string W3WCoordinate { get; set; }
+
+        /// <summary>
         /// Time the GPS record was created
         /// </summary>
         [DisplayName("Record time")]

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
+using System.Threading;
 using Conizi.Model.Core.Conversion.Converters;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Validate;
@@ -13,6 +15,12 @@ namespace Conizi.Model.Core.Conversion
 {
     public static class Converter
     {
+        static Converter()
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+        }
+
+
         public static JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
             Formatting = Formatting.Indented,
@@ -22,7 +30,6 @@ namespace Conizi.Model.Core.Conversion
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
             Converters = new List<JsonConverter>
             {
-                new DateTimeConverter(),
                 new CombinedSchemaConverter()
             }
         };

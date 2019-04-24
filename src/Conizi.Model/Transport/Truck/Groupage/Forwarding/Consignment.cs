@@ -12,6 +12,10 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     /// <summary>
     /// A single consignment which is transferred between two partners. Usually used within the context a manifest
     /// </summary>
+    /// <remarks>
+    /// The consignment is the basic business object for conizi. Other objects like <see cref="Manifest"/>, <see cref="Tour"/>
+    /// use the consignment for additional business processes. 
+    /// </remarks>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json", "consignment.json")]
     [DisplayName("Consignment")]
     [Description("A single consignment which is transferred between two partners. Usually used within the context a manifest")]

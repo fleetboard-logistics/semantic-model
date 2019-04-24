@@ -6,8 +6,8 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Core.Entities
 {
      public abstract class ConverterResult
-    {
-        private IList<string> validationErrors;
+     {
+         private IList<string> validationErrors = new List<string>();
 
         public IList<string> ValidationErrors
         {

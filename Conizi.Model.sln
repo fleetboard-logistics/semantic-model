@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Core", "src\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Generator", "src\Conizi.Model.Generator\Conizi.Model.Generator.csproj", "{AEA8F479-6465-4DB8-9ABA-15A29972ED1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conizi.Model.Test.Library", "test\Conizi.Model.Test.Library\Conizi.Model.Test.Library.csproj", "{D70178CC-A257-4C3F-B5C8-8948A69B5561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Test.Library", "test\Conizi.Model.Test.Library\Conizi.Model.Test.Library.csproj", "{D70178CC-A257-4C3F-B5C8-8948A69B5561}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

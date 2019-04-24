@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using Conizi.Model.Core.Conversion;
 using Conizi.Model.Core.Generation;
 using Conizi.Model.Shared.Entities;
@@ -13,17 +15,19 @@ namespace Conizi.Model.UnitTests.Conversion
 {
     public class DeserializerTests
     {
-        //[Fact]
-        //[Trait("Category", TraitCategory.UNIT_TEST)]
-        //public void SerializerInvalidModel_AssertJsonSerializationException()
-        //{
-        //    var m = new InvalidModel();
+     
 
-        //    var result = Converter.Serialize(m);
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializerInvalidModel_AssertJsonSerializationException()
+        {
+            var m = new InvalidModel();
 
-        //    Assert.True(result.HasValidationErrors);
-        //    Assert.Equal("Invalid URI: The format of the URI could not be determined.", result.ValidationErrors[1]);
-        //}
+            var result = Converter.Serialize(m);
+
+            Assert.True(result.HasValidationErrors);
+            Assert.Equal("Invalid URI: The format of the URI could not be determined.", result.ValidationErrors[1]);
+        }
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
@@ -59,17 +63,17 @@ namespace Conizi.Model.UnitTests.Conversion
                 {
                     NetworkId = "CL"
                 },
-                //TestFileContent = new EdiFileContent
-                //{
-                //    FileName = "MyFuzzyFile.jpeg",
-                //    ContentType = "image/jpeg",
-                //    FileReference = new EdiFileReference
-                //    {
-                //        AbsoluteUri = "http://imnotexistend.org",
-                //        UriValidFrom = DateTime.Today,
-                //        UriValidTo = DateTime.Now.AddDays(5)
-                //    }
-                //}
+                TestFileContent = new EdiFileContent
+                {
+                    FileName = "MyFuzzyFile.jpeg",
+                    ContentType = "image/jpeg",
+                    FileReference = new EdiFileReference
+                    {
+                        AbsoluteUri = "http://imnotexistend.org",
+                        UriValidFrom = DateTime.Today,
+                        UriValidTo = DateTime.Now.AddDays(5)
+                    }
+                }
 
             };
 
@@ -78,6 +82,54 @@ namespace Conizi.Model.UnitTests.Conversion
 
             var dm = Converter.Deserialize<TestModel>(result.ToString());
             Assert.IsType<TestModel>(dm);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void DeserializerBasicModel_AssertValidDeserializationOfDates()
+        {
+            const string dateTimeString = "2019-03-11 15:42:18";
+
+            // Simple test model
+            var m = new TestModel
+            {
+                Receiver = new EdiPartnerIdentification
+                {
+
+                    EdiId = "CONIZIVK"
+                },
+                Sender = new EdiPartnerIdentification
+                {
+                    EdiId = "FLELOVK",
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
+
+                    PartnerId = "2323",
+                    Name = "Fleetboard Logistics",
+                    Street = "Am Alten Bahnhof",
+                    HouseNumber = "8",
+                    City = "Volkach"
+                },
+                TestShippingPartner = new EdiPartnerIdentification
+                {
+                    PartnerId = "1234"
+                },
+                Network = new EdiNetwork
+                {
+                    NetworkId = "CL"
+                },
+                TestDateTime = DateTime.Parse(dateTimeString),
+                TestDateOnly = DateTime.Parse("2019-04-11")
+
+            };
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+
+            var dm = Converter.Deserialize<TestModel>(result.ToString());
+            Assert.IsType<TestModel>(dm);
+            Assert.Equal(DateTime.Parse(dateTimeString), dm.TestDateTime);
         }
 
 
@@ -124,18 +176,18 @@ namespace Conizi.Model.UnitTests.Conversion
                              TimeFrom = "18:00:00",
                          }
                     }
+                },
+                TestFileContent = new EdiFileContent
+                {
+                    FileName = "MyFuzzyFile.jpeg",
+                    ContentType = "image/jpeg",
+                    FileReference = new EdiFileReference
+                    {
+                        AbsoluteUri = "http://imnotexistend.org",
+                        UriValidFrom = DateTime.Today,
+                        UriValidTo = DateTime.Now.AddDays(5)
+                    }
                 }
-                //TestFileContent = new EdiFileContent
-                //{
-                //    FileName = "MyFuzzyFile.jpeg",
-                //    ContentType = "image/jpeg",
-                //    FileReference = new EdiFileReference
-                //    {
-                //        AbsoluteUri = "http://imnotexistend.org",
-                //        UriValidFrom = DateTime.Today,
-                //        UriValidTo = DateTime.Now.AddDays(5)
-                //    }
-                //}
 
             };
 

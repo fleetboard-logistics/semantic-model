@@ -6,15 +6,17 @@
     <Authors>André Rüb (sdc4)</Authors>
     <Company>Fleetboard Logistics GmbH</Company>
     <Copyright>Fleetboard Logistics GmbH 2019</Copyright>
-    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <PackageProjectUrl>https://fleetboard-logistics.com/en/index.html</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/fleetboard-logistics/semantic-model/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://fleetboard-logistics.github.io/docs/conizi/semantic-models/site/articles/intro.html</PackageProjectUrl>
     <PackageTags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/fleetboard-logistics/semantic-model</RepositoryUrl>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
-    <Version>0.1.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.1-alpha</Version>
+    <PackageReleaseNotes>Add tour-event.json</PackageReleaseNotes>
+    <Description>Pre-Release of the conizi semantic models implemented in C#.Please use this library with care.  It is not yet stable!</Description>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
@@ -23,11 +25,14 @@
     <DefineConstants>NET452;NETFULL</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\src\sematicmodel\src\Conizi.Model\Conizi.Model.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transport\Truck\Groupage\Forwarding\Helper\Consignment\" />
   </ItemGroup>
 
 </Project>

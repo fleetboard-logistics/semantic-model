@@ -6,6 +6,8 @@ using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Shared.Interfaces;
+using Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest;
+using Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -115,78 +117,4 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 
         public List<EdiTourStop> Stops { get; set; }
     }
-
-
-    /// <summary>
-    /// Dangerous goods to be declared contained in a consignment 
-    /// </summary>
-    [DisplayName("Dangerous goods")]
-    [Description("Dangerous goods to be declared contained in a consignment")]
-    [JsonObject("tourDangerousGoods")]
-    [ConiziAdditionalProperties(false)]
-    public class TourDangerousGoods
-    {
-        /// <summary>
-        /// Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road
-        /// </summary>
-        [DisplayName("Is ADR")]
-        [Description("Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road")]
-        [JsonProperty("isADR")]
-        public bool IsAdr { get; set; }
-
-        /// <summary>
-        /// Total Point to ADR
-        /// </summary>
-        [DisplayName("Total Point ADR")]
-        [Description("Total Point to ADR")]
-        [JsonProperty("totalPointADR")]
-        public decimal TotalPointAdr { get; set; }
-    }
-
-    /// <summary>
-    /// Tour start options. Activities the driver is supposed to do before starting driving the tour
-    /// </summary>
-    [DisplayName("Tour start options")]
-    [Description("Activities the driver is supposed to do before starting driving the tour")]
-    [JsonObject("tourStartOptions")]
-    [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
-    public class TourStartOptions
-    {
-        /// <summary>
-        /// Departure Check was made
-        /// </summary>
-        [DisplayName("Departure Check")]
-        [Description("Departure Check was made")]
-        public bool DepartureCheck { get; set; }
-
-        /// <summary>
-        /// Write down the mileage
-        /// </summary>
-        [DisplayName("Write Down Mileage")]
-        [Description("Write down the mileage")]
-        public bool WriteDownMileage { get; set; }
-    }
-
-    /// <summary>
-    /// Tour end options. Activities the driver is supposed to do before starting driving the tour
-    /// </summary>
-    [DisplayName("Tour end options")]
-    [Description("Activities the driver is supposed to do after finishing driver the tour")]
-    [JsonObject("tourEndOptions")]
-    [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
-    public class TourEndOptions
-    {
-
-        /// <summary>
-        /// Write down the mileage
-        /// </summary>
-        [DisplayName("Write Down Mileage")]
-        [Description("Write down the mileage")]
-        public bool WriteDownMileage { get; set; }
-    }
-
-    
-
 }

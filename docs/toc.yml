@@ -1,0 +1,13 @@
+- name: Fleetboard Logistics
+  href: https://fleetboard-logistics.github.io/docs/conizi/index.html
+- name: Home
+  href: index.md
+- name: Getting Started
+  href: articles/
+  homepage: articles/index.md
+- name: C# Models
+  href: fusion/
+- name: Core Library
+  href: fusion/
+- name: Examples
+  href: examples/
