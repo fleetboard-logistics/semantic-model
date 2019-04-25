@@ -77,8 +77,8 @@ deploy:
 
   function deploy_nuget() {
     echo "Deploy to nuget..."   
-    dotnet pack ./src/Conizi.Model/Conizi.Model.csproj --output src/Conizi.Model/nupkgs /p:NuspecFile=src/Conizi.Model/Conizi.Model.nuspec /p:TargetFrameworks=netstandard2.0
-    dotnet pack ./src/Conizi.Model.Core/Conizi.Model.Core.csproj --output src/Conizi.Model.Core/nupkgs /p:NuspecFile=src/Conizi.Model.Core/Conizi.Model.Core.nuspec /p:TargetFrameworks=netstandard2.0
+    dotnet pack src/Conizi.Model/Conizi.Model.csproj --output src/Conizi.Model/nupkgs /p:NuspecFile=src/Conizi.Model/Conizi.Model.nuspec /p:TargetFrameworks=netstandard2.0
+    # dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output src/Conizi.Model.Core/nupkgs /p:NuspecFile=src/Conizi.Model.Core/Conizi.Model.Core.nuspec /p:TargetFrameworks=netstandard2.0
   }
   
   function test() {
