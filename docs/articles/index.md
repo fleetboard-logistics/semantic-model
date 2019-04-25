@@ -15,8 +15,8 @@ The library is divided into two parts:
  * A set of tools to deal with the models (generate, serialize, de-serialize...) => [Conizi.Model.Core]()
 
 You can get the library from two different Nuget packages:
- * [Conizi.Model](https://nexus.fleetboard-logistics.com/#browse/search/nuget=attributes.nuget.id%3DConizi.Model) at the moment from FL Nexus https://nexus.fleetboard-logistics.com/repository/nuget-group/ 
-  * [Conizi.Model.Core](https://nexus.fleetboard-logistics.com/#browse/search/nuget=attributes.nuget.id%3DConizi.Model.Core) at the moment from FL Nexus https://nexus.fleetboard-logistics.com/repository/nuget-group/
+ * [Conizi.Model](https://www.nuget.org/packages/Conizi.Model) (nuget prerelease)
+  * [Conizi.Model.Core](https://www.nuget.org/packages/Conizi.Model.Core) (nuget prerelease)
 
 New models and further developments are carried out exclusively in C#. The C# models can then be converted into JSON schemas or other possible formats.
 
@@ -45,6 +45,8 @@ var m = new TourEvent
  ```
 ### Serialize the [tour-event](xref:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent) to JSON
 
+With the help of the [Conizi.Model.Core](xref:Conizi.Model.Core.Conversion.Converter) library, the C# models can be serialized to JSON.
+
 ```cs
 var result =  Converter.Serialize(m);
  ```
@@ -72,7 +74,10 @@ This serialized tour-event JSON message is ready to send to conizi Input HTTP AP
 
 ### Further information
 
-In the following some scenarios are described, which should help in working with conizi.
+In the following some scenarios are listed, which should help in working with conizi.
+
 * Working with a [consignment](consignment.md)
 * Working with a [tour](tour.md)
 * Working with [events](events.md)
+
+More examples can be found [here](xref:examples.index)

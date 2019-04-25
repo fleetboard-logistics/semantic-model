@@ -21,6 +21,28 @@
       "properties": {
         "TargetFramework": "netstandard2.0"
       }
+    },
+    {
+      "src": [
+        {
+          "files": [
+            "src/Conizi.Model.Core/Conizi.Model.Core.csproj"
+          ],
+          "exclude": [
+            "**/obj/**",
+            "**/bin/**",
+            "_site/**"
+          ],
+          "cwd": ".."
+        }
+      ],
+      "dest": "core_lib",
+      "filter": "filterCoreConfig.yml",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
     }
   ],
   "build": {
@@ -32,6 +54,12 @@
         "files": [
           "classes/**.yml",
           "classes/index.md"
+        ]
+      },
+      {
+        "files": [
+          "core_lib/**.yml",
+          "core_lib/index.md"
         ]
       },
       {

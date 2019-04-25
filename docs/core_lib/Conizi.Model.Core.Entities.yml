@@ -1,0 +1,47 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Entities
+  commentId: N:Conizi.Model.Core.Entities
+  id: Conizi.Model.Core.Entities
+  children:
+  - Conizi.Model.Core.Entities.ConverterResult
+  - Conizi.Model.Core.Entities.GenerationResult
+  - Conizi.Model.Core.Entities.SerializationResult
+  - Conizi.Model.Core.Entities.ValidationResult
+  langs:
+  - csharp
+  - vb
+  name: Conizi.Model.Core.Entities
+  nameWithType: Conizi.Model.Core.Entities
+  fullName: Conizi.Model.Core.Entities
+  type: Namespace
+  assemblies:
+  - Conizi.Model.Core
+references:
+- uid: Conizi.Model.Core.Entities.ConverterResult
+  commentId: T:Conizi.Model.Core.Entities.ConverterResult
+  parent: Conizi.Model.Core.Entities
+  name: ConverterResult
+  nameWithType: ConverterResult
+  fullName: Conizi.Model.Core.Entities.ConverterResult
+- uid: Conizi.Model.Core.Entities.GenerationResult
+  commentId: T:Conizi.Model.Core.Entities.GenerationResult
+  name: GenerationResult
+  nameWithType: GenerationResult
+  fullName: Conizi.Model.Core.Entities.GenerationResult
+- uid: Conizi.Model.Core.Entities.SerializationResult
+  commentId: T:Conizi.Model.Core.Entities.SerializationResult
+  parent: Conizi.Model.Core.Entities
+  name: SerializationResult
+  nameWithType: SerializationResult
+  fullName: Conizi.Model.Core.Entities.SerializationResult
+- uid: Conizi.Model.Core.Entities.ValidationResult
+  commentId: T:Conizi.Model.Core.Entities.ValidationResult
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: Conizi.Model.Core.Entities.ValidationResult
+- uid: Conizi.Model.Core.Entities
+  commentId: N:Conizi.Model.Core.Entities
+  name: Conizi.Model.Core.Entities
+  nameWithType: Conizi.Model.Core.Entities
+  fullName: Conizi.Model.Core.Entities

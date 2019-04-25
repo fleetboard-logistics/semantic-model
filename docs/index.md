@@ -9,4 +9,4 @@ The focus of this documentation is on the C# classes, which form the basis of th
 ## Quick Start:
 
 1. The conizi semantic model repository is located [here](https://github.com/fleetboard-logistics/semantic-model)
-2. A quick introduction and some tutorials, can be found under [getting started](articles/intro.md)
+2. A quick introduction and some tutorials, can be found under [getting started](articles/index.md)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -11,6 +12,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Conizi.Model.Core.Conversion.Converters
 {
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class CombinedSchemaConverter : JsonConverter
     {
 

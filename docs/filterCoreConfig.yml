@@ -1,0 +1,12 @@
+apiRules:
+- exclude:
+    uidRegex: ^System\.Object
+    type: Type
+- exclude:
+    uidRegex: ^Conizi\.Model\.Core\.Conversion\.Converters
+- include:
+    uidRegex: ^Conizi\.Model\.Core\.Conversion
+- include:
+    uidRegex: ^Conizi\.Model\.Core\.Entities
+- exclude:
+    uidRegex: ^Conizi\.Model\.Core

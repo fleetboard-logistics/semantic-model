@@ -5,10 +5,16 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Core.Entities
 {
-     public abstract class ConverterResult
-     {
-         private IList<string> validationErrors = new List<string>();
+    /// <summary>
+    /// The base result class for converter related stuff.
+    /// </summary>
+    public abstract class ConverterResult
+    {
+        private IList<string> validationErrors = new List<string>();
 
+        /// <summary>
+        /// A list of validation errors
+        /// </summary>
         public IList<string> ValidationErrors
         {
             get => this.validationErrors;
@@ -19,21 +25,29 @@ namespace Conizi.Model.Core.Entities
             }
         }
 
+        /// <summary>
+        /// The type of the model was used during the processing
+        /// </summary>
         public Type Model { get; set; }
 
+        /// <summary>
+        /// Validation errors available
+        /// </summary>
         public bool HasValidationErrors { get; private set; }
 
-        [JsonIgnore]
-        public string Content { get; set; }
+        /// <summary>
+        /// The content/result of the operation as string
+        /// </summary>
+        [JsonIgnore] public string Content { get; set; }
 
-        [JsonIgnore]
-        public string Schema { get; set; }
+        /// <summary>
+        /// The JSON definition of the involved schema
+        /// </summary>
+        [JsonIgnore] public string Schema { get; set; }
 
         /// <summary>
         /// Filename or path of file was processed
         /// </summary>
         public string File { get; set; }
-
-
     }
 }
