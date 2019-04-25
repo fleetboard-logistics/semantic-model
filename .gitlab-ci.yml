@@ -6,6 +6,7 @@ variables:
 stages:
   - build
   - test
+  - deploy
 
 build:
   stage: build
@@ -39,7 +40,8 @@ test:
     - branches
     - tags
 
- stage: deploy
+deploy:
+  stage: deploy
   image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
   tags:
     - docker
