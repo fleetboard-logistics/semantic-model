@@ -74,7 +74,8 @@ test:
   }
 
   function deploy_nuget() {
-       dotnet pack ./src/Conizi.Model/Conizi.Model.csproj --output src/Conizi.Model/nupkgs /p:NuspecFile=src/Conizi.Model/Conizi.Model.nuspec
+    echo "Deploy to nuget..."   
+    dotnet pack ./src/Conizi.Model/Conizi.Model.csproj --output src/Conizi.Model/nupkgs /p:NuspecFile=src/Conizi.Model/Conizi.Model.nuspec
   }
   
   function test() {
