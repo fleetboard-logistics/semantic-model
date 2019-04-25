@@ -39,6 +39,23 @@ test:
     - branches
     - tags
 
+ stage: deploy
+  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+  tags:
+    - docker
+  services:
+  - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+  script:
+    - install_dependencies
+    - build
+    - deploy_nuget
+  only:
+    - branches
+    - tags
+  when: manual
+
 .auto_devops: &auto_devops |
   [[ "$TRACE" ]] && set -x
   export CI_APPLICATION_TAG=$CI_COMMIT_SHA
@@ -54,6 +71,10 @@ test:
   function build() {
     echo "Building..."
     dotnet build ./Conizi.Model.sln --configuration NetCore -f netstandard2.0
+  }
+
+  function deploy_nuget() {
+       dotnet pack ./src/Conizi.Model/Conizi.Model.csproj --output src/Conizi.Model/nupkgs /p:NuspecFile=src/Conizi.Model/Conizi.Model.nuspec
   }
   
   function test() {

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Conizi.Model</id>
-    <version>1.0.7-alpha</version>
-    <title>Conizi.Model</title>
+    <id>Conizi.Model.Core</id>
+    <version>1.0.1-alpha</version>
+    <title>Conizi.Model.Core</title>
     <authors>Fleetboard Logistics GmbH</authors>
     <owners>fleetboard-logistics</owners>
-    <summary>The conizi semantic models, implemented in C# as .NET library.</summary>
+    <summary>The conizi semantic model core library, includes tooling for the conizi semantic models.</summary>
     <license type="expression">MIT</license>
     <projectUrl>https://fleetboard-logistics.github.io/docs/conizi/semantic-models/site/articles/index.html</projectUrl>
     <iconUrl>https://www.conizi.com/wp-content/themes/fob-orange-child/favicon.ico</iconUrl>
@@ -14,17 +14,19 @@
     <language>en</language>
     <serviceable>true</serviceable>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>Pre-Release of the conizi semantic models implemented in C#. Please use this library with care. It is not yet stable!</description>
-    <releaseNotes>Add further models and comments.</releaseNotes>
+    <description>Pre-Release of the conizi semantic model core library. Please use this library with care. It is not yet stable!</description>
+    <releaseNotes>Add comments and further stuff.</releaseNotes>
     <copyright>Copyright Fleetboard Logistics GmbH 2019</copyright>
-    <tags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model, interfaces</tags>
+    <tags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model, interfaces, tooling</tags>
      <dependencies>
       <dependency id="Newtonsoft.Json" version="12.0" />
-    </dependencies>
+      <dependency id="Newtonsoft.Json.Schema" version="3.0.11" />
+      <dependency id="Conizi.Model" version="1.0.7-alpha" />
+     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Debug\net452\Conizi.Model.dll" target="lib\net452"></file>
-    <file src="bin\Debug\netstandard2.0\Conizi.Model.dll" target="lib\netstandard2.0"></file>
+    <file src="bin\Debug\net452\Conizi.Model.Core.dll" target="lib\net452"></file>
+    <file src="bin\Debug\netstandard2.0\Conizi.Model.Core.dll" target="lib\netstandard2.0"></file>
   </files>
   <!-- <files>
     <file src="readme.txt" />
