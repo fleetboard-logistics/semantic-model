@@ -107,9 +107,6 @@ namespace Conizi.Model.UnitTests.Generation
             var schema = result.JSchema;
 
             Assert.NotNull(schema);
-
-
-
         }
 
 

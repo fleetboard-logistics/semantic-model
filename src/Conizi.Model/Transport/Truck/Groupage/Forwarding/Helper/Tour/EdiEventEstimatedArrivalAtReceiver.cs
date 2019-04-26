@@ -5,10 +5,10 @@ using Conizi.Model.Shared.Interfaces;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
 {
     /// <summary>
-    /// Events occured regarding the estimated time of arrival at receiver
+    /// Events occurred regarding the estimated time of arrival at receiver
     /// </summary>
     [DisplayName("Estimated time of arrival at receiver")]
-    [Description("Events occured regarding the estimated time of arrival at receiver")]
+    [Description("Events occurred regarding the estimated time of arrival at receiver")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiEventEstimatedArrivalAtReceiver : EdiEventBase

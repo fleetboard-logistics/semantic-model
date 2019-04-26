@@ -9,12 +9,12 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
-    /// An event which occured during the processing of the referenced package, which is included in a <see cref="Consignment"/>
+    /// An event which occurred during the processing of the referenced package, which is included in a <see cref="Consignment"/>
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
         "package-event.json")]
     [DisplayName("Package event")]
-    [Description("An event which occured during the processing of the referenced package.")]
+    [Description("An event which occurred during the processing of the referenced package.")]
     [ConiziAdditionalProperties(true)]
     [ConiziAllowXProperties]
     public class PackageEvent : EdiModel

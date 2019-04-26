@@ -8,12 +8,12 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
-    /// An event which occured during the processing of the referenced tour <see cref="Tour"/>
+    /// An event which occurred during the processing of the referenced tour <see cref="Tour"/>
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
         "tour-event.json")]
     [DisplayName("Tour event")]
-    [Description("An event which occured during the processing of the referenced tour")]
+    [Description("An event which occurred during the processing of the referenced tour")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourEvent : EdiModel

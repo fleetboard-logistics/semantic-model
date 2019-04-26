@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Conizi.Model</id>
-    <version>1.0.7-alpha</version>
+    <version>1.0.9-alpha</version>
     <title>Conizi.Model</title>
     <authors>Fleetboard Logistics GmbH</authors>
     <owners>fleetboard-logistics</owners>
@@ -24,7 +24,9 @@
   </metadata>
   <files>
     <file src="bin\Debug\net452\Conizi.Model.dll" target="lib\net452"></file>
+    <file src="Conizi.Model.xml" target="lib\net452"></file>
     <file src="bin\Debug\netstandard2.0\Conizi.Model.dll" target="lib\netstandard2.0"></file>
+    <file src="Conizi.Model.xml" target="lib\netstandard2.0"></file>
   </files>
   <!-- <files>
     <file src="readme.txt" />

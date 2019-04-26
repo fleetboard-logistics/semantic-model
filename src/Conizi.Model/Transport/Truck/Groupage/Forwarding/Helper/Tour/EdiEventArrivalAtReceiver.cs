@@ -8,7 +8,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
     /// Events indicating the start of the delivery
     /// </summary>
     [DisplayName("Arrival at receiver")]
-    [Description("Events occured while arriving the receiver")]
+    [Description("Events occurred while arriving the receiver")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiEventArrivalAtReceiver : EdiEventBase

@@ -2,9 +2,9 @@
 
 namespace Conizi.Model.Extensions
 {
-    public static class StringExtensions
+    internal static class StringExtensions
     {
-        public static string ToCamelCase(this string str)
+        internal static string ToCamelCase(this string str)
         {
             if (!string.IsNullOrEmpty(str) && str.Length > 1)
             {

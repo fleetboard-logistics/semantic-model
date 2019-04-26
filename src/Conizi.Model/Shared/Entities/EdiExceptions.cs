@@ -13,10 +13,10 @@ using Newtonsoft.Json.Linq;
 namespace Conizi.Model.Shared.Entities
 {
     /// <summary>
-    /// Detailed information about the exceptions that occured while processing the consignment
+    /// Detailed information about the exceptions that occurred while processing the consignment
     /// </summary>
     [DisplayName("Exceptions")]
-    [Description("Detailed information about the exceptions that occured while processing the consignment." +
+    [Description("Detailed information about the exceptions that occurred while processing the consignment." +
         "Use (null) to report successful processing of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
@@ -62,10 +62,10 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// Detailed information about the exceptions that occured while processing the consignment
+    /// Detailed information about the exceptions that occurred while processing the consignment
     /// </summary>
     [DisplayName("Exceptions")]
-    [Description("Detailed information about the exceptions that occured while processing the consignment." +
+    [Description("Detailed information about the exceptions that occurred while processing the consignment." +
                  "Use (null) to report successful processing of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
@@ -129,11 +129,11 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// Detailed information about the exceptions that occured while processing the consignment.
+    /// Detailed information about the exceptions that occurred while processing the consignment.
     /// Use (null) to report successful cross dock of the consignment
     /// </summary>
     [DisplayName("Exceptions")]
-    [Description("Detailed information about the exceptions that occured while processing the consignment." +
+    [Description("Detailed information about the exceptions that occurred while processing the consignment." +
                  "Use (null) to report successful cross dock of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
@@ -156,11 +156,11 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// Detailed information about the exceptions that occured while planning the delivery of the consignment.
+    /// Detailed information about the exceptions that occurred while planning the delivery of the consignment.
     /// Use (null) to report successful processing of the consignment
     /// </summary>
     [DisplayName("Exceptions")]
-    [Description("Detailed information about the exceptions that occured while planning the delivery of the consignment." +
+    [Description("Detailed information about the exceptions that occurred while planning the delivery of the consignment." +
                  "Use (null) to report successful processing of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
@@ -329,10 +329,10 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// Detailed information about the exceptions that occured while processing the notification of the consignment
+    /// Detailed information about the exceptions that occurred while processing the notification of the consignment
     /// </summary>
     [DisplayName("Exceptions")]
-    [Description("Detailed information about the exceptions that occured while processing the notification of the consignment." +
+    [Description("Detailed information about the exceptions that occurred while processing the notification of the consignment." +
                  "Use (null) to report successful notifcations of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
@@ -403,11 +403,11 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// Detailed information about the exceptions that occured while starting the delivery of the consignment.
+    /// Detailed information about the exceptions that occurred while starting the delivery of the consignment.
     /// Use (null) to report successful starting of the consignment delivery
     /// </summary>
     [DisplayName("Exceptions")]
-    [Description("Detailed information about the exceptions that occured while starting the delivery of the consignment." +
+    [Description("Detailed information about the exceptions that occurred while starting the delivery of the consignment." +
                  "Use (null) to report successful starting of the consignment delivery")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
@@ -553,11 +553,11 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// Detailed information about the exceptions that occured when consignment was successfully delivered.
+    /// Detailed information about the exceptions that occurred when consignment was successfully delivered.
     /// Use (null) to report successful processing of the consignment
     /// </summary>
     [DisplayName("Exceptions")]
-    [Description("Detailed information about the exceptions that occured when consignment was successfully delivered." +
+    [Description("Detailed information about the exceptions that occurred when consignment was successfully delivered." +
                  "Use (null) to report successful processing of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]

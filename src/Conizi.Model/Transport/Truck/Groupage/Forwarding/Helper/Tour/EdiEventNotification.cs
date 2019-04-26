@@ -5,10 +5,10 @@ using Conizi.Model.Shared.Interfaces;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
 {
     /// <summary>
-    /// Events occured while processing the notification of the consignment
+    /// Events occurred while processing the notification of the consignment
     /// </summary>
     [DisplayName("Notification")]
-    [Description("Events occured while processing the notification of the consignment")]
+    [Description("Events occurred while processing the notification of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiEventNotification : EdiEventBase

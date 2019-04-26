@@ -8,9 +8,9 @@ using Conizi.Model.Shared.Attributes;
 
 namespace Conizi.Model.Core
 {
-    public class Helper
+    internal class Helper
     {
-        public static IEnumerable<Type> GetConiziModels()
+        internal static IEnumerable<Type> GetConiziModels()
         {
             var assembly = Assembly.LoadFrom(Path.Combine(AssemblyDirectory, "Conizi.Model.dll"));
 
@@ -20,7 +20,7 @@ namespace Conizi.Model.Core
             return schemas;
         }
 
-        public static Type GetConiziModel(string modelId)
+        internal static Type GetConiziModel(string modelId)
         {
             var assembly = Assembly.LoadFrom(Path.Combine(AssemblyDirectory, "Conizi.Model.dll"));
 
@@ -35,7 +35,7 @@ namespace Conizi.Model.Core
         }
 
 
-        public static string AssemblyDirectory
+        internal static string AssemblyDirectory
         {
             get
             {

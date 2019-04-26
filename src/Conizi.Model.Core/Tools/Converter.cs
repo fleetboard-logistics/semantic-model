@@ -63,7 +63,8 @@ namespace Conizi.Model.Core.Tools
                 model.Schema = schemaAttribute.Id;
 
             var settings = SerializerSettings;
-
+            model.CreatedAt = DateTime.Now;
+            model.CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")";
 
             var jsonString = JsonConvert.SerializeObject(model, settings);
 

@@ -15,7 +15,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
     public class EdiEventDeliverySuccessful : EdiEventBase
     {
         /// <summary>
-        /// Detailed information about the exceptions that occured when consignment was successfully delivered
+        /// Detailed information about the exceptions that occurred when consignment was successfully delivered
         /// </summary>
         public EdiDeliverySuccessfulExceptions Exceptions { get; set; }
 

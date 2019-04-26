@@ -9,12 +9,12 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
-    /// An event which occured during the processing of the referenced consignment <see cref="Consignment"/>
+    /// An event which occurred during the processing of the referenced consignment <see cref="Consignment"/>
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
         "consignment-event.json")]
     [DisplayName("Consignment event")]
-    [Description("An event which occured during the processing of the referenced consignment")]
+    [Description("An event which occurred during the processing of the referenced consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class ConsignmentEvent : EdiModel
@@ -73,32 +73,32 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiAddress OrderingParty { get; set; }
 
         /// <summary>
-        /// Events occured while validating and processing the data
+        /// Events occurred while validating and processing the data
         /// </summary>
         public EdiDataProcessing DataProcessing { get; set; }
 
         /// <summary>
-        /// Events occured while physically processing the consignment (e.g. moving goods, scanning packages)
+        /// Events occurred while physically processing the consignment (e.g. moving goods, scanning packages)
         /// </summary>
         public EdiGeneralProcessingNotification GeneralProcessingNotification { get; set; }
 
         /// <summary>
-        /// Events occured while unloading the consignment
+        /// Events occurred while unloading the consignment
         /// </summary>
         public EdiUnloading Unloading { get; set; }
 
         /// <summary>
-        /// Events occured while cross docking the consignment. (i.e. HUB or gateway cross dock)
+        /// Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)
         /// </summary>
         public EdiGateway Gateway { get; set; }
 
         /// <summary>
-        /// Events occured while planning the delivery of the consignment
+        /// Events occurred while planning the delivery of the consignment
         /// </summary>
         public EdiDeliveryPlanning DeliveryPlanning { get; set; }
 
         /// <summary>
-        /// Events occured while processing the notification of the consignment
+        /// Events occurred while processing the notification of the consignment
         /// </summary>
         public EdiEventNotification Notification { get; set; }
 
@@ -108,12 +108,12 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiEventDeliveryStarted DeliveryStarted { get; set; }
 
         /// <summary>
-        /// Events occured regarding the estimated time of arrival at receiver
+        /// Events occurred regarding the estimated time of arrival at receiver
         /// </summary>
         public EdiEventEstimatedArrivalAtReceiver EstimatedArrivalAtReceiver { get; set; }
 
         /// <summary>
-        /// Events occured while arriving the receiver
+        /// Events occurred while arriving the receiver
         /// </summary>
         public EdiEventArrivalAtReceiver ArrivalAtReceiver { get; set; }
 

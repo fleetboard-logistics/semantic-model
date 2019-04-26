@@ -6,9 +6,9 @@ using Newtonsoft.Json.Schema;
 
 namespace Conizi.Model.Core.Extensions
 {
-    public static class ResultExtensions
+    internal static class ResultExtensions
     {
-        public static ValidationResult CreateError(this ValidationResult result, string message, Type model = null, JSchema schema=null, string file = null)
+        internal static ValidationResult CreateError(this ValidationResult result, string message, Type model = null, JSchema schema=null, string file = null)
         {
             return CreateError(result, new List<string> { message }, model,schema, file);
         }

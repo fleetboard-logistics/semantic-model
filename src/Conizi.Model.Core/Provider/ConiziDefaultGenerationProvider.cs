@@ -51,6 +51,8 @@ namespace Conizi.Model.Core.Provider
                 var attr = context.ObjectType.GetCustomAttribute<ConiziSchemaAttribute>();
                 schema.Id = new Uri(attr.Id);
                 schema.SchemaVersion = new Uri("http://json-schema.org/draft-06/schema#");
+                var assembly = this.GetType().Assembly.GetName();
+                schema.Description = $"{context.SchemaDescription} (Generated: {DateTime.Now} - {assembly.Name} v:{assembly.Version})"; 
                 return schema;
             }
 

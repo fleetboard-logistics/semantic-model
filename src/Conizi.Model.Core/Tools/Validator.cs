@@ -62,6 +62,12 @@ namespace Conizi.Model.Core.Tools
            return ValidateSchema(ParseModel(jsonMessage), jsonMessage, out validationErrors);
         }
 
+        /// <summary>
+        /// Validate a JSON message vs the specific JSON Schema by type.
+        /// </summary>
+        /// <param name="jsonMessage">JSON message as string</param>
+        /// <param name="validationErrors">Possible validation errors as list of strings</param>
+        /// <returns><see cref="ValidationResult"/></returns>
         public static ValidationResult ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
         {
             return ValidateSchema(typeof(TModel),jsonMessage, out validationErrors);

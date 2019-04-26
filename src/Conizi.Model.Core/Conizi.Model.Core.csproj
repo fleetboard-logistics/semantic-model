@@ -20,6 +20,9 @@
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net452'">
     <DefineConstants>NET452;NETFULL</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>C:\src\sematicmodel\src\Conizi.Model.Core\Conizi.Model.Core.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.11" />
   </ItemGroup>

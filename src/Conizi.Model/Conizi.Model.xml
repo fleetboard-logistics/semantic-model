@@ -1,0 +1,1719 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Conizi.Model</name>
+    </assembly>
+    <members>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Id">
+            <summary>
+             POD Id
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.RefNo">
+            <summary>
+            Reference Number (consignment)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Converters.ConiziDateConverter">
+            <summary>
+            Converts a C# <see cref="T:System.DateTime"/> to a ISO conform string yyyy-MM-dd
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Converters.ConiziDateConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.DateTime,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            <inheritdoc cref="T:Newtonsoft.Json.JsonConverter"/>
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Converters.ConiziDateConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.DateTime,System.Boolean,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            <inheritdoc cref="T:Newtonsoft.Json.JsonConverter"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Attributes.ConiziAdditionalPropertiesAttribute">
+            <summary>
+            Indicates if Additional Properties should allowed. Default is false
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Attributes.ConiziAdditionalPropertiesAttribute.AllowAdditionalProperties">
+            <summary>
+            Indicates if additional properties should be allowed
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Shared.Attributes.ConiziAdditionalPropertiesAttribute.#ctor(System.Boolean)">
+            <summary>
+            Set value, if additional properties should be allowed
+            </summary>
+            <param name="allowAdditionalProperties"></param>
+        </member>
+        <member name="T:Conizi.Model.Shared.Attributes.ConiziAllowXPropertiesAttribute">
+            <summary>
+            Indicates if X- Properties should allowed. Default true
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiAddress">
+            <summary>
+            Fields to save address relevant data
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.Incompatible">
+            <summary>
+            Incompatible. The shipment is not within the agreed specifications (e.g. to heavy / big / ...)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.Incomplete">
+            <summary>
+            Incomplete. There are some packages missing from this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.UltimatelyLost">
+            <summary>
+            Ultimately lost. Consignment is utimately lost and will no longer be searched for
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.DeliveryObscure">
+            <summary>
+            The delivery is obscure
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiUnloadingExceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.LateArrival">
+            <summary>
+            The consignment arrived too late for normal processing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.Missing">
+            <summary>
+            The consignment did not arrive or parts of the consignment are missing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.PartlyMissing">
+            <summary>
+            Partly missing in the entrance (additional information number and type of packaging
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.Damaged">
+            <summary>
+            The consignment was damaged on arrival
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.PackagingDifferences">
+            <summary>
+            Packaging differences (additional information number and packaging)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.NotVerifiable">
+            <summary>
+            Welded pallet, no guarantee for content, as not testable (only applies to non-scannable pallets)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.QuantityDifferences">
+            <summary>
+            Quantity difference Bordero / Discharge (acquisition error)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingExceptions.PartlyMissingDamaged">
+            <summary>
+            Unloading - not complete, damaged
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiGatewayExceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the consignment.
+            Use (null) to report successful cross dock of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGatewayExceptions.Loaded">
+            <summary>
+            The consignment was loaded
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGatewayExceptions.Halted">
+            <summary>
+            The consignment did not arrive or parts of the consignment are missing
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while planning the delivery of the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.OutsideDeliveryArea">
+            <summary>
+            The address of the consignee is not within the area served
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.PlannedForSecondTour">
+            <summary>
+            The consignment will be picked up and delivered later on the day
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.NotInDelivery">
+            <summary>
+            The consignment will not be delivered today
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.NoTimeSlotForAgreedDeliveryTime">
+            <summary>
+            No time slot for agreed delivery time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.InvalidShipmentInformation">
+            <summary>
+            Not in delivery - incomplete / incorrect shipment information
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.Damaged">
+            <summary>
+            Not in delivery - goods damaged
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.ReturnAccordingToDisposal">
+            <summary>
+            Not delivered - refused consignment, return according to disposal
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.ReturnDisposalMissing">
+            <summary>
+            Not delivered - refused consignment, return - order missing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.InResearch">
+            <summary>
+            Not on delivery - broadcast in search
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.TimeSlotFromConsignee">
+            <summary>
+            The consignee has provided a time slot for delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.BadWeatherConditions">
+            <summary>
+            The weather does not permit delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.TimeIssue">
+            <summary>
+            There is no time for the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.SpaceIssue">
+            <summary>
+            There is a space issue for the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.ConsignmentNotComplete">
+            <summary>
+            Not in delivery - consignment incomplete
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.SelfCollector">
+            <summary>
+            Not on delivery - Recipient is self-collector
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.Holidays">
+            <summary>
+            Not on delivery - regional holiday
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.Customs">
+            <summary>
+            Not on delivery - Customs goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.WaitingForNotification">
+            <summary>
+            Not in delivery - Advice of delivery according to EDI
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.MissingDocumentation">
+            <summary>
+            Not in delivery - Delivery note missing / Accompanying documents incomplete
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.LateArrival">
+            <summary>
+            Not in delivery - long-distance traffic from VP / HUB delayed (E2 status)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.StandardDeliveryTimeSufficient">
+            <summary>
+            Not in delivery, Flex according to specification VP
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.GatewayRouting">
+            <summary>
+            Loaded from Gateway to...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions.RejectedByReceiver">
+            <summary>
+            Receiver rejected, not in delivery by telephone refusal to accept...
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotificationExceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the notification of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.NotReached">
+            <summary>
+            The consignee couldn't be reached
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.Disabled">
+            <summary>
+            The (automatic) notification was disabled
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.PickupCustomer">
+            <summary>
+            The consignment was successful, but the goods will be picked up by the customer
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.WrongAddress">
+            <summary>
+            The notification was successful, but the consignment has the wrong address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.DisposalOrdered">
+            <summary>
+            A Disposal was ordered
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.NotInTime">
+            <summary>
+            The receiver has not answered in time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.Canceled">
+            <summary>
+            Notification has been canceled
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.InvalidData">
+            <summary>
+            Some data is invalid for processing a notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationExceptions.MissingData">
+            <summary>
+            Some data is missing for processing a notification
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryStartedExceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while starting the delivery of the consignment.
+            Use (null) to report successful starting of the consignment delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryStartedExceptions.NoCapacity">
+            <summary>
+            There is no sufficient capacity available to perform delivery at the moment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions">
+            <summary>
+            Detailed information about the exceptions that caused the delivery to be fail
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions.AbortedDueToLongWaitingTime">
+            <summary>
+            The delivery attempt was aborted due to too long waiting time at the consignee
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions.AbortedDueWeatherCondition">
+            <summary>
+            The delivery attempt was aborted, because of weather conditions
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions.TimeIssue">
+            <summary>
+            Not delivered - Lack of time on delivery tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions.Rejected">
+            <summary>
+            The consignee has rejected the consignment"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions.Closed">
+            <summary>
+            The consignee was closed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions.WrongAddress">
+            <summary>
+            Delivery not possible because of a wrong address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptFailedExceptions.Difficulties">
+            <summary>
+            There were difficulties delivering the goods
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected">
+            <summary>
+            The consignee has rejected the consignment"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected.Damaged">
+            <summary>
+            The delivery was rejected because the consignment is damaged
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected.Incomplete">
+            <summary>
+            The delivery was rejected because some parts of the consignment are missing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected.TooLate">
+            <summary>
+            The delivery rejected because it was performed after the deadline
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected.MissingDocumentation">
+            <summary>
+            The delivery was rejected because required documentation (e.g. delivery note) was missing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected.NotOrdered">
+            <summary>
+            The delivery was rejected because the consignee never ordered the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected.MissingNotification">
+            <summary>
+            The delivery was rejected because of a missing notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptRejected.NoPayment">
+            <summary>
+            The delivery was rejected because required documentation (e.g. delivery note) was missing
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryAttemptDifficulties">
+            <summary>
+            There were difficulties delivering the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryAttemptDifficulties.TailLift">
+            <summary>
+            The delivery was not possible because of a missing tail lift
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions">
+            <summary>
+            Detailed information about the exceptions that occurred when consignment was successfully delivered.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.Incomplete">
+            <summary>
+            Some parts were missing and thus not delivered
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.ServiceIncomplete">
+            <summary>
+            Delivered but incomplete
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.Damaged">
+            <summary>
+            The consignment was damaged
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.IncompleteAndDamaged">
+            <summary>
+            Some parts were missing and some were damaged
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.PartiallyRejected">
+            <summary>
+            The consignment was partially rejected
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.TooLate">
+            <summary>
+            The consignment was partially rejected
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.NoReceipt">
+            <summary>
+            Served, delivery not assignable
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.ForwardedToExternalProvider">
+            <summary>
+            Delivered, Exhibition- / House carrier- / Inselspediteur handed over
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliverySuccessfulExceptions.ReleaseAuthorization">
+            <summary>
+            The goods were deposit as agreed in a signed release authorization
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiFileContent">
+            <summary>
+            Transfers file data like a picture, pdf, txt...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.FileName">
+            <summary>
+            The file name
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.ContentType">
+            <summary>
+            The content type like application/pdf, image/png...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.BinaryData">
+            <summary>
+            The content/data of a file/object
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileContent.FileReference">
+            <summary>
+            Reference to a file in an online storage
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiBinaryData">
+            <summary>
+            The content/data of a file/object
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBinaryData.Length">
+            <summary>
+            The length (bytes) of submitted data
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBinaryData.Data">
+            <summary>
+            The submitted data as byte array, be aware large files > 100KByte should be submitted as <see cref="T:Conizi.Model.Shared.Entities.EdiFileReference"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiFileReference">
+            <summary>
+            Reference to a file in an online storage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.FileId">
+            <summary>
+            Unique Id for a file
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.Length">
+            <summary>
+            The length (bytes) of submitted data
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.AbsoluteUri">
+            <summary>
+            An absolute URL to a file on the online storage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.UriValidFrom">
+            <summary>
+            The URL is valid from date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFileReference.UriValidTo">
+            <summary>
+            The URL is valid until date
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiGeoPosition">
+            <summary>
+            Data about the current geo position
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.Longitude">
+            <summary>
+            East–west position of a point on the Earth's surface
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.Latitude">
+            <summary>
+            North–south position of a point on the Earth's surface
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.PlaceName">
+            <summary>
+            The place name of the current geo position
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.W3WCoordinate">
+            <summary>
+            A coordinate for the What3Words service like index.home.raft
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.RecordTime">
+            <summary>
+            Time the GPS record was created
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiAdditionalLoadingEquipment">
+            <summary>
+            Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAdditionalLoadingEquipment.EurPallets">
+            <summary>
+            EUR pallets as defined by European Pallet Association (EPAL)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAdditionalLoadingEquipment.EurBoxes">
+            <summary>
+            EUR Box pallets as defined by European Pallet Association (EPAL)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange">
+            <summary>
+            Information about loading equipment exchange
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange.Exchanged">
+            <summary>
+            Loading Equipment was exchanged
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange.AmountEurPallets">
+            <summary>
+            Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingEquipmentExchange.AmountEurBoxes">
+            <summary>
+            Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiModel">
+            <summary>
+            Base model in the conizi context
+            </summary>
+            <remarks>Every conizi model must inherit from this class to be serialized correctly</remarks>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.Schema">
+             <summary>
+             The id (URI) of the model
+             </summary>
+            <remarks>
+             The production ready models are hosted at https://model.conizi.io/[version]
+             The github repository https://github.com/fleetboard-logistics/semantic-model contains the models source.
+             Please use the production branch to get a stable version.
+             </remarks>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.CreatedAt">
+            <summary>
+            The message was created at date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.CreatedBy">
+            <summary>
+            The message was created by
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.Receiver">
+            <summary>
+            The receiver of this message
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.Sender">
+            <summary>
+            The sender of this message
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.Network">
+            <summary>
+            The used network for this message
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPartnerIdentification">
+            <summary>
+            Fields to identify the partner or/and further data routing information
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiMessageRouting">
+            <summary>
+            Routing information to identify the parties involved in the data transfer (e.g. PartnerId, ConiziId...)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.PartnerId">
+            <summary>
+            Partner Id is used to identify the real sender or receiver (e.g. 1234)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.EdiId">
+            <summary>
+            Edi Id is used to identify the technical sender or receiver (e.g. CONIZVK)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.ConiziId">
+            <summary>
+            Conizi Id is used to identify the sending or receiving Tenant/Site/App on the conizi platform 
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTimeSpan">
+            <summary>
+            The time span for an activity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSpan.From">
+            <summary>
+            Time span from
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSpan.Until">
+            <summary>
+            Time span until
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTourStop">
+            <summary>
+            Stop for delivering. Stop for delivering the acutal goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.StopNo">
+            <summary>
+            Stop number. The whole of the stop numbers in the right order defines the order of the stops
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.StopId">
+            <summary>
+            Stop Id. Unique identifier for this stop within the tour
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourFuelStopInformation">
+            <summary>
+            Stop to refuel. Stop to refuel the vehicle
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourWayPointInformation">
+            <summary>
+            Way Point Information
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourWayPointInformation.CrossDocking">
+            <summary>
+            Cross Docking
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourBorderCrossInformation">
+            <summary>
+            Information on border crossing
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourLoadingInformation">
+            <summary>
+            Information about loading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourLoadingInformation.ConsignmentObjectIds">
+            <summary>
+            References to the consignments, depending on this stop
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourLoadingInformation.WorkingHours">
+            <summary>
+            Booked time slot for the tour
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourUnloadingInformation">
+            <summary>
+            Information about unloading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourUnloadingInformation.ConsignmentObjectIds">
+            <summary>
+            References to the consignments, depending on this stop
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourUnloadingInformation.WorkingHours">
+            <summary>
+            Booked time slot for the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledArrival">
+            <summary>
+            Scheduled Arrival for refuel
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledDeparture">
+            <summary>
+            Scheduled Arrival after refuel
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledWaitMinutes">
+            <summary>
+            Scheduled wait time in minutes to begin the activity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.ScheduledHandlingMinutes">
+            <summary>
+            Scheduled time for handling the activity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourInformation.Notes">
+            <summary>
+            Notes on the Stop
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.TourBookedTimeSlot">
+            <summary>
+            Booked time slot for the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourBookedTimeSlot.Gate">
+            <summary>
+            Gate to use
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourBookedTimeSlot.Notes">
+            <summary>
+            Notes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourWorkingHours.FromDateTime">
+            <summary>
+            From Date Time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.TourWorkingHours.UntilDateTime">
+            <summary>
+            Until Date Time
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Interfaces.EdiEventBase">
+            <summary>
+            Base class for events
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Interfaces.EdiEventBase.EventDateTime">
+            <summary>
+            Date and time when the event occurred
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Interfaces.EdiEventBase.Remarks">
+            <summary>
+            Additional remarks
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase">
+            <summary>
+            Enables the models to add additional pattern (x-) properties
+            Attention: Pattern properties will not be processed in all services and apps, so please use carefully!
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.AddPatternProperty(System.String,System.Object)">
+            <summary>
+            Add a pattern property to this object (e.g. x-name2)
+            </summary>
+            <param name="name">The name of the property as string</param>
+            <param name="value">The value of the property as string</param>
+        </member>
+        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.CreateAndAddPatternProperty``1(System.String,System.Object)">
+            <summary>
+            Add a pattern property to this object (e.g. x-name2)
+            </summary>
+            <param name="name">The name of the property as string</param>
+            <param name="value">The value of the property as string</param>
+        </member>
+        <member name="M:Conizi.Model.Shared.Interfaces.EdiPatternPropertiesBase.GetPatternPropertyValue(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">
+            <summary>
+            A single consignment which is transferred between two partners. Usually used within the context a manifest
+            </summary>
+            <remarks>
+            The consignment is the basic business object for conizi. Other objects like <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest"/>, <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour"/>
+            use the consignment for additional business processes. 
+            </remarks>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentObjectId">
+            <summary>
+            Unique central consignment number
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentNoShippingPartner">
+            <summary>
+            Consignment number of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentNoReceivingPartner">
+            <summary>
+            Consignment number of the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingDate">
+            <summary>
+            Shipping date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ManifestId">
+            <summary>
+            Manifest (Bordero) id of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.TourNumber">
+            <summary>
+            Tour number. Number of the planned / assigned local traffic tour for delivery.
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingPartner">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent">
+            <summary>
+            An event which occurred during the processing of the referenced consignment <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ConsignmentNoShippingPartner">
+            <summary>
+            Consignment number of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ConsignmentNoReceivingPartner">
+            <summary>
+            Consignment number of the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ConsignmentNoDeliveringPartner">
+            <summary>
+            Consignment number of the delivering partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ShippingDate">
+            <summary>
+            Shipping date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ShippingPartner">
+            <summary>
+            The partner which is sending the consignment to the receiving partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ReceivingPartner">
+            <summary>
+            The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ReportingPartner">
+            <summary>
+            The partner which is reporting the event
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.OrderingParty">
+            <summary>
+            Person or company that ordered the transport of the consignment. Often identical to the shipper
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.DataProcessing">
+            <summary>
+            Events occurred while validating and processing the data
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.GeneralProcessingNotification">
+            <summary>
+            Events occurred while physically processing the consignment (e.g. moving goods, scanning packages)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Unloading">
+            <summary>
+            Events occurred while unloading the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Gateway">
+            <summary>
+            Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.DeliveryPlanning">
+            <summary>
+            Events occurred while planning the delivery of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Notification">
+            <summary>
+            Events occurred while processing the notification of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.DeliveryStarted">
+            <summary>
+            Events indicating the start of the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.EstimatedArrivalAtReceiver">
+            <summary>
+            Events occurred regarding the estimated time of arrival at receiver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ArrivalAtReceiver">
+            <summary>
+            Events occurred while arriving the receiver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.DeliveryAttemptFailed">
+            <summary>
+            Events indicating a failed delivery attempt
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.DeliverySuccessful">
+            <summary>
+            Events indicating successful delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Completion">
+            <summary>
+            Events indicating successful completion of a task, consignment has been forwarded
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ChangeRequest">
+            <summary>
+            Events indicating new information that should be added/updated in the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.OriginalEventCode">
+            <summary>
+            Original event code
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.AdditionalRemarks">
+            <summary>
+            Additional remarks (free form)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.ReferenceNumber">
+            <summary>
+            Reference number of the parent consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.WaitDowntimeMinutes">
+            <summary>
+            Wait/Downtime in minute
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk">
+            <summary>
+            Events for different consignments, pickup orders or packages, that can be send in bulk, which occurred during the processing <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk.ConsignmentEvents">
+            <summary>
+            List of consignment events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk.PickupOrderEvents">
+            <summary>
+            List of pickup order events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk.PackageEvents">
+            <summary>
+            List of package events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk.TourEvents">
+            <summary>
+            List of tour events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest.EdiVehicle">
+            <summary>
+            Information about the vehicles used in the transport
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest.EdiVehicle.VehicleId">
+            <summary>
+            The Id of the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest.EdiVehicle.TruckType">
+            <summary>
+            The truck type
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.Cancellation">
+            <summary>
+            Events indicating the cancellation of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived">
+            <summary>
+            Documents have been archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.Pod">
+            <summary>
+            Proof of delivery was archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.DeliveryNote">
+            <summary>
+            Delivery notes were archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.CustomsPapers">
+            <summary>
+            Customs papers were archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.DamagePictures">
+            <summary>
+            Pictures of damages were archived
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiDeliveryPlanning">
+            <summary>
+            Events occurred while planning the delivery of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiDeliveryPlanning.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while planning the delivery of the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiDisposed">
+            <summary>
+            Consignment was disposed
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventArrivalAtReceiver">
+            <summary>
+            Events indicating the start of the delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest">
+            <summary>
+            Events indicating new information that should be added/updated in the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest.BillingDeliveryTerm">
+            <summary>
+            A new delivery term that should be considered for billing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest.BillingAreaPalletBays">
+            <summary>
+            The area occupied by the consignment - expressed in standard pallet sizes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest.BillingLoadingMeter">
+            <summary>
+            The area occupied by the consignment - expressed in loading meters
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion">
+             <summary>
+            Events indicating successful completion of a task, consignment has been forwarded
+             </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.CompletedBy">
+            <summary>
+            Completed by another party
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.Forwarded">
+            <summary>
+            Consignment was forwarded
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.Signee">
+            <summary>
+            Name of the person which rejected the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.WaitTime">
+            <summary>
+            Time spent waiting during delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed">
+            <summary>
+            Events indicating a failed delivery attempt
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed.ReturnConsignmentNo">
+            <summary>
+            Number of the consignment which is used to return the goods to the shipper
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed.Signee">
+            <summary>
+            Name of the person which rejected the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed.WaitTime">
+            <summary>
+            Time spent waiting during delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryStarted">
+            <summary>
+            Events indicating the start of the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryStarted.TourNumber">
+            <summary>
+            Number of the planned / assigned local traffic tour for delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful">
+             <summary>
+            Events indicating successful delivery
+             </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred when consignment was successfully delivered
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful.Signee">
+            <summary>
+            Name of the person which rejected the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful.WaitTime">
+            <summary>
+            Time spent waiting during delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventEstimatedArrivalAtReceiver">
+            <summary>
+            Events occurred regarding the estimated time of arrival at receiver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventEstimatedArrivalAtReceiver.EstimatedArrivalTime">
+            <summary>
+            Date and time of the estimated arrival
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway">
+            <summary>
+            Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway.Loaded">
+            <summary>
+            The consignment has been loaded onto the truck leaving the gateway
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway.Unloaded">
+            <summary>
+            The consignment has been unloaded from the truck delivering the consignment to the gateway
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the consignment.
+            Use (null) to report successful cross dock of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventNotification">
+            <summary>
+            Events occurred while processing the notification of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiGeneralProcessingNotification.Remarks">
+            <summary>
+            Additional remarks
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo">
+            <summary>
+            The consignment is redirected to...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo.Sender">
+            <summary>
+            Redirected to sender
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo.SourcePartner">
+            <summary>
+            Redirected to source partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo.ReceivingPartner">
+            <summary>
+            Redirected to receiving Partner
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiReleaseAuthorizationReceived">
+            <summary>
+            Release authorization received
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiSigningInformation">
+            <summary>
+            Signing Information
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent">
+            <summary>
+            Event to notify about stop specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.StopId">
+            <summary>
+            Unique identifier for this stop. References the stop within the tour <see cref="N:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.OnWayLoadingPoint">
+            <summary>
+            Vehicle is on the way to loading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.ArrivedAtLoadingPoint">
+            <summary>
+            Arrived at loading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.LoadingStarted">
+            <summary>
+            Loading of the vehicle has started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.LoadingCompleted">
+            <summary>
+            Loading of the vehicle was completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.OnWayUnloadingPoint">
+            <summary>
+            Vehicle is on the way to unloading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.ArrivedAtUnloadingPoint">
+            <summary>
+            Vehicle is arrived at unloading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.UnloadingStarted">
+            <summary>
+            Unloading of the vehicle has started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.UnloadingCompleted">
+            <summary>
+            Unloading of the vehicle was completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.DocumentsReceived">
+            <summary>
+            Documents has been received
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.Departure">
+            <summary>
+            Departure, the stop has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.LoadingEquipmentExchange">
+            <summary>
+            Information on loading equipment exchange at this stop
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments">
+            <summary>
+            Event to notify about tour specific documents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.Signature">
+            <summary>
+            Pictures/Files of signee's signature
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.Damages">
+            <summary>
+            Pictures/Files of damages
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.LoadSecuring">
+            <summary>
+            Pictures/Files of load securing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.DrivingLicense">
+            <summary>
+            Pictures/Files of driving license
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.ChecklistDepartureControl">
+            <summary>
+            Checklist of departure control available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.ChecklistInstruction">
+            <summary>
+            Checklist of instructions available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.ChecklistVehicleInspection">
+            <summary>
+            Checklist of vehicle inspection available
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourEventBase">
+            <summary>
+            Base class for a tour based event
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourEventBase.GeoPosition">
+            <summary>
+            The geo location, the event was recorded
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent">
+            <summary>
+            Event to notify about tour specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourScheduled">
+            <summary>
+            Disposal of a tour was done
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourTransmitted">
+            <summary>
+            The tour was transmitted to the mobile device
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourAccepted">
+            <summary>
+            The tour was accepted by the driver on mobile device
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourRejected">
+            <summary>
+            The tour was rejected by the driver on mobile device
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourStarted">
+            <summary>
+            The tour was started by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourCompleted">
+            <summary>
+            The tour was completed by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourPaused">
+            <summary>
+            The tour was paused by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourResumed">
+            <summary>
+            The tour was resumed by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WorkingTimeStarted">
+            <summary>
+            Working time has been started for the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WorkingTimeCompleted">
+            <summary>
+            Working time has been ended for the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.CleaningStarted">
+            <summary>
+            Cleaning of the vehicle has been started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.CleaningCompleted">
+            <summary>
+            Cleaning of the vehicle has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TrailerExchangeStarted">
+            <summary>
+            Exchange of the trailer has been started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TrailerExchangeCompleted">
+            <summary>
+            Exchange of the trailer has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ChangeSwapBodyStarted">
+            <summary>
+            Exchange of the trailer has been started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ChangeSwapBodyCompleted">
+            <summary>
+            Exchange of the trailer has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WaitingTimeStarted">
+            <summary>
+            Waiting time for next action started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WaitingTimeCompleted">
+            <summary>
+            Waiting time for next action completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ReadyToLoad">
+            <summary>
+            Vehicle is ready to load
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ReadyToUnload">
+            <summary>
+            Vehicle is ready to unload
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTrigger">
+            <summary>
+            Event that is a trigger for starting a notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTrigger.Manually">
+            <summary>
+            Start a manual notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTrigger.Automatic">
+            <summary>
+            Start an automatic notification (i.e. automatic notification system via email or SMS)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiUnloading">
+            <summary>
+            Events occurred while unloading the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiUnloading.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent">
+            <summary>
+            Event to notify about vehicle specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.Weight">
+            <summary>
+            Weight of the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.LoadingMeter">
+            <summary>
+            Available loading meter
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.DriverName">
+            <summary>
+            Name of the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.CoDriverName">
+            <summary>
+            Name of the co-driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.MileageStart">
+            <summary>
+            Mileage of the vehicle at tour start
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.MileageFinish">
+            <summary>
+            Mileage of the vehicle at the end of the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.Temperature">
+            <summary>
+            Current temperature in degrees Celsius
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.TruckRegistrationNumber">
+            <summary>
+            Registration number of the truck
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.TrailerRegistrationNumber">
+            <summary>
+            Registration number of the trailer
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.EstimatedArrivalTime">
+            <summary>
+            The current calculated estimated arrival time (ETA)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourDangerousGoods">
+            <summary>
+            Dangerous goods to be declared contained in a consignment 
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourDangerousGoods.IsAdr">
+            <summary>
+            Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourDangerousGoods.TotalPointAdr">
+            <summary>
+            Total Point to ADR
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourEndOptions">
+            <summary>
+            Tour end options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourEndOptions.WriteDownMileage">
+            <summary>
+            Write down the mileage
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourStartOptions">
+            <summary>
+            Tour start options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourStartOptions.DepartureCheck">
+            <summary>
+            Departure Check was made
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourStartOptions.WriteDownMileage">
+            <summary>
+            Write down the mileage
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest">
+            <summary>
+            A manifest describes multiple consignments which are forwarded from one partner to another at the same time
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent">
+            <summary>
+            An event which occurred during the processing of the referenced package, which is included in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder">
+            <summary>
+            A single pickup order which is transferred between two partners
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent">
+            <summary>
+            An event which occurred during the processing of the referenced pickup order <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent"/>
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour">
+            <summary>
+            A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done,
+            e.g.loading and unloading information about consignments or maintenance stops
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.TourId">
+            <summary>
+            The Tour Id. A unique identifier assigned to this tour by the devlivering company
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Description">
+            <summary>
+            The Description. A description of the tour, maybe the occasion of the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Route">
+            <summary>
+            The Route. Information about the route to be driven or its identification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.DriverNotes">
+            <summary>
+            Driver Notes. Notes which can be attached by the delivering driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.CarrierNotes">
+            <summary>
+            Carrier Notes. Notes which can be attached by the delivering driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.ShippingDate">
+            <summary>
+            Shipping date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Carrier">
+            <summary>
+            Company responsible for the actual transport of the goods from the shipping partner to the recipient
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.NotificationParties">
+            <summary>
+            Notification Parties
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Consignments">
+            <summary>
+            Consignments. Consignments which are delivered while processing the tour
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent">
+            <summary>
+            An event which occurred during the processing of the referenced tour <see cref="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.Tour"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.TourId">
+            <summary>
+            The referenced Tour Id. A unique identifier assigned to this tour by the devlivering company
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.Tour">
+            <summary>
+            Event to notify about tour specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.Stop">
+            <summary>
+            Event to notify about stop specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.Vehicle">
+            <summary>
+            Event to notify about vehicle specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.Documents">
+            <summary>
+            Event to notify about tour specific documents
+            </summary>
+        </member>
+    </members>
+</doc>

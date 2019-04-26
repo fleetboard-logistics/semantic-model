@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
@@ -25,15 +26,31 @@ namespace Conizi.Model.Shared.Entities
         public string Schema { get; internal set; }
 
         /// <summary>
+        /// The message was created at date
+        /// </summary>
+        [JsonProperty("$createdAt", Required = Required.DisallowNull, Order = -997)]
+        [DisplayName("Created at date")]
+        [Description("The message was created at date")]
+        public DateTime CreatedAt { get; internal set; }
+
+        /// <summary>
+        /// The message was created by
+        /// </summary>
+        [JsonProperty("$createdBy", Required = Required.DisallowNull, Order = -995)]
+        [DisplayName("Created by generator")]
+        [Description("The message was created by")]
+        public string CreatedBy { get; internal set; }
+
+        /// <summary>
         /// The receiver of this message
         /// </summary>
-        [JsonProperty("receiver", Required = Required.Always, Order = -998)]
+        [JsonProperty("receiver", Required = Required.Always, Order = -993)]
         public EdiMessageRouting Receiver { get; set; }
 
         /// <summary>
         /// The sender of this message
         /// </summary>
-        [JsonProperty("sender", Required = Required.DisallowNull, Order = -997)]
+        [JsonProperty("sender", Required = Required.DisallowNull, Order = -991)]
         public EdiMessageRouting Sender { get; set; }
 
         //[JsonProperty("receiver", Required = Required.DisallowNull, Order = -998)]
@@ -45,7 +62,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// The used network for this message
         /// </summary>
-        [JsonProperty("network", Required = Required.DisallowNull, Order = -996)]
+        [JsonProperty("network", Required = Required.DisallowNull, Order = -990)]
         public EdiNetwork Network { get; set; }
 
     }

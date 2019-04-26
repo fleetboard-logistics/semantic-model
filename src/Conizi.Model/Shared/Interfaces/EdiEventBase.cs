@@ -12,10 +12,10 @@ namespace Conizi.Model.Shared.Interfaces
     public abstract class EdiEventBase : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// Date and time when the event occured
+        /// Date and time when the event occurred
         /// </summary>
         [DisplayName("Event Date-time")]
-        [Description("Date and time when the event occured")]
+        [Description("Date and time when the event occurred")]
         [JsonProperty("eventDateTime", Order = -8, Required = Required.Always)]
         public DateTime EventDateTime { get; set; }
 

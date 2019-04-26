@@ -6,10 +6,10 @@ using Conizi.Model.Shared.Interfaces;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
 {
     /// <summary>
-    /// Events occured while cross docking the consignment. (i.e. HUB or gateway cross dock)
+    /// Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)
     /// </summary>
     [DisplayName("Cross dock")]
-    [Description("Events occured while cross docking the consignment. (i.e. HUB or gateway cross dock)")]
+    [Description("Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiEventGateway : EdiEventBase
@@ -30,7 +30,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
         public bool Unloaded { get; set; }
 
         /// <summary>
-        /// Detailed information about the exceptions that occured while processing the consignment.
+        /// Detailed information about the exceptions that occurred while processing the consignment.
         /// Use (null) to report successful cross dock of the consignment
         /// </summary>
         public EdiGatewayExceptions Exceptions { get; set; }
