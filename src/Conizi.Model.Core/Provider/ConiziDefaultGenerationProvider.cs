@@ -5,11 +5,10 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using Conizi.Model.Core.Extensions;
 using Conizi.Model.Shared.Attributes;
-using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 
-namespace Conizi.Model.Core.Generation.Provider
+namespace Conizi.Model.Core.Provider
 {
     /// <summary>
     /// The default conizi schema generation provider

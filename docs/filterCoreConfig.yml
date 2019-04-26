@@ -3,9 +3,9 @@ apiRules:
     uidRegex: ^System\.Object
     type: Type
 - exclude:
-    uidRegex: ^Conizi\.Model\.Core\.Conversion\.Converters
+    uidRegex: ^Conizi\.Model\.Core\.Converters
 - include:
-    uidRegex: ^Conizi\.Model\.Core\.Conversion
+    uidRegex: ^Conizi\.Model\.Core\.Tools
 - include:
     uidRegex: ^Conizi\.Model\.Core\.Entities
 - exclude:

@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Tools.Client
+  commentId: T:Conizi.Model.Core.Tools.Client
+  id: Client
+  parent: Conizi.Model.Core.Tools
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Client
+  nameWithType: Client
+  fullName: Conizi.Model.Core.Tools.Client
+  type: Class
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Client.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Client
+    path: ../src/Conizi.Model.Core/Tools/Client.cs
+    startLine: 11
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nA http client to send an instance of a C# model to conizi as JSON message\nNot yet implemented, coming soon...\n"
+  remarks: Not yet implemented, coming soon...
+  example: []
+  syntax:
+    content: public class Client
+    content.vb: Public Class Client
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: Conizi.Model.Core.Tools
+  commentId: N:Conizi.Model.Core.Tools
+  name: Conizi.Model.Core.Tools
+  nameWithType: Conizi.Model.Core.Tools
+  fullName: Conizi.Model.Core.Tools
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

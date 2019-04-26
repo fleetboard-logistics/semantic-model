@@ -1,29 +1,37 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Text;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Extensions;
-using Conizi.Model.Core.Generation;
 using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
-namespace Conizi.Model.Core.Validate
+namespace Conizi.Model.Core.Tools
 {
+    /// <summary>
+    /// The conizi schema validator is used to validate a JSON message against the assigned Schema.
+    /// The validator is build around the C# library <see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see>.
+    /// </summary>
+    /// <remarks>You can use this <see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see> for free in a small context, to validate a huge amount of messages, you must buy a license.</remarks>
     public class Validator
     {
 
-        public static ConcurrentDictionary<string, EdiModel> ModelCache = null;
         /// <summary>
         /// Register a JsonSchema License if available
         /// </summary>
-        /// <param name="license"></param>
+        /// <param name="license"><see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see> license as string</param>
         public static void RegisterJsonSchemaLicense(string license)
         {
             License.RegisterLicense(license);
         }
-
+        
+        /// <summary>
+        /// Parse the JSON message and try to extract the model
+        /// </summary>
+        /// <param name="jsonMessage">JSON message as string</param>
+        /// <returns>Type of the used model/class</returns>
+        /// <exception cref="InvalidOperationException"></exception>
         private static Type ParseModel(string jsonMessage)
         {
             var jModel = JObject.Parse(jsonMessage);
@@ -43,6 +51,12 @@ namespace Conizi.Model.Core.Validate
             return model;
         }
 
+        /// <summary>
+        /// Validate a JSON message vs the specific JSON Schema. The method tries to extract the schema from the message.
+        /// </summary>
+        /// <param name="jsonMessage">JSON message as string</param>
+        /// <param name="validationErrors">Possible validation errors as list of strings</param>
+        /// <returns><see cref="ValidationResult"/></returns>
         public static ValidationResult ValidateSchema(string jsonMessage, out IList<string> validationErrors)
         {
            return ValidateSchema(ParseModel(jsonMessage), jsonMessage, out validationErrors);
@@ -54,12 +68,12 @@ namespace Conizi.Model.Core.Validate
         }
 
         /// <summary>
-        /// Validate assigned model vs the specific JSON Schema.
+        /// Validate a JSON message vs the specific JSON Schema.
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="jsonMessage">The message as IMessage</param>
-        /// <param name="validationErrors">IList<string> of possible ValidationErrors</string></param>
-        /// <returns>true/false</returns>
+        /// <param name="model">Type of the used C# model</param>
+        /// <param name="jsonMessage">JSON message as string</param>
+        /// <param name="validationErrors">Possible validation errors as list of strings</param>
+        /// <returns><see cref="ValidationResult"/></returns>
         public static ValidationResult ValidateSchema(Type model, string jsonMessage, out IList<string> validationErrors)
         {
             validationErrors = new List<string>();

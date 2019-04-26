@@ -21,11 +21,11 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: SerializationResult
     path: ../src/Conizi.Model.Core/Entities/SerializationResult.cs
-    startLine: 10
+    startLine: 8
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
-  summary: "\nThe result object of a serialization by the converter\n<inheritdoc cref=\"T:Conizi.Model.Core.Entities.ConverterResult\"></inheritdoc>\n"
+  summary: "\nThe result object of a serialization by the <xref href=\"Conizi.Model.Core.Tools.Converter\" data-throw-if-not-resolved=\"false\"></xref>\n<inheritdoc cref=\"T:Conizi.Model.Core.Entities.ConverterResult\"></inheritdoc>\n"
   example: []
   syntax:
     content: 'public class SerializationResult : ConverterResult'
@@ -66,7 +66,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: IsValidated
     path: ../src/Conizi.Model.Core/Entities/SerializationResult.cs
-    startLine: 15
+    startLine: 13
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
@@ -103,7 +103,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ToString
     path: ../src/Conizi.Model.Core/Entities/SerializationResult.cs
-    startLine: 21
+    startLine: 19
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
@@ -124,6 +124,11 @@ items:
   - Public
   - Overrides
 references:
+- uid: Conizi.Model.Core.Tools.Converter
+  commentId: T:Conizi.Model.Core.Tools.Converter
+  name: Converter
+  nameWithType: Converter
+  fullName: Conizi.Model.Core.Tools.Converter
 - uid: Conizi.Model.Core.Entities
   commentId: N:Conizi.Model.Core.Entities
   name: Conizi.Model.Core.Entities

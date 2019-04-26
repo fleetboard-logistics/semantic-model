@@ -26,6 +26,7 @@ references:
   fullName: Conizi.Model.Core.Entities.ConverterResult
 - uid: Conizi.Model.Core.Entities.GenerationResult
   commentId: T:Conizi.Model.Core.Entities.GenerationResult
+  parent: Conizi.Model.Core.Entities
   name: GenerationResult
   nameWithType: GenerationResult
   fullName: Conizi.Model.Core.Entities.GenerationResult
@@ -37,6 +38,7 @@ references:
   fullName: Conizi.Model.Core.Entities.SerializationResult
 - uid: Conizi.Model.Core.Entities.ValidationResult
   commentId: T:Conizi.Model.Core.Entities.ValidationResult
+  parent: Conizi.Model.Core.Entities
   name: ValidationResult
   nameWithType: ValidationResult
   fullName: Conizi.Model.Core.Entities.ValidationResult

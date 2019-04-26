@@ -2,33 +2,43 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Conizi.Model.Core.Entities;
-using Conizi.Model.Core.Generation.Provider;
+using Conizi.Model.Core.Provider;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 using Newtonsoft.Json.Serialization;
 
-namespace Conizi.Model.Core.Generation
+namespace Conizi.Model.Core.Tools
 {
     /// <summary>
-    /// The conizi schema generator
+    /// The conizi schema generator is used to generate a JSON Schema out of the conizi C# models
     /// </summary>
     public static class Generator
     {
         /// <summary>
         /// Register a JsonSchema License if available
         /// </summary>
-        /// <param name="license"></param>
+        /// <param name="license"><see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see> license as string</param>
         public static void RegisterJsonSchemaLicense(string license)
         {
             License.RegisterLicense(license);
         }
 
+        /// <summary>
+        /// Generate a JSON schema from the C# model of type T
+        /// </summary>
+        /// <typeparam name="TModel">The C# model type, should be generated to a JSON schema</typeparam>
+        /// <returns><see cref="GenerationResult"/></returns>
         public static GenerationResult Generate<TModel>()
         {
             return Generate(typeof(TModel));
         }
 
+        /// <summary>
+        /// Generate a JSON schema from the C# model instance type
+        /// </summary>
+        /// <param name="modelType">Type of the C# model instance</param>
+        /// <returns><see cref="GenerationResult"/></returns>
         public static GenerationResult Generate(Type modelType)
         {
        

@@ -24,10 +24,6 @@
     <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.11" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Conversion\Resolvers\" />
-    <Folder Include="Validate\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Conizi.Model\Conizi.Model.csproj" />
   </ItemGroup>
 

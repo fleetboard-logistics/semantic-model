@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using System.Threading;
-using Conizi.Model.Core.Conversion.Converters;
+using Conizi.Model.Core.Converters;
 using Conizi.Model.Core.Entities;
-using Conizi.Model.Core.Validate;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Conizi.Model.Core.Conversion
+namespace Conizi.Model.Core.Tools
 {
     /// <summary>
     /// The converter is used to serialize a C# conizi model to JSON or deserialize JSON to a C# model

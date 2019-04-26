@@ -45,7 +45,7 @@ var m = new TourEvent
  ```
 ### Serialize the [tour-event](xref:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent) to JSON
 
-With the help of the [Conizi.Model.Core](xref:Conizi.Model.Core.Conversion.Converter) library, the C# models can be serialized to JSON.
+With the help of the [Conizi.Model.Core](xref:Conizi.Model.Core.Tools.Converter) library, the C# models can be serialized to JSON.
 
 ```cs
 var result =  Converter.Serialize(m);

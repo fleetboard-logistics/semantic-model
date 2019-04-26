@@ -1,15 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Threading;
-using Conizi.Model.Core.Conversion;
-using Conizi.Model.Core.Generation;
+using Conizi.Model.Core.Tools;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Test.Library.Entities;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
-using Xunit.Sdk;
 
 namespace Conizi.Model.UnitTests.Conversion
 {

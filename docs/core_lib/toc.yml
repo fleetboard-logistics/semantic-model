@@ -1,9 +1,4 @@
 ### YamlMime:TableOfContent
-- uid: Conizi.Model.Core.Conversion
-  name: Conizi.Model.Core.Conversion
-  items:
-  - uid: Conizi.Model.Core.Conversion.Converter
-    name: Converter
 - uid: Conizi.Model.Core.Entities
   name: Conizi.Model.Core.Entities
   items:
@@ -15,3 +10,14 @@
     name: SerializationResult
   - uid: Conizi.Model.Core.Entities.ValidationResult
     name: ValidationResult
+- uid: Conizi.Model.Core.Tools
+  name: Conizi.Model.Core.Tools
+  items:
+  - uid: Conizi.Model.Core.Tools.Client
+    name: Client
+  - uid: Conizi.Model.Core.Tools.Converter
+    name: Converter
+  - uid: Conizi.Model.Core.Tools.Generator
+    name: Generator
+  - uid: Conizi.Model.Core.Tools.Validator
+    name: Validator

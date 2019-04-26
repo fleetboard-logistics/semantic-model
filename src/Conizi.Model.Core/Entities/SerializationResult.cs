@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Conizi.Model.Core.Tools;
 
 namespace Conizi.Model.Core.Entities
 {
     /// <summary>
-    /// The result object of a serialization by the converter
+    /// The result object of a serialization by the <see cref="Converter"/>
     /// <inheritdoc cref="ConverterResult"/>
     /// </summary>
     public class SerializationResult :ConverterResult

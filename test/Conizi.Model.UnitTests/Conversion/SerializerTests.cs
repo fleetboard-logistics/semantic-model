@@ -1,13 +1,9 @@
 using System;
 using System.Text.RegularExpressions;
-using Conizi.Model.Core.Conversion;
-using Conizi.Model.Core.Generation;
+using Conizi.Model.Core.Tools;
 using Conizi.Model.Shared.Entities;
-using Conizi.Model.Shared.Interfaces;
 using Conizi.Model.Test.Library.Entities;
-using Newtonsoft.Json;
 using Xunit;
-using Xunit.Sdk;
 
 namespace Conizi.Model.UnitTests.Conversion
 {

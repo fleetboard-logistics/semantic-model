@@ -5,15 +5,16 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using Conizi.Model.Core.Extensions;
+using Conizi.Model.Core.Tools;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
-namespace Conizi.Model.Core.Conversion.Converters
+namespace Conizi.Model.Core.Converters
 {
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public class CombinedSchemaConverter : JsonConverter
+    internal class CombinedSchemaConverter : JsonConverter
     {
 
         public void HandleCombinedSchemas(JObject jObject, Type objectType)

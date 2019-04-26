@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 
-namespace Conizi.Model.Core.Generation.Provider
+namespace Conizi.Model.Core.Provider
 {
     /// <summary>
     /// The example conizi schema generation provider

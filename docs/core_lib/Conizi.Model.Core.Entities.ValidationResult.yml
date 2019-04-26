@@ -21,10 +21,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidationResult
     path: ../src/Conizi.Model.Core/Entities/ValidationResult.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe result object of validation by the <xref href=\"Conizi.Model.Core.Tools.Validator\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
   syntax:
     content: 'public class ValidationResult : ConverterResult'
     content.vb: >-
@@ -64,7 +66,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: IsValid
     path: ../src/Conizi.Model.Core/Entities/ValidationResult.cs
-    startLine: 11
+    startLine: 15
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
@@ -101,14 +103,17 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ToString
     path: ../src/Conizi.Model.Core/Entities/ValidationResult.cs
-    startLine: 13
+    startLine: 21
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema content as string\n"
+  example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
+      description: JSON schema as string
     content.vb: Public Overrides Function ToString As String
   overridden: System.Object.ToString
   overload: Conizi.Model.Core.Entities.ValidationResult.ToString*
@@ -119,6 +124,11 @@ items:
   - Public
   - Overrides
 references:
+- uid: Conizi.Model.Core.Tools.Validator
+  commentId: T:Conizi.Model.Core.Tools.Validator
+  name: Validator
+  nameWithType: Validator
+  fullName: Conizi.Model.Core.Tools.Validator
 - uid: Conizi.Model.Core.Entities
   commentId: N:Conizi.Model.Core.Entities
   name: Conizi.Model.Core.Entities

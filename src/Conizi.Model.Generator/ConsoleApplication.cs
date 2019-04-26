@@ -16,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Schema;
-using Validator = Conizi.Model.Core.Validate.Validator;
+using Validator = Conizi.Model.Core.Tools.Validator;
 
 namespace Conizi.Model.Generator
 {

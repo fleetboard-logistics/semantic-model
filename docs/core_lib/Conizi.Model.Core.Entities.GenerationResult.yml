@@ -31,7 +31,7 @@ items:
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
-  summary: "\n\n"
+  summary: "\nThe result object of a model generation by the <xref href=\"Conizi.Model.Core.Tools.Generator\" data-throw-if-not-resolved=\"false\"></xref>\n"
   example: []
   syntax:
     content: public class GenerationResult
@@ -62,10 +62,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Id
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 11
+    startLine: 14
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema Id\n"
+  example: []
   syntax:
     content: >-
       [Required]
@@ -107,10 +109,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Title
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 14
+    startLine: 20
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema title\n"
+  example: []
   syntax:
     content: public string Title { get; set; }
     parameters: []
@@ -142,10 +146,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Description
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 15
+    startLine: 25
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema description\n"
+  example: []
   syntax:
     content: public string Description { get; set; }
     parameters: []
@@ -177,10 +183,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: File
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 17
+    startLine: 30
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe file the schema was stored\n"
+  example: []
   syntax:
     content: public string File { get; set; }
     parameters: []
@@ -212,10 +220,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Model
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 19
+    startLine: 35
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe model used to generate the schema\n"
+  example: []
   syntax:
     content: public string Model { get; set; }
     parameters: []
@@ -247,10 +257,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Version
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 21
+    startLine: 40
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe version was used to generate the schema\n"
+  example: []
   syntax:
     content: >-
       [Required]
@@ -292,10 +304,12 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: JSchema
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 24
+    startLine: 46
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema as JSchema\n"
+  example: []
   syntax:
     content: >-
       [Required]
@@ -337,14 +351,17 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ToString
     path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
-    startLine: 27
+    startLine: 53
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Entities
+  summary: "\nThe content of the generated schema as string. Generated in JSON Schema Draft 6 as default.\n"
+  example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
+      description: ''
     content.vb: Public Overrides Function ToString As String
   overridden: System.Object.ToString
   overload: Conizi.Model.Core.Entities.GenerationResult.ToString*
@@ -355,6 +372,11 @@ items:
   - Public
   - Overrides
 references:
+- uid: Conizi.Model.Core.Tools.Generator
+  commentId: T:Conizi.Model.Core.Tools.Generator
+  name: Generator
+  nameWithType: Generator
+  fullName: Conizi.Model.Core.Tools.Generator
 - uid: Conizi.Model.Core.Entities
   commentId: N:Conizi.Model.Core.Entities
   name: Conizi.Model.Core.Entities
