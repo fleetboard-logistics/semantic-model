@@ -23,7 +23,7 @@ items:
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
-  summary: "\nA http client to send an instance of a C# model to conizi as JSON message\nNot yet implemented, coming soon...\n"
+  summary: "\nA http client to send an instance of a C# model to conizi as JSON message.\nNot yet implemented, coming soon...\n"
   remarks: Not yet implemented, coming soon...
   example: []
   syntax:
