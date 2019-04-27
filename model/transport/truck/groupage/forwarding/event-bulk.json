@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
-  "description": "Events for different consignments, pickup orders or packages, that can be send in bulk, which occurred during the processing (Generated: 27.04.2019 11:26:55 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "Events for different consignments, pickup orders or packages, that can be send in bulk, which occurred during the processing (Generated: 27.04.2019 12:07:28 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -85,7 +85,7 @@
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
         "title": "Consignment event",
-        "description": "An event which occurred during the processing of the referenced consignment (Generated: 27.04.2019 11:26:55 - Conizi.Model.Core v:1.0.0.0)",
+        "description": "An event which occurred during the processing of the referenced consignment (Generated: 27.04.2019 12:07:28 - Conizi.Model.Core v:1.0.0.0)",
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1410,13 +1410,89 @@
     "pickuporder-events": {
       "type": "array",
       "items": {
-        "$ref": "pickuporder-event.json"
+        "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
+        "title": "Pickup order event",
+        "description": "An event which occurred during the processing of the referenced pickup order (Generated: 27.04.2019 12:07:28 - Conizi.Model.Core v:1.0.0.0)",
+        "type": "object",
+        "properties": {
+          "$schema": {
+            "title": "Json schema",
+            "description": "The used json schema",
+            "type": "string"
+          },
+          "$createdAt": {
+            "title": "Created at date",
+            "description": "The message was created at date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "$createdBy": {
+            "title": "Created by generator",
+            "description": "The message was created by",
+            "type": "string"
+          },
+          "receiver": {
+            "$ref": "messageRouting"
+          },
+          "sender": {
+            "$ref": "messageRouting"
+          },
+          "network": {
+            "$ref": "network"
+          }
+        },
+        "required": [
+          "$schema",
+          "receiver"
+        ],
+        "patternProperties": {
+          "x-.*": {},
+          "\\$.*": {}
+        }
       }
     },
     "package-events": {
       "type": "array",
       "items": {
-		"$ref": "package-event.json"
+        "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
+        "title": "Package event",
+        "description": "An event which occurred during the processing of the referenced package. (Generated: 27.04.2019 12:07:28 - Conizi.Model.Core v:1.0.0.0)",
+        "type": "object",
+        "properties": {
+          "$schema": {
+            "title": "Json schema",
+            "description": "The used json schema",
+            "type": "string"
+          },
+          "$createdAt": {
+            "title": "Created at date",
+            "description": "The message was created at date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "$createdBy": {
+            "title": "Created by generator",
+            "description": "The message was created by",
+            "type": "string"
+          },
+          "receiver": {
+            "$ref": "messageRouting"
+          },
+          "sender": {
+            "$ref": "messageRouting"
+          },
+          "network": {
+            "$ref": "network"
+          }
+        },
+        "required": [
+          "$schema",
+          "receiver"
+        ],
+        "patternProperties": {
+          "x-.*": {},
+          "\\$.*": {}
+        }
       }
     },
     "tour-events": {
@@ -1424,7 +1500,7 @@
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
         "title": "Tour event",
-        "description": "An event which occurred during the processing of the referenced tour (Generated: 27.04.2019 11:26:55 - Conizi.Model.Core v:1.0.0.0)",
+        "description": "An event which occurred during the processing of the referenced tour (Generated: 27.04.2019 12:07:28 - Conizi.Model.Core v:1.0.0.0)",
         "type": "object",
         "additionalProperties": false,
         "properties": {
