@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
-  "description": "An event which occurred during the processing of the referenced consignment (Generated: 27.04.2019 12:07:27 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "An event which occurred during the processing of the referenced consignment (Generated: 27.04.2019 18:10:31 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -282,52 +282,24 @@
           "additionalProperties": false,
           "properties": {
             "incompatible": {
-              "title": "Incompatible",
-              "description": "The shipment is not within the agreed specifications (e.g. to heavy / big / ...)",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$id": "emptyExtendableObject",
+              "title": "EmptyExtendable Object",
+              "description": "The empty EdiEmptyExtendableObject is used for non jet completed defined objects. ",
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
             },
             "incomplete": {
-              "title": "Incomplete",
-              "description": "There are some packages missing from this consignment",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "ultimatelyLost": {
-              "title": "Ultimately lost",
-              "description": "Consignment is utimately lost and will no longer be searched for",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "deliveryObscure": {
-              "title": "Delivery obscure",
-              "description": "The delivery is obscure",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "signingInformation": {
               "title": "Signing Information",
@@ -447,100 +419,28 @@
           "additionalProperties": false,
           "properties": {
             "lateArrival": {
-              "title": "Late arrival",
-              "description": "The consignment arrived too late for normal processing",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "missing": {
-              "title": "Missing",
-              "description": "The consignment did not arrive or parts of the consignment are missing",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "partlyMissing": {
-              "title": "Partly Missing",
-              "description": "Partly missing in the entrance (additional information number and type of packaging",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "damaged": {
-              "title": "Damaged",
-              "description": "The consignment was damaged on arrival",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "packagingDifferences": {
-              "title": "Packaging Differences",
-              "description": "Packaging differences (additional information number and packaging)",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "notVerifiable": {
-              "title": "Not Verifiable",
-              "description": "Welded pallet, no guarantee for content, as not testable (only applies to non-scannable pallets)",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "quantityDifferences": {
-              "title": "Quantity Differences",
-              "description": "Quantity difference Bordero / Discharge (acquisition error)",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "partlyMissingDamaged": {
-              "title": "Partly Missing or Damaged",
-              "description": "Unloading - not complete, damaged",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -599,280 +499,73 @@
           "additionalProperties": false,
           "properties": {
             "outsideDeliveryArea": {
-              "title": "Outside delivery area",
-              "description": "The address of the consignee is not within the area served",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "plannedForSecondTour": {
-              "title": "Planned for second tour",
-              "description": "The consignment will be picked up and delivered later on the day",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "notInDelivery": {
-              "title": "Not in delivery",
-              "description": "The consignment will not be delivered today",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "noTimeSlotForAgreedDeliveryTime": {
-              "title": "No time slot for agreed delivery time",
-              "description": "No time slot for agreed delivery time",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "invalidShipmentInformation": {
-              "title": "Invalid Shipment Information",
-              "description": "Not in delivery - incomplete / incorrect shipment information",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "damaged": {
-              "title": "Damaged",
-              "description": "Not in delivery - goods damaged",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "returnAccordingToDisposal": {
-              "title": "Return according to disposal",
-              "description": "Not delivered - refused consignment, return according to disposal",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "returnDisposalMissing": {
-              "title": "Return Disposal Missing",
-              "description": "Not delivered - refused consignment, return - order missing",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "inResearch": {
-              "title": "In Research",
-              "description": "Not on delivery - broadcast in search",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "timeSlotFromConsignee": {
-              "title": "Time slot from consignee",
-              "description": "The consignee has provided a time slot for delivery",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "badWeatherConditions": {
-              "title": "Bad weather conditions",
-              "description": "The weather does not permit delivery",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "timeIssue": {
-              "title": "Time issue",
-              "description": "There is no time for the delivery",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "spaceIssue": {
-              "title": "Space issue",
-              "description": "There is a space issue for the delivery",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "consignmentNotComplete": {
-              "title": "Consignment not complete",
-              "description": "Not in delivery - consignment incomplete",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "selfCollector": {
-              "title": "Self collector",
-              "description": "Not on delivery - Recipient is self-collector",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "holidays": {
-              "title": "Holidays",
-              "description": "Not on delivery - regional holiday",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "customs": {
-              "title": "Customs",
-              "description": "Not on delivery - Customs goods",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "waitingForNotification": {
-              "title": "Waiting for notifications",
-              "description": "Not in delivery - Advice of delivery according to EDI.",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "missingDocumentation": {
-              "title": "Missing documentation",
-              "description": "Not in delivery - Delivery note missing / Accompanying documents incomplete",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "lateArrival": {
-              "title": "Late Arrival",
-              "description": "Not in delivery - long-distance traffic from VP / HUB delayed (E2 status)",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "standardDeliveryTimeSufficient": {
-              "title": "Standard delivery time sufficient",
-              "description": "Not in delivery, Flex according to specification VP",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "gatewayRouting": {
-              "title": "Gateway Routing",
-              "description": "Loaded from Gateway to...",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "rejectedByReceiver": {
-              "title": "Rejected by receiver",
-              "description": "Receiver rejected, not in delivery by telephone refusal to accept...",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -960,22 +653,12 @@
           "type": "string"
         },
         "exceptions": {
-          "title": "Exceptions",
           "description": "Detailed information about the exceptions that occurred while starting the delivery of the consignment.Use (null) to report successful starting of the consignment delivery",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "noCapacity": {
-              "title": "No capacity available",
-              "description": "There is no sufficient capacity available to perform delivery at the moment",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -1081,6 +764,81 @@
           "description": "Time spent waiting during delivery",
           "type": "string"
         },
+        "exceptions": {
+          "title": "Exceptions",
+          "description": "Detailed information about the exceptions that caused the delivery to be fail",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "abortedDueToLongWaitingTime": {
+              "$ref": "emptyExtendableObject"
+            },
+            "abortedDueWeatherCondition": {
+              "$ref": "emptyExtendableObject"
+            },
+            "timeIssue": {
+              "$ref": "emptyExtendableObject"
+            },
+            "rejected": {
+              "title": "Rejected",
+              "description": "The consignee has rejected the consignment",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "damaged": {
+                  "$ref": "emptyExtendableObject"
+                },
+                "incomplete": {
+                  "$ref": "emptyExtendableObject"
+                },
+                "tooLate": {
+                  "$ref": "emptyExtendableObject"
+                },
+                "missingDocumentation": {
+                  "$ref": "emptyExtendableObject"
+                },
+                "notOrdered": {
+                  "$ref": "emptyExtendableObject"
+                },
+                "missingNotification": {
+                  "$ref": "emptyExtendableObject"
+                },
+                "noPayment": {
+                  "$ref": "emptyExtendableObject"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "closed": {
+              "$ref": "emptyExtendableObject"
+            },
+            "wrongAddress": {
+              "$ref": "emptyExtendableObject"
+            },
+            "difficulties": {
+              "title": "Difficulties",
+              "description": "There were difficulties delivering the goods",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "tailLift": {
+                  "$ref": "emptyExtendableObject"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
         "remarks": {
           "title": "Remarks (free form)",
           "description": "Additional remarks",
@@ -1114,112 +872,31 @@
           "additionalProperties": false,
           "properties": {
             "incomplete": {
-              "title": "Incomplete",
-              "description": "Some parts were missing and thus not delivered",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "serviceIncomplete": {
-              "title": "Service incomplete",
-              "description": "Delivered but incomplete",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "damaged": {
-              "title": "Damaged",
-              "description": "The consignment was damaged",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "incompleteAndDamaged": {
-              "title": "Incomplete and damaged",
-              "description": "Some parts were missing and some were damaged",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "partiallyRejected": {
-              "title": "Partially rejected",
-              "description": "The consignment was partially rejected",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "tooLate": {
-              "title": "To late",
-              "description": "The delivery was to late",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "noReceipt": {
-              "title": "No receipt",
-              "description": "Served, delivery not assignable",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "forwardedToExternalProvider": {
-              "title": "Forwarded to external provider",
-              "description": "Delivered, Exhibition- / House carrier- / Inselspediteur handed over",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             },
             "releaseAuthorization": {
-              "title": "Release authorization",
-              "description": "The goods were deposit as agreed in a signed release authorization",
-              "type": [
-                "string",
-                "number",
-                "integer",
-                "boolean",
-                "object",
-                "array"
-              ]
+              "$ref": "emptyExtendableObject"
             }
           },
           "patternProperties": {

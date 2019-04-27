@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
-  "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 27.04.2019 12:07:27 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 27.04.2019 18:10:31 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -314,7 +314,7 @@
             },
             "correction": {
               "title": "Correction",
-              "type": "boolean"
+              "type": "string"
             },
             "thirdPartyDelivery": {
               "title": "Third Party Delivery",
