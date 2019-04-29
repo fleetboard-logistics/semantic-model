@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
-  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time (Generated: 27.04.2019 18:10:31 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time (Generated: 29.04.2019 13:41:48 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -43,30 +43,6 @@
           "title": "The Conizi Id",
           "description": "The conizi id for internal routing purposes",
           "type": "string"
-        },
-        "network": {
-          "$id": "network",
-          "title": "Network",
-          "description": "The network under which rules the consignment should be processed",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "networkId": {
-              "title": "Name of the network",
-              "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
-              "type": "string"
-            },
-            "codelist": {
-              "title": "Name of the code list used",
-              "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-              "type": "string"
-            },
-            "product": {
-              "title": "Name of the product",
-              "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
-              "type": "string"
-            }
-          }
         }
       },
       "patternProperties": {
@@ -78,7 +54,28 @@
       "$ref": "messageRouting"
     },
     "network": {
-      "$ref": "network"
+      "$id": "network",
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
     },
     "manifestId": {
       "title": "Manifest id",
@@ -184,9 +181,6 @@
             "title": "The Conizi Id",
             "description": "The conizi id for internal routing purposes",
             "type": "string"
-          },
-          "network": {
-            "$ref": "network"
           }
         },
         "patternProperties": {
@@ -322,7 +316,7 @@
           "consignment": {
             "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
             "title": "Consignment",
-            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 27.04.2019 18:10:31 - Conizi.Model.Core v:1.0.0.0)",
+            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 29.04.2019 13:41:48 - Conizi.Model.Core v:1.0.0.0)",
             "type": "object",
             "additionalProperties": false,
             "properties": {
