@@ -27,7 +27,6 @@ namespace Conizi.Model.Core
             var schemas = assembly.GetTypes().Where(t =>
                 t.CustomAttributes.Any(a => a.AttributeType == typeof(ConiziSchemaAttribute)));
 
-
             var model = schemas.FirstOrDefault(t =>
                 string.Equals(t.CustomAttributes.First(a => a.AttributeType == typeof(ConiziSchemaAttribute)).ConstructorArguments[0].Value.ToString(), modelId, StringComparison.InvariantCultureIgnoreCase));
 

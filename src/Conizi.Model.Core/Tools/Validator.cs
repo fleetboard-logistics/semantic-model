@@ -43,6 +43,8 @@ namespace Conizi.Model.Core.Tools
 
             var modelString = mProperty.Value.Value<string>();
 
+            modelString = modelString.Contains(".json") ? modelString : modelString + ".json";
+
             var model = Helper.GetConiziModel(modelString);
 
             if (model == null)

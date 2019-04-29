@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Entities;
 using Conizi.Model.Shared.Interfaces;
 
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
@@ -20,6 +21,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
         [Description("Number of the consignment which is used to return the goods to the shipper")]
         public string ReturnConsignmentNo { get; set; }
 
+
+
         /// <summary>
         /// Name of the person which rejected the consignment
         /// </summary>
@@ -33,5 +36,10 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
         [DisplayName("Wait time")]
         [Description("Time spent waiting during delivery")]
         public string WaitTime { get; set; }
+
+        /// <summary>
+        /// Detailed information about the exceptions that occurred when consignment was not delivered
+        /// </summary>
+        public EdiDeliveryAttemptFailedExceptions Exceptions { get; set; }
     }
 }

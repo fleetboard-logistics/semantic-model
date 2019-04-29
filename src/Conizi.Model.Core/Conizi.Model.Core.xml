@@ -118,6 +118,43 @@
             </summary>
             <returns>JSON schema as string</returns>
         </member>
+        <member name="T:Conizi.Model.Core.Extensions.ResultExtensions">
+            <summary>
+            Extension to create validation results in an easy way
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Core.Extensions.ResultExtensions.CreateError(Conizi.Model.Core.Entities.ValidationResult,System.String,System.Type,Newtonsoft.Json.Schema.JSchema,System.String)">
+            <summary>
+            Create an error validation result
+            </summary>
+            <param name="result">Instance of the ValidationResult</param>
+            <param name="message">The message should be set</param>
+            <param name="model">The model type should be set</param>
+            <param name="schema">The schema should be set</param>
+            <param name="file">The file was validated</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+        <member name="M:Conizi.Model.Core.Extensions.ResultExtensions.CreateError(Conizi.Model.Core.Entities.ValidationResult,System.Collections.Generic.IList{System.String},System.Type,Newtonsoft.Json.Schema.JSchema,System.String)">
+            <summary>
+            Create an error validation result
+            </summary>
+            <param name="result">Instance of the ValidationResult</param>
+            <param name="errorMessages">A list of error messages should be set</param>
+            <param name="model">The model type should be set</param>
+            <param name="schema">The schema should be set</param>
+            <param name="file">The file was validated</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+        <member name="M:Conizi.Model.Core.Extensions.ResultExtensions.CreateSuccess(Conizi.Model.Core.Entities.ValidationResult,Newtonsoft.Json.Schema.JSchema,System.Type,System.String)">
+            <summary>
+            Create a successful validation result
+            </summary>
+            <param name="result">Instance of the ValidationResult</param>
+            <param name="model">The model type should be set</param>
+            <param name="schema">The schema should be set</param>
+            <param name="file">The file was validated</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
         <member name="T:Conizi.Model.Core.Provider.ConiziDefaultGenerationProvider">
             <summary>
             The default conizi schema generation provider

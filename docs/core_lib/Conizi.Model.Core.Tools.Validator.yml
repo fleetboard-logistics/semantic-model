@@ -97,7 +97,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidateSchema
     path: ../src/Conizi.Model.Core/Tools/Validator.cs
-    startLine: 59
+    startLine: 61
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -144,21 +144,26 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidateSchema
     path: ../src/Conizi.Model.Core/Tools/Validator.cs
-    startLine: 64
+    startLine: 72
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
+  summary: "\nValidate a JSON message vs the specific JSON Schema by type.\n"
+  example: []
   syntax:
     content: public static ValidationResult ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
     parameters:
     - id: jsonMessage
       type: System.String
+      description: JSON message as string
     - id: validationErrors
       type: System.Collections.Generic.IList{System.String}
+      description: Possible validation errors as list of strings
     typeParameters:
     - id: TModel
     return:
       type: Conizi.Model.Core.Entities.ValidationResult
+      description: <xref href="Conizi.Model.Core.Entities.ValidationResult" data-throw-if-not-resolved="false"></xref>
     content.vb: Public Shared Function ValidateSchema(Of TModel)(jsonMessage As String, ByRef validationErrors As IList(Of String)) As ValidationResult
   overload: Conizi.Model.Core.Tools.Validator.ValidateSchema*
   nameWithType.vb: Validator.ValidateSchema(Of TModel)(String, ByRef IList(Of String))
@@ -188,7 +193,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidateSchema
     path: ../src/Conizi.Model.Core/Tools/Validator.cs
-    startLine: 76
+    startLine: 84
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools

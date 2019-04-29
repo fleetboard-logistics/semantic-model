@@ -84,7 +84,7 @@ namespace Conizi.Model.Shared.Entities
         [MaxLength(50)]
         public string ConiziId { get; set; }
 
-        [JsonProperty("network", Required = Required.DisallowNull)]
-        public EdiNetwork Network { get; set; }
+        //[JsonProperty("network", Required = Required.DisallowNull)]
+        //public EdiNetwork Network { get; set; }
     }
 }

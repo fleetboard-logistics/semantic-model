@@ -15,7 +15,7 @@ namespace Conizi.Model.Shared.Entities
         public bool Return { get; set; }
 
         [DisplayName("Correction")]
-        public bool Correction { get; set; }
+        public string Correction { get; set; }
 
         [DisplayName("Third Party Delivery")]
         public string ThirdPartyDelivery { get; set; }

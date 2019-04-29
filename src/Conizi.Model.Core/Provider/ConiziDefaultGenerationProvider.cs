@@ -5,8 +5,10 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using Conizi.Model.Core.Extensions;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
+using ConiziHandleExternal = Conizi.Model.Shared.Attributes.ConiziHandleExternal;
 
 namespace Conizi.Model.Core.Provider
 {
@@ -121,18 +123,20 @@ namespace Conizi.Model.Core.Provider
                 }
             }
 
-            //if (context.ObjectType == typeof(EdiEmptyClassWAdditionalProps))
+            //if (context.MemberProperty?.AttributeProvider != null &&  context.MemberProperty.AttributeProvider.GetAttributes(typeof(ConiziHandleExternal), true).Any())
             //{
-               
+            //    var attr = context.MemberProperty.AttributeProvider.GetAttributes(typeof(ConiziHandleExternal), true).Cast<ConiziHandleExternal>()
+            //        .FirstOrDefault();
+
+            //    if (attr != null && !string.IsNullOrEmpty(attr.externalRef))
+            //    {
             //        var generator = context.Generator;
-            //        var schema = generator.Generate(context.MemberProperty.PropertyType);
-            //        HandleAdditionalProperties(context.ObjectType, schema);
-            //        HandleXProperties(context.ObjectType, schema);
-            //    schema.Title = context.SchemaTitle;
-            //    schema.Description = context.SchemaDescription;
-            //    //context.
-            //    return schema;
-                
+            //        var schema = generator.Generate(context.ObjectType);
+            //        schema.AllowAdditionalProperties = false;
+            //        schema.Type = JSchemaType.Array;
+            //        schema.Reference = new Uri(attr.externalRef);
+            //        return schema;
+            //    }
             //}
 
             if (context.ObjectType == typeof(string) && context.MemberProperty?.AttributeProvider != null)

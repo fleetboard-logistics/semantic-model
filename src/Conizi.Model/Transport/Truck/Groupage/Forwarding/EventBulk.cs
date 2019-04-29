@@ -32,6 +32,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// List of package events <see cref="PackageEvent"/>
         /// </summary>
+        [ConiziHandleExternal("https://raw.githubusercontent.com/fleetboard-logistics/semantic-model/master/model/transport/truck/groupage/forwarding/package-event.json")]
         [JsonProperty("package-events")]
         public List<PackageEvent> PackageEvents { get; set; }
 

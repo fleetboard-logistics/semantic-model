@@ -1,6 +1,6 @@
 <Query Kind="Statements">
-  <NuGetReference Prerelease="true">Conizi.Model</NuGetReference>
-  <NuGetReference Prerelease="true">Conizi.Model.Core</NuGetReference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\sematicmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\sematicmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
   <NuGetReference>Newtonsoft.Json</NuGetReference>
   <NuGetReference>Newtonsoft.Json.Schema</NuGetReference>
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
@@ -39,7 +39,13 @@ var modelSrcPath = Path.Combine(Path.GetDirectoryName(Util.CurrentQueryPath), @"
 
 var models = new List<Type> {
 	 typeof(Tour),
-	 typeof(TourEvent)
+	 typeof(TourEvent),
+	 typeof(Consignment),
+	 typeof(ConsignmentEvent),
+	 typeof(PackageEvent),
+	 typeof(Manifest),
+	 typeof(EventBulk),
+
 };
 
 foreach (var model in models)
@@ -61,5 +67,3 @@ foreach (var model in models)
 		Log.Error(ex,"Error while generating model {model}", model); 
 	}
 }
-
-

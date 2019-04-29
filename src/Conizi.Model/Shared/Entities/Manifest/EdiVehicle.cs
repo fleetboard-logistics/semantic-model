@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
-namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest
+namespace Conizi.Model.Shared.Entities.Manifest
 {
     /// <summary>
     /// Information about the vehicles used in the transport
@@ -12,7 +13,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest
     [Description("Information about the vehicles used in the transport")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiVehicle
+    public class EdiVehicle : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The Id of the vehicle

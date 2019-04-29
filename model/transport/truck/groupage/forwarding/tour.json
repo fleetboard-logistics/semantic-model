@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
-  "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops",
+  "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops (Generated: 28.04.2019 10:32:11 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -43,30 +43,6 @@
           "title": "The Conizi Id",
           "description": "The conizi id for internal routing purposes",
           "type": "string"
-        },
-        "network": {
-          "$id": "network",
-          "title": "Network",
-          "description": "The network under which rules the consignment should be processed",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "networkId": {
-              "title": "Name of the network",
-              "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
-              "type": "string"
-            },
-            "codelist": {
-              "title": "Name of the code list used",
-              "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-              "type": "string"
-            },
-            "product": {
-              "title": "Name of the product",
-              "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
-              "type": "string"
-            }
-          }
         }
       },
       "patternProperties": {
@@ -78,7 +54,28 @@
       "$ref": "messageRouting"
     },
     "network": {
-      "$ref": "network"
+      "$id": "network",
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
     },
     "messageFunctionCode": {
       "title": "Message function code",
@@ -342,9 +339,6 @@
             "title": "The Conizi Id",
             "description": "The conizi id for internal routing purposes",
             "type": "string"
-          },
-          "network": {
-            "$ref": "network"
           }
         },
         "patternProperties": {
@@ -427,7 +421,7 @@
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
         "title": "Consignment",
-        "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
+        "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 28.04.2019 10:32:11 - Conizi.Model.Core v:1.0.0.0)",
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -539,7 +533,7 @@
                   },
                   "correction": {
                     "title": "Correction",
-                    "type": "boolean"
+                    "type": "string"
                   },
                   "thirdPartyDelivery": {
                     "title": "Third Party Delivery",

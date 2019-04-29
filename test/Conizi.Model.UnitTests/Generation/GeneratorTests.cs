@@ -52,6 +52,19 @@ namespace Conizi.Model.UnitTests.Generation
             Assert.Equal("transport/truck/groupage/forwarding/consignment", result.Model);
         }
 
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateModel_AssertValidModelWithExternalRef()
+        {
+            var result = Generator.Generate<EventBulk>();
+
+            Assert.IsType<GenerationResult>(result);
+
+            // Get schema version 6 as default
+            Assert.Equal("transport/truck/groupage/forwarding/event-bulk", result.Model);
+        }
+
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateModel_AssertModelUriFormatException()

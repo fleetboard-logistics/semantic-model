@@ -113,7 +113,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Deserialize
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
-    startLine: 97
+    startLine: 98
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools

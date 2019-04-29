@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
+using Conizi.Model.Shared.Entities.Consignment;
+using Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour;
 using Newtonsoft.Json;
 
