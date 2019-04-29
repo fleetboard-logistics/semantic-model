@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
-  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time (Generated: 29.04.2019 13:41:48 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time (Generated: 29.04.2019 17:50:13 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -137,7 +137,7 @@
             "type": "string"
           },
           "countryCode": {
-            "title": "Country code of the address",
+            "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
             "type": "string"
           },
           "emailAddress": {
@@ -156,7 +156,7 @@
             }
           },
           "referenceNumber": {
-            "title": "Reference number of the consignment",
+            "title": "Reference number for an address",
             "type": "string"
           },
           "contactPerson": {
@@ -316,7 +316,7 @@
           "consignment": {
             "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
             "title": "Consignment",
-            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 29.04.2019 13:41:48 - Conizi.Model.Core v:1.0.0.0)",
+            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 29.04.2019 17:50:13 - Conizi.Model.Core v:1.0.0.0)",
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -345,20 +345,19 @@
               "network": {
                 "$ref": "network"
               },
-              "consignmentObjectId": {
-                "title": "Unique central consignment number",
-                "type": "string"
-              },
               "consignmentNoShippingPartner": {
                 "title": "Consignment number of the shipping partner",
+                "description": "Unique identification for the consignment within the transport management system of the shipping partner",
                 "type": "string"
               },
               "consignmentNoReceivingPartner": {
                 "title": "Consignment number of the receiving partner",
+                "description": "Unique identification for the consignment within the transport management system of the receiving partner",
                 "type": "string"
               },
               "shippingDate": {
                 "title": "Shipping date",
+                "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
                 "type": "string",
                 "format": "date"
               },
@@ -374,6 +373,7 @@
               },
               "isPreAdvice": {
                 "title": "Is a pre advice",
+                "description": "dds the possibility of sending the consignment (after saving, before approval) to e.g. a TMS",
                 "type": "boolean"
               },
               "additionalPartners": {
@@ -432,7 +432,7 @@
                     }
                   },
                   "referenceNumber": {
-                    "title": "Reference number of the consignment",
+                    "title": "Reference number of depending object",
                     "type": "string"
                   },
                   "contactPerson": {
@@ -461,20 +461,27 @@
               },
               "routing": {
                 "$id": "routing",
+                "title": "Routing",
+                "description": "Information about the route take by this consignment/pickup order",
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "shipper": {
-                    "$ref": "partnerIdentification"
+                    "$ref": "ediAddress"
                   },
                   "consignee": {
-                    "$ref": "partnerIdentification"
+                    "$ref": "ediAddress"
                   },
                   "loadingAddress": {
-                    "$ref": "partnerIdentification"
+                    "$ref": "ediAddress"
                   },
                   "unloadingAddress": {
-                    "$ref": "partnerIdentification"
+                    "$ref": "ediAddress"
                   }
+                },
+                "patternProperties": {
+                  "x-.*": {},
+                  "\\$.*": {}
                 }
               },
               "services": {
@@ -492,18 +499,22 @@
                     "properties": {
                       "return": {
                         "title": "Return",
+                        "description": "Packaging material return",
                         "type": "boolean"
                       },
                       "correction": {
                         "title": "Correction",
+                        "description": "Packaging correction for your Bordero from: ... (Additional description)",
                         "type": "string"
                       },
                       "thirdPartyDelivery": {
                         "title": "Third Party Delivery",
+                        "description": "Delivery of packaging by third parties on: ... (Additional description)",
                         "type": "string"
                       },
                       "pickup": {
                         "title": "Package Pickup",
+                        "description": "Package Pickup",
                         "type": "string"
                       }
                     },
@@ -525,7 +536,7 @@
                     "additionalProperties": false,
                     "properties": {
                       "generalNotificationAddress": {
-                        "$ref": "partnerIdentification"
+                        "$ref": "ediAddress"
                       },
                       "afterDelivery": {
                         "$ref": "partnerIdentification"
@@ -550,10 +561,10 @@
                     "additionalProperties": false,
                     "properties": {
                       "neutralShipper": {
-                        "$ref": "partnerIdentification"
+                        "$ref": "ediAddress"
                       },
                       "neutralConsignee": {
-                        "$ref": "partnerIdentification"
+                        "$ref": "ediAddress"
                       }
                     },
                     "patternProperties": {
@@ -571,6 +582,9 @@
                       "byDeliveryPartner": {
                         "$ref": "partnerIdentification"
                       },
+                      "byContractedPartner": {
+                        "$ref": "partnerIdentification"
+                      },
                       "preBookedTimeslot": {
                         "$id": "preBookedTimeslot",
                         "title": "Pre booked time slot",
@@ -579,6 +593,8 @@
                         "additionalProperties": false,
                         "properties": {
                           "info": {
+                            "title": "Info about pre booked time slot",
+                            "description": "Info about the pre booked time slot",
                             "type": "string"
                           }
                         },
@@ -606,7 +622,7 @@
                       "notAfter": {
                         "$id": "notAfter",
                         "title": "Not after",
-                        "description": "The consignment must be deliverd until the given date",
+                        "description": "The consignment must be delivered until the given date",
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
@@ -623,7 +639,7 @@
                       "notBefore": {
                         "$id": "notBefore",
                         "title": "Not Before",
-                        "description": "The consignment must not be deliverd before the given date",
+                        "description": "The consignment must not be delivered before the given date",
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
@@ -649,12 +665,12 @@
                             "format": "date"
                           },
                           "timeFrom": {
-                            "title": "Time Until",
+                            "title": "Time From (HH:mm:ss)",
                             "type": "string",
                             "format": "time"
                           },
                           "timeUntil": {
-                            "title": "Time Until",
+                            "title": "Time Until (HH:mm:ss)",
                             "type": "string",
                             "format": "time"
                           }
@@ -667,14 +683,16 @@
                       "fixedWeek": {
                         "$id": "fixedWeek",
                         "title": "Fixed week",
-                        "description": "The consignment must be deliverd within the given week of the year",
+                        "description": "The consignment must be delivered within the given week of the year",
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
                           "year": {
+                            "title": "Year for  delivery / pickup",
                             "type": "string"
                           },
                           "weekOfYear": {
+                            "title": "Week of the year for delivery / pickup",
                             "type": "string"
                           }
                         },
@@ -690,6 +708,10 @@
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
                           "timeFrom": {
                             "title": "Time From",
                             "type": "string",
@@ -713,6 +735,10 @@
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
                           "timeFrom": {
                             "title": "Time From",
                             "type": "string",
@@ -736,6 +762,10 @@
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
                           "timeFrom": {
                             "title": "Time From",
                             "type": "string",
@@ -753,12 +783,43 @@
                         }
                       },
                       "evening": {
-                        "$id": "eventing",
+                        "$id": "evening",
                         "title": "Evening",
-                        "description": "The consignment must be delivered in the eveneing hours",
+                        "description": "The consignment must be delivered in the evening hours",
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
+                          "timeFrom": {
+                            "title": "Time From",
+                            "type": "string",
+                            "format": "time"
+                          },
+                          "timeUntil": {
+                            "title": "Time Until",
+                            "type": "string",
+                            "format": "time"
+                          }
+                        },
+                        "patternProperties": {
+                          "x-.*": {},
+                          "\\$.*": {}
+                        }
+                      },
+                      "sameDayPickup": {
+                        "$id": "sameDayPickup",
+                        "title": "Same day pickup",
+                        "description": "The goods must be picked up on the same day",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
                           "timeFrom": {
                             "title": "Time From",
                             "type": "string",
@@ -929,6 +990,14 @@
                         "title": "Direct pickup",
                         "description": "The goods picked up by the line haul and are not loaded by the shipping partners warehouse",
                         "type": "boolean"
+                      },
+                      "receivingPartnerDisposal": {
+                        "title": "Receiving Partner Disposal ",
+                        "description": "The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules",
+                        "type": "boolean"
+                      },
+                      "gatewayDisposal": {
+                        "$ref": "partnerIdentification"
                       }
                     },
                     "patternProperties": {
@@ -1393,7 +1462,7 @@
               "customsInformation": {
                 "$id": "customsInformation",
                 "title": "Customs information",
-                "description": "Used to specifiy information necessary in the customs process",
+                "description": "Used to specify information necessary in the customs process",
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
@@ -1949,6 +2018,11 @@
                   "x-.*": {},
                   "\\$.*": {}
                 }
+              },
+              "consignmentObjectId": {
+                "title": "Unique central consignment number",
+                "description": "Unique identification for the consignment in a central system",
+                "type": "string"
               }
             },
             "required": [
