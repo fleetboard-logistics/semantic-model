@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
-  "description": "An event which occurred during the processing of the referenced consignment (Generated: 28.04.2019 10:32:12 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "An event which occurred during the processing of the referenced consignment (Generated: 29.04.2019 13:41:48 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -258,10 +258,53 @@
       }
     },
     "dataProcessing": {
-      "type": "object"
+      "title": "Data processing",
+      "description": "Events occurred while validating and processing the data",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "invalidData": {
+          "$id": "emptyExtendableObject",
+          "title": "Empty Extendable Object",
+          "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "invalidPackageType": {
+          "$ref": "emptyExtendableObject"
+        },
+        "invalidDangerousGoodInformation": {
+          "$ref": "emptyExtendableObject"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
     "generalProcessingNotification": {
+      "title": "General processing",
+      "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "eventDateTime": {
           "title": "Event Date-time",
@@ -271,20 +314,12 @@
         },
         "exceptions": {
           "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occurred while processing the consignment.Use (null) to report successful processing of the consignment",
+          "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "incompatible": {
-              "$id": "emptyExtendableObject",
-              "title": "Empty Extendable Object",
-              "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
+              "$ref": "emptyExtendableObject"
             },
             "incomplete": {
               "$ref": "emptyExtendableObject"
@@ -392,7 +427,11 @@
       },
       "required": [
         "eventDateTime"
-      ]
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
     "unloading": {
       "title": "Unloading",

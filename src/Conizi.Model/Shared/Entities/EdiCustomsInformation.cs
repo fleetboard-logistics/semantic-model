@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
 {
     [JsonObject("customsInformation")]
     [DisplayName("Customs information")]
-    [Description("Used to specifiy information necessary in the customs process")]
+    [Description("Used to specify information necessary in the customs process")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiCustomsInformation : EdiPatternPropertiesBase

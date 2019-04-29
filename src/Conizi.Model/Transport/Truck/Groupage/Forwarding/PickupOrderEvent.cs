@@ -30,7 +30,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public string PickupOrderNo { get; set; }
 
         /// <summary>
-        /// Pickup order date
+        /// The date on which the pickup order was forwarded to the contracted partner
         /// </summary>
         [DisplayName("Pickup order date")]
         [Description("The date on which the pickup order was forwarded to the contracted partner")]

@@ -17,8 +17,6 @@
   <Namespace>Conizi.Model.Shared.Helper</Namespace>
   <Namespace>Conizi.Model.Shared.Interfaces</Namespace>
   <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding</Namespace>
-  <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Manifest</Namespace>
-  <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour</Namespace>
   <Namespace>Newtonsoft.Json</Namespace>
   <Namespace>Newtonsoft.Json.Bson</Namespace>
   <Namespace>Newtonsoft.Json.Converters</Namespace>
@@ -45,6 +43,7 @@ var models = new List<Type> {
 	 typeof(PackageEvent),
 	 typeof(Manifest),
 	 typeof(EventBulk),
+	 typeof(PickupOrderEvent)
 
 };
 

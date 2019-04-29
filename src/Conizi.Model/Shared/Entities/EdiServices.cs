@@ -13,22 +13,46 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiServices : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// Packaging Options
+        /// </summary>
         public EdiPackagingOptions PackagingOptions { get; set; }
 
+        /// <summary>
+        /// The transport is produced via special run (and with special fares)
+        /// </summary>
         [DisplayName("Special Run")]
         [Description("The transport is produced via special run (and with special fares)")]
         public string SpecialRun { get; set; }
 
+        /// <summary>
+        /// Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...
+        /// </summary>
         public EdiNotifications Notifications { get; set; }
 
+        /// <summary>
+        /// Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods
+        /// </summary>
         public EdiAnonymity Anonymity { get; set; }
 
+        /// <summary>
+        /// Information about time slots which need to be booked or are already booked for the pickup or the following consignment
+        /// </summary>
         public EdiTimeSlotBooking TimeSlotBooking { get; set; }
 
+        /// <summary>
+        /// Requirements for the delivery or pickup time
+        /// </summary>
         public EdiTimeOptions TimeOptions { get; set; }
 
+        /// <summary>
+        /// Requirements for special services or equipment for the delivery
+        /// </summary>
         public EdiDeliveryOptions DeliveryOptions { get; set; }
 
+        /// <summary>
+        /// Information about the loading of the main haul
+        /// </summary>
         public EdiLoadingOptions LoadingOptions { get; set; }
 
         public EdiUnloadingOptions UnloadingOptions { get; set; }
@@ -40,6 +64,98 @@ namespace Conizi.Model.Shared.Entities
         public EdiReturnOfGoods ReturnOfGoods { get; set; }
 
     }
+
+    /// <summary>
+    /// Special services which can be requested by the ordering party (or the shipping partner) for this pickup order
+    /// </summary>
+    [JsonObject("services")]
+    [DisplayName("Services")]
+    [Description("Special services which can be requested by the ordering party (or the shipping partner) for this pickup order")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupServices : EdiServices
+    {
+        /// <summary>
+        /// Special options needed to process this pickup order
+        /// </summary>
+        public EdiPickupOptions PickupOptions { get; set; }
+
+        /// <summary>
+        /// Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications for the pickup order
+        /// </summary>
+        public new EdiPickupNotifications Notifications { get; set; }
+
+    }
+
+
+    /// <summary>
+    /// Special options needed to process this pickup order
+    /// </summary>
+    [JsonObject("pickupOptions")]
+    [DisplayName("Pickup Options")]
+    [Description("Special options needed to process this pickup order")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupOptions : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// The pickup order can only be picked up with a vehicle equipped with a lifting platform
+        /// </summary>
+        [DisplayName("Lifting Platform")]
+        [Description("The pickup order can only be picked up with a vehicle equipped with a lifting platform")]
+        public bool LiftingPlatform { get; set; }
+
+        /// <summary>
+        /// Delivery Note is following later by post or driver post
+        /// </summary>
+        [DisplayName("Delivery Note following by post")]
+        [Description("Delivery Note is follwing later by post or driver post")]
+        public bool DeliveryNoteFollowingByPost { get; set; }
+
+        /// <summary>
+        /// Driver has to bring empty pallets for exchange
+        /// </summary>
+        [DisplayName("Empty pallets for exchange")]
+        [Description("Driver has to bring empty pallets for exchange")]
+        public bool EmptyPallets { get; set; }
+
+        /// <summary>
+        /// The pickup contains unknown dangerous goods
+        /// </summary>
+        [DisplayName("Unknown dangerous goods")]
+        [Description("The pickup contains unknown dangerous goods")]
+        public bool UnknownDangerousGoods { get; set; }
+
+        /// <summary>
+        /// The goods must be picked up from the point of use with one man handling. Usually in case of returning old goods
+        /// </summary>
+        [DisplayName("Point of use pickup - 1 man handling")]
+        [Description("The goods must be picked up from the point of use with one man handling. Usually in case of returning old goods")]
+        public bool PointOfUsePickup1Person { get; set; }
+
+        /// <summary>
+        /// The goods must be picked up from the point of use with two man handling. Usually in case of returning old goolds
+        /// </summary>
+        [DisplayName("Point of use pickup - 2 man handling")]
+        [Description("The goods must be picked up from the point of use with two man handling. Usually in case of returning old goolds")]
+        public bool PointOfUsePickup2Persons { get; set; }
+
+        /// <summary>
+        /// A given last mile provider must be used
+        /// </summary>
+        [DisplayName("Pickup by specific last mile provider")]
+        [Description("A given last mile provider must be used")]
+        public bool UseSpecificLastMileProvider { get; set; }
+
+        /// <summary>
+        /// The pickup is for attention of the given company
+        /// </summary>
+        [DisplayName("For attention")]
+        [Description("The pickup is for attention of the given company")]
+        public bool ForAttentionOf { get; set; }
+
+    }
+
 
     [JsonObject("gateway")]
     [DisplayName("Gateway-Options")]

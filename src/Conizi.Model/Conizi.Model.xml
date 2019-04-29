@@ -379,6 +379,141 @@
             Fields to save address relevant data
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiAnonymity">
+            <summary>
+            Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAnonymity.NeutralShipper">
+            <summary>
+            An address to be shown to the consignee instead of the actual shipper when delivering the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAnonymity.NeutralConsignee">
+            <summary>
+            An address to be shown to the shipper instead of the actual address the consignee when picking up the goods
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryOptions">
+            <summary>
+            Requirements for special services or equipment for the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.LiftingPlatform">
+            <summary>
+            The consignment can only be delivered with a vehicle equipped with a lifting platform
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.PointOfUseDelivery1Person">
+            <summary>
+            The goods must be delivered to the point of use with one man handling
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.PointOfUseDelivery2Persons">
+            <summary>
+            The goods must be delivered to the point of use with two men handling
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.ShelfService">
+            <summary>
+            The goods must be put into the shelves at the destination
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.UseSpecificLastMileProvider">
+            <summary>
+            A given last mile provider must be used
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.CashOnDelivery">
+            <summary>
+            The goods must only be delivered if the recipient pays the given amount
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.PickupByConsignee">
+            <summary>
+            The consignee will pick up the goods at the receiving partner's warehouse. Do not perform local delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.WorkRequest">
+            <summary>
+            The receiving partner should perform the action specified
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.DeliveryOnlyWithDeliveryNote">
+            <summary>
+            Delivery should only be performed with the delivery note
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.DigitalDeliveryNote">
+            <summary>
+            The delivery note has been sent by means of digital communication (and is not attached to the goods)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.DeliveryNoteOnGoods">
+            <summary>
+            The delivery note is attached to the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.PodOnOriginalDeliveryNote">
+            <summary>
+            The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.DeliveryWithoutReceiptAllowed">
+            <summary>
+            The goods may be dropped at the designated location without a signature
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDeliveryOptions.ForAttentionOf">
+            <summary>
+            The goods may be dropped at the designated location without a signature
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiUseSpecificLastMileProvider">
+            <summary>
+            A given last mile provider must be used
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUseSpecificLastMileProvider.Name">
+            <summary>
+            The name of the provider to be used
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiCashOnDelivery">
+            <summary>
+            The goods must only be delivered if the recipient pays the given amount
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCashOnDelivery.Amount">
+            <summary>
+            The amount to be paid
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCashOnDelivery.Currency">
+            <summary>
+            The currency of the given amount
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCashOnDelivery.AcceptCash">
+            <summary>
+            Specifies if cash should be accepted (true) or rejected (false)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCashOnDelivery.AcceptCheque">
+            <summary>
+            Specifies if cheques should be accepted
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiWorkRequest">
+            <summary>
+            The receiving partner should perform the action specified
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiWorkRequest.Info">
+            <summary>
+            A description of the action to be performed
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiEmptyExtendableObject">
             <summary>
             The empty EdiEmptyExtendableObject is used for non yet completed defined objects.
@@ -1108,6 +1243,26 @@
             Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiLoadingOptions">
+            <summary>
+            Information about the loading of the main haul
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingOptions.DirectPickup">
+            <summary>
+            The goods picked up by the line haul and are not loaded by the shipping partners warehouse
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingOptions.ReceivingPartnerDisposal">
+            <summary>
+            The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLoadingOptions.GatewayDisposal">
+            <summary>
+            The gateway / HUB to which the goods should send after pickup from the contracted partners. If not set the route usually is determined by the networks routing rules
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiModel">
             <summary>
             Base model in the conizi context
@@ -1149,9 +1304,144 @@
             The used network for this message
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotifications">
+            <summary>
+            Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotifications.GeneralNotificationAddress">
+            <summary>
+            An address and associated contact information which should be kept in the loop
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotifications.AfterDelivery">
+            <summary>
+            Information about successful delivery should be given to this address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotifications.BeforeDelivery">
+            <summary>
+            Before a delivery is attempted the person noted here should be contacted within the given time frame
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotifications.ByDriver">
+            <summary>
+            The driver should call the given contact before delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupNotifications">
+            <summary>
+            Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications for the pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupNotifications.BeforePickup">
+            <summary>
+            Before a pickup is attempted the address noted here should be contacted within the given time frame
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupNotifications.AfterPickup">
+            <summary>
+            Information about successful pickup should be given to this address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupNotifications.ByDriverBeforePickup">
+            <summary>
+            The driver should call the given contact before pickup
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPackagingOptions">
+            <summary>
+            Packaging Options
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPackagingOptions.Return">
+            <summary>
+            Packaging material return
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPackagingOptions.Correction">
+            <summary>
+            Packaging correction for your Bordero from: ... (Additional description)"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPackagingOptions.ThirdPartyDelivery">
+            <summary>
+            Delivery of packaging by third parties on: ... (Additional description)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPackagingOptions.Pickup">
+            <summary>
+            Package Pickup
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiPartnerIdentification">
             <summary>
             Fields to identify the partner or/and further data routing information
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.Name">
+            <summary>
+            Name of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.Street">
+            <summary>
+            Street of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.HouseNumber">
+            <summary>
+            House number of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.ZipCode">
+            <summary>
+            Zip code of the Address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.City">
+            <summary>
+            City of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.TownArea">
+            <summary>
+            Town area address"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.CountryCode">
+            <summary>
+            Country code of the address Use ISO 3166-1 Alpha-2 codes. See also <seealso href="https://en.wikipedia.org/wiki/ISO_3166-1"></seealso>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.EmailAddress">
+            <summary>
+            Email of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.PhoneNumber">
+            <summary>
+            Phone number of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.AdditionalAddressLines">
+            <summary>
+            Additional address lines of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.ReferenceNumber">
+            <summary>
+            Reference number for an address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.ContactPerson">
+            <summary>
+            The contact person
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.FaxNumber">
+            <summary>
+            The Fax number
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiMessageRouting">
@@ -1172,6 +1462,366 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiMessageRouting.ConiziId">
             <summary>
             Conizi Id is used to identify the sending or receiving Tenant/Site/App on the conizi platform 
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiRouting">
+            <summary>
+            Information about the route take by this consignment/pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiRouting.Shipper">
+            <summary>
+            The address of the party which is sending the goods. This is usually the place where the pickup originated
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiRouting.Consignee">
+            <summary>
+            The address of the good's recipient
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiRouting.LoadingAddress">
+            <summary>
+            The address of the party which is sending the goods. This is usually the place where the transport originated
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiRouting.UnloadingAddress">
+            <summary>
+            The drop of point for the consignment, e.g. the exact address of the warehouse if the consignee has multiple warehouses
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.PackagingOptions">
+            <summary>
+            Packaging Options
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.SpecialRun">
+            <summary>
+            The transport is produced via special run (and with special fares)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.Notifications">
+            <summary>
+            Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.Anonymity">
+            <summary>
+            Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.TimeSlotBooking">
+            <summary>
+            Information about time slots which need to be booked or are already booked for the pickup or the following consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.TimeOptions">
+            <summary>
+            Requirements for the delivery or pickup time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.DeliveryOptions">
+            <summary>
+            Requirements for special services or equipment for the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.LoadingOptions">
+            <summary>
+            Information about the loading of the main haul
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupServices">
+            <summary>
+            Special services which can be requested by the ordering party (or the shipping partner) for this pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupServices.PickupOptions">
+            <summary>
+            Special options needed to process this pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupServices.Notifications">
+            <summary>
+            Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications for the pickup order
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupOptions">
+            <summary>
+            Special options needed to process this pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.LiftingPlatform">
+            <summary>
+            The pickup order can only be picked up with a vehicle equipped with a lifting platform
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.DeliveryNoteFollowingByPost">
+            <summary>
+            Delivery Note is following later by post or driver post
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.EmptyPallets">
+            <summary>
+            Driver has to bring empty pallets for exchange
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.UnknownDangerousGoods">
+            <summary>
+            The pickup contains unknown dangerous goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.PointOfUsePickup1Person">
+            <summary>
+            The goods must be picked up from the point of use with one man handling. Usually in case of returning old goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.PointOfUsePickup2Persons">
+            <summary>
+            The goods must be picked up from the point of use with two man handling. Usually in case of returning old goolds
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.UseSpecificLastMileProvider">
+            <summary>
+            A given last mile provider must be used
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.ForAttentionOf">
+            <summary>
+            The pickup is for attention of the given company
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTimeOptions">
+            <summary>
+            Requirements for the delivery or pickup time
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.NotAfter">
+            <summary>
+            The consignment must be delivered until the given date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.NotBefore">
+            <summary>
+            The consignment must not be delivered before the given date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.FixedDay">
+            <summary>
+            The consignment must be delivered at the given date (and in the given time window)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.FixedWeek">
+            <summary>
+            The consignment must be delivered within the given week of the year
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.WeekendSaturday">
+            <summary>
+            The consignment should be delivered on a saturday
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.NextDay">
+            <summary>
+            The consignment must be delivered on the next working day"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.SameDay">
+            <summary>
+            The consignment must be delivered on the same day
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.Evening">
+            <summary>
+            The consignment must be delivered in the evening hours
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeOptions.SameDayPickup">
+            <summary>
+            The goods must be picked up on the same day
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotAfter">
+            <summary>
+            The consignment must be delivered until the given date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotAfter.Date">
+            <summary>
+            Not after Date (Day)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotBefore">
+            <summary>
+            The consignment must not be delivered before the given date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotBefore.Date">
+            <summary>
+            Not before Date (Day: yyyy-MM-dd => 2019-02-14)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiFixedDay">
+            <summary>
+            The consignment must be delivered at the given date (and in the given time window)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFixedDay.Date">
+            <summary>
+            Exact at Date (Day)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFixedDay.TimeFrom">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFixedDay.TimeUntil">
+            <summary>
+            Until time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiFixedWeek">
+            <summary>
+            The consignment must be delivered within the given week of the year
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFixedWeek.Year">
+            <summary>
+            Year for  delivery / pickup
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFixedWeek.WeekOfYear">
+            <summary>
+            Week of the year for delivery / pickup
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiWeekendSaturday">
+            <summary>
+            The consignment should be delivered on a saturday
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiWeekendSaturday.Date">
+            <summary>
+            Exact at Date (Day)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiWeekendSaturday.TimeFrom">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiWeekendSaturday.TimeUntil">
+            <summary>
+            Until time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNextDay">
+            <summary>
+            The consignment must be delivered on the next working day
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNextDay.Date">
+            <summary>
+            Exact at Date (Day)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNextDay.TimeFrom">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNextDay.TimeUntil">
+            <summary>
+            Until time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiSameDay">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSameDay.Date">
+            <summary>
+            Exact at Date (Day)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSameDay.TimeFrom">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSameDay.TimeUntil">
+            <summary>
+            Until time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiEvening">
+            <summary>
+            The consignment must be delivered in the evening hours
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiEvening.Date">
+            <summary>
+            Exact at Date (Day)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiEvening.TimeFrom">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiEvening.TimeUntil">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiSameDayPickup">
+            <summary>
+            The goods must be picked up on the same day
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSameDayPickup.Date">
+            <summary>
+            Exact at Date (Day)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSameDayPickup.TimeFrom">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSameDayPickup.TimeUntil">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTimeSlotBooking">
+            <summary>
+            Information about time slots which need to be booked or are already booked for the pickup or the following consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSlotBooking.ByDeliveryPartner">
+            <summary>
+            A time slot must be book by the delivering partner before making a delivery attempt
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSlotBooking.ByContractedPartner">
+            <summary>
+            A time slot must be book by the contracted partner before making the pickup attempt
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSlotBooking.PreBookedTimeslot">
+            <summary>
+            A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPreBookedTimeslot">
+            <summary>
+            A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPreBookedTimeslot.Info">
+            <summary>
+            Info about the pre booked time slot
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiTimeSpan">
@@ -1965,27 +2615,27 @@
             </summary>
             <remarks>
             The consignment is the basic business object for conizi. Other objects like <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest"/>, <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour"/>
-            use the consignment for additional business processes. 
+            uses the consignment for additional business processes. 
             </remarks>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentObjectId">
             <summary>
-            Unique central consignment number
+            Unique identification for the consignment in a central system
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentNoShippingPartner">
             <summary>
-            Consignment number of the shipping partner
+            Unique identification for the consignment within the transport management system of the shipping partner
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ConsignmentNoReceivingPartner">
             <summary>
-            Consignment number of the receiving partner
+            Unique identification for the consignment within the transport management system of the receiving partner
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingDate">
             <summary>
-            Shipping date
+            The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ManifestId">
@@ -1998,9 +2648,69 @@
             Tour number. Number of the planned / assigned local traffic tour for delivery.
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.IsPreAdvice">
+            <summary>
+            Adds the possibility of sending the consignment (after saving, before approval) to e.g. a TMS
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.AdditionalPartners">
+            <summary>
+            Additional partners which are also involved in processing this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.OrderingParty">
+            <summary>
+            Person or company that ordered the transport of the consignment. Often identical to the shipper
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ShippingPartner">
             <summary>
-            
+            The partner which is sending the consignment to the receiving partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ReceivingPartner">
+            <summary>
+            The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.Routing">
+            <summary>
+            The address of the party which is sending the goods. This is usually the place where the transport originated
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.Services">
+            <summary>
+            Special services which can be requested by the ordering party (or the shipping partner)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.ExternalServices">
+            <summary>
+            Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.Information">
+            <summary>
+            General information about the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.References">
+            <summary>
+            Numbers of various sources identifing this consignment or references from this consignment to other business processes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.Billing">
+            <summary>
+            Information for invoicing and clearing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.CustomsInformation">
+            <summary>
+            Used to specify information necessary in the customs process
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment.Content">
+            <summary>
+            Describes the nature and quantity of the goods in this consignment
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent">
@@ -2318,6 +3028,51 @@
             A single pickup order which is transferred between two partners
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.PickupOrderNo">
+            <summary>
+            Unique identification for the pickup order within the transport management system of the contract partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.PickupOrderDate">
+            <summary>
+            The date on which the pickup order was forwarded to the contracted partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.PickupDate">
+            <summary>
+            The date on which the pickup order should be processed by the contracted partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.OrderingPartner">
+            <summary>
+            The partner which is sending the pickup order to the contracted partner for pickup
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.OrderingParty">
+            <summary>
+            Person or company that ordered the transport of the consignment. Often identical to the shipper
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.ContractedPartner">
+            <summary>
+            The partner which is contracted for processing the pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.AdditionalPartners">
+            <summary>
+            Additional partners which are also involved in processing this pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.Routing">
+            <summary>
+            Information about the route take by this pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.Services">
+            <summary>
+            Special services which can be requested by the ordering party (or the shipping partner) for this pickup order
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk">
             <summary>
             
@@ -2335,7 +3090,7 @@
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.PickupOrderDate">
             <summary>
-            Pickup order date
+            The date on which the pickup order was forwarded to the contracted partner
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.OrderingParty">
@@ -2430,7 +3185,7 @@
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.Cancellation">
             <summary>
-            Events indicating the cancellation of the pickup order"
+            Events indicating the cancellation of the pickup order
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.OriginalEventCode">

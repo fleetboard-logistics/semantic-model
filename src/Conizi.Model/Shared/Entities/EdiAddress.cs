@@ -17,7 +17,7 @@ namespace Conizi.Model.Shared.Entities
     [JsonObject("ediAddress")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiAddress : IAddress
+    public class EdiAddress : EdiPatternPropertiesBase, IAddress
     {
         [DisplayName("Name of the address")]
         public string Name { get; set; }
@@ -41,7 +41,7 @@ namespace Conizi.Model.Shared.Entities
         public string PhoneNumber { get; set; }
         [DisplayName("Additional address lines of the address")]
         public List<string> AdditionalAddressLines { get; set; }
-        [DisplayName("Reference number of the consignment")]
+        [DisplayName("Reference number of depending object")]
         public string ReferenceNumber { get; set; }
         [DisplayName("The contact person")]
         public string ContactPerson { get; set; }

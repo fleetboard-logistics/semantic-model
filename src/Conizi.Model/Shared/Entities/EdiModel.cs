@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
@@ -20,9 +21,10 @@ namespace Conizi.Model.Shared.Entities
         /// The github repository https://github.com/fleetboard-logistics/semantic-model contains the models source.
         /// Please use the production branch to get a stable version.
         /// </remarks>
-        [JsonProperty("$schema", Required = Required.Always, Order = -999)]
+        [JsonProperty("$schema", Order = -999)]
         [DisplayName("Json schema")]
         [Description("The used json schema")]
+        [Required]
         public string Schema { get; internal set; }
 
         /// <summary>
@@ -44,7 +46,8 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// The receiver of this message
         /// </summary>
-        [JsonProperty("receiver", Required = Required.Always, Order = -993)]
+        [JsonProperty("receiver", Order = -993)]
+        [Required]
         public EdiMessageRouting Receiver { get; set; }
 
         /// <summary>

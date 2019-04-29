@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
-  "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops (Generated: 28.04.2019 10:32:11 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops (Generated: 29.04.2019 13:41:47 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -421,7 +421,7 @@
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
         "title": "Consignment",
-        "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 28.04.2019 10:32:11 - Conizi.Model.Core v:1.0.0.0)",
+        "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 29.04.2019 13:41:47 - Conizi.Model.Core v:1.0.0.0)",
         "type": "object",
         "additionalProperties": false,
         "properties": {

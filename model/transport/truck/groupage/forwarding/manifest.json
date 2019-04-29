@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
-  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time (Generated: 28.04.2019 10:32:12 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time (Generated: 29.04.2019 13:41:48 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -316,7 +316,7 @@
           "consignment": {
             "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
             "title": "Consignment",
-            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 28.04.2019 10:32:12 - Conizi.Model.Core v:1.0.0.0)",
+            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 29.04.2019 13:41:48 - Conizi.Model.Core v:1.0.0.0)",
             "type": "object",
             "additionalProperties": false,
             "properties": {

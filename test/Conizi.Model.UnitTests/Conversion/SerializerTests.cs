@@ -153,7 +153,7 @@ namespace Conizi.Model.UnitTests.Conversion
                     },
                     Notifications = new EdiNotifications
                     {
-                        GeneralNotificationAddress = new EdiPartnerIdentification
+                        GeneralNotificationAddress = new EdiAddress
                         {
                             ContactPerson = "Mice Mouse"
                         }
