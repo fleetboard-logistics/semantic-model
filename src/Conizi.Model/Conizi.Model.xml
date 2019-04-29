@@ -326,6 +326,54 @@
             Detailed information about the exceptions that caused the pickup to be fail
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.Consignment.EdiPickupSuccessful">
+            <summary>
+            Events indicating a successful pickup
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Consignment.EdiPickupSuccessful.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occured while pickup the pickup order.
+            Use (null) to report successful pickup.
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Consignment.EdiPickupUnloading">
+            <summary>
+            Events occured while unloading the pickup order at the plant of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Consignment.EdiPickupUnloading.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occured while unloading the pickup order.
+            Use (null) to report successful unloading the pickup order
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Consignment.EdiPickupForwarding">
+            <summary>
+            Events occured while forwarding the pickup order to the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Consignment.EdiPickupForwarding.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occured while forwarding the pickup order.
+            Use (null) to report successful forwarding the pickup order
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Consignment.EdiPickupCancellation">
+            <summary>
+            Events indicating the cancellation of the pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Consignment.EdiPickupCancellation.CancellationBySourcePartner">
+            <summary>
+            The pick-up order was cancelled by the sender (customer)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Consignment.EdiPickupCancellation.CancellationByContractPartner">
+            <summary>
+            The pick-up order was cancelled by the shipping partner (carrier)
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiAddress">
             <summary>
             Fields to save address relevant data
@@ -890,6 +938,39 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiPickupAttemptFailedExceptions.TimeSlotMissed">
             <summary>
             Pickup aborted because pick-up time slot was missed
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupSuccessfulExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while pickup the pickup order.
+            Use (null) to report successful pickup.
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupSuccessfulExceptions.Incomplete">
+            <summary>
+            Some parts of the goods are missing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupSuccessfulExceptions.Damaged">
+            <summary>
+            The goods are damaged
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupUnloadingExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while unloading the pickup order.
+            Use (null) to report successful unloading the pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupUnloadingExceptions.Damaged">
+            <summary>
+            The consignment was damaged on arrival
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupForwardingExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while forwarding the pickup order.
+            Use (null) to report successful forwarding the pickup order
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiFileContent">
@@ -2269,7 +2350,7 @@
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.ContractedPartner">
             <summary>
-            TThe partner which is contracted for processing the pickup order
+            The partner which is contracted for processing the pickup order
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.ShippingPartner">
@@ -2330,6 +2411,36 @@
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.PickupAttemptFailed">
             <summary>
             Events indicating a failed pickup attempt
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.PickupSuccessful">
+            <summary>
+            Events indicating a successful pickup
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.Unloading">
+            <summary>
+            Events occurred while unloading the pickup order at the plant of the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.Forwarding">
+            <summary>
+            Events occurred while forwarding the pickup order to the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.Cancellation">
+            <summary>
+            Events indicating the cancellation of the pickup order"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.OriginalEventCode">
+            <summary>
+            Original event code
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.AdditionalRemarks">
+            <summary>
+            Additional remarks (free form)
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour">

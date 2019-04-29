@@ -137,5 +137,77 @@ namespace Conizi.Model.Shared.Entities.Consignment
         public EdiPickupAttemptFailedExceptions Exceptions { get; set; }
     }
 
+    /// <summary>
+    /// Events indicating a successful pickup
+    /// </summary>
+    [DisplayName("Pickup successful")]
+    [Description("Events indicating a successful pickup")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupSuccessful : EdiEventBase
+    {
+        /// <summary>
+        /// Detailed information about the exceptions that occured while pickup the pickup order.
+        /// Use (null) to report successful pickup.
+        /// </summary>
+        public EdiPickupSuccessfulExceptions Exceptions { get; set; }
+    }
 
+    /// <summary>
+    /// Events occured while unloading the pickup order at the plant of the shipping partner
+    /// </summary>
+    [DisplayName("Unloading")]
+    [Description("Events occured while unloading the pickup order at the plant of the shipping partner")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupUnloading : EdiEventBase
+    {
+        /// <summary>
+        /// Detailed information about the exceptions that occured while unloading the pickup order.
+        /// Use (null) to report successful unloading the pickup order
+        /// </summary>
+        public EdiPickupUnloadingExceptions Exceptions { get; set; }
+    }
+
+    /// <summary>
+    /// Events occured while forwarding the pickup order to the receiving partner
+    /// </summary>
+    [DisplayName("Forwarding")]
+    [Description("Events occured while forwarding the pickup order to the receiving partner")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupForwarding : EdiEventBase
+    {
+        /// <summary>
+        /// Detailed information about the exceptions that occured while forwarding the pickup order.
+        /// Use (null) to report successful forwarding the pickup order
+        /// </summary>
+        public EdiPickupForwardingExceptions Exceptions { get; set; }
+    }
+
+
+    /// <summary>
+    /// Events indicating the cancellation of the pickup order
+    /// </summary>
+    [DisplayName("Cancellation")]
+    [Description("Events occured while forwarding the pickup order to the receiving partner")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupCancellation : EdiEventBase
+    {
+        /// <summary>
+        /// The pick-up order was cancelled by the sender (customer)
+        /// </summary>
+        //DisplayName("Cancellation by source partner")]
+        //[Description("The pick-up order was cancelled by the sender (customer)")]
+        public EdiEmptyExtendableObject CancellationBySourcePartner { get; set; }
+
+        /// <summary>
+        /// The pick-up order was cancelled by the shipping partner (carrier)
+        /// </summary>
+        //DisplayName("Cancellation by contract partner")]
+        //[Description("The pick-up order was cancelled by the shipping partner (carrier)")]
+        public EdiEmptyExtendableObject CancellationByContractPartner { get; set; }
+
+    }
 }

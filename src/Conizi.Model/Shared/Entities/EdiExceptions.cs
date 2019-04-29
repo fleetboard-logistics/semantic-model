@@ -883,4 +883,65 @@ namespace Conizi.Model.Shared.Entities
         //[Description("Pickup aborted because pick-up time slot was missed")]
         public EdiEmptyExtendableObject TimeSlotMissed { get; set; }
     }
+
+    /// <summary>
+    /// Detailed information about the exceptions that occured while pickup the pickup order.
+    /// Use (null) to report successful pickup.
+    /// </summary>
+    [DisplayName("Exceptions")]
+    [Description("Detailed information about the exceptions that occured while pickup the pickup order." +
+                 "Use (null) to report successful pickup")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupSuccessfulExceptions : EdiPatternPropertiesBase
+    {
+
+        /// <summary>
+        /// Some parts of the goods are missing
+        /// </summary>
+        //[DisplayName("Incomplete")]
+        //[Description("Some parts of the goods are missing")]
+        public EdiEmptyExtendableObject Incomplete { get; set; }
+
+        /// <summary>
+        /// The goods are damaged
+        /// </summary>
+        //[DisplayName("Damaged")]
+        //[Description("The goods are damaged")]
+        public EdiEmptyExtendableObject Damaged { get; set; }
+    }
+
+    /// <summary>
+    /// Detailed information about the exceptions that occured while unloading the pickup order.
+    /// Use (null) to report successful unloading the pickup order
+    /// </summary>
+    [DisplayName("Exceptions")]
+    [Description("Detailed information about the exceptions that occured while unloading the pickup order." +
+                 "Use (null) to report successful unloading the pickup order")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupUnloadingExceptions : EdiPatternPropertiesBase
+    {
+
+        /// <summary>
+        /// The consignment was damaged on arrival
+        /// </summary>
+        //[DisplayName("Damaged")]
+        //[Description("The consignment was damaged on arrival")]
+        public EdiEmptyExtendableObject Damaged { get; set; }
+    }
+
+    /// <summary>
+    /// Detailed information about the exceptions that occured while forwarding the pickup order.
+    /// Use (null) to report successful forwarding the pickup order
+    /// </summary>
+    [DisplayName("Exceptions")]
+    [Description("Detailed information about the exceptions that occured while forwarding the pickup order." +
+                 "Use (null) to report successful forwarding the pickup order")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiPickupForwardingExceptions : EdiPatternPropertiesBase
+    {
+
+    }
 }

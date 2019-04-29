@@ -49,7 +49,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiPartnerIdentification OrderingPartner { get; set; }
 
         /// <summary>
-        /// TThe partner which is contracted for processing the pickup order
+        /// The partner which is contracted for processing the pickup order
         /// </summary>
         public EdiPartnerIdentification ContractedPartner { get; set; }
 
@@ -113,6 +113,40 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// Events indicating a failed pickup attempt
         /// </summary>
         public EdiPickupAttemptFailed PickupAttemptFailed { get; set; }
+
+        /// <summary>
+        /// Events indicating a successful pickup
+        /// </summary>
+        public EdiPickupSuccessful PickupSuccessful { get; set; }
+
+        /// <summary>
+        /// Events occurred while unloading the pickup order at the plant of the shipping partner
+        /// </summary>
+        public EdiPickupUnloading Unloading { get; set; }
+
+        /// <summary>
+        /// Events occurred while forwarding the pickup order to the receiving partner
+        /// </summary>
+        public EdiPickupForwarding Forwarding { get; set; }
+
+        /// <summary>
+        /// Events indicating the cancellation of the pickup order"
+        /// </summary>
+        public EdiPickupCancellation Cancellation { get; set; }
+
+        /// <summary>
+        /// Original event code
+        /// </summary>
+        [DisplayName("Original event code")]
+        [Description("Original event code")]
+        public string OriginalEventCode { get; set; }
+
+        /// <summary>
+        /// Additional remarks (free form)
+        /// </summary>
+        [DisplayName("Additional remarks")]
+        [Description("Additional remarks (free form)")]
+        public List<string> AdditionalRemarks { get; set; }
 
 
     }
