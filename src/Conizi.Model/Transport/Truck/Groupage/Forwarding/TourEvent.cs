@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
-    /// An event which occurred during the processing of the referenced tour <see cref="Tour"/>
+    /// An event which occurred during the processing of the referenced <see cref="Tour"/>
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
         "tour-event.json")]

@@ -8,11 +8,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
 
     /// <summary>
-    /// Events for different consignments, pickup orders or packages, that can be send in bulk, which occurred during the processing <seealso cref="Consignment"/>
+    /// Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk. See also <seealso cref="Consignment"/>, <seealso cref="Tour"/>, <seealso cref="PickupOrder"/>
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json", "event-bulk.json")]
     [DisplayName("Bulk Event")]
-    [Description("Events for different consignments, pickup orders or packages, that can be send in bulk, which occurred during the processing")]
+    [Description("Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EventBulk : EdiModel

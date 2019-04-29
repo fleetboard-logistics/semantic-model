@@ -16,7 +16,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [Description("A single pickup order which is transferred between two partners")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    class PickupOrder : EdiModel
+    public class PickupOrder : EdiModel
     {
     }
 }

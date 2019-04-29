@@ -15,7 +15,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
     /// A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done,
-    /// e.g.loading and unloading information about consignments or maintenance stops
+    /// e.g.loading and unloading information about <see cref="Consignment"/>s or maintenance stops
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json", "tour.json")]
     [DisplayName("Tour")]

@@ -1961,7 +1961,7 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">
             <summary>
-            A single consignment which is transferred between two partners. Usually used within the context a manifest
+            A single consignment which is transferred between two partners. Usually used within the context a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest"/>
             </summary>
             <remarks>
             The consignment is the basic business object for conizi. Other objects like <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest"/>, <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour"/>
@@ -2135,7 +2135,7 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk">
             <summary>
-            Events for different consignments, pickup orders or packages, that can be send in bulk, which occurred during the processing <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
+            Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk. See also <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>, <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour"/>, <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder"/>
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk.ConsignmentEvents">
@@ -2160,7 +2160,7 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest">
             <summary>
-            A manifest describes multiple consignments which are forwarded from one partner to another at the same time
+            A manifest describes multiple <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>s which are forwarded from one partner to another at the same time
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent">
@@ -2446,7 +2446,7 @@
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour">
             <summary>
             A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done,
-            e.g.loading and unloading information about consignments or maintenance stops
+            e.g.loading and unloading information about <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>s or maintenance stops
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.TourId">
@@ -2496,7 +2496,7 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent">
             <summary>
-            An event which occurred during the processing of the referenced tour <see cref="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.Tour"/>
+            An event which occurred during the processing of the referenced <see cref="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.Tour"/>
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent.TourId">

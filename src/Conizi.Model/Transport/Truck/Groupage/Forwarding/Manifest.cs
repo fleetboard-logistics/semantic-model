@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
 {
     /// <summary>
-    /// A manifest describes multiple consignments which are forwarded from one partner to another at the same time
+    /// A manifest describes multiple <see cref="Consignment"/>s which are forwarded from one partner to another at the same time
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json", "manifest.json")]
     [DisplayName("Manifest")]

@@ -26,7 +26,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Pickup order number of the contract partner")]
         [Description("Unique identification for the pickup order within the transport management system of the contract partner")]
-        [JsonProperty("tourId", Order = -10, Required = Required.Always)]
+        [JsonProperty("pickupOrderNo", Order = -10, Required = Required.Always)]
         public string PickupOrderNo { get; set; }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiPickupForwarding Forwarding { get; set; }
 
         /// <summary>
-        /// Events indicating the cancellation of the pickup order"
+        /// Events indicating the cancellation of the pickup order
         /// </summary>
         public EdiPickupCancellation Cancellation { get; set; }
 
