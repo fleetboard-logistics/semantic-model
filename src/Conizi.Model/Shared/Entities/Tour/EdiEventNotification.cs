@@ -2,7 +2,7 @@
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 
-namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
+namespace Conizi.Model.Shared.Entities.Tour
 {
     /// <summary>
     /// Events occurred while processing the notification of the consignment

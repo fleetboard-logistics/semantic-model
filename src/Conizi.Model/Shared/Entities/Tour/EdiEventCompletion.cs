@@ -2,7 +2,7 @@
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 
-namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
+namespace Conizi.Model.Shared.Entities.Tour
 {
     /// <summary>
     ///Events indicating successful completion of a task, consignment has been forwarded

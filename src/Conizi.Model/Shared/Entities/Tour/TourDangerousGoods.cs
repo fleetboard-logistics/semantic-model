@@ -2,7 +2,7 @@
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json;
 
-namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
+namespace Conizi.Model.Shared.Entities.Tour
 {
     /// <summary>
     /// Dangerous goods to be declared contained in a consignment 

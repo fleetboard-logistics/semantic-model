@@ -1,8 +1,7 @@
-﻿using Conizi.Model.Shared.Entities;
-using Conizi.Model.Shared.Interfaces;
+﻿using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
-namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
+namespace Conizi.Model.Shared.Entities.Tour
 {
     /// <summary>
     /// Base class for a tour based event

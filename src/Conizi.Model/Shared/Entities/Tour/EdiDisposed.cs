@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 
-namespace Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour
+namespace Conizi.Model.Shared.Entities.Tour
 {
     /// <summary>
     /// Consignment was disposed

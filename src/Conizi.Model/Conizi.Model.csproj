@@ -22,5 +22,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transport\Truck\Groupage\Forwarding\Helper\" />
+  </ItemGroup>
 
 </Project>

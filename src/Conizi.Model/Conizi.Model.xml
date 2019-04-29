@@ -1278,6 +1278,564 @@
             The truck type
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.Cancellation">
+            <summary>
+            Events indicating the cancellation of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiArchived">
+            <summary>
+            Documents have been archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiArchived.Pod">
+            <summary>
+            Proof of delivery was archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiArchived.DeliveryNote">
+            <summary>
+            Delivery notes were archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiArchived.CustomsPapers">
+            <summary>
+            Customs papers were archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiArchived.DamagePictures">
+            <summary>
+            Pictures of damages were archived
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiDeliveryPlanning">
+            <summary>
+            Events occurred while planning the delivery of the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiDeliveryPlanning.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while planning the delivery of the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiDisposed">
+            <summary>
+            Consignment was disposed
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventArrivalAtReceiver">
+            <summary>
+            Events indicating the start of the delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventChangeRequest">
+            <summary>
+            Events indicating new information that should be added/updated in the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventChangeRequest.BillingDeliveryTerm">
+            <summary>
+            A new delivery term that should be considered for billing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventChangeRequest.BillingAreaPalletBays">
+            <summary>
+            The area occupied by the consignment - expressed in standard pallet sizes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventChangeRequest.BillingLoadingMeter">
+            <summary>
+            The area occupied by the consignment - expressed in loading meters
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventCompletion">
+             <summary>
+            Events indicating successful completion of a task, consignment has been forwarded
+             </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventCompletion.CompletedBy">
+            <summary>
+            Completed by another party
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventCompletion.Forwarded">
+            <summary>
+            Consignment was forwarded
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventCompletion.Signee">
+            <summary>
+            Name of the person which rejected the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventCompletion.WaitTime">
+            <summary>
+            Time spent waiting during delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventDeliveryAttemptFailed">
+            <summary>
+            Events indicating a failed delivery attempt
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliveryAttemptFailed.ReturnConsignmentNo">
+            <summary>
+            Number of the consignment which is used to return the goods to the shipper
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliveryAttemptFailed.Signee">
+            <summary>
+            Name of the person which rejected the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliveryAttemptFailed.WaitTime">
+            <summary>
+            Time spent waiting during delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliveryAttemptFailed.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred when consignment was not delivered
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventDeliveryStarted">
+            <summary>
+            Events indicating the start of the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliveryStarted.TourNumber">
+            <summary>
+            Number of the planned / assigned local traffic tour for delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventDeliverySuccessful">
+             <summary>
+            Events indicating successful delivery
+             </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliverySuccessful.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred when consignment was successfully delivered
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliverySuccessful.Signee">
+            <summary>
+            Name of the person which rejected the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventDeliverySuccessful.WaitTime">
+            <summary>
+            Time spent waiting during delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventEstimatedArrivalAtReceiver">
+            <summary>
+            Events occurred regarding the estimated time of arrival at receiver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventEstimatedArrivalAtReceiver.EstimatedArrivalTime">
+            <summary>
+            Date and time of the estimated arrival
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventGateway">
+            <summary>
+            Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventGateway.Loaded">
+            <summary>
+            The consignment has been loaded onto the truck leaving the gateway
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventGateway.Unloaded">
+            <summary>
+            The consignment has been unloaded from the truck delivering the consignment to the gateway
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventGateway.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the consignment.
+            Use (null) to report successful cross dock of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiEventNotification">
+            <summary>
+            Events occurred while processing the notification of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiRedirectedTo">
+            <summary>
+            The consignment is redirected to...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiRedirectedTo.Sender">
+            <summary>
+            Redirected to sender
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiRedirectedTo.SourcePartner">
+            <summary>
+            Redirected to source partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiRedirectedTo.ReceivingPartner">
+            <summary>
+            Redirected to receiving Partner
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiReleaseAuthorizationReceived">
+            <summary>
+            Release authorization received
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiSigningInformation">
+            <summary>
+            Signing Information
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent">
+            <summary>
+            Event to notify about stop specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.StopId">
+            <summary>
+            Unique identifier for this stop. References the stop within the tour <see cref="N:Conizi.Model.Shared.Entities.Tour"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.OnWayLoadingPoint">
+            <summary>
+            Vehicle is on the way to loading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.ArrivedAtLoadingPoint">
+            <summary>
+            Arrived at loading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.LoadingStarted">
+            <summary>
+            Loading of the vehicle has started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.LoadingCompleted">
+            <summary>
+            Loading of the vehicle was completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.OnWayUnloadingPoint">
+            <summary>
+            Vehicle is on the way to unloading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.ArrivedAtUnloadingPoint">
+            <summary>
+            Vehicle is arrived at unloading point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.UnloadingStarted">
+            <summary>
+            Unloading of the vehicle has started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.UnloadingCompleted">
+            <summary>
+            Unloading of the vehicle was completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.DocumentsReceived">
+            <summary>
+            Documents has been received
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.Departure">
+            <summary>
+            Departure, the stop has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiStopSpecificEvent.LoadingEquipmentExchange">
+            <summary>
+            Information on loading equipment exchange at this stop
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments">
+            <summary>
+            Event to notify about tour specific documents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments.Signature">
+            <summary>
+            Pictures/Files of signee's signature
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments.Damages">
+            <summary>
+            Pictures/Files of damages
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments.LoadSecuring">
+            <summary>
+            Pictures/Files of load securing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments.DrivingLicense">
+            <summary>
+            Pictures/Files of driving license
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments.ChecklistDepartureControl">
+            <summary>
+            Checklist of departure control available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments.ChecklistInstruction">
+            <summary>
+            Checklist of instructions available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourDocuments.ChecklistVehicleInspection">
+            <summary>
+            Checklist of vehicle inspection available
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiTourEventBase">
+            <summary>
+            Base class for a tour based event
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourEventBase.GeoPosition">
+            <summary>
+            The geo location, the event was recorded
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent">
+            <summary>
+            Event to notify about tour specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourScheduled">
+            <summary>
+            Disposal of a tour was done
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourTransmitted">
+            <summary>
+            The tour was transmitted to the mobile device
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourAccepted">
+            <summary>
+            The tour was accepted by the driver on mobile device
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourRejected">
+            <summary>
+            The tour was rejected by the driver on mobile device
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourStarted">
+            <summary>
+            The tour was started by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourCompleted">
+            <summary>
+            The tour was completed by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourPaused">
+            <summary>
+            The tour was paused by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TourResumed">
+            <summary>
+            The tour was resumed by the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.WorkingTimeStarted">
+            <summary>
+            Working time has been started for the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.WorkingTimeCompleted">
+            <summary>
+            Working time has been ended for the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.CleaningStarted">
+            <summary>
+            Cleaning of the vehicle has been started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.CleaningCompleted">
+            <summary>
+            Cleaning of the vehicle has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TrailerExchangeStarted">
+            <summary>
+            Exchange of the trailer has been started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.TrailerExchangeCompleted">
+            <summary>
+            Exchange of the trailer has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.ChangeSwapBodyStarted">
+            <summary>
+            Exchange of the trailer has been started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.ChangeSwapBodyCompleted">
+            <summary>
+            Exchange of the trailer has been completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.WaitingTimeStarted">
+            <summary>
+            Waiting time for next action started
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.WaitingTimeCompleted">
+            <summary>
+            Waiting time for next action completed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.ReadyToLoad">
+            <summary>
+            Vehicle is ready to load
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTourSpecificEvent.ReadyToUnload">
+            <summary>
+            Vehicle is ready to unload
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiTrigger">
+            <summary>
+            Event that is a trigger for starting a notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTrigger.Manually">
+            <summary>
+            Start a manual notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiTrigger.Automatic">
+            <summary>
+            Start an automatic notification (i.e. automatic notification system via email or SMS)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiUnloading">
+            <summary>
+            Events occurred while unloading the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiUnloading.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the consignment.
+            Use (null) to report successful processing of the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent">
+            <summary>
+            Event to notify about vehicle specific incidents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.Weight">
+            <summary>
+            Weight of the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.LoadingMeter">
+            <summary>
+            Available loading meter
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.DriverName">
+            <summary>
+            Name of the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.CoDriverName">
+            <summary>
+            Name of the co-driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.MileageStart">
+            <summary>
+            Mileage of the vehicle at tour start
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.MileageFinish">
+            <summary>
+            Mileage of the vehicle at the end of the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.Temperature">
+            <summary>
+            Current temperature in degrees Celsius
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.TruckRegistrationNumber">
+            <summary>
+            Registration number of the truck
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.TrailerRegistrationNumber">
+            <summary>
+            Registration number of the trailer
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiVehicleSpecificEvent.EstimatedArrivalTime">
+            <summary>
+            The current calculated estimated arrival time (ETA)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.TourDangerousGoods">
+            <summary>
+            Dangerous goods to be declared contained in a consignment 
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.TourDangerousGoods.IsAdr">
+            <summary>
+            Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.TourDangerousGoods.TotalPointAdr">
+            <summary>
+            Total Point to ADR
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.TourEndOptions">
+            <summary>
+            Tour end options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.TourEndOptions.WriteDownMileage">
+            <summary>
+            Write down the mileage
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.Tour.TourStartOptions">
+            <summary>
+            Tour start options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.TourStartOptions.DepartureCheck">
+            <summary>
+            Departure Check was made
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.TourStartOptions.WriteDownMileage">
+            <summary>
+            Write down the mileage
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Interfaces.EdiEventBase">
             <summary>
             Base class for events
@@ -1517,564 +2075,6 @@
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.EventBulk.TourEvents">
             <summary>
             List of tour events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent"/>
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.Cancellation">
-            <summary>
-            Events indicating the cancellation of the consignment
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived">
-            <summary>
-            Documents have been archived
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.Pod">
-            <summary>
-            Proof of delivery was archived
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.DeliveryNote">
-            <summary>
-            Delivery notes were archived
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.CustomsPapers">
-            <summary>
-            Customs papers were archived
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiArchived.DamagePictures">
-            <summary>
-            Pictures of damages were archived
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiDeliveryPlanning">
-            <summary>
-            Events occurred while planning the delivery of the consignment
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiDeliveryPlanning.Exceptions">
-            <summary>
-            Detailed information about the exceptions that occurred while planning the delivery of the consignment.
-            Use (null) to report successful processing of the consignment
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiDisposed">
-            <summary>
-            Consignment was disposed
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventArrivalAtReceiver">
-            <summary>
-            Events indicating the start of the delivery
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest">
-            <summary>
-            Events indicating new information that should be added/updated in the consignment
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest.BillingDeliveryTerm">
-            <summary>
-            A new delivery term that should be considered for billing
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest.BillingAreaPalletBays">
-            <summary>
-            The area occupied by the consignment - expressed in standard pallet sizes
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventChangeRequest.BillingLoadingMeter">
-            <summary>
-            The area occupied by the consignment - expressed in loading meters
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion">
-             <summary>
-            Events indicating successful completion of a task, consignment has been forwarded
-             </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.CompletedBy">
-            <summary>
-            Completed by another party
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.Forwarded">
-            <summary>
-            Consignment was forwarded
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.Signee">
-            <summary>
-            Name of the person which rejected the consignment
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventCompletion.WaitTime">
-            <summary>
-            Time spent waiting during delivery
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed">
-            <summary>
-            Events indicating a failed delivery attempt
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed.ReturnConsignmentNo">
-            <summary>
-            Number of the consignment which is used to return the goods to the shipper
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed.Signee">
-            <summary>
-            Name of the person which rejected the consignment
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed.WaitTime">
-            <summary>
-            Time spent waiting during delivery
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryAttemptFailed.Exceptions">
-            <summary>
-            Detailed information about the exceptions that occurred when consignment was not delivered
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryStarted">
-            <summary>
-            Events indicating the start of the delivery
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliveryStarted.TourNumber">
-            <summary>
-            Number of the planned / assigned local traffic tour for delivery
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful">
-             <summary>
-            Events indicating successful delivery
-             </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful.Exceptions">
-            <summary>
-            Detailed information about the exceptions that occurred when consignment was successfully delivered
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful.Signee">
-            <summary>
-            Name of the person which rejected the consignment
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventDeliverySuccessful.WaitTime">
-            <summary>
-            Time spent waiting during delivery
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventEstimatedArrivalAtReceiver">
-            <summary>
-            Events occurred regarding the estimated time of arrival at receiver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventEstimatedArrivalAtReceiver.EstimatedArrivalTime">
-            <summary>
-            Date and time of the estimated arrival
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway">
-            <summary>
-            Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway.Loaded">
-            <summary>
-            The consignment has been loaded onto the truck leaving the gateway
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway.Unloaded">
-            <summary>
-            The consignment has been unloaded from the truck delivering the consignment to the gateway
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventGateway.Exceptions">
-            <summary>
-            Detailed information about the exceptions that occurred while processing the consignment.
-            Use (null) to report successful cross dock of the consignment
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiEventNotification">
-            <summary>
-            Events occurred while processing the notification of the consignment
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo">
-            <summary>
-            The consignment is redirected to...
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo.Sender">
-            <summary>
-            Redirected to sender
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo.SourcePartner">
-            <summary>
-            Redirected to source partner
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiRedirectedTo.ReceivingPartner">
-            <summary>
-            Redirected to receiving Partner
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiReleaseAuthorizationReceived">
-            <summary>
-            Release authorization received
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiSigningInformation">
-            <summary>
-            Signing Information
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent">
-            <summary>
-            Event to notify about stop specific incidents
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.StopId">
-            <summary>
-            Unique identifier for this stop. References the stop within the tour <see cref="N:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour"/>
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.OnWayLoadingPoint">
-            <summary>
-            Vehicle is on the way to loading point
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.ArrivedAtLoadingPoint">
-            <summary>
-            Arrived at loading point
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.LoadingStarted">
-            <summary>
-            Loading of the vehicle has started
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.LoadingCompleted">
-            <summary>
-            Loading of the vehicle was completed
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.OnWayUnloadingPoint">
-            <summary>
-            Vehicle is on the way to unloading point
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.ArrivedAtUnloadingPoint">
-            <summary>
-            Vehicle is arrived at unloading point
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.UnloadingStarted">
-            <summary>
-            Unloading of the vehicle has started
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.UnloadingCompleted">
-            <summary>
-            Unloading of the vehicle was completed
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.DocumentsReceived">
-            <summary>
-            Documents has been received
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.Departure">
-            <summary>
-            Departure, the stop has been completed
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiStopSpecificEvent.LoadingEquipmentExchange">
-            <summary>
-            Information on loading equipment exchange at this stop
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments">
-            <summary>
-            Event to notify about tour specific documents
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.Signature">
-            <summary>
-            Pictures/Files of signee's signature
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.Damages">
-            <summary>
-            Pictures/Files of damages
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.LoadSecuring">
-            <summary>
-            Pictures/Files of load securing
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.DrivingLicense">
-            <summary>
-            Pictures/Files of driving license
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.ChecklistDepartureControl">
-            <summary>
-            Checklist of departure control available
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.ChecklistInstruction">
-            <summary>
-            Checklist of instructions available
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourDocuments.ChecklistVehicleInspection">
-            <summary>
-            Checklist of vehicle inspection available
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourEventBase">
-            <summary>
-            Base class for a tour based event
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourEventBase.GeoPosition">
-            <summary>
-            The geo location, the event was recorded
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent">
-            <summary>
-            Event to notify about tour specific incidents
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourScheduled">
-            <summary>
-            Disposal of a tour was done
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourTransmitted">
-            <summary>
-            The tour was transmitted to the mobile device
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourAccepted">
-            <summary>
-            The tour was accepted by the driver on mobile device
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourRejected">
-            <summary>
-            The tour was rejected by the driver on mobile device
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourStarted">
-            <summary>
-            The tour was started by the driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourCompleted">
-            <summary>
-            The tour was completed by the driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourPaused">
-            <summary>
-            The tour was paused by the driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TourResumed">
-            <summary>
-            The tour was resumed by the driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WorkingTimeStarted">
-            <summary>
-            Working time has been started for the driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WorkingTimeCompleted">
-            <summary>
-            Working time has been ended for the driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.CleaningStarted">
-            <summary>
-            Cleaning of the vehicle has been started
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.CleaningCompleted">
-            <summary>
-            Cleaning of the vehicle has been completed
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TrailerExchangeStarted">
-            <summary>
-            Exchange of the trailer has been started
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.TrailerExchangeCompleted">
-            <summary>
-            Exchange of the trailer has been completed
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ChangeSwapBodyStarted">
-            <summary>
-            Exchange of the trailer has been started
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ChangeSwapBodyCompleted">
-            <summary>
-            Exchange of the trailer has been completed
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WaitingTimeStarted">
-            <summary>
-            Waiting time for next action started
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.WaitingTimeCompleted">
-            <summary>
-            Waiting time for next action completed
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ReadyToLoad">
-            <summary>
-            Vehicle is ready to load
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTourSpecificEvent.ReadyToUnload">
-            <summary>
-            Vehicle is ready to unload
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTrigger">
-            <summary>
-            Event that is a trigger for starting a notification
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTrigger.Manually">
-            <summary>
-            Start a manual notification
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiTrigger.Automatic">
-            <summary>
-            Start an automatic notification (i.e. automatic notification system via email or SMS)
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiUnloading">
-            <summary>
-            Events occurred while unloading the consignment
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiUnloading.Exceptions">
-            <summary>
-            Detailed information about the exceptions that occurred while processing the consignment.
-            Use (null) to report successful processing of the consignment
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent">
-            <summary>
-            Event to notify about vehicle specific incidents
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.Weight">
-            <summary>
-            Weight of the vehicle
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.LoadingMeter">
-            <summary>
-            Available loading meter
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.DriverName">
-            <summary>
-            Name of the driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.CoDriverName">
-            <summary>
-            Name of the co-driver
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.MileageStart">
-            <summary>
-            Mileage of the vehicle at tour start
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.MileageFinish">
-            <summary>
-            Mileage of the vehicle at the end of the tour
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.Temperature">
-            <summary>
-            Current temperature in degrees Celsius
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.TruckRegistrationNumber">
-            <summary>
-            Registration number of the truck
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.TrailerRegistrationNumber">
-            <summary>
-            Registration number of the trailer
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.EdiVehicleSpecificEvent.EstimatedArrivalTime">
-            <summary>
-            The current calculated estimated arrival time (ETA)
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourDangerousGoods">
-            <summary>
-            Dangerous goods to be declared contained in a consignment 
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourDangerousGoods.IsAdr">
-            <summary>
-            Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourDangerousGoods.TotalPointAdr">
-            <summary>
-            Total Point to ADR
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourEndOptions">
-            <summary>
-            Tour end options. Activities the driver is supposed to do before starting driving the tour
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourEndOptions.WriteDownMileage">
-            <summary>
-            Write down the mileage
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourStartOptions">
-            <summary>
-            Tour start options. Activities the driver is supposed to do before starting driving the tour
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourStartOptions.DepartureCheck">
-            <summary>
-            Departure Check was made
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Helper.Tour.TourStartOptions.WriteDownMileage">
-            <summary>
-            Write down the mileage
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest">
