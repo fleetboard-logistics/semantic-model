@@ -1,0 +1,246 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Entities.ValidationResult
+  commentId: T:Conizi.Model.Core.Entities.ValidationResult
+  id: ValidationResult
+  parent: Conizi.Model.Core.Entities
+  children:
+  - Conizi.Model.Core.Entities.ValidationResult.IsValid
+  - Conizi.Model.Core.Entities.ValidationResult.ToString
+  langs:
+  - csharp
+  - vb
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: Conizi.Model.Core.Entities.ValidationResult
+  type: Class
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ValidationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ValidationResult
+    path: ../src/Conizi.Model.Core/Entities/ValidationResult.cs
+    startLine: 10
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe result object of validation by the <xref href=\"Conizi.Model.Core.Tools.Validator\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: 'public class ValidationResult : ConverterResult'
+    content.vb: >-
+      Public Class ValidationResult
+          Inherits ConverterResult
+  inheritance:
+  - System.Object
+  - Conizi.Model.Core.Entities.ConverterResult
+  inheritedMembers:
+  - Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  - Conizi.Model.Core.Entities.ConverterResult.Model
+  - Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  - Conizi.Model.Core.Entities.ConverterResult.Content
+  - Conizi.Model.Core.Entities.ConverterResult.Schema
+  - Conizi.Model.Core.Entities.ConverterResult.File
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Conizi.Model.Core.Entities.ValidationResult.IsValid
+  commentId: P:Conizi.Model.Core.Entities.ValidationResult.IsValid
+  id: IsValid
+  parent: Conizi.Model.Core.Entities.ValidationResult
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: ValidationResult.IsValid
+  fullName: Conizi.Model.Core.Entities.ValidationResult.IsValid
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ValidationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: IsValid
+    path: ../src/Conizi.Model.Core/Entities/ValidationResult.cs
+    startLine: 15
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe validation of the model was successful\n"
+  example: []
+  syntax:
+    content: public bool IsValid { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsValid As Boolean
+  overload: Conizi.Model.Core.Entities.ValidationResult.IsValid*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.ValidationResult.ToString
+  commentId: M:Conizi.Model.Core.Entities.ValidationResult.ToString
+  id: ToString
+  parent: Conizi.Model.Core.Entities.ValidationResult
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ValidationResult.ToString()
+  fullName: Conizi.Model.Core.Entities.ValidationResult.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ValidationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ToString
+    path: ../src/Conizi.Model.Core/Entities/ValidationResult.cs
+    startLine: 21
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema content as string\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: JSON schema as string
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
+  overload: Conizi.Model.Core.Entities.ValidationResult.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Conizi.Model.Core.Tools.Validator
+  commentId: T:Conizi.Model.Core.Tools.Validator
+  name: Validator
+  nameWithType: Validator
+  fullName: Conizi.Model.Core.Tools.Validator
+- uid: Conizi.Model.Core.Entities
+  commentId: N:Conizi.Model.Core.Entities
+  name: Conizi.Model.Core.Entities
+  nameWithType: Conizi.Model.Core.Entities
+  fullName: Conizi.Model.Core.Entities
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Conizi.Model.Core.Entities.ConverterResult
+  commentId: T:Conizi.Model.Core.Entities.ConverterResult
+  parent: Conizi.Model.Core.Entities
+  name: ConverterResult
+  nameWithType: ConverterResult
+  fullName: Conizi.Model.Core.Entities.ConverterResult
+- uid: Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  name: ValidationErrors
+  nameWithType: ConverterResult.ValidationErrors
+  fullName: Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+- uid: Conizi.Model.Core.Entities.ConverterResult.Model
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.Model
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  name: Model
+  nameWithType: ConverterResult.Model
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Model
+- uid: Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  name: HasValidationErrors
+  nameWithType: ConverterResult.HasValidationErrors
+  fullName: Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+- uid: Conizi.Model.Core.Entities.ConverterResult.Content
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.Content
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  name: Content
+  nameWithType: ConverterResult.Content
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Content
+- uid: Conizi.Model.Core.Entities.ConverterResult.Schema
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.Schema
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  name: Schema
+  nameWithType: ConverterResult.Schema
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Schema
+- uid: Conizi.Model.Core.Entities.ConverterResult.File
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.File
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  name: File
+  nameWithType: ConverterResult.File
+  fullName: Conizi.Model.Core.Entities.ConverterResult.File
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Conizi.Model.Core.Entities.ValidationResult.IsValid*
+  commentId: Overload:Conizi.Model.Core.Entities.ValidationResult.IsValid
+  name: IsValid
+  nameWithType: ValidationResult.IsValid
+  fullName: Conizi.Model.Core.Entities.ValidationResult.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Conizi.Model.Core.Entities.ValidationResult.ToString*
+  commentId: Overload:Conizi.Model.Core.Entities.ValidationResult.ToString
+  name: ToString
+  nameWithType: ValidationResult.ToString
+  fullName: Conizi.Model.Core.Entities.ValidationResult.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

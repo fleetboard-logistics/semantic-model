@@ -1,0 +1,17 @@
+apiRules:
+- include:
+    uidRegex: ^Conizi\.Model\.Transport\.Truck
+- include:
+    uidRegex: ^Conizi\.Model\.Archiving
+- include:
+    uidRegex: ^Conizi\.Model\.Shared\.Entities
+- exclude:
+    uidRegex: ^Conizi\.Model
+- exclude:
+    uidRegex: ^System\.Object
+    type: Type
+- exclude:
+    hasAttribute:
+        uid: System.ComponentModel.EditorBrowsableAttribute
+        ctorArguments:
+        - System.ComponentModel.EditorBrowsableState.Never

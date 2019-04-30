@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
+    <Version>1.0.0-alpha</Version>
+    <Authors>André Rüb (sdc4)</Authors>
+    <Company>Fleetboard Logistics GmbH</Company>
+    <Description>Pre-Release of the conizi semantic models core library implemented in C#. Please use this library with care. It is not yet stable!</Description>
+    <Copyright>Fleetboard Logistics GmbH 2019</Copyright>
+    <PackageLicenseUrl>https://github.com/fleetboard-logistics/semantic-model/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://fleetboard-logistics.github.io/docs/conizi/semantic-models/site/articles/intro.html</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fleetboard-logistics/semantic-model</RepositoryUrl>
+    <PackageTags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net452'">
+    <DefineConstants>NET452;NETFULL</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>C:\src\sematicmodel\src\Conizi.Model.Core\Conizi.Model.Core.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.11" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Conizi.Model\Conizi.Model.csproj" />
+  </ItemGroup>
+
+</Project>

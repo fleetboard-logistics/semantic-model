@@ -1,0 +1,14 @@
+{
+  "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+  "tourId": "123123123",
+  "receiver": {
+    "ediId": "DAIMLER"
+  },
+  "network": {
+    "networkId": "MBT"
+  },
+  "tour": {
+    "eventDateTime": "2019-02-20T12:45:25",
+    "tourAccepted": true
+  }
+}

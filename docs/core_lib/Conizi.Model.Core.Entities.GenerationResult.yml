@@ -1,0 +1,488 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Entities.GenerationResult
+  commentId: T:Conizi.Model.Core.Entities.GenerationResult
+  id: GenerationResult
+  parent: Conizi.Model.Core.Entities
+  children:
+  - Conizi.Model.Core.Entities.GenerationResult.Description
+  - Conizi.Model.Core.Entities.GenerationResult.File
+  - Conizi.Model.Core.Entities.GenerationResult.Id
+  - Conizi.Model.Core.Entities.GenerationResult.JSchema
+  - Conizi.Model.Core.Entities.GenerationResult.Model
+  - Conizi.Model.Core.Entities.GenerationResult.Title
+  - Conizi.Model.Core.Entities.GenerationResult.ToString
+  - Conizi.Model.Core.Entities.GenerationResult.Version
+  langs:
+  - csharp
+  - vb
+  name: GenerationResult
+  nameWithType: GenerationResult
+  fullName: Conizi.Model.Core.Entities.GenerationResult
+  type: Class
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: GenerationResult
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 9
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe result object of a model generation by the <xref href=\"Conizi.Model.Core.Tools.Generator\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public class GenerationResult
+    content.vb: Public Class GenerationResult
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Conizi.Model.Core.Entities.GenerationResult.Id
+  commentId: P:Conizi.Model.Core.Entities.GenerationResult.Id
+  id: Id
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: GenerationResult.Id
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Id
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Id
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 14
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema Id\n"
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property Id As String
+  overload: Conizi.Model.Core.Entities.GenerationResult.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.GenerationResult.Title
+  commentId: P:Conizi.Model.Core.Entities.GenerationResult.Title
+  id: Title
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: GenerationResult.Title
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Title
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Title
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 20
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema title\n"
+  example: []
+  syntax:
+    content: public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Title As String
+  overload: Conizi.Model.Core.Entities.GenerationResult.Title*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.GenerationResult.Description
+  commentId: P:Conizi.Model.Core.Entities.GenerationResult.Description
+  id: Description
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: GenerationResult.Description
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Description
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Description
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 25
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema description\n"
+  example: []
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: Conizi.Model.Core.Entities.GenerationResult.Description*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.GenerationResult.File
+  commentId: P:Conizi.Model.Core.Entities.GenerationResult.File
+  id: File
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: File
+  nameWithType: GenerationResult.File
+  fullName: Conizi.Model.Core.Entities.GenerationResult.File
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: File
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 30
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe file the schema was stored\n"
+  example: []
+  syntax:
+    content: public string File { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property File As String
+  overload: Conizi.Model.Core.Entities.GenerationResult.File*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.GenerationResult.Model
+  commentId: P:Conizi.Model.Core.Entities.GenerationResult.Model
+  id: Model
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: GenerationResult.Model
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Model
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Model
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 35
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe model used to generate the schema\n"
+  example: []
+  syntax:
+    content: public string Model { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Model As String
+  overload: Conizi.Model.Core.Entities.GenerationResult.Model*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.GenerationResult.Version
+  commentId: P:Conizi.Model.Core.Entities.GenerationResult.Version
+  id: Version
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: GenerationResult.Version
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Version
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Version
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 40
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe version was used to generate the schema\n"
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public string Version { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property Version As String
+  overload: Conizi.Model.Core.Entities.GenerationResult.Version*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.GenerationResult.JSchema
+  commentId: P:Conizi.Model.Core.Entities.GenerationResult.JSchema
+  id: JSchema
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: JSchema
+  nameWithType: GenerationResult.JSchema
+  fullName: Conizi.Model.Core.Entities.GenerationResult.JSchema
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: JSchema
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 46
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe schema as JSchema\n"
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public JSchema JSchema { get; set; }
+    parameters: []
+    return:
+      type: Newtonsoft.Json.Schema.JSchema
+    content.vb: >-
+      <Required>
+
+      Public Property JSchema As JSchema
+  overload: Conizi.Model.Core.Entities.GenerationResult.JSchema*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.GenerationResult.ToString
+  commentId: M:Conizi.Model.Core.Entities.GenerationResult.ToString
+  id: ToString
+  parent: Conizi.Model.Core.Entities.GenerationResult
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: GenerationResult.ToString()
+  fullName: Conizi.Model.Core.Entities.GenerationResult.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/GenerationResult.cs
+      branch: schemagenerator
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ToString
+    path: ../src/Conizi.Model.Core/Entities/GenerationResult.cs
+    startLine: 53
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe content of the generated schema as string. Generated in JSON Schema Draft 6 as default.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
+  overload: Conizi.Model.Core.Entities.GenerationResult.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Conizi.Model.Core.Tools.Generator
+  commentId: T:Conizi.Model.Core.Tools.Generator
+  name: Generator
+  nameWithType: Generator
+  fullName: Conizi.Model.Core.Tools.Generator
+- uid: Conizi.Model.Core.Entities
+  commentId: N:Conizi.Model.Core.Entities
+  name: Conizi.Model.Core.Entities
+  nameWithType: Conizi.Model.Core.Entities
+  fullName: Conizi.Model.Core.Entities
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Conizi.Model.Core.Entities.GenerationResult.Id*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.Id
+  name: Id
+  nameWithType: GenerationResult.Id
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Conizi.Model.Core.Entities.GenerationResult.Title*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.Title
+  name: Title
+  nameWithType: GenerationResult.Title
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Title
+- uid: Conizi.Model.Core.Entities.GenerationResult.Description*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.Description
+  name: Description
+  nameWithType: GenerationResult.Description
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Description
+- uid: Conizi.Model.Core.Entities.GenerationResult.File*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.File
+  name: File
+  nameWithType: GenerationResult.File
+  fullName: Conizi.Model.Core.Entities.GenerationResult.File
+- uid: Conizi.Model.Core.Entities.GenerationResult.Model*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.Model
+  name: Model
+  nameWithType: GenerationResult.Model
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Model
+- uid: Conizi.Model.Core.Entities.GenerationResult.Version*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.Version
+  name: Version
+  nameWithType: GenerationResult.Version
+  fullName: Conizi.Model.Core.Entities.GenerationResult.Version
+- uid: Conizi.Model.Core.Entities.GenerationResult.JSchema*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.JSchema
+  name: JSchema
+  nameWithType: GenerationResult.JSchema
+  fullName: Conizi.Model.Core.Entities.GenerationResult.JSchema
+- uid: Newtonsoft.Json.Schema.JSchema
+  commentId: T:Newtonsoft.Json.Schema.JSchema
+  parent: Newtonsoft.Json.Schema
+  isExternal: true
+  name: JSchema
+  nameWithType: JSchema
+  fullName: Newtonsoft.Json.Schema.JSchema
+- uid: Newtonsoft.Json.Schema
+  commentId: N:Newtonsoft.Json.Schema
+  isExternal: true
+  name: Newtonsoft.Json.Schema
+  nameWithType: Newtonsoft.Json.Schema
+  fullName: Newtonsoft.Json.Schema
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Conizi.Model.Core.Entities.GenerationResult.ToString*
+  commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.ToString
+  name: ToString
+  nameWithType: GenerationResult.ToString
+  fullName: Conizi.Model.Core.Entities.GenerationResult.ToString

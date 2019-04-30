@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
   "title": "Pickup order",
-  "description": "A single pickup order which is transferred between two partners (Generated: 29.04.2019 17:50:14 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A single pickup order which is transferred between two partners (Generated: 30.04.2019 10:52:47 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -85,12 +85,6 @@
     "pickupOrderDate": {
       "title": "Pickup order date",
       "description": "The date on which the pickup order was forwarded to the contracted partner",
-      "type": "string",
-      "format": "date"
-    },
-    "pickupDate": {
-      "title": "Pickup date",
-      "description": "The date on which the pickup order should be processed by the contracted partner",
       "type": "string",
       "format": "date"
     },
@@ -250,6 +244,33 @@
     },
     "contractedPartner": {
       "$ref": "partnerIdentification"
+    },
+    "pickupDate": {
+      "$id": "pickupDate",
+      "title": "Pickup date",
+      "description": "The date on which the pickup order should be processed by the contracted partner",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "timeFrom": {
+          "title": "Time From",
+          "type": "string",
+          "format": "time"
+        },
+        "timeUntil": {
+          "title": "Time Until",
+          "type": "string",
+          "format": "time"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
     "additionalPartners": {
       "type": "array",
@@ -874,7 +895,7 @@
           "properties": {
             "directDelivery": {
               "title": "Direct delivery",
-              "description": "The goods are to be deliverd without unloading them at the receiving partners warehouse",
+              "description": "The goods are to be delivered without unloading them at the receiving partners warehouse",
               "type": "boolean"
             },
             "alreadyReceived": {
@@ -904,7 +925,7 @@
             "missingFromPreviousManifest": {
               "$id": "missingFromPreviousManifest",
               "title": "Missing from previous manifest",
-              "description": "The goods for a consigment which already was part of another manifest and had been reported missing on that manifest",
+              "description": "The goods for a consignment which already was part of another manifest and had been reported missing on that manifest",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -980,7 +1001,7 @@
             "orientation": {
               "$id": "orientation",
               "title": "Orientation",
-              "description": "The goods must be transported in a given orientatien and may not be flipped over",
+              "description": "The goods must be transported in a given orientation and may not be flipped over",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -1003,7 +1024,7 @@
             "stacking": {
               "$id": "stacking",
               "title": "Stacking",
-              "description": "Indicated wheter the goods may or may not be stacked",
+              "description": "Indicated whether the goods may or may not be stacked",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -1093,6 +1114,851 @@
         "x-.*": {},
         "\\$.*": {}
       }
+    },
+    "externalServices": {
+      "$id": "externalServices",
+      "title": "External services",
+      "description": "Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "archive": {
+          "$id": "archive",
+          "title": "Digital archive",
+          "description": "Functions provided by the digital archive systems",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "automaticDownloadOfPod": {
+              "title": "PoD push",
+              "description": "The proof of delivery document is provided for automatic download",
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "information": {
+      "$id": "information",
+      "title": "Information",
+      "description": "General information about the consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "remarksInvoice": {
+          "title": "Invoice remarks",
+          "description": "Free text information for the invoice",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remarksPickup": {
+          "title": "Pickup remarks",
+          "description": "Free text information for the pick up",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remarksDelivery": {
+          "title": "Delivery Remarks",
+          "description": "Free text information for the delivery",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remarksGeneral": {
+          "title": "General remarks",
+          "description": "General free text information",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "references": {
+      "$id": "references",
+      "title": "References",
+      "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "returnOfPreviousConsignment": {
+          "$id": "returnOfPreviousConsignment",
+          "title": "Return of previous consignment",
+          "description": "Reference to another consignment which content is return using this consignment",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "consignmentNoShippingPartner": {
+              "title": "Consignment number of the consignment being returned",
+              "description": "The consignment number of the original consignment being returned",
+              "type": "string"
+            },
+            "shippingDate": {
+              "title": "Shipping date",
+              "description": "The date when the original shipment was forwarded",
+              "type": "string",
+              "format": "date"
+            },
+            "shippingPartner": {
+              "$ref": "partnerIdentification"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "forwardedFor": {
+          "$ref": "partnerIdentification"
+        },
+        "subsequentDelivery": {
+          "$id": "subsequentDelivery",
+          "title": "Subsequent Delivery",
+          "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "consignmentNoShippingPartner": {
+              "title": "Consignment number of the consignment for that the subsequent delivery is",
+              "description": "The consignment number of the original consignment",
+              "type": "string"
+            },
+            "shippingDate": {
+              "title": "Shipping date",
+              "description": "The date when the original shipment was forwarded",
+              "type": "string",
+              "format": "date"
+            },
+            "shippingPartner": {
+              "$ref": "partnerIdentification"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "pickupOrder": {
+          "$id": "pickupOrder",
+          "title": "Pickup order",
+          "description": "Reference to a pickup order which resulted in this consignment",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "pickupOrderNo": {
+              "title": "Number of the Pickup order",
+              "description": "Number to the referenced pickup order",
+              "type": "string"
+            },
+            "orderingParty": {
+              "$ref": "partnerIdentification"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
+          "type": "string"
+        },
+        "customerOrderNo": {
+          "title": "Customer order no",
+          "description": "A reference of the shipper for this consignment",
+          "type": "string"
+        },
+        "customerOrderDate": {
+          "title": "Customer order date",
+          "description": "Date when the order was places with the shipping partner",
+          "type": "string",
+          "format": "date"
+        },
+        "orderEntrySystemReference": {
+          "title": "Order entry system reference",
+          "description": "A unique reference number from the system which was used to enter the order details",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "billing": {
+      "$id": "billing",
+      "title": "Billing information",
+      "description": "Information for invoicing and clearing",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "freightPayer": {
+          "$ref": "partnerIdentification"
+        },
+        "tariff": {
+          "title": "Tariff",
+          "description": "Use to specify a special tariff to be used for freight calculation (e.g. heavy goods, ...)",
+          "type": "string"
+        },
+        "routingOrder": {
+          "$ref": "partnerIdentification"
+        },
+        "deliveryTerms": {
+          "title": "Delivery terms",
+          "description": "Use to specify under which terms the consignment is process and which legs are billed to whom",
+          "type": "string"
+        },
+        "logisticModel": {
+          "title": "Logistic model",
+          "description": "Used to active special billing and clearing conditions the partners have agreed on",
+          "type": "string"
+        },
+        "costsAndCharges": {
+          "$id": "costsAndCharges",
+          "title": "Costs and charges",
+          "description": "Used to transfer detailed information about the fees",
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "customsInformation": {
+      "$id": "customsInformation",
+      "title": "Customs information",
+      "description": "Used to specify information necessary in the customs process",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "declaringParty": {
+          "$ref": "partnerIdentification"
+        },
+        "deliverAfterDutyPaid": {
+          "$ref": "partnerIdentification"
+        },
+        "presentationDeadline": {
+          "title": "Presentation deadline",
+          "type": "string"
+        },
+        "clearedForFreeTransitWithinEU": {
+          "title": "Cleared for free transit within EU",
+          "type": "boolean"
+        },
+        "envelopeForCustomsDocuments": {
+          "title": "Envelope for customs documents",
+          "type": "boolean"
+        },
+        "presentationToCustomsRequired": {
+          "title": "Presentation to customs require",
+          "type": "boolean"
+        },
+        "valueAtBorderCrossing": {
+          "$id": "valueAtBorderCrossing",
+          "title": "Value at border crossing",
+          "description": "Value at border crossing",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "title": "Amount",
+              "description": "Amount",
+              "type": "number"
+            },
+            "currency": {
+              "title": "Currency",
+              "description": "Currency",
+              "type": "string"
+            }
+          }
+        },
+        "cityUnloading": {
+          "title": "City unloading",
+          "type": "string"
+        },
+        "customsOffice": {
+          "title": "Customs office",
+          "type": "string"
+        },
+        "customsProcess": {
+          "title": "Customs process",
+          "type": "string"
+        },
+        "customsType": {
+          "title": "Customs type",
+          "type": "string"
+        },
+        "districtUnloading": {
+          "title": "District unloading",
+          "type": "string"
+        },
+        "importCustomsOffice": {
+          "title": "Import customs office",
+          "type": "string"
+        },
+        "parentDocumentId": {
+          "title": "Parent document id",
+          "type": "string"
+        },
+        "parentDocumentType": {
+          "title": "Parent document type",
+          "type": "string"
+        },
+        "routeBorder": {
+          "title": "Route border",
+          "type": "string"
+        },
+        "routeInland": {
+          "title": "Route inland",
+          "type": "string"
+        },
+        "statisticsFlag": {
+          "title": "Statistics flag",
+          "type": "string"
+        },
+        "transferType": {
+          "title": "Transfer type",
+          "type": "string"
+        },
+        "countryConsignor": {
+          "title": "Country consignor",
+          "type": "string"
+        },
+        "countryImporter": {
+          "title": "Country importer",
+          "type": "string"
+        },
+        "countryLoading": {
+          "title": "Country loading",
+          "type": "string"
+        },
+        "countryOfOrigin": {
+          "title": "Country of origin",
+          "type": "string"
+        },
+        "countryUnloading": {
+          "title": "Country unloading",
+          "type": "string"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$id": "documents",
+            "title": "Customs documents",
+            "description": "Customs documents",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "title": "Type",
+                "description": "Type",
+                "type": "string"
+              },
+              "number": {
+                "title": "Number",
+                "description": "Number",
+                "type": "string"
+              },
+              "date": {
+                "title": "Date",
+                "description": "Date",
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "content": {
+      "$id": "content",
+      "title": "Content",
+      "description": "Describes the nature and quantity of the goods in this consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nonHazardousWaste": {
+          "title": "Non hazardous waste",
+          "description": "The content has no value and is not dangerous",
+          "type": "boolean"
+        },
+        "loadingAids": {
+          "title": "Loading aids",
+          "description": "The consignment only consists of loading aids which are transported and does not contain real goods",
+          "type": "boolean"
+        },
+        "packagingPool": {
+          "title": "Packaging pool",
+          "description": "Name of the packaging pool which is used to handle to loading aids from this consignment",
+          "type": "string"
+        },
+        "highValueGoods": {
+          "title": "High value goods",
+          "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
+          "type": "boolean"
+        },
+        "insuranceValue": {
+          "$id": "insuranceValue",
+          "title": "Insurance value",
+          "description": "Value of the goods, used for insurance purposes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "title": "Amount",
+              "description": "Amount",
+              "type": "number"
+            },
+            "currency": {
+              "title": "Currency",
+              "description": "Currency",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$id": "line",
+            "title": "Line",
+            "description": "Lines are describing handling units of similar sizes and content for brevity",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "lineNo": {
+                "title": "Line no",
+                "description": "A ordinal number, ordering the line within the consignment/pickup order",
+                "type": "integer"
+              },
+              "handlingUnitCount": {
+                "title": "Handling unit count",
+                "description": "The number of the items in this consignment/pickup order which are handeled individually",
+                "type": "integer"
+              },
+              "handlingUnitType": {
+                "title": "Handling unit type",
+                "description": "The type of packaging (e.g. pallet, carton box, ...) ouf the outer most packaging",
+                "type": "string"
+              },
+              "innerPackageCount": {
+                "title": "Inner package count",
+                "description": "Used to specify the number of inner packages (e.g. the number of boxes on a pallet)",
+                "type": "integer"
+              },
+              "innerPackageType": {
+                "title": "Inner package type",
+                "description": "The type of packaging of the inner packages",
+                "type": "string"
+              },
+              "content": {
+                "title": "Content",
+                "description": "A short description of the nature of the goods contained within the packages",
+                "type": "string"
+              },
+              "refNo": {
+                "title": "Reference number",
+                "description": "A reference of the ordering party relating to the goods",
+                "type": "string"
+              },
+              "customsInformation": {
+                "$id": "contentCustomsInformation",
+                "title": "Customs information",
+                "description": "Used to specifiy information necessary in the customs process",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "goodsNo": {
+                    "title": "Goods number",
+                    "description": "Goods number",
+                    "type": "string"
+                  },
+                  "processCode": {
+                    "title": "Process code",
+                    "description": "The Process code",
+                    "type": "string"
+                  },
+                  "netWeightKilogram": {
+                    "title": "Net weight kilogram",
+                    "description": "The net weight in kilogram",
+                    "type": "number"
+                  },
+                  "rawWeightKilogram": {
+                    "title": "Raw weight kilogram",
+                    "description": "The raw weight in kilogram",
+                    "type": "number"
+                  },
+                  "countryOfOrigin": {
+                    "$id": "customsInformationValue",
+                    "title": "Customs value",
+                    "description": "Amount value type",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "amount": {
+                        "title": "Amount",
+                        "type": "number"
+                      },
+                      "currency": {
+                        "title": "Currency",
+                        "type": "string"
+                      }
+                    },
+                    "patternProperties": {
+                      "x-.*": {},
+                      "\\$.*": {}
+                    }
+                  },
+                  "statisticalValue": {
+                    "$ref": "customsInformationValue"
+                  },
+                  "customsValue": {
+                    "$ref": "customsInformationValue"
+                  },
+                  "documents": {
+                    "$ref": "documents"
+                  }
+                },
+                "patternProperties": {
+                  "x-.*": {},
+                  "\\$.*": {}
+                }
+              },
+              "barcodes": {
+                "type": "array",
+                "items": {
+                  "$id": "barcode",
+                  "title": "Bar codes / SSCC number",
+                  "description": "Detailed information about the individual handling units",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "code": {
+                      "title": "Bar code / SSCC / NVE",
+                      "description": "Id of the handling unit, usually printed as machine readable bar code on the package",
+                      "type": "string"
+                    },
+                    "masterBarcode": {
+                      "title": "Master bar code",
+                      "description": "Grouping code of multiple packages",
+                      "type": "string"
+                    },
+                    "batch": {
+                      "title": "Batch",
+                      "description": "Information identifying the manufacturing batch of the goods in the unit",
+                      "type": "string"
+                    },
+                    "bestBefore": {
+                      "title": "Best before",
+                      "description": "Information about the expiry of good",
+                      "type": "string"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                }
+              },
+              "dangerousGoods": {
+                "type": "array",
+                "items": {
+                  "$id": "dangerousGoods",
+                  "title": "Dangerous goods",
+                  "description": "Dangerous goods",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "quantity": {
+                      "title": "Quantity",
+                      "description": "The quantity",
+                      "type": "integer"
+                    },
+                    "grossWeightKilogram": {
+                      "title": "Gross weight (kg)",
+                      "description": "Weight of the consignment including all packaging",
+                      "type": "number"
+                    },
+                    "unNo": {
+                      "title": "UnNo",
+                      "description": "UnNo",
+                      "type": "string"
+                    },
+                    "multiplier": {
+                      "title": "Multiplier",
+                      "description": "Multiplier",
+                      "type": "integer"
+                    },
+                    "uniqueKey": {
+                      "title": "Unique key",
+                      "description": "The unique Key",
+                      "type": "string"
+                    },
+                    "substanceName": {
+                      "title": "Substance Name",
+                      "description": "The substance Name",
+                      "type": "string"
+                    },
+                    "technicalNameIfNotOtherwiseSpecified": {
+                      "title": "Technical name if not otherwise specified",
+                      "description": "The technical name if not otherwise specified",
+                      "type": "string"
+                    },
+                    "labelMainRisk": {
+                      "title": "Label for main risk",
+                      "description": "Label for main risk",
+                      "type": "string"
+                    },
+                    "labelSubRisk1": {
+                      "title": "Label for sub risk 1",
+                      "description": "Label for sub risk 1",
+                      "type": "string"
+                    },
+                    "labelSubRisk2": {
+                      "title": "Label for sub risk 2",
+                      "description": "Label for sub risk 2",
+                      "type": "string"
+                    },
+                    "labelSubRisk3": {
+                      "title": "Label for sub risk 3",
+                      "description": "Label for sub risk 3",
+                      "type": "string"
+                    },
+                    "packagingDescription": {
+                      "title": "Packaging description",
+                      "description": "The packaging description",
+                      "type": "string"
+                    },
+                    "netExplosiveMassKilogram": {
+                      "title": "Net explosive mass in kilogram",
+                      "description": "The net explosive mass in kilogram",
+                      "type": "number"
+                    },
+                    "transportCategory": {
+                      "title": "Transport category",
+                      "description": "The transport category",
+                      "type": "string"
+                    },
+                    "limitedQuantity": {
+                      "title": "Limited quantity",
+                      "description": "Limited quantity",
+                      "type": "boolean"
+                    },
+                    "totalPointsADR": {
+                      "title": "Total points ADR",
+                      "description": "Total points for ADR",
+                      "type": "integer"
+                    },
+                    "tunnelRestriction": {
+                      "title": "Tunnel restriction",
+                      "description": "Tunnel restriction",
+                      "type": "string"
+                    },
+                    "packagingGroup": {
+                      "title": "Packaging group",
+                      "description": "Packaging group",
+                      "type": "string"
+                    },
+                    "classificationCode": {
+                      "title": "Classification code",
+                      "description": "Classification code",
+                      "type": "string"
+                    },
+                    "exemptedQuantity": {
+                      "title": "Exempted quantity",
+                      "description": "Exempted quantity",
+                      "type": "boolean"
+                    },
+                    "netWeightKilogram": {
+                      "title": "Net weight kilogram",
+                      "description": "Net weight kilogram",
+                      "type": "number"
+                    },
+                    "volumeLiter": {
+                      "title": "Volume liter",
+                      "description": "Volume liter",
+                      "type": "number"
+                    },
+                    "highConsequencesDangerousGoods": {
+                      "title": "High consequences dangerous goods",
+                      "description": "High consequences dangerous goods",
+                      "type": "boolean"
+                    },
+                    "adrRelease": {
+                      "title": "ADR Release",
+                      "description": "ADR Release",
+                      "type": "string"
+                    },
+                    "packagingClass": {
+                      "title": "Packaging class",
+                      "description": "Packaging class",
+                      "type": "string"
+                    },
+                    "references": {
+                      "$id": "dangerousGoodsReferences",
+                      "title": "Dangerous goods references",
+                      "description": "Dangerous goods references",
+                      "type": "object",
+                      "properties": {
+                        "fireworksBamNo": {
+                          "title": "Fireworks bam number",
+                          "description": "Fireworks Bam number",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                }
+              },
+              "additionalLoadingEquipment": {
+                "$id": "additionalLoadingEquipment",
+                "title": "Additional loading equipment",
+                "description": "Additional loading aids which are not part of the consignment but which have been added to safely transport the goods",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "eurPallets": {
+                    "title": "EPAL",
+                    "description": "EUR pallets as defined by European Pallet Association (EPAL)",
+                    "type": "integer"
+                  },
+                  "eurBoxes": {
+                    "title": "EUR box pallets",
+                    "description": "EUR Box pallets as defined by European Pallet Association (EPAL)",
+                    "type": "integer"
+                  }
+                },
+                "patternProperties": {
+                  "x-.*": {},
+                  "\\$.*": {}
+                }
+              },
+              "volumeCubicmeter": {
+                "title": "Volume (m³)",
+                "description": "Total volume of the consignment",
+                "type": "number"
+              },
+              "loadingMeter": {
+                "title": "Loading meters (m)",
+                "description": "Length of the area occupied on a 2.4 m wide container",
+                "type": "number"
+              },
+              "grossWeightKilogram": {
+                "title": "Gross weight (kg)",
+                "description": "Weight of the consignment including all packaging",
+                "type": "number"
+              },
+              "areaPalletBays": {
+                "title": "Pallet bays",
+                "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
+                "type": "number"
+              },
+              "chargeableWeightKilogram": {
+                "title": "Chargeable weight (kg)",
+                "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
+                "type": "number"
+              },
+              "lengthMeter": {
+                "title": "Length (m)",
+                "description": "Total length",
+                "type": "number"
+              },
+              "widthMeter": {
+                "title": "Width (m)",
+                "description": "Total width",
+                "type": "number"
+              },
+              "heightMeter": {
+                "title": "Height (m)",
+                "description": "Total height",
+                "type": "number"
+              }
+            },
+            "patternProperties": {
+              "x-.*": {},
+              "\\$.*": {}
+            }
+          }
+        },
+        "additionalLoadingEquipment": {
+          "$ref": "additionalLoadingEquipment"
+        },
+        "volumeCubicmeter": {
+          "title": "Volume (m³)",
+          "description": "Total volume of the consignment",
+          "type": "number"
+        },
+        "loadingMeter": {
+          "title": "Loading meters (m)",
+          "description": "Length of the area occupied on a 2.4 m wide container",
+          "type": "number"
+        },
+        "grossWeightKilogram": {
+          "title": "Gross weight (kg)",
+          "description": "Weight of the consignment including all packaging",
+          "type": "number"
+        },
+        "areaPalletBays": {
+          "title": "Pallet bays",
+          "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
+          "type": "number"
+        },
+        "chargeableWeightKilogram": {
+          "title": "Chargeable weight (kg)",
+          "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
+          "type": "number"
+        },
+        "lengthMeter": {
+          "title": "Length (m)",
+          "description": "Total length",
+          "type": "number"
+        },
+        "widthMeter": {
+          "title": "Width (m)",
+          "description": "Total width",
+          "type": "number"
+        },
+        "heightMeter": {
+          "title": "Height (m)",
+          "description": "Total height",
+          "type": "number"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     }
   },
   "required": [
@@ -1100,7 +1966,6 @@
     "receiver",
     "pickupOrderNo",
     "pickupOrderDate",
-    "pickupDate",
     "orderingPartner",
     "contractedPartner"
   ],
