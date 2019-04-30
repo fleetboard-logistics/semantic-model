@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Validator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Validator
     path: ../src/Conizi.Model.Core/Tools/Validator.cs
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Validator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: RegisterJsonSchemaLicense
     path: ../src/Conizi.Model.Core/Tools/Validator.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Validator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidateSchema
     path: ../src/Conizi.Model.Core/Tools/Validator.cs
@@ -140,7 +140,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Validator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidateSchema
     path: ../src/Conizi.Model.Core/Tools/Validator.cs
@@ -189,7 +189,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Validator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidateSchema
     path: ../src/Conizi.Model.Core/Tools/Validator.cs

@@ -112,7 +112,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public List<EdiDriver> Divers { get; set; }
 
         /// <summary>
-        /// 
+        /// Information about the vehicles used in the transport
         /// </summary>
         public List<EdiVehicle> Vehicles { get; set; }
 

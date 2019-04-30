@@ -4382,7 +4382,7 @@
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Vehicles">
             <summary>
-            
+            Information about the vehicles used in the transport
             </summary>
         </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Consignments">
