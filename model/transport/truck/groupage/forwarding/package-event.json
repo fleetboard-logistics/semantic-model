@@ -1,8 +1,8 @@
-﻿{
+{
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
-  "description": "An event which occurred during the processing of the referenced package. (Generated: 30.04.2019 10:52:45 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "An event which occurred during the processing of the referenced package.",
   "type": "object",
   "additionalProperties": false,
   "properties": {

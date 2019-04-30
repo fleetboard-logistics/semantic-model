@@ -1,8 +1,8 @@
-﻿{
+{
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/archiving/proof-of-delivery.json",
   "title": "Proof of Delivery",
-  "description": "Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender (Generated: 30.04.2019 10:52:47 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender",
   "type": "object",
   "properties": {
     "$schema": {
@@ -339,7 +339,7 @@
     },
     "documentCreationDate": {
       "title": "Document creation date",
-      "description": "Date this document was created",
+      "description": "The Date this document was created",
       "type": "string",
       "format": "date-time"
     },
