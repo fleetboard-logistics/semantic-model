@@ -4,6 +4,7 @@
   <NuGetReference>Newtonsoft.Json</NuGetReference>
   <NuGetReference>Newtonsoft.Json.Schema</NuGetReference>
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
+  <NuGetReference>System.Security.Cryptography.Algorithms</NuGetReference>
   <Namespace>Conizi.Model.Archiving</Namespace>
   <Namespace>Conizi.Model.Converters</Namespace>
   <Namespace>Conizi.Model.Core</Namespace>
@@ -26,6 +27,7 @@
   <Namespace>Newtonsoft.Json.Serialization</Namespace>
   <Namespace>Serilog</Namespace>
   <Namespace>Serilog.Configuration</Namespace>
+  <Namespace>System.Security.Cryptography</Namespace>
 </Query>
 
 Generator.RegisterJsonSchemaLicense(Environment.GetEnvironmentVariable("Generator:JsonSchemaLicense"));
@@ -52,18 +54,48 @@ foreach (var model in models)
 {
 	try
 	{
+		
+		//(Generated: {DateTime.Now} - {assembly.Name} v:{assembly.Version})
 		var result = Generator.Generate(model);
 
 		var outFile = Path.Combine(modelSrcPath, result.Id.Replace("https://model.conizi.io/v1/", string.Empty));
 
 		var fileInfo = new FileInfo(outFile);
 
-		File.WriteAllText(fileInfo.FullName, result.ToString(), Encoding.UTF8);
+		if (ModelHashChanged(result.ToString(), outFile))
+		{
+			File.WriteAllBytes(fileInfo.FullName, Encoding.UTF8.GetBytes(result.ToString()));
+			Log.Information("Model {model} was successfully generated to {file}", result.Model, fileInfo.FullName);
+			continue;
+		}
 
-		Log.Information("Model {model} was successfully generated to {file}", result.Model, fileInfo.FullName);
+		Log.Warning("Model {model} is equal to the new generated content, skip writting to file {file}", result.Model, fileInfo.FullName);
 	}
-	catch(Exception ex)
+	catch (Exception ex)
 	{
-		Log.Error(ex,"Error while generating model {model}", model); 
+		Log.Error(ex, "Error while generating model {model}", model);
+	}
+}
+
+bool ModelHashChanged(string newModelJson, string currentModelPath)
+{
+
+	if (string.IsNullOrEmpty(newModelJson))
+		throw new ArgumentNullException(nameof(newModelJson));
+
+	//Maybe a new model?!
+	if (!File.Exists(currentModelPath))
+		return true;
+
+	using (var hashCalc = SHA256.Create())
+	{
+		newModelJson.Dump();
+		var currentModelContent = File.ReadAllBytes(currentModelPath);
+		var currentModelHash = hashCalc.ComputeHash(currentModelContent);
+
+		var newModelContent = Encoding.UTF8.GetBytes(newModelJson);
+		var newModelHash = hashCalc.ComputeHash(newModelContent);
+
+		return newModelHash != currentModelHash;
 	}
 }

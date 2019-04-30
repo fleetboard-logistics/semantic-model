@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Archiving
 {
-
     /// <summary>
     /// Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender.
     /// The POD is usually generated after the delivery of an <see cref="Consignment"/>
@@ -85,10 +84,10 @@ namespace Conizi.Model.Archiving
         public DateTime ShippingDate { get; set; }
 
         /// <summary>
-        /// Date this document was created
+        /// The Date this document was created
         /// </summary>
         [DisplayName("Document creation date")]
-        [Description("Date this document was created")]
+        [Description("The Date this document was created")]
         [Required]
         public DateTime DocumentCreationDate { get; set; }
 

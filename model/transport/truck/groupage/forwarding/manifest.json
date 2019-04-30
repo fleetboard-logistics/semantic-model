@@ -1,8 +1,8 @@
-﻿{
+{
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
-  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time (Generated: 30.04.2019 10:52:46 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -316,7 +316,7 @@
           "consignment": {
             "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
             "title": "Consignment",
-            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 30.04.2019 10:52:46 - Conizi.Model.Core v:1.0.0.0)",
+            "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -992,9 +992,7 @@
                         "type": "boolean"
                       },
                       "receivingPartnerDisposal": {
-                        "title": "Receiving Partner Disposal ",
-                        "description": "The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules",
-                        "type": "boolean"
+                        "$ref": "partnerIdentification"
                       },
                       "gatewayDisposal": {
                         "$ref": "partnerIdentification"

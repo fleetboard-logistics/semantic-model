@@ -57,7 +57,7 @@
         </member>
         <member name="P:Conizi.Model.Archiving.ProofOfDelivery.DocumentCreationDate">
             <summary>
-            Date this document was created
+            The Date this document was created
             </summary>
         </member>
         <member name="P:Conizi.Model.Archiving.ProofOfDelivery.ArrivalDate">
