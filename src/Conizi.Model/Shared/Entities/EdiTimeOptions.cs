@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
+   
     /// <summary>
     /// Requirements for the delivery or pickup time
     /// </summary>
@@ -107,7 +108,7 @@ namespace Conizi.Model.Shared.Entities
     public class EdiFixedDay : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// Exact at Date (Day)
+        /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -160,7 +161,7 @@ namespace Conizi.Model.Shared.Entities
     public class EdiWeekendSaturday : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// Exact at Date (Day)
+        /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -191,7 +192,7 @@ namespace Conizi.Model.Shared.Entities
     public class EdiNextDay : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// Exact at Date (Day)
+        /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -222,7 +223,7 @@ namespace Conizi.Model.Shared.Entities
     public class EdiSameDay : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// Exact at Date (Day)
+        /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -253,7 +254,38 @@ namespace Conizi.Model.Shared.Entities
     public class EdiEvening : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// Exact at Date (Day)
+        /// Date (Day)
+        /// </summary>
+        [ConiziDateOnly]
+        public DateTime Date { get; set; }
+
+        /// <summary>
+        /// From time (HH:mm:ss)
+        /// </summary>
+        [DisplayName("Time From")]
+        [ConiziTimeOnly]
+        public string TimeFrom { get; set; }
+
+        /// <summary>
+        /// Until time (HH:mm:ss)
+        /// </summary>
+        [DisplayName("Time Until")]
+        [ConiziTimeOnly]
+        public string TimeUntil { get; set; }
+    }
+
+    /// <summary>
+    /// The goods must be picked up on the same day
+    /// </summary>
+    [JsonObject("sameDayPickup")]
+    [DisplayName("Same day pickup")]
+    [Description("The goods must be picked up on the same day")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiSameDayPickup : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
         public DateTime Date { get; set; }
@@ -274,17 +306,17 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// The goods must be picked up on the same day
+    /// The date on which the pickup order should be processed by the contracted partner
     /// </summary>
-    [JsonObject("sameDayPickup")]
-    [DisplayName("Same day pickup")]
-    [Description("The goods must be picked up on the same day")]
+    [DisplayName("Pickup date")]
+    [Description("The date on which the pickup order should be processed by the contracted partner")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiSameDayPickup : EdiPatternPropertiesBase
+    [JsonObject("pickupDate")]
+    public class EdiPickupDate
     {
         /// <summary>
-        /// Exact at Date (Day)
+        /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
         public DateTime Date { get; set; }

@@ -43,7 +43,8 @@ var models = new List<Type> {
 	 typeof(PackageEvent),
 	 typeof(Manifest),
 	 typeof(EventBulk),
-	 typeof(PickupOrderEvent)
+	 typeof(PickupOrderEvent),
+	 typeof(PickupOrder)
 
 };
 

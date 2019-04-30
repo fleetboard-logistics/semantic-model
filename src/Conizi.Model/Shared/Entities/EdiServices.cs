@@ -6,6 +6,9 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
+    /// <summary>
+    /// Special services which can be requested by the ordering party (or the shipping partner)
+    /// </summary>
     [JsonObject("services")]
     [DisplayName("Services")]
     [Description("Special services which can be requested by the ordering party (or the shipping partner)")]
@@ -55,12 +58,24 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public EdiLoadingOptions LoadingOptions { get; set; }
 
+        /// <summary>
+        /// Information regarding unloading of the main haul
+        /// </summary>
         public EdiUnloadingOptions UnloadingOptions { get; set; }
 
+        /// <summary>
+        /// Special requirements for the handling of the goods at intermediate hubs / gateways
+        /// </summary>
         public EdiGateway Gateway { get; set; }
 
+        /// <summary>
+        /// Handling instructions for the goods, e.g. to prevent damage
+        /// </summary>
         public EdiHandlingInstructions HandlingInstructions { get; set; }
 
+        /// <summary>
+        /// Services for the return of goods
+        /// </summary>
         public EdiReturnOfGoods ReturnOfGoods { get; set; }
 
     }
@@ -156,7 +171,9 @@ namespace Conizi.Model.Shared.Entities
 
     }
 
-
+    /// <summary>
+    /// Special requirements for the handling of the goods at intermediate hubs / gateways
+    /// </summary>
     [JsonObject("gateway")]
     [DisplayName("Gateway-Options")]
     [Description("Special requirements for the handling of the goods at intermediate hubs / gateways")]
@@ -164,11 +181,17 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiGateway : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The consignment must be processed with priority
+        /// </summary>
         [DisplayName("Priority")]
         [Description("The consignment must be processed with priority")]
         public bool Priority { get; set; }
     }
 
+    /// <summary>
+    /// Handling instructions for the goods, e.g. to prevent damage
+    /// </summary>
     [JsonObject("handlingInstructions")]
     [DisplayName("Handling instructions")]
     [Description("Handling instructions for the goods, e.g. to prevent damage")]
@@ -176,47 +199,84 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiHandlingInstructions : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The goods are subject to customs processing and must be processed according the rules of the local authorities
+        /// </summary>
         [DisplayName("Customs Goods")]
         [Description("The goods are subject to customs processing and must be processed according the rules of the local authorities")]
         public bool CustomsGoods { get; set; }
 
+        /// <summary>
+        /// The resubmission date for the customs goods
+        /// </summary>
         [DisplayName("Customs Goods resubmission date")]
         [Description("The resubmission date for the customs goods")]
         [ConiziDateOnly]
         public DateTime CustomsGoodsResubmissionDate { get; set; }
 
+        /// <summary>
+        /// The goods must be handled with care to prevent damage
+        /// </summary>
         [DisplayName("Handle with care")]
         [Description("The goods must be handeled with care to prevent damage")]
         public bool HandleWithCare { get; set; }
 
+        /// <summary>
+        /// Specifies whether empties should be exchanged with the consignee
+        /// </summary>
         [DisplayName("Empties exchange required")]
         [Description("Specifies whether empties should be exchanged with the consignee")]
         public bool EmptiesExchange { get; set; }
 
+        /// <summary>
+        /// The goods must be transported in a given orientation and may not be flipped over
+        /// </summary>
         public EdiOrientation Orientation { get; set; }
 
+        /// <summary>
+        /// Indicated whether the goods may or may not be stacked
+        /// </summary>
         public EdiStacking Stacking { get; set; }
 
+        /// <summary>
+        /// Special requirements for transporting food
+        /// </summary>
         public EdiFood Food { get; set; }
+
+        /// <summary>
+        /// Restrictions about the minimum and maximum temperature during the transport and special equipment to be used
+        /// </summary>
         public EdiTemperatureRestrictions TemperatureRestrictions { get; set; }
     }
-    
+
+    /// <summary>
+    /// The goods must be transported in a given orientation and may not be flipped over
+    /// </summary>
     [JsonObject("orientation")]
     [DisplayName("Orientation")]
-    [Description("The goods must be transported in a given orientatien and may not be flipped over")]
+    [Description("The goods must be transported in a given orientation and may not be flipped over")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiOrientation : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The goods must be transported upright
+        /// </summary>
         [DisplayName("Upright")]
         [Description("The goods must be transported upright")]
         public bool Vertical { get; set; }
 
+        /// <summary>
+        /// The goods must be transported flat down
+        /// </summary>
         [DisplayName("Horizontal")]
         [Description("The goods must be transported flat down")]
         public bool Horizontal { get; set; }
     }
 
+    /// <summary>
+    /// Indicated whether the goods may or may not be stacked
+    /// </summary>
     [JsonObject("returnOfGoods")]
     [DisplayName("Return of goods")]
     [Description("Services for the return of goods")]
@@ -224,27 +284,42 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiReturnOfGoods : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The packaging of the goods is taken back and dispose
+        /// </summary>
         [DisplayName("Packaging disposal")]
         [Description("The packaging of the goods is taken back and dispose")]
         public bool EmptyPackaging { get; set; }
     }
 
+    /// <summary>
+    /// Indicated whether the goods may or may not be stacked
+    /// </summary>
     [JsonObject("stacking")]
     [DisplayName("Stacking")]
-    [Description("Indicated wheter the goods may or may not be stacked")]
+    [Description("Indicated whether the goods may or may not be stacked")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiStacking : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The goods must not be stacked
+        /// </summary>
         [DisplayName("Stacking forbidden")]
         [Description("The goods must not be stacked")]
         public bool Forbidden { get; set; }
 
+        /// <summary>
+        /// tacking of the goods is safely possible
+        /// </summary>
         [DisplayName("Stacking possible")]
         [Description("Stacking of the goods is safely possible")]
         public bool Allowed { get; set; }
     }
 
+    /// <summary>
+    /// Special requirements for transporting food
+    /// </summary>
     [JsonObject("food")]
     [DisplayName("Food related regulatory restrictions")]
     [Description("Special requirements for transporting food")]
@@ -252,12 +327,18 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiFood : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The HACCP regulations apply
+        /// </summary>
         [DisplayName("Stacking forbidden")]
         [Description("The HACCP regulations apply")]
         public bool Haccp { get; set; }
 
     }
 
+    /// <summary>
+    /// Restrictions about the minimum and maximum temperature during the transport and special equipment to be used
+    /// </summary>
     [JsonObject("temperatureRestrictions")]
     [DisplayName("Temperature restrictions")]
     [Description("Restrictions about the minimum and maximum temperature during the transport and special equipment to be used")]
@@ -265,10 +346,16 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiTemperatureRestrictions : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The temperature must not drop below the given value during the transport
+        /// </summary>
         [DisplayName("Minimum temperature (°C)")]
         [Description("The temperature must not drop below the given value during the transport")]
         public decimal TemperatureMinCelsius { get; set; }
 
+        /// <summary>
+        /// The temperature must not get greater than the given value
+        /// </summary>
         [DisplayName("Maximum temperature (°C)")]
         [Description("The temperature must not get greater than the given value")]
         public decimal TemperatureMaxCelsius { get; set; }

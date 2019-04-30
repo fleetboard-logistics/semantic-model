@@ -34,5 +34,6 @@ namespace Conizi.Model.Shared.Entities.Tour
         [DisplayName("Billing - Loading meter")]
         [Description("The area occupied by the consignment - expressed in loading meters")]
         public string BillingLoadingMeter { get; set; }
+
     }
 }

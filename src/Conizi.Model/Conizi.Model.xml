@@ -394,6 +394,556 @@
             An address to be shown to the shipper instead of the actual address the consignee when picking up the goods
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiBarcode">
+            <summary>
+            Detailed information about the individual handling units
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBarcode.Code">
+            <summary>
+            Id of the handling unit, usually printed as machine readable bar code on the package
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBarcode.MasterBarcode">
+            <summary>
+            Grouping code of multiple packages
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBarcode.Batch">
+            <summary>
+            Information identifying the manufacturing batch of the goods in the unit
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBarcode.BestBefore">
+            <summary>
+            Information about the expiry of good
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiBilling">
+            <summary>
+            Information for invoicing and clearing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBilling.FreightPayer">
+            <summary>
+            The party which receives the invoice (if different from the shipper)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBilling.Tariff">
+            <summary>
+            Use to specify a special tariff to be used for freight calculation (e.g. heavy goods, ...)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBilling.RoutingOrder">
+            <summary>
+            Use to specify that the consignment results of a standing pickup order and specifies the partner which issued this pickup order and thus should be billed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBilling.DeliveryTerms">
+            <summary>
+            Use to specify under which terms the consignment followed by this pickup order is process and which legs are billed to whom
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBilling.LogisticModel">
+            <summary>
+            Used to active special billing and clearing conditions the partners have agreed on
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiBilling.CostsAndCharges">
+            <summary>
+            Used to transfer detailed information about the fees
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.CostsAndCharges">
+            <summary>
+            Used to transfer detailed information about the fees
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiContent">
+            <summary>
+            Describes the nature and quantity of the goods in this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContent.NonHazardousWaste">
+            <summary>
+            The content has no value and is not dangerous
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContent.LoadingAids">
+            <summary>
+            The consignment only consists of loading aids which are transported and does not contain real goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContent.PackagingPool">
+            <summary>
+            Name of the packaging pool which is used to handle to loading aids from this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContent.HighValueGoods">
+            <summary>
+            This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContent.InsuranceValue">
+            <summary>
+            Value of the goods, used for insurance purposes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContent.Lines">
+            <summary>
+            Lines are describing handling units of similar sizes and content for brevity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContent.AdditionalLoadingEquipment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiInsuranceValue">
+            <summary>
+            Value of the goods, used for insurance purposes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiInsuranceValue.Amount">
+            <summary>
+            Amount
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiInsuranceValue.Currency">
+            <summary>
+            Currency
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiLine">
+            <summary>
+            Lines are describing handling units of similar sizes and content for brevity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.LineNo">
+            <summary>
+            A ordinal number, ordering the line within the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.HandlingUnitCount">
+            <summary>
+            The number of the items in this consignment/pickup order which are handled individually
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.HandlingUnitType">
+            <summary>
+            The type of packaging (e.g. pallet, carton box, ...) ouf the outer most packaging
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.InnerPackageCount">
+            <summary>
+            Used to specify the number of inner packages (e.g. the number of boxes on a pallet)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.InnerPackageType">
+            <summary>
+            The type of packaging of the inner packages
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.Content">
+            <summary>
+            A short description of the nature of the goods contained within the packages
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.RefNo">
+            <summary>
+            A reference of the ordering party relating to the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.CustomsInformation">
+            <summary>
+            Used to specify information necessary in the customs process
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.Barcodes">
+            <summary>
+            Detailed information about the individual handling units
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.DangerousGoods">
+            <summary>
+            Information on dangerous goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiLine.AdditionalLoadingEquipment">
+            <summary>
+            Additional loading aids which are not part of the pickup order but which have been added to safely transport the goods
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiContentCustomsInformation">
+            <summary>
+            Used to specify information necessary in the customs process
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.GoodsNo">
+            <summary>
+            Goods number
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.ProcessCode">
+            <summary>
+            The Process cod
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.NetWeightKilogram">
+            <summary>
+            The net weight in kilogram
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.RawWeightKilogram">
+            <summary>
+            The raw weight in kilogram
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.CountryOfOrigin">
+            <summary>
+            The Country of origin
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.StatisticalValue">
+            <summary>
+            The statistical value
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.CustomsValue">
+            <summary>
+            The customs value
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiContentCustomsInformation.Documents">
+            <summary>
+            Customs documents
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiValue">
+            <summary>
+            Amount value type
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiValue.Amount">
+            <summary>
+            Amount
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiValue.Currency">
+            <summary>
+            Currency
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiCustomsInformation">
+            <summary>
+            Used to specify information necessary in the customs process
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.DeclaringParty">
+            <summary>
+            Declaring party
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.DeliverAfterDutyPaid">
+            <summary>
+            Delivery after customs clearance
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.PresentationDeadline">
+            <summary>
+            Presentation deadline
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.ClearedForFreeTransitWithinEu">
+            <summary>
+            Cleared for free transit within EU
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.EnvelopeForCustomsDocuments">
+            <summary>
+            Envelope for customs documents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.PresentationToCustomsRequired">
+            <summary>
+            Presentation to customs require
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.ValueAtBorderCrossing">
+            <summary>
+            Value of the goods at border crossing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CityUnloading">
+            <summary>
+            City unloading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CustomsOffice">
+            <summary>
+            Customs office
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CustomsProcess">
+            <summary>
+            Customs process
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CustomsType">
+            <summary>
+            Customs type
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.DistrictUnloading">
+            <summary>
+            District unloading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.ImportCustomsOffice">
+            <summary>
+            Import customs offic
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.ParentDocumentId">
+            <summary>
+            Parent document id"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.ParentDocumentType">
+            <summary>
+            Parent document type
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.RouteBorder">
+            <summary>
+            Route border
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.RouteInland">
+            <summary>
+            Route inland
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.StatisticsFlag">
+            <summary>
+            Statistics flag
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.TransferType">
+            <summary>
+            Transfer type
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CountryConsignor">
+            <summary>
+            Country consignor
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CountryImporter">
+            <summary>
+            Country importer
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CountryLoading">
+            <summary>
+            Country loading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CountryOfOrigin">
+            <summary>
+            Country of origin
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.CountryUnloading">
+            <summary>
+            Country unloading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsInformation.Documents">
+            <summary>
+            Custom documents
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiValueAtBorderCrossing">
+            <summary>
+            Value of the goods at border crossing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiValueAtBorderCrossing.Amount">
+            <summary>
+            Amount
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiValueAtBorderCrossing.Currency">
+            <summary>
+            Currency
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiCustomsDocuments">
+            <summary>
+            Customs documents
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsDocuments.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsDocuments.Number">
+            <summary>
+            Number
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiCustomsDocuments.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDangerousGood">
+            <summary>
+            Information on dangerous goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.Quantity">
+            <summary>
+            The quantity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.GrossWeightKilogram">
+            <summary>
+            Weight of the consignment including all packaging (kg)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.UnNo">
+            <summary>
+            The UN number, also known as the substance number, is an identification number that can be used for all dangerous substances.
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.Multiplier">
+            <summary>
+            Risk factor multiplier
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.UniqueKey">
+            <summary>
+            The unique Key for this good
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.SubstanceName">
+            <summary>
+            The substance Name
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.TechnicalNameIfNotOtherwiseSpecified">
+            <summary>
+            Technical name if not otherwise specified
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.LabelMainRisk">
+            <summary>
+            Label for main risk
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.LabelSubRisk1">
+            <summary>
+            Label for sub risk 1
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.LabelSubRisk2">
+            <summary>
+            Label for sub risk 2
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.LabelSubRisk3">
+            <summary>
+            Label for sub risk 3
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.PackagingDescription">
+            <summary>
+            The packaging description
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.NetExplosiveMassKilogram">
+            <summary>
+            The net explosive mass in kilogram
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.TransportCategory">
+            <summary>
+            The transport category
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.LimitedQuantity">
+            <summary>
+            Limited quantity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.TotalPointsAdr">
+            <summary>
+            Total points for ADR
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.TunnelRestriction">
+            <summary>
+            Restriction for tunnels
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.PackagingGroup">
+            <summary>
+            Packaging group
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.ClassificationCode">
+            <summary>
+            The Classification code
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.ExemptedQuantity">
+            <summary>
+            Exempted quantity
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.NetWeightKilogram">
+            <summary>
+            Net weight kilogram
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.VolumeLiter">
+            <summary>
+            Volume liter
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.HighConsequencesDangerousGoods">
+            <summary>
+            Transport of high consequences dangerous goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.AdrRelease">
+            <summary>
+            ADR Release
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.PackagingClass">
+            <summary>
+            Packaging class
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGood.References">
+            <summary>
+            Dangerous goods references
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDangerousGoodsReferences">
+            <summary>
+            Dangerous goods references
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDangerousGoodsReferences.FireworksBamNo">
+            <summary>
+            The fireworks Bam number
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryOptions">
             <summary>
             Requirements for special services or equipment for the delivery
@@ -1108,6 +1658,26 @@
             Use (null) to report successful forwarding the pickup order
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiExternalServices">
+            <summary>
+            Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiExternalServices.Archive">
+            <summary>
+            Functions provided by the digtal archive systems
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiArchive">
+            <summary>
+            Functions provided by the digital archive systems
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiArchive.AutomaticDownloadOfPod">
+            <summary>
+            The proof of delivery document is provided for automatic download"
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiFileContent">
             <summary>
             Transfers file data like a picture, pdf, txt...
@@ -1208,6 +1778,31 @@
             Time the GPS record was created
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiInformation">
+            <summary>
+            General information about the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiInformation.RemarksInvoice">
+            <summary>
+            Free text information for the invoice
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiInformation.RemarksPickup">
+            <summary>
+            Free text information for the pick up
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiInformation.RemarksDelivery">
+            <summary>
+            Free text information for the delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiInformation.RemarksGeneral">
+            <summary>
+            General free text information
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiAdditionalLoadingEquipment">
             <summary>
             Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
@@ -1261,6 +1856,51 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiLoadingOptions.GatewayDisposal">
             <summary>
             The gateway / HUB to which the goods should send after pickup from the contracted partners. If not set the route usually is determined by the networks routing rules
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiMeasures">
+            <summary>
+            Measures of the unit
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.VolumeCubicmeter">
+            <summary>
+            Total volume of the consignment (m³)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.LoadingMeter">
+            <summary>
+            Length of the area occupied on a 2.4 m wide container
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.GrossWeightKilogram">
+            <summary>
+            Weight of the consignment including all packaging (kg)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.AreaPalletBays">
+            <summary>
+            Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.ChargeableWeightKilogram">
+            <summary>
+            Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums (kg)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.LengthMeter">
+            <summary>
+            Total length (m)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.WidthMeter">
+            <summary>
+            Total width (m)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMeasures.HeightMeter">
+            <summary>
+            Total height (m)
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiModel">
@@ -1464,6 +2104,106 @@
             Conizi Id is used to identify the sending or receiving Tenant/Site/App on the conizi platform 
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiReferences">
+            <summary>
+            Numbers of various sources identifying this consignment or references from this consignment to other business processes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.ReturnOfPreviousConsignment">
+            <summary>
+            Reference to another consignment which content is return using this pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.ForwardedFor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.SubsequentDelivery">
+            <summary>
+            Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.PickupOrder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.DeliveryNote">
+            <summary>
+            The delivery note of the shipper which describes the content of this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.CustomerOrderNo">
+            <summary>
+            A reference of the shipper for this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.CustomerOrderDate">
+            <summary>
+            Date when the order was places with the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReferences.OrderEntrySystemReference">
+            <summary>
+            An unique reference number from the system which was used to enter the order details
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiReturnOfPreviousConsignment">
+            <summary>
+            Reference to another consignment which content is return using this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReturnOfPreviousConsignment.ConsignmentNoShippingPartner">
+            <summary>
+            The consignment number of the original consignment being returned
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReturnOfPreviousConsignment.ShippingDate">
+            <summary>
+            The date when the original shipment was forwarded
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReturnOfPreviousConsignment.ShippingPartner">
+            <summary>
+            The partner which originally forwarded the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiSubsequentDelivery">
+            <summary>
+            Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSubsequentDelivery.ConsignmentNoShippingPartner">
+            <summary>
+            Consignment number of the consignment for that the subsequent delivery is
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSubsequentDelivery.ShippingDate">
+            <summary>
+            The date when the original shipment was forwarded
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSubsequentDelivery.ShippingPartner">
+            <summary>
+            The partner which originally forwarded the consignment
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupOrder">
+            <summary>
+            Reference to a pickup order which resulted in this consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOrder.PickupOrderNo">
+            <summary>
+            Number to the referenced pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupOrder.OrderingParty">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiRouting">
             <summary>
             Information about the route take by this consignment/pickup order
@@ -1487,6 +2227,11 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiRouting.UnloadingAddress">
             <summary>
             The drop of point for the consignment, e.g. the exact address of the warehouse if the consignee has multiple warehouses
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiServices">
+            <summary>
+            Special services which can be requested by the ordering party (or the shipping partner)
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiServices.PackagingOptions">
@@ -1527,6 +2272,26 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiServices.LoadingOptions">
             <summary>
             Information about the loading of the main haul
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.UnloadingOptions">
+            <summary>
+            Information regarding unloading of the main haul
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.Gateway">
+            <summary>
+            Special requirements for the handling of the goods at intermediate hubs / gateways
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.HandlingInstructions">
+            <summary>
+            Handling instructions for the goods, e.g. to prevent damage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiServices.ReturnOfGoods">
+            <summary>
+            Services for the return of goods
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiPickupServices">
@@ -1587,6 +2352,126 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiPickupOptions.ForAttentionOf">
             <summary>
             The pickup is for attention of the given company
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiGateway">
+            <summary>
+            Special requirements for the handling of the goods at intermediate hubs / gateways
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGateway.Priority">
+            <summary>
+            The consignment must be processed with priority
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiHandlingInstructions">
+            <summary>
+            Handling instructions for the goods, e.g. to prevent damage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.CustomsGoods">
+            <summary>
+            The goods are subject to customs processing and must be processed according the rules of the local authorities
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.CustomsGoodsResubmissionDate">
+            <summary>
+            The resubmission date for the customs goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.HandleWithCare">
+            <summary>
+            The goods must be handled with care to prevent damage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.EmptiesExchange">
+            <summary>
+            Specifies whether empties should be exchanged with the consignee
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.Orientation">
+            <summary>
+            The goods must be transported in a given orientation and may not be flipped over
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.Stacking">
+            <summary>
+            Indicated whether the goods may or may not be stacked
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.Food">
+            <summary>
+            Special requirements for transporting food
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiHandlingInstructions.TemperatureRestrictions">
+            <summary>
+            Restrictions about the minimum and maximum temperature during the transport and special equipment to be used
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiOrientation">
+            <summary>
+            The goods must be transported in a given orientation and may not be flipped over
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiOrientation.Vertical">
+            <summary>
+            The goods must be transported upright
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiOrientation.Horizontal">
+            <summary>
+            The goods must be transported flat down
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiReturnOfGoods">
+            <summary>
+            Indicated whether the goods may or may not be stacked
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiReturnOfGoods.EmptyPackaging">
+            <summary>
+            The packaging of the goods is taken back and dispose
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiStacking">
+            <summary>
+            Indicated whether the goods may or may not be stacked
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiStacking.Forbidden">
+            <summary>
+            The goods must not be stacked
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiStacking.Allowed">
+            <summary>
+            tacking of the goods is safely possible
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiFood">
+            <summary>
+            Special requirements for transporting food
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFood.Haccp">
+            <summary>
+            The HACCP regulations apply
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTemperatureRestrictions">
+            <summary>
+            Restrictions about the minimum and maximum temperature during the transport and special equipment to be used
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTemperatureRestrictions.TemperatureMinCelsius">
+            <summary>
+            The temperature must not drop below the given value during the transport
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTemperatureRestrictions.TemperatureMaxCelsius">
+            <summary>
+            The temperature must not get greater than the given value
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiTimeOptions">
@@ -1666,7 +2551,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiFixedDay.Date">
             <summary>
-            Exact at Date (Day)
+            Date (Day)
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiFixedDay.TimeFrom">
@@ -1701,7 +2586,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiWeekendSaturday.Date">
             <summary>
-            Exact at Date (Day)
+            Date (Day)
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiWeekendSaturday.TimeFrom">
@@ -1721,7 +2606,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiNextDay.Date">
             <summary>
-            Exact at Date (Day)
+            Date (Day)
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiNextDay.TimeFrom">
@@ -1741,7 +2626,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiSameDay.Date">
             <summary>
-            Exact at Date (Day)
+            Date (Day)
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiSameDay.TimeFrom">
@@ -1761,7 +2646,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiEvening.Date">
             <summary>
-            Exact at Date (Day)
+            Date (Day)
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiEvening.TimeFrom">
@@ -1771,7 +2656,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiEvening.TimeUntil">
             <summary>
-            From time (HH:mm:ss)
+            Until time (HH:mm:ss)
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiSameDayPickup">
@@ -1781,7 +2666,7 @@
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiSameDayPickup.Date">
             <summary>
-            Exact at Date (Day)
+            Date (Day)
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiSameDayPickup.TimeFrom">
@@ -1790,6 +2675,26 @@
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiSameDayPickup.TimeUntil">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupDate">
+            <summary>
+            The date on which the pickup order should be processed by the contracted partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupDate.Date">
+            <summary>
+            Date (Day)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupDate.TimeFrom">
+            <summary>
+            From time (HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupDate.TimeUntil">
             <summary>
             From time (HH:mm:ss)
             </summary>
@@ -1952,6 +2857,56 @@
         <member name="P:Conizi.Model.Shared.Entities.TourWorkingHours.UntilDateTime">
             <summary>
             Until Date Time
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiUnloadingOptions">
+            <summary>
+            Information regarding unloading of the main haul
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingOptions.DirectDelivery">
+            <summary>
+            The goods are to be delivered without unloading them at the receiving partners warehouse
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingOptions.AlreadyReceived">
+            <summary>
+            The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiUnloadingOptions.MissingFromPreviousManifest">
+            <summary>
+            The goods for a consignment which already was part of another manifest and had been reported missing on that manifest
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiAlreadyReceived">
+            <summary>
+            The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAlreadyReceived.SurplusConsignmentNo">
+            <summary>
+            The reference number under which the surplus consignment had been reported by the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAlreadyReceived.ShippingDate">
+            <summary>
+            The date of the manifest which contained the surplus goods
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiMissingFromPreviousManifest">
+            <summary>
+            The goods for a consignment which already was part of another manifest and had been reported missing on that manifest
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMissingFromPreviousManifest.ManifestId">
+            <summary>
+            The manifest which first included the consignment
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMissingFromPreviousManifest.ShippingDate">
+            <summary>
+            The date of the manifest which included the consignment
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.Manifest.EdiLoadUnit">
@@ -3071,6 +4026,36 @@
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.Services">
             <summary>
             Special services which can be requested by the ordering party (or the shipping partner) for this pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.ExternalServices">
+            <summary>
+            Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.Information">
+            <summary>
+            General information about the pickup order
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.References">
+            <summary>
+            Numbers of various sources identifying this pickup order or references from this pickup to other business processes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.Billing">
+            <summary>
+            Information for invoicing and clearing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.CustomsInformation">
+            <summary>
+            Used to specify information necessary in the customs process
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.Content">
+            <summary>
+            Describes the nature and quantity of the goods in this pickup order
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk">

@@ -43,12 +43,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// The date on which the pickup order should be processed by the contracted partner
         /// </summary>
-        [DisplayName("Pickup date")]
-        [Description("The date on which the pickup order should be processed by the contracted partner")]
-        [JsonProperty("pickupDate", Order = -8)]
-        [ConiziDateOnly]
-        [Required]
-        public DateTime PickupDate { get; set; }
+        public EdiPickupDate PickupDate { get; set; }
 
         /// <summary>
         /// The partner which is sending the pickup order to the contracted partner for pickup
@@ -84,5 +79,35 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// Special services which can be requested by the ordering party (or the shipping partner) for this pickup order
         /// </summary>
         public EdiPickupServices Services { get; set; }
+
+        /// <summary>
+        /// Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)
+        /// </summary>
+        public EdiExternalServices ExternalServices { get; set; }
+
+        /// <summary>
+        /// General information about the pickup order
+        /// </summary>
+        public EdiInformation Information { get; set; }
+
+        /// <summary>
+        /// Numbers of various sources identifying this pickup order or references from this pickup to other business processes
+        /// </summary>
+        public EdiReferences References { get; set; }
+
+        /// <summary>
+        /// Information for invoicing and clearing
+        /// </summary>
+        public EdiBilling Billing { get; set; }
+
+        /// <summary>
+        /// Used to specify information necessary in the customs process
+        /// </summary>
+        public EdiCustomsInformation CustomsInformation { get; set; }
+
+        /// <summary>
+        /// Describes the nature and quantity of the goods in this pickup order
+        /// </summary>
+        public EdiContent Content { get; set; }
     }
 }
