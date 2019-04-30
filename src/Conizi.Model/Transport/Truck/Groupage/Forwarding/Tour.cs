@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
@@ -38,6 +39,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Tour id")]
         [Description("A unique identifier assigned to this tour by the devlivering company")]
         [JsonProperty("tourId", Order = -10)]
+        [Required]
         public string TourId { get; set; }
 
         /// <summary>
@@ -79,6 +81,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("Day on which the tour is proccessed")]
         [JsonProperty("shippingDate", Order = -6)]
         [ConiziDateOnly]
+        [Required]
         public DateTime ShippingDate { get; set; }
 
         /// <summary>

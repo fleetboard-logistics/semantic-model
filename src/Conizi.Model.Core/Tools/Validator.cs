@@ -32,7 +32,7 @@ namespace Conizi.Model.Core.Tools
         /// <param name="jsonMessage">JSON message as string</param>
         /// <returns>Type of the used model/class</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        private static Type ParseModel(string jsonMessage)
+        public static Type ParseModel(string jsonMessage)
         {
             var jModel = JObject.Parse(jsonMessage);
 

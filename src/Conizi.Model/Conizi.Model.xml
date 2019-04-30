@@ -3262,6 +3262,16 @@
             Events occurred while processing the notification of the consignment
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventNotification.Trigger">
+            <summary>
+             Event that is a trigger for starting a notification
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Tour.EdiEventNotification.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occurred while processing the notification of the consignment
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.Tour.EdiRedirectedTo">
             <summary>
             The consignment is redirected to...
