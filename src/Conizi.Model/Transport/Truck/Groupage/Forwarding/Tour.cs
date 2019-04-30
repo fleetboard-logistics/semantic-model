@@ -81,8 +81,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// Company responsible for the actual transport of the goods from the shipping partner to the recipient
         /// </summary>
-        [DisplayName("Carrier")]
-        [Description("Company responsible for the actual transport of the goods from the shipping partner to the recipient")]
+        //[DisplayName("Carrier")]
+        //[Description("Company responsible for the actual transport of the goods from the shipping partner to the recipient")]
         [JsonProperty("carrier", Order = -5)]
         public EdiAddress Carrier { get; set; }
 

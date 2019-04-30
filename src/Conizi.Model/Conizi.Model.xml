@@ -4,6 +4,12 @@
         <name>Conizi.Model</name>
     </assembly>
     <members>
+        <member name="T:Conizi.Model.Archiving.ProofOfDelivery">
+            <summary>
+            Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender.
+            The POD is usually generated after the delivery of an <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Id">
             <summary>
              POD Id
@@ -4060,7 +4066,7 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk">
             <summary>
-            
+            Pickup orders, that can be send in bulk
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent">
