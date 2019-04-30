@@ -2482,7 +2482,9 @@
   },
   "required": [
     "$schema",
-    "receiver"
+    "receiver",
+    "tourId",
+    "shippingDate"
   ],
   "patternProperties": {
     "x-.*": {},
