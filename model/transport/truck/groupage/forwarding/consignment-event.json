@@ -639,9 +639,7 @@
           "additionalProperties": false,
           "properties": {
             "manually": {
-              "title": "Manually",
-              "description": "Start a manual notification",
-              "type": "boolean"
+              "$ref": "emptyExtendableObject"
             },
             "automatic": {
               "title": "Automatic",
@@ -1013,14 +1011,10 @@
           "format": "date-time"
         },
         "completedBy": {
-          "title": "Completed by",
-          "description": "Completed by another party",
-          "type": "boolean"
+          "$ref": "emptyExtendableObject"
         },
         "forwarded": {
-          "title": "Forwarded",
-          "description": "Consignment was forwarded",
-          "type": "boolean"
+          "$ref": "emptyExtendableObject"
         },
         "signee": {
           "title": "Signee",
