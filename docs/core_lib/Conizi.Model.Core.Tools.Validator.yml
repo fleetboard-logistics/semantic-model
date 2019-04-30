@@ -5,6 +5,7 @@ items:
   id: Validator
   parent: Conizi.Model.Core.Tools
   children:
+  - Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
   - Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)
   - Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)
   - Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)
@@ -73,6 +74,50 @@ items:
       description: <a href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</a> license as string
     content.vb: Public Shared Sub RegisterJsonSchemaLicense(license As String)
   overload: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
+  id: ParseModel(System.String)
+  parent: Conizi.Model.Core.Tools.Validator
+  langs:
+  - csharp
+  - vb
+  name: ParseModel(String)
+  nameWithType: Validator.ParseModel(String)
+  fullName: Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Validator.cs
+      branch: fixes-csharp-models
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ParseModel
+    path: ../src/Conizi.Model.Core/Tools/Validator.cs
+    startLine: 34
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nParse the JSON message and try to extract the model\n"
+  example: []
+  syntax:
+    content: public static Type ParseModel(string jsonMessage)
+    parameters:
+    - id: jsonMessage
+      type: System.String
+      description: JSON message as string
+    return:
+      type: System.Type
+      description: Type of the used model/class
+    content.vb: Public Shared Function ParseModel(jsonMessage As String) As Type
+  overload: Conizi.Model.Core.Tools.Validator.ParseModel*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
   modifiers.csharp:
   - public
   - static
@@ -256,6 +301,21 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+- uid: Conizi.Model.Core.Tools.Validator.ParseModel*
+  commentId: Overload:Conizi.Model.Core.Tools.Validator.ParseModel
+  name: ParseModel
+  nameWithType: Validator.ParseModel
+  fullName: Conizi.Model.Core.Tools.Validator.ParseModel
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
 - uid: Conizi.Model.Core.Entities.ValidationResult
   commentId: T:Conizi.Model.Core.Entities.ValidationResult
   parent: Conizi.Model.Core.Entities
@@ -361,10 +421,3 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
-  isExternal: true
-  name: Type
-  nameWithType: Type
-  fullName: System.Type

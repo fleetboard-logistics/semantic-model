@@ -16,9 +16,9 @@ namespace Conizi.Model.Shared.Entities.Tour
         /// <summary>
         /// Start a manual notification
         /// </summary>
-        [DisplayName("Manually")]
-        [Description("Start a manual notification")]
-        public bool Manually { get; set; }
+        //[DisplayName("Manually")]
+        //[Description("Start a manual notification")]
+        public EdiEmptyExtendableObject Manually { get; set; }
 
         /// <summary>
         /// Start an automatic notification (i.e. automatic notification system via email or SMS)

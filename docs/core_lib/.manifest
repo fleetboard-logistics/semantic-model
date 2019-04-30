@@ -32,6 +32,7 @@
   "Conizi.Model.Core.Tools.Generator.Generate``1": "Conizi.Model.Core.Tools.Generator.yml",
   "Conizi.Model.Core.Tools.Generator.RegisterJsonSchemaLicense(System.String)": "Conizi.Model.Core.Tools.Generator.yml",
   "Conizi.Model.Core.Tools.Validator": "Conizi.Model.Core.Tools.Validator.yml",
+  "Conizi.Model.Core.Tools.Validator.ParseModel(System.String)": "Conizi.Model.Core.Tools.Validator.yml",
   "Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)": "Conizi.Model.Core.Tools.Validator.yml",
   "Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml",
   "Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml",

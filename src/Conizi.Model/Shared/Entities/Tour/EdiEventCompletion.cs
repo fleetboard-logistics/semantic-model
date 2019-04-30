@@ -16,16 +16,16 @@ namespace Conizi.Model.Shared.Entities.Tour
         /// <summary>
         /// Completed by another party
         /// </summary>
-        [DisplayName("Completed by")]
-        [Description("Completed by another party")]
-        public bool CompletedBy { get; set; }
+        //[DisplayName("Completed by")]
+        //[Description("Completed by another party")]
+        public EdiEmptyExtendableObject CompletedBy { get; set; }
 
         /// <summary>
         /// Consignment was forwarded
         /// </summary>
-        [DisplayName("Forwarded")]
-        [Description("Consignment was forwarded")]
-        public bool Forwarded { get; set; }
+        //[DisplayName("Forwarded")]
+        //[Description("Consignment was forwarded")]
+        public EdiEmptyExtendableObject Forwarded { get; set; }
 
         /// <summary>
         /// Name of the person which rejected the consignment
