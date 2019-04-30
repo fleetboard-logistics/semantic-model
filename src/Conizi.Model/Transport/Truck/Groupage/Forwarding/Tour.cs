@@ -6,8 +6,6 @@ using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Entities;
-using Conizi.Model.Shared.Entities.Manifest;
-using Conizi.Model.Shared.Entities.Tour;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;

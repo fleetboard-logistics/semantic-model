@@ -293,6 +293,9 @@
             "leaked": {
               "$ref": "emptyExtendableObject"
             },
+            "rejected": {
+              "$ref": "emptyExtendableObject"
+            },
             "damagedAfterPackagingRemoval": {
               "$ref": "emptyExtendableObject"
             },

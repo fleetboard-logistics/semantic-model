@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
-using Conizi.Model.Shared.Entities.Consignment;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
