@@ -414,8 +414,6 @@
       }
     },
     "consignments": {
-      "title": "Consignments",
-      "description": "Consignments which are delivered while proccessing the tour",
       "type": "array",
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
@@ -2177,7 +2175,7 @@
       "items": {
         "$id": "stop",
         "title": "Stop for delivering",
-        "description": "Stop for delivering the acutal goods",
+        "description": "Stop for delivering the actual goods",
         "type": "object",
         "additionalProperties": false,
         "properties": {

@@ -1125,6 +1125,26 @@
             A description of the action to be performed
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDriver">
+            <summary>
+            Information about the drivers of the vehicles
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDriver.DriverId">
+            <summary>
+            The id of the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDriver.Name">
+            <summary>
+            The name of the driver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDriver.PhoneNumber">
+            <summary>
+            The phone number of the driver
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiEmptyExtendableObject">
             <summary>
             The empty EdiEmptyExtendableObject is used for non yet completed defined objects.
@@ -2832,7 +2852,7 @@
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiTourStop">
             <summary>
-            Stop for delivering. Stop for delivering the acutal goods
+            Stop for delivering. Stop for delivering the actual goods
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.StopNo">
@@ -3043,6 +3063,11 @@
         <member name="P:Conizi.Model.Shared.Entities.Manifest.EdiVehicle.VehicleId">
             <summary>
             The Id of the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.Manifest.EdiVehicle.Registration">
+            <summary>
+            Official registration of the vehicle (e.g. license plate number
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.Manifest.EdiVehicle.TruckType">
@@ -4144,6 +4169,31 @@
             Describes the nature and quantity of the goods in this pickup order
             </summary>
         </member>
+        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk">
+            <summary>
+            Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk. See also <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>, <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour"/>, <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.ConsignmentEvents">
+            <summary>
+            List of consignment events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.PickupOrderEvents">
+            <summary>
+            List of pickup order events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.PackageEvents">
+            <summary>
+            List of package events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.TourEvents">
+            <summary>
+            List of tour events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent"/>
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent">
             <summary>
             An event which occurred during the processing of the referenced pickup order <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder"/>
@@ -4270,6 +4320,11 @@
             e.g.loading and unloading information about <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>s or maintenance stops
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.MessageFunctionCode">
+            <summary>
+            Message function code
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.TourId">
             <summary>
             The Tour Id. A unique identifier assigned to this tour by the devlivering company
@@ -4305,14 +4360,54 @@
             Company responsible for the actual transport of the goods from the shipping partner to the recipient
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.AdditionalLoadingEquipment">
+            <summary>
+            Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.LoadUnits">
+            <summary>
+            Load units (containers, swap bodies, ...) used to transport the goods
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.NotificationParties">
             <summary>
             Notification Parties
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Divers">
+            <summary>
+             Information about the drivers of the vehicles
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Vehicles">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Consignments">
             <summary>
             Consignments. Consignments which are delivered while processing the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.DangerousGoods">
+            <summary>
+             Dangerous goods to be declared contained in a consignment 
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.TourStartOptions">
+            <summary>
+            Tour start options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.TourEndOptions">
+            <summary>
+            Tour end options. Activities the driver is supposed to do before starting driving the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour.Stops">
+            <summary>
+             Stops for delivering the actual goods
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent">

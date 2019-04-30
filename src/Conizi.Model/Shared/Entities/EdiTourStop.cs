@@ -8,10 +8,10 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {/// <summary>
- /// Stop for delivering. Stop for delivering the acutal goods
+ /// Stop for delivering. Stop for delivering the actual goods
  /// </summary>
     [DisplayName("Stop for delivering")]
-    [Description("Stop for delivering the acutal goods")]
+    [Description("Stop for delivering the actual goods")]
     [JsonObject("stop")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]

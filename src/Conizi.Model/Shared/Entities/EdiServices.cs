@@ -167,7 +167,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("For attention")]
         [Description("The pickup is for attention of the given company")]
-        public bool ForAttentionOf { get; set; }
+        public string ForAttentionOf { get; set; }
 
     }
 

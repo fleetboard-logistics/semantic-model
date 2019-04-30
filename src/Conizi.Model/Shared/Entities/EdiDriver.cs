@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
+    /// <summary>
+    /// Information about the drivers of the vehicles
+    /// </summary>
     [JsonObject("driver")]
     [DisplayName("Driver")]
     [Description("Information about the drivers of the vehicles")]
@@ -12,14 +15,23 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiDriver
     {
+        /// <summary>
+        /// The id of the driver
+        /// </summary>
         [DisplayName("Diver Id")]
         [Description("The id of the driver")]
         public string DriverId { get; set; }
 
+        /// <summary>
+        /// The name of the driver
+        /// </summary>
         [DisplayName("Name of the driver")]
         [Description("The name of the driver")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// The phone number of the driver
+        /// </summary>
         [DisplayName("Phone number")]
         [Description("The phone number of the driver")]
         [Phone]

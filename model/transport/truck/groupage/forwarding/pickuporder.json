@@ -355,7 +355,7 @@
             "forAttentionOf": {
               "title": "For attention",
               "description": "The pickup is for attention of the given company",
-              "type": "boolean"
+              "type": "string"
             }
           },
           "patternProperties": {

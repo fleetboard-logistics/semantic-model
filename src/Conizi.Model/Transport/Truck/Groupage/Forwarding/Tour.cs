@@ -24,6 +24,9 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
     [ConiziAllowXProperties]
     public class Tour : EdiModel
     {
+        /// <summary>
+        /// Message function code
+        /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("messageFunctionCode", Order = -11)]
         [DisplayName("Message function code")]
@@ -86,8 +89,14 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [JsonProperty("carrier", Order = -5)]
         public EdiAddress Carrier { get; set; }
 
+        /// <summary>
+        /// Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
+        /// </summary>
         public EdiAdditionalLoadingEquipment AdditionalLoadingEquipment { get; set; }
 
+        /// <summary>
+        /// Load units (containers, swap bodies, ...) used to transport the goods
+        /// </summary>
         public List<EdiLoadUnit> LoadUnits { get; set; }
 
          /// <summary>
@@ -97,24 +106,42 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("Parties should be notified")]
         public List<EdiPartnerIdentification> NotificationParties { get; set; }
 
+        /// <summary>
+        ///  Information about the drivers of the vehicles
+        /// </summary>
         public List<EdiDriver> Divers { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<EdiVehicle> Vehicles { get; set; }
 
         /// <summary>
         /// Consignments. Consignments which are delivered while processing the tour
         /// </summary>
-        [DisplayName("Consignments")]
-        [Description("Consignments which are delivered while proccessing the tour")]
+        //[DisplayName("Consignments")]
+        //[Description("Consignments which are delivered while processing the tour")]
         [JsonProperty("consignments", ReferenceLoopHandling = ReferenceLoopHandling.Ignore, ItemIsReference = false)]
         public List<Consignment> Consignments { get; set; }
 
+        /// <summary>
+        ///  Dangerous goods to be declared contained in a consignment 
+        /// </summary>
         public TourDangerousGoods DangerousGoods { get; set; }
 
+        /// <summary>
+        /// Tour start options. Activities the driver is supposed to do before starting driving the tour
+        /// </summary>
         public TourStartOptions TourStartOptions { get; set;}
 
+        /// <summary>
+        /// Tour end options. Activities the driver is supposed to do before starting driving the tour
+        /// </summary>
         public TourEndOptions TourEndOptions { get; set; }
 
+        /// <summary>
+        ///  Stops for delivering the actual goods
+        /// </summary>
         public List<EdiTourStop> Stops { get; set; }
     }
 }
