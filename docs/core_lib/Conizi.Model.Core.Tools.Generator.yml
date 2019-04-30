@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Generator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Generator
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Generator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: RegisterJsonSchemaLicense
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Generator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Generate
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Generator.cs
-      branch: schemagenerator
+      branch: fixes-csharp-models
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Generate
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
