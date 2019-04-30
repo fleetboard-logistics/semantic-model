@@ -21,6 +21,9 @@ namespace Conizi.Model.Shared.Entities.Manifest
         [DisplayName("The vehicle id")]
         public string VehicleId { get; set; }
 
+        /// <summary>
+        /// Official registration of the vehicle (e.g. license plate number
+        /// </summary>
         [DisplayName("Registration")]
         [Description("Official registration of the vehicle (e.g. license plate number)")]
         public string Registration { get; set; }

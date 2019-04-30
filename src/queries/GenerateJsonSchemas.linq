@@ -89,13 +89,12 @@ bool ModelHashChanged(string newModelJson, string currentModelPath)
 
 	using (var hashCalc = SHA256.Create())
 	{
-		newModelJson.Dump();
 		var currentModelContent = File.ReadAllBytes(currentModelPath);
 		var currentModelHash = hashCalc.ComputeHash(currentModelContent);
 
 		var newModelContent = Encoding.UTF8.GetBytes(newModelJson);
 		var newModelHash = hashCalc.ComputeHash(newModelContent);
 
-		return newModelHash != currentModelHash;
+		return Encoding.UTF8.GetString(newModelHash) != Encoding.UTF8.GetString(currentModelHash);
 	}
 }
