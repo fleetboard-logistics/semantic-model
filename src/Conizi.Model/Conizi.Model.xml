@@ -12,12 +12,67 @@
         </member>
         <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Id">
             <summary>
-             POD Id
+             The unique id of the POD
             </summary>
         </member>
         <member name="P:Conizi.Model.Archiving.ProofOfDelivery.RefNo">
             <summary>
-            Reference Number (consignment)
+            A reference of the ordering party relating to the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Shipper">
+            <summary>
+            The address of the party which is sending the goods. This is usually the place where the pickup originated
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Consignee">
+            <summary>
+            The address of the good's recipient
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Carrier">
+            <summary>
+            Company responsible for the actual transport of the goods from the shipping partner to the recipient
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.ShippingPartner">
+            <summary>
+            The partner which is sending the consignment to the receiving partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.ReceivingPartner">
+            <summary>
+            The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Content">
+            <summary>
+            The content as file
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.ShippingDate">
+            <summary>
+            The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.DocumentCreationDate">
+            <summary>
+            Date this document was created
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.ArrivalDate">
+            <summary>
+            The date and time goods arrived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.PlannedShippingDate">
+            <summary>
+            The planned date and time of shipping/transport
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Archiving.ProofOfDelivery.Signature">
+            <summary>
+            The signature of the recipient
             </summary>
         </member>
         <member name="T:Conizi.Model.Converters.ConiziDateConverter">
@@ -2480,6 +2535,31 @@
             The temperature must not get greater than the given value
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiSignature">
+            <summary>
+            The signature of the recipient/person of interest
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSignature.SignatureAvailable">
+            <summary>
+            Is a signature available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSignature.SigneeName">
+            <summary>
+            Name of the signee
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSignature.SignatureDate">
+            <summary>
+            The date and time of signature
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiSignature.SignatureContent">
+            <summary>
+            The signature as a file (image, reference)
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiTimeOptions">
             <summary>
             Requirements for the delivery or pickup time
@@ -4062,11 +4142,6 @@
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder.Content">
             <summary>
             Describes the nature and quantity of the goods in this pickup order
-            </summary>
-        </member>
-        <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk">
-            <summary>
-            Pickup orders, that can be send in bulk
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent">

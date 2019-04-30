@@ -15,7 +15,7 @@ namespace Conizi.Model.Archiving
     /// </summary>
     [DisplayName("Proof of Delivery")]
     [Description("Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender")]
-    [ConiziSchema("http://conizi.io/model/archiving/proof-of-delivery.json", "proof-of-delivery.json")]
+    [ConiziSchema("https://model.conizi.io/v1/archiving/proof-of-delivery.json", "proof-of-delivery.json")]
     public class ProofOfDelivery : EdiModel 
     {
         /// <summary>
@@ -93,18 +93,18 @@ namespace Conizi.Model.Archiving
         public DateTime DocumentCreationDate { get; set; }
 
         /// <summary>
-        /// The date goods arrived
+        /// The date and time goods arrived
         /// </summary>
         [DisplayName("Arrival date")]
-        [Description("The date goods arrived")]
+        [Description("The date and time goods arrived")]
         public DateTime ArrivalDate { get; set; }
 
         /// <summary>
-        /// The planned date of shipping/transport
+        /// The planned date and time of shipping/transport
         /// </summary>
         [ConiziDateOnly]
         [DisplayName("Planned shipping date")]
-        [Description("The planned date of shipping/transport")]
+        [Description("The planned date and time of shipping/transport")]
         public DateTime PlannedShippingDate { get; set; }
 
         /// <summary>

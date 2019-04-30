@@ -44,8 +44,8 @@ var models = new List<Type> {
 	 typeof(Manifest),
 	 typeof(EventBulk),
 	 typeof(PickupOrderEvent),
-	 typeof(PickupOrder)
-
+	 typeof(PickupOrder),
+	 typeof(ProofOfDelivery)
 };
 
 foreach (var model in models)

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
-  "description": "An event which occurred during the processing of the referenced tour (Generated: 29.04.2019 17:50:13 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "An event which occurred during the processing of the referenced tour (Generated: 30.04.2019 10:52:45 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {

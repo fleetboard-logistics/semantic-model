@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
-  "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops (Generated: 29.04.2019 17:50:12 - Conizi.Model.Core v:1.0.0.0)",
+  "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops (Generated: 30.04.2019 10:52:45 - Conizi.Model.Core v:1.0.0.0)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -124,8 +124,7 @@
     },
     "carrier": {
       "$id": "ediAddress",
-      "title": "Carrier",
-      "description": "Company responsible for the actual transport of the goods from the shipping partner to the recipient",
+      "title": "Address fields",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -421,7 +420,7 @@
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
         "title": "Consignment",
-        "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 29.04.2019 17:50:12 - Conizi.Model.Core v:1.0.0.0)",
+        "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest (Generated: 30.04.2019 10:52:45 - Conizi.Model.Core v:1.0.0.0)",
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1051,7 +1050,7 @@
                 "properties": {
                   "directDelivery": {
                     "title": "Direct delivery",
-                    "description": "The goods are to be deliverd without unloading them at the receiving partners warehouse",
+                    "description": "The goods are to be delivered without unloading them at the receiving partners warehouse",
                     "type": "boolean"
                   },
                   "alreadyReceived": {
@@ -1081,7 +1080,7 @@
                   "missingFromPreviousManifest": {
                     "$id": "missingFromPreviousManifest",
                     "title": "Missing from previous manifest",
-                    "description": "The goods for a consigment which already was part of another manifest and had been reported missing on that manifest",
+                    "description": "The goods for a consignment which already was part of another manifest and had been reported missing on that manifest",
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
@@ -1157,7 +1156,7 @@
                   "orientation": {
                     "$id": "orientation",
                     "title": "Orientation",
-                    "description": "The goods must be transported in a given orientatien and may not be flipped over",
+                    "description": "The goods must be transported in a given orientation and may not be flipped over",
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
@@ -1180,7 +1179,7 @@
                   "stacking": {
                     "$id": "stacking",
                     "title": "Stacking",
-                    "description": "Indicated wheter the goods may or may not be stacked",
+                    "description": "Indicated whether the goods may or may not be stacked",
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
@@ -1281,7 +1280,7 @@
               "archive": {
                 "$id": "archive",
                 "title": "Digital archive",
-                "description": "Functions provided by the digtal archive systems",
+                "description": "Functions provided by the digital archive systems",
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
@@ -1446,7 +1445,7 @@
               },
               "orderEntrySystemReference": {
                 "title": "Order entry system reference",
-                "description": "A unqiue reference number from the system which was used to enter the order details",
+                "description": "A unique reference number from the system which was used to enter the order details",
                 "type": "string"
               }
             },
@@ -1488,7 +1487,11 @@
                 "title": "Costs and charges",
                 "description": "Used to transfer detailed information about the fees",
                 "type": "object",
-                "additionalProperties": false
+                "additionalProperties": false,
+                "patternProperties": {
+                  "x-.*": {},
+                  "\\$.*": {}
+                }
               }
             },
             "patternProperties": {
@@ -1616,8 +1619,8 @@
                 "type": "array",
                 "items": {
                   "$id": "documents",
-                  "title": "Custom documents",
-                  "description": "Custom documents",
+                  "title": "Customs documents",
+                  "description": "Customs documents",
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
@@ -1690,6 +1693,10 @@
                     "description": "Currency",
                     "type": "string"
                   }
+                },
+                "patternProperties": {
+                  "x-.*": {},
+                  "\\$.*": {}
                 }
               },
               "lines": {
@@ -1703,12 +1710,12 @@
                   "properties": {
                     "lineNo": {
                       "title": "Line no",
-                      "description": "A ordinal number, ordering the line within the consignment",
+                      "description": "A ordinal number, ordering the line within the consignment/pickup order",
                       "type": "integer"
                     },
                     "handlingUnitCount": {
                       "title": "Handling unit count",
-                      "description": "The number of the items in this consignment which are handeled individually",
+                      "description": "The number of the items in this consignment/pickup order which are handeled individually",
                       "type": "integer"
                     },
                     "handlingUnitType": {
@@ -1753,7 +1760,7 @@
                           "description": "The Process code",
                           "type": "string"
                         },
-                        "netweightKilogram": {
+                        "netWeightKilogram": {
                           "title": "Net weight kilogram",
                           "description": "The net weight in kilogram",
                           "type": "number"
@@ -1764,15 +1771,39 @@
                           "type": "number"
                         },
                         "countryOfOrigin": {
-                          "title": "Country of origin",
-                          "description": "The Country of origin",
-                          "type": "string"
+                          "$id": "customsInformationValue",
+                          "title": "Customs value",
+                          "description": "Amount value type",
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "amount": {
+                              "title": "Amount",
+                              "type": "number"
+                            },
+                            "currency": {
+                              "title": "Currency",
+                              "type": "string"
+                            }
+                          },
+                          "patternProperties": {
+                            "x-.*": {},
+                            "\\$.*": {}
+                          }
+                        },
+                        "statisticalValue": {
+                          "$ref": "customsInformationValue"
                         },
                         "customsValue": {
-                          "title": "Customs value",
-                          "description": "The customs value",
-                          "type": "string"
+                          "$ref": "customsInformationValue"
+                        },
+                        "documents": {
+                          "$ref": "documents"
                         }
+                      },
+                      "patternProperties": {
+                        "x-.*": {},
+                        "\\$.*": {}
                       }
                     },
                     "barcodes": {
@@ -1850,6 +1881,11 @@
                             "description": "The substance Name",
                             "type": "string"
                           },
+                          "technicalNameIfNotOtherwiseSpecified": {
+                            "title": "Technical name if not otherwise specified",
+                            "description": "The technical name if not otherwise specified",
+                            "type": "string"
+                          },
                           "labelMainRisk": {
                             "title": "Label for main risk",
                             "description": "Label for main risk",
@@ -1892,7 +1928,7 @@
                           },
                           "totalPointsADR": {
                             "title": "Total points ADR",
-                            "description": "Total points ADR",
+                            "description": "Total points for ADR",
                             "type": "integer"
                           },
                           "tunnelRestriction": {
@@ -1927,7 +1963,7 @@
                           },
                           "highConsequencesDangerousGoods": {
                             "title": "High consequences dangerous goods",
-                            "description": "High consequences dangerous goods ",
+                            "description": "High consequences dangerous goods",
                             "type": "boolean"
                           },
                           "adrRelease": {
@@ -1948,7 +1984,7 @@
                             "properties": {
                               "fireworksBamNo": {
                                 "title": "Fireworks bam number",
-                                "description": "Fireworks bam number",
+                                "description": "Fireworks Bam number",
                                 "type": "string"
                               }
                             }
@@ -1984,8 +2020,8 @@
                       "type": "number"
                     },
                     "chargeableWeightKilogram": {
-                      "title": "Chargable weight (kg)",
-                      "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums",
+                      "title": "Chargeable weight (kg)",
+                      "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
                       "type": "number"
                     },
                     "lengthMeter": {
@@ -2010,6 +2046,9 @@
                   }
                 }
               },
+              "additionalLoadingEquipment": {
+                "$ref": "additionalLoadingEquipment"
+              },
               "volumeCubicmeter": {
                 "title": "Volume (m³)",
                 "description": "Total volume of the consignment",
@@ -2031,8 +2070,8 @@
                 "type": "number"
               },
               "chargeableWeightKilogram": {
-                "title": "Chargable weight (kg)",
-                "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums",
+                "title": "Chargeable weight (kg)",
+                "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
                 "type": "number"
               },
               "lengthMeter": {
