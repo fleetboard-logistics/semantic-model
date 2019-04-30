@@ -654,6 +654,45 @@
             "\\$.*": {}
           }
         },
+        "exceptions": {
+          "title": "Exceptions",
+          "description": "Detailed information about the exceptions that occurred while processing the notification of the consignment.Use (null) to report successful notifcations of the consignment",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "notReached": {
+              "$ref": "emptyExtendableObject"
+            },
+            "disabled": {
+              "$ref": "emptyExtendableObject"
+            },
+            "pickupCustomer": {
+              "$ref": "emptyExtendableObject"
+            },
+            "wrongAddress": {
+              "$ref": "emptyExtendableObject"
+            },
+            "disposalOrdered": {
+              "$ref": "emptyExtendableObject"
+            },
+            "notInTime": {
+              "$ref": "emptyExtendableObject"
+            },
+            "canceled": {
+              "$ref": "emptyExtendableObject"
+            },
+            "invalidData": {
+              "$ref": "emptyExtendableObject"
+            },
+            "missingData": {
+              "$ref": "emptyExtendableObject"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
         "remarks": {
           "title": "Remarks (free form)",
           "description": "Additional remarks",
