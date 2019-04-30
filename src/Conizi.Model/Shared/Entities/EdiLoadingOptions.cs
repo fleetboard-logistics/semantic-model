@@ -26,9 +26,9 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules
         /// </summary>
-        [DisplayName("Receiving Partner Disposal ")]
-        [Description("The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules")]
-        public bool ReceivingPartnerDisposal { get; set; }
+        //[DisplayName("Receiving Partner Disposal ")]
+        //[Description("The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules")]
+        public EdiPartnerIdentification ReceivingPartnerDisposal { get; set; }
 
         /// <summary>
         /// The gateway / HUB to which the goods should send after pickup from the contracted partners. If not set the route usually is determined by the networks routing rules
