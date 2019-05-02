@@ -4,6 +4,51 @@
         <name>Conizi.Model</name>
     </assembly>
     <members>
+        <member name="T:Conizi.Model.Accounting.Material.MaterialTransaction">
+            <summary>
+            Transaction of material for accounting purpose
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.Id">
+            <summary>
+            The unique booking id
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.Item">
+            <summary>
+            The booking item
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.SourceAccount">
+            <summary>
+            The source account
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.DestinationAccount">
+            <summary>
+            The destination account
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.Amount">
+            <summary>
+            The amount of the booking
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.BookingDate">
+            <summary>
+            The booking date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.ReferenceNumber">
+            <summary>
+            The reference number
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Accounting.Material.MaterialTransaction.Comment">
+            <summary>
+            Booking comment
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Archiving.ProofOfDelivery">
             <summary>
             Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender.
