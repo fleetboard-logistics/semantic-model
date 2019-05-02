@@ -4,6 +4,8 @@ apiRules:
 - include:
     uidRegex: ^Conizi\.Model\.Archiving
 - include:
+    uidRegex: ^Conizi\.Model\.Accounting
+- include:
     uidRegex: ^Conizi\.Model\.Shared\.Entities
 - exclude:
     uidRegex: ^Conizi\.Model
