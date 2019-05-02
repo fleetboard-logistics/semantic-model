@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Client.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Client
     path: ../src/Conizi.Model.Core/Tools/Client.cs

@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Converter.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Converter
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
@@ -53,7 +53,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Converter.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Serialize
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
@@ -109,7 +109,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Tools/Converter.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Deserialize
     path: ../src/Conizi.Model.Core/Tools/Converter.cs

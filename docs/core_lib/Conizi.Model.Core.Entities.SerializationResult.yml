@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/SerializationResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: SerializationResult
     path: ../src/Conizi.Model.Core/Entities/SerializationResult.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/SerializationResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: IsValidated
     path: ../src/Conizi.Model.Core/Entities/SerializationResult.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/SerializationResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ToString
     path: ../src/Conizi.Model.Core/Entities/SerializationResult.cs

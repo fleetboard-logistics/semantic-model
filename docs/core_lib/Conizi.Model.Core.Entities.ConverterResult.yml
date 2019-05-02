@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/ConverterResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ConverterResult
     path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/ConverterResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: ValidationErrors
     path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/ConverterResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Model
     path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/ConverterResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: HasValidationErrors
     path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
@@ -172,7 +172,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/ConverterResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Content
     path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
@@ -219,7 +219,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/ConverterResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Schema
     path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
@@ -266,7 +266,7 @@ items:
   source:
     remote:
       path: src/Conizi.Model.Core/Entities/ConverterResult.cs
-      branch: fixes-csharp-models
+      branch: master
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: File
     path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
