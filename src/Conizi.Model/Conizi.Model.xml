@@ -3999,6 +3999,71 @@
             A manifest describes multiple <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>s which are forwarded from one partner to another at the same time
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.ManifestId">
+            <summary>
+            A unique identifier assigned to this cargo manifest by the shipping partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.ManifestType">
+            <summary>
+            Type of the manifest (STD, INF, AVI)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.ShippingDate">
+            <summary>
+            The date on which the manifest was issued
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.TransportType">
+            <summary>
+            Information about the way of production of that transport (i.e. by HUB, by direct transport, ...)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.IsPreAdvice">
+            <summary>
+            Adds the possibility of sending the manifest (after saving, before approval) to e.g. a TMS)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.AdditionalPartners">
+            <summary>
+            Routing information to identify the parties involved in the data transfer
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.ShippingPartner">
+            <summary>
+            The partner which is sending the consignment to the receiving partner for further delivery.
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.ReceivingPartner">
+            <summary>
+            The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.Carrier">
+            <summary>
+            Company responsible for the actual transport of the goods from the shipping partner to the receiving partner
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.Vehicles">
+            <summary>
+            Information about the vehicles used in the transport
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.LoadUnits">
+            <summary>
+            Load units (containers, swap bodies, ...) used to transport the goods
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.AdditionalLoadingEquipment">
+            <summary>
+            Additional loading equipment used to securely load the goods into for the passage
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest.Lines">
+            <summary>
+            Ordinal number of the line within the manifest. Is referenced in other messages such as the unloading report
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent">
             <summary>
             An event which occurred during the processing of the referenced package, which is included in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
