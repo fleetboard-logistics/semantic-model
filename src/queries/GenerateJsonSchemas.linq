@@ -48,7 +48,7 @@ var models = new List<Type> {
 	 typeof(EventBulk),
 	 typeof(PickupOrderEvent),
 	 typeof(PickupOrder),
-	 typeof(PickupOrderBulk)
+	 typeof(PickupOrderBulk),
 	 typeof(ProofOfDelivery),
 	 typeof(MaterialTransaction)
 
