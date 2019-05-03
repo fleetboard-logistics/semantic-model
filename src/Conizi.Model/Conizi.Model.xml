@@ -4299,7 +4299,7 @@
             Pickup orders, that can be send in bulk. See <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk"/>
             </summary>
         </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.PickupOfOrders">
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.PickupOrders">
             <summary>
             List of <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder"/>s
             </summary>

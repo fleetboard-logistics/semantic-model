@@ -20,8 +20,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// List of <see cref="PickupOrder"/>s
         /// </summary>
-        [JsonProperty("consignment-events")]
-        public List<PickupOrder> PickupOfOrders { get; set; }
+        [JsonProperty("pickuporders")]
+        public List<PickupOrder> PickupOrders { get; set; }
 
     }
 }

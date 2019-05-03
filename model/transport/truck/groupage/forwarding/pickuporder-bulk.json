@@ -77,7 +77,7 @@
         }
       }
     },
-    "consignment-events": {
+    "pickuporders": {
       "type": "array",
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
