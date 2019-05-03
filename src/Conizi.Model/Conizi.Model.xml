@@ -4296,27 +4296,12 @@
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk">
             <summary>
-            Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk. See also <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>, <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour"/>, <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder"/>
+            Pickup orders, that can be send in bulk. See <seealso cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk"/>
             </summary>
         </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.ConsignmentEvents">
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.PickupOfOrders">
             <summary>
-            List of consignment events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent"/>
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.PickupOrderEvents">
-            <summary>
-            List of pickup order events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent"/>
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.PackageEvents">
-            <summary>
-            List of package events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PackageEvent"/>
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderBulk.TourEvents">
-            <summary>
-            List of tour events <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent"/>
+            List of <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrder"/>s
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent">

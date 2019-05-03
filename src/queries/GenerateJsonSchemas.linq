@@ -28,6 +28,7 @@
   <Namespace>Serilog</Namespace>
   <Namespace>Serilog.Configuration</Namespace>
   <Namespace>System.Security.Cryptography</Namespace>
+  <Namespace>Conizi.Model.Accounting.Material</Namespace>
 </Query>
 
 Generator.RegisterJsonSchemaLicense(Environment.GetEnvironmentVariable("Generator:JsonSchemaLicense"));
@@ -47,7 +48,10 @@ var models = new List<Type> {
 	 typeof(EventBulk),
 	 typeof(PickupOrderEvent),
 	 typeof(PickupOrder),
-	 typeof(ProofOfDelivery)
+	 typeof(PickupOrderBulk)
+	 typeof(ProofOfDelivery),
+	 typeof(MaterialTransaction)
+
 };
 
 foreach (var model in models)
