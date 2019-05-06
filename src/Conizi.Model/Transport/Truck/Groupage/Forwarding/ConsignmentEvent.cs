@@ -162,6 +162,6 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Wait/Downtime in minute")]
         [Description("Wait/Downtime in minute")]
-        public int WaitDowntimeMinutes { get; set; }
+        public int? WaitDowntimeMinutes { get; set; }
     }
 }

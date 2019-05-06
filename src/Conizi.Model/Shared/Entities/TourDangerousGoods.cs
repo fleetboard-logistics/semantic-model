@@ -19,7 +19,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Is ADR")]
         [Description("Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road")]
         [JsonProperty("isADR")]
-        public bool IsAdr { get; set; }
+        public bool? IsAdr { get; set; }
 
         /// <summary>
         /// Total Point to ADR
@@ -27,6 +27,6 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Total Point ADR")]
         [Description("Total Point to ADR")]
         [JsonProperty("totalPointADR")]
-        public decimal TotalPointAdr { get; set; }
+        public decimal? TotalPointAdr { get; set; }
     }
 }

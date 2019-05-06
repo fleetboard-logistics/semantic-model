@@ -107,21 +107,21 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Length (m)")]
         [Description("Length in meter")]
-        public decimal Length { get; set; }
+        public decimal? Length { get; set; }
 
         /// <summary>
         /// Width in meter
         /// </summary>
         [DisplayName("Width (m)")]
         [Description("Width in meter")]
-        public decimal Width { get; set; }
+        public decimal? Width { get; set; }
 
         /// <summary>
         /// Height in meter
         /// </summary>
         [DisplayName("Height (m)")]
         [Description("Height in meter")]
-        public decimal Height { get; set; }
+        public decimal? Height { get; set; }
 
     }
 

@@ -56,7 +56,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Is a pre advice")]
         [Description("Adds the possibility of sending the manifest (after saving, before approval) to e.g. a TMS)")]
-        public bool IsPreAdvice { get; set; }
+        public bool? IsPreAdvice { get; set; }
 
         /// <summary>
         /// Routing information to identify the parties involved in the data transfer

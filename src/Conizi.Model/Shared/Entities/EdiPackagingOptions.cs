@@ -19,7 +19,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Return")]
         [Description("Packaging material return")]
-        public bool Return { get; set; }
+        public bool? Return { get; set; }
 
         /// <summary>
         /// Packaging correction for your Bordero from: ... (Additional description)"

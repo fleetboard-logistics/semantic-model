@@ -19,27 +19,27 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Proof of Delivery")]
         [Description("Proof of delivery was archived")]
-        public bool Pod { get; set; }
+        public bool? Pod { get; set; }
 
         /// <summary>
         /// Delivery notes were archived
         /// </summary>
         [DisplayName("Delivery notes")]
         [Description("Delivery notes were archived")]
-        public bool DeliveryNote { get; set; }
+        public bool? DeliveryNote { get; set; }
 
         /// <summary>
         /// Customs papers were archived
         /// </summary>
         [DisplayName("Customs papers")]
         [Description("Customs papers were archived")]
-        public bool CustomsPapers { get; set; }
+        public bool? CustomsPapers { get; set; }
 
         /// <summary>
         /// Pictures of damages were archived
         /// </summary>
         [DisplayName("Damage Pictures")]
         [Description("Pictures of damages were archived")]
-        public bool DamagePictures { get; set; }
+        public bool? DamagePictures { get; set; }
     }
 }

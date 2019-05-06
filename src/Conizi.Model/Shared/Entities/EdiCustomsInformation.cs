@@ -38,19 +38,19 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Cleared for free transit within EU")]
         [JsonProperty("ClearedForFreeTransitWithinEU")]
-        public bool ClearedForFreeTransitWithinEu { get; set; }
+        public bool? ClearedForFreeTransitWithinEu { get; set; }
 
         /// <summary>
         /// Envelope for customs documents
         /// </summary>
         [DisplayName("Envelope for customs documents")]
-        public bool EnvelopeForCustomsDocuments { get; set; }
+        public bool? EnvelopeForCustomsDocuments { get; set; }
 
         /// <summary>
         /// Presentation to customs require
         /// </summary>
         [DisplayName("Presentation to customs require")]
-        public bool PresentationToCustomsRequired { get; set; }
+        public bool? PresentationToCustomsRequired { get; set; }
 
         /// <summary>
         /// Value of the goods at border crossing
@@ -179,7 +179,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Amount")]
         [Description("Amount")]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Currency

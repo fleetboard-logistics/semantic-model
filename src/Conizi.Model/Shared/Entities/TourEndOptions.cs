@@ -20,6 +20,6 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Write Down Mileage")]
         [Description("Write down the mileage")]
-        public bool WriteDownMileage { get; set; }
+        public bool? WriteDownMileage { get; set; }
     }
 }

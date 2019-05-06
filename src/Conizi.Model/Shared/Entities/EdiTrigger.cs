@@ -25,6 +25,6 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Automatic")]
         [Description("Start an automatic notification (i.e. automatic notification system via email or SMS)")]
-        public bool Automatic { get; set; }
+        public bool? Automatic { get; set; }
     }
 }

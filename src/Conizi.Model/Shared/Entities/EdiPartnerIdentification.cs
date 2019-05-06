@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
+  
 
     /// <summary>
     /// Fields to identify the partner or/and further data routing information
@@ -99,6 +100,12 @@ namespace Conizi.Model.Shared.Entities
         [Phone]
         [DisplayName("The Fax number")]
         public string FaxNumber { get; set; }
+
+        /// <summary>
+        /// The geo position
+        /// </summary>
+        [JsonProperty("geoPosition", Order = -9, Required = Required.DisallowNull)]
+        public EdiGeoPosition GeoPosition { get; set; }
     }
 
     /// <summary>

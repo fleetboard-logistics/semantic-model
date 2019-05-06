@@ -20,14 +20,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("EPAL")]
         [Description("EUR pallets as defined by European Pallet Association (EPAL)")]
-        public int EurPallets { get; set; }
+        public int? EurPallets { get; set; }
 
         /// <summary>
         /// EUR Box pallets as defined by European Pallet Association (EPAL)
         /// </summary>
         [DisplayName("EUR box pallets")]
         [Description("EUR Box pallets as defined by European Pallet Association (EPAL)")]
-        public int EurBoxes { get; set; }
+        public int? EurBoxes { get; set; }
 
     }
 
@@ -47,21 +47,21 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Exchanged")]
         [Description("Loading Equipment was exchanged")]
         [JsonRequired]
-        public bool Exchanged { get; set; }
+        public bool? Exchanged { get; set; }
 
         /// <summary>
         /// Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)
         /// </summary>
         [DisplayName("Amount Euro Pallets")]
         [Description("Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)")]
-        public int AmountEurPallets { get; set; }
+        public int? AmountEurPallets { get; set; }
 
         /// <summary>
         /// Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)
         /// </summary>
         [DisplayName("AmountEuro Boxes")]
         [Description("Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)")]
-        public int AmountEurBoxes { get; set; }
+        public int? AmountEurBoxes { get; set; }
 
         
     }

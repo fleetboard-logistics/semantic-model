@@ -19,7 +19,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Line number")]
         [Description("Ordinal number of the line within the manifest. Is referenced in other messages such as the unloading report")]
-        public int LineNo { get; set; }
+        public int? LineNo { get; set; }
 
         /// <summary>
         /// The consignment included in the line of the manifest

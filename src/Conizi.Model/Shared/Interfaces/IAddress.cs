@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Conizi.Model.Shared.Entities;
+using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Interfaces
 {
@@ -38,6 +40,12 @@ namespace Conizi.Model.Shared.Interfaces
         [Phone]
         [DisplayName("The Fax number")]
         string FaxNumber { get; set; }
+
+        /// <summary>
+        /// The geo location, the event was recorded
+        /// </summary>
+        [JsonProperty("geoPosition", Order = -9, Required = Required.DisallowNull)]
+        EdiGeoPosition GeoPosition { get; set; }
 
     }
 }

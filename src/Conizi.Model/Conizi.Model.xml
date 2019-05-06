@@ -166,6 +166,76 @@
             Fields to save address relevant data
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.Name">
+            <summary>
+            Name of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.Street">
+            <summary>
+            Street of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.HouseNumber">
+            <summary>
+            House number of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.ZipCode">
+            <summary>
+            Zip code of the Address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.City">
+            <summary>
+            City of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.TownArea">
+            <summary>
+            Town area address"
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.CountryCode">
+            <summary>
+            Country code of the address Use ISO 3166-1 Alpha-2 codes. See also <seealso href="https://en.wikipedia.org/wiki/ISO_3166-1"></seealso>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.EmailAddress">
+            <summary>
+            Email of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.PhoneNumber">
+            <summary>
+            Phone number of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.AdditionalAddressLines">
+            <summary>
+            Additional address lines of the address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.ReferenceNumber">
+            <summary>
+            Reference number for an address
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.ContactPerson">
+            <summary>
+            The contact person
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.FaxNumber">
+            <summary>
+            The Fax number
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.GeoPosition">
+            <summary>
+            The geo position
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiAnonymity">
             <summary>
             Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods
@@ -2303,6 +2373,11 @@
             The Fax number
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.GeoPosition">
+            <summary>
+            The geo position
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiMessageRouting">
             <summary>
             Routing information to identify the parties involved in the data transfer (e.g. PartnerId, ConiziId...)
@@ -3734,6 +3809,11 @@
             </summary>
             <param name="name"></param>
             <returns></returns>
+        </member>
+        <member name="P:Conizi.Model.Shared.Interfaces.IAddress.GeoPosition">
+            <summary>
+            The geo location, the event was recorded
+            </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">
             <summary>

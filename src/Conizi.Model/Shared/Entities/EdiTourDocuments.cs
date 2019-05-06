@@ -38,20 +38,20 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Checklist Departure Control")]
         [Description("A checklist of departure control is available")]
-        public bool ChecklistDepartureControl { get; set; }
+        public bool? ChecklistDepartureControl { get; set; }
 
         /// <summary>
         /// Checklist of instructions available
         /// </summary>
         [DisplayName("Checklist Instruction")]
         [Description("A checklist of vehicle inspection is available")]
-        public bool ChecklistInstruction{ get; set; }
+        public bool? ChecklistInstruction{ get; set; }
 
         /// <summary>
         /// Checklist of vehicle inspection available
         /// </summary>
         [DisplayName("ChecklistVehicle Inspection")]
         [Description("A checklist of vehicle inspection is available")]
-        public bool ChecklistVehicleInspection { get; set; }
+        public bool? ChecklistVehicleInspection { get; set; }
     }
 }

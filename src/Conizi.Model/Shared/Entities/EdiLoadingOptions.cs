@@ -21,7 +21,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Direct pickup")]
         [Description("The goods picked up by the line haul and are not loaded by the shipping partners warehouse")]
-        public bool DirectPickup { get; set; }
+        public bool? DirectPickup { get; set; }
 
         /// <summary>
         /// The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules

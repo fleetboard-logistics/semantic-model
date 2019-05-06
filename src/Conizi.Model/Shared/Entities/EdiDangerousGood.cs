@@ -22,14 +22,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Quantity")]
         [Description("The quantity")]
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         /// <summary>
         /// Weight of the consignment including all packaging (kg)
         /// </summary>
         [DisplayName("Gross weight (kg)")]
         [Description("Weight of the consignment including all packaging")]
-        public Decimal GrossWeightKilogram { get; set; }
+        public decimal? GrossWeightKilogram { get; set; }
 
         /// <summary>
         /// The UN number, also known as the substance number, is an identification number that can be used for all dangerous substances.
@@ -43,7 +43,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Multiplier")]
         [Description("Multiplier")]
-        public int Multiplier { get; set; }
+        public int? Multiplier { get; set; }
 
         /// <summary>
         /// The unique Key for this good
@@ -106,7 +106,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Net explosive mass in kilogram")]
         [Description("The net explosive mass in kilogram")]
-        public Decimal NetExplosiveMassKilogram { get; set; }
+        public decimal? NetExplosiveMassKilogram { get; set; }
 
         /// <summary>
         /// The transport category
@@ -120,7 +120,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Limited quantity")]
         [Description("Limited quantity")]
-        public bool LimitedQuantity { get; set; }
+        public bool? LimitedQuantity { get; set; }
 
         /// <summary>
         /// Total points for ADR
@@ -128,7 +128,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Total points ADR")]
         [Description("Total points for ADR")]
         [JsonProperty("totalPointsADR")]
-        public int TotalPointsAdr { get; set; }
+        public int? TotalPointsAdr { get; set; }
 
         /// <summary>
         /// Restriction for tunnels
@@ -156,28 +156,28 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Exempted quantity")]
         [Description("Exempted quantity")]
-        public bool ExemptedQuantity { get; set; }
+        public bool? ExemptedQuantity { get; set; }
 
         /// <summary>
         /// Net weight kilogram
         /// </summary>
         [DisplayName("Net weight kilogram")]
         [Description("Net weight kilogram")]
-        public decimal NetWeightKilogram { get; set; }
+        public decimal? NetWeightKilogram { get; set; }
 
         /// <summary>
         /// Volume liter
         /// </summary>
         [DisplayName("Volume liter")]
         [Description("Volume liter")]
-        public decimal VolumeLiter { get; set; }
+        public decimal? VolumeLiter { get; set; }
 
         /// <summary>
         /// Transport of high consequences dangerous goods
         /// </summary>
         [DisplayName("High consequences dangerous goods")]
         [Description("High consequences dangerous goods")]
-        public bool HighConsequencesDangerousGoods { get; set; }
+        public bool? HighConsequencesDangerousGoods { get; set; }
 
         /// <summary>
         /// ADR Release

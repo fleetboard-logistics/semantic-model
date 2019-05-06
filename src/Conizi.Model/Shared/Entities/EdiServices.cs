@@ -118,49 +118,49 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Lifting Platform")]
         [Description("The pickup order can only be picked up with a vehicle equipped with a lifting platform")]
-        public bool LiftingPlatform { get; set; }
+        public bool? LiftingPlatform { get; set; }
 
         /// <summary>
         /// Delivery Note is following later by post or driver post
         /// </summary>
         [DisplayName("Delivery Note following by post")]
         [Description("Delivery Note is follwing later by post or driver post")]
-        public bool DeliveryNoteFollowingByPost { get; set; }
+        public bool? DeliveryNoteFollowingByPost { get; set; }
 
         /// <summary>
         /// Driver has to bring empty pallets for exchange
         /// </summary>
         [DisplayName("Empty pallets for exchange")]
         [Description("Driver has to bring empty pallets for exchange")]
-        public bool EmptyPallets { get; set; }
+        public bool? EmptyPallets { get; set; }
 
         /// <summary>
         /// The pickup contains unknown dangerous goods
         /// </summary>
         [DisplayName("Unknown dangerous goods")]
         [Description("The pickup contains unknown dangerous goods")]
-        public bool UnknownDangerousGoods { get; set; }
+        public bool? UnknownDangerousGoods { get; set; }
 
         /// <summary>
         /// The goods must be picked up from the point of use with one man handling. Usually in case of returning old goods
         /// </summary>
         [DisplayName("Point of use pickup - 1 man handling")]
         [Description("The goods must be picked up from the point of use with one man handling. Usually in case of returning old goods")]
-        public bool PointOfUsePickup1Person { get; set; }
+        public bool? PointOfUsePickup1Person { get; set; }
 
         /// <summary>
         /// The goods must be picked up from the point of use with two man handling. Usually in case of returning old goolds
         /// </summary>
         [DisplayName("Point of use pickup - 2 man handling")]
         [Description("The goods must be picked up from the point of use with two man handling. Usually in case of returning old goolds")]
-        public bool PointOfUsePickup2Persons { get; set; }
+        public bool? PointOfUsePickup2Persons { get; set; }
 
         /// <summary>
         /// A given last mile provider must be used
         /// </summary>
         [DisplayName("Pickup by specific last mile provider")]
         [Description("A given last mile provider must be used")]
-        public bool UseSpecificLastMileProvider { get; set; }
+        public bool? UseSpecificLastMileProvider { get; set; }
 
         /// <summary>
         /// The pickup is for attention of the given company
@@ -186,7 +186,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Priority")]
         [Description("The consignment must be processed with priority")]
-        public bool Priority { get; set; }
+        public bool? Priority { get; set; }
     }
 
     /// <summary>
@@ -204,7 +204,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Customs Goods")]
         [Description("The goods are subject to customs processing and must be processed according the rules of the local authorities")]
-        public bool CustomsGoods { get; set; }
+        public bool? CustomsGoods { get; set; }
 
         /// <summary>
         /// The resubmission date for the customs goods
@@ -219,14 +219,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Handle with care")]
         [Description("The goods must be handeled with care to prevent damage")]
-        public bool HandleWithCare { get; set; }
+        public bool? HandleWithCare { get; set; }
 
         /// <summary>
         /// Specifies whether empties should be exchanged with the consignee
         /// </summary>
         [DisplayName("Empties exchange required")]
         [Description("Specifies whether empties should be exchanged with the consignee")]
-        public bool EmptiesExchange { get; set; }
+        public bool? EmptiesExchange { get; set; }
 
         /// <summary>
         /// The goods must be transported in a given orientation and may not be flipped over
@@ -264,14 +264,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Upright")]
         [Description("The goods must be transported upright")]
-        public bool Vertical { get; set; }
+        public bool? Vertical { get; set; }
 
         /// <summary>
         /// The goods must be transported flat down
         /// </summary>
         [DisplayName("Horizontal")]
         [Description("The goods must be transported flat down")]
-        public bool Horizontal { get; set; }
+        public bool? Horizontal { get; set; }
     }
 
     /// <summary>
@@ -289,7 +289,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Packaging disposal")]
         [Description("The packaging of the goods is taken back and dispose")]
-        public bool EmptyPackaging { get; set; }
+        public bool? EmptyPackaging { get; set; }
     }
 
     /// <summary>
@@ -307,14 +307,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Stacking forbidden")]
         [Description("The goods must not be stacked")]
-        public bool Forbidden { get; set; }
+        public bool? Forbidden { get; set; }
 
         /// <summary>
         /// tacking of the goods is safely possible
         /// </summary>
         [DisplayName("Stacking possible")]
         [Description("Stacking of the goods is safely possible")]
-        public bool Allowed { get; set; }
+        public bool? Allowed { get; set; }
     }
 
     /// <summary>
@@ -332,7 +332,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Stacking forbidden")]
         [Description("The HACCP regulations apply")]
-        public bool Haccp { get; set; }
+        public bool? Haccp { get; set; }
 
     }
 
@@ -351,13 +351,13 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Minimum temperature (°C)")]
         [Description("The temperature must not drop below the given value during the transport")]
-        public decimal TemperatureMinCelsius { get; set; }
+        public decimal? TemperatureMinCelsius { get; set; }
 
         /// <summary>
         /// The temperature must not get greater than the given value
         /// </summary>
         [DisplayName("Maximum temperature (°C)")]
         [Description("The temperature must not get greater than the given value")]
-        public decimal TemperatureMaxCelsius { get; set; }
+        public decimal? TemperatureMaxCelsius { get; set; }
     }
 }

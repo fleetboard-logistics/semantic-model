@@ -15,17 +15,17 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Redirected to sender
         /// </summary>
-        public bool Sender { get; set; }
+        public bool? Sender { get; set; }
 
         /// <summary>
         /// Redirected to source partner
         /// </summary>
-        public bool SourcePartner { get; set; } 
+        public bool? SourcePartner { get; set; } 
         
         /// <summary>
         /// Redirected to receiving Partner
         /// </summary>
-        public bool ReceivingPartner { get; set; }
+        public bool? ReceivingPartner { get; set; }
 
     }
 }

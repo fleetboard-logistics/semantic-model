@@ -38,6 +38,6 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("PoD push")]
         [Description("The proof of delivery document is provided for automatic download")]
-        public bool AutomaticDownloadOfPod { get; set; }
+        public bool? AutomaticDownloadOfPod { get; set; }
     }
 }

@@ -77,7 +77,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Is a pre advice")]
         [Description("dds the possibility of sending the consignment (after saving, before approval) to e.g. a TMS")]
-        public bool IsPreAdvice { get; set; }
+        public bool? IsPreAdvice { get; set; }
 
         /// <summary>
         /// Additional partners which are also involved in processing this consignment

@@ -51,7 +51,6 @@ var models = new List<Type> {
 	 typeof(PickupOrderBulk),
 	 typeof(ProofOfDelivery),
 	 typeof(MaterialTransaction)
-
 };
 
 foreach (var model in models)

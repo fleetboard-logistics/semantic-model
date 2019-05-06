@@ -25,7 +25,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Non hazardous waste")]
         [Description("The content has no value and is not dangerous")]
-        public bool NonHazardousWaste { get; set; }
+        public bool? NonHazardousWaste { get; set; }
 
         /// <summary>
         /// The consignment only consists of loading aids which are transported and does not contain real goods
@@ -33,7 +33,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Loading aids")]
         [Description(
             "The consignment only consists of loading aids which are transported and does not contain real goods")]
-        public bool LoadingAids { get; set; }
+        public bool? LoadingAids { get; set; }
 
         /// <summary>
         /// Name of the packaging pool which is used to handle to loading aids from this consignment
@@ -48,7 +48,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("High value goods")]
         [Description(
             "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft")]
-        public bool HighValueGoods { get; set; }
+        public bool? HighValueGoods { get; set; }
 
         /// <summary>
         /// Value of the goods, used for insurance purposes
@@ -81,7 +81,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Amount")]
         [Description("Amount")]
-        public Decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Currency
@@ -106,14 +106,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Line no")]
         [Description("A ordinal number, ordering the line within the consignment/pickup order")]
-        public int LineNo { get; set; }
+        public int? LineNo { get; set; }
 
         /// <summary>
         /// The number of the items in this consignment/pickup order which are handled individually
         /// </summary>
         [DisplayName("Handling unit count")]
         [Description("The number of the items in this consignment/pickup order which are handeled individually")]
-        public int HandlingUnitCount { get; set; }
+        public int? HandlingUnitCount { get; set; }
 
         /// <summary>
         /// The type of packaging (e.g. pallet, carton box, ...) ouf the outer most packaging
@@ -127,7 +127,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Inner package count")]
         [Description("Used to specify the number of inner packages (e.g. the number of boxes on a pallet)")]
-        public int InnerPackageCount { get; set; }
+        public int? InnerPackageCount { get; set; }
 
         /// <summary>
         /// The type of packaging of the inner packages
@@ -201,14 +201,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Net weight kilogram")]
         [Description("The net weight in kilogram")]
-        public decimal NetWeightKilogram { get; set; }
+        public decimal? NetWeightKilogram { get; set; }
 
         /// <summary>
         /// The raw weight in kilogram
         /// </summary>
         [DisplayName("Raw weight kilogram")]
         [Description("The raw weight in kilogram")]
-        public decimal RawWeightKilogram { get; set; }
+        public decimal? RawWeightKilogram { get; set; }
 
         /// <summary>
         /// The Country of origin
@@ -245,7 +245,7 @@ namespace Conizi.Model.Shared.Entities
         /// Amount
         /// </summary>
         [DisplayName("Amount")]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Currency

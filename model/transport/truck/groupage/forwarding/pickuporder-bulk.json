@@ -129,6 +129,45 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "geoPosition": {
+                "$id": "geoPosition",
+                "title": "Geo position",
+                "description": "Data about the current geo position",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "longitude": {
+                    "title": "Longitude",
+                    "description": "East–west position of a point on the Earth's surface",
+                    "type": "number"
+                  },
+                  "latitude": {
+                    "title": "Latitude",
+                    "description": "North–south position of a point on the Earth's surface",
+                    "type": "number"
+                  },
+                  "placeName": {
+                    "title": "Place name",
+                    "description": "The place name of the current geo position",
+                    "type": "string"
+                  },
+                  "w3WCoordinate": {
+                    "title": "What3words coordinate",
+                    "description": "A coordinate for the What3Words service like index.home.raft",
+                    "type": "string"
+                  },
+                  "recordTime": {
+                    "title": "Record time",
+                    "description": "Time the GPS record was created",
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "longitude",
+                  "latitude"
+                ]
+              },
               "name": {
                 "title": "Name of the address",
                 "type": "string"
@@ -211,6 +250,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "geoPosition": {
+                "$ref": "geoPosition"
+              },
               "name": {
                 "title": "Name of the address",
                 "type": "string"
@@ -236,7 +278,7 @@
                 "type": "string"
               },
               "countryCode": {
-                "title": "Country code of the address",
+                "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
                 "type": "string"
               },
               "emailAddress": {
@@ -255,7 +297,7 @@
                 }
               },
               "referenceNumber": {
-                "title": "Reference number of depending object",
+                "title": "Reference number for an address",
                 "type": "string"
               },
               "contactPerson": {
@@ -264,10 +306,6 @@
               },
               "faxNumber": {
                 "title": "The Fax number",
-                "type": "string"
-              },
-              "reference": {
-                "title": "An address reference",
                 "type": "string"
               }
             },

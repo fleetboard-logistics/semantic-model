@@ -19,7 +19,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Billing - Delivery term")]
         [Description("A new delivery term that should be considered for billing")]
-        public bool BillingDeliveryTerm { get; set; }
+        public bool? BillingDeliveryTerm { get; set; }
 
         /// <summary>
         /// The area occupied by the consignment - expressed in standard pallet sizes

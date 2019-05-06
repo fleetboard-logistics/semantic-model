@@ -22,7 +22,7 @@ namespace Conizi.Model.Shared.Entities
         [JsonRequired]
         [DisplayName("Longitude")]
         [Description("East–west position of a point on the Earth's surface")]
-        public decimal Longitude { get; set; }
+        public decimal? Longitude { get; set; }
 
         /// <summary>
         /// North–south position of a point on the Earth's surface
@@ -30,7 +30,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Latitude")]
         [Description("North–south position of a point on the Earth's surface")]
         [JsonRequired]
-        public decimal Latitude { get; set; }
+        public decimal? Latitude { get; set; }
 
         /// <summary>
         /// The place name of the current geo position

@@ -21,7 +21,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Direct delivery")]
         [Description("The goods are to be delivered without unloading them at the receiving partners warehouse")]
-        public bool DirectDelivery { get; set; }
+        public bool? DirectDelivery { get; set; }
 
         /// <summary>
         /// The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on

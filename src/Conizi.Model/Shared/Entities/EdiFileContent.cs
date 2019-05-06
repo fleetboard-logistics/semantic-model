@@ -55,7 +55,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Data length")]
         [Description("The length (bytes) of submitted data")]
-        public int Length { get; set; }
+        public int? Length { get; set; }
 
         /// <summary>
         /// The submitted data as byte array, be aware large files > 100KByte should be submitted as <see cref="EdiFileReference"/>
@@ -86,7 +86,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Data length")]
         [Description("The length (bytes) of submitted data")]
-        public int Length { get; set; }
+        public int? Length { get; set; }
 
         /// <summary>
         /// An absolute URL to a file on the online storage

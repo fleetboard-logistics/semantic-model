@@ -58,7 +58,7 @@ namespace Conizi.Model.Accounting.Material
         [DisplayName("Amount")]
         [Description("The amount of the booking")]
         [Required]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// The booking date

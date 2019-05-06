@@ -19,14 +19,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("The consignment has been loaded")]
         [Description("The consignment has been loaded onto the truck leaving the gateway")]
-        public bool Loaded { get; set; }
+        public bool? Loaded { get; set; }
 
         /// <summary>
         /// The consignment has been unloaded from the truck delivering the consignment to the gateway
         /// </summary>
         [DisplayName("The consignment has been unloaded")]
         [Description("The consignment has been unloaded from the truck delivering the consignment to the gateway")]
-        public bool Unloaded { get; set; }
+        public bool? Unloaded { get; set; }
 
         /// <summary>
         /// Detailed information about the exceptions that occurred while processing the consignment.

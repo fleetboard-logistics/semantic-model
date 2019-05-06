@@ -23,7 +23,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Signature available")]
         [Description("Is a signature available")]
         [Required]
-        public bool SignatureAvailable { get; set; }
+        public bool? SignatureAvailable { get; set; }
 
         /// <summary>
         /// Name of the signee

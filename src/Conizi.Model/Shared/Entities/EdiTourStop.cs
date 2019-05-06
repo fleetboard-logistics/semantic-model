@@ -23,7 +23,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Stop number")]
         [Description("The whole of the stop numbers in the right order defines the order of the stops")]
-        public int StopNo { get; set; }
+        public int? StopNo { get; set; }
 
         /// <summary>
         /// Stop Id. Unique identifier for this stop within the tour
@@ -73,7 +73,7 @@ namespace Conizi.Model.Shared.Entities
         /// Cross Docking
         /// </summary>
         [DisplayName("Cross Docking")]
-        public bool CrossDocking { get; set; }
+        public bool? CrossDocking { get; set; }
     }
 
     /// <summary>
@@ -167,14 +167,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Scheduled wait minutes")]
         [Description("Scheduled wait time in minutes to begin the activity")]
-        public int ScheduledWaitMinutes { get; set; }
+        public int? ScheduledWaitMinutes { get; set; }
 
         /// <summary>
         /// Scheduled time for handling the activity
         /// </summary>
         [DisplayName("Scheduled handling minutes")]
         [Description("Scheduled time for handling the activity")]
-        public int ScheduledHandlingMinutes { get; set; }
+        public int? ScheduledHandlingMinutes { get; set; }
 
         /// <summary>
         /// Notes on the Stop

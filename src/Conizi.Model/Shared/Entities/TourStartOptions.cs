@@ -19,13 +19,13 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Departure Check")]
         [Description("Departure Check was made")]
-        public bool DepartureCheck { get; set; }
+        public bool? DepartureCheck { get; set; }
 
         /// <summary>
         /// Write down the mileage
         /// </summary>
         [DisplayName("Write Down Mileage")]
         [Description("Write down the mileage")]
-        public bool WriteDownMileage { get; set; }
+        public bool? WriteDownMileage { get; set; }
     }
 }
