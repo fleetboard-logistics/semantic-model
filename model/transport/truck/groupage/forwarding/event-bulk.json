@@ -705,6 +705,45 @@
         "\\$.*": {}
       }
     },
+    "EdiEventGateway": {
+      "title": "Cross dock",
+      "description": "Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "loaded": {
+          "title": "The consignment has been loaded",
+          "description": "The consignment has been loaded onto the truck leaving the gateway",
+          "type": "boolean"
+        },
+        "unloaded": {
+          "title": "The consignment has been unloaded",
+          "description": "The consignment has been unloaded from the truck delivering the consignment to the gateway",
+          "type": "boolean"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiGatewayExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiEventNotification": {
       "title": "Notification",
       "description": "Events occurred while processing the notification of the consignment",
@@ -802,32 +841,19 @@
         "absoluteUri"
       ]
     },
-    "EdiGateway": {
-      "title": "Gateway-Options",
-      "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
+    "EdiGatewayExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occurred while processing the consignment.Use (null) to report successful cross dock of the consignment",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
+        "loaded": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
-        "priority": {
-          "title": "Priority",
-          "description": "The consignment must be processed with priority",
-          "type": "boolean"
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
+        "halted": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
-      "required": [
-        "eventDateTime"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -2381,7 +2407,7 @@
           "$ref": "event-bulk.json#/definitions/EdiUnloading"
         },
         "gateway": {
-          "$ref": "event-bulk.json#/definitions/EdiGateway"
+          "$ref": "event-bulk.json#/definitions/EdiEventGateway"
         },
         "deliveryPlanning": {
           "$ref": "event-bulk.json#/definitions/EdiDeliveryPlanning"
