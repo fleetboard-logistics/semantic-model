@@ -17,23 +17,23 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// A new delivery term that should be considered for billing
         /// </summary>
-        [DisplayName("Billing - Delivery term")]
-        [Description("A new delivery term that should be considered for billing")]
-        public bool? BillingDeliveryTerm { get; set; }
+        //[DisplayName("Billing - Delivery term")]
+        //[Description("A new delivery term that should be considered for billing")]
+        public EdiEmptyExtendableObject BillingDeliveryTerm { get; set; }
 
         /// <summary>
         /// The area occupied by the consignment - expressed in standard pallet sizes
         /// </summary>
-        [DisplayName("Billing - Area (in pallet bays)")]
-        [Description("The area occupied by the consignment - expressed in standard pallet sizes")]
-        public string BillingAreaPalletBays { get; set; }
+        //[DisplayName("Billing - Area (in pallet bays)")]
+        //[Description("The area occupied by the consignment - expressed in standard pallet sizes")]
+        public EdiEmptyExtendableObject BillingAreaPalletBays { get; set; }
 
         /// <summary>
         /// The area occupied by the consignment - expressed in loading meters
         /// </summary>
-        [DisplayName("Billing - Loading meter")]
-        [Description("The area occupied by the consignment - expressed in loading meters")]
-        public string BillingLoadingMeter { get; set; }
+        //[DisplayName("Billing - Loading meter")]
+        //[Description("The area occupied by the consignment - expressed in loading meters")]
+        public EdiEmptyExtendableObject BillingLoadingMeter { get; set; }
 
     }
 }

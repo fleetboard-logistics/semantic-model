@@ -467,19 +467,13 @@
           "format": "date-time"
         },
         "billingDeliveryTerm": {
-          "title": "Billing - Delivery term",
-          "description": "A new delivery term that should be considered for billing",
-          "type": "boolean"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "billingAreaPalletBays": {
-          "title": "Billing - Area (in pallet bays)",
-          "description": "The area occupied by the consignment - expressed in standard pallet sizes",
-          "type": "string"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "billingLoadingMeter": {
-          "title": "Billing - Loading meter",
-          "description": "The area occupied by the consignment - expressed in loading meters",
-          "type": "string"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",

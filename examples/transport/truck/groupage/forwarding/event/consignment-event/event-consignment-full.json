@@ -106,7 +106,7 @@
         "billingDeliveryTerm": {},
         "billingAreaPalletBays": {},
         "billingLoadingMeter": {},
-        "message": ""
+        "remarks": "This was a change request"
     },
     "cancellation": {
         "eventDateTime": "2017-12-31T08:15:12",
