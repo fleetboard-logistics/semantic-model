@@ -124,7 +124,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         //[DisplayName("Consignments")]
         //[Description("Consignments which are delivered while processing the tour")]
-        [JsonProperty("consignments", ReferenceLoopHandling = ReferenceLoopHandling.Ignore, ItemIsReference = false)]
+        [JsonProperty("consignments", ReferenceLoopHandling = ReferenceLoopHandling.Ignore, IsReference = false,ItemIsReference = true)]
         public List<Consignment> Consignments { get; set; }
 
         /// <summary>

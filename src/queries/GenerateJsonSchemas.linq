@@ -5,6 +5,7 @@
   <NuGetReference>Newtonsoft.Json.Schema</NuGetReference>
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
   <NuGetReference>System.Security.Cryptography.Algorithms</NuGetReference>
+  <Namespace>Conizi.Model.Accounting.Material</Namespace>
   <Namespace>Conizi.Model.Archiving</Namespace>
   <Namespace>Conizi.Model.Converters</Namespace>
   <Namespace>Conizi.Model.Core</Namespace>
@@ -28,7 +29,6 @@
   <Namespace>Serilog</Namespace>
   <Namespace>Serilog.Configuration</Namespace>
   <Namespace>System.Security.Cryptography</Namespace>
-  <Namespace>Conizi.Model.Accounting.Material</Namespace>
 </Query>
 
 Generator.RegisterJsonSchemaLicense(Environment.GetEnvironmentVariable("Generator:JsonSchemaLicense"));
@@ -60,9 +60,9 @@ foreach (var model in models)
 		
 		//(Generated: {DateTime.Now} - {assembly.Name} v:{assembly.Version})
 		var result = Generator.Generate(model);
+		//result.Dump();
 
 		var outFile = Path.Combine(modelSrcPath, result.Id.Replace("https://model.conizi.io/v1/", string.Empty));
-
 		var fileInfo = new FileInfo(outFile);
 
 		if (ModelHashChanged(result.ToString(), outFile))
