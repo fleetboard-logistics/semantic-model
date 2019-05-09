@@ -205,7 +205,8 @@
                 "type": "string"
               },
               "additionalAddressLines": {
-                "title": "Additional address lines of the address",
+                "title": "General remarks",
+                "description": "General free text information",
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -290,11 +291,7 @@
                 "type": "string"
               },
               "additionalAddressLines": {
-                "title": "Additional address lines of the address",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               },
               "reference": {
                 "title": "Reference number for an address",
@@ -1220,36 +1217,16 @@
             "additionalProperties": false,
             "properties": {
               "remarksInvoice": {
-                "title": "Invoice remarks",
-                "description": "Free text information for the invoice",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               },
               "remarksPickup": {
-                "title": "Pickup remarks",
-                "description": "Free text information for the pick up",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               },
               "remarksDelivery": {
-                "title": "Delivery Remarks",
-                "description": "Free text information for the delivery",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               },
               "remarksGeneral": {
-                "title": "General remarks",
-                "description": "General free text information",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               }
             },
             "patternProperties": {

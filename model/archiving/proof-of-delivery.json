@@ -251,11 +251,7 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "title": "Additional address lines of the address",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "#/properties/additionalAddressLines"
         },
         "reference": {
           "title": "Reference for an address",

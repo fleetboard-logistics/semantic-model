@@ -204,7 +204,8 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "title": "Additional address lines of the address",
+          "title": "References to the consignments",
+          "description": "References to the consignments, depending on this stop",
           "type": "array",
           "items": {
             "type": "string"
@@ -344,11 +345,7 @@
             "type": "string"
           },
           "additionalAddressLines": {
-            "title": "Additional address lines of the address",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/properties/additionalAddressLines"
           },
           "reference": {
             "title": "Reference for an address",
@@ -517,10 +514,7 @@
             "type": "boolean"
           },
           "additionalPartners": {
-            "type": "array",
-            "items": {
-              "$ref": "tour.json#partnerIdentification"
-            }
+            "$ref": "tour.json#/properties/notificationParties"
           },
           "orderingParty": {
             "$ref": "tour.json#ediAddress"
@@ -1339,36 +1333,16 @@
             "additionalProperties": false,
             "properties": {
               "remarksInvoice": {
-                "title": "Invoice remarks",
-                "description": "Free text information for the invoice",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "tour.json#/properties/additionalAddressLines"
               },
               "remarksPickup": {
-                "title": "Pickup remarks",
-                "description": "Free text information for the pick up",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "tour.json#/properties/additionalAddressLines"
               },
               "remarksDelivery": {
-                "title": "Delivery Remarks",
-                "description": "Free text information for the delivery",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "tour.json#/properties/additionalAddressLines"
               },
               "remarksGeneral": {
-                "title": "General remarks",
-                "description": "General free text information",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "tour.json#/properties/additionalAddressLines"
               }
             },
             "patternProperties": {
@@ -2362,12 +2336,7 @@
             "additionalProperties": false,
             "properties": {
               "consignmentObjectIds": {
-                "title": "References to the consignments",
-                "description": "References to the consignments, depending on this stop",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               },
               "bookedTimeslots": {
                 "type": "array",
@@ -2459,26 +2428,13 @@
             "additionalProperties": false,
             "properties": {
               "consignmentObjectIds": {
-                "title": "References to the consignments",
-                "description": "References to the consignments, depending on this stop",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               },
               "bookedTimeslots": {
-                "type": "array",
-                "items": {
-                  "$ref": "#bookedTimeSlot"
-                }
+                "$ref": "#/properties/stops/properties/bookedTimeslots"
               },
               "workingHours": {
-                "title": "Booked Time Slots",
-                "description": "Booked time slots for the tour",
-                "type": "array",
-                "items": {
-                  "$ref": "#workingHours"
-                }
+                "$ref": "#/properties/stops/properties/workingHours"
               },
               "scheduledArrival": {
                 "$ref": "#timespan"

@@ -170,7 +170,8 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "title": "Additional address lines of the address",
+          "title": "Additional remarks",
+          "description": "Additional remarks (free form)",
           "type": "array",
           "items": {
             "type": "string"
@@ -241,11 +242,7 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "title": "Additional address lines of the address",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "#/properties/additionalAddressLines"
         },
         "reference": {
           "title": "Reference for an address",
@@ -955,12 +952,7 @@
       "type": "string"
     },
     "additionalRemarks": {
-      "title": "Additional remarks",
-      "description": "Additional remarks (free form)",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "$ref": "#/properties/additionalAddressLines"
     }
   },
   "required": [

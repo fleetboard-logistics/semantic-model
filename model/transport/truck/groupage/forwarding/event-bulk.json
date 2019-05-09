@@ -214,7 +214,8 @@
                 "type": "string"
               },
               "additionalAddressLines": {
-                "title": "Additional address lines of the address",
+                "title": "Additional remarks",
+                "description": "Additional remarks (free form)",
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -305,11 +306,7 @@
                 "type": "string"
               },
               "additionalAddressLines": {
-                "title": "Additional address lines of the address",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "$ref": "#/properties/additionalAddressLines"
               },
               "reference": {
                 "title": "Reference number for an address",
@@ -1159,12 +1156,7 @@
             "type": "string"
           },
           "additionalRemarks": {
-            "title": "Additional remarks",
-            "description": "Additional remarks (free form)",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/properties/additionalAddressLines"
           },
           "referenceNumber": {
             "title": "Reference number",
@@ -1744,12 +1736,7 @@
             "type": "string"
           },
           "additionalRemarks": {
-            "title": "Additional remarks",
-            "description": "Additional remarks (free form)",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "consignment-event.json#/properties/additionalAddressLines"
           }
         },
         "required": [
@@ -2227,7 +2214,7 @@
             }
           },
           "stop": {
-            "$id": "###stopSpecificEvent",
+            "$id": "#stopSpecificEvent",
             "title": "Stop specific Event",
             "description": "Event to notify about stop specific incidents",
             "type": "object",
@@ -2526,22 +2513,13 @@
                 }
               },
               "damages": {
-                "type": "array",
-                "items": {
-                  "$ref": "#fileContent"
-                }
+                "$ref": "#/properties/signature"
               },
               "loadSecuring": {
-                "type": "array",
-                "items": {
-                  "$ref": "#fileContent"
-                }
+                "$ref": "#/properties/signature"
               },
               "drivingLicense": {
-                "type": "array",
-                "items": {
-                  "$ref": "#fileContent"
-                }
+                "$ref": "#/properties/signature"
               },
               "checklistDepartureControl": {
                 "title": "Checklist Departure Control",

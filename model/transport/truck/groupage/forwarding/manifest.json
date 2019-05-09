@@ -188,7 +188,8 @@
             "type": "string"
           },
           "additionalAddressLines": {
-            "title": "Additional address lines of the address",
+            "title": "General remarks",
+            "description": "General free text information",
             "type": "array",
             "items": {
               "type": "string"
@@ -416,10 +417,7 @@
                 "type": "boolean"
               },
               "additionalPartners": {
-                "type": "array",
-                "items": {
-                  "$ref": "manifest.json#partnerIdentification"
-                }
+                "$ref": "manifest.json#/properties/additionalPartners"
               },
               "orderingParty": {
                 "$id": "#ediAddress",
@@ -467,11 +465,7 @@
                     "type": "string"
                   },
                   "additionalAddressLines": {
-                    "title": "Additional address lines of the address",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
+                    "$ref": "manifest.json#/properties/additionalPartners/properties/additionalAddressLines"
                   },
                   "reference": {
                     "title": "Reference number for an address",
@@ -1305,36 +1299,16 @@
                 "additionalProperties": false,
                 "properties": {
                   "remarksInvoice": {
-                    "title": "Invoice remarks",
-                    "description": "Free text information for the invoice",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
+                    "$ref": "manifest.json#/properties/additionalPartners/properties/additionalAddressLines"
                   },
                   "remarksPickup": {
-                    "title": "Pickup remarks",
-                    "description": "Free text information for the pick up",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
+                    "$ref": "manifest.json#/properties/additionalPartners/properties/additionalAddressLines"
                   },
                   "remarksDelivery": {
-                    "title": "Delivery Remarks",
-                    "description": "Free text information for the delivery",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
+                    "$ref": "manifest.json#/properties/additionalPartners/properties/additionalAddressLines"
                   },
                   "remarksGeneral": {
-                    "title": "General remarks",
-                    "description": "General free text information",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
+                    "$ref": "manifest.json#/properties/additionalPartners/properties/additionalAddressLines"
                   }
                 },
                 "patternProperties": {

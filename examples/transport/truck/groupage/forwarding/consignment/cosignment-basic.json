@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/preproduction/model/transport/truck/groupage/forwarding/consignment.json#",
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
     "sender": {
         "ediId": "VER4999"
     },

@@ -249,7 +249,7 @@
       }
     },
     "stop": {
-      "$id": "###stopSpecificEvent",
+      "$id": "#stopSpecificEvent",
       "title": "Stop specific Event",
       "description": "Event to notify about stop specific incidents",
       "type": "object",
@@ -548,22 +548,13 @@
           }
         },
         "damages": {
-          "type": "array",
-          "items": {
-            "$ref": "#fileContent"
-          }
+          "$ref": "#/properties/signature"
         },
         "loadSecuring": {
-          "type": "array",
-          "items": {
-            "$ref": "#fileContent"
-          }
+          "$ref": "#/properties/signature"
         },
         "drivingLicense": {
-          "type": "array",
-          "items": {
-            "$ref": "#fileContent"
-          }
+          "$ref": "#/properties/signature"
         },
         "checklistDepartureControl": {
           "title": "Checklist Departure Control",
