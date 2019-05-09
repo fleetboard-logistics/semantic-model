@@ -51,9 +51,9 @@ namespace Conizi.Model.Core.Tools
             {
                 DefaultRequired = Newtonsoft.Json.Required.DisallowNull,
                 SchemaIdGenerationHandling = SchemaIdGenerationHandling.None,
-                SchemaReferenceHandling = SchemaReferenceHandling.All,
+                SchemaReferenceHandling = SchemaReferenceHandling.Objects,
                 SchemaPropertyOrderHandling = SchemaPropertyOrderHandling.Default,
-                SchemaLocationHandling = SchemaLocationHandling.Inline,
+                SchemaLocationHandling = SchemaLocationHandling.Definitions,
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             };
 

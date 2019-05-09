@@ -10,7 +10,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The signature of the recipient/person of interest
     /// </summary>
-    [JsonObject("#signature")]
+    [JsonObject("signature")]
     [DisplayName("Signature")]
     [Description("The signature of the recipient/person of interest")]
     [ConiziAdditionalProperties(false)]

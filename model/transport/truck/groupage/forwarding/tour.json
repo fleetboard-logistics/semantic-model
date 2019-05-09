@@ -3,6 +3,2620 @@
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops",
+  "definitions": {
+    "additionalLoadingEquipment": {
+      "$id": "additionalLoadingEquipment",
+      "title": "Additional loading equipment",
+      "description": "Additional loading aids which are not part of the consignment but which have been added to safely transport the goods",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eurPallets": {
+          "title": "EPAL",
+          "description": "EUR pallets as defined by European Pallet Association (EPAL)",
+          "type": "integer"
+        },
+        "eurBoxes": {
+          "title": "EUR box pallets",
+          "description": "EUR Box pallets as defined by European Pallet Association (EPAL)",
+          "type": "integer"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "alreadyReceived": {
+      "$id": "alreadyReceived",
+      "title": "Already received as surplus consignment",
+      "description": "The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "surplusConsignmentNo": {
+          "title": "Surplus consignment no",
+          "description": "The reference number under which the surplus consignment had been reported by the receiving partner",
+          "type": "string"
+        },
+        "shippingDate": {
+          "title": "Shipping date",
+          "description": "The date of the manifest which contained the surplus goods",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "anonymity": {
+      "$id": "anonymity",
+      "title": "Anonymity services",
+      "description": "Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "neutralShipper": {
+          "$ref": "tour.json#/definitions/EdiAddress"
+        },
+        "neutralConsignee": {
+          "$ref": "tour.json#/definitions/EdiAddress"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "archive": {
+      "$id": "archive",
+      "title": "Digital archive",
+      "description": "Functions provided by the digital archive systems",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "automaticDownloadOfPod": {
+          "title": "PoD push",
+          "description": "The proof of delivery document is provided for automatic download",
+          "type": "boolean"
+        }
+      }
+    },
+    "barcode": {
+      "$id": "barcode",
+      "title": "Bar codes / SSCC number",
+      "description": "Detailed information about the individual handling units",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Bar code / SSCC / NVE",
+          "description": "Id of the handling unit, usually printed as machine readable bar code on the package",
+          "type": "string"
+        },
+        "masterBarcode": {
+          "title": "Master bar code",
+          "description": "Grouping code of multiple packages",
+          "type": "string"
+        },
+        "batch": {
+          "title": "Batch",
+          "description": "Information identifying the manufacturing batch of the goods in the unit",
+          "type": "string"
+        },
+        "bestBefore": {
+          "title": "Best before",
+          "description": "Information about the expiry of good",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "billing": {
+      "$id": "billing",
+      "title": "Billing information",
+      "description": "Information for invoicing and clearing",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "freightPayer": {
+          "$id": "partnerIdentification",
+          "title": "Fields to identify the partner",
+          "description": "Routing information to identify the parties involved in the data transfer",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "geoPosition": {
+              "$id": "geoPosition",
+              "title": "Geo position",
+              "description": "Data about the current geo position",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "longitude": {
+                  "title": "Longitude",
+                  "description": "East–west position of a point on the Earth's surface",
+                  "type": "number"
+                },
+                "latitude": {
+                  "title": "Latitude",
+                  "description": "North–south position of a point on the Earth's surface",
+                  "type": "number"
+                },
+                "placeName": {
+                  "title": "Place name",
+                  "description": "The place name of the current geo position",
+                  "type": "string"
+                },
+                "w3WCoordinate": {
+                  "title": "What3words coordinate",
+                  "description": "A coordinate for the What3Words service like index.home.raft",
+                  "type": "string"
+                },
+                "recordTime": {
+                  "title": "Record time",
+                  "description": "Time the GPS record was created",
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "longitude",
+                "latitude"
+              ]
+            },
+            "name": {
+              "title": "Name of the address",
+              "type": "string"
+            },
+            "street": {
+              "title": "Street of the address",
+              "type": "string"
+            },
+            "houseNumber": {
+              "title": "House number of the address",
+              "type": "string"
+            },
+            "zipCode": {
+              "title": "Zip code of the Address",
+              "type": "string"
+            },
+            "city": {
+              "title": "City of the address",
+              "type": "string"
+            },
+            "townArea": {
+              "title": "Town area address",
+              "type": "string"
+            },
+            "countryCode": {
+              "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+              "type": "string"
+            },
+            "emailAddress": {
+              "title": "Email of the address",
+              "type": "string"
+            },
+            "phoneNumber": {
+              "title": "Phone number of the address",
+              "type": "string"
+            },
+            "additionalAddressLines": {
+              "title": "Additional address lines of the address",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reference": {
+              "title": "Reference for an address",
+              "type": "string"
+            },
+            "contactPerson": {
+              "title": "The contact person",
+              "type": "string"
+            },
+            "faxNumber": {
+              "title": "The Fax number",
+              "type": "string"
+            },
+            "partnerId": {
+              "title": "The PartnerId",
+              "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+              "type": "string"
+            },
+            "ediId": {
+              "title": "The Edi Id",
+              "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+              "type": "string"
+            },
+            "coniziId": {
+              "title": "The Conizi Id",
+              "description": "The conizi id for internal routing purposes",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "tariff": {
+          "title": "Tariff",
+          "description": "Use to specify a special tariff to be used for freight calculation (e.g. heavy goods, ...)",
+          "type": "string"
+        },
+        "routingOrder": {
+          "$ref": "partnerIdentification"
+        },
+        "deliveryTerms": {
+          "title": "Delivery terms",
+          "description": "Use to specify under which terms the consignment is process and which legs are billed to whom",
+          "type": "string"
+        },
+        "logisticModel": {
+          "title": "Logistic model",
+          "description": "Used to active special billing and clearing conditions the partners have agreed on",
+          "type": "string"
+        },
+        "costsAndCharges": {
+          "$id": "costsAndCharges",
+          "title": "Costs and charges",
+          "description": "Used to transfer detailed information about the fees",
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "bookedTimeSlot": {
+      "$id": "bookedTimeSlot",
+      "title": "Booked Time Slots",
+      "description": "Booked time slots for the tour",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gate": {
+          "title": "Gate",
+          "type": "string"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        },
+        "fromDateTime": {
+          "title": "From Date Time",
+          "type": "string",
+          "format": "date-time"
+        },
+        "untilDateTime": {
+          "title": "Until Date Time",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "borderCrossInformation": {
+      "$id": "borderCrossInformation",
+      "title": "Border cross information",
+      "description": "Information on border crossing",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scheduledArrival": {
+          "$id": "timespan",
+          "title": "Time span",
+          "description": "The time span for an activity",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "title": "Time from",
+              "description": "Time span from",
+              "type": "string",
+              "format": "time"
+            },
+            "until": {
+              "title": "Time until",
+              "description": "Time span until",
+              "type": "string",
+              "format": "time"
+            }
+          }
+        },
+        "scheduledDeparture": {
+          "$ref": "timespan"
+        },
+        "scheduledWaitMinutes": {
+          "title": "Scheduled wait minutes",
+          "description": "Scheduled wait time in minutes to begin the activity",
+          "type": "integer"
+        },
+        "scheduledHandlingMinutes": {
+          "title": "Scheduled handling minutes",
+          "description": "Scheduled time for handling the activity",
+          "type": "integer"
+        },
+        "notes": {
+          "title": "Notes",
+          "description": "Notes on the Stop",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "cashOnDelivery": {
+      "$id": "cashOnDelivery",
+      "title": "Cash on delivery",
+      "description": "The goods must only be delivered if the recipient pays the given amount",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "title": "Amount",
+          "description": "The amount to be paid",
+          "type": "number"
+        },
+        "currency": {
+          "title": "Currency",
+          "description": "The currency of the given amount",
+          "type": "string"
+        },
+        "acceptCash": {
+          "title": "acceptCash",
+          "description": "Specifies if cash should be accepted (true) or rejected (false)",
+          "type": "boolean"
+        },
+        "acceptCheque": {
+          "title": "acceptCheque",
+          "description": "Specifies if cheques should be accepted",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "content": {
+      "$id": "content",
+      "title": "Content",
+      "description": "Describes the nature and quantity of the goods in this consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nonHazardousWaste": {
+          "title": "Non hazardous waste",
+          "description": "The content has no value and is not dangerous",
+          "type": "boolean"
+        },
+        "loadingAids": {
+          "title": "Loading aids",
+          "description": "The consignment only consists of loading aids which are transported and does not contain real goods",
+          "type": "boolean"
+        },
+        "packagingPool": {
+          "title": "Packaging pool",
+          "description": "Name of the packaging pool which is used to handle to loading aids from this consignment",
+          "type": "string"
+        },
+        "highValueGoods": {
+          "title": "High value goods",
+          "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
+          "type": "boolean"
+        },
+        "insuranceValue": {
+          "$id": "insuranceValue",
+          "title": "Insurance value",
+          "description": "Value of the goods, used for insurance purposes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "title": "Amount",
+              "description": "Amount",
+              "type": "number"
+            },
+            "currency": {
+              "title": "Currency",
+              "description": "Currency",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$id": "line",
+            "title": "Line",
+            "description": "Lines are describing handling units of similar sizes and content for brevity",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "lineNo": {
+                "title": "Line no",
+                "description": "A ordinal number, ordering the line within the consignment/pickup order",
+                "type": "integer"
+              },
+              "handlingUnitCount": {
+                "title": "Handling unit count",
+                "description": "The number of the items in this consignment/pickup order which are handeled individually",
+                "type": "integer"
+              },
+              "handlingUnitType": {
+                "title": "Handling unit type",
+                "description": "The type of packaging (e.g. pallet, carton box, ...) ouf the outer most packaging",
+                "type": "string"
+              },
+              "innerPackageCount": {
+                "title": "Inner package count",
+                "description": "Used to specify the number of inner packages (e.g. the number of boxes on a pallet)",
+                "type": "integer"
+              },
+              "innerPackageType": {
+                "title": "Inner package type",
+                "description": "The type of packaging of the inner packages",
+                "type": "string"
+              },
+              "content": {
+                "title": "Content",
+                "description": "A short description of the nature of the goods contained within the packages",
+                "type": "string"
+              },
+              "refNo": {
+                "title": "Reference number",
+                "description": "A reference of the ordering party relating to the goods",
+                "type": "string"
+              },
+              "customsInformation": {
+                "$id": "contentCustomsInformation",
+                "title": "Customs information",
+                "description": "Used to specifiy information necessary in the customs process",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "goodsNo": {
+                    "title": "Goods number",
+                    "description": "Goods number",
+                    "type": "string"
+                  },
+                  "processCode": {
+                    "title": "Process code",
+                    "description": "The Process code",
+                    "type": "string"
+                  },
+                  "netWeightKilogram": {
+                    "title": "Net weight kilogram",
+                    "description": "The net weight in kilogram",
+                    "type": "number"
+                  },
+                  "rawWeightKilogram": {
+                    "title": "Raw weight kilogram",
+                    "description": "The raw weight in kilogram",
+                    "type": "number"
+                  },
+                  "countryOfOrigin": {
+                    "$id": "customsInformationValue",
+                    "title": "Customs value",
+                    "description": "Amount value type",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "amount": {
+                        "title": "Amount",
+                        "type": "number"
+                      },
+                      "currency": {
+                        "title": "Currency",
+                        "type": "string"
+                      }
+                    },
+                    "patternProperties": {
+                      "x-.*": {},
+                      "\\$.*": {}
+                    }
+                  },
+                  "statisticalValue": {
+                    "$ref": "customsInformationValue"
+                  },
+                  "customsValue": {
+                    "$ref": "customsInformationValue"
+                  },
+                  "documents": {
+                    "$id": "documents",
+                    "title": "Customs documents",
+                    "description": "Customs documents",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "title": "Type",
+                        "description": "Type",
+                        "type": "string"
+                      },
+                      "number": {
+                        "title": "Number",
+                        "description": "Number",
+                        "type": "string"
+                      },
+                      "date": {
+                        "title": "Date",
+                        "description": "Date",
+                        "type": "string",
+                        "format": "date"
+                      }
+                    }
+                  }
+                },
+                "patternProperties": {
+                  "x-.*": {},
+                  "\\$.*": {}
+                }
+              },
+              "barcodes": {
+                "type": "array",
+                "items": {
+                  "$ref": "barcode"
+                }
+              },
+              "dangerousGoods": {
+                "type": "array",
+                "items": {
+                  "$id": "dangerousGoods",
+                  "title": "Dangerous goods",
+                  "description": "Dangerous goods",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "quantity": {
+                      "title": "Quantity",
+                      "description": "The quantity",
+                      "type": "integer"
+                    },
+                    "grossWeightKilogram": {
+                      "title": "Gross weight (kg)",
+                      "description": "Weight of the consignment including all packaging",
+                      "type": "number"
+                    },
+                    "unNo": {
+                      "title": "UnNo",
+                      "description": "UnNo",
+                      "type": "string"
+                    },
+                    "multiplier": {
+                      "title": "Multiplier",
+                      "description": "Multiplier",
+                      "type": "integer"
+                    },
+                    "uniqueKey": {
+                      "title": "Unique key",
+                      "description": "The unique Key",
+                      "type": "string"
+                    },
+                    "substanceName": {
+                      "title": "Substance Name",
+                      "description": "The substance Name",
+                      "type": "string"
+                    },
+                    "technicalNameIfNotOtherwiseSpecified": {
+                      "title": "Technical name if not otherwise specified",
+                      "description": "The technical name if not otherwise specified",
+                      "type": "string"
+                    },
+                    "labelMainRisk": {
+                      "title": "Label for main risk",
+                      "description": "Label for main risk",
+                      "type": "string"
+                    },
+                    "labelSubRisk1": {
+                      "title": "Label for sub risk 1",
+                      "description": "Label for sub risk 1",
+                      "type": "string"
+                    },
+                    "labelSubRisk2": {
+                      "title": "Label for sub risk 2",
+                      "description": "Label for sub risk 2",
+                      "type": "string"
+                    },
+                    "labelSubRisk3": {
+                      "title": "Label for sub risk 3",
+                      "description": "Label for sub risk 3",
+                      "type": "string"
+                    },
+                    "packagingDescription": {
+                      "title": "Packaging description",
+                      "description": "The packaging description",
+                      "type": "string"
+                    },
+                    "netExplosiveMassKilogram": {
+                      "title": "Net explosive mass in kilogram",
+                      "description": "The net explosive mass in kilogram",
+                      "type": "number"
+                    },
+                    "transportCategory": {
+                      "title": "Transport category",
+                      "description": "The transport category",
+                      "type": "string"
+                    },
+                    "limitedQuantity": {
+                      "title": "Limited quantity",
+                      "description": "Limited quantity",
+                      "type": "boolean"
+                    },
+                    "totalPointsADR": {
+                      "title": "Total points ADR",
+                      "description": "Total points for ADR",
+                      "type": "integer"
+                    },
+                    "tunnelRestriction": {
+                      "title": "Tunnel restriction",
+                      "description": "Tunnel restriction",
+                      "type": "string"
+                    },
+                    "packagingGroup": {
+                      "title": "Packaging group",
+                      "description": "Packaging group",
+                      "type": "string"
+                    },
+                    "classificationCode": {
+                      "title": "Classification code",
+                      "description": "Classification code",
+                      "type": "string"
+                    },
+                    "exemptedQuantity": {
+                      "title": "Exempted quantity",
+                      "description": "Exempted quantity",
+                      "type": "boolean"
+                    },
+                    "netWeightKilogram": {
+                      "title": "Net weight kilogram",
+                      "description": "Net weight kilogram",
+                      "type": "number"
+                    },
+                    "volumeLiter": {
+                      "title": "Volume liter",
+                      "description": "Volume liter",
+                      "type": "number"
+                    },
+                    "highConsequencesDangerousGoods": {
+                      "title": "High consequences dangerous goods",
+                      "description": "High consequences dangerous goods",
+                      "type": "boolean"
+                    },
+                    "adrRelease": {
+                      "title": "ADR Release",
+                      "description": "ADR Release",
+                      "type": "string"
+                    },
+                    "packagingClass": {
+                      "title": "Packaging class",
+                      "description": "Packaging class",
+                      "type": "string"
+                    },
+                    "references": {
+                      "$id": "dangerousGoodsReferences",
+                      "title": "Dangerous goods references",
+                      "description": "Dangerous goods references",
+                      "type": "object",
+                      "properties": {
+                        "fireworksBamNo": {
+                          "title": "Fireworks bam number",
+                          "description": "Fireworks Bam number",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                }
+              },
+              "additionalLoadingEquipment": {
+                "$ref": "additionalLoadingEquipment"
+              },
+              "volumeCubicmeter": {
+                "title": "Volume (m³)",
+                "description": "Total volume of the consignment",
+                "type": "number"
+              },
+              "loadingMeter": {
+                "title": "Loading meters (m)",
+                "description": "Length of the area occupied on a 2.4 m wide container",
+                "type": "number"
+              },
+              "grossWeightKilogram": {
+                "title": "Gross weight (kg)",
+                "description": "Weight of the consignment including all packaging",
+                "type": "number"
+              },
+              "areaPalletBays": {
+                "title": "Pallet bays",
+                "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
+                "type": "number"
+              },
+              "chargeableWeightKilogram": {
+                "title": "Chargeable weight (kg)",
+                "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
+                "type": "number"
+              },
+              "lengthMeter": {
+                "title": "Length (m)",
+                "description": "Total length",
+                "type": "number"
+              },
+              "widthMeter": {
+                "title": "Width (m)",
+                "description": "Total width",
+                "type": "number"
+              },
+              "heightMeter": {
+                "title": "Height (m)",
+                "description": "Total height",
+                "type": "number"
+              }
+            },
+            "patternProperties": {
+              "x-.*": {},
+              "\\$.*": {}
+            }
+          }
+        },
+        "additionalLoadingEquipment": {
+          "$ref": "additionalLoadingEquipment"
+        },
+        "volumeCubicmeter": {
+          "title": "Volume (m³)",
+          "description": "Total volume of the consignment",
+          "type": "number"
+        },
+        "loadingMeter": {
+          "title": "Loading meters (m)",
+          "description": "Length of the area occupied on a 2.4 m wide container",
+          "type": "number"
+        },
+        "grossWeightKilogram": {
+          "title": "Gross weight (kg)",
+          "description": "Weight of the consignment including all packaging",
+          "type": "number"
+        },
+        "areaPalletBays": {
+          "title": "Pallet bays",
+          "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
+          "type": "number"
+        },
+        "chargeableWeightKilogram": {
+          "title": "Chargeable weight (kg)",
+          "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
+          "type": "number"
+        },
+        "lengthMeter": {
+          "title": "Length (m)",
+          "description": "Total length",
+          "type": "number"
+        },
+        "widthMeter": {
+          "title": "Width (m)",
+          "description": "Total width",
+          "type": "number"
+        },
+        "heightMeter": {
+          "title": "Height (m)",
+          "description": "Total height",
+          "type": "number"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "contentCustomsInformation": {
+      "$ref": "contentCustomsInformation"
+    },
+    "costsAndCharges": {
+      "$ref": "costsAndCharges"
+    },
+    "customsInformation": {
+      "$id": "customsInformation",
+      "title": "Customs information",
+      "description": "Used to specify information necessary in the customs process",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "declaringParty": {
+          "$ref": "partnerIdentification"
+        },
+        "deliverAfterDutyPaid": {
+          "$ref": "partnerIdentification"
+        },
+        "presentationDeadline": {
+          "title": "Presentation deadline",
+          "type": "string"
+        },
+        "clearedForFreeTransitWithinEU": {
+          "title": "Cleared for free transit within EU",
+          "type": "boolean"
+        },
+        "envelopeForCustomsDocuments": {
+          "title": "Envelope for customs documents",
+          "type": "boolean"
+        },
+        "presentationToCustomsRequired": {
+          "title": "Presentation to customs require",
+          "type": "boolean"
+        },
+        "valueAtBorderCrossing": {
+          "$id": "valueAtBorderCrossing",
+          "title": "Value at border crossing",
+          "description": "Value at border crossing",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "title": "Amount",
+              "description": "Amount",
+              "type": "number"
+            },
+            "currency": {
+              "title": "Currency",
+              "description": "Currency",
+              "type": "string"
+            }
+          }
+        },
+        "cityUnloading": {
+          "title": "City unloading",
+          "type": "string"
+        },
+        "customsOffice": {
+          "title": "Customs office",
+          "type": "string"
+        },
+        "customsProcess": {
+          "title": "Customs process",
+          "type": "string"
+        },
+        "customsType": {
+          "title": "Customs type",
+          "type": "string"
+        },
+        "districtUnloading": {
+          "title": "District unloading",
+          "type": "string"
+        },
+        "importCustomsOffice": {
+          "title": "Import customs office",
+          "type": "string"
+        },
+        "parentDocumentId": {
+          "title": "Parent document id",
+          "type": "string"
+        },
+        "parentDocumentType": {
+          "title": "Parent document type",
+          "type": "string"
+        },
+        "routeBorder": {
+          "title": "Route border",
+          "type": "string"
+        },
+        "routeInland": {
+          "title": "Route inland",
+          "type": "string"
+        },
+        "statisticsFlag": {
+          "title": "Statistics flag",
+          "type": "string"
+        },
+        "transferType": {
+          "title": "Transfer type",
+          "type": "string"
+        },
+        "countryConsignor": {
+          "title": "Country consignor",
+          "type": "string"
+        },
+        "countryImporter": {
+          "title": "Country importer",
+          "type": "string"
+        },
+        "countryLoading": {
+          "title": "Country loading",
+          "type": "string"
+        },
+        "countryOfOrigin": {
+          "title": "Country of origin",
+          "type": "string"
+        },
+        "countryUnloading": {
+          "title": "Country unloading",
+          "type": "string"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "documents"
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "customsInformationValue": {
+      "$ref": "customsInformationValue"
+    },
+    "dangerousGoods": {
+      "$ref": "dangerousGoods"
+    },
+    "dangerousGoodsReferences": {
+      "$ref": "dangerousGoodsReferences"
+    },
+    "deliveryOptions": {
+      "$id": "deliveryOptions",
+      "title": "Delivery options",
+      "description": "Requirements for special services or equipment for the delivery",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "liftingPlatform": {
+          "title": "Lifting Platform",
+          "description": "The consignment can only be delivered with a vehicle equipped with a lifting platform",
+          "type": "boolean"
+        },
+        "pointOfUseDelivery1Person": {
+          "title": "Point of use delivery - 1 man handling",
+          "description": "The goods must be deliverd to the point of use with one man handling",
+          "type": "boolean"
+        },
+        "pointOfUseDelivery2Persons": {
+          "title": "Point of use delivery - 2 men handling",
+          "description": "The goods must be deliverd to the point of use with two men handling",
+          "type": "boolean"
+        },
+        "shelfService": {
+          "title": "Shelf service",
+          "description": "The goods must be put into the shelves at the destination",
+          "type": "boolean"
+        },
+        "useSpecificLastMileProvider": {
+          "$id": "useSpecificLastMileProvider",
+          "title": "Specific last mile provider",
+          "description": "A given last mile provider must be used",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "title": "Name of the provider",
+              "description": "The name of the provider to be used",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "cashOnDelivery": {
+          "$ref": "cashOnDelivery"
+        },
+        "pickupByConsignee": {
+          "title": "Pick up by consignee",
+          "description": "The consignee will pick up the goods at the receiving partner's warehouse. Do not perform local delivery",
+          "type": "boolean"
+        },
+        "workRequest": {
+          "$id": "workRequest",
+          "title": "Work request",
+          "description": "The receiving partner should perform the action specified",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "info": {
+              "title": "Information",
+              "description": "A description of the action to be performed",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "deliveryOnlyWithDeliveryNote": {
+          "title": "Delivery only with delivery note",
+          "description": "Delivery should only be performed with the delivery note",
+          "type": "boolean"
+        },
+        "digitalDeliveryNote": {
+          "title": "Digital delivery note",
+          "description": "The delivery note has been sent by means of digital communication (and is not attached to the goods)",
+          "type": "boolean"
+        },
+        "deliveryNoteOnGoods": {
+          "title": "Delivery note on goods",
+          "description": "The delivery note is attached to the goods",
+          "type": "boolean"
+        },
+        "podOnOriginalDeliveryNote": {
+          "title": "PoD on original delivery note",
+          "description": "The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner",
+          "type": "boolean"
+        },
+        "deliveryWithoutReceiptAllowed": {
+          "title": "Delivery without receipt allowed",
+          "description": "The goods may be dropped at the designated location without a signature",
+          "type": "boolean"
+        },
+        "forAttentionOf": {
+          "title": "For attention",
+          "description": "The delivery is for attention of the given company",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "documents": {
+      "$ref": "documents"
+    },
+    "driver": {
+      "$id": "driver",
+      "title": "Driver",
+      "description": "Information about the drivers of the vehicles",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "driverId": {
+          "title": "Diver Id",
+          "description": "The id of the driver",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name of the driver",
+          "description": "The name of the driver",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number",
+          "description": "The phone number of the driver",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiAddress": {
+      "title": "Address fields",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "geoPosition"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference number for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "evening": {
+      "$id": "evening",
+      "title": "Evening",
+      "description": "The consignment must be delivered in the evening hours",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "timeFrom": {
+          "title": "Time From",
+          "type": "string",
+          "format": "time"
+        },
+        "timeUntil": {
+          "title": "Time Until",
+          "type": "string",
+          "format": "time"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "externalServices": {
+      "$id": "externalServices",
+      "title": "External services",
+      "description": "Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "archive": {
+          "$ref": "archive"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "fixedDay": {
+      "$id": "fixedDay",
+      "title": "Fixed day",
+      "description": "The consignment must be delivered at the given date (and in the given time window)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "timeFrom": {
+          "title": "Time From (HH:mm:ss)",
+          "type": "string",
+          "format": "time"
+        },
+        "timeUntil": {
+          "title": "Time Until (HH:mm:ss)",
+          "type": "string",
+          "format": "time"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "fixedWeek": {
+      "$id": "fixedWeek",
+      "title": "Fixed week",
+      "description": "The consignment must be delivered within the given week of the year",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "year": {
+          "title": "Year for  delivery / pickup",
+          "type": "string"
+        },
+        "weekOfYear": {
+          "title": "Week of the year for delivery / pickup",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "food": {
+      "$id": "food",
+      "title": "Food related regulatory restrictions",
+      "description": "Special requirements for transporting food",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "haccp": {
+          "title": "Stacking forbidden",
+          "description": "The HACCP regulations apply",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "fuelStopInformation": {
+      "$id": "fuelStopInformation",
+      "title": "Stop to refuel",
+      "description": "Stop to refuel the vehicle",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scheduledArrival": {
+          "$ref": "timespan"
+        },
+        "scheduledDeparture": {
+          "$ref": "timespan"
+        },
+        "scheduledWaitMinutes": {
+          "title": "Scheduled wait minutes",
+          "description": "Scheduled wait time in minutes to begin the activity",
+          "type": "integer"
+        },
+        "scheduledHandlingMinutes": {
+          "title": "Scheduled handling minutes",
+          "description": "Scheduled time for handling the activity",
+          "type": "integer"
+        },
+        "notes": {
+          "title": "Notes",
+          "description": "Notes on the Stop",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "gateway": {
+      "$id": "gateway",
+      "title": "Gateway-Options",
+      "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priority": {
+          "title": "Priority",
+          "description": "The consignment must be processed with priority",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "geoPosition": {
+      "$ref": "geoPosition"
+    },
+    "handlingInstructions": {
+      "$id": "handlingInstructions",
+      "title": "Handling instructions",
+      "description": "Handling instructions for the goods, e.g. to prevent damage",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customsGoods": {
+          "title": "Customs Goods",
+          "description": "The goods are subject to customs processing and must be processed according the rules of the local authorities",
+          "type": "boolean"
+        },
+        "customsGoodsResubmissionDate": {
+          "title": "Customs Goods resubmission date",
+          "description": "The resubmission date for the customs goods",
+          "type": "string",
+          "format": "date"
+        },
+        "handleWithCare": {
+          "title": "Handle with care",
+          "description": "The goods must be handeled with care to prevent damage",
+          "type": "boolean"
+        },
+        "emptiesExchange": {
+          "title": "Empties exchange required",
+          "description": "Specifies whether empties should be exchanged with the consignee",
+          "type": "boolean"
+        },
+        "orientation": {
+          "$id": "orientation",
+          "title": "Orientation",
+          "description": "The goods must be transported in a given orientation and may not be flipped over",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vertical": {
+              "title": "Upright",
+              "description": "The goods must be transported upright",
+              "type": "boolean"
+            },
+            "horizontal": {
+              "title": "Horizontal",
+              "description": "The goods must be transported flat down",
+              "type": "boolean"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "stacking": {
+          "$id": "stacking",
+          "title": "Stacking",
+          "description": "Indicated whether the goods may or may not be stacked",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "forbidden": {
+              "title": "Stacking forbidden",
+              "description": "The goods must not be stacked",
+              "type": "boolean"
+            },
+            "allowed": {
+              "title": "Stacking possible",
+              "description": "Stacking of the goods is safely possible",
+              "type": "boolean"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "food": {
+          "$ref": "food"
+        },
+        "temperatureRestrictions": {
+          "$id": "temperatureRestrictions",
+          "title": "Temperature restrictions",
+          "description": "Restrictions about the minimum and maximum temperature during the transport and special equipment to be used",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "temperatureMinCelsius": {
+              "title": "Minimum temperature (°C)",
+              "description": "The temperature must not drop below the given value during the transport",
+              "type": "number"
+            },
+            "temperatureMaxCelsius": {
+              "title": "Maximum temperature (°C)",
+              "description": "The temperature must not get greater than the given value",
+              "type": "number"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json": {
+      "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
+      "title": "Consignment",
+      "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "title": "Json schema",
+          "description": "The used json schema",
+          "type": "string"
+        },
+        "$createdAt": {
+          "title": "Created at date",
+          "description": "The message was created at date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "$createdBy": {
+          "title": "Created by generator",
+          "description": "The message was created by",
+          "type": "string"
+        },
+        "receiver": {
+          "$id": "messageRouting",
+          "title": "Routing information of the message",
+          "description": "Routing information to identify the parties involved in the data transfer",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "partnerId": {
+              "title": "The PartnerId",
+              "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+              "type": "string"
+            },
+            "ediId": {
+              "title": "The Edi Id",
+              "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+              "type": "string"
+            },
+            "coniziId": {
+              "title": "The Conizi Id",
+              "description": "The conizi id for internal routing purposes",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "sender": {
+          "$ref": "messageRouting"
+        },
+        "network": {
+          "$id": "network",
+          "title": "Network",
+          "description": "The network under which rules the consignment should be processed",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "networkId": {
+              "title": "Name of the network",
+              "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+              "type": "string"
+            },
+            "codelist": {
+              "title": "Name of the code list used",
+              "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+              "type": "string"
+            },
+            "product": {
+              "title": "Name of the product",
+              "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+              "type": "string"
+            }
+          }
+        },
+        "consignmentNoShippingPartner": {
+          "title": "Consignment number of the shipping partner",
+          "description": "Unique identification for the consignment within the transport management system of the shipping partner",
+          "type": "string"
+        },
+        "consignmentNoReceivingPartner": {
+          "title": "Consignment number of the receiving partner",
+          "description": "Unique identification for the consignment within the transport management system of the receiving partner",
+          "type": "string"
+        },
+        "shippingDate": {
+          "title": "Shipping date",
+          "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
+          "type": "string",
+          "format": "date"
+        },
+        "manifestId": {
+          "title": "Manifest (Bordero) id of the shipping partner",
+          "description": "Unique identification for the manifest on which the shipment was loaded in the transport management system of the shipping partner",
+          "type": "string"
+        },
+        "tourNumber": {
+          "title": "Tour number",
+          "description": "Number of the planned / assigned local traffic tour for delivery",
+          "type": "string"
+        },
+        "isPreAdvice": {
+          "title": "Is a pre advice",
+          "description": "dds the possibility of sending the consignment (after saving, before approval) to e.g. a TMS",
+          "type": "boolean"
+        },
+        "additionalPartners": {
+          "type": "array",
+          "items": {
+            "$ref": "partnerIdentification"
+          }
+        },
+        "orderingParty": {
+          "$ref": "tour.json#/definitions/EdiAddress"
+        },
+        "shippingPartner": {
+          "$ref": "partnerIdentification"
+        },
+        "receivingPartner": {
+          "$ref": "partnerIdentification"
+        },
+        "routing": {
+          "$id": "routing",
+          "title": "Routing",
+          "description": "Information about the route take by this consignment/pickup order",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "shipper": {
+              "$ref": "tour.json#/definitions/EdiAddress"
+            },
+            "consignee": {
+              "$ref": "tour.json#/definitions/EdiAddress"
+            },
+            "loadingAddress": {
+              "$ref": "tour.json#/definitions/EdiAddress"
+            },
+            "unloadingAddress": {
+              "$ref": "tour.json#/definitions/EdiAddress"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "services": {
+          "$id": "services",
+          "title": "Services",
+          "description": "Special services which can be requested by the ordering party (or the shipping partner)",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "packagingOptions": {
+              "$id": "packagingOptions",
+              "title": "Packaging Options",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "return": {
+                  "title": "Return",
+                  "description": "Packaging material return",
+                  "type": "boolean"
+                },
+                "correction": {
+                  "title": "Correction",
+                  "description": "Packaging correction for your Bordero from: ... (Additional description)",
+                  "type": "string"
+                },
+                "thirdPartyDelivery": {
+                  "title": "Third Party Delivery",
+                  "description": "Delivery of packaging by third parties on: ... (Additional description)",
+                  "type": "string"
+                },
+                "pickup": {
+                  "title": "Package Pickup",
+                  "description": "Package Pickup",
+                  "type": "string"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "specialRun": {
+              "title": "Special Run",
+              "description": "The transport is produced via special run (and with special fares)",
+              "type": "string"
+            },
+            "notifications": {
+              "$id": "notifications",
+              "title": "Notifications",
+              "description": "Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "generalNotificationAddress": {
+                  "$ref": "tour.json#/definitions/EdiAddress"
+                },
+                "afterDelivery": {
+                  "$ref": "partnerIdentification"
+                },
+                "beforeDelivery": {
+                  "$ref": "partnerIdentification"
+                },
+                "byDriver": {
+                  "$ref": "partnerIdentification"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "anonymity": {
+              "$ref": "anonymity"
+            },
+            "timeSlotBooking": {
+              "$id": "timeSlotBooking",
+              "title": "Time slot booking",
+              "description": "Information about time slots which need to be booked or are already booked for this consignment",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "byDeliveryPartner": {
+                  "$ref": "partnerIdentification"
+                },
+                "byContractedPartner": {
+                  "$ref": "partnerIdentification"
+                },
+                "preBookedTimeslot": {
+                  "$id": "preBookedTimeslot",
+                  "title": "Pre booked time slot",
+                  "description": "A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "info": {
+                      "title": "Info about pre booked time slot",
+                      "description": "Info about the pre booked time slot",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "info"
+                  ],
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "timeOptions": {
+              "$id": "timeOptions",
+              "title": "Time options",
+              "description": "Requirements for the delivery or pickup time",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "notAfter": {
+                  "$id": "notAfter",
+                  "title": "Not after",
+                  "description": "The consignment must be delivered until the given date",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                },
+                "notBefore": {
+                  "$id": "notBefore",
+                  "title": "Not Before",
+                  "description": "The consignment must not be delivered before the given date",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                },
+                "fixedDay": {
+                  "$ref": "fixedDay"
+                },
+                "fixedWeek": {
+                  "$ref": "fixedWeek"
+                },
+                "weekendSaturday": {
+                  "$id": "weekendSaturday",
+                  "title": "Saturday",
+                  "description": "The consignment should be delivered on a saturday",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "timeFrom": {
+                      "title": "Time From",
+                      "type": "string",
+                      "format": "time"
+                    },
+                    "timeUntil": {
+                      "title": "Time Until",
+                      "type": "string",
+                      "format": "time"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                },
+                "nextDay": {
+                  "$id": "nextDay",
+                  "title": "Next day",
+                  "description": "The consignment must be delivered on the next working day",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "timeFrom": {
+                      "title": "Time From",
+                      "type": "string",
+                      "format": "time"
+                    },
+                    "timeUntil": {
+                      "title": "Time Until",
+                      "type": "string",
+                      "format": "time"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                },
+                "sameDay": {
+                  "$id": "sameDay",
+                  "title": "Same day",
+                  "description": "The consignment must be delivered on the same day",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "timeFrom": {
+                      "title": "Time From",
+                      "type": "string",
+                      "format": "time"
+                    },
+                    "timeUntil": {
+                      "title": "Time Until",
+                      "type": "string",
+                      "format": "time"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                },
+                "evening": {
+                  "$ref": "evening"
+                },
+                "sameDayPickup": {
+                  "$id": "sameDayPickup",
+                  "title": "Same day pickup",
+                  "description": "The goods must be picked up on the same day",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "timeFrom": {
+                      "title": "Time From",
+                      "type": "string",
+                      "format": "time"
+                    },
+                    "timeUntil": {
+                      "title": "Time Until",
+                      "type": "string",
+                      "format": "time"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "deliveryOptions": {
+              "$ref": "deliveryOptions"
+            },
+            "loadingOptions": {
+              "$id": "loadingOptions",
+              "title": "Loading options",
+              "description": "Information about the loading of the main haul",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "directPickup": {
+                  "title": "Direct pickup",
+                  "description": "The goods picked up by the line haul and are not loaded by the shipping partners warehouse",
+                  "type": "boolean"
+                },
+                "receivingPartnerDisposal": {
+                  "$ref": "partnerIdentification"
+                },
+                "gatewayDisposal": {
+                  "$ref": "partnerIdentification"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "unloadingOptions": {
+              "$id": "unloadingOptions",
+              "title": "Unloading Options",
+              "description": "Information regarding unloading of the main haul",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "directDelivery": {
+                  "title": "Direct delivery",
+                  "description": "The goods are to be delivered without unloading them at the receiving partners warehouse",
+                  "type": "boolean"
+                },
+                "alreadyReceived": {
+                  "$ref": "alreadyReceived"
+                },
+                "missingFromPreviousManifest": {
+                  "$id": "missingFromPreviousManifest",
+                  "title": "Missing from previous manifest",
+                  "description": "The goods for a consignment which already was part of another manifest and had been reported missing on that manifest",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "manifestId": {
+                      "title": "Manifest id",
+                      "description": "The manifest which first included the consignment",
+                      "type": "string"
+                    },
+                    "shippingDate": {
+                      "title": "Shipping date",
+                      "description": "The date of the manifest which included the consignment",
+                      "type": "string",
+                      "format": "date"
+                    }
+                  },
+                  "patternProperties": {
+                    "x-.*": {},
+                    "\\$.*": {}
+                  }
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "gateway": {
+              "$ref": "gateway"
+            },
+            "handlingInstructions": {
+              "$ref": "handlingInstructions"
+            },
+            "returnOfGoods": {
+              "$id": "returnOfGoods",
+              "title": "Return of goods",
+              "description": "Services for the return of goods",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "emptyPackaging": {
+                  "title": "Packaging disposal",
+                  "description": "The packaging of the goods is taken back and dispose",
+                  "type": "boolean"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "externalServices": {
+          "$ref": "externalServices"
+        },
+        "information": {
+          "$id": "information",
+          "title": "Information",
+          "description": "General information about the consignment",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "remarksInvoice": {
+              "title": "Invoice remarks",
+              "description": "Free text information for the invoice",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "remarksPickup": {
+              "title": "Pickup remarks",
+              "description": "Free text information for the pick up",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "remarksDelivery": {
+              "title": "Delivery Remarks",
+              "description": "Free text information for the delivery",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "remarksGeneral": {
+              "title": "General remarks",
+              "description": "General free text information",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "references": {
+          "$id": "references",
+          "title": "References",
+          "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "returnOfPreviousConsignment": {
+              "$id": "returnOfPreviousConsignment",
+              "title": "Return of previous consignment",
+              "description": "Reference to another consignment which content is return using this consignment",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "consignmentNoShippingPartner": {
+                  "title": "Consignment number of the consignment being returned",
+                  "description": "The consignment number of the original consignment being returned",
+                  "type": "string"
+                },
+                "shippingDate": {
+                  "title": "Shipping date",
+                  "description": "The date when the original shipment was forwarded",
+                  "type": "string",
+                  "format": "date"
+                },
+                "shippingPartner": {
+                  "$ref": "partnerIdentification"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "forwardedFor": {
+              "$ref": "partnerIdentification"
+            },
+            "subsequentDelivery": {
+              "$id": "subsequentDelivery",
+              "title": "Subsequent Delivery",
+              "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "consignmentNoShippingPartner": {
+                  "title": "Consignment number of the consignment for that the subsequent delivery is",
+                  "description": "The consignment number of the original consignment",
+                  "type": "string"
+                },
+                "shippingDate": {
+                  "title": "Shipping date",
+                  "description": "The date when the original shipment was forwarded",
+                  "type": "string",
+                  "format": "date"
+                },
+                "shippingPartner": {
+                  "$ref": "partnerIdentification"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "pickupOrder": {
+              "$id": "pickupOrder",
+              "title": "Pickup order",
+              "description": "Reference to a pickup order which resulted in this consignment",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "pickupOrderNo": {
+                  "title": "Number of the Pickup order",
+                  "description": "Number to the referenced pickup order",
+                  "type": "string"
+                },
+                "orderingParty": {
+                  "$ref": "partnerIdentification"
+                }
+              },
+              "patternProperties": {
+                "x-.*": {},
+                "\\$.*": {}
+              }
+            },
+            "deliveryNote": {
+              "title": "Delivery note",
+              "description": "The delivery note of the shipper which describes the content of this consignment",
+              "type": "string"
+            },
+            "customerOrderNo": {
+              "title": "Customer order no",
+              "description": "A reference of the shipper for this consignment",
+              "type": "string"
+            },
+            "customerOrderDate": {
+              "title": "Customer order date",
+              "description": "Date when the order was places with the shipping partner",
+              "type": "string",
+              "format": "date"
+            },
+            "orderEntrySystemReference": {
+              "title": "Order entry system reference",
+              "description": "A unique reference number from the system which was used to enter the order details",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "billing": {
+          "$ref": "billing"
+        },
+        "customsInformation": {
+          "$ref": "customsInformation"
+        },
+        "content": {
+          "$ref": "content"
+        },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
+        }
+      },
+      "required": [
+        "$schema",
+        "receiver",
+        "shippingDate",
+        "shippingPartner",
+        "receivingPartner"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "information": {
+      "$ref": "information"
+    },
+    "insuranceValue": {
+      "$ref": "insuranceValue"
+    },
+    "line": {
+      "$ref": "line"
+    },
+    "loadingInformation": {
+      "$id": "loadingInformation",
+      "title": "Loading information",
+      "description": "Information about loading",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "consignmentObjectIds": {
+          "title": "References to the consignments",
+          "description": "References to the consignments, depending on this stop",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bookedTimeslots": {
+          "type": "array",
+          "items": {
+            "$ref": "bookedTimeSlot"
+          }
+        },
+        "workingHours": {
+          "title": "Booked Time Slots",
+          "description": "Booked time slots for the tour",
+          "type": "array",
+          "items": {
+            "$id": "workingHours",
+            "type": "object",
+            "properties": {
+              "fromDateTime": {
+                "title": "From Date Time",
+                "type": "string",
+                "format": "date-time"
+              },
+              "untilDateTime": {
+                "title": "Until Date Time",
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "scheduledArrival": {
+          "$ref": "timespan"
+        },
+        "scheduledDeparture": {
+          "$ref": "timespan"
+        },
+        "scheduledWaitMinutes": {
+          "title": "Scheduled wait minutes",
+          "description": "Scheduled wait time in minutes to begin the activity",
+          "type": "integer"
+        },
+        "scheduledHandlingMinutes": {
+          "title": "Scheduled handling minutes",
+          "description": "Scheduled time for handling the activity",
+          "type": "integer"
+        },
+        "notes": {
+          "title": "Notes",
+          "description": "Notes on the Stop",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "loadingOptions": {
+      "$ref": "loadingOptions"
+    },
+    "loadUnits": {
+      "$id": "loadUnits",
+      "title": "Load units",
+      "description": "Load units (containers, swap bodies, ...) used to transport the goods",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "identification": {
+          "title": "Identification",
+          "description": "Identification (e.g. registration number) of the unit",
+          "type": "string"
+        },
+        "seals": {
+          "type": "array",
+          "items": {
+            "$id": "seal",
+            "title": "Seal",
+            "description": "Seals used to prevent tampering with the goods in the load unit",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "title": "Code / number of the seal",
+                "description": "Code / number of the seal",
+                "type": "string"
+              }
+            },
+            "patternProperties": {
+              "x-.*": {},
+              "\\$.*": {}
+            }
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "messageRouting": {
+      "$ref": "messageRouting"
+    },
+    "missingFromPreviousManifest": {
+      "$ref": "missingFromPreviousManifest"
+    },
+    "network": {
+      "$ref": "network"
+    },
+    "nextDay": {
+      "$ref": "nextDay"
+    },
+    "notAfter": {
+      "$ref": "notAfter"
+    },
+    "notBefore": {
+      "$ref": "notBefore"
+    },
+    "notifications": {
+      "$ref": "notifications"
+    },
+    "orientation": {
+      "$ref": "orientation"
+    },
+    "packagingOptions": {
+      "$ref": "packagingOptions"
+    },
+    "partnerIdentification": {
+      "$ref": "partnerIdentification"
+    },
+    "pickupOrder": {
+      "$ref": "pickupOrder"
+    },
+    "preBookedTimeslot": {
+      "$ref": "preBookedTimeslot"
+    },
+    "references": {
+      "$ref": "references"
+    },
+    "returnOfGoods": {
+      "$ref": "returnOfGoods"
+    },
+    "returnOfPreviousConsignment": {
+      "$ref": "returnOfPreviousConsignment"
+    },
+    "routing": {
+      "$ref": "routing"
+    },
+    "sameDay": {
+      "$ref": "sameDay"
+    },
+    "sameDayPickup": {
+      "$ref": "sameDayPickup"
+    },
+    "seal": {
+      "$ref": "seal"
+    },
+    "services": {
+      "$ref": "services"
+    },
+    "stacking": {
+      "$ref": "stacking"
+    },
+    "stop": {
+      "$id": "stop",
+      "title": "Stop for delivering",
+      "description": "Stop for delivering the actual goods",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stopNo": {
+          "title": "Stop number",
+          "description": "The whole of the stop numbers in the right order defines the order of the stops",
+          "type": "integer"
+        },
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for this stop within the tour",
+          "type": "string"
+        },
+        "address": {
+          "$ref": "tour.json#/definitions/EdiAddress"
+        },
+        "fuelStopInformation": {
+          "$ref": "fuelStopInformation"
+        },
+        "wayPointInformation": {
+          "$id": "wayPointInformation",
+          "title": "Way Point Information",
+          "description": "Way point information of the tour",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "crossDocking": {
+              "title": "Cross Docking",
+              "type": "boolean"
+            },
+            "scheduledArrival": {
+              "$ref": "timespan"
+            },
+            "scheduledDeparture": {
+              "$ref": "timespan"
+            },
+            "scheduledWaitMinutes": {
+              "title": "Scheduled wait minutes",
+              "description": "Scheduled wait time in minutes to begin the activity",
+              "type": "integer"
+            },
+            "scheduledHandlingMinutes": {
+              "title": "Scheduled handling minutes",
+              "description": "Scheduled time for handling the activity",
+              "type": "integer"
+            },
+            "notes": {
+              "title": "Notes",
+              "description": "Notes on the Stop",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "borderCrossInformation": {
+          "$ref": "borderCrossInformation"
+        },
+        "loadingInformation": {
+          "$ref": "loadingInformation"
+        },
+        "unloadingInformation": {
+          "$id": "unloadingInformation",
+          "title": "Unloading information",
+          "description": "Information about unloading",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "consignmentObjectIds": {
+              "title": "References to the consignments",
+              "description": "References to the consignments, depending on this stop",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "bookedTimeslots": {
+              "type": "array",
+              "items": {
+                "$ref": "bookedTimeSlot"
+              }
+            },
+            "workingHours": {
+              "title": "Booked Time Slots",
+              "description": "Booked time slots for the tour",
+              "type": "array",
+              "items": {
+                "$ref": "workingHours"
+              }
+            },
+            "scheduledArrival": {
+              "$ref": "timespan"
+            },
+            "scheduledDeparture": {
+              "$ref": "timespan"
+            },
+            "scheduledWaitMinutes": {
+              "title": "Scheduled wait minutes",
+              "description": "Scheduled wait time in minutes to begin the activity",
+              "type": "integer"
+            },
+            "scheduledHandlingMinutes": {
+              "title": "Scheduled handling minutes",
+              "description": "Scheduled time for handling the activity",
+              "type": "integer"
+            },
+            "notes": {
+              "title": "Notes",
+              "description": "Notes on the Stop",
+              "type": "string"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        }
+      },
+      "required": [
+        "stopId"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "subsequentDelivery": {
+      "$ref": "subsequentDelivery"
+    },
+    "temperatureRestrictions": {
+      "$ref": "temperatureRestrictions"
+    },
+    "timeOptions": {
+      "$ref": "timeOptions"
+    },
+    "timeSlotBooking": {
+      "$ref": "timeSlotBooking"
+    },
+    "timespan": {
+      "$ref": "timespan"
+    },
+    "tourDangerousGoods": {
+      "$id": "tourDangerousGoods",
+      "title": "Dangerous goods",
+      "description": "Dangerous goods to be declared contained in a consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "isADR": {
+          "title": "Is ADR",
+          "description": "Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road",
+          "type": "boolean"
+        },
+        "totalPointADR": {
+          "title": "Total Point ADR",
+          "description": "Total Point to ADR",
+          "type": "number"
+        }
+      }
+    },
+    "tourEndOptions": {
+      "$id": "tourEndOptions",
+      "title": "Tour end options",
+      "description": "Activities the driver is supposed to do after finishing driver the tour",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "writeDownMileage": {
+          "title": "Write Down Mileage",
+          "description": "Write down the mileage",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "tourStartOptions": {
+      "$id": "tourStartOptions",
+      "title": "Tour start options",
+      "description": "Activities the driver is supposed to do before starting driving the tour",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "departureCheck": {
+          "title": "Departure Check",
+          "description": "Departure Check was made",
+          "type": "boolean"
+        },
+        "writeDownMileage": {
+          "title": "Write Down Mileage",
+          "description": "Write down the mileage",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "unloadingInformation": {
+      "$ref": "unloadingInformation"
+    },
+    "unloadingOptions": {
+      "$ref": "unloadingOptions"
+    },
+    "useSpecificLastMileProvider": {
+      "$ref": "useSpecificLastMileProvider"
+    },
+    "valueAtBorderCrossing": {
+      "$ref": "valueAtBorderCrossing"
+    },
+    "vehicle": {
+      "$id": "vehicle",
+      "title": "Vehicle",
+      "description": "Information about the vehicles used in the transport",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "vehicleId": {
+          "title": "The vehicle id",
+          "type": "string"
+        },
+        "registration": {
+          "title": "Registration",
+          "description": "Official registration of the vehicle (e.g. license plate number)",
+          "type": "string"
+        },
+        "truckType": {
+          "title": "Truck type",
+          "type": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array"
+          ]
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "wayPointInformation": {
+      "$ref": "wayPointInformation"
+    },
+    "weekendSaturday": {
+      "$ref": "weekendSaturday"
+    },
+    "workingHours": {
+      "$ref": "workingHours"
+    },
+    "workRequest": {
+      "$ref": "workRequest"
+    }
+  },
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -23,59 +2637,13 @@
       "type": "string"
     },
     "receiver": {
-      "$id": "#messageRouting",
-      "title": "Routing information of the message",
-      "description": "Routing information to identify the parties involved in the data transfer",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "messageRouting"
     },
     "sender": {
-      "$ref": "#messageRouting"
+      "$ref": "messageRouting"
     },
     "network": {
-      "$id": "#network",
-      "title": "Network",
-      "description": "The network under which rules the consignment should be processed",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "networkId": {
-          "title": "Name of the network",
-          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
-          "type": "string"
-        },
-        "codelist": {
-          "title": "Name of the code list used",
-          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-          "type": "string"
-        },
-        "product": {
-          "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
-          "type": "string"
-        }
-      }
+      "$ref": "network"
     },
     "messageFunctionCode": {
       "title": "Message function code",
@@ -123,175 +2691,15 @@
       "format": "date"
     },
     "carrier": {
-      "$id": "#ediAddress",
-      "title": "Address fields",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "geoPosition": {
-          "$id": "#geoPosition",
-          "title": "Geo position",
-          "description": "Data about the current geo position",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "longitude": {
-              "title": "Longitude",
-              "description": "East–west position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "latitude": {
-              "title": "Latitude",
-              "description": "North–south position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "placeName": {
-              "title": "Place name",
-              "description": "The place name of the current geo position",
-              "type": "string"
-            },
-            "w3WCoordinate": {
-              "title": "What3words coordinate",
-              "description": "A coordinate for the What3Words service like index.home.raft",
-              "type": "string"
-            },
-            "recordTime": {
-              "title": "Record time",
-              "description": "Time the GPS record was created",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "longitude",
-            "latitude"
-          ]
-        },
-        "name": {
-          "title": "Name of the address",
-          "type": "string"
-        },
-        "street": {
-          "title": "Street of the address",
-          "type": "string"
-        },
-        "houseNumber": {
-          "title": "House number of the address",
-          "type": "string"
-        },
-        "zipCode": {
-          "title": "Zip code of the Address",
-          "type": "string"
-        },
-        "city": {
-          "title": "City of the address",
-          "type": "string"
-        },
-        "townArea": {
-          "title": "Town area address",
-          "type": "string"
-        },
-        "countryCode": {
-          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
-          "type": "string"
-        },
-        "emailAddress": {
-          "title": "Email of the address",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "Phone number of the address",
-          "type": "string"
-        },
-        "additionalAddressLines": {
-          "title": "References to the consignments",
-          "description": "References to the consignments, depending on this stop",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "reference": {
-          "title": "Reference number for an address",
-          "type": "string"
-        },
-        "contactPerson": {
-          "title": "The contact person",
-          "type": "string"
-        },
-        "faxNumber": {
-          "title": "The Fax number",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiAddress"
     },
     "additionalLoadingEquipment": {
-      "$id": "#additionalLoadingEquipment",
-      "title": "Additional loading equipment",
-      "description": "Additional loading aids which are not part of the consignment but which have been added to safely transport the goods",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eurPallets": {
-          "title": "EPAL",
-          "description": "EUR pallets as defined by European Pallet Association (EPAL)",
-          "type": "integer"
-        },
-        "eurBoxes": {
-          "title": "EUR box pallets",
-          "description": "EUR Box pallets as defined by European Pallet Association (EPAL)",
-          "type": "integer"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "additionalLoadingEquipment"
     },
     "loadUnits": {
       "type": "array",
       "items": {
-        "$id": "#loadUnits",
-        "title": "Load units",
-        "description": "Load units (containers, swap bodies, ...) used to transport the goods",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "identification": {
-            "title": "Identification",
-            "description": "Identification (e.g. registration number) of the unit",
-            "type": "string"
-          },
-          "seals": {
-            "type": "array",
-            "items": {
-              "$id": "#seal",
-              "title": "Seal",
-              "description": "Seals used to prevent tampering with the goods in the load unit",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "code": {
-                  "title": "Code / number of the seal",
-                  "description": "Code / number of the seal",
-                  "type": "string"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            }
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        }
+        "$ref": "loadUnits"
       }
     },
     "notificationParties": {
@@ -299,2178 +2707,40 @@
       "description": "Parties should be notified",
       "type": "array",
       "items": {
-        "$id": "#partnerIdentification",
-        "title": "Fields to identify the partner",
-        "description": "Routing information to identify the parties involved in the data transfer",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "geoPosition": {
-            "$ref": "#geoPosition"
-          },
-          "name": {
-            "title": "Name of the address",
-            "type": "string"
-          },
-          "street": {
-            "title": "Street of the address",
-            "type": "string"
-          },
-          "houseNumber": {
-            "title": "House number of the address",
-            "type": "string"
-          },
-          "zipCode": {
-            "title": "Zip code of the Address",
-            "type": "string"
-          },
-          "city": {
-            "title": "City of the address",
-            "type": "string"
-          },
-          "townArea": {
-            "title": "Town area address",
-            "type": "string"
-          },
-          "countryCode": {
-            "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
-            "type": "string"
-          },
-          "emailAddress": {
-            "title": "Email of the address",
-            "type": "string"
-          },
-          "phoneNumber": {
-            "title": "Phone number of the address",
-            "type": "string"
-          },
-          "additionalAddressLines": {
-            "$ref": "#/properties/additionalAddressLines"
-          },
-          "reference": {
-            "title": "Reference for an address",
-            "type": "string"
-          },
-          "contactPerson": {
-            "title": "The contact person",
-            "type": "string"
-          },
-          "faxNumber": {
-            "title": "The Fax number",
-            "type": "string"
-          },
-          "partnerId": {
-            "title": "The PartnerId",
-            "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-            "type": "string"
-          },
-          "ediId": {
-            "title": "The Edi Id",
-            "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-            "type": "string"
-          },
-          "coniziId": {
-            "title": "The Conizi Id",
-            "description": "The conizi id for internal routing purposes",
-            "type": "string"
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        }
+        "$ref": "partnerIdentification"
       }
     },
     "divers": {
       "type": "array",
       "items": {
-        "$id": "#driver",
-        "title": "Driver",
-        "description": "Information about the drivers of the vehicles",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "driverId": {
-            "title": "Diver Id",
-            "description": "The id of the driver",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name of the driver",
-            "description": "The name of the driver",
-            "type": "string"
-          },
-          "phoneNumber": {
-            "title": "Phone number",
-            "description": "The phone number of the driver",
-            "type": "string"
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        }
+        "$ref": "driver"
       }
     },
     "vehicles": {
       "type": "array",
       "items": {
-        "$id": "#vehicle",
-        "title": "Vehicle",
-        "description": "Information about the vehicles used in the transport",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "vehicleId": {
-            "title": "The vehicle id",
-            "type": "string"
-          },
-          "registration": {
-            "title": "Registration",
-            "description": "Official registration of the vehicle (e.g. license plate number)",
-            "type": "string"
-          },
-          "truckType": {
-            "title": "Truck type",
-            "type": [
-              "string",
-              "number",
-              "integer",
-              "boolean",
-              "object",
-              "array"
-            ]
-          }
-        },
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        }
+        "$ref": "vehicle"
       }
     },
     "consignments": {
       "type": "array",
       "items": {
-        "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
-        "title": "Consignment",
-        "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "$schema": {
-            "title": "Json schema",
-            "description": "The used json schema",
-            "type": "string"
-          },
-          "$createdAt": {
-            "title": "Created at date",
-            "description": "The message was created at date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "$createdBy": {
-            "title": "Created by generator",
-            "description": "The message was created by",
-            "type": "string"
-          },
-          "receiver": {
-            "$ref": "tour.json#messageRouting"
-          },
-          "sender": {
-            "$ref": "tour.json#messageRouting"
-          },
-          "network": {
-            "$ref": "tour.json#network"
-          },
-          "consignmentNoShippingPartner": {
-            "title": "Consignment number of the shipping partner",
-            "description": "Unique identification for the consignment within the transport management system of the shipping partner",
-            "type": "string"
-          },
-          "consignmentNoReceivingPartner": {
-            "title": "Consignment number of the receiving partner",
-            "description": "Unique identification for the consignment within the transport management system of the receiving partner",
-            "type": "string"
-          },
-          "shippingDate": {
-            "title": "Shipping date",
-            "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
-            "type": "string",
-            "format": "date"
-          },
-          "manifestId": {
-            "title": "Manifest (Bordero) id of the shipping partner",
-            "description": "Unique identification for the manifest on which the shipment was loaded in the transport management system of the shipping partner",
-            "type": "string"
-          },
-          "tourNumber": {
-            "title": "Tour number",
-            "description": "Number of the planned / assigned local traffic tour for delivery",
-            "type": "string"
-          },
-          "isPreAdvice": {
-            "title": "Is a pre advice",
-            "description": "dds the possibility of sending the consignment (after saving, before approval) to e.g. a TMS",
-            "type": "boolean"
-          },
-          "additionalPartners": {
-            "$ref": "tour.json#/properties/notificationParties"
-          },
-          "orderingParty": {
-            "$ref": "tour.json#ediAddress"
-          },
-          "shippingPartner": {
-            "$ref": "tour.json#partnerIdentification"
-          },
-          "receivingPartner": {
-            "$ref": "tour.json#partnerIdentification"
-          },
-          "routing": {
-            "$id": "#routing",
-            "title": "Routing",
-            "description": "Information about the route take by this consignment/pickup order",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "shipper": {
-                "$ref": "tour.json#ediAddress"
-              },
-              "consignee": {
-                "$ref": "tour.json#ediAddress"
-              },
-              "loadingAddress": {
-                "$ref": "tour.json#ediAddress"
-              },
-              "unloadingAddress": {
-                "$ref": "tour.json#ediAddress"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "services": {
-            "$id": "#services",
-            "title": "Services",
-            "description": "Special services which can be requested by the ordering party (or the shipping partner)",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "packagingOptions": {
-                "$id": "#packagingOptions",
-                "title": "Packaging Options",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "return": {
-                    "title": "Return",
-                    "description": "Packaging material return",
-                    "type": "boolean"
-                  },
-                  "correction": {
-                    "title": "Correction",
-                    "description": "Packaging correction for your Bordero from: ... (Additional description)",
-                    "type": "string"
-                  },
-                  "thirdPartyDelivery": {
-                    "title": "Third Party Delivery",
-                    "description": "Delivery of packaging by third parties on: ... (Additional description)",
-                    "type": "string"
-                  },
-                  "pickup": {
-                    "title": "Package Pickup",
-                    "description": "Package Pickup",
-                    "type": "string"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "specialRun": {
-                "title": "Special Run",
-                "description": "The transport is produced via special run (and with special fares)",
-                "type": "string"
-              },
-              "notifications": {
-                "$id": "#notifications",
-                "title": "Notifications",
-                "description": "Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "generalNotificationAddress": {
-                    "$ref": "tour.json#ediAddress"
-                  },
-                  "afterDelivery": {
-                    "$ref": "tour.json#partnerIdentification"
-                  },
-                  "beforeDelivery": {
-                    "$ref": "tour.json#partnerIdentification"
-                  },
-                  "byDriver": {
-                    "$ref": "tour.json#partnerIdentification"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "anonymity": {
-                "$id": "#anonymity",
-                "title": "Anonymity services",
-                "description": "Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "neutralShipper": {
-                    "$ref": "tour.json#ediAddress"
-                  },
-                  "neutralConsignee": {
-                    "$ref": "tour.json#ediAddress"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "timeSlotBooking": {
-                "$id": "#timeSlotBooking",
-                "title": "Time slot booking",
-                "description": "Information about time slots which need to be booked or are already booked for this consignment",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "byDeliveryPartner": {
-                    "$ref": "tour.json#partnerIdentification"
-                  },
-                  "byContractedPartner": {
-                    "$ref": "tour.json#partnerIdentification"
-                  },
-                  "preBookedTimeslot": {
-                    "$id": "#preBookedTimeslot",
-                    "title": "Pre booked time slot",
-                    "description": "A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "info": {
-                        "title": "Info about pre booked time slot",
-                        "description": "Info about the pre booked time slot",
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "info"
-                    ],
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "timeOptions": {
-                "$id": "#timeOptions",
-                "title": "Time options",
-                "description": "Requirements for the delivery or pickup time",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "notAfter": {
-                    "$id": "#notAfter",
-                    "title": "Not after",
-                    "description": "The consignment must be delivered until the given date",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "notBefore": {
-                    "$id": "#notBefore",
-                    "title": "Not Before",
-                    "description": "The consignment must not be delivered before the given date",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "fixedDay": {
-                    "$id": "#fixedDay",
-                    "title": "Fixed day",
-                    "description": "The consignment must be delivered at the given date (and in the given time window)",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "timeFrom": {
-                        "title": "Time From (HH:mm:ss)",
-                        "type": "string",
-                        "format": "time"
-                      },
-                      "timeUntil": {
-                        "title": "Time Until (HH:mm:ss)",
-                        "type": "string",
-                        "format": "time"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "fixedWeek": {
-                    "$id": "#fixedWeek",
-                    "title": "Fixed week",
-                    "description": "The consignment must be delivered within the given week of the year",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "year": {
-                        "title": "Year for  delivery / pickup",
-                        "type": "string"
-                      },
-                      "weekOfYear": {
-                        "title": "Week of the year for delivery / pickup",
-                        "type": "string"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "weekendSaturday": {
-                    "$id": "#weekendSaturday",
-                    "title": "Saturday",
-                    "description": "The consignment should be delivered on a saturday",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "timeFrom": {
-                        "title": "Time From",
-                        "type": "string",
-                        "format": "time"
-                      },
-                      "timeUntil": {
-                        "title": "Time Until",
-                        "type": "string",
-                        "format": "time"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "nextDay": {
-                    "$id": "#nextDay",
-                    "title": "Next day",
-                    "description": "The consignment must be delivered on the next working day",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "timeFrom": {
-                        "title": "Time From",
-                        "type": "string",
-                        "format": "time"
-                      },
-                      "timeUntil": {
-                        "title": "Time Until",
-                        "type": "string",
-                        "format": "time"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "sameDay": {
-                    "$id": "#sameDay",
-                    "title": "Same day",
-                    "description": "The consignment must be delivered on the same day",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "timeFrom": {
-                        "title": "Time From",
-                        "type": "string",
-                        "format": "time"
-                      },
-                      "timeUntil": {
-                        "title": "Time Until",
-                        "type": "string",
-                        "format": "time"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "evening": {
-                    "$id": "#evening",
-                    "title": "Evening",
-                    "description": "The consignment must be delivered in the evening hours",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "timeFrom": {
-                        "title": "Time From",
-                        "type": "string",
-                        "format": "time"
-                      },
-                      "timeUntil": {
-                        "title": "Time Until",
-                        "type": "string",
-                        "format": "time"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "sameDayPickup": {
-                    "$id": "#sameDayPickup",
-                    "title": "Same day pickup",
-                    "description": "The goods must be picked up on the same day",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "timeFrom": {
-                        "title": "Time From",
-                        "type": "string",
-                        "format": "time"
-                      },
-                      "timeUntil": {
-                        "title": "Time Until",
-                        "type": "string",
-                        "format": "time"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "deliveryOptions": {
-                "$id": "#deliveryOptions",
-                "title": "Delivery options",
-                "description": "Requirements for special services or equipment for the delivery",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "liftingPlatform": {
-                    "title": "Lifting Platform",
-                    "description": "The consignment can only be delivered with a vehicle equipped with a lifting platform",
-                    "type": "boolean"
-                  },
-                  "pointOfUseDelivery1Person": {
-                    "title": "Point of use delivery - 1 man handling",
-                    "description": "The goods must be deliverd to the point of use with one man handling",
-                    "type": "boolean"
-                  },
-                  "pointOfUseDelivery2Persons": {
-                    "title": "Point of use delivery - 2 men handling",
-                    "description": "The goods must be deliverd to the point of use with two men handling",
-                    "type": "boolean"
-                  },
-                  "shelfService": {
-                    "title": "Shelf service",
-                    "description": "The goods must be put into the shelves at the destination",
-                    "type": "boolean"
-                  },
-                  "useSpecificLastMileProvider": {
-                    "$id": "#useSpecificLastMileProvider",
-                    "title": "Specific last mile provider",
-                    "description": "A given last mile provider must be used",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "name": {
-                        "title": "Name of the provider",
-                        "description": "The name of the provider to be used",
-                        "type": "string"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "cashOnDelivery": {
-                    "$id": "#cashOnDelivery",
-                    "title": "Cash on delivery",
-                    "description": "The goods must only be delivered if the recipient pays the given amount",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "amount": {
-                        "title": "Amount",
-                        "description": "The amount to be paid",
-                        "type": "number"
-                      },
-                      "currency": {
-                        "title": "Currency",
-                        "description": "The currency of the given amount",
-                        "type": "string"
-                      },
-                      "acceptCash": {
-                        "title": "acceptCash",
-                        "description": "Specifies if cash should be accepted (true) or rejected (false)",
-                        "type": "boolean"
-                      },
-                      "acceptCheque": {
-                        "title": "acceptCheque",
-                        "description": "Specifies if cheques should be accepted",
-                        "type": "boolean"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "pickupByConsignee": {
-                    "title": "Pick up by consignee",
-                    "description": "The consignee will pick up the goods at the receiving partner's warehouse. Do not perform local delivery",
-                    "type": "boolean"
-                  },
-                  "workRequest": {
-                    "$id": "#workRequest",
-                    "title": "Work request",
-                    "description": "The receiving partner should perform the action specified",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "info": {
-                        "title": "Information",
-                        "description": "A description of the action to be performed",
-                        "type": "string"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "deliveryOnlyWithDeliveryNote": {
-                    "title": "Delivery only with delivery note",
-                    "description": "Delivery should only be performed with the delivery note",
-                    "type": "boolean"
-                  },
-                  "digitalDeliveryNote": {
-                    "title": "Digital delivery note",
-                    "description": "The delivery note has been sent by means of digital communication (and is not attached to the goods)",
-                    "type": "boolean"
-                  },
-                  "deliveryNoteOnGoods": {
-                    "title": "Delivery note on goods",
-                    "description": "The delivery note is attached to the goods",
-                    "type": "boolean"
-                  },
-                  "podOnOriginalDeliveryNote": {
-                    "title": "PoD on original delivery note",
-                    "description": "The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner",
-                    "type": "boolean"
-                  },
-                  "deliveryWithoutReceiptAllowed": {
-                    "title": "Delivery without receipt allowed",
-                    "description": "The goods may be dropped at the designated location without a signature",
-                    "type": "boolean"
-                  },
-                  "forAttentionOf": {
-                    "title": "For attention",
-                    "description": "The delivery is for attention of the given company",
-                    "type": "string"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "loadingOptions": {
-                "$id": "#loadingOptions",
-                "title": "Loading options",
-                "description": "Information about the loading of the main haul",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "directPickup": {
-                    "title": "Direct pickup",
-                    "description": "The goods picked up by the line haul and are not loaded by the shipping partners warehouse",
-                    "type": "boolean"
-                  },
-                  "receivingPartnerDisposal": {
-                    "$ref": "tour.json#partnerIdentification"
-                  },
-                  "gatewayDisposal": {
-                    "$ref": "tour.json#partnerIdentification"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "unloadingOptions": {
-                "$id": "#unloadingOptions",
-                "title": "Unloading Options",
-                "description": "Information regarding unloading of the main haul",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "directDelivery": {
-                    "title": "Direct delivery",
-                    "description": "The goods are to be delivered without unloading them at the receiving partners warehouse",
-                    "type": "boolean"
-                  },
-                  "alreadyReceived": {
-                    "$id": "#alreadyReceived",
-                    "title": "Already received as surplus consignment",
-                    "description": "The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "surplusConsignmentNo": {
-                        "title": "Surplus consignment no",
-                        "description": "The reference number under which the surplus consignment had been reported by the receiving partner",
-                        "type": "string"
-                      },
-                      "shippingDate": {
-                        "title": "Shipping date",
-                        "description": "The date of the manifest which contained the surplus goods",
-                        "type": "string",
-                        "format": "date"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "missingFromPreviousManifest": {
-                    "$id": "#missingFromPreviousManifest",
-                    "title": "Missing from previous manifest",
-                    "description": "The goods for a consignment which already was part of another manifest and had been reported missing on that manifest",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "manifestId": {
-                        "title": "Manifest id",
-                        "description": "The manifest which first included the consignment",
-                        "type": "string"
-                      },
-                      "shippingDate": {
-                        "title": "Shipping date",
-                        "description": "The date of the manifest which included the consignment",
-                        "type": "string",
-                        "format": "date"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "gateway": {
-                "$id": "#gateway",
-                "title": "Gateway-Options",
-                "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "priority": {
-                    "title": "Priority",
-                    "description": "The consignment must be processed with priority",
-                    "type": "boolean"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "handlingInstructions": {
-                "$id": "#handlingInstructions",
-                "title": "Handling instructions",
-                "description": "Handling instructions for the goods, e.g. to prevent damage",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "customsGoods": {
-                    "title": "Customs Goods",
-                    "description": "The goods are subject to customs processing and must be processed according the rules of the local authorities",
-                    "type": "boolean"
-                  },
-                  "customsGoodsResubmissionDate": {
-                    "title": "Customs Goods resubmission date",
-                    "description": "The resubmission date for the customs goods",
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "handleWithCare": {
-                    "title": "Handle with care",
-                    "description": "The goods must be handeled with care to prevent damage",
-                    "type": "boolean"
-                  },
-                  "emptiesExchange": {
-                    "title": "Empties exchange required",
-                    "description": "Specifies whether empties should be exchanged with the consignee",
-                    "type": "boolean"
-                  },
-                  "orientation": {
-                    "$id": "#orientation",
-                    "title": "Orientation",
-                    "description": "The goods must be transported in a given orientation and may not be flipped over",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "vertical": {
-                        "title": "Upright",
-                        "description": "The goods must be transported upright",
-                        "type": "boolean"
-                      },
-                      "horizontal": {
-                        "title": "Horizontal",
-                        "description": "The goods must be transported flat down",
-                        "type": "boolean"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "stacking": {
-                    "$id": "#stacking",
-                    "title": "Stacking",
-                    "description": "Indicated whether the goods may or may not be stacked",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "forbidden": {
-                        "title": "Stacking forbidden",
-                        "description": "The goods must not be stacked",
-                        "type": "boolean"
-                      },
-                      "allowed": {
-                        "title": "Stacking possible",
-                        "description": "Stacking of the goods is safely possible",
-                        "type": "boolean"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "food": {
-                    "$id": "#food",
-                    "title": "Food related regulatory restrictions",
-                    "description": "Special requirements for transporting food",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "haccp": {
-                        "title": "Stacking forbidden",
-                        "description": "The HACCP regulations apply",
-                        "type": "boolean"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  },
-                  "temperatureRestrictions": {
-                    "$id": "#temperatureRestrictions",
-                    "title": "Temperature restrictions",
-                    "description": "Restrictions about the minimum and maximum temperature during the transport and special equipment to be used",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "temperatureMinCelsius": {
-                        "title": "Minimum temperature (°C)",
-                        "description": "The temperature must not drop below the given value during the transport",
-                        "type": "number"
-                      },
-                      "temperatureMaxCelsius": {
-                        "title": "Maximum temperature (°C)",
-                        "description": "The temperature must not get greater than the given value",
-                        "type": "number"
-                      }
-                    },
-                    "patternProperties": {
-                      "x-.*": {},
-                      "\\$.*": {}
-                    }
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "returnOfGoods": {
-                "$id": "#returnOfGoods",
-                "title": "Return of goods",
-                "description": "Services for the return of goods",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "emptyPackaging": {
-                    "title": "Packaging disposal",
-                    "description": "The packaging of the goods is taken back and dispose",
-                    "type": "boolean"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "externalServices": {
-            "$id": "#externalServices",
-            "title": "External services",
-            "description": "Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "archive": {
-                "$id": "#archive",
-                "title": "Digital archive",
-                "description": "Functions provided by the digital archive systems",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "automaticDownloadOfPod": {
-                    "title": "PoD push",
-                    "description": "The proof of delivery document is provided for automatic download",
-                    "type": "boolean"
-                  }
-                }
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "information": {
-            "$id": "#information",
-            "title": "Information",
-            "description": "General information about the consignment",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "remarksInvoice": {
-                "$ref": "tour.json#/properties/additionalAddressLines"
-              },
-              "remarksPickup": {
-                "$ref": "tour.json#/properties/additionalAddressLines"
-              },
-              "remarksDelivery": {
-                "$ref": "tour.json#/properties/additionalAddressLines"
-              },
-              "remarksGeneral": {
-                "$ref": "tour.json#/properties/additionalAddressLines"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "references": {
-            "$id": "#references",
-            "title": "References",
-            "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "returnOfPreviousConsignment": {
-                "$id": "#returnOfPreviousConsignment",
-                "title": "Return of previous consignment",
-                "description": "Reference to another consignment which content is return using this consignment",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "consignmentNoShippingPartner": {
-                    "title": "Consignment number of the consignment being returned",
-                    "description": "The consignment number of the original consignment being returned",
-                    "type": "string"
-                  },
-                  "shippingDate": {
-                    "title": "Shipping date",
-                    "description": "The date when the original shipment was forwarded",
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "shippingPartner": {
-                    "$ref": "tour.json#partnerIdentification"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "forwardedFor": {
-                "$ref": "tour.json#partnerIdentification"
-              },
-              "subsequentDelivery": {
-                "$id": "#subsequentDelivery",
-                "title": "Subsequent Delivery",
-                "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "consignmentNoShippingPartner": {
-                    "title": "Consignment number of the consignment for that the subsequent delivery is",
-                    "description": "The consignment number of the original consignment",
-                    "type": "string"
-                  },
-                  "shippingDate": {
-                    "title": "Shipping date",
-                    "description": "The date when the original shipment was forwarded",
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "shippingPartner": {
-                    "$ref": "tour.json#partnerIdentification"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "pickupOrder": {
-                "$id": "#pickupOrder",
-                "title": "Pickup order",
-                "description": "Reference to a pickup order which resulted in this consignment",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "pickupOrderNo": {
-                    "title": "Number of the Pickup order",
-                    "description": "Number to the referenced pickup order",
-                    "type": "string"
-                  },
-                  "orderingParty": {
-                    "$ref": "tour.json#partnerIdentification"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "deliveryNote": {
-                "title": "Delivery note",
-                "description": "The delivery note of the shipper which describes the content of this consignment",
-                "type": "string"
-              },
-              "customerOrderNo": {
-                "title": "Customer order no",
-                "description": "A reference of the shipper for this consignment",
-                "type": "string"
-              },
-              "customerOrderDate": {
-                "title": "Customer order date",
-                "description": "Date when the order was places with the shipping partner",
-                "type": "string",
-                "format": "date"
-              },
-              "orderEntrySystemReference": {
-                "title": "Order entry system reference",
-                "description": "A unique reference number from the system which was used to enter the order details",
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "billing": {
-            "$id": "#billing",
-            "title": "Billing information",
-            "description": "Information for invoicing and clearing",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "freightPayer": {
-                "$ref": "tour.json#partnerIdentification"
-              },
-              "tariff": {
-                "title": "Tariff",
-                "description": "Use to specify a special tariff to be used for freight calculation (e.g. heavy goods, ...)",
-                "type": "string"
-              },
-              "routingOrder": {
-                "$ref": "tour.json#partnerIdentification"
-              },
-              "deliveryTerms": {
-                "title": "Delivery terms",
-                "description": "Use to specify under which terms the consignment is process and which legs are billed to whom",
-                "type": "string"
-              },
-              "logisticModel": {
-                "title": "Logistic model",
-                "description": "Used to active special billing and clearing conditions the partners have agreed on",
-                "type": "string"
-              },
-              "costsAndCharges": {
-                "$id": "#costsAndCharges",
-                "title": "Costs and charges",
-                "description": "Used to transfer detailed information about the fees",
-                "type": "object",
-                "additionalProperties": false,
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "customsInformation": {
-            "$id": "#customsInformation",
-            "title": "Customs information",
-            "description": "Used to specify information necessary in the customs process",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "declaringParty": {
-                "$ref": "tour.json#partnerIdentification"
-              },
-              "deliverAfterDutyPaid": {
-                "$ref": "tour.json#partnerIdentification"
-              },
-              "presentationDeadline": {
-                "title": "Presentation deadline",
-                "type": "string"
-              },
-              "clearedForFreeTransitWithinEU": {
-                "title": "Cleared for free transit within EU",
-                "type": "boolean"
-              },
-              "envelopeForCustomsDocuments": {
-                "title": "Envelope for customs documents",
-                "type": "boolean"
-              },
-              "presentationToCustomsRequired": {
-                "title": "Presentation to customs require",
-                "type": "boolean"
-              },
-              "valueAtBorderCrossing": {
-                "$id": "#valueAtBorderCrossing",
-                "title": "Value at border crossing",
-                "description": "Value at border crossing",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "amount": {
-                    "title": "Amount",
-                    "description": "Amount",
-                    "type": "number"
-                  },
-                  "currency": {
-                    "title": "Currency",
-                    "description": "Currency",
-                    "type": "string"
-                  }
-                }
-              },
-              "cityUnloading": {
-                "title": "City unloading",
-                "type": "string"
-              },
-              "customsOffice": {
-                "title": "Customs office",
-                "type": "string"
-              },
-              "customsProcess": {
-                "title": "Customs process",
-                "type": "string"
-              },
-              "customsType": {
-                "title": "Customs type",
-                "type": "string"
-              },
-              "districtUnloading": {
-                "title": "District unloading",
-                "type": "string"
-              },
-              "importCustomsOffice": {
-                "title": "Import customs office",
-                "type": "string"
-              },
-              "parentDocumentId": {
-                "title": "Parent document id",
-                "type": "string"
-              },
-              "parentDocumentType": {
-                "title": "Parent document type",
-                "type": "string"
-              },
-              "routeBorder": {
-                "title": "Route border",
-                "type": "string"
-              },
-              "routeInland": {
-                "title": "Route inland",
-                "type": "string"
-              },
-              "statisticsFlag": {
-                "title": "Statistics flag",
-                "type": "string"
-              },
-              "transferType": {
-                "title": "Transfer type",
-                "type": "string"
-              },
-              "countryConsignor": {
-                "title": "Country consignor",
-                "type": "string"
-              },
-              "countryImporter": {
-                "title": "Country importer",
-                "type": "string"
-              },
-              "countryLoading": {
-                "title": "Country loading",
-                "type": "string"
-              },
-              "countryOfOrigin": {
-                "title": "Country of origin",
-                "type": "string"
-              },
-              "countryUnloading": {
-                "title": "Country unloading",
-                "type": "string"
-              },
-              "documents": {
-                "type": "array",
-                "items": {
-                  "$id": "#documents",
-                  "title": "Customs documents",
-                  "description": "Customs documents",
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "type": {
-                      "title": "Type",
-                      "description": "Type",
-                      "type": "string"
-                    },
-                    "number": {
-                      "title": "Number",
-                      "description": "Number",
-                      "type": "string"
-                    },
-                    "date": {
-                      "title": "Date",
-                      "description": "Date",
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "content": {
-            "$id": "#content",
-            "title": "Content",
-            "description": "Describes the nature and quantity of the goods in this consignment",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "nonHazardousWaste": {
-                "title": "Non hazardous waste",
-                "description": "The content has no value and is not dangerous",
-                "type": "boolean"
-              },
-              "loadingAids": {
-                "title": "Loading aids",
-                "description": "The consignment only consists of loading aids which are transported and does not contain real goods",
-                "type": "boolean"
-              },
-              "packagingPool": {
-                "title": "Packaging pool",
-                "description": "Name of the packaging pool which is used to handle to loading aids from this consignment",
-                "type": "string"
-              },
-              "highValueGoods": {
-                "title": "High value goods",
-                "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
-                "type": "boolean"
-              },
-              "insuranceValue": {
-                "$id": "#insuranceValue",
-                "title": "Insurance value",
-                "description": "Value of the goods, used for insurance purposes",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "amount": {
-                    "title": "Amount",
-                    "description": "Amount",
-                    "type": "number"
-                  },
-                  "currency": {
-                    "title": "Currency",
-                    "description": "Currency",
-                    "type": "string"
-                  }
-                },
-                "patternProperties": {
-                  "x-.*": {},
-                  "\\$.*": {}
-                }
-              },
-              "lines": {
-                "type": "array",
-                "items": {
-                  "$id": "#line",
-                  "title": "Line",
-                  "description": "Lines are describing handling units of similar sizes and content for brevity",
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "lineNo": {
-                      "title": "Line no",
-                      "description": "A ordinal number, ordering the line within the consignment/pickup order",
-                      "type": "integer"
-                    },
-                    "handlingUnitCount": {
-                      "title": "Handling unit count",
-                      "description": "The number of the items in this consignment/pickup order which are handeled individually",
-                      "type": "integer"
-                    },
-                    "handlingUnitType": {
-                      "title": "Handling unit type",
-                      "description": "The type of packaging (e.g. pallet, carton box, ...) ouf the outer most packaging",
-                      "type": "string"
-                    },
-                    "innerPackageCount": {
-                      "title": "Inner package count",
-                      "description": "Used to specify the number of inner packages (e.g. the number of boxes on a pallet)",
-                      "type": "integer"
-                    },
-                    "innerPackageType": {
-                      "title": "Inner package type",
-                      "description": "The type of packaging of the inner packages",
-                      "type": "string"
-                    },
-                    "content": {
-                      "title": "Content",
-                      "description": "A short description of the nature of the goods contained within the packages",
-                      "type": "string"
-                    },
-                    "refNo": {
-                      "title": "Reference number",
-                      "description": "A reference of the ordering party relating to the goods",
-                      "type": "string"
-                    },
-                    "customsInformation": {
-                      "$id": "#contentCustomsInformation",
-                      "title": "Customs information",
-                      "description": "Used to specifiy information necessary in the customs process",
-                      "type": "object",
-                      "additionalProperties": false,
-                      "properties": {
-                        "goodsNo": {
-                          "title": "Goods number",
-                          "description": "Goods number",
-                          "type": "string"
-                        },
-                        "processCode": {
-                          "title": "Process code",
-                          "description": "The Process code",
-                          "type": "string"
-                        },
-                        "netWeightKilogram": {
-                          "title": "Net weight kilogram",
-                          "description": "The net weight in kilogram",
-                          "type": "number"
-                        },
-                        "rawWeightKilogram": {
-                          "title": "Raw weight kilogram",
-                          "description": "The raw weight in kilogram",
-                          "type": "number"
-                        },
-                        "countryOfOrigin": {
-                          "$id": "#customsInformationValue",
-                          "title": "Customs value",
-                          "description": "Amount value type",
-                          "type": "object",
-                          "additionalProperties": false,
-                          "properties": {
-                            "amount": {
-                              "title": "Amount",
-                              "type": "number"
-                            },
-                            "currency": {
-                              "title": "Currency",
-                              "type": "string"
-                            }
-                          },
-                          "patternProperties": {
-                            "x-.*": {},
-                            "\\$.*": {}
-                          }
-                        },
-                        "statisticalValue": {
-                          "$ref": "#customsInformationValue"
-                        },
-                        "customsValue": {
-                          "$ref": "#customsInformationValue"
-                        },
-                        "documents": {
-                          "$ref": "#documents"
-                        }
-                      },
-                      "patternProperties": {
-                        "x-.*": {},
-                        "\\$.*": {}
-                      }
-                    },
-                    "barcodes": {
-                      "type": "array",
-                      "items": {
-                        "$id": "#barcode",
-                        "title": "Bar codes / SSCC number",
-                        "description": "Detailed information about the individual handling units",
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                          "code": {
-                            "title": "Bar code / SSCC / NVE",
-                            "description": "Id of the handling unit, usually printed as machine readable bar code on the package",
-                            "type": "string"
-                          },
-                          "masterBarcode": {
-                            "title": "Master bar code",
-                            "description": "Grouping code of multiple packages",
-                            "type": "string"
-                          },
-                          "batch": {
-                            "title": "Batch",
-                            "description": "Information identifying the manufacturing batch of the goods in the unit",
-                            "type": "string"
-                          },
-                          "bestBefore": {
-                            "title": "Best before",
-                            "description": "Information about the expiry of good",
-                            "type": "string"
-                          }
-                        },
-                        "patternProperties": {
-                          "x-.*": {},
-                          "\\$.*": {}
-                        }
-                      }
-                    },
-                    "dangerousGoods": {
-                      "type": "array",
-                      "items": {
-                        "$id": "#dangerousGoods",
-                        "title": "Dangerous goods",
-                        "description": "Dangerous goods",
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                          "quantity": {
-                            "title": "Quantity",
-                            "description": "The quantity",
-                            "type": "integer"
-                          },
-                          "grossWeightKilogram": {
-                            "title": "Gross weight (kg)",
-                            "description": "Weight of the consignment including all packaging",
-                            "type": "number"
-                          },
-                          "unNo": {
-                            "title": "UnNo",
-                            "description": "UnNo",
-                            "type": "string"
-                          },
-                          "multiplier": {
-                            "title": "Multiplier",
-                            "description": "Multiplier",
-                            "type": "integer"
-                          },
-                          "uniqueKey": {
-                            "title": "Unique key",
-                            "description": "The unique Key",
-                            "type": "string"
-                          },
-                          "substanceName": {
-                            "title": "Substance Name",
-                            "description": "The substance Name",
-                            "type": "string"
-                          },
-                          "technicalNameIfNotOtherwiseSpecified": {
-                            "title": "Technical name if not otherwise specified",
-                            "description": "The technical name if not otherwise specified",
-                            "type": "string"
-                          },
-                          "labelMainRisk": {
-                            "title": "Label for main risk",
-                            "description": "Label for main risk",
-                            "type": "string"
-                          },
-                          "labelSubRisk1": {
-                            "title": "Label for sub risk 1",
-                            "description": "Label for sub risk 1",
-                            "type": "string"
-                          },
-                          "labelSubRisk2": {
-                            "title": "Label for sub risk 2",
-                            "description": "Label for sub risk 2",
-                            "type": "string"
-                          },
-                          "labelSubRisk3": {
-                            "title": "Label for sub risk 3",
-                            "description": "Label for sub risk 3",
-                            "type": "string"
-                          },
-                          "packagingDescription": {
-                            "title": "Packaging description",
-                            "description": "The packaging description",
-                            "type": "string"
-                          },
-                          "netExplosiveMassKilogram": {
-                            "title": "Net explosive mass in kilogram",
-                            "description": "The net explosive mass in kilogram",
-                            "type": "number"
-                          },
-                          "transportCategory": {
-                            "title": "Transport category",
-                            "description": "The transport category",
-                            "type": "string"
-                          },
-                          "limitedQuantity": {
-                            "title": "Limited quantity",
-                            "description": "Limited quantity",
-                            "type": "boolean"
-                          },
-                          "totalPointsADR": {
-                            "title": "Total points ADR",
-                            "description": "Total points for ADR",
-                            "type": "integer"
-                          },
-                          "tunnelRestriction": {
-                            "title": "Tunnel restriction",
-                            "description": "Tunnel restriction",
-                            "type": "string"
-                          },
-                          "packagingGroup": {
-                            "title": "Packaging group",
-                            "description": "Packaging group",
-                            "type": "string"
-                          },
-                          "classificationCode": {
-                            "title": "Classification code",
-                            "description": "Classification code",
-                            "type": "string"
-                          },
-                          "exemptedQuantity": {
-                            "title": "Exempted quantity",
-                            "description": "Exempted quantity",
-                            "type": "boolean"
-                          },
-                          "netWeightKilogram": {
-                            "title": "Net weight kilogram",
-                            "description": "Net weight kilogram",
-                            "type": "number"
-                          },
-                          "volumeLiter": {
-                            "title": "Volume liter",
-                            "description": "Volume liter",
-                            "type": "number"
-                          },
-                          "highConsequencesDangerousGoods": {
-                            "title": "High consequences dangerous goods",
-                            "description": "High consequences dangerous goods",
-                            "type": "boolean"
-                          },
-                          "adrRelease": {
-                            "title": "ADR Release",
-                            "description": "ADR Release",
-                            "type": "string"
-                          },
-                          "packagingClass": {
-                            "title": "Packaging class",
-                            "description": "Packaging class",
-                            "type": "string"
-                          },
-                          "references": {
-                            "$id": "#dangerousGoodsReferences",
-                            "title": "Dangerous goods references",
-                            "description": "Dangerous goods references",
-                            "type": "object",
-                            "properties": {
-                              "fireworksBamNo": {
-                                "title": "Fireworks bam number",
-                                "description": "Fireworks Bam number",
-                                "type": "string"
-                              }
-                            }
-                          }
-                        },
-                        "patternProperties": {
-                          "x-.*": {},
-                          "\\$.*": {}
-                        }
-                      }
-                    },
-                    "additionalLoadingEquipment": {
-                      "$ref": "tour.json#additionalLoadingEquipment"
-                    },
-                    "volumeCubicmeter": {
-                      "title": "Volume (m³)",
-                      "description": "Total volume of the consignment",
-                      "type": "number"
-                    },
-                    "loadingMeter": {
-                      "title": "Loading meters (m)",
-                      "description": "Length of the area occupied on a 2.4 m wide container",
-                      "type": "number"
-                    },
-                    "grossWeightKilogram": {
-                      "title": "Gross weight (kg)",
-                      "description": "Weight of the consignment including all packaging",
-                      "type": "number"
-                    },
-                    "areaPalletBays": {
-                      "title": "Pallet bays",
-                      "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
-                      "type": "number"
-                    },
-                    "chargeableWeightKilogram": {
-                      "title": "Chargeable weight (kg)",
-                      "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
-                      "type": "number"
-                    },
-                    "lengthMeter": {
-                      "title": "Length (m)",
-                      "description": "Total length",
-                      "type": "number"
-                    },
-                    "widthMeter": {
-                      "title": "Width (m)",
-                      "description": "Total width",
-                      "type": "number"
-                    },
-                    "heightMeter": {
-                      "title": "Height (m)",
-                      "description": "Total height",
-                      "type": "number"
-                    }
-                  },
-                  "patternProperties": {
-                    "x-.*": {},
-                    "\\$.*": {}
-                  }
-                }
-              },
-              "additionalLoadingEquipment": {
-                "$ref": "tour.json#additionalLoadingEquipment"
-              },
-              "volumeCubicmeter": {
-                "title": "Volume (m³)",
-                "description": "Total volume of the consignment",
-                "type": "number"
-              },
-              "loadingMeter": {
-                "title": "Loading meters (m)",
-                "description": "Length of the area occupied on a 2.4 m wide container",
-                "type": "number"
-              },
-              "grossWeightKilogram": {
-                "title": "Gross weight (kg)",
-                "description": "Weight of the consignment including all packaging",
-                "type": "number"
-              },
-              "areaPalletBays": {
-                "title": "Pallet bays",
-                "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
-                "type": "number"
-              },
-              "chargeableWeightKilogram": {
-                "title": "Chargeable weight (kg)",
-                "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
-                "type": "number"
-              },
-              "lengthMeter": {
-                "title": "Length (m)",
-                "description": "Total length",
-                "type": "number"
-              },
-              "widthMeter": {
-                "title": "Width (m)",
-                "description": "Total width",
-                "type": "number"
-              },
-              "heightMeter": {
-                "title": "Height (m)",
-                "description": "Total height",
-                "type": "number"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "consignmentObjectId": {
-            "title": "Unique central consignment number",
-            "description": "Unique identification for the consignment in a central system",
-            "type": "string"
-          }
-        },
-        "required": [
-          "$schema",
-          "receiver",
-          "shippingDate",
-          "shippingPartner",
-          "receivingPartner"
-        ],
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        }
+        "$ref": "consignment.json"
       }
     },
     "dangerousGoods": {
-      "$id": "#tourDangerousGoods",
-      "title": "Dangerous goods",
-      "description": "Dangerous goods to be declared contained in a consignment",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "isADR": {
-          "title": "Is ADR",
-          "description": "Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road",
-          "type": "boolean"
-        },
-        "totalPointADR": {
-          "title": "Total Point ADR",
-          "description": "Total Point to ADR",
-          "type": "number"
-        }
-      }
+      "$ref": "tourDangerousGoods"
     },
     "tourStartOptions": {
-      "$id": "#tourStartOptions",
-      "title": "Tour start options",
-      "description": "Activities the driver is supposed to do before starting driving the tour",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "departureCheck": {
-          "title": "Departure Check",
-          "description": "Departure Check was made",
-          "type": "boolean"
-        },
-        "writeDownMileage": {
-          "title": "Write Down Mileage",
-          "description": "Write down the mileage",
-          "type": "boolean"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "tourStartOptions"
     },
     "tourEndOptions": {
-      "$id": "#tourEndOptions",
-      "title": "Tour end options",
-      "description": "Activities the driver is supposed to do after finishing driver the tour",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "writeDownMileage": {
-          "title": "Write Down Mileage",
-          "description": "Write down the mileage",
-          "type": "boolean"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "tourEndOptions"
     },
     "stops": {
       "type": "array",
       "items": {
-        "$id": "#stop",
-        "title": "Stop for delivering",
-        "description": "Stop for delivering the actual goods",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "stopNo": {
-            "title": "Stop number",
-            "description": "The whole of the stop numbers in the right order defines the order of the stops",
-            "type": "integer"
-          },
-          "stopId": {
-            "title": "Stop Id",
-            "description": "Unique identifier for this stop within the tour",
-            "type": "string"
-          },
-          "address": {
-            "$ref": "#ediAddress"
-          },
-          "fuelStopInformation": {
-            "$id": "#fuelStopInformation",
-            "title": "Stop to refuel",
-            "description": "Stop to refuel the vehicle",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "scheduledArrival": {
-                "$id": "#timespan",
-                "title": "Time span",
-                "description": "The time span for an activity",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "from": {
-                    "title": "Time from",
-                    "description": "Time span from",
-                    "type": "string",
-                    "format": "time"
-                  },
-                  "until": {
-                    "title": "Time until",
-                    "description": "Time span until",
-                    "type": "string",
-                    "format": "time"
-                  }
-                }
-              },
-              "scheduledDeparture": {
-                "$ref": "#timespan"
-              },
-              "scheduledWaitMinutes": {
-                "title": "Scheduled wait minutes",
-                "description": "Scheduled wait time in minutes to begin the activity",
-                "type": "integer"
-              },
-              "scheduledHandlingMinutes": {
-                "title": "Scheduled handling minutes",
-                "description": "Scheduled time for handling the activity",
-                "type": "integer"
-              },
-              "notes": {
-                "title": "Notes",
-                "description": "Notes on the Stop",
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "wayPointInformation": {
-            "$id": "#wayPointInformation",
-            "title": "Way Point Information",
-            "description": "Way point information of the tour",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "crossDocking": {
-                "title": "Cross Docking",
-                "type": "boolean"
-              },
-              "scheduledArrival": {
-                "$ref": "#timespan"
-              },
-              "scheduledDeparture": {
-                "$ref": "#timespan"
-              },
-              "scheduledWaitMinutes": {
-                "title": "Scheduled wait minutes",
-                "description": "Scheduled wait time in minutes to begin the activity",
-                "type": "integer"
-              },
-              "scheduledHandlingMinutes": {
-                "title": "Scheduled handling minutes",
-                "description": "Scheduled time for handling the activity",
-                "type": "integer"
-              },
-              "notes": {
-                "title": "Notes",
-                "description": "Notes on the Stop",
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "borderCrossInformation": {
-            "$id": "#borderCrossInformation",
-            "title": "Border cross information",
-            "description": "Information on border crossing",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "scheduledArrival": {
-                "$ref": "#timespan"
-              },
-              "scheduledDeparture": {
-                "$ref": "#timespan"
-              },
-              "scheduledWaitMinutes": {
-                "title": "Scheduled wait minutes",
-                "description": "Scheduled wait time in minutes to begin the activity",
-                "type": "integer"
-              },
-              "scheduledHandlingMinutes": {
-                "title": "Scheduled handling minutes",
-                "description": "Scheduled time for handling the activity",
-                "type": "integer"
-              },
-              "notes": {
-                "title": "Notes",
-                "description": "Notes on the Stop",
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "loadingInformation": {
-            "$id": "#loadingInformation",
-            "title": "Loading information",
-            "description": "Information about loading",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "consignmentObjectIds": {
-                "$ref": "#/properties/additionalAddressLines"
-              },
-              "bookedTimeslots": {
-                "type": "array",
-                "items": {
-                  "$id": "#bookedTimeSlot",
-                  "title": "Booked Time Slots",
-                  "description": "Booked time slots for the tour",
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "gate": {
-                      "title": "Gate",
-                      "type": "string"
-                    },
-                    "notes": {
-                      "title": "Notes",
-                      "type": "string"
-                    },
-                    "fromDateTime": {
-                      "title": "From Date Time",
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "untilDateTime": {
-                      "title": "Until Date Time",
-                      "type": "string",
-                      "format": "date-time"
-                    }
-                  },
-                  "patternProperties": {
-                    "x-.*": {},
-                    "\\$.*": {}
-                  }
-                }
-              },
-              "workingHours": {
-                "title": "Booked Time Slots",
-                "description": "Booked time slots for the tour",
-                "type": "array",
-                "items": {
-                  "$id": "#workingHours",
-                  "type": "object",
-                  "properties": {
-                    "fromDateTime": {
-                      "title": "From Date Time",
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "untilDateTime": {
-                      "title": "Until Date Time",
-                      "type": "string",
-                      "format": "date-time"
-                    }
-                  }
-                }
-              },
-              "scheduledArrival": {
-                "$ref": "#timespan"
-              },
-              "scheduledDeparture": {
-                "$ref": "#timespan"
-              },
-              "scheduledWaitMinutes": {
-                "title": "Scheduled wait minutes",
-                "description": "Scheduled wait time in minutes to begin the activity",
-                "type": "integer"
-              },
-              "scheduledHandlingMinutes": {
-                "title": "Scheduled handling minutes",
-                "description": "Scheduled time for handling the activity",
-                "type": "integer"
-              },
-              "notes": {
-                "title": "Notes",
-                "description": "Notes on the Stop",
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          },
-          "unloadingInformation": {
-            "$id": "#unloadingInformation",
-            "title": "Unloading information",
-            "description": "Information about unloading",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "consignmentObjectIds": {
-                "$ref": "#/properties/additionalAddressLines"
-              },
-              "bookedTimeslots": {
-                "$ref": "#/properties/stops/properties/bookedTimeslots"
-              },
-              "workingHours": {
-                "$ref": "#/properties/stops/properties/workingHours"
-              },
-              "scheduledArrival": {
-                "$ref": "#timespan"
-              },
-              "scheduledDeparture": {
-                "$ref": "#timespan"
-              },
-              "scheduledWaitMinutes": {
-                "title": "Scheduled wait minutes",
-                "description": "Scheduled wait time in minutes to begin the activity",
-                "type": "integer"
-              },
-              "scheduledHandlingMinutes": {
-                "title": "Scheduled handling minutes",
-                "description": "Scheduled time for handling the activity",
-                "type": "integer"
-              },
-              "notes": {
-                "title": "Notes",
-                "description": "Notes on the Stop",
-                "type": "string"
-              }
-            },
-            "patternProperties": {
-              "x-.*": {},
-              "\\$.*": {}
-            }
-          }
-        },
-        "required": [
-          "stopId"
-        ],
-        "patternProperties": {
-          "x-.*": {},
-          "\\$.*": {}
-        }
+        "$ref": "stop"
       }
     }
   },

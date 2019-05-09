@@ -3,109 +3,14 @@
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "$schema": {
-      "title": "Json schema",
-      "description": "The used json schema",
-      "type": "string"
-    },
-    "$createdAt": {
-      "title": "Created at date",
-      "description": "The message was created at date",
-      "type": "string",
-      "format": "date-time"
-    },
-    "$createdBy": {
-      "title": "Created by generator",
-      "description": "The message was created by",
-      "type": "string"
-    },
-    "receiver": {
-      "$id": "#messageRouting",
-      "title": "Routing information of the message",
-      "description": "Routing information to identify the parties involved in the data transfer",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "sender": {
-      "$ref": "#messageRouting"
-    },
-    "network": {
-      "$id": "#network",
-      "title": "Network",
-      "description": "The network under which rules the consignment should be processed",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "networkId": {
-          "title": "Name of the network",
-          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
-          "type": "string"
-        },
-        "codelist": {
-          "title": "Name of the code list used",
-          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-          "type": "string"
-        },
-        "product": {
-          "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
-          "type": "string"
-        }
-      }
-    },
-    "consignmentNoShippingPartner": {
-      "title": "Consignment number of the shipping partner",
-      "description": "Unique identification for the consignment within the transport management system of the shipping partner",
-      "type": "string"
-    },
-    "consignmentNoReceivingPartner": {
-      "title": "Consignment number of the receiving partner",
-      "description": "Unique identification for the consignment within the transport management system of the receiving partner",
-      "type": "string"
-    },
-    "consignmentNoDeliveringPartner": {
-      "title": "Consignment number of the delivering partner",
-      "description": "Unique identification for the consignment within the transport management system of the delivering partner",
-      "type": "string"
-    },
-    "shippingDate": {
-      "title": "Shipping date",
-      "type": "string",
-      "format": "date"
-    },
-    "shippingPartner": {
-      "$id": "#partnerIdentification",
-      "title": "Fields to identify the partner",
-      "description": "Routing information to identify the parties involved in the data transfer",
+  "definitions": {
+    "EdiAddress": {
+      "title": "Address fields",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "#geoPosition",
+          "$id": "geoPosition",
           "title": "Geo position",
           "description": "Data about the current geo position",
           "type": "object",
@@ -180,99 +85,11 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "title": "Additional remarks",
-          "description": "Additional remarks (free form)",
+          "title": "Additional address lines of the address",
           "type": "array",
           "items": {
             "type": "string"
           }
-        },
-        "reference": {
-          "title": "Reference for an address",
-          "type": "string"
-        },
-        "contactPerson": {
-          "title": "The contact person",
-          "type": "string"
-        },
-        "faxNumber": {
-          "title": "The Fax number",
-          "type": "string"
-        },
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "receivingPartner": {
-      "$ref": "#partnerIdentification"
-    },
-    "reportingPartner": {
-      "$ref": "#partnerIdentification"
-    },
-    "orderingParty": {
-      "$id": "#ediAddress",
-      "title": "Address fields",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "geoPosition": {
-          "$ref": "#geoPosition"
-        },
-        "name": {
-          "title": "Name of the address",
-          "type": "string"
-        },
-        "street": {
-          "title": "Street of the address",
-          "type": "string"
-        },
-        "houseNumber": {
-          "title": "House number of the address",
-          "type": "string"
-        },
-        "zipCode": {
-          "title": "Zip code of the Address",
-          "type": "string"
-        },
-        "city": {
-          "title": "City of the address",
-          "type": "string"
-        },
-        "townArea": {
-          "title": "Town area address",
-          "type": "string"
-        },
-        "countryCode": {
-          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
-          "type": "string"
-        },
-        "emailAddress": {
-          "title": "Email of the address",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "Phone number of the address",
-          "type": "string"
-        },
-        "additionalAddressLines": {
-          "$ref": "#/properties/additionalAddressLines"
         },
         "reference": {
           "title": "Reference number for an address",
@@ -292,7 +109,39 @@
         "\\$.*": {}
       }
     },
-    "dataProcessing": {
+    "EdiArchived": {
+      "title": "Archived",
+      "description": "Documents have been archived",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pod": {
+          "title": "Proof of Delivery",
+          "description": "Proof of delivery was archived",
+          "type": "boolean"
+        },
+        "deliveryNote": {
+          "title": "Delivery notes",
+          "description": "Delivery notes were archived",
+          "type": "boolean"
+        },
+        "customsPapers": {
+          "title": "Customs papers",
+          "description": "Customs papers were archived",
+          "type": "boolean"
+        },
+        "damagePictures": {
+          "title": "Damage Pictures",
+          "description": "Pictures of damages were archived",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDataProcessing": {
       "title": "Data processing",
       "description": "Events occurred while validating and processing the data",
       "type": "object",
@@ -305,7 +154,7 @@
           "format": "date-time"
         },
         "invalidData": {
-          "$id": "#emptyExtendableObject",
+          "$id": "emptyExtendableObject",
           "title": "Empty Extendable Object",
           "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
           "type": "object",
@@ -316,10 +165,10 @@
           }
         },
         "invalidPackageType": {
-          "$ref": "#emptyExtendableObject"
+          "$ref": "emptyExtendableObject"
         },
         "invalidDangerousGoodInformation": {
-          "$ref": "#emptyExtendableObject"
+          "$ref": "emptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -335,212 +184,14 @@
         "\\$.*": {}
       }
     },
-    "generalProcessingNotification": {
-      "title": "General processing",
-      "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
+    "EdiDeliveryAttemptDifficulties": {
+      "title": "Difficulties",
+      "description": "There were difficulties delivering the goods",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "incompatible": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "incomplete": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "ultimatelyLost": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "deliveryObscure": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "signingInformation": {
-              "title": "Signing Information",
-              "description": "Transmission of the receipt, the delivery date and the delivery time",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "releaseAuthorizationReceived": {
-              "title": "Release authorization received",
-              "description": "Receiver allows dropoff",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "ediRedirectedTo": {
-              "title": "Redirected to",
-              "description": "The consignment is redirected to...",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "sender": {
-                  "type": "boolean"
-                },
-                "sourcePartner": {
-                  "type": "boolean"
-                },
-                "receivingPartner": {
-                  "type": "boolean"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "archived": {
-              "title": "Archived",
-              "description": "Documents have been archived",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "pod": {
-                  "title": "Proof of Delivery",
-                  "description": "Proof of delivery was archived",
-                  "type": "boolean"
-                },
-                "deliveryNote": {
-                  "title": "Delivery notes",
-                  "description": "Delivery notes were archived",
-                  "type": "boolean"
-                },
-                "customsPapers": {
-                  "title": "Customs papers",
-                  "description": "Customs papers were archived",
-                  "type": "boolean"
-                },
-                "damagePictures": {
-                  "title": "Damage Pictures",
-                  "description": "Pictures of damages were archived",
-                  "type": "boolean"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "disposed": {
-              "title": "Disposed",
-              "description": "Consignment was disposed",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "unloading": {
-      "title": "Unloading",
-      "description": "Events occurred while unloading the consignment",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occurred while processing the consignment.Use (null) to report successful processing of the consignment",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "lateArrival": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "missing": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "partlyMissing": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "damaged": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "packagingDifferences": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "notVerifiable": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "quantityDifferences": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "partlyMissingDamaged": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "gateway": {
-      "$id": "#gateway",
-      "title": "Gateway-Options",
-      "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "priority": {
-          "title": "Priority",
-          "description": "The consignment must be processed with priority",
-          "type": "boolean"
+        "tailLift": {
+          "$ref": "emptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -548,7 +199,73 @@
         "\\$.*": {}
       }
     },
-    "deliveryPlanning": {
+    "EdiDeliveryAttemptFailedExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that caused the delivery to be fail",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "abortedDueToLongWaitingTime": {
+          "$ref": "emptyExtendableObject"
+        },
+        "abortedDueWeatherCondition": {
+          "$ref": "emptyExtendableObject"
+        },
+        "timeIssue": {
+          "$ref": "emptyExtendableObject"
+        },
+        "rejected": {
+          "$ref": "#/definitions/EdiDeliveryAttemptRejected"
+        },
+        "closed": {
+          "$ref": "emptyExtendableObject"
+        },
+        "wrongAddress": {
+          "$ref": "emptyExtendableObject"
+        },
+        "difficulties": {
+          "$ref": "#/definitions/EdiDeliveryAttemptDifficulties"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDeliveryAttemptRejected": {
+      "title": "Rejected",
+      "description": "The consignee has rejected the consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "damaged": {
+          "$ref": "emptyExtendableObject"
+        },
+        "incomplete": {
+          "$ref": "emptyExtendableObject"
+        },
+        "tooLate": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missingDocumentation": {
+          "$ref": "emptyExtendableObject"
+        },
+        "notOrdered": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missingNotification": {
+          "$ref": "emptyExtendableObject"
+        },
+        "noPayment": {
+          "$ref": "emptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDeliveryPlanning": {
       "title": "Delivery planning",
       "description": "Events occurred while planning the delivery of the consignment",
       "type": "object",
@@ -561,85 +278,7 @@
           "format": "date-time"
         },
         "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occurred while planning the delivery of the consignment.Use (null) to report successful processing of the consignment",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "outsideDeliveryArea": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "plannedForSecondTour": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "notInDelivery": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "noTimeSlotForAgreedDeliveryTime": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "invalidShipmentInformation": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "damaged": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "returnAccordingToDisposal": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "returnDisposalMissing": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "inResearch": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "timeSlotFromConsignee": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "badWeatherConditions": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "timeIssue": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "spaceIssue": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "consignmentNotComplete": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "selfCollector": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "holidays": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "customs": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "waitingForNotification": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "missingDocumentation": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "lateArrival": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "standardDeliveryTimeSufficient": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "gatewayRouting": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "rejectedByReceiver": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "#/definitions/EdiDeliveryPlanningExceptions"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -655,168 +294,151 @@
         "\\$.*": {}
       }
     },
-    "notification": {
-      "title": "Notification",
-      "description": "Events occurred while processing the notification of the consignment",
+    "EdiDeliveryPlanningExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occurred while planning the delivery of the consignment.Use (null) to report successful processing of the consignment",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
+        "outsideDeliveryArea": {
+          "$ref": "emptyExtendableObject"
         },
-        "trigger": {
-          "title": "Trigger",
-          "description": "Event that is a trigger for starting a notification",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "manually": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "automatic": {
-              "title": "Automatic",
-              "description": "Start an automatic notification (i.e. automatic notification system via email or SMS)",
-              "type": "boolean"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+        "plannedForSecondTour": {
+          "$ref": "emptyExtendableObject"
         },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occurred while processing the notification of the consignment.Use (null) to report successful notifcations of the consignment",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "notReached": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "disabled": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "pickupCustomer": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "wrongAddress": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "disposalOrdered": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "notInTime": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "canceled": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "invalidData": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "missingData": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+        "notInDelivery": {
+          "$ref": "emptyExtendableObject"
         },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
+        "noTimeSlotForAgreedDeliveryTime": {
+          "$ref": "emptyExtendableObject"
+        },
+        "invalidShipmentInformation": {
+          "$ref": "emptyExtendableObject"
+        },
+        "damaged": {
+          "$ref": "emptyExtendableObject"
+        },
+        "returnAccordingToDisposal": {
+          "$ref": "emptyExtendableObject"
+        },
+        "returnDisposalMissing": {
+          "$ref": "emptyExtendableObject"
+        },
+        "inResearch": {
+          "$ref": "emptyExtendableObject"
+        },
+        "timeSlotFromConsignee": {
+          "$ref": "emptyExtendableObject"
+        },
+        "badWeatherConditions": {
+          "$ref": "emptyExtendableObject"
+        },
+        "timeIssue": {
+          "$ref": "emptyExtendableObject"
+        },
+        "spaceIssue": {
+          "$ref": "emptyExtendableObject"
+        },
+        "consignmentNotComplete": {
+          "$ref": "emptyExtendableObject"
+        },
+        "selfCollector": {
+          "$ref": "emptyExtendableObject"
+        },
+        "holidays": {
+          "$ref": "emptyExtendableObject"
+        },
+        "customs": {
+          "$ref": "emptyExtendableObject"
+        },
+        "waitingForNotification": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missingDocumentation": {
+          "$ref": "emptyExtendableObject"
+        },
+        "lateArrival": {
+          "$ref": "emptyExtendableObject"
+        },
+        "standardDeliveryTimeSufficient": {
+          "$ref": "emptyExtendableObject"
+        },
+        "gatewayRouting": {
+          "$ref": "emptyExtendableObject"
+        },
+        "rejectedByReceiver": {
+          "$ref": "emptyExtendableObject"
         }
       },
-      "required": [
-        "eventDateTime"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
       }
     },
-    "deliveryStarted": {
-      "title": "Delivery started",
-      "description": "Events indicating the start of the delivery",
+    "EdiDeliveryStartedExceptions": {
+      "description": "Detailed information about the exceptions that occurred while starting the delivery of the consignment.Use (null) to report successful starting of the consignment delivery",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "tourNumber": {
-          "title": "Tour number",
-          "description": "Number of the planned / assigned local traffic tour for delivery",
-          "type": "string"
-        },
-        "exceptions": {
-          "description": "Detailed information about the exceptions that occurred while starting the delivery of the consignment.Use (null) to report successful starting of the consignment delivery",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "noCapacity": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
+        "noCapacity": {
+          "$ref": "emptyExtendableObject"
         }
       },
-      "required": [
-        "eventDateTime"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
       }
     },
-    "estimatedArrivalAtReceiver": {
-      "title": "Estimated time of arrival at receiver",
-      "description": "Events occurred regarding the estimated time of arrival at receiver",
+    "EdiDeliverySuccessfulExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occurred when consignment was successfully delivered.Use (null) to report successful processing of the consignment",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
+        "incomplete": {
+          "$ref": "emptyExtendableObject"
         },
-        "estimatedArrivalTime": {
-          "title": "Estimated arrival date/time",
-          "description": "Date and time of the estimated arrival",
-          "type": "string"
+        "serviceIncomplete": {
+          "$ref": "emptyExtendableObject"
         },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
+        "damaged": {
+          "$ref": "emptyExtendableObject"
+        },
+        "incompleteAndDamaged": {
+          "$ref": "emptyExtendableObject"
+        },
+        "partiallyRejected": {
+          "$ref": "emptyExtendableObject"
+        },
+        "tooLate": {
+          "$ref": "emptyExtendableObject"
+        },
+        "noReceipt": {
+          "$ref": "emptyExtendableObject"
+        },
+        "forwardedToExternalProvider": {
+          "$ref": "emptyExtendableObject"
+        },
+        "releaseAuthorization": {
+          "$ref": "emptyExtendableObject"
         }
       },
-      "required": [
-        "eventDateTime"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
       }
     },
-    "arrivalAtReceiver": {
+    "EdiDisposed": {
+      "title": "Disposed",
+      "description": "Consignment was disposed",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEventArrivalAtReceiver": {
       "title": "Arrival at receiver",
       "description": "Events occurred while arriving the receiver",
       "type": "object",
@@ -842,240 +464,7 @@
         "\\$.*": {}
       }
     },
-    "deliveryAttemptFailed": {
-      "title": "Delivery attempt failed",
-      "description": "Events indicating a failed delivery attempt",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "returnConsignmentNo": {
-          "title": "Return consignment no",
-          "description": "Number of the consignment which is used to return the goods to the shipper",
-          "type": "string"
-        },
-        "signee": {
-          "title": "Signee",
-          "description": "Name of the person which rejected the consignment",
-          "type": "string"
-        },
-        "waitTime": {
-          "title": "Wait time",
-          "description": "Time spent waiting during delivery",
-          "type": "string"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that caused the delivery to be fail",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "abortedDueToLongWaitingTime": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "abortedDueWeatherCondition": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "timeIssue": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "rejected": {
-              "title": "Rejected",
-              "description": "The consignee has rejected the consignment",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "damaged": {
-                  "$ref": "#emptyExtendableObject"
-                },
-                "incomplete": {
-                  "$ref": "#emptyExtendableObject"
-                },
-                "tooLate": {
-                  "$ref": "#emptyExtendableObject"
-                },
-                "missingDocumentation": {
-                  "$ref": "#emptyExtendableObject"
-                },
-                "notOrdered": {
-                  "$ref": "#emptyExtendableObject"
-                },
-                "missingNotification": {
-                  "$ref": "#emptyExtendableObject"
-                },
-                "noPayment": {
-                  "$ref": "#emptyExtendableObject"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "closed": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "wrongAddress": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "difficulties": {
-              "title": "Difficulties",
-              "description": "There were difficulties delivering the goods",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "tailLift": {
-                  "$ref": "#emptyExtendableObject"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "deliverySuccessful": {
-      "title": "Delivery successful",
-      "description": "Events indicating successful delivery",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occurred when consignment was successfully delivered.Use (null) to report successful processing of the consignment",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "incomplete": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "serviceIncomplete": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "damaged": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "incompleteAndDamaged": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "partiallyRejected": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "tooLate": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "noReceipt": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "forwardedToExternalProvider": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "releaseAuthorization": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "signee": {
-          "title": "Signee",
-          "description": "Name of the person which rejected the consignment",
-          "type": "string"
-        },
-        "waitTime": {
-          "title": "Wait time",
-          "description": "Time spent waiting during delivery",
-          "type": "string"
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "completion": {
-      "title": "Work completed - forwarded",
-      "description": "Events indicating successful completion of a task, consignment has been forwarded",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "completedBy": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "forwarded": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "signee": {
-          "title": "Signee",
-          "description": "Name of the person which rejected the consignment",
-          "type": "string"
-        },
-        "waitTime": {
-          "title": "Wait time",
-          "description": "Time spent waiting during delivery",
-          "type": "string"
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "changeRequest": {
+    "EdiEventChangeRequest": {
       "title": "Change request",
       "description": "A new delivery term that should be considered for billing",
       "type": "object",
@@ -1116,13 +505,735 @@
         "\\$.*": {}
       }
     },
+    "EdiEventCompletion": {
+      "title": "Work completed - forwarded",
+      "description": "Events indicating successful completion of a task, consignment has been forwarded",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "completedBy": {
+          "$ref": "emptyExtendableObject"
+        },
+        "forwarded": {
+          "$ref": "emptyExtendableObject"
+        },
+        "signee": {
+          "title": "Signee",
+          "description": "Name of the person which rejected the consignment",
+          "type": "string"
+        },
+        "waitTime": {
+          "title": "Wait time",
+          "description": "Time spent waiting during delivery",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEventDeliveryAttemptFailed": {
+      "title": "Delivery attempt failed",
+      "description": "Events indicating a failed delivery attempt",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "returnConsignmentNo": {
+          "title": "Return consignment no",
+          "description": "Number of the consignment which is used to return the goods to the shipper",
+          "type": "string"
+        },
+        "signee": {
+          "title": "Signee",
+          "description": "Name of the person which rejected the consignment",
+          "type": "string"
+        },
+        "waitTime": {
+          "title": "Wait time",
+          "description": "Time spent waiting during delivery",
+          "type": "string"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiDeliveryAttemptFailedExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEventDeliveryStarted": {
+      "title": "Delivery started",
+      "description": "Events indicating the start of the delivery",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "tourNumber": {
+          "title": "Tour number",
+          "description": "Number of the planned / assigned local traffic tour for delivery",
+          "type": "string"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiDeliveryStartedExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEventDeliverySuccessful": {
+      "title": "Delivery successful",
+      "description": "Events indicating successful delivery",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiDeliverySuccessfulExceptions"
+        },
+        "signee": {
+          "title": "Signee",
+          "description": "Name of the person which rejected the consignment",
+          "type": "string"
+        },
+        "waitTime": {
+          "title": "Wait time",
+          "description": "Time spent waiting during delivery",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEventEstimatedArrivalAtReceiver": {
+      "title": "Estimated time of arrival at receiver",
+      "description": "Events occurred regarding the estimated time of arrival at receiver",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "estimatedArrivalTime": {
+          "title": "Estimated arrival date/time",
+          "description": "Date and time of the estimated arrival",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEventNotification": {
+      "title": "Notification",
+      "description": "Events occurred while processing the notification of the consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "trigger": {
+          "$ref": "#/definitions/EdiTrigger"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiNotificationExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiGeneralProcessingNotification": {
+      "title": "General processing",
+      "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiNotificationEventExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNotificationEventExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "incompatible": {
+          "$ref": "emptyExtendableObject"
+        },
+        "incomplete": {
+          "$ref": "emptyExtendableObject"
+        },
+        "ultimatelyLost": {
+          "$ref": "emptyExtendableObject"
+        },
+        "deliveryObscure": {
+          "$ref": "emptyExtendableObject"
+        },
+        "signingInformation": {
+          "$ref": "#/definitions/EdiSigningInformation"
+        },
+        "releaseAuthorizationReceived": {
+          "$ref": "#/definitions/EdiReleaseAuthorizationReceived"
+        },
+        "ediRedirectedTo": {
+          "$ref": "#/definitions/EdiRedirectedTo"
+        },
+        "archived": {
+          "$ref": "#/definitions/EdiArchived"
+        },
+        "disposed": {
+          "$ref": "#/definitions/EdiDisposed"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNotificationExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occurred while processing the notification of the consignment.Use (null) to report successful notifcations of the consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "notReached": {
+          "$ref": "emptyExtendableObject"
+        },
+        "disabled": {
+          "$ref": "emptyExtendableObject"
+        },
+        "pickupCustomer": {
+          "$ref": "emptyExtendableObject"
+        },
+        "wrongAddress": {
+          "$ref": "emptyExtendableObject"
+        },
+        "disposalOrdered": {
+          "$ref": "emptyExtendableObject"
+        },
+        "notInTime": {
+          "$ref": "emptyExtendableObject"
+        },
+        "canceled": {
+          "$ref": "emptyExtendableObject"
+        },
+        "invalidData": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missingData": {
+          "$ref": "emptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiRedirectedTo": {
+      "title": "Redirected to",
+      "description": "The consignment is redirected to...",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sender": {
+          "type": "boolean"
+        },
+        "sourcePartner": {
+          "type": "boolean"
+        },
+        "receivingPartner": {
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiReleaseAuthorizationReceived": {
+      "title": "Release authorization received",
+      "description": "Receiver allows dropoff",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiSigningInformation": {
+      "title": "Signing Information",
+      "description": "Transmission of the receipt, the delivery date and the delivery time",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiTrigger": {
+      "title": "Trigger",
+      "description": "Event that is a trigger for starting a notification",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "manually": {
+          "$ref": "emptyExtendableObject"
+        },
+        "automatic": {
+          "title": "Automatic",
+          "description": "Start an automatic notification (i.e. automatic notification system via email or SMS)",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiUnloading": {
+      "title": "Unloading",
+      "description": "Events occurred while unloading the consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiUnloadingExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiUnloadingExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occurred while processing the consignment.Use (null) to report successful processing of the consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lateArrival": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missing": {
+          "$ref": "emptyExtendableObject"
+        },
+        "partlyMissing": {
+          "$ref": "emptyExtendableObject"
+        },
+        "damaged": {
+          "$ref": "emptyExtendableObject"
+        },
+        "packagingDifferences": {
+          "$ref": "emptyExtendableObject"
+        },
+        "notVerifiable": {
+          "$ref": "emptyExtendableObject"
+        },
+        "quantityDifferences": {
+          "$ref": "emptyExtendableObject"
+        },
+        "partlyMissingDamaged": {
+          "$ref": "emptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "emptyExtendableObject": {
+      "$ref": "emptyExtendableObject"
+    },
+    "gateway": {
+      "$id": "gateway",
+      "title": "Gateway-Options",
+      "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priority": {
+          "title": "Priority",
+          "description": "The consignment must be processed with priority",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "geoPosition": {
+      "$ref": "geoPosition"
+    },
+    "messageRouting": {
+      "$id": "messageRouting",
+      "title": "Routing information of the message",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "network": {
+      "$id": "network",
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
+    },
+    "partnerIdentification": {
+      "$id": "partnerIdentification",
+      "title": "Fields to identify the partner",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "geoPosition"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
+        },
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "title": "Json schema",
+      "description": "The used json schema",
+      "type": "string"
+    },
+    "$createdAt": {
+      "title": "Created at date",
+      "description": "The message was created at date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "$createdBy": {
+      "title": "Created by generator",
+      "description": "The message was created by",
+      "type": "string"
+    },
+    "receiver": {
+      "$ref": "messageRouting"
+    },
+    "sender": {
+      "$ref": "messageRouting"
+    },
+    "network": {
+      "$ref": "network"
+    },
+    "consignmentNoShippingPartner": {
+      "title": "Consignment number of the shipping partner",
+      "description": "Unique identification for the consignment within the transport management system of the shipping partner",
+      "type": "string"
+    },
+    "consignmentNoReceivingPartner": {
+      "title": "Consignment number of the receiving partner",
+      "description": "Unique identification for the consignment within the transport management system of the receiving partner",
+      "type": "string"
+    },
+    "consignmentNoDeliveringPartner": {
+      "title": "Consignment number of the delivering partner",
+      "description": "Unique identification for the consignment within the transport management system of the delivering partner",
+      "type": "string"
+    },
+    "shippingDate": {
+      "title": "Shipping date",
+      "type": "string",
+      "format": "date"
+    },
+    "shippingPartner": {
+      "$ref": "partnerIdentification"
+    },
+    "receivingPartner": {
+      "$ref": "partnerIdentification"
+    },
+    "reportingPartner": {
+      "$ref": "partnerIdentification"
+    },
+    "orderingParty": {
+      "$ref": "#/definitions/EdiAddress"
+    },
+    "dataProcessing": {
+      "$ref": "#/definitions/EdiDataProcessing"
+    },
+    "generalProcessingNotification": {
+      "$ref": "#/definitions/EdiGeneralProcessingNotification"
+    },
+    "unloading": {
+      "$ref": "#/definitions/EdiUnloading"
+    },
+    "gateway": {
+      "$ref": "gateway"
+    },
+    "deliveryPlanning": {
+      "$ref": "#/definitions/EdiDeliveryPlanning"
+    },
+    "notification": {
+      "$ref": "#/definitions/EdiEventNotification"
+    },
+    "deliveryStarted": {
+      "$ref": "#/definitions/EdiEventDeliveryStarted"
+    },
+    "estimatedArrivalAtReceiver": {
+      "$ref": "#/definitions/EdiEventEstimatedArrivalAtReceiver"
+    },
+    "arrivalAtReceiver": {
+      "$ref": "#/definitions/EdiEventArrivalAtReceiver"
+    },
+    "deliveryAttemptFailed": {
+      "$ref": "#/definitions/EdiEventDeliveryAttemptFailed"
+    },
+    "deliverySuccessful": {
+      "$ref": "#/definitions/EdiEventDeliverySuccessful"
+    },
+    "completion": {
+      "$ref": "#/definitions/EdiEventCompletion"
+    },
+    "changeRequest": {
+      "$ref": "#/definitions/EdiEventChangeRequest"
+    },
     "originalEventCode": {
       "title": "Original event code",
       "description": "Original event code",
       "type": "string"
     },
     "additionalRemarks": {
-      "$ref": "#/properties/additionalAddressLines"
+      "title": "Additional remarks",
+      "description": "Additional remarks (free form)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "referenceNumber": {
       "title": "Reference number",

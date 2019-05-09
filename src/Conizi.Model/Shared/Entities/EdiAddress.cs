@@ -6,6 +6,7 @@ using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -14,7 +15,6 @@ namespace Conizi.Model.Shared.Entities
     /// Fields to save address relevant data
     /// </summary>
     [DisplayName("Address fields")]
-    [JsonObject("#ediAddress")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiAddress : EdiPatternPropertiesBase, IAddress

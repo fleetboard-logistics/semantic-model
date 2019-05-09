@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Requirements for the delivery or pickup time
     /// </summary>
-    [JsonObject("#timeOptions")]
+    [JsonObject("timeOptions")]
     [DisplayName("Time options")]
     [Description("Requirements for the delivery or pickup time")]
     [ConiziAdditionalProperties(false)]
@@ -67,7 +67,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The consignment must be delivered until the given date
     /// </summary>
-    [JsonObject("#notAfter")]
+    [JsonObject("notAfter")]
     [DisplayName("Not after")]
     [Description("The consignment must be delivered until the given date")]
     [ConiziAdditionalProperties(false)]
@@ -85,7 +85,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The consignment must not be delivered before the given date
     /// </summary>
-    [JsonObject("#notBefore")]
+    [JsonObject("notBefore")]
     [DisplayName("Not Before")]
     [Description("The consignment must not be delivered before the given date")]
     [ConiziAdditionalProperties(false)]
@@ -103,7 +103,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The consignment must be delivered at the given date (and in the given time window)
     /// </summary>
-    [JsonObject("#fixedDay")]
+    [JsonObject("fixedDay")]
     [DisplayName("Fixed day")]
     [Description("The consignment must be delivered at the given date (and in the given time window)")]
     [ConiziAdditionalProperties(false)]
@@ -134,7 +134,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The consignment must be delivered within the given week of the year
     /// </summary>
-    [JsonObject("#fixedWeek")]
+    [JsonObject("fixedWeek")]
     [DisplayName("Fixed week")]
     [Description("The consignment must be delivered within the given week of the year")]
     [ConiziAdditionalProperties(false)]
@@ -157,7 +157,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The consignment should be delivered on a saturday
     /// </summary>
-    [JsonObject("#weekendSaturday")]
+    [JsonObject("weekendSaturday")]
     [DisplayName("Saturday")]
     [Description("The consignment should be delivered on a saturday")]
     [ConiziAdditionalProperties(false)]
@@ -189,7 +189,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The consignment must be delivered on the next working day
     /// </summary>
-    [JsonObject("#nextDay")]
+    [JsonObject("nextDay")]
     [DisplayName("Next day")]
     [Description("The consignment must be delivered on the next working day")]
     [ConiziAdditionalProperties(false)]
@@ -221,7 +221,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// 
     /// </summary>
-    [JsonObject("#sameDay")]
+    [JsonObject("sameDay")]
     [DisplayName("Same day")]
     [Description("The consignment must be delivered on the same day")]
     [ConiziAdditionalProperties(false)]
@@ -253,7 +253,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The consignment must be delivered in the evening hours
     /// </summary>
-    [JsonObject("#evening")]
+    [JsonObject("evening")]
     [DisplayName("Evening")]
     [Description("The consignment must be delivered in the evening hours")]
     [ConiziAdditionalProperties(false)]
@@ -285,7 +285,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The goods must be picked up on the same day
     /// </summary>
-    [JsonObject("#sameDayPickup")]
+    [JsonObject("sameDayPickup")]
     [DisplayName("Same day pickup")]
     [Description("The goods must be picked up on the same day")]
     [ConiziAdditionalProperties(false)]
@@ -321,7 +321,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The date on which the pickup order should be processed by the contracted partner")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("#pickupDate")]
+    [JsonObject("pickupDate")]
     public class EdiPickupDate
     {
         /// <summary>

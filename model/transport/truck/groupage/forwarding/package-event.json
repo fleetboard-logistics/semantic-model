@@ -3,27 +3,59 @@
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "$schema": {
-      "title": "Json schema",
-      "description": "The used json schema",
-      "type": "string"
+  "definitions": {
+    "emptyExtendableObject": {
+      "$id": "emptyExtendableObject",
+      "title": "Empty Extendable Object",
+      "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
-    "$createdAt": {
-      "title": "Created at date",
-      "description": "The message was created at date",
-      "type": "string",
-      "format": "date-time"
+    "geoPosition": {
+      "$id": "geoPosition",
+      "title": "Geo position",
+      "description": "Data about the current geo position",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "longitude",
+        "latitude"
+      ]
     },
-    "$createdBy": {
-      "title": "Created by generator",
-      "description": "The message was created by",
-      "type": "string"
-    },
-    "receiver": {
-      "$id": "#messageRouting",
+    "messageRouting": {
+      "$id": "messageRouting",
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -50,11 +82,8 @@
         "\\$.*": {}
       }
     },
-    "sender": {
-      "$ref": "#messageRouting"
-    },
     "network": {
-      "$id": "#network",
+      "$id": "network",
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -77,51 +106,180 @@
         }
       }
     },
-    "shippingPartner": {
-      "$id": "#partnerIdentification",
+    "packageBulkiness": {
+      "$id": "packageBulkiness",
+      "title": "Bulkiness of the package",
+      "description": "Bulkiness of the package (length / width / height)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "title": "Length (m)",
+          "description": "Length in meter",
+          "type": "number"
+        },
+        "width": {
+          "title": "Width (m)",
+          "description": "Width in meter",
+          "type": "number"
+        },
+        "height": {
+          "title": "Height (m)",
+          "description": "Height in meter",
+          "type": "number"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "packageEvent": {
+      "$id": "packageEvent",
+      "title": "Package specific Event",
+      "description": "Event to notify about package specific incidents",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "packageType": {
+          "title": "Type of the package",
+          "description": "Type of the package that is beeing reported",
+          "type": "string"
+        },
+        "masterBarcode": {
+          "title": "Master barcode",
+          "description": "Master barcode (i.e. Master colli)",
+          "type": "string"
+        },
+        "lotNo": {
+          "title": "Lot number",
+          "description": "Lot number",
+          "type": "string"
+        },
+        "bestBeforeDate": {
+          "title": "Best before",
+          "description": "Best before",
+          "type": "string",
+          "format": "date"
+        },
+        "transportUnitNo": {
+          "title": "Transport Unit Number",
+          "description": "Transport Unit Number",
+          "type": "string"
+        },
+        "scanUser": {
+          "title": "Scan user",
+          "description": "Scan user",
+          "type": "string"
+        },
+        "gateNo": {
+          "title": "Gate",
+          "description": "Gate",
+          "type": "string"
+        },
+        "terminalNo": {
+          "title": "Terminal number",
+          "description": "Terminal number",
+          "type": "string"
+        },
+        "bulkiness": {
+          "$ref": "packageBulkiness"
+        },
+        "bulkinessCategory": {
+          "title": "Bulkiness category",
+          "description": "Bulkiness category",
+          "type": "string"
+        },
+        "exceptions": {
+          "$id": "packageEventExceptions",
+          "title": "Exceptions",
+          "description": "Detailed information about the exceptions that occured while processing / scanning the package",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "damaged": {
+              "$ref": "emptyExtendableObject"
+            },
+            "pressedIn": {
+              "$ref": "emptyExtendableObject"
+            },
+            "open": {
+              "$ref": "emptyExtendableObject"
+            },
+            "wet": {
+              "$ref": "emptyExtendableObject"
+            },
+            "leaked": {
+              "$ref": "emptyExtendableObject"
+            },
+            "rejected": {
+              "$ref": "emptyExtendableObject"
+            },
+            "damagedAfterPackagingRemoval": {
+              "$ref": "emptyExtendableObject"
+            },
+            "shrinkWrapped": {
+              "$ref": "emptyExtendableObject"
+            },
+            "damagedEmptiesContentOk": {
+              "$ref": "emptyExtendableObject"
+            },
+            "oversized": {
+              "$ref": "emptyExtendableObject"
+            },
+            "specialRun": {
+              "$ref": "emptyExtendableObject"
+            },
+            "spaceIssue": {
+              "$ref": "emptyExtendableObject"
+            },
+            "timeIssue": {
+              "$ref": "emptyExtendableObject"
+            },
+            "routingError": {
+              "$ref": "emptyExtendableObject"
+            },
+            "loadingError": {
+              "$ref": "emptyExtendableObject"
+            }
+          },
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "packageEventExceptions": {
+      "$ref": "packageEventExceptions"
+    },
+    "partnerIdentification": {
+      "$id": "partnerIdentification",
       "title": "Fields to identify the partner",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "#geoPosition",
-          "title": "Geo position",
-          "description": "Data about the current geo position",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "longitude": {
-              "title": "Longitude",
-              "description": "East–west position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "latitude": {
-              "title": "Latitude",
-              "description": "North–south position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "placeName": {
-              "title": "Place name",
-              "description": "The place name of the current geo position",
-              "type": "string"
-            },
-            "w3WCoordinate": {
-              "title": "What3words coordinate",
-              "description": "A coordinate for the What3Words service like index.home.raft",
-              "type": "string"
-            },
-            "recordTime": {
-              "title": "Record time",
-              "description": "Time the GPS record was created",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "longitude",
-            "latitude"
-          ]
+          "$ref": "geoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -198,12 +356,44 @@
         "x-.*": {},
         "\\$.*": {}
       }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "title": "Json schema",
+      "description": "The used json schema",
+      "type": "string"
+    },
+    "$createdAt": {
+      "title": "Created at date",
+      "description": "The message was created at date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "$createdBy": {
+      "title": "Created by generator",
+      "description": "The message was created by",
+      "type": "string"
+    },
+    "receiver": {
+      "$ref": "messageRouting"
+    },
+    "sender": {
+      "$ref": "messageRouting"
+    },
+    "network": {
+      "$ref": "network"
+    },
+    "shippingPartner": {
+      "$ref": "partnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "#partnerIdentification"
+      "$ref": "partnerIdentification"
     },
     "reportingPartner": {
-      "$ref": "#partnerIdentification"
+      "$ref": "partnerIdentification"
     },
     "consignmentNoShippingPartner": {
       "title": "Consignment number of the shipping partner",
@@ -216,240 +406,76 @@
       "type": "string"
     },
     "pickupSender": {
-      "$id": "#packageEvent",
-      "title": "Package specific Event",
-      "description": "Event to notify about package specific incidents",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "packageType": {
-          "title": "Type of the package",
-          "description": "Type of the package that is beeing reported",
-          "type": "string"
-        },
-        "masterBarcode": {
-          "title": "Master barcode",
-          "description": "Master barcode (i.e. Master colli)",
-          "type": "string"
-        },
-        "lotNo": {
-          "title": "Lot number",
-          "description": "Lot number",
-          "type": "string"
-        },
-        "bestBeforeDate": {
-          "title": "Best before",
-          "description": "Best before",
-          "type": "string",
-          "format": "date"
-        },
-        "transportUnitNo": {
-          "title": "Transport Unit Number",
-          "description": "Transport Unit Number",
-          "type": "string"
-        },
-        "scanUser": {
-          "title": "Scan user",
-          "description": "Scan user",
-          "type": "string"
-        },
-        "gateNo": {
-          "title": "Gate",
-          "description": "Gate",
-          "type": "string"
-        },
-        "terminalNo": {
-          "title": "Terminal number",
-          "description": "Terminal number",
-          "type": "string"
-        },
-        "bulkiness": {
-          "$id": "#packageBulkiness",
-          "title": "Bulkiness of the package",
-          "description": "Bulkiness of the package (length / width / height)",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "length": {
-              "title": "Length (m)",
-              "description": "Length in meter",
-              "type": "number"
-            },
-            "width": {
-              "title": "Width (m)",
-              "description": "Width in meter",
-              "type": "number"
-            },
-            "height": {
-              "title": "Height (m)",
-              "description": "Height in meter",
-              "type": "number"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "bulkinessCategory": {
-          "title": "Bulkiness category",
-          "description": "Bulkiness category",
-          "type": "string"
-        },
-        "exceptions": {
-          "$id": "#packageEventExceptions",
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while processing / scanning the package",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "damaged": {
-              "$id": "#emptyExtendableObject",
-              "title": "Empty Extendable Object",
-              "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "pressedIn": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "open": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "wet": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "leaked": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "rejected": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "damagedAfterPackagingRemoval": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "shrinkWrapped": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "damagedEmptiesContentOk": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "oversized": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "specialRun": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "spaceIssue": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "timeIssue": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "routingError": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "loadingError": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "packageEvent"
     },
     "unloadingShippingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "loadingShippingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "entrySecurityAreaShippingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "exitSecurityAreaShippingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "stocktakingShippingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "unloadingGateway": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "loadingGateway": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "entrySecurityAreaGateway": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "exitSecurityAreaGateway": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "stocktakingGateway": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "unloadingHUB": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "loadingHUB": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "entrySecurityAreaHUB": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "exitSecurityAreaHUB": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "stocktakingHUB": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "unloadingReceivingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "loadingReceivingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "entrySecurityAreaReceivingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "exitSecurityAreaReceivingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "stocktakingReceivingPartner": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "deliveryReceiver": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "unloadingAfterDeliveryAttempt": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     },
     "unloadingExternalDeliverer": {
-      "$ref": "#packageEvent"
+      "$ref": "packageEvent"
     }
   },
   "required": [

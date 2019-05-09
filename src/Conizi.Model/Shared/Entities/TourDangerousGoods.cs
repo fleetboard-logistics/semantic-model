@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Dangerous goods")]
     [Description("Dangerous goods to be declared contained in a consignment")]
-    [JsonObject("#tourDangerousGoods")]
+    [JsonObject("tourDangerousGoods")]
     [ConiziAdditionalProperties(false)]
     public class TourDangerousGoods
     {

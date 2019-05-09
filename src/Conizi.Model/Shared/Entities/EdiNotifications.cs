@@ -8,7 +8,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...
     /// </summary>
-    [JsonObject("#notifications")]
+    [JsonObject("notifications")]
     [DisplayName("Notifications")]
     [Description("Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...")]
     [ConiziAdditionalProperties(false)]
@@ -42,7 +42,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications for the pickup order
     /// </summary>
-    [JsonObject("#notifications")]
+    [JsonObject("notifications")]
     [DisplayName("Notifications")]
     [Description("Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...")]
     [ConiziAdditionalProperties(false)]

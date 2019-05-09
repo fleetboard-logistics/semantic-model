@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Event to notify about tour specific documents")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("#tourDocuments")]
+    [JsonObject("tourDocuments")]
     public class EdiTourDocuments : EdiTourEventBase
     {
         /// <summary>

@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Used to specify information necessary in the customs process
     /// </summary>
-    [JsonObject("#customsInformation")]
+    [JsonObject("customsInformation")]
     [DisplayName("Customs information")]
     [Description("Used to specify information necessary in the customs process")]
     [ConiziAdditionalProperties(false)]
@@ -169,7 +169,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Value of the goods at border crossing
     /// </summary>
-    [JsonObject("#valueAtBorderCrossing")]
+    [JsonObject("valueAtBorderCrossing")]
     [DisplayName("Value at border crossing")]
     [Description("Value at border crossing")]
     [ConiziAdditionalProperties(false)]
@@ -193,7 +193,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Customs documents
     /// </summary>
-    [JsonObject("#documents")]
+    [JsonObject("documents")]
     [DisplayName("Customs documents")]
     [Description("Customs documents")]
     [ConiziAdditionalProperties(false)]

@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Information about time slots which need to be booked or are already booked for the pickup or the following consignment
     /// </summary>
-    [JsonObject("#timeSlotBooking")]
+    [JsonObject("timeSlotBooking")]
     [DisplayName("Time slot booking")]
     [Description("Information about time slots which need to be booked or are already booked for this consignment")]
     [ConiziAdditionalProperties(false)]
@@ -37,7 +37,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot
     /// </summary>
-    [JsonObject("#preBookedTimeslot")]
+    [JsonObject("preBookedTimeslot")]
     [DisplayName("Pre booked time slot")]
     [Description("A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot")]
     [ConiziAdditionalProperties(false)]

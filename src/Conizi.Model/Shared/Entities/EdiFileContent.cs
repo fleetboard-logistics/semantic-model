@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("File Content")]
     [Description("Transfers file data like a picture, pdf, txt..")]
-    [JsonObject("#fileContent")]
+    [JsonObject("fileContent")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties()]
     public class EdiFileContent : EdiPatternPropertiesBase
@@ -47,7 +47,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Binary Data")]
     [Description("The content/data of a file")]
-    [JsonObject("#binaryData")]
+    [JsonObject("binaryData")]
     public class EdiBinaryData
     {
         /// <summary>
@@ -71,7 +71,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("File Reference")]
     [Description("Reference to a file in an online storage")]
-    [JsonObject("#fileReference")]
+    [JsonObject("fileReference")]
     public class EdiFileReference
     {
         /// <summary>

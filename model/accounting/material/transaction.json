@@ -3,27 +3,9 @@
   "$id": "https://model.conizi.io/v1/accounting/material/transaction.json",
   "title": "Material Accounting Transaction",
   "description": "Transaction of material for accounting purpose",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "$schema": {
-      "title": "Json schema",
-      "description": "The used json schema",
-      "type": "string"
-    },
-    "$createdAt": {
-      "title": "Created at date",
-      "description": "The message was created at date",
-      "type": "string",
-      "format": "date-time"
-    },
-    "$createdBy": {
-      "title": "Created by generator",
-      "description": "The message was created by",
-      "type": "string"
-    },
-    "receiver": {
-      "$id": "#messageRouting",
+  "definitions": {
+    "messageRouting": {
+      "$id": "messageRouting",
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -50,11 +32,8 @@
         "\\$.*": {}
       }
     },
-    "sender": {
-      "$ref": "#messageRouting"
-    },
     "network": {
-      "$id": "#network",
+      "$id": "network",
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -76,6 +55,35 @@
           "type": "string"
         }
       }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "title": "Json schema",
+      "description": "The used json schema",
+      "type": "string"
+    },
+    "$createdAt": {
+      "title": "Created at date",
+      "description": "The message was created at date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "$createdBy": {
+      "title": "Created by generator",
+      "description": "The message was created by",
+      "type": "string"
+    },
+    "receiver": {
+      "$ref": "messageRouting"
+    },
+    "sender": {
+      "$ref": "messageRouting"
+    },
+    "network": {
+      "$ref": "network"
     },
     "id": {
       "title": "Unique booking id",

@@ -10,7 +10,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Special services which can be requested by the ordering party (or the shipping partner)
     /// </summary>
-    [JsonObject("#services")]
+    [JsonObject("services")]
     [DisplayName("Services")]
     [Description("Special services which can be requested by the ordering party (or the shipping partner)")]
     [ConiziAdditionalProperties(false)]
@@ -84,7 +84,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Special services which can be requested by the ordering party (or the shipping partner) for this pickup order
     /// </summary>
-    [JsonObject("#services")]
+    [JsonObject("services")]
     [DisplayName("Services")]
     [Description("Special services which can be requested by the ordering party (or the shipping partner) for this pickup order")]
     [ConiziAdditionalProperties(false)]
@@ -107,7 +107,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Special options needed to process this pickup order
     /// </summary>
-    [JsonObject("#pickupOptions")]
+    [JsonObject("pickupOptions")]
     [DisplayName("Pickup Options")]
     [Description("Special options needed to process this pickup order")]
     [ConiziAdditionalProperties(false)]
@@ -175,7 +175,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Special requirements for the handling of the goods at intermediate hubs / gateways
     /// </summary>
-    [JsonObject("#gateway")]
+    [JsonObject("gateway")]
     [DisplayName("Gateway-Options")]
     [Description("Special requirements for the handling of the goods at intermediate hubs / gateways")]
     [ConiziAdditionalProperties(false)]
@@ -193,7 +193,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Handling instructions for the goods, e.g. to prevent damage
     /// </summary>
-    [JsonObject("#handlingInstructions")]
+    [JsonObject("handlingInstructions")]
     [DisplayName("Handling instructions")]
     [Description("Handling instructions for the goods, e.g. to prevent damage")]
     [ConiziAdditionalProperties(false)]
@@ -254,7 +254,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The goods must be transported in a given orientation and may not be flipped over
     /// </summary>
-    [JsonObject("#orientation")]
+    [JsonObject("orientation")]
     [DisplayName("Orientation")]
     [Description("The goods must be transported in a given orientation and may not be flipped over")]
     [ConiziAdditionalProperties(false)]
@@ -279,7 +279,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Indicated whether the goods may or may not be stacked
     /// </summary>
-    [JsonObject("#returnOfGoods")]
+    [JsonObject("returnOfGoods")]
     [DisplayName("Return of goods")]
     [Description("Services for the return of goods")]
     [ConiziAdditionalProperties(false)]
@@ -297,7 +297,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Indicated whether the goods may or may not be stacked
     /// </summary>
-    [JsonObject("#stacking")]
+    [JsonObject("stacking")]
     [DisplayName("Stacking")]
     [Description("Indicated whether the goods may or may not be stacked")]
     [ConiziAdditionalProperties(false)]
@@ -322,7 +322,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Special requirements for transporting food
     /// </summary>
-    [JsonObject("#food")]
+    [JsonObject("food")]
     [DisplayName("Food related regulatory restrictions")]
     [Description("Special requirements for transporting food")]
     [ConiziAdditionalProperties(false)]
@@ -341,7 +341,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Restrictions about the minimum and maximum temperature during the transport and special equipment to be used
     /// </summary>
-    [JsonObject("#temperatureRestrictions")]
+    [JsonObject("temperatureRestrictions")]
     [DisplayName("Temperature restrictions")]
     [Description("Restrictions about the minimum and maximum temperature during the transport and special equipment to be used")]
     [ConiziAdditionalProperties(false)]

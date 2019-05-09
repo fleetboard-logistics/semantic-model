@@ -10,7 +10,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Information regarding unloading of the main haul
     /// </summary>
-    [JsonObject("#unloadingOptions")]
+    [JsonObject("unloadingOptions")]
     [DisplayName("Unloading Options")]
     [Description("Information regarding unloading of the main haul")]
     [ConiziAdditionalProperties(false)]
@@ -38,7 +38,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on
     /// </summary>
-    [JsonObject("#alreadyReceived")]
+    [JsonObject("alreadyReceived")]
     [DisplayName("Already received as surplus consignment")]
     [Description(
         "The goods are already at the receiving partners warehouse, because they have been reported as surplus earlier on")]
@@ -67,7 +67,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The goods for a consignment which already was part of another manifest and had been reported missing on that manifest
     /// </summary>
-    [JsonObject("#missingFromPreviousManifest")]
+    [JsonObject("missingFromPreviousManifest")]
     [DisplayName("Missing from previous manifest")]
     [Description(
         "The goods for a consignment which already was part of another manifest and had been reported missing on that manifest")]

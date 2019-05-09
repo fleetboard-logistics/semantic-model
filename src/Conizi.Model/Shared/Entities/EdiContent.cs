@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Describes the nature and quantity of the goods in this consignment
     /// </summary>
-    [JsonObject("#content")]
+    [JsonObject("content")]
     [DisplayName("Content")]
     [Description("Describes the nature and quantity of the goods in this consignment")]
     [ConiziAdditionalProperties(false)]
@@ -69,7 +69,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Value of the goods, used for insurance purposes
     /// </summary>
-    [JsonObject("#insuranceValue")]
+    [JsonObject("insuranceValue")]
     [DisplayName("Insurance value")]
     [Description("Value of the goods, used for insurance purposes")]
     [ConiziAdditionalProperties(false)]
@@ -94,7 +94,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Lines are describing handling units of similar sizes and content for brevity
     /// </summary>
-    [JsonObject("#line")]
+    [JsonObject("line")]
     [DisplayName("Line")]
     [Description("Lines are describing handling units of similar sizes and content for brevity")]
     [ConiziAdditionalProperties(false)]
@@ -175,7 +175,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Used to specify information necessary in the customs process
     /// </summary>
-    [JsonObject("#contentCustomsInformation")]
+    [JsonObject("contentCustomsInformation")]
     [DisplayName("Customs information")]
     [Description("Used to specifiy information necessary in the customs process")]
     [ConiziAdditionalProperties(false)]
@@ -234,7 +234,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Amount value type
     /// </summary>
-    [JsonObject("#customsInformationValue")]
+    [JsonObject("customsInformationValue")]
     [DisplayName("Customs value")]
     [Description("Amount value type")]
     [ConiziAdditionalProperties(false)]

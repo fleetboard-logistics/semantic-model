@@ -3,99 +3,14 @@
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "$schema": {
-      "title": "Json schema",
-      "description": "The used json schema",
-      "type": "string"
-    },
-    "$createdAt": {
-      "title": "Created at date",
-      "description": "The message was created at date",
-      "type": "string",
-      "format": "date-time"
-    },
-    "$createdBy": {
-      "title": "Created by generator",
-      "description": "The message was created by",
-      "type": "string"
-    },
-    "receiver": {
-      "$id": "#messageRouting",
-      "title": "Routing information of the message",
-      "description": "Routing information to identify the parties involved in the data transfer",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "sender": {
-      "$ref": "#messageRouting"
-    },
-    "network": {
-      "$id": "#network",
-      "title": "Network",
-      "description": "The network under which rules the consignment should be processed",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "networkId": {
-          "title": "Name of the network",
-          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
-          "type": "string"
-        },
-        "codelist": {
-          "title": "Name of the code list used",
-          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-          "type": "string"
-        },
-        "product": {
-          "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
-          "type": "string"
-        }
-      }
-    },
-    "pickupOrderNo": {
-      "title": "Pickup order number of the contract partner",
-      "description": "Unique identification for the pickup order within the transport management system of the contract partner",
-      "type": "string"
-    },
-    "pickupOrderDate": {
-      "title": "Pickup order date",
-      "description": "The date on which the pickup order was forwarded to the contracted partner",
-      "type": "string",
-      "format": "date"
-    },
-    "orderingParty": {
-      "$id": "#ediAddress",
+  "definitions": {
+    "EdiAddress": {
       "title": "Address fields",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "#geoPosition",
+          "$id": "geoPosition",
           "title": "Geo position",
           "description": "Data about the current geo position",
           "type": "object",
@@ -170,8 +85,7 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "title": "Additional remarks",
-          "description": "Additional remarks (free form)",
+          "title": "Additional address lines of the address",
           "type": "array",
           "items": {
             "type": "string"
@@ -195,15 +109,778 @@
         "\\$.*": {}
       }
     },
-    "orderingPartner": {
-      "$id": "#partnerIdentification",
+    "EdiArchived": {
+      "title": "Archived",
+      "description": "Documents have been archived",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pod": {
+          "title": "Proof of Delivery",
+          "description": "Proof of delivery was archived",
+          "type": "boolean"
+        },
+        "deliveryNote": {
+          "title": "Delivery notes",
+          "description": "Delivery notes were archived",
+          "type": "boolean"
+        },
+        "customsPapers": {
+          "title": "Customs papers",
+          "description": "Customs papers were archived",
+          "type": "boolean"
+        },
+        "damagePictures": {
+          "title": "Damage Pictures",
+          "description": "Pictures of damages were archived",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDataProcessing": {
+      "title": "Data processing",
+      "description": "Events occurred while validating and processing the data",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "invalidData": {
+          "$id": "emptyExtendableObject",
+          "title": "Empty Extendable Object",
+          "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          }
+        },
+        "invalidPackageType": {
+          "$ref": "emptyExtendableObject"
+        },
+        "invalidDangerousGoodInformation": {
+          "$ref": "emptyExtendableObject"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDisposed": {
+      "title": "Disposed",
+      "description": "Consignment was disposed",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiGeneralProcessingNotification": {
+      "title": "General processing",
+      "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiNotificationEventExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNotificationEventExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "incompatible": {
+          "$ref": "emptyExtendableObject"
+        },
+        "incomplete": {
+          "$ref": "emptyExtendableObject"
+        },
+        "ultimatelyLost": {
+          "$ref": "emptyExtendableObject"
+        },
+        "deliveryObscure": {
+          "$ref": "emptyExtendableObject"
+        },
+        "signingInformation": {
+          "$ref": "#/definitions/EdiSigningInformation"
+        },
+        "releaseAuthorizationReceived": {
+          "$ref": "#/definitions/EdiReleaseAuthorizationReceived"
+        },
+        "ediRedirectedTo": {
+          "$ref": "#/definitions/EdiRedirectedTo"
+        },
+        "archived": {
+          "$ref": "#/definitions/EdiArchived"
+        },
+        "disposed": {
+          "$ref": "#/definitions/EdiDisposed"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupArrival": {
+      "title": "Pickup Arrival",
+      "description": "Events occurred while arrival a pickup location",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupArrivalExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupArrivalExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while arrival at the pickup location.Use (null) to report successful arrival",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupAttemptFailed": {
+      "title": "Pickup attempt failed",
+      "description": "Events indicating a failed pickup attempt",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupAttemptFailedExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupAttemptFailedExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that caused the pickup to be fail",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "abortedDueToLongWaitingTime": {
+          "$ref": "emptyExtendableObject"
+        },
+        "companyHoliday": {
+          "$ref": "emptyExtendableObject"
+        },
+        "noEncounter": {
+          "$ref": "emptyExtendableObject"
+        },
+        "noPickupOrder": {
+          "$ref": "emptyExtendableObject"
+        },
+        "wrongAddress": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missingNotification": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missingDocumentation": {
+          "$ref": "emptyExtendableObject"
+        },
+        "missingTransportLock": {
+          "$ref": "emptyExtendableObject"
+        },
+        "consignmentNotReady": {
+          "$ref": "emptyExtendableObject"
+        },
+        "consignmentAlreadyShipped": {
+          "$ref": "emptyExtendableObject"
+        },
+        "noGoodsReceived": {
+          "$ref": "emptyExtendableObject"
+        },
+        "closed": {
+          "$ref": "emptyExtendableObject"
+        },
+        "timeSlotMissed": {
+          "$ref": "emptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupCancellation": {
+      "title": "Cancellation",
+      "description": "Events occured while forwarding the pickup order to the receiving partner",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "cancellationBySourcePartner": {
+          "$ref": "emptyExtendableObject"
+        },
+        "cancellationByContractPartner": {
+          "$ref": "emptyExtendableObject"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupFinishedAtShipper": {
+      "title": "Pickup Finished At Shipper",
+      "description": "Events occurred while pickup finished at shipper",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupFinishedAtShipperExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupFinishedAtShipperExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while the pickup finished at shipper.Use (null) to report successful arrival",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupForwarding": {
+      "title": "Forwarding",
+      "description": "Events occured while forwarding the pickup order to the receiving partner",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupForwardingExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupForwardingExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while forwarding the pickup order.Use (null) to report successful forwarding the pickup order",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupLoadingCompleted": {
+      "title": "Pickup loading completed",
+      "description": "Events occurred while pickup loading completed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupLoadingCompletedExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupLoadingCompletedExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while completing the loading process.Use (null) to report successful completion of the loading process",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupLoadingStarted": {
+      "title": "Pickup loading started",
+      "description": "Events occurred while pickup loading started",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupLoadingStartedExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupLoadingStartedExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while starting the loading process.Use (null) to report successful starting the loading process",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupPlanning": {
+      "title": "Pickup planning",
+      "description": "Events occurred while planning a pickup order",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "invalidData": {
+          "$ref": "emptyExtendableObject"
+        },
+        "invalidPackageType": {
+          "$ref": "emptyExtendableObject"
+        },
+        "invalidDangerousGoodInformation": {
+          "$ref": "emptyExtendableObject"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupPlanningExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupPlanningExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while planning the pickup.Use(null) to report successful planning of the pickup",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "outsidePickupZone": {
+          "$ref": "emptyExtendableObject"
+        },
+        "plannedForSecondTour": {
+          "$ref": "emptyExtendableObject"
+        },
+        "plannedForDate": {
+          "$ref": "emptyExtendableObject"
+        },
+        "timeSlotFromConsignee": {
+          "$ref": "emptyExtendableObject"
+        },
+        "badWeatherConditions": {
+          "$ref": "emptyExtendableObject"
+        },
+        "timeIssue": {
+          "$ref": "emptyExtendableObject"
+        },
+        "spaceIssue": {
+          "$ref": "emptyExtendableObject"
+        },
+        "plannedForNextDay": {
+          "$ref": "emptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupStarted": {
+      "title": "Pickup started",
+      "description": "Events occurred while starting a pickup order",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupStartedExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupStartedExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while starting the pickup.Use (null) to report successful starting of the pickup",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupSuccessful": {
+      "title": "Pickup successful",
+      "description": "Events indicating a successful pickup",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupSuccessfulExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupSuccessfulExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while pickup the pickup order.Use (null) to report successful pickup",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "incomplete": {
+          "$ref": "emptyExtendableObject"
+        },
+        "damaged": {
+          "$ref": "emptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupUnloading": {
+      "title": "Unloading",
+      "description": "Events occured while unloading the pickup order at the plant of the shipping partner",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPickupUnloadingExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPickupUnloadingExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while unloading the pickup order.Use (null) to report successful unloading the pickup order",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "damaged": {
+          "$ref": "emptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiRedirectedTo": {
+      "title": "Redirected to",
+      "description": "The consignment is redirected to...",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sender": {
+          "type": "boolean"
+        },
+        "sourcePartner": {
+          "type": "boolean"
+        },
+        "receivingPartner": {
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiReleaseAuthorizationReceived": {
+      "title": "Release authorization received",
+      "description": "Receiver allows dropoff",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiSigningInformation": {
+      "title": "Signing Information",
+      "description": "Transmission of the receipt, the delivery date and the delivery time",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "emptyExtendableObject": {
+      "$ref": "emptyExtendableObject"
+    },
+    "geoPosition": {
+      "$ref": "geoPosition"
+    },
+    "messageRouting": {
+      "$id": "messageRouting",
+      "title": "Routing information of the message",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "network": {
+      "$id": "network",
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
+    },
+    "partnerIdentification": {
+      "$id": "partnerIdentification",
       "title": "Fields to identify the partner",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "#geoPosition"
+          "$ref": "geoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -242,7 +919,11 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "$ref": "#/properties/additionalAddressLines"
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "reference": {
           "title": "Reference for an address",
@@ -276,675 +957,103 @@
         "x-.*": {},
         "\\$.*": {}
       }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "title": "Json schema",
+      "description": "The used json schema",
+      "type": "string"
+    },
+    "$createdAt": {
+      "title": "Created at date",
+      "description": "The message was created at date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "$createdBy": {
+      "title": "Created by generator",
+      "description": "The message was created by",
+      "type": "string"
+    },
+    "receiver": {
+      "$ref": "messageRouting"
+    },
+    "sender": {
+      "$ref": "messageRouting"
+    },
+    "network": {
+      "$ref": "network"
+    },
+    "pickupOrderNo": {
+      "title": "Pickup order number of the contract partner",
+      "description": "Unique identification for the pickup order within the transport management system of the contract partner",
+      "type": "string"
+    },
+    "pickupOrderDate": {
+      "title": "Pickup order date",
+      "description": "The date on which the pickup order was forwarded to the contracted partner",
+      "type": "string",
+      "format": "date"
+    },
+    "orderingParty": {
+      "$ref": "#/definitions/EdiAddress"
+    },
+    "orderingPartner": {
+      "$ref": "partnerIdentification"
     },
     "contractedPartner": {
-      "$ref": "#partnerIdentification"
+      "$ref": "partnerIdentification"
     },
     "shippingPartner": {
-      "$ref": "#partnerIdentification"
+      "$ref": "partnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "#partnerIdentification"
+      "$ref": "partnerIdentification"
     },
     "reportingPartner": {
-      "$ref": "#partnerIdentification"
+      "$ref": "partnerIdentification"
     },
     "dataProcessing": {
-      "title": "Data processing",
-      "description": "Events occurred while validating and processing the data",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "invalidData": {
-          "$id": "#emptyExtendableObject",
-          "title": "Empty Extendable Object",
-          "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "invalidPackageType": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "invalidDangerousGoodInformation": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiDataProcessing"
     },
     "generalProcessingNotification": {
-      "title": "General processing",
-      "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "incompatible": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "incomplete": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "ultimatelyLost": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "deliveryObscure": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "signingInformation": {
-              "title": "Signing Information",
-              "description": "Transmission of the receipt, the delivery date and the delivery time",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "releaseAuthorizationReceived": {
-              "title": "Release authorization received",
-              "description": "Receiver allows dropoff",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "ediRedirectedTo": {
-              "title": "Redirected to",
-              "description": "The consignment is redirected to...",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "sender": {
-                  "type": "boolean"
-                },
-                "sourcePartner": {
-                  "type": "boolean"
-                },
-                "receivingPartner": {
-                  "type": "boolean"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "archived": {
-              "title": "Archived",
-              "description": "Documents have been archived",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "pod": {
-                  "title": "Proof of Delivery",
-                  "description": "Proof of delivery was archived",
-                  "type": "boolean"
-                },
-                "deliveryNote": {
-                  "title": "Delivery notes",
-                  "description": "Delivery notes were archived",
-                  "type": "boolean"
-                },
-                "customsPapers": {
-                  "title": "Customs papers",
-                  "description": "Customs papers were archived",
-                  "type": "boolean"
-                },
-                "damagePictures": {
-                  "title": "Damage Pictures",
-                  "description": "Pictures of damages were archived",
-                  "type": "boolean"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "disposed": {
-              "title": "Disposed",
-              "description": "Consignment was disposed",
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiGeneralProcessingNotification"
     },
     "pickupPlanning": {
-      "title": "Pickup planning",
-      "description": "Events occurred while planning a pickup order",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "invalidData": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "invalidPackageType": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "invalidDangerousGoodInformation": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while planning the pickup.Use(null) to report successful planning of the pickup",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "outsidePickupZone": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "plannedForSecondTour": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "plannedForDate": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "timeSlotFromConsignee": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "badWeatherConditions": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "timeIssue": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "spaceIssue": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "plannedForNextDay": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupPlanning"
     },
     "pickupStarted": {
-      "title": "Pickup started",
-      "description": "Events occurred while starting a pickup order",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while starting the pickup.Use (null) to report successful starting of the pickup",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupStarted"
     },
     "pickupArrival": {
-      "title": "Pickup Arrival",
-      "description": "Events occurred while arrival a pickup location",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while arrival at the pickup location.Use (null) to report successful arrival",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupArrival"
     },
     "pickupFinishedAtShipper": {
-      "title": "Pickup Finished At Shipper",
-      "description": "Events occurred while pickup finished at shipper",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while the pickup finished at shipper.Use (null) to report successful arrival",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupFinishedAtShipper"
     },
     "pickupLoadingStarted": {
-      "title": "Pickup loading started",
-      "description": "Events occurred while pickup loading started",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while starting the loading process.Use (null) to report successful starting the loading process",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupLoadingStarted"
     },
     "pickupLoadingCompleted": {
-      "title": "Pickup loading completed",
-      "description": "Events occurred while pickup loading completed",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while completing the loading process.Use (null) to report successful completion of the loading process",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupLoadingCompleted"
     },
     "pickupAttemptFailed": {
-      "title": "Pickup attempt failed",
-      "description": "Events indicating a failed pickup attempt",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that caused the pickup to be fail",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "abortedDueToLongWaitingTime": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "companyHoliday": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "noEncounter": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "noPickupOrder": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "wrongAddress": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "missingNotification": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "missingDocumentation": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "missingTransportLock": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "consignmentNotReady": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "consignmentAlreadyShipped": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "noGoodsReceived": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "closed": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "timeSlotMissed": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupAttemptFailed"
     },
     "pickupSuccessful": {
-      "title": "Pickup successful",
-      "description": "Events indicating a successful pickup",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while pickup the pickup order.Use (null) to report successful pickup",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "incomplete": {
-              "$ref": "#emptyExtendableObject"
-            },
-            "damaged": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupSuccessful"
     },
     "unloading": {
-      "title": "Unloading",
-      "description": "Events occured while unloading the pickup order at the plant of the shipping partner",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while unloading the pickup order.Use (null) to report successful unloading the pickup order",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "damaged": {
-              "$ref": "#emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupUnloading"
     },
     "forwarding": {
-      "title": "Forwarding",
-      "description": "Events occured while forwarding the pickup order to the receiving partner",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "exceptions": {
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while forwarding the pickup order.Use (null) to report successful forwarding the pickup order",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupForwarding"
     },
     "cancellation": {
-      "title": "Cancellation",
-      "description": "Events occured while forwarding the pickup order to the receiving partner",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "cancellationBySourcePartner": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "cancellationByContractPartner": {
-          "$ref": "#emptyExtendableObject"
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      "$ref": "#/definitions/EdiPickupCancellation"
     },
     "originalEventCode": {
       "title": "Original event code",
@@ -952,7 +1061,12 @@
       "type": "string"
     },
     "additionalRemarks": {
-      "$ref": "#/properties/additionalAddressLines"
+      "title": "Additional remarks",
+      "description": "Additional remarks (free form)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": [
