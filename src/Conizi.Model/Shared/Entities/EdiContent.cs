@@ -127,7 +127,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Inner package count")]
         [Description("Used to specify the number of inner packages (e.g. the number of boxes on a pallet)")]
-        public int? InnerPackageCount { get; set; }
+        public int?oun InnerPackageCount { get; set; }
 
         /// <summary>
         /// The type of packaging of the inner packages
@@ -213,7 +213,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// The Country of origin
         /// </summary>
-        public EdiValue CountryOfOrigin { get; set; }
+        public string CountryOfOrigin { get; set; }
 
         /// <summary>
         /// The statistical value

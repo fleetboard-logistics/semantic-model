@@ -111,7 +111,7 @@
                         "beforeDelivery": {
                             "name": "Ansprechpartner",
                             "leadTimeSecondsMinimum": 3600,
-                            "leadTimeSecondsMaximum": null
+                            "leadTimeSecondsMaximum": 1800
                         },
                         "byDriver": {
                             "name": "Ansprechpartner"
