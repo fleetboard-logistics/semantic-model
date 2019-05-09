@@ -23,17 +23,17 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Information about successful delivery should be given to this address
         /// </summary>
-        public EdiPartnerIdentification AfterDelivery { get; set; }
+        public EdiAddress AfterDelivery { get; set; }
 
         /// <summary>
         /// Before a delivery is attempted the person noted here should be contacted within the given time frame
         /// </summary>
-        public EdiPartnerIdentification BeforeDelivery { get; set; }
+        public EdiNotifyBeforePickupDeliver BeforeDelivery { get; set; }
 
         /// <summary>
         /// The driver should call the given contact before delivery
         /// </summary>
-        public EdiPartnerIdentification ByDriver { get; set; }
+        public EdiAddress ByDriver { get; set; }
 
     }
 
@@ -52,7 +52,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Before a pickup is attempted the address noted here should be contacted within the given time frame
         /// </summary>
-        public EdiAddress BeforePickup { get; set; }
+        public EdiNotifyBeforePickupDeliver BeforePickup { get; set; }
 
         /// <summary>
         /// Information about successful pickup should be given to this address
@@ -64,5 +64,29 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public EdiAddress ByDriverBeforePickup { get; set; }
 
+    }
+
+    /// <summary>
+    /// Before a pickup or delivery is attempted the address noted here, should be contacted within the given time frame
+    /// </summary>
+    [DisplayName("Before pickup / deliver")]
+    [Description("Before a pickup or delivery is attempted the address noted here, should be contacted within the given time frame")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiNotifyBeforePickupDeliver : EdiAddress
+    {
+        /// <summary>
+        /// Time frame begin for notification before delivery
+        /// </summary>
+        [DisplayName("Lead Time Seconds Minimum")]
+        [Description("Time frame begin for notification before delivery")]
+        public int LeadTimeSecondsMinimum { get; set; }
+        
+        /// <summary>
+        /// Time frame end for notification before delivery
+        /// </summary>
+        [DisplayName("Lead Time Seconds Maximum")]
+        [Description("Time frame end for notification before delivery")]
+        public int LeadTimeSecondsMaximum { get; set; }
     }
 }

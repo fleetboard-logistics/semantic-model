@@ -2145,6 +2145,21 @@
             The driver should call the given contact before pickup
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNotifyBeforePickupDeliver">
+            <summary>
+            Before a pickup or delivery is attempted the address noted here, should be contacted within the given time frame
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotifyBeforePickupDeliver.LeadTimeSecondsMinimum">
+            <summary>
+            Time frame begin for notification before delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotifyBeforePickupDeliver.LeadTimeSecondsMaximum">
+            <summary>
+            Time frame end for notification before delivery
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiPackageEvent">
             <summary>
             Event to notify about package specific incidents

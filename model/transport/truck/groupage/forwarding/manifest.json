@@ -1449,13 +1449,93 @@
           "$ref": "#/definitions/EdiAddress"
         },
         "afterDelivery": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
+          "$ref": "#/definitions/EdiAddress"
         },
         "beforeDelivery": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
+          "$ref": "#/definitions/EdiNotifyBeforePickupDeliver"
         },
         "byDriver": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
+          "$ref": "#/definitions/EdiAddress"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNotifyBeforePickupDeliver": {
+      "title": "Before pickup / deliver",
+      "description": "Before a pickup or delivery is attempted the address noted here, should be contacted within the given time frame",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "leadTimeSecondsMinimum": {
+          "title": "Lead Time Seconds Minimum",
+          "description": "Time frame begin for notification before delivery",
+          "type": "integer"
+        },
+        "leadTimeSecondsMaximum": {
+          "title": "Lead Time Seconds Maximum",
+          "description": "Time frame end for notification before delivery",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference number for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
         }
       },
       "patternProperties": {
