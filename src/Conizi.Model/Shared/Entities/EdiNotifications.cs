@@ -80,13 +80,13 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Lead Time Seconds Minimum")]
         [Description("Time frame begin for notification before delivery")]
-        public int LeadTimeSecondsMinimum { get; set; }
+        public int? LeadTimeSecondsMinimum { get; set; }
         
         /// <summary>
         /// Time frame end for notification before delivery
         /// </summary>
         [DisplayName("Lead Time Seconds Maximum")]
         [Description("Time frame end for notification before delivery")]
-        public int LeadTimeSecondsMaximum { get; set; }
+        public int? LeadTimeSecondsMaximum { get; set; }
     }
 }

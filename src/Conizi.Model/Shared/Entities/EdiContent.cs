@@ -127,7 +127,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Inner package count")]
         [Description("Used to specify the number of inner packages (e.g. the number of boxes on a pallet)")]
-        public int?oun InnerPackageCount { get; set; }
+        public int?  InnerPackageCount { get; set; }
 
         /// <summary>
         /// The type of packaging of the inner packages

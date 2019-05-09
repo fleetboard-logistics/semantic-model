@@ -370,7 +370,7 @@
           "type": "number"
         },
         "countryOfOrigin": {
-          "$ref": "#/definitions/EdiValue"
+          "type": "string"
         },
         "statisticalValue": {
           "$ref": "#/definitions/EdiValue"

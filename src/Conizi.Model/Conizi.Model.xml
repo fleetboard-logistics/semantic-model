@@ -1768,6 +1768,16 @@
             The consignment was damaged on arrival
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiTimeSlotConsignee">
+            <summary>
+            The consignee has provided a time slot for delivery
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTimeSlotConsignee.NewDeliveryDate">
+            <summary>
+            The new date / time when the delivery will be performed
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiPickupForwardingExceptions">
             <summary>
             Detailed information about the exceptions that occured while forwarding the pickup order.

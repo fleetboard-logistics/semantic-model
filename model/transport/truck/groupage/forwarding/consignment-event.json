@@ -308,7 +308,7 @@
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeSlotFromConsignee": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
+          "$ref": "#/definitions/EdiTimeSlotConsignee"
         },
         "badWeatherConditions": {
           "$ref": "#/definitions/EdiEmptyExtendableObject"
@@ -1090,6 +1090,24 @@
       "description": "Transmission of the receipt, the delivery date and the delivery time",
       "type": "object",
       "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiTimeSlotConsignee": {
+      "title": "Time slot from consignee",
+      "description": "The consignee has provided a time slot for delivery",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "newDeliveryDate": {
+          "title": "New delivery date / time",
+          "description": "The new date / time when the delivery will be performed",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

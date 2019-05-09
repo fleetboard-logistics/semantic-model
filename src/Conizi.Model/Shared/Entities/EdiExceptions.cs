@@ -278,7 +278,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         //[DisplayName("Time slot from consignee")]
         //[Description("The consignee has provided a time slot for delivery")]
-        public EdiEmptyExtendableObject TimeSlotFromConsignee { get; set; }
+        public EdiTimeSlotConsignee TimeSlotFromConsignee { get; set; }
 
         /// <summary>
         /// The weather does not permit delivery
@@ -708,7 +708,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         //[DisplayName("Time slot from consignee")]
         //[Description("The customer has provided a time slot for pickup")]
-        public EdiEmptyExtendableObject TimeSlotFromConsignee { get; set; }
+        public EdiTimeSlotConsignee TimeSlotFromConsignee { get; set; }
 
         /// <summary>
         /// The weather does not permit pickup
@@ -957,6 +957,24 @@ namespace Conizi.Model.Shared.Entities
         //[DisplayName("Damaged")]
         //[Description("The consignment was damaged on arrival")]
         public EdiEmptyExtendableObject Damaged { get; set; }
+    }
+
+    /// <summary>
+    /// The consignee has provided a time slot for delivery
+    /// </summary>
+    [DisplayName("Time slot from consignee")]
+    [Description("The consignee has provided a time slot for delivery")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiTimeSlotConsignee : EdiPatternPropertiesBase
+    {
+
+        /// <summary>
+        /// The new date / time when the delivery will be performed
+        /// </summary>
+        [DisplayName("New delivery date / time")]
+        [Description("The new date / time when the delivery will be performed")]
+        public DateTime NewDeliveryDate { get; set; }
     }
 
     /// <summary>
