@@ -168,7 +168,6 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
@@ -252,7 +251,6 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {

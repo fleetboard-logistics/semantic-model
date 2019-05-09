@@ -180,7 +180,6 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
@@ -272,7 +271,6 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
@@ -298,7 +296,6 @@
       }
     },
     "dataProcessing": {
-      "$id": "EdiDataProcessing",
       "title": "Data processing",
       "description": "Events occurred while validating and processing the data",
       "type": "object",
@@ -342,7 +339,6 @@
       }
     },
     "generalProcessingNotification": {
-      "$id": "EdiGeneralProcessingNotification",
       "title": "General processing",
       "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
       "type": "object",
@@ -355,26 +351,24 @@
           "format": "date-time"
         },
         "exceptions": {
-          "$id": "EdiNotificationEventExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "incompatible": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "incomplete": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "ultimatelyLost": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "deliveryObscure": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "signingInformation": {
-              "$id": "EdiSigningInformation",
               "title": "Signing Information",
               "description": "Transmission of the receipt, the delivery date and the delivery time",
               "type": "object",
@@ -385,7 +379,6 @@
               }
             },
             "releaseAuthorizationReceived": {
-              "$id": "EdiReleaseAuthorizationReceived",
               "title": "Release authorization received",
               "description": "Receiver allows dropoff",
               "type": "object",
@@ -396,7 +389,6 @@
               }
             },
             "ediRedirectedTo": {
-              "$id": "EdiRedirectedTo",
               "title": "Redirected to",
               "description": "The consignment is redirected to...",
               "type": "object",
@@ -418,7 +410,6 @@
               }
             },
             "archived": {
-              "$id": "EdiArchived",
               "title": "Archived",
               "description": "Documents have been archived",
               "type": "object",
@@ -451,7 +442,6 @@
               }
             },
             "disposed": {
-              "$id": "EdiDisposed",
               "title": "Disposed",
               "description": "Consignment was disposed",
               "type": "object",
@@ -482,7 +472,6 @@
       }
     },
     "unloading": {
-      "$id": "EdiUnloading",
       "title": "Unloading",
       "description": "Events occurred while unloading the consignment",
       "type": "object",
@@ -495,35 +484,34 @@
           "format": "date-time"
         },
         "exceptions": {
-          "$id": "EdiUnloadingExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occurred while processing the consignment.Use (null) to report successful processing of the consignment",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "lateArrival": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "missing": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "partlyMissing": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "damaged": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "packagingDifferences": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "notVerifiable": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "quantityDifferences": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "partlyMissingDamaged": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -564,7 +552,6 @@
       }
     },
     "deliveryPlanning": {
-      "$id": "EdiDeliveryPlanning",
       "title": "Delivery planning",
       "description": "Events occurred while planning the delivery of the consignment",
       "type": "object",
@@ -577,80 +564,79 @@
           "format": "date-time"
         },
         "exceptions": {
-          "$id": "EdiDeliveryPlanningExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occurred while planning the delivery of the consignment.Use (null) to report successful processing of the consignment",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "outsideDeliveryArea": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "plannedForSecondTour": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "notInDelivery": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "noTimeSlotForAgreedDeliveryTime": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "invalidShipmentInformation": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "damaged": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "returnAccordingToDisposal": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "returnDisposalMissing": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "inResearch": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "timeSlotFromConsignee": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "badWeatherConditions": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "timeIssue": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "spaceIssue": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "consignmentNotComplete": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "selfCollector": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "holidays": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "customs": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "waitingForNotification": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "missingDocumentation": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "lateArrival": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "standardDeliveryTimeSufficient": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "gatewayRouting": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "rejectedByReceiver": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -673,7 +659,6 @@
       }
     },
     "notification": {
-      "$id": "EdiEventNotification",
       "title": "Notification",
       "description": "Events occurred while processing the notification of the consignment",
       "type": "object",
@@ -686,14 +671,13 @@
           "format": "date-time"
         },
         "trigger": {
-          "$id": "EdiTrigger",
           "title": "Trigger",
           "description": "Event that is a trigger for starting a notification",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "manually": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "automatic": {
               "title": "Automatic",
@@ -707,38 +691,37 @@
           }
         },
         "exceptions": {
-          "$id": "EdiNotificationExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occurred while processing the notification of the consignment.Use (null) to report successful notifcations of the consignment",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "notReached": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "disabled": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "pickupCustomer": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "wrongAddress": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "disposalOrdered": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "notInTime": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "canceled": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "invalidData": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "missingData": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -761,7 +744,6 @@
       }
     },
     "deliveryStarted": {
-      "$id": "EdiEventDeliveryStarted",
       "title": "Delivery started",
       "description": "Events indicating the start of the delivery",
       "type": "object",
@@ -779,13 +761,12 @@
           "type": "string"
         },
         "exceptions": {
-          "$id": "EdiDeliveryStartedExceptions",
           "description": "Detailed information about the exceptions that occurred while starting the delivery of the consignment.Use (null) to report successful starting of the consignment delivery",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "noCapacity": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -808,7 +789,6 @@
       }
     },
     "estimatedArrivalAtReceiver": {
-      "$id": "EdiEventEstimatedArrivalAtReceiver",
       "title": "Estimated time of arrival at receiver",
       "description": "Events occurred regarding the estimated time of arrival at receiver",
       "type": "object",
@@ -840,7 +820,6 @@
       }
     },
     "arrivalAtReceiver": {
-      "$id": "EdiEventArrivalAtReceiver",
       "title": "Arrival at receiver",
       "description": "Events occurred while arriving the receiver",
       "type": "object",
@@ -867,7 +846,6 @@
       }
     },
     "deliveryAttemptFailed": {
-      "$id": "EdiEventDeliveryAttemptFailed",
       "title": "Delivery attempt failed",
       "description": "Events indicating a failed delivery attempt",
       "type": "object",
@@ -895,48 +873,46 @@
           "type": "string"
         },
         "exceptions": {
-          "$id": "EdiDeliveryAttemptFailedExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that caused the delivery to be fail",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "abortedDueToLongWaitingTime": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "abortedDueWeatherCondition": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "timeIssue": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "rejected": {
-              "$id": "EdiDeliveryAttemptRejected",
               "title": "Rejected",
               "description": "The consignee has rejected the consignment",
               "type": "object",
               "additionalProperties": false,
               "properties": {
                 "damaged": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 },
                 "incomplete": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 },
                 "tooLate": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 },
                 "missingDocumentation": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 },
                 "notOrdered": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 },
                 "missingNotification": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 },
                 "noPayment": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 }
               },
               "patternProperties": {
@@ -945,20 +921,19 @@
               }
             },
             "closed": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "wrongAddress": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "difficulties": {
-              "$id": "EdiDeliveryAttemptDifficulties",
               "title": "Difficulties",
               "description": "There were difficulties delivering the goods",
               "type": "object",
               "additionalProperties": false,
               "properties": {
                 "tailLift": {
-                  "$ref": "EdiDataProcessing#emptyExtendableObject"
+                  "$ref": "#emptyExtendableObject"
                 }
               },
               "patternProperties": {
@@ -987,7 +962,6 @@
       }
     },
     "deliverySuccessful": {
-      "$id": "EdiEventDeliverySuccessful",
       "title": "Delivery successful",
       "description": "Events indicating successful delivery",
       "type": "object",
@@ -1000,38 +974,37 @@
           "format": "date-time"
         },
         "exceptions": {
-          "$id": "EdiDeliverySuccessfulExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occurred when consignment was successfully delivered.Use (null) to report successful processing of the consignment",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "incomplete": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "serviceIncomplete": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "damaged": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "incompleteAndDamaged": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "partiallyRejected": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "tooLate": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "noReceipt": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "forwardedToExternalProvider": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "releaseAuthorization": {
-              "$ref": "EdiDataProcessing#emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -1064,7 +1037,6 @@
       }
     },
     "completion": {
-      "$id": "EdiEventCompletion",
       "title": "Work completed - forwarded",
       "description": "Events indicating successful completion of a task, consignment has been forwarded",
       "type": "object",
@@ -1077,10 +1049,10 @@
           "format": "date-time"
         },
         "completedBy": {
-          "$ref": "EdiDataProcessing#emptyExtendableObject"
+          "$ref": "#emptyExtendableObject"
         },
         "forwarded": {
-          "$ref": "EdiDataProcessing#emptyExtendableObject"
+          "$ref": "#emptyExtendableObject"
         },
         "signee": {
           "title": "Signee",
@@ -1107,7 +1079,6 @@
       }
     },
     "changeRequest": {
-      "$id": "EdiEventChangeRequest",
       "title": "Change request",
       "description": "A new delivery term that should be considered for billing",
       "type": "object",
@@ -1154,7 +1125,6 @@
       "type": "string"
     },
     "additionalRemarks": {
-      "$id": "List`1",
       "title": "Additional remarks",
       "description": "Additional remarks (free form)",
       "type": "array",

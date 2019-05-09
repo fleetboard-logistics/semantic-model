@@ -78,7 +78,6 @@
       }
     },
     "pickuporders": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
@@ -206,7 +205,6 @@
                 "type": "string"
               },
               "additionalAddressLines": {
-                "$id": "List`1",
                 "title": "Additional address lines of the address",
                 "type": "array",
                 "items": {
@@ -292,7 +290,6 @@
                 "type": "string"
               },
               "additionalAddressLines": {
-                "$id": "List`1",
                 "title": "Additional address lines of the address",
                 "type": "array",
                 "items": {
@@ -348,10 +345,9 @@
             }
           },
           "additionalPartners": {
-            "$id": "List`1",
             "type": "array",
             "items": {
-              "$ref": "pickuporder.json#partnerIdentification"
+              "$ref": "#partnerIdentification"
             }
           },
           "routing": {
@@ -1224,7 +1220,6 @@
             "additionalProperties": false,
             "properties": {
               "remarksInvoice": {
-                "$id": "List`1",
                 "title": "Invoice remarks",
                 "description": "Free text information for the invoice",
                 "type": "array",
@@ -1233,7 +1228,6 @@
                 }
               },
               "remarksPickup": {
-                "$id": "List`1",
                 "title": "Pickup remarks",
                 "description": "Free text information for the pick up",
                 "type": "array",
@@ -1242,7 +1236,6 @@
                 }
               },
               "remarksDelivery": {
-                "$id": "List`1",
                 "title": "Delivery Remarks",
                 "description": "Free text information for the delivery",
                 "type": "array",
@@ -1251,7 +1244,6 @@
                 }
               },
               "remarksGeneral": {
-                "$id": "List`1",
                 "title": "General remarks",
                 "description": "General free text information",
                 "type": "array",
@@ -1539,7 +1531,6 @@
                 "type": "string"
               },
               "documents": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$id": "#documents",
@@ -1624,7 +1615,6 @@
                 }
               },
               "lines": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$id": "#line",
@@ -1732,7 +1722,6 @@
                       }
                     },
                     "barcodes": {
-                      "$id": "List`1",
                       "type": "array",
                       "items": {
                         "$id": "#barcode",
@@ -1769,7 +1758,6 @@
                       }
                     },
                     "dangerousGoods": {
-                      "$id": "List`1",
                       "type": "array",
                       "items": {
                         "$id": "#dangerousGoods",
@@ -1994,7 +1982,7 @@
                 }
               },
               "additionalLoadingEquipment": {
-                "$ref": "List`1#additionalLoadingEquipment"
+                "$ref": "#additionalLoadingEquipment"
               },
               "volumeCubicmeter": {
                 "title": "Volume (m³)",

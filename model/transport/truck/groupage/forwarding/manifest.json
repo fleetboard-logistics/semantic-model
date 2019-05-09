@@ -104,7 +104,6 @@
       "type": "boolean"
     },
     "additionalPartners": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#partnerIdentification",
@@ -189,7 +188,6 @@
             "type": "string"
           },
           "additionalAddressLines": {
-            "$id": "List`1",
             "title": "Additional address lines of the address",
             "type": "array",
             "items": {
@@ -231,16 +229,15 @@
       }
     },
     "shippingPartner": {
-      "$ref": "List`1#partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "List`1#partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "carrier": {
-      "$ref": "List`1#partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "vehicles": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#vehicle",
@@ -277,7 +274,6 @@
       }
     },
     "loadUnits": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#loadUnits",
@@ -292,7 +288,6 @@
             "type": "string"
           },
           "seals": {
-            "$id": "List`1",
             "type": "array",
             "items": {
               "$id": "#seal",
@@ -344,7 +339,6 @@
       }
     },
     "lines": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#manifestLine",
@@ -422,10 +416,9 @@
                 "type": "boolean"
               },
               "additionalPartners": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
-                  "$ref": "#partnerIdentification"
+                  "$ref": "manifest.json#partnerIdentification"
                 }
               },
               "orderingParty": {
@@ -435,7 +428,7 @@
                 "additionalProperties": false,
                 "properties": {
                   "geoPosition": {
-                    "$ref": "List`1#geoPosition"
+                    "$ref": "manifest.json#geoPosition"
                   },
                   "name": {
                     "title": "Name of the address",
@@ -474,7 +467,6 @@
                     "type": "string"
                   },
                   "additionalAddressLines": {
-                    "$id": "List`1",
                     "title": "Additional address lines of the address",
                     "type": "array",
                     "items": {
@@ -500,10 +492,10 @@
                 }
               },
               "shippingPartner": {
-                "$ref": "List`1#partnerIdentification"
+                "$ref": "manifest.json#partnerIdentification"
               },
               "receivingPartner": {
-                "$ref": "List`1#partnerIdentification"
+                "$ref": "manifest.json#partnerIdentification"
               },
               "routing": {
                 "$id": "#routing",
@@ -585,13 +577,13 @@
                         "$ref": "#ediAddress"
                       },
                       "afterDelivery": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       },
                       "beforeDelivery": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       },
                       "byDriver": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       }
                     },
                     "patternProperties": {
@@ -626,10 +618,10 @@
                     "additionalProperties": false,
                     "properties": {
                       "byDeliveryPartner": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       },
                       "byContractedPartner": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       },
                       "preBookedTimeslot": {
                         "$id": "#preBookedTimeslot",
@@ -1038,10 +1030,10 @@
                         "type": "boolean"
                       },
                       "receivingPartnerDisposal": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       },
                       "gatewayDisposal": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       }
                     },
                     "patternProperties": {
@@ -1313,7 +1305,6 @@
                 "additionalProperties": false,
                 "properties": {
                   "remarksInvoice": {
-                    "$id": "List`1",
                     "title": "Invoice remarks",
                     "description": "Free text information for the invoice",
                     "type": "array",
@@ -1322,7 +1313,6 @@
                     }
                   },
                   "remarksPickup": {
-                    "$id": "List`1",
                     "title": "Pickup remarks",
                     "description": "Free text information for the pick up",
                     "type": "array",
@@ -1331,7 +1321,6 @@
                     }
                   },
                   "remarksDelivery": {
-                    "$id": "List`1",
                     "title": "Delivery Remarks",
                     "description": "Free text information for the delivery",
                     "type": "array",
@@ -1340,7 +1329,6 @@
                     }
                   },
                   "remarksGeneral": {
-                    "$id": "List`1",
                     "title": "General remarks",
                     "description": "General free text information",
                     "type": "array",
@@ -1380,7 +1368,7 @@
                         "format": "date"
                       },
                       "shippingPartner": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       }
                     },
                     "patternProperties": {
@@ -1389,7 +1377,7 @@
                     }
                   },
                   "forwardedFor": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "manifest.json#partnerIdentification"
                   },
                   "subsequentDelivery": {
                     "$id": "#subsequentDelivery",
@@ -1410,7 +1398,7 @@
                         "format": "date"
                       },
                       "shippingPartner": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       }
                     },
                     "patternProperties": {
@@ -1431,7 +1419,7 @@
                         "type": "string"
                       },
                       "orderingParty": {
-                        "$ref": "List`1#partnerIdentification"
+                        "$ref": "manifest.json#partnerIdentification"
                       }
                     },
                     "patternProperties": {
@@ -1474,7 +1462,7 @@
                 "additionalProperties": false,
                 "properties": {
                   "freightPayer": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "manifest.json#partnerIdentification"
                   },
                   "tariff": {
                     "title": "Tariff",
@@ -1482,7 +1470,7 @@
                     "type": "string"
                   },
                   "routingOrder": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "manifest.json#partnerIdentification"
                   },
                   "deliveryTerms": {
                     "title": "Delivery terms",
@@ -1519,10 +1507,10 @@
                 "additionalProperties": false,
                 "properties": {
                   "declaringParty": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "manifest.json#partnerIdentification"
                   },
                   "deliverAfterDutyPaid": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "manifest.json#partnerIdentification"
                   },
                   "presentationDeadline": {
                     "title": "Presentation deadline",
@@ -1628,7 +1616,6 @@
                     "type": "string"
                   },
                   "documents": {
-                    "$id": "List`1",
                     "type": "array",
                     "items": {
                       "$id": "#documents",
@@ -1713,7 +1700,6 @@
                     }
                   },
                   "lines": {
-                    "$id": "List`1",
                     "type": "array",
                     "items": {
                       "$id": "#line",
@@ -1821,7 +1807,6 @@
                           }
                         },
                         "barcodes": {
-                          "$id": "List`1",
                           "type": "array",
                           "items": {
                             "$id": "#barcode",
@@ -1858,7 +1843,6 @@
                           }
                         },
                         "dangerousGoods": {
-                          "$id": "List`1",
                           "type": "array",
                           "items": {
                             "$id": "#dangerousGoods",

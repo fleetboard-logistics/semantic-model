@@ -109,7 +109,6 @@
       "type": "boolean"
     },
     "additionalPartners": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#partnerIdentification",
@@ -194,7 +193,6 @@
             "type": "string"
           },
           "additionalAddressLines": {
-            "$id": "List`1",
             "title": "Additional address lines of the address",
             "type": "array",
             "items": {
@@ -242,7 +240,7 @@
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "List`1#geoPosition"
+          "$ref": "#geoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -281,7 +279,6 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
@@ -307,10 +304,10 @@
       }
     },
     "shippingPartner": {
-      "$ref": "List`1#partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "List`1#partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "routing": {
       "$id": "#routing",
@@ -392,13 +389,13 @@
               "$ref": "#ediAddress"
             },
             "afterDelivery": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             },
             "beforeDelivery": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             },
             "byDriver": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             }
           },
           "patternProperties": {
@@ -433,10 +430,10 @@
           "additionalProperties": false,
           "properties": {
             "byDeliveryPartner": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             },
             "byContractedPartner": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             },
             "preBookedTimeslot": {
               "$id": "#preBookedTimeslot",
@@ -845,10 +842,10 @@
               "type": "boolean"
             },
             "receivingPartnerDisposal": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             },
             "gatewayDisposal": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             }
           },
           "patternProperties": {
@@ -1120,7 +1117,6 @@
       "additionalProperties": false,
       "properties": {
         "remarksInvoice": {
-          "$id": "List`1",
           "title": "Invoice remarks",
           "description": "Free text information for the invoice",
           "type": "array",
@@ -1129,7 +1125,6 @@
           }
         },
         "remarksPickup": {
-          "$id": "List`1",
           "title": "Pickup remarks",
           "description": "Free text information for the pick up",
           "type": "array",
@@ -1138,7 +1133,6 @@
           }
         },
         "remarksDelivery": {
-          "$id": "List`1",
           "title": "Delivery Remarks",
           "description": "Free text information for the delivery",
           "type": "array",
@@ -1147,7 +1141,6 @@
           }
         },
         "remarksGeneral": {
-          "$id": "List`1",
           "title": "General remarks",
           "description": "General free text information",
           "type": "array",
@@ -1187,7 +1180,7 @@
               "format": "date"
             },
             "shippingPartner": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             }
           },
           "patternProperties": {
@@ -1196,7 +1189,7 @@
           }
         },
         "forwardedFor": {
-          "$ref": "List`1#partnerIdentification"
+          "$ref": "#partnerIdentification"
         },
         "subsequentDelivery": {
           "$id": "#subsequentDelivery",
@@ -1217,7 +1210,7 @@
               "format": "date"
             },
             "shippingPartner": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             }
           },
           "patternProperties": {
@@ -1238,7 +1231,7 @@
               "type": "string"
             },
             "orderingParty": {
-              "$ref": "List`1#partnerIdentification"
+              "$ref": "#partnerIdentification"
             }
           },
           "patternProperties": {
@@ -1281,7 +1274,7 @@
       "additionalProperties": false,
       "properties": {
         "freightPayer": {
-          "$ref": "List`1#partnerIdentification"
+          "$ref": "#partnerIdentification"
         },
         "tariff": {
           "title": "Tariff",
@@ -1289,7 +1282,7 @@
           "type": "string"
         },
         "routingOrder": {
-          "$ref": "List`1#partnerIdentification"
+          "$ref": "#partnerIdentification"
         },
         "deliveryTerms": {
           "title": "Delivery terms",
@@ -1326,10 +1319,10 @@
       "additionalProperties": false,
       "properties": {
         "declaringParty": {
-          "$ref": "List`1#partnerIdentification"
+          "$ref": "#partnerIdentification"
         },
         "deliverAfterDutyPaid": {
-          "$ref": "List`1#partnerIdentification"
+          "$ref": "#partnerIdentification"
         },
         "presentationDeadline": {
           "title": "Presentation deadline",
@@ -1435,7 +1428,6 @@
           "type": "string"
         },
         "documents": {
-          "$id": "List`1",
           "type": "array",
           "items": {
             "$id": "#documents",
@@ -1520,7 +1512,6 @@
           }
         },
         "lines": {
-          "$id": "List`1",
           "type": "array",
           "items": {
             "$id": "#line",
@@ -1628,7 +1619,6 @@
                 }
               },
               "barcodes": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$id": "#barcode",
@@ -1665,7 +1655,6 @@
                 }
               },
               "dangerousGoods": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$id": "#dangerousGoods",
@@ -1890,7 +1879,7 @@
           }
         },
         "additionalLoadingEquipment": {
-          "$ref": "List`1#additionalLoadingEquipment"
+          "$ref": "#additionalLoadingEquipment"
         },
         "volumeCubicmeter": {
           "title": "Volume (m³)",

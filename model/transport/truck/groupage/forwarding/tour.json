@@ -204,7 +204,6 @@
           "type": "string"
         },
         "additionalAddressLines": {
-          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
@@ -253,7 +252,6 @@
       }
     },
     "loadUnits": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#loadUnits",
@@ -268,7 +266,6 @@
             "type": "string"
           },
           "seals": {
-            "$id": "List`1",
             "type": "array",
             "items": {
               "$id": "#seal",
@@ -297,7 +294,6 @@
       }
     },
     "notificationParties": {
-      "$id": "List`1",
       "title": "Notification Parties",
       "description": "Parties should be notified",
       "type": "array",
@@ -309,7 +305,7 @@
         "additionalProperties": false,
         "properties": {
           "geoPosition": {
-            "$ref": "tour.json#geoPosition"
+            "$ref": "#geoPosition"
           },
           "name": {
             "title": "Name of the address",
@@ -348,7 +344,6 @@
             "type": "string"
           },
           "additionalAddressLines": {
-            "$id": "List`1",
             "title": "Additional address lines of the address",
             "type": "array",
             "items": {
@@ -390,7 +385,6 @@
       }
     },
     "divers": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#driver",
@@ -422,7 +416,6 @@
       }
     },
     "vehicles": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#vehicle",
@@ -459,7 +452,6 @@
       }
     },
     "consignments": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
@@ -525,20 +517,19 @@
             "type": "boolean"
           },
           "additionalPartners": {
-            "$id": "List`1",
             "type": "array",
             "items": {
-              "$ref": "#partnerIdentification"
+              "$ref": "tour.json#partnerIdentification"
             }
           },
           "orderingParty": {
             "$ref": "tour.json#ediAddress"
           },
           "shippingPartner": {
-            "$ref": "List`1#partnerIdentification"
+            "$ref": "tour.json#partnerIdentification"
           },
           "receivingPartner": {
-            "$ref": "List`1#partnerIdentification"
+            "$ref": "tour.json#partnerIdentification"
           },
           "routing": {
             "$id": "#routing",
@@ -620,13 +611,13 @@
                     "$ref": "tour.json#ediAddress"
                   },
                   "afterDelivery": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   },
                   "beforeDelivery": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   },
                   "byDriver": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   }
                 },
                 "patternProperties": {
@@ -661,10 +652,10 @@
                 "additionalProperties": false,
                 "properties": {
                   "byDeliveryPartner": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   },
                   "byContractedPartner": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   },
                   "preBookedTimeslot": {
                     "$id": "#preBookedTimeslot",
@@ -1073,10 +1064,10 @@
                     "type": "boolean"
                   },
                   "receivingPartnerDisposal": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   },
                   "gatewayDisposal": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   }
                 },
                 "patternProperties": {
@@ -1348,7 +1339,6 @@
             "additionalProperties": false,
             "properties": {
               "remarksInvoice": {
-                "$id": "List`1",
                 "title": "Invoice remarks",
                 "description": "Free text information for the invoice",
                 "type": "array",
@@ -1357,7 +1347,6 @@
                 }
               },
               "remarksPickup": {
-                "$id": "List`1",
                 "title": "Pickup remarks",
                 "description": "Free text information for the pick up",
                 "type": "array",
@@ -1366,7 +1355,6 @@
                 }
               },
               "remarksDelivery": {
-                "$id": "List`1",
                 "title": "Delivery Remarks",
                 "description": "Free text information for the delivery",
                 "type": "array",
@@ -1375,7 +1363,6 @@
                 }
               },
               "remarksGeneral": {
-                "$id": "List`1",
                 "title": "General remarks",
                 "description": "General free text information",
                 "type": "array",
@@ -1415,7 +1402,7 @@
                     "format": "date"
                   },
                   "shippingPartner": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   }
                 },
                 "patternProperties": {
@@ -1424,7 +1411,7 @@
                 }
               },
               "forwardedFor": {
-                "$ref": "List`1#partnerIdentification"
+                "$ref": "tour.json#partnerIdentification"
               },
               "subsequentDelivery": {
                 "$id": "#subsequentDelivery",
@@ -1445,7 +1432,7 @@
                     "format": "date"
                   },
                   "shippingPartner": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   }
                 },
                 "patternProperties": {
@@ -1466,7 +1453,7 @@
                     "type": "string"
                   },
                   "orderingParty": {
-                    "$ref": "List`1#partnerIdentification"
+                    "$ref": "tour.json#partnerIdentification"
                   }
                 },
                 "patternProperties": {
@@ -1509,7 +1496,7 @@
             "additionalProperties": false,
             "properties": {
               "freightPayer": {
-                "$ref": "List`1#partnerIdentification"
+                "$ref": "tour.json#partnerIdentification"
               },
               "tariff": {
                 "title": "Tariff",
@@ -1517,7 +1504,7 @@
                 "type": "string"
               },
               "routingOrder": {
-                "$ref": "List`1#partnerIdentification"
+                "$ref": "tour.json#partnerIdentification"
               },
               "deliveryTerms": {
                 "title": "Delivery terms",
@@ -1554,10 +1541,10 @@
             "additionalProperties": false,
             "properties": {
               "declaringParty": {
-                "$ref": "List`1#partnerIdentification"
+                "$ref": "tour.json#partnerIdentification"
               },
               "deliverAfterDutyPaid": {
-                "$ref": "List`1#partnerIdentification"
+                "$ref": "tour.json#partnerIdentification"
               },
               "presentationDeadline": {
                 "title": "Presentation deadline",
@@ -1663,7 +1650,6 @@
                 "type": "string"
               },
               "documents": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$id": "#documents",
@@ -1748,7 +1734,6 @@
                 }
               },
               "lines": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$id": "#line",
@@ -1856,7 +1841,6 @@
                       }
                     },
                     "barcodes": {
-                      "$id": "List`1",
                       "type": "array",
                       "items": {
                         "$id": "#barcode",
@@ -1893,7 +1877,6 @@
                       }
                     },
                     "dangerousGoods": {
-                      "$id": "List`1",
                       "type": "array",
                       "items": {
                         "$id": "#dangerousGoods",
@@ -2226,7 +2209,6 @@
       }
     },
     "stops": {
-      "$id": "List`1",
       "type": "array",
       "items": {
         "$id": "#stop",
@@ -2246,7 +2228,7 @@
             "type": "string"
           },
           "address": {
-            "$ref": "tour.json#ediAddress"
+            "$ref": "#ediAddress"
           },
           "fuelStopInformation": {
             "$id": "#fuelStopInformation",
@@ -2380,7 +2362,6 @@
             "additionalProperties": false,
             "properties": {
               "consignmentObjectIds": {
-                "$id": "List`1",
                 "title": "References to the consignments",
                 "description": "References to the consignments, depending on this stop",
                 "type": "array",
@@ -2389,7 +2370,6 @@
                 }
               },
               "bookedTimeslots": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$id": "#bookedTimeSlot",
@@ -2424,7 +2404,6 @@
                 }
               },
               "workingHours": {
-                "$id": "List`1",
                 "title": "Booked Time Slots",
                 "description": "Booked time slots for the tour",
                 "type": "array",
@@ -2480,7 +2459,6 @@
             "additionalProperties": false,
             "properties": {
               "consignmentObjectIds": {
-                "$id": "List`1",
                 "title": "References to the consignments",
                 "description": "References to the consignments, depending on this stop",
                 "type": "array",
@@ -2489,14 +2467,12 @@
                 }
               },
               "bookedTimeslots": {
-                "$id": "List`1",
                 "type": "array",
                 "items": {
                   "$ref": "#bookedTimeSlot"
                 }
               },
               "workingHours": {
-                "$id": "List`1",
                 "title": "Booked Time Slots",
                 "description": "Booked time slots for the tour",
                 "type": "array",

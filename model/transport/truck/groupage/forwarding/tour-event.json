@@ -463,7 +463,6 @@
           "format": "date-time"
         },
         "signature": {
-          "$id": "List`1",
           "type": "array",
           "items": {
             "$id": "#fileContent",
@@ -549,21 +548,18 @@
           }
         },
         "damages": {
-          "$id": "List`1",
           "type": "array",
           "items": {
             "$ref": "#fileContent"
           }
         },
         "loadSecuring": {
-          "$id": "List`1",
           "type": "array",
           "items": {
             "$ref": "#fileContent"
           }
         },
         "drivingLicense": {
-          "$id": "List`1",
           "type": "array",
           "items": {
             "$ref": "#fileContent"
