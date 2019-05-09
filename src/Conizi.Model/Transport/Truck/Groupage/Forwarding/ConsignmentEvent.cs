@@ -91,7 +91,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// <summary>
         /// Events occurred while cross docking the consignment. (i.e. HUB or gateway cross dock)
         /// </summary>
-        public EdiGateway Gateway { get; set; }
+        public EdiEventGateway Gateway { get; set; }
 
         /// <summary>
         /// Events occurred while planning the delivery of the consignment

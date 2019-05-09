@@ -198,6 +198,7 @@ namespace Conizi.Model.Shared.Entities
 
     }
 
+
     /// <summary>
     /// Detailed information about the exceptions that occurred while planning the delivery of the consignment.
     /// Use (null) to report successful processing of the consignment
