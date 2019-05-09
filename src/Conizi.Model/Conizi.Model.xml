@@ -216,7 +216,7 @@
             Additional address lines of the address
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.ReferenceNumber">
+        <member name="P:Conizi.Model.Shared.Entities.EdiAddress.Reference">
             <summary>
             Reference number for an address
             </summary>
@@ -2358,9 +2358,9 @@
             Additional address lines of the address
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.ReferenceNumber">
+        <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.Reference">
             <summary>
-            Reference number for an address
+            Reference for an address
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiPartnerIdentification.ContactPerson">

@@ -9,8 +9,6 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
-  
-
     /// <summary>
     /// Fields to identify the partner or/and further data routing information
     /// </summary>
@@ -83,10 +81,10 @@ namespace Conizi.Model.Shared.Entities
         public List<string> AdditionalAddressLines { get; set; }
 
         /// <summary>
-        /// Reference number for an address
+        /// Reference for an address
         /// </summary>
-        [DisplayName("Reference number for an address")]
-        public string ReferenceNumber { get; set; }
+        [DisplayName("Reference for an address")]
+        public string Reference { get; set; }
 
         /// <summary>
         /// The contact person
@@ -122,7 +120,8 @@ namespace Conizi.Model.Shared.Entities
         /// Partner Id is used to identify the real sender or receiver (e.g. 1234)
         /// </summary>
         [DisplayName("The PartnerId")]
-        [Description("The partner which is sending the message to the receiving partner for further actions (e.g. 1234)")]
+        [Description(
+            "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)")]
         [MaxLength(50)]
         public string PartnerId { get; set; }
 

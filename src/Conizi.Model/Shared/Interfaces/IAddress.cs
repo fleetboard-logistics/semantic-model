@@ -34,7 +34,7 @@ namespace Conizi.Model.Shared.Interfaces
         [DisplayName("Additional address lines of the address")]
         List<string> AdditionalAddressLines { get; set; }
         [DisplayName("Reference number of the consignment")]
-        string ReferenceNumber { get; set; }
+        string Reference { get; set; }
         [DisplayName("The contact person")]
         string ContactPerson { get; set; }
         [Phone]

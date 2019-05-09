@@ -85,7 +85,7 @@ namespace Conizi.Model.Shared.Entities
         /// Reference number for an address
         /// </summary>
         [DisplayName("Reference number for an address")]
-        public string ReferenceNumber { get; set; }
+        public string Reference { get; set; }
 
         /// <summary>
         /// The contact person
