@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "sender": {
     "ediId": "FLELO"
