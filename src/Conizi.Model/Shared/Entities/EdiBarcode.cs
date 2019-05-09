@@ -8,7 +8,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Detailed information about the individual handling units
     /// </summary>
-    [JsonObject("barcode")]
+    [JsonObject("#barcode")]
     [DisplayName("Bar codes / SSCC number")]
     [Description("Detailed information about the individual handling units")]
     [ConiziAdditionalProperties(false)]

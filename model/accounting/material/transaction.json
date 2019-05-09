@@ -23,7 +23,7 @@
       "type": "string"
     },
     "receiver": {
-      "$id": "messageRouting",
+      "$id": "#messageRouting",
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -51,10 +51,10 @@
       }
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#messageRouting"
     },
     "network": {
-      "$id": "network",
+      "$id": "#network",
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",

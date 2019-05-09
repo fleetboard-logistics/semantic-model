@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Tour end options")]
     [Description("Activities the driver is supposed to do after finishing driver the tour")]
-    [JsonObject("tourEndOptions")]
+    [JsonObject("#tourEndOptions")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourEndOptions

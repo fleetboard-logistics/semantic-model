@@ -23,7 +23,7 @@
       "type": "string"
     },
     "receiver": {
-      "$id": "messageRouting",
+      "$id": "#messageRouting",
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -51,10 +51,10 @@
       }
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#messageRouting"
     },
     "network": {
-      "$id": "network",
+      "$id": "#network",
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -83,13 +83,14 @@
       "type": "string"
     },
     "tour": {
+      "$id": "#tourSpecificEvent",
       "title": "Tour specific Event",
       "description": "Event to notify about tour specific incidents",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "geoPosition",
+          "$id": "#geoPosition",
           "title": "Geo position",
           "description": "Data about the current geo position",
           "type": "object",
@@ -248,13 +249,14 @@
       }
     },
     "stop": {
+      "$id": "###stopSpecificEvent",
       "title": "Stop specific Event",
       "description": "Event to notify about stop specific incidents",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#geoPosition"
         },
         "eventDateTime": {
           "title": "Event Date-time",
@@ -318,7 +320,7 @@
           "type": "boolean"
         },
         "loadingEquipmentExchange": {
-          "$id": "loadingEquipmentExchange",
+          "$id": "#loadingEquipmentExchange",
           "title": "Loading equipment exchange",
           "description": "Information about loading equipment exchange",
           "type": "object",
@@ -364,13 +366,14 @@
       }
     },
     "vehicle": {
+      "$id": "#vehicleSpecificEvent",
       "title": "Vehicle specific Event",
       "description": "Event to notify about vehicle specific incidents",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#geoPosition"
         },
         "eventDateTime": {
           "title": "Event Date-time",
@@ -444,13 +447,14 @@
       }
     },
     "documents": {
+      "$id": "#tourDocuments",
       "title": "Tour Documents",
       "description": "Event to notify about tour specific documents",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#geoPosition"
         },
         "eventDateTime": {
           "title": "Event Date-time",
@@ -459,9 +463,10 @@
           "format": "date-time"
         },
         "signature": {
+          "$id": "List`1",
           "type": "array",
           "items": {
-            "$id": "fileContent",
+            "$id": "#fileContent",
             "title": "File Content",
             "description": "Transfers file data like a picture, pdf, txt..",
             "type": "object",
@@ -478,7 +483,7 @@
                 "type": "string"
               },
               "binaryData": {
-                "$id": "binaryData",
+                "$id": "#binaryData",
                 "title": "Binary Data",
                 "description": "The content/data of a file",
                 "type": "object",
@@ -499,7 +504,7 @@
                 ]
               },
               "fileReference": {
-                "$id": "fileReference",
+                "$id": "#fileReference",
                 "title": "File Reference",
                 "description": "Reference to a file in an online storage",
                 "type": "object",
@@ -544,21 +549,24 @@
           }
         },
         "damages": {
+          "$id": "List`1",
           "type": "array",
           "items": {
-            "$ref": "fileContent"
+            "$ref": "#fileContent"
           }
         },
         "loadSecuring": {
+          "$id": "List`1",
           "type": "array",
           "items": {
-            "$ref": "fileContent"
+            "$ref": "#fileContent"
           }
         },
         "drivingLicense": {
+          "$id": "List`1",
           "type": "array",
           "items": {
-            "$ref": "fileContent"
+            "$ref": "#fileContent"
           }
         },
         "checklistDepartureControl": {

@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Requirements for special services or equipment for the delivery
     /// </summary>
-    [JsonObject("deliveryOptions")]
+    [JsonObject("#deliveryOptions")]
     [DisplayName("Delivery options")]
     [Description("Requirements for special services or equipment for the delivery")]
     [ConiziAdditionalProperties(false)]
@@ -113,7 +113,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// A given last mile provider must be used
     /// </summary>
-    [JsonObject("useSpecificLastMileProvider")]
+    [JsonObject("#useSpecificLastMileProvider")]
     [DisplayName("Specific last mile provider")]
     [Description("A given last mile provider must be used")]
     [ConiziAdditionalProperties(false)]
@@ -131,7 +131,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The goods must only be delivered if the recipient pays the given amount
     /// </summary>
-    [JsonObject("cashOnDelivery")]
+    [JsonObject("#cashOnDelivery")]
     [DisplayName("Cash on delivery")]
     [Description("The goods must only be delivered if the recipient pays the given amount")]
     [ConiziAdditionalProperties(false)]
@@ -170,7 +170,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The receiving partner should perform the action specified
     /// </summary>
-    [JsonObject("workRequest")]
+    [JsonObject("#workRequest")]
     [DisplayName("Work request")]
     [Description("The receiving partner should perform the action specified")]
     [ConiziAdditionalProperties(false)]

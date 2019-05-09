@@ -23,7 +23,7 @@
       "type": "string"
     },
     "receiver": {
-      "$id": "messageRouting",
+      "$id": "#messageRouting",
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -51,10 +51,10 @@
       }
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#messageRouting"
     },
     "network": {
-      "$id": "network",
+      "$id": "#network",
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -89,13 +89,13 @@
       "format": "date"
     },
     "orderingParty": {
-      "$id": "ediAddress",
+      "$id": "#ediAddress",
       "title": "Address fields",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "geoPosition",
+          "$id": "#geoPosition",
           "title": "Geo position",
           "description": "Data about the current geo position",
           "type": "object",
@@ -170,13 +170,14 @@
           "type": "string"
         },
         "additionalAddressLines": {
+          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "referenceNumber": {
+        "reference": {
           "title": "Reference number for an address",
           "type": "string"
         },
@@ -195,14 +196,14 @@
       }
     },
     "orderingPartner": {
-      "$id": "partnerIdentification",
+      "$id": "#partnerIdentification",
       "title": "Fields to identify the partner",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#geoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -241,14 +242,15 @@
           "type": "string"
         },
         "additionalAddressLines": {
+          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "referenceNumber": {
-          "title": "Reference number for an address",
+        "reference": {
+          "title": "Reference for an address",
           "type": "string"
         },
         "contactPerson": {
@@ -281,18 +283,19 @@
       }
     },
     "contractedPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "shippingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "reportingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "dataProcessing": {
+      "$id": "EdiDataProcessing",
       "title": "Data processing",
       "description": "Events occurred while validating and processing the data",
       "type": "object",
@@ -305,7 +308,7 @@
           "format": "date-time"
         },
         "invalidData": {
-          "$id": "emptyExtendableObject",
+          "$id": "#emptyExtendableObject",
           "title": "Empty Extendable Object",
           "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
           "type": "object",
@@ -316,10 +319,10 @@
           }
         },
         "invalidPackageType": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#emptyExtendableObject"
         },
         "invalidDangerousGoodInformation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#emptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -336,6 +339,7 @@
       }
     },
     "generalProcessingNotification": {
+      "$id": "EdiGeneralProcessingNotification",
       "title": "General processing",
       "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
       "type": "object",
@@ -348,24 +352,26 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiNotificationEventExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "incompatible": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "incomplete": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "ultimatelyLost": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "deliveryObscure": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "signingInformation": {
+              "$id": "EdiSigningInformation",
               "title": "Signing Information",
               "description": "Transmission of the receipt, the delivery date and the delivery time",
               "type": "object",
@@ -376,6 +382,7 @@
               }
             },
             "releaseAuthorizationReceived": {
+              "$id": "EdiReleaseAuthorizationReceived",
               "title": "Release authorization received",
               "description": "Receiver allows dropoff",
               "type": "object",
@@ -386,6 +393,7 @@
               }
             },
             "ediRedirectedTo": {
+              "$id": "EdiRedirectedTo",
               "title": "Redirected to",
               "description": "The consignment is redirected to...",
               "type": "object",
@@ -407,6 +415,7 @@
               }
             },
             "archived": {
+              "$id": "EdiArchived",
               "title": "Archived",
               "description": "Documents have been archived",
               "type": "object",
@@ -439,6 +448,7 @@
               }
             },
             "disposed": {
+              "$id": "EdiDisposed",
               "title": "Disposed",
               "description": "Consignment was disposed",
               "type": "object",
@@ -469,6 +479,7 @@
       }
     },
     "pickupPlanning": {
+      "$id": "EdiPickupPlanning",
       "title": "Pickup planning",
       "description": "Events occurred while planning a pickup order",
       "type": "object",
@@ -481,43 +492,44 @@
           "format": "date-time"
         },
         "invalidData": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "EdiDataProcessing#emptyExtendableObject"
         },
         "invalidPackageType": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "EdiDataProcessing#emptyExtendableObject"
         },
         "invalidDangerousGoodInformation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "EdiDataProcessing#emptyExtendableObject"
         },
         "exceptions": {
+          "$id": "EdiPickupPlanningExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while planning the pickup.Use(null) to report successful planning of the pickup",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "outsidePickupZone": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "plannedForSecondTour": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "plannedForDate": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "timeSlotFromConsignee": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "badWeatherConditions": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "timeIssue": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "spaceIssue": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "plannedForNextDay": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -540,6 +552,7 @@
       }
     },
     "pickupStarted": {
+      "$id": "EdiPickupStarted",
       "title": "Pickup started",
       "description": "Events occurred while starting a pickup order",
       "type": "object",
@@ -552,6 +565,7 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupStartedExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while starting the pickup.Use (null) to report successful starting of the pickup",
           "type": "object",
@@ -576,6 +590,7 @@
       }
     },
     "pickupArrival": {
+      "$id": "EdiPickupArrival",
       "title": "Pickup Arrival",
       "description": "Events occurred while arrival a pickup location",
       "type": "object",
@@ -588,6 +603,7 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupArrivalExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while arrival at the pickup location.Use (null) to report successful arrival",
           "type": "object",
@@ -612,6 +628,7 @@
       }
     },
     "pickupFinishedAtShipper": {
+      "$id": "EdiPickupFinishedAtShipper",
       "title": "Pickup Finished At Shipper",
       "description": "Events occurred while pickup finished at shipper",
       "type": "object",
@@ -624,6 +641,7 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupFinishedAtShipperExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while the pickup finished at shipper.Use (null) to report successful arrival",
           "type": "object",
@@ -648,6 +666,7 @@
       }
     },
     "pickupLoadingStarted": {
+      "$id": "EdiPickupLoadingStarted",
       "title": "Pickup loading started",
       "description": "Events occurred while pickup loading started",
       "type": "object",
@@ -660,6 +679,7 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupLoadingStartedExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while starting the loading process.Use (null) to report successful starting the loading process",
           "type": "object",
@@ -684,6 +704,7 @@
       }
     },
     "pickupLoadingCompleted": {
+      "$id": "EdiPickupLoadingCompleted",
       "title": "Pickup loading completed",
       "description": "Events occurred while pickup loading completed",
       "type": "object",
@@ -696,6 +717,7 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupLoadingCompletedExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while completing the loading process.Use (null) to report successful completion of the loading process",
           "type": "object",
@@ -720,6 +742,7 @@
       }
     },
     "pickupAttemptFailed": {
+      "$id": "EdiPickupAttemptFailed",
       "title": "Pickup attempt failed",
       "description": "Events indicating a failed pickup attempt",
       "type": "object",
@@ -732,49 +755,50 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupAttemptFailedExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that caused the pickup to be fail",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "abortedDueToLongWaitingTime": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "companyHoliday": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "noEncounter": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "noPickupOrder": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "wrongAddress": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "missingNotification": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "missingDocumentation": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "missingTransportLock": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "consignmentNotReady": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "consignmentAlreadyShipped": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "noGoodsReceived": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "closed": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "timeSlotMissed": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -797,6 +821,7 @@
       }
     },
     "pickupSuccessful": {
+      "$id": "EdiPickupSuccessful",
       "title": "Pickup successful",
       "description": "Events indicating a successful pickup",
       "type": "object",
@@ -809,16 +834,17 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupSuccessfulExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while pickup the pickup order.Use (null) to report successful pickup",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "incomplete": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             },
             "damaged": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -841,6 +867,7 @@
       }
     },
     "unloading": {
+      "$id": "EdiPickupUnloading",
       "title": "Unloading",
       "description": "Events occured while unloading the pickup order at the plant of the shipping partner",
       "type": "object",
@@ -853,13 +880,14 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupUnloadingExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while unloading the pickup order.Use (null) to report successful unloading the pickup order",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "damaged": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "EdiDataProcessing#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -882,6 +910,7 @@
       }
     },
     "forwarding": {
+      "$id": "EdiPickupForwarding",
       "title": "Forwarding",
       "description": "Events occured while forwarding the pickup order to the receiving partner",
       "type": "object",
@@ -894,6 +923,7 @@
           "format": "date-time"
         },
         "exceptions": {
+          "$id": "EdiPickupForwardingExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while forwarding the pickup order.Use (null) to report successful forwarding the pickup order",
           "type": "object",
@@ -918,6 +948,7 @@
       }
     },
     "cancellation": {
+      "$id": "EdiPickupCancellation",
       "title": "Cancellation",
       "description": "Events occured while forwarding the pickup order to the receiving partner",
       "type": "object",
@@ -930,10 +961,10 @@
           "format": "date-time"
         },
         "cancellationBySourcePartner": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "EdiDataProcessing#emptyExtendableObject"
         },
         "cancellationByContractPartner": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "EdiDataProcessing#emptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -955,6 +986,7 @@
       "type": "string"
     },
     "additionalRemarks": {
+      "$id": "List`1",
       "title": "Additional remarks",
       "description": "Additional remarks (free form)",
       "type": "array",

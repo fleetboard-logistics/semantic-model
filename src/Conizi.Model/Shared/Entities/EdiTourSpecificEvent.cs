@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -10,6 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Event to notify about tour specific incidents")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
+    [JsonObject("#tourSpecificEvent")]
     public class EdiTourSpecificEvent : EdiTourEventBase
     {
         /// <summary>

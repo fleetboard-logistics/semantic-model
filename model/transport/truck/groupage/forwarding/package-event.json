@@ -23,7 +23,7 @@
       "type": "string"
     },
     "receiver": {
-      "$id": "messageRouting",
+      "$id": "#messageRouting",
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -51,10 +51,10 @@
       }
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#messageRouting"
     },
     "network": {
-      "$id": "network",
+      "$id": "#network",
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -78,14 +78,14 @@
       }
     },
     "shippingPartner": {
-      "$id": "partnerIdentification",
+      "$id": "#partnerIdentification",
       "title": "Fields to identify the partner",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "geoPosition",
+          "$id": "#geoPosition",
           "title": "Geo position",
           "description": "Data about the current geo position",
           "type": "object",
@@ -160,14 +160,15 @@
           "type": "string"
         },
         "additionalAddressLines": {
+          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "referenceNumber": {
-          "title": "Reference number for an address",
+        "reference": {
+          "title": "Reference for an address",
           "type": "string"
         },
         "contactPerson": {
@@ -200,10 +201,10 @@
       }
     },
     "receivingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "reportingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "consignmentNoShippingPartner": {
       "title": "Consignment number of the shipping partner",
@@ -216,7 +217,7 @@
       "type": "string"
     },
     "pickupSender": {
-      "$id": "packageEvent",
+      "$id": "#packageEvent",
       "title": "Package specific Event",
       "description": "Event to notify about package specific incidents",
       "type": "object",
@@ -270,7 +271,7 @@
           "type": "string"
         },
         "bulkiness": {
-          "$id": "packageBulkiness",
+          "$id": "#packageBulkiness",
           "title": "Bulkiness of the package",
           "description": "Bulkiness of the package (length / width / height)",
           "type": "object",
@@ -303,14 +304,14 @@
           "type": "string"
         },
         "exceptions": {
-          "$id": "packageEventExceptions",
+          "$id": "#packageEventExceptions",
           "title": "Exceptions",
           "description": "Detailed information about the exceptions that occured while processing / scanning the package",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "damaged": {
-              "$id": "emptyExtendableObject",
+              "$id": "#emptyExtendableObject",
               "title": "Empty Extendable Object",
               "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
               "type": "object",
@@ -321,46 +322,46 @@
               }
             },
             "pressedIn": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "open": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "wet": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "leaked": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "rejected": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "damagedAfterPackagingRemoval": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "shrinkWrapped": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "damagedEmptiesContentOk": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "oversized": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "specialRun": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "spaceIssue": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "timeIssue": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "routingError": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             },
             "loadingError": {
-              "$ref": "emptyExtendableObject"
+              "$ref": "#emptyExtendableObject"
             }
           },
           "patternProperties": {
@@ -383,73 +384,73 @@
       }
     },
     "unloadingShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "loadingShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "entrySecurityAreaShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "exitSecurityAreaShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "stocktakingShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "unloadingGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "loadingGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "entrySecurityAreaGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "exitSecurityAreaGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "stocktakingGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "unloadingHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "loadingHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "entrySecurityAreaHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "exitSecurityAreaHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "stocktakingHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "unloadingReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "loadingReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "entrySecurityAreaReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "exitSecurityAreaReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "stocktakingReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "deliveryReceiver": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "unloadingAfterDeliveryAttempt": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     },
     "unloadingExternalDeliverer": {
-      "$ref": "packageEvent"
+      "$ref": "#packageEvent"
     }
   },
   "required": [

@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Information for invoicing and clearing
     /// </summary>
-    [JsonObject("billing")]
+    [JsonObject("#billing")]
     [DisplayName("Billing information")]
     [Description("Information for invoicing and clearing")]
     [ConiziAdditionalProperties(false)]
@@ -58,7 +58,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Used to transfer detailed information about the fees
     /// </summary>
-    [JsonObject("costsAndCharges")]
+    [JsonObject("#costsAndCharges")]
     [DisplayName("Costs and charges")]
     [Description("Used to transfer detailed information about the fees")]
     [ConiziAdditionalProperties(false)]

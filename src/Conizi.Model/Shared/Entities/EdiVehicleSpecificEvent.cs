@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -11,6 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Event to notify about vehicle specific incidents")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
+    [JsonObject("#vehicleSpecificEvent")]
     public class EdiVehicleSpecificEvent : EdiTourEventBase
     {
         /// <summary>

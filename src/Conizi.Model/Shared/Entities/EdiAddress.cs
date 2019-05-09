@@ -14,7 +14,7 @@ namespace Conizi.Model.Shared.Entities
     /// Fields to save address relevant data
     /// </summary>
     [DisplayName("Address fields")]
-    [JsonObject("ediAddress")]
+    [JsonObject("#ediAddress")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiAddress : EdiPatternPropertiesBase, IAddress

@@ -7,7 +7,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Line of the manifest (consignment etc)
     /// </summary>
-    [JsonObject("manifestLine")]
+    [JsonObject("#manifestLine")]
     [DisplayName("Line")]
     [Description("Line of the manifest")]
     [ConiziAdditionalProperties(false)]

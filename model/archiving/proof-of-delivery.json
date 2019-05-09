@@ -22,7 +22,7 @@
       "type": "string"
     },
     "receiver": {
-      "$id": "messageRouting",
+      "$id": "#messageRouting",
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -50,10 +50,10 @@
       }
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#messageRouting"
     },
     "network": {
-      "$id": "network",
+      "$id": "#network",
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -87,13 +87,13 @@
       "type": "string"
     },
     "shipper": {
-      "$id": "ediAddress",
+      "$id": "#ediAddress",
       "title": "Address fields",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "geoPosition",
+          "$id": "#geoPosition",
           "title": "Geo position",
           "description": "Data about the current geo position",
           "type": "object",
@@ -168,13 +168,14 @@
           "type": "string"
         },
         "additionalAddressLines": {
+          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "referenceNumber": {
+        "reference": {
           "title": "Reference number for an address",
           "type": "string"
         },
@@ -193,10 +194,10 @@
       }
     },
     "consignee": {
-      "$ref": "ediAddress"
+      "$ref": "#ediAddress"
     },
     "carrier": {
-      "$ref": "ediAddress"
+      "$ref": "#ediAddress"
     },
     "shippingDate": {
       "title": "Shipping date",
@@ -205,14 +206,14 @@
       "format": "date"
     },
     "shippingPartner": {
-      "$id": "partnerIdentification",
+      "$id": "#partnerIdentification",
       "title": "Fields to identify the partner",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#geoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -251,14 +252,15 @@
           "type": "string"
         },
         "additionalAddressLines": {
+          "$id": "List`1",
           "title": "Additional address lines of the address",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "referenceNumber": {
-          "title": "Reference number for an address",
+        "reference": {
+          "title": "Reference for an address",
           "type": "string"
         },
         "contactPerson": {
@@ -291,10 +293,10 @@
       }
     },
     "receivingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#partnerIdentification"
     },
     "content": {
-      "$id": "fileContent",
+      "$id": "#fileContent",
       "title": "File Content",
       "description": "Transfers file data like a picture, pdf, txt..",
       "type": "object",
@@ -311,7 +313,7 @@
           "type": "string"
         },
         "binaryData": {
-          "$id": "binaryData",
+          "$id": "#binaryData",
           "title": "Binary Data",
           "description": "The content/data of a file",
           "type": "object",
@@ -332,7 +334,7 @@
           ]
         },
         "fileReference": {
-          "$id": "fileReference",
+          "$id": "#fileReference",
           "title": "File Reference",
           "description": "Reference to a file in an online storage",
           "type": "object",
@@ -394,7 +396,7 @@
       "format": "date"
     },
     "signature": {
-      "$id": "signature",
+      "$id": "#signature",
       "title": "Signature",
       "description": "The signature of the recipient/person of interest",
       "type": "object",
@@ -417,7 +419,7 @@
           "format": "date-time"
         },
         "signatureContent": {
-          "$ref": "fileContent"
+          "$ref": "#fileContent"
         }
       },
       "required": [

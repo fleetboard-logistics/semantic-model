@@ -13,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     /// Fields to identify the partner or/and further data routing information
     /// </summary>
     [DisplayName("Fields to identify the partner")]
-    [JsonObject("partnerIdentification")]
+    [JsonObject("#partnerIdentification")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiPartnerIdentification : EdiMessageRouting, IAddress
@@ -109,7 +109,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Routing information to identify the parties involved in the data transfer (e.g. PartnerId, ConiziId...)
     /// </summary>
-    [JsonObject("messageRouting")]
+    [JsonObject("#messageRouting")]
     [DisplayName("Routing information of the message")]
     [Description("Routing information to identify the parties involved in the data transfer")]
     [ConiziAdditionalProperties(false)]

@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Numbers of various sources identifying this consignment or references from this consignment to other business processes
     /// </summary>
-    [JsonObject("references")]
+    [JsonObject("#references")]
     [DisplayName("References")]
     [Description("Numbers of various sources identifing this consignment or references from this consignment to other business processes")]
     [ConiziAdditionalProperties(false)]
@@ -73,7 +73,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Reference to another consignment which content is return using this consignment
     /// </summary>
-    [JsonObject("returnOfPreviousConsignment")]
+    [JsonObject("#returnOfPreviousConsignment")]
     [DisplayName("Return of previous consignment")]
     [Description("Reference to another consignment which content is return using this consignment")]
     [ConiziAdditionalProperties(false)]
@@ -105,7 +105,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)
     /// </summary>
-    [JsonObject("subsequentDelivery")]
+    [JsonObject("#subsequentDelivery")]
     [DisplayName("Subsequent Delivery")]
     [Description("Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)")]
     [ConiziAdditionalProperties(false)]
@@ -137,7 +137,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Reference to a pickup order which resulted in this consignment
     /// </summary>
-    [JsonObject("pickupOrder")]
+    [JsonObject("#pickupOrder")]
     [DisplayName("Pickup order")]
     [Description("Reference to a pickup order which resulted in this consignment")]
     [ConiziAdditionalProperties(false)]

@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
  /// </summary>
     [DisplayName("Stop for delivering")]
     [Description("Stop for delivering the actual goods")]
-    [JsonObject("stop")]
+    [JsonObject("#stop")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiTourStop
@@ -51,7 +51,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Stop to refuel")]
     [Description("Stop to refuel the vehicle")]
-    [JsonObject("fuelStopInformation")]
+    [JsonObject("#fuelStopInformation")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourFuelStopInformation : TourInformation
@@ -64,7 +64,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Way Point Information")]
     [Description("Way point information of the tour")]
-    [JsonObject("wayPointInformation")]
+    [JsonObject("#wayPointInformation")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourWayPointInformation : TourFuelStopInformation
@@ -81,7 +81,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Border cross information")]
     [Description("Information on border crossing")]
-    [JsonObject("borderCrossInformation")]
+    [JsonObject("#borderCrossInformation")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourBorderCrossInformation : TourInformation
@@ -94,7 +94,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Loading information")]
     [Description("Information about loading")]
-    [JsonObject("loadingInformation")]
+    [JsonObject("#loadingInformation")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourLoadingInformation : TourInformation
@@ -122,7 +122,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Unloading information")]
     [Description("Information about unloading")]
-    [JsonObject("unloadingInformation")]
+    [JsonObject("#unloadingInformation")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourUnloadingInformation : TourInformation
@@ -189,7 +189,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Booked Time Slots")]
     [Description("Booked time slots for the tour")]
-    [JsonObject("bookedTimeSlot")]
+    [JsonObject("#bookedTimeSlot")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourBookedTimeSlot : TourWorkingHours
@@ -209,7 +209,7 @@ namespace Conizi.Model.Shared.Entities
     }
 
 
-    [JsonObject("workingHours")]
+    [JsonObject("#workingHours")]
     public class TourWorkingHours : EdiPatternPropertiesBase
     {
         /// <summary>

@@ -50,7 +50,7 @@ namespace Conizi.Model.Core.Tools
             var generator = new JSchemaGenerator
             {
                 DefaultRequired = Newtonsoft.Json.Required.DisallowNull,
-                SchemaIdGenerationHandling = SchemaIdGenerationHandling.None,
+                SchemaIdGenerationHandling = SchemaIdGenerationHandling.TypeName,
                 SchemaPropertyOrderHandling = SchemaPropertyOrderHandling.Default,
                 SchemaLocationHandling = SchemaLocationHandling.Inline,
                 ContractResolver = new CamelCasePropertyNamesContractResolver()

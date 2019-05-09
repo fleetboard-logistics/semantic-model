@@ -12,6 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Event to notify about stop specific incidents")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
+    [JsonObject("###stopSpecificEvent")]
     public class EdiStopSpecificEvent : EdiTourEventBase
     {
         /// <summary>

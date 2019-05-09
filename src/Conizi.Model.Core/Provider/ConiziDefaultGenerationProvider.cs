@@ -61,54 +61,54 @@ namespace Conizi.Model.Core.Provider
             var processedProps = new List<string>();
 
             //Check if anyOf etc. is used
-            if (context.ObjectType.CustomAttributes.Any(a => a.AttributeType == typeof(KnownTypeAttribute)))
-            {
-                var generator = context.Generator;
-                var schema = generator.Generate(context.ObjectType);
+            //if (context.ObjectType.CustomAttributes.Any(a => a.AttributeType == typeof(KnownTypeAttribute)))
+            //{
+            //    var generator = context.Generator;
+            //    var schema = generator.Generate(context.ObjectType);
 
-                foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a is KnownTypeAttribute)
-                    .Cast<KnownTypeAttribute>())
-                {
-                    var schemaOf = generator.Generate(attr.Type);
-                    HandleAdditionalProperties(attr.Type, schemaOf);
-                    HandleXProperties(attr.Type, schemaOf);
-                    schemaOf.Title = context.SchemaTitle;
-                    schemaOf.Description = context.SchemaDescription;
+            //    foreach (var attr in context.ObjectType.GetCustomAttributes().Where(a => a is KnownTypeAttribute)
+            //        .Cast<KnownTypeAttribute>())
+            //    {
+            //        var schemaOf = generator.Generate(attr.Type);
+            //        HandleAdditionalProperties(attr.Type, schemaOf);
+            //        HandleXProperties(attr.Type, schemaOf);
+            //        schemaOf.Title = context.SchemaTitle;
+            //        schemaOf.Description = context.SchemaDescription;
 
-                    foreach (var custAttr in context.ObjectType.GetCustomAttributes())
-                    {
-                        switch (custAttr)
-                        {
-                            case ConiziOneOfAttribute oneOf:
-                                schema.OneOf.Add(schemaOf);
-                                processedProps.Add(attr.Type.Name);
-                                break;
+            //        foreach (var custAttr in context.ObjectType.GetCustomAttributes())
+            //        {
+            //            switch (custAttr)
+            //            {
+            //                case ConiziOneOfAttribute oneOf:
+            //                    schema.OneOf.Add(schemaOf);
+            //                    processedProps.Add(attr.Type.Name);
+            //                    break;
 
-                            case ConiziAnyOfAttribute oneOf:
-                                schema.AnyOf.Add(schemaOf);
-                                processedProps.Add(attr.Type.Name);
-                                break;
+            //                case ConiziAnyOfAttribute oneOf:
+            //                    schema.AnyOf.Add(schemaOf);
+            //                    processedProps.Add(attr.Type.Name);
+            //                    break;
 
-                            case ConiziAllOfAttribute allOf:
-                                schema.AllOf.Add(schemaOf);
-                                processedProps.Add(attr.Type.Name);
-                                break;
-                        }
-                    }
-                }
+            //                case ConiziAllOfAttribute allOf:
+            //                    schema.AllOf.Add(schemaOf);
+            //                    processedProps.Add(attr.Type.Name);
+            //                    break;
+            //            }
+            //        }
+            //    }
 
-                foreach (var prop in context.ObjectType.GetProperties())
-                {
-                    if (!processedProps.Contains(prop.PropertyType.Name))
-                        continue;
+            //    foreach (var prop in context.ObjectType.GetProperties())
+            //    {
+            //        if (!processedProps.Contains(prop.PropertyType.Name))
+            //            continue;
 
-                    var ccProp = prop.Name.ToCamelCase();
+            //        var ccProp = prop.Name.ToCamelCase();
 
-                    schema.Properties.Remove(ccProp);
-                }
+            //        schema.Properties.Remove(ccProp);
+            //    }
 
-                return schema;
-            }
+            //    return schema;
+            //}
 
             if (context.ObjectType == typeof(DateTime))
             {

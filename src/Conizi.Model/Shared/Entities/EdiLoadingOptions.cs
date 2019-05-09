@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Information about the loading of the main haul
     /// </summary>
-    [JsonObject("loadingOptions")]
+    [JsonObject("#loadingOptions")]
     [DisplayName("Loading options")]
     [Description("Information about the loading of the main haul")]
     [ConiziAdditionalProperties(false)]
