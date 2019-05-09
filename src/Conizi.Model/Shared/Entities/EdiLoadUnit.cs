@@ -8,7 +8,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Load units (containers, swap bodies, ...) used to transport the goods
     /// </summary>
-    [JsonObject("loadUnits")]
+    
     [DisplayName("Load units")]
     [Description("Load units (containers, swap bodies, ...) used to transport the goods")]
     [ConiziAdditionalProperties(false)]

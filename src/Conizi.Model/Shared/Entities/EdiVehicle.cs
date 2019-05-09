@@ -8,7 +8,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Information about the vehicles used in the transport
     /// </summary>
-    [JsonObject("vehicle")]
+    
     [DisplayName("Vehicle")]
     [Description("Information about the vehicles used in the transport")]
     [ConiziAdditionalProperties(false)]

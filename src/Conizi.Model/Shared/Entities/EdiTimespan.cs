@@ -10,7 +10,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// The time span for an activity
     /// </summary>
-    [JsonObject("timespan")]
+    
     [DisplayName("Time span")]
     [Description("The time span for an activity")]
     [ConiziAdditionalProperties(false)]

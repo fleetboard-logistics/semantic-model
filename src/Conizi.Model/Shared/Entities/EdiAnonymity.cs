@@ -8,7 +8,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods
     /// </summary>
-    [JsonObject("anonymity")]
+    
     [DisplayName("Anonymity services")]
     [Description("Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods")]
     [ConiziAdditionalProperties(false)]

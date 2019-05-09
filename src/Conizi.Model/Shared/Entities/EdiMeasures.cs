@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Measures of the unit
     /// </summary>
-    [JsonObject("measures")]
+    
     [DisplayName("Measures")]
     [Description("Measures of the unit")]
     [ConiziAdditionalProperties(false)]

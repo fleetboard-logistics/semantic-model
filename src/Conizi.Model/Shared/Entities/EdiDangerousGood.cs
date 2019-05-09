@@ -10,7 +10,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Information on dangerous goods
     /// </summary>
-    [JsonObject("dangerousGoods")]
+    
     [DisplayName("Dangerous goods")]
     [Description("Dangerous goods")]
     [ConiziAdditionalProperties(false)]
@@ -202,7 +202,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Dangerous goods references
     /// </summary>
-    [JsonObject("dangerousGoodsReferences")]
+    
     [DisplayName("Dangerous goods references")]
     [Description("Dangerous goods references")]
     public class EdiDangerousGoodsReferences

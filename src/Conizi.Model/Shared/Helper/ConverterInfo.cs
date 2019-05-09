@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Helper
 {
-    [JsonObject("converterInfo")]
+    
     [DisplayName("Converter info")]
     [Description("conizi internal information about the converter process")]
     [ConiziAdditionalProperties(false)]

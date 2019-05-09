@@ -8,7 +8,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
     /// </summary>
-    [JsonObject("additionalLoadingEquipment")]
+    
     [DisplayName("Additional loading equipment")]
     [Description("Additional loading aids which are not part of the consignment but which have been added to safely transport the goods")]
     [ConiziAdditionalProperties(false)]
@@ -34,7 +34,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Information about loading equipment exchange
     /// </summary>
-    [JsonObject("loadingEquipmentExchange")]
+    
     [DisplayName("Loading equipment exchange")]
     [Description("Information about loading equipment exchange")]
     [ConiziAdditionalProperties(false)]

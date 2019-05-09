@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
 {
-    [JsonObject("network")]
+    
     [DisplayName("Network")]
     [Description("The network under which rules the consignment should be processed")]
     [ConiziAdditionalProperties(false)]

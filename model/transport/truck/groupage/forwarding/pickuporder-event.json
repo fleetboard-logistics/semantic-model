@@ -10,43 +10,7 @@
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "geoPosition",
-          "title": "Geo position",
-          "description": "Data about the current geo position",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "longitude": {
-              "title": "Longitude",
-              "description": "East–west position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "latitude": {
-              "title": "Latitude",
-              "description": "North–south position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "placeName": {
-              "title": "Place name",
-              "description": "The place name of the current geo position",
-              "type": "string"
-            },
-            "w3WCoordinate": {
-              "title": "What3words coordinate",
-              "description": "A coordinate for the What3Words service like index.home.raft",
-              "type": "string"
-            },
-            "recordTime": {
-              "title": "Record time",
-              "description": "Time the GPS record was created",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "longitude",
-            "latitude"
-          ]
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -154,21 +118,13 @@
           "format": "date-time"
         },
         "invalidData": {
-          "$id": "emptyExtendableObject",
-          "title": "Empty Extendable Object",
-          "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidPackageType": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidDangerousGoodInformation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -187,6 +143,16 @@
     "EdiDisposed": {
       "title": "Disposed",
       "description": "Consignment was disposed",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEmptyExtendableObject": {
+      "title": "Empty Extendable Object",
+      "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
       "type": "object",
       "additionalProperties": false,
       "patternProperties": {
@@ -223,6 +189,94 @@
         "\\$.*": {}
       }
     },
+    "EdiGeoPosition": {
+      "title": "Geo position",
+      "description": "Data about the current geo position",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "longitude",
+        "latitude"
+      ]
+    },
+    "EdiMessageRouting": {
+      "title": "Routing information of the message",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNetwork": {
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
+    },
     "EdiNotificationEventExceptions": {
       "title": "Exceptions",
       "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
@@ -230,16 +284,16 @@
       "additionalProperties": false,
       "properties": {
         "incompatible": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "incomplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "ultimatelyLost": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "deliveryObscure": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "signingInformation": {
           "$ref": "#/definitions/EdiSigningInformation"
@@ -255,6 +309,91 @@
         },
         "disposed": {
           "$ref": "#/definitions/EdiDisposed"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPartnerIdentification": {
+      "title": "Fields to identify the partner",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
+        },
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -337,43 +476,43 @@
       "additionalProperties": false,
       "properties": {
         "abortedDueToLongWaitingTime": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "companyHoliday": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noEncounter": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noPickupOrder": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "wrongAddress": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingNotification": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingDocumentation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingTransportLock": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "consignmentNotReady": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "consignmentAlreadyShipped": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noGoodsReceived": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "closed": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeSlotMissed": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -394,10 +533,10 @@
           "format": "date-time"
         },
         "cancellationBySourcePartner": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "cancellationByContractPartner": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -582,13 +721,13 @@
           "format": "date-time"
         },
         "invalidData": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidPackageType": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidDangerousGoodInformation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "exceptions": {
           "$ref": "#/definitions/EdiPickupPlanningExceptions"
@@ -614,28 +753,28 @@
       "additionalProperties": false,
       "properties": {
         "outsidePickupZone": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "plannedForSecondTour": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "plannedForDate": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeSlotFromConsignee": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "badWeatherConditions": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeIssue": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "spaceIssue": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "plannedForNextDay": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -718,10 +857,10 @@
       "additionalProperties": false,
       "properties": {
         "incomplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -765,7 +904,7 @@
       "additionalProperties": false,
       "properties": {
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -813,150 +952,6 @@
         "x-.*": {},
         "\\$.*": {}
       }
-    },
-    "emptyExtendableObject": {
-      "$ref": "emptyExtendableObject"
-    },
-    "geoPosition": {
-      "$ref": "geoPosition"
-    },
-    "messageRouting": {
-      "$id": "messageRouting",
-      "title": "Routing information of the message",
-      "description": "Routing information to identify the parties involved in the data transfer",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "network": {
-      "$id": "network",
-      "title": "Network",
-      "description": "The network under which rules the consignment should be processed",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "networkId": {
-          "title": "Name of the network",
-          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
-          "type": "string"
-        },
-        "codelist": {
-          "title": "Name of the code list used",
-          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-          "type": "string"
-        },
-        "product": {
-          "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
-          "type": "string"
-        }
-      }
-    },
-    "partnerIdentification": {
-      "$id": "partnerIdentification",
-      "title": "Fields to identify the partner",
-      "description": "Routing information to identify the parties involved in the data transfer",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "geoPosition": {
-          "$ref": "geoPosition"
-        },
-        "name": {
-          "title": "Name of the address",
-          "type": "string"
-        },
-        "street": {
-          "title": "Street of the address",
-          "type": "string"
-        },
-        "houseNumber": {
-          "title": "House number of the address",
-          "type": "string"
-        },
-        "zipCode": {
-          "title": "Zip code of the Address",
-          "type": "string"
-        },
-        "city": {
-          "title": "City of the address",
-          "type": "string"
-        },
-        "townArea": {
-          "title": "Town area address",
-          "type": "string"
-        },
-        "countryCode": {
-          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
-          "type": "string"
-        },
-        "emailAddress": {
-          "title": "Email of the address",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "Phone number of the address",
-          "type": "string"
-        },
-        "additionalAddressLines": {
-          "title": "Additional address lines of the address",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "reference": {
-          "title": "Reference for an address",
-          "type": "string"
-        },
-        "contactPerson": {
-          "title": "The contact person",
-          "type": "string"
-        },
-        "faxNumber": {
-          "title": "The Fax number",
-          "type": "string"
-        },
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
     }
   },
   "type": "object",
@@ -979,13 +974,13 @@
       "type": "string"
     },
     "receiver": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "network": {
-      "$ref": "network"
+      "$ref": "#/definitions/EdiNetwork"
     },
     "pickupOrderNo": {
       "title": "Pickup order number of the contract partner",
@@ -1002,19 +997,19 @@
       "$ref": "#/definitions/EdiAddress"
     },
     "orderingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "contractedPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "shippingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "reportingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "dataProcessing": {
       "$ref": "#/definitions/EdiDataProcessing"

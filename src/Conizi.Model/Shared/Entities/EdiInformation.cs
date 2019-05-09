@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// General information about the consignment
     /// </summary>
-    [JsonObject("information")]
+    
     [DisplayName("Information")]
     [Description("General information about the consignment")]
     [ConiziAdditionalProperties(false)]

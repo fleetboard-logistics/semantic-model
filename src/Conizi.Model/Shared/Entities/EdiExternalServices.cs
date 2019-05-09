@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)
     /// </summary>
-    [JsonObject("externalServices")]
+    
     [DisplayName("External services")]
     [Description("Services that are not provided by the parties involved in the physical transport but by external service providers (e.g. central services by the networks)")]
     [ConiziAdditionalProperties(false)]
@@ -27,7 +27,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Functions provided by the digital archive systems
     /// </summary>
-    [JsonObject("archive")]
+    
     [DisplayName("Digital archive")]
     [Description("Functions provided by the digital archive systems")]
     [ConiziAdditionalProperties(false)]

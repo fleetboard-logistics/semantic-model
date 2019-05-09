@@ -8,7 +8,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Packaging Options
     /// </summary>
-    [JsonObject("packagingOptions")]
+    
     [DisplayName("Packaging Options")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]

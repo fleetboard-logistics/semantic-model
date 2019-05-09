@@ -4,151 +4,13 @@
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
   "definitions": {
-    "#vehicleSpecificEvent": {
-      "$id": "#vehicleSpecificEvent",
-      "title": "Vehicle specific Event",
-      "description": "Event to notify about vehicle specific incidents",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "geoPosition": {
-          "$id": "geoPosition",
-          "title": "Geo position",
-          "description": "Data about the current geo position",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "longitude": {
-              "title": "Longitude",
-              "description": "East–west position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "latitude": {
-              "title": "Latitude",
-              "description": "North–south position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "placeName": {
-              "title": "Place name",
-              "description": "The place name of the current geo position",
-              "type": "string"
-            },
-            "w3WCoordinate": {
-              "title": "What3words coordinate",
-              "description": "A coordinate for the What3Words service like index.home.raft",
-              "type": "string"
-            },
-            "recordTime": {
-              "title": "Record time",
-              "description": "Time the GPS record was created",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "longitude",
-            "latitude"
-          ]
-        },
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "weight": {
-          "title": "Weight of vehicle",
-          "description": "Weight of the vehicle in kg",
-          "type": "number"
-        },
-        "loadingMeter": {
-          "title": "loading meter",
-          "description": "Available loading meter",
-          "type": "number"
-        },
-        "driverName": {
-          "title": "Driver Name",
-          "description": "Name of the driver",
-          "type": "string"
-        },
-        "coDriverName": {
-          "title": "Co-driver Name",
-          "description": "Name of the co-driver",
-          "type": "string"
-        },
-        "mileageStart": {
-          "title": "Mileage Start",
-          "description": "Mileage of the vehicle at tour start",
-          "type": "number"
-        },
-        "mileageFinish": {
-          "title": "Mileage Finish",
-          "description": "Mileage of the vehicle at the end of the tour",
-          "type": "number"
-        },
-        "temperature": {
-          "title": "Temperature",
-          "description": "Current temperature in degrees Celsius",
-          "type": "number"
-        },
-        "truckRegistrationNumber": {
-          "title": "Truck Registration Number",
-          "description": "The registration number of the truck",
-          "type": "string"
-        },
-        "trailerRegistrationNumber": {
-          "title": "Trailer Registration Number",
-          "description": "Registration number of the trailer",
-          "type": "string"
-        },
-        "estimatedArrivalTime": {
-          "title": "Estimated Arrival Time",
-          "description": "The current calculated estimated arrival time (ETA)",
-          "type": "string",
-          "format": "date-time"
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "binaryData": {
-      "$id": "binaryData",
-      "title": "Binary Data",
-      "description": "The content/data of a file",
-      "type": "object",
-      "properties": {
-        "length": {
-          "title": "Data length",
-          "description": "The length (bytes) of submitted data",
-          "type": "integer"
-        },
-        "data": {
-          "title": "Data bytes",
-          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
-          "type": "string"
-        }
-      },
-      "required": [
-        "data"
-      ]
-    },
     "EdiAddress": {
       "title": "Address fields",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -243,6 +105,26 @@
         "\\$.*": {}
       }
     },
+    "EdiBinaryData": {
+      "title": "Binary Data",
+      "description": "The content/data of a file",
+      "type": "object",
+      "properties": {
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "data": {
+          "title": "Data bytes",
+          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
     "EdiDataProcessing": {
       "title": "Data processing",
       "description": "Events occurred while validating and processing the data",
@@ -256,21 +138,13 @@
           "format": "date-time"
         },
         "invalidData": {
-          "$id": "emptyExtendableObject",
-          "title": "Empty Extendable Object",
-          "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidPackageType": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidDangerousGoodInformation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -293,7 +167,7 @@
       "additionalProperties": false,
       "properties": {
         "tailLift": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -308,22 +182,22 @@
       "additionalProperties": false,
       "properties": {
         "abortedDueToLongWaitingTime": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "abortedDueWeatherCondition": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeIssue": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "rejected": {
           "$ref": "#/definitions/EdiDeliveryAttemptRejected"
         },
         "closed": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "wrongAddress": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "difficulties": {
           "$ref": "#/definitions/EdiDeliveryAttemptDifficulties"
@@ -341,25 +215,25 @@
       "additionalProperties": false,
       "properties": {
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "incomplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "tooLate": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingDocumentation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "notOrdered": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingNotification": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noPayment": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -403,73 +277,73 @@
       "additionalProperties": false,
       "properties": {
         "outsideDeliveryArea": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "plannedForSecondTour": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "notInDelivery": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noTimeSlotForAgreedDeliveryTime": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidShipmentInformation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "returnAccordingToDisposal": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "returnDisposalMissing": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "inResearch": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeSlotFromConsignee": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "badWeatherConditions": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeIssue": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "spaceIssue": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "consignmentNotComplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "selfCollector": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "holidays": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "customs": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "waitingForNotification": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingDocumentation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "lateArrival": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "standardDeliveryTimeSufficient": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "gatewayRouting": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "rejectedByReceiver": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -483,7 +357,7 @@
       "additionalProperties": false,
       "properties": {
         "noCapacity": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -498,31 +372,31 @@
       "additionalProperties": false,
       "properties": {
         "incomplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "serviceIncomplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "incompleteAndDamaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "partiallyRejected": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "tooLate": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noReceipt": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "forwardedToExternalProvider": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "releaseAuthorization": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -533,6 +407,16 @@
     "EdiDisposed": {
       "title": "Disposed",
       "description": "Consignment was disposed",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEmptyExtendableObject": {
+      "title": "Empty Extendable Object",
+      "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
       "type": "object",
       "additionalProperties": false,
       "patternProperties": {
@@ -620,10 +504,10 @@
           "format": "date-time"
         },
         "completedBy": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "forwarded": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "signee": {
           "title": "Signee",
@@ -829,6 +713,88 @@
         "\\$.*": {}
       }
     },
+    "EdiFileContent": {
+      "title": "File Content",
+      "description": "Transfers file data like a picture, pdf, txt..",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "title": "File Name",
+          "description": "The file name",
+          "type": "string"
+        },
+        "contentType": {
+          "title": "Content Type",
+          "description": "The content type like application/pdf, image/png...",
+          "type": "string"
+        },
+        "binaryData": {
+          "$ref": "#/definitions/EdiBinaryData"
+        },
+        "fileReference": {
+          "$ref": "#/definitions/EdiFileReference"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileReference": {
+      "title": "File Reference",
+      "description": "Reference to a file in an online storage",
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "title": "File Id",
+          "description": "Unique Id for a file",
+          "type": "string"
+        },
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "absoluteUri": {
+          "title": "Absolute Uri",
+          "description": "An absolute URL to a file on the online storage",
+          "type": "string"
+        },
+        "uriValidFrom": {
+          "title": "Uri Valid From",
+          "description": "The URL is valid from date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "uriValidTo": {
+          "title": "Uri Valid To",
+          "description": "The URL is valid until date",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "absoluteUri"
+      ]
+    },
+    "EdiGateway": {
+      "title": "Gateway-Options",
+      "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priority": {
+          "title": "Priority",
+          "description": "The consignment must be processed with priority",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiGeneralProcessingNotification": {
       "title": "General processing",
       "description": "Events occurred while physically processing the pickup order (e.g. moving goods, scanning packages)",
@@ -858,6 +824,124 @@
         "\\$.*": {}
       }
     },
+    "EdiGeoPosition": {
+      "title": "Geo position",
+      "description": "Data about the current geo position",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "longitude",
+        "latitude"
+      ]
+    },
+    "EdiLoadingEquipmentExchange": {
+      "title": "Loading equipment exchange",
+      "description": "Information about loading equipment exchange",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exchanged": {
+          "title": "Exchanged",
+          "description": "Loading Equipment was exchanged",
+          "type": "boolean"
+        },
+        "amountEurPallets": {
+          "title": "Amount Euro Pallets",
+          "description": "Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)",
+          "type": "integer"
+        },
+        "amountEurBoxes": {
+          "title": "AmountEuro Boxes",
+          "description": "Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exchanged"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiMessageRouting": {
+      "title": "Routing information of the message",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNetwork": {
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
+    },
     "EdiNotificationEventExceptions": {
       "title": "Exceptions",
       "description": "Detailed information about the exceptions that occurred while processing the consignment/pickup.Use (null) to report successful processing of the consignment/pickup",
@@ -865,16 +949,16 @@
       "additionalProperties": false,
       "properties": {
         "incompatible": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "incomplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "ultimatelyLost": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "deliveryObscure": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "signingInformation": {
           "$ref": "#/definitions/EdiSigningInformation"
@@ -904,31 +988,278 @@
       "additionalProperties": false,
       "properties": {
         "notReached": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "disabled": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "pickupCustomer": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "wrongAddress": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "disposalOrdered": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "notInTime": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "canceled": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidData": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingData": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPackageBulkiness": {
+      "title": "Bulkiness of the package",
+      "description": "Bulkiness of the package (length / width / height)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "title": "Length (m)",
+          "description": "Length in meter",
+          "type": "number"
+        },
+        "width": {
+          "title": "Width (m)",
+          "description": "Width in meter",
+          "type": "number"
+        },
+        "height": {
+          "title": "Height (m)",
+          "description": "Height in meter",
+          "type": "number"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPackageEvent": {
+      "title": "Package specific Event",
+      "description": "Event to notify about package specific incidents",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "packageType": {
+          "title": "Type of the package",
+          "description": "Type of the package that is beeing reported",
+          "type": "string"
+        },
+        "masterBarcode": {
+          "title": "Master barcode",
+          "description": "Master barcode (i.e. Master colli)",
+          "type": "string"
+        },
+        "lotNo": {
+          "title": "Lot number",
+          "description": "Lot number",
+          "type": "string"
+        },
+        "bestBeforeDate": {
+          "title": "Best before",
+          "description": "Best before",
+          "type": "string",
+          "format": "date"
+        },
+        "transportUnitNo": {
+          "title": "Transport Unit Number",
+          "description": "Transport Unit Number",
+          "type": "string"
+        },
+        "scanUser": {
+          "title": "Scan user",
+          "description": "Scan user",
+          "type": "string"
+        },
+        "gateNo": {
+          "title": "Gate",
+          "description": "Gate",
+          "type": "string"
+        },
+        "terminalNo": {
+          "title": "Terminal number",
+          "description": "Terminal number",
+          "type": "string"
+        },
+        "bulkiness": {
+          "$ref": "#/definitions/EdiPackageBulkiness"
+        },
+        "bulkinessCategory": {
+          "title": "Bulkiness category",
+          "description": "Bulkiness category",
+          "type": "string"
+        },
+        "exceptions": {
+          "$ref": "#/definitions/EdiPackageEventExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPackageEventExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while processing / scanning the package",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "damaged": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "pressedIn": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "open": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "wet": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "leaked": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "rejected": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "damagedAfterPackagingRemoval": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "shrinkWrapped": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "damagedEmptiesContentOk": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "oversized": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "specialRun": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "spaceIssue": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "timeIssue": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "routingError": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "loadingError": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPartnerIdentification": {
+      "title": "Fields to identify the partner",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
+        },
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -1011,43 +1342,43 @@
       "additionalProperties": false,
       "properties": {
         "abortedDueToLongWaitingTime": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "companyHoliday": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noEncounter": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noPickupOrder": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "wrongAddress": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingNotification": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingDocumentation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missingTransportLock": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "consignmentNotReady": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "consignmentAlreadyShipped": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "noGoodsReceived": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "closed": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeSlotMissed": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -1068,10 +1399,10 @@
           "format": "date-time"
         },
         "cancellationBySourcePartner": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "cancellationByContractPartner": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -1256,13 +1587,13 @@
           "format": "date-time"
         },
         "invalidData": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidPackageType": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "invalidDangerousGoodInformation": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "exceptions": {
           "$ref": "#/definitions/EdiPickupPlanningExceptions"
@@ -1288,28 +1619,28 @@
       "additionalProperties": false,
       "properties": {
         "outsidePickupZone": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "plannedForSecondTour": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "plannedForDate": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeSlotFromConsignee": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "badWeatherConditions": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "timeIssue": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "spaceIssue": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "plannedForNextDay": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -1392,10 +1723,10 @@
       "additionalProperties": false,
       "properties": {
         "incomplete": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -1439,7 +1770,7 @@
       "additionalProperties": false,
       "properties": {
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -1488,6 +1819,291 @@
         "\\$.*": {}
       }
     },
+    "EdiStopSpecificEvent": {
+      "title": "Stop specific Event",
+      "description": "Event to notify about stop specific incidents",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for this stop. References the stop within the tour",
+          "type": "string"
+        },
+        "onWayLoadingPoint": {
+          "title": "On the way to loading point",
+          "description": "Vehicle is on the way to loading point",
+          "type": "boolean"
+        },
+        "arrivedAtLoadingPoint": {
+          "title": "Arrived at loading point",
+          "description": "Vehicle is arrived at loading point",
+          "type": "boolean"
+        },
+        "loadingStarted": {
+          "title": "Loading Started",
+          "description": "Loading of the vehicle has started",
+          "type": "boolean"
+        },
+        "loadingCompleted": {
+          "title": "Loading Completed",
+          "description": "Loading of the vehicle was completed",
+          "type": "boolean"
+        },
+        "onWayUnloadingPoint": {
+          "title": "On the way to unloading point",
+          "description": "Vehicle is on the way to unloading point",
+          "type": "boolean"
+        },
+        "arrivedAtUnloadingPoint": {
+          "title": "Arrived at unloading point",
+          "description": "Vehicle is arrived at unloading point",
+          "type": "boolean"
+        },
+        "unloadingStarted": {
+          "title": "Unloading Started",
+          "description": "Unloading of the vehicle has started",
+          "type": "boolean"
+        },
+        "unloadingCompleted": {
+          "title": "Unloading Completed",
+          "description": "Unloading of the vehicle was completed",
+          "type": "boolean"
+        },
+        "documentsReceived": {
+          "title": "Documents Received",
+          "description": "Documents has been received",
+          "type": "boolean"
+        },
+        "departure": {
+          "title": "Departure",
+          "description": "Departure, the stop has been completed",
+          "type": "boolean"
+        },
+        "loadingEquipmentExchange": {
+          "$ref": "#/definitions/EdiLoadingEquipmentExchange"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime",
+        "stopId"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiTourDocuments": {
+      "title": "Tour Documents",
+      "description": "Event to notify about tour specific documents",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "signature": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileContent"
+          }
+        },
+        "damages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileContent"
+          }
+        },
+        "loadSecuring": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileContent"
+          }
+        },
+        "drivingLicense": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileContent"
+          }
+        },
+        "checklistDepartureControl": {
+          "title": "Checklist Departure Control",
+          "description": "A checklist of departure control is available",
+          "type": "boolean"
+        },
+        "checklistInstruction": {
+          "title": "Checklist Instruction",
+          "description": "A checklist of vehicle inspection is available",
+          "type": "boolean"
+        },
+        "checklistVehicleInspection": {
+          "title": "ChecklistVehicle Inspection",
+          "description": "A checklist of vehicle inspection is available",
+          "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiTourSpecificEvent": {
+      "title": "Tour specific Event",
+      "description": "Event to notify about tour specific incidents",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "tourScheduled": {
+          "title": "Tour scheduled",
+          "description": "Disposal of a tour was done",
+          "type": "boolean"
+        },
+        "tourTransmitted": {
+          "title": "Tour transmitted",
+          "description": "The tour was transmitted to the mobile device",
+          "type": "boolean"
+        },
+        "tourAccepted": {
+          "title": "Tour accepted",
+          "description": "The tour was accepted by the driver on mobile device",
+          "type": "boolean"
+        },
+        "tourRejected": {
+          "title": "Tour rejected",
+          "description": "The tour was rejected by the driver on mobile device",
+          "type": "boolean"
+        },
+        "tourStarted": {
+          "title": "Tour started",
+          "description": "The tour was started by the driver",
+          "type": "boolean"
+        },
+        "tourCompleted": {
+          "title": "Tour completed",
+          "description": "The tour was completed by the driver",
+          "type": "boolean"
+        },
+        "tourPaused": {
+          "title": "Tour paused",
+          "description": "The tour was paused by the driver",
+          "type": "boolean"
+        },
+        "tourResumed": {
+          "title": "Tour resumed",
+          "description": "The tour was resumed by the driver",
+          "type": "boolean"
+        },
+        "workingTimeStarted": {
+          "title": "Working Time Started",
+          "description": "Working time has been started for the driver",
+          "type": "boolean"
+        },
+        "workingTimeCompleted": {
+          "title": "Working Time Completed",
+          "description": "Working time has been ended for the driver",
+          "type": "boolean"
+        },
+        "cleaningStarted": {
+          "title": "Cleaning Started",
+          "description": "Cleaning of the vehicle has been started",
+          "type": "boolean"
+        },
+        "cleaningCompleted": {
+          "title": "Cleaning Completed",
+          "description": "Cleaning of the vehicle has been completed",
+          "type": "boolean"
+        },
+        "trailerExchangeStarted": {
+          "title": "Trailer Exchange Started",
+          "description": "Exchange of the trailer has been started",
+          "type": "boolean"
+        },
+        "trailerExchangeCompleted": {
+          "title": "Trailer Exchange Completed",
+          "description": "Exchange of the trailer has been completed",
+          "type": "boolean"
+        },
+        "changeSwapBodyStarted": {
+          "title": "Trailer Exchange Started",
+          "description": "Exchange of the trailer has been started",
+          "type": "boolean"
+        },
+        "changeSwapBodyCompleted": {
+          "title": "Trailer Exchange Completed",
+          "description": "Exchange of the trailer has been completed",
+          "type": "boolean"
+        },
+        "waitingTimeStarted": {
+          "title": "Waiting time for next action started",
+          "description": "Exchange of the trailer has been started",
+          "type": "boolean"
+        },
+        "waitingTimeCompleted": {
+          "title": "Waiting Time Completed",
+          "description": "Waiting time for next action completed",
+          "type": "boolean"
+        },
+        "readyToLoad": {
+          "title": "Ready to load",
+          "description": "Vehicle is ready to load",
+          "type": "boolean"
+        },
+        "readyToUnload": {
+          "title": "Ready to unload",
+          "description": "Vehicle is ready to unload",
+          "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiTrigger": {
       "title": "Trigger",
       "description": "Event that is a trigger for starting a notification",
@@ -1495,7 +2111,7 @@
       "additionalProperties": false,
       "properties": {
         "manually": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "automatic": {
           "title": "Automatic",
@@ -1544,28 +2160,28 @@
       "additionalProperties": false,
       "properties": {
         "lateArrival": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "missing": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "partlyMissing": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "damaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "packagingDifferences": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "notVerifiable": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "quantityDifferences": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "partlyMissingDamaged": {
-          "$ref": "emptyExtendableObject"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
@@ -1573,96 +2189,85 @@
         "\\$.*": {}
       }
     },
-    "emptyExtendableObject": {
-      "$ref": "emptyExtendableObject"
-    },
-    "fileContent": {
-      "$id": "fileContent",
-      "title": "File Content",
-      "description": "Transfers file data like a picture, pdf, txt..",
+    "EdiVehicleSpecificEvent": {
+      "title": "Vehicle specific Event",
+      "description": "Event to notify about vehicle specific incidents",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "fileName": {
-          "title": "File Name",
-          "description": "The file name",
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "weight": {
+          "title": "Weight of vehicle",
+          "description": "Weight of the vehicle in kg",
+          "type": "number"
+        },
+        "loadingMeter": {
+          "title": "loading meter",
+          "description": "Available loading meter",
+          "type": "number"
+        },
+        "driverName": {
+          "title": "Driver Name",
+          "description": "Name of the driver",
           "type": "string"
         },
-        "contentType": {
-          "title": "Content Type",
-          "description": "The content type like application/pdf, image/png...",
+        "coDriverName": {
+          "title": "Co-driver Name",
+          "description": "Name of the co-driver",
           "type": "string"
         },
-        "binaryData": {
-          "$ref": "binaryData"
+        "mileageStart": {
+          "title": "Mileage Start",
+          "description": "Mileage of the vehicle at tour start",
+          "type": "number"
         },
-        "fileReference": {
-          "$id": "fileReference",
-          "title": "File Reference",
-          "description": "Reference to a file in an online storage",
-          "type": "object",
-          "properties": {
-            "fileId": {
-              "title": "File Id",
-              "description": "Unique Id for a file",
-              "type": "string"
-            },
-            "length": {
-              "title": "Data length",
-              "description": "The length (bytes) of submitted data",
-              "type": "integer"
-            },
-            "absoluteUri": {
-              "title": "Absolute Uri",
-              "description": "An absolute URL to a file on the online storage",
-              "type": "string"
-            },
-            "uriValidFrom": {
-              "title": "Uri Valid From",
-              "description": "The URL is valid from date",
-              "type": "string",
-              "format": "date-time"
-            },
-            "uriValidTo": {
-              "title": "Uri Valid To",
-              "description": "The URL is valid until date",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "absoluteUri"
-          ]
+        "mileageFinish": {
+          "title": "Mileage Finish",
+          "description": "Mileage of the vehicle at the end of the tour",
+          "type": "number"
+        },
+        "temperature": {
+          "title": "Temperature",
+          "description": "Current temperature in degrees Celsius",
+          "type": "number"
+        },
+        "truckRegistrationNumber": {
+          "title": "Truck Registration Number",
+          "description": "The registration number of the truck",
+          "type": "string"
+        },
+        "trailerRegistrationNumber": {
+          "title": "Trailer Registration Number",
+          "description": "Registration number of the trailer",
+          "type": "string"
+        },
+        "estimatedArrivalTime": {
+          "title": "Estimated Arrival Time",
+          "description": "The current calculated estimated arrival time (ETA)",
+          "type": "string",
+          "format": "date-time"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         }
       },
+      "required": [
+        "eventDateTime"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
       }
-    },
-    "fileReference": {
-      "$ref": "fileReference"
-    },
-    "gateway": {
-      "$id": "gateway",
-      "title": "Gateway-Options",
-      "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "priority": {
-          "title": "Priority",
-          "description": "The consignment must be processed with priority",
-          "type": "boolean"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "geoPosition": {
-      "$ref": "geoPosition"
     },
     "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json": {
       "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
@@ -1688,59 +2293,13 @@
           "type": "string"
         },
         "receiver": {
-          "$id": "messageRouting",
-          "title": "Routing information of the message",
-          "description": "Routing information to identify the parties involved in the data transfer",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "partnerId": {
-              "title": "The PartnerId",
-              "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-              "type": "string"
-            },
-            "ediId": {
-              "title": "The Edi Id",
-              "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-              "type": "string"
-            },
-            "coniziId": {
-              "title": "The Conizi Id",
-              "description": "The conizi id for internal routing purposes",
-              "type": "string"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "sender": {
-          "$ref": "messageRouting"
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "network": {
-          "$id": "network",
-          "title": "Network",
-          "description": "The network under which rules the consignment should be processed",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "networkId": {
-              "title": "Name of the network",
-              "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
-              "type": "string"
-            },
-            "codelist": {
-              "title": "Name of the code list used",
-              "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
-              "type": "string"
-            },
-            "product": {
-              "title": "Name of the product",
-              "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
-              "type": "string"
-            }
-          }
+          "$ref": "event-bulk.json#/definitions/EdiNetwork"
         },
         "consignmentNoShippingPartner": {
           "title": "Consignment number of the shipping partner",
@@ -1763,96 +2322,13 @@
           "format": "date"
         },
         "shippingPartner": {
-          "$id": "partnerIdentification",
-          "title": "Fields to identify the partner",
-          "description": "Routing information to identify the parties involved in the data transfer",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "geoPosition": {
-              "$ref": "geoPosition"
-            },
-            "name": {
-              "title": "Name of the address",
-              "type": "string"
-            },
-            "street": {
-              "title": "Street of the address",
-              "type": "string"
-            },
-            "houseNumber": {
-              "title": "House number of the address",
-              "type": "string"
-            },
-            "zipCode": {
-              "title": "Zip code of the Address",
-              "type": "string"
-            },
-            "city": {
-              "title": "City of the address",
-              "type": "string"
-            },
-            "townArea": {
-              "title": "Town area address",
-              "type": "string"
-            },
-            "countryCode": {
-              "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
-              "type": "string"
-            },
-            "emailAddress": {
-              "title": "Email of the address",
-              "type": "string"
-            },
-            "phoneNumber": {
-              "title": "Phone number of the address",
-              "type": "string"
-            },
-            "additionalAddressLines": {
-              "title": "Additional address lines of the address",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "reference": {
-              "title": "Reference for an address",
-              "type": "string"
-            },
-            "contactPerson": {
-              "title": "The contact person",
-              "type": "string"
-            },
-            "faxNumber": {
-              "title": "The Fax number",
-              "type": "string"
-            },
-            "partnerId": {
-              "title": "The PartnerId",
-              "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-              "type": "string"
-            },
-            "ediId": {
-              "title": "The Edi Id",
-              "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-              "type": "string"
-            },
-            "coniziId": {
-              "title": "The Conizi Id",
-              "description": "The conizi id for internal routing purposes",
-              "type": "string"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "receivingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "reportingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "orderingParty": {
           "$ref": "event-bulk.json#/definitions/EdiAddress"
@@ -1867,7 +2343,7 @@
           "$ref": "event-bulk.json#/definitions/EdiUnloading"
         },
         "gateway": {
-          "$ref": "gateway"
+          "$ref": "event-bulk.json#/definitions/EdiGateway"
         },
         "deliveryPlanning": {
           "$ref": "event-bulk.json#/definitions/EdiDeliveryPlanning"
@@ -1954,22 +2430,22 @@
           "type": "string"
         },
         "receiver": {
-          "$ref": "messageRouting"
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "sender": {
-          "$ref": "messageRouting"
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "network": {
-          "$ref": "network"
+          "$ref": "event-bulk.json#/definitions/EdiNetwork"
         },
         "shippingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "receivingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "reportingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "consignmentNoShippingPartner": {
           "title": "Consignment number of the shipping partner",
@@ -1982,232 +2458,76 @@
           "type": "string"
         },
         "pickupSender": {
-          "$id": "packageEvent",
-          "title": "Package specific Event",
-          "description": "Event to notify about package specific incidents",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "eventDateTime": {
-              "title": "Event Date-time",
-              "description": "Date and time when the event occurred",
-              "type": "string",
-              "format": "date-time"
-            },
-            "packageType": {
-              "title": "Type of the package",
-              "description": "Type of the package that is beeing reported",
-              "type": "string"
-            },
-            "masterBarcode": {
-              "title": "Master barcode",
-              "description": "Master barcode (i.e. Master colli)",
-              "type": "string"
-            },
-            "lotNo": {
-              "title": "Lot number",
-              "description": "Lot number",
-              "type": "string"
-            },
-            "bestBeforeDate": {
-              "title": "Best before",
-              "description": "Best before",
-              "type": "string",
-              "format": "date"
-            },
-            "transportUnitNo": {
-              "title": "Transport Unit Number",
-              "description": "Transport Unit Number",
-              "type": "string"
-            },
-            "scanUser": {
-              "title": "Scan user",
-              "description": "Scan user",
-              "type": "string"
-            },
-            "gateNo": {
-              "title": "Gate",
-              "description": "Gate",
-              "type": "string"
-            },
-            "terminalNo": {
-              "title": "Terminal number",
-              "description": "Terminal number",
-              "type": "string"
-            },
-            "bulkiness": {
-              "$id": "packageBulkiness",
-              "title": "Bulkiness of the package",
-              "description": "Bulkiness of the package (length / width / height)",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "length": {
-                  "title": "Length (m)",
-                  "description": "Length in meter",
-                  "type": "number"
-                },
-                "width": {
-                  "title": "Width (m)",
-                  "description": "Width in meter",
-                  "type": "number"
-                },
-                "height": {
-                  "title": "Height (m)",
-                  "description": "Height in meter",
-                  "type": "number"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "bulkinessCategory": {
-              "title": "Bulkiness category",
-              "description": "Bulkiness category",
-              "type": "string"
-            },
-            "exceptions": {
-              "$id": "packageEventExceptions",
-              "title": "Exceptions",
-              "description": "Detailed information about the exceptions that occured while processing / scanning the package",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "damaged": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "pressedIn": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "open": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "wet": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "leaked": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "rejected": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "damagedAfterPackagingRemoval": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "shrinkWrapped": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "damagedEmptiesContentOk": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "oversized": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "specialRun": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "spaceIssue": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "timeIssue": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "routingError": {
-                  "$ref": "emptyExtendableObject"
-                },
-                "loadingError": {
-                  "$ref": "emptyExtendableObject"
-                }
-              },
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "remarks": {
-              "title": "Remarks (free form)",
-              "description": "Additional remarks",
-              "type": "string"
-            }
-          },
-          "required": [
-            "eventDateTime"
-          ],
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "unloadingShippingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "loadingShippingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "entrySecurityAreaShippingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "exitSecurityAreaShippingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "stocktakingShippingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "unloadingGateway": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "loadingGateway": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "entrySecurityAreaGateway": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "exitSecurityAreaGateway": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "stocktakingGateway": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "unloadingHUB": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "loadingHUB": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "entrySecurityAreaHUB": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "exitSecurityAreaHUB": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "stocktakingHUB": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "unloadingReceivingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "loadingReceivingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "entrySecurityAreaReceivingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "exitSecurityAreaReceivingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "stocktakingReceivingPartner": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "deliveryReceiver": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "unloadingAfterDeliveryAttempt": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         },
         "unloadingExternalDeliverer": {
-          "$ref": "packageEvent"
+          "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
         }
       },
       "required": [
@@ -2245,13 +2565,13 @@
           "type": "string"
         },
         "receiver": {
-          "$ref": "messageRouting"
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "sender": {
-          "$ref": "messageRouting"
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "network": {
-          "$ref": "network"
+          "$ref": "event-bulk.json#/definitions/EdiNetwork"
         },
         "pickupOrderNo": {
           "title": "Pickup order number of the contract partner",
@@ -2268,19 +2588,19 @@
           "$ref": "event-bulk.json#/definitions/EdiAddress"
         },
         "orderingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "contractedPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "shippingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "receivingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "reportingPartner": {
-          "$ref": "partnerIdentification"
+          "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
         },
         "dataProcessing": {
           "$ref": "event-bulk.json#/definitions/EdiDataProcessing"
@@ -2369,13 +2689,13 @@
           "type": "string"
         },
         "receiver": {
-          "$ref": "messageRouting"
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "sender": {
-          "$ref": "messageRouting"
+          "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
         "network": {
-          "$ref": "network"
+          "$ref": "event-bulk.json#/definitions/EdiNetwork"
         },
         "tourId": {
           "title": "Referenced Tour Id",
@@ -2383,323 +2703,16 @@
           "type": "string"
         },
         "tour": {
-          "$id": "tourSpecificEvent",
-          "title": "Tour specific Event",
-          "description": "Event to notify about tour specific incidents",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "geoPosition": {
-              "$ref": "geoPosition"
-            },
-            "eventDateTime": {
-              "title": "Event Date-time",
-              "description": "Date and time when the event occurred",
-              "type": "string",
-              "format": "date-time"
-            },
-            "tourScheduled": {
-              "title": "Tour scheduled",
-              "description": "Disposal of a tour was done",
-              "type": "boolean"
-            },
-            "tourTransmitted": {
-              "title": "Tour transmitted",
-              "description": "The tour was transmitted to the mobile device",
-              "type": "boolean"
-            },
-            "tourAccepted": {
-              "title": "Tour accepted",
-              "description": "The tour was accepted by the driver on mobile device",
-              "type": "boolean"
-            },
-            "tourRejected": {
-              "title": "Tour rejected",
-              "description": "The tour was rejected by the driver on mobile device",
-              "type": "boolean"
-            },
-            "tourStarted": {
-              "title": "Tour started",
-              "description": "The tour was started by the driver",
-              "type": "boolean"
-            },
-            "tourCompleted": {
-              "title": "Tour completed",
-              "description": "The tour was completed by the driver",
-              "type": "boolean"
-            },
-            "tourPaused": {
-              "title": "Tour paused",
-              "description": "The tour was paused by the driver",
-              "type": "boolean"
-            },
-            "tourResumed": {
-              "title": "Tour resumed",
-              "description": "The tour was resumed by the driver",
-              "type": "boolean"
-            },
-            "workingTimeStarted": {
-              "title": "Working Time Started",
-              "description": "Working time has been started for the driver",
-              "type": "boolean"
-            },
-            "workingTimeCompleted": {
-              "title": "Working Time Completed",
-              "description": "Working time has been ended for the driver",
-              "type": "boolean"
-            },
-            "cleaningStarted": {
-              "title": "Cleaning Started",
-              "description": "Cleaning of the vehicle has been started",
-              "type": "boolean"
-            },
-            "cleaningCompleted": {
-              "title": "Cleaning Completed",
-              "description": "Cleaning of the vehicle has been completed",
-              "type": "boolean"
-            },
-            "trailerExchangeStarted": {
-              "title": "Trailer Exchange Started",
-              "description": "Exchange of the trailer has been started",
-              "type": "boolean"
-            },
-            "trailerExchangeCompleted": {
-              "title": "Trailer Exchange Completed",
-              "description": "Exchange of the trailer has been completed",
-              "type": "boolean"
-            },
-            "changeSwapBodyStarted": {
-              "title": "Trailer Exchange Started",
-              "description": "Exchange of the trailer has been started",
-              "type": "boolean"
-            },
-            "changeSwapBodyCompleted": {
-              "title": "Trailer Exchange Completed",
-              "description": "Exchange of the trailer has been completed",
-              "type": "boolean"
-            },
-            "waitingTimeStarted": {
-              "title": "Waiting time for next action started",
-              "description": "Exchange of the trailer has been started",
-              "type": "boolean"
-            },
-            "waitingTimeCompleted": {
-              "title": "Waiting Time Completed",
-              "description": "Waiting time for next action completed",
-              "type": "boolean"
-            },
-            "readyToLoad": {
-              "title": "Ready to load",
-              "description": "Vehicle is ready to load",
-              "type": "boolean"
-            },
-            "readyToUnload": {
-              "title": "Ready to unload",
-              "description": "Vehicle is ready to unload",
-              "type": "boolean"
-            },
-            "remarks": {
-              "title": "Remarks (free form)",
-              "description": "Additional remarks",
-              "type": "string"
-            }
-          },
-          "required": [
-            "eventDateTime"
-          ],
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "event-bulk.json#/definitions/EdiTourSpecificEvent"
         },
         "stop": {
-          "$id": "stopSpecificEvent",
-          "title": "Stop specific Event",
-          "description": "Event to notify about stop specific incidents",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "geoPosition": {
-              "$ref": "geoPosition"
-            },
-            "eventDateTime": {
-              "title": "Event Date-time",
-              "description": "Date and time when the event occurred",
-              "type": "string",
-              "format": "date-time"
-            },
-            "stopId": {
-              "title": "Stop Id",
-              "description": "Unique identifier for this stop. References the stop within the tour",
-              "type": "string"
-            },
-            "onWayLoadingPoint": {
-              "title": "On the way to loading point",
-              "description": "Vehicle is on the way to loading point",
-              "type": "boolean"
-            },
-            "arrivedAtLoadingPoint": {
-              "title": "Arrived at loading point",
-              "description": "Vehicle is arrived at loading point",
-              "type": "boolean"
-            },
-            "loadingStarted": {
-              "title": "Loading Started",
-              "description": "Loading of the vehicle has started",
-              "type": "boolean"
-            },
-            "loadingCompleted": {
-              "title": "Loading Completed",
-              "description": "Loading of the vehicle was completed",
-              "type": "boolean"
-            },
-            "onWayUnloadingPoint": {
-              "title": "On the way to unloading point",
-              "description": "Vehicle is on the way to unloading point",
-              "type": "boolean"
-            },
-            "arrivedAtUnloadingPoint": {
-              "title": "Arrived at unloading point",
-              "description": "Vehicle is arrived at unloading point",
-              "type": "boolean"
-            },
-            "unloadingStarted": {
-              "title": "Unloading Started",
-              "description": "Unloading of the vehicle has started",
-              "type": "boolean"
-            },
-            "unloadingCompleted": {
-              "title": "Unloading Completed",
-              "description": "Unloading of the vehicle was completed",
-              "type": "boolean"
-            },
-            "documentsReceived": {
-              "title": "Documents Received",
-              "description": "Documents has been received",
-              "type": "boolean"
-            },
-            "departure": {
-              "title": "Departure",
-              "description": "Departure, the stop has been completed",
-              "type": "boolean"
-            },
-            "loadingEquipmentExchange": {
-              "$id": "loadingEquipmentExchange",
-              "title": "Loading equipment exchange",
-              "description": "Information about loading equipment exchange",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "exchanged": {
-                  "title": "Exchanged",
-                  "description": "Loading Equipment was exchanged",
-                  "type": "boolean"
-                },
-                "amountEurPallets": {
-                  "title": "Amount Euro Pallets",
-                  "description": "Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)",
-                  "type": "integer"
-                },
-                "amountEurBoxes": {
-                  "title": "AmountEuro Boxes",
-                  "description": "Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)",
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "exchanged"
-              ],
-              "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-              }
-            },
-            "remarks": {
-              "title": "Remarks (free form)",
-              "description": "Additional remarks",
-              "type": "string"
-            }
-          },
-          "required": [
-            "eventDateTime",
-            "stopId"
-          ],
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "event-bulk.json#/definitions/EdiStopSpecificEvent"
         },
         "vehicle": {
-          "$ref": "event-bulk.json#vehicleSpecificEvent"
+          "$ref": "event-bulk.json#/definitions/EdiVehicleSpecificEvent"
         },
         "documents": {
-          "$id": "tourDocuments",
-          "title": "Tour Documents",
-          "description": "Event to notify about tour specific documents",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "geoPosition": {
-              "$ref": "geoPosition"
-            },
-            "eventDateTime": {
-              "title": "Event Date-time",
-              "description": "Date and time when the event occurred",
-              "type": "string",
-              "format": "date-time"
-            },
-            "signature": {
-              "type": "array",
-              "items": {
-                "$ref": "fileContent"
-              }
-            },
-            "damages": {
-              "type": "array",
-              "items": {
-                "$ref": "fileContent"
-              }
-            },
-            "loadSecuring": {
-              "type": "array",
-              "items": {
-                "$ref": "fileContent"
-              }
-            },
-            "drivingLicense": {
-              "type": "array",
-              "items": {
-                "$ref": "fileContent"
-              }
-            },
-            "checklistDepartureControl": {
-              "title": "Checklist Departure Control",
-              "description": "A checklist of departure control is available",
-              "type": "boolean"
-            },
-            "checklistInstruction": {
-              "title": "Checklist Instruction",
-              "description": "A checklist of vehicle inspection is available",
-              "type": "boolean"
-            },
-            "checklistVehicleInspection": {
-              "title": "ChecklistVehicle Inspection",
-              "description": "A checklist of vehicle inspection is available",
-              "type": "boolean"
-            },
-            "remarks": {
-              "title": "Remarks (free form)",
-              "description": "Additional remarks",
-              "type": "string"
-            }
-          },
-          "required": [
-            "eventDateTime"
-          ],
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "event-bulk.json#/definitions/EdiTourDocuments"
         }
       },
       "required": [
@@ -2711,36 +2724,6 @@
         "x-.*": {},
         "\\$.*": {}
       }
-    },
-    "loadingEquipmentExchange": {
-      "$ref": "loadingEquipmentExchange"
-    },
-    "messageRouting": {
-      "$ref": "messageRouting"
-    },
-    "network": {
-      "$ref": "network"
-    },
-    "packageBulkiness": {
-      "$ref": "packageBulkiness"
-    },
-    "packageEvent": {
-      "$ref": "packageEvent"
-    },
-    "packageEventExceptions": {
-      "$ref": "packageEventExceptions"
-    },
-    "partnerIdentification": {
-      "$ref": "partnerIdentification"
-    },
-    "stopSpecificEvent": {
-      "$ref": "stopSpecificEvent"
-    },
-    "tourDocuments": {
-      "$ref": "tourDocuments"
-    },
-    "tourSpecificEvent": {
-      "$ref": "tourSpecificEvent"
     }
   },
   "type": "object",
@@ -2763,13 +2746,13 @@
       "type": "string"
     },
     "receiver": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "network": {
-      "$ref": "network"
+      "$ref": "#/definitions/EdiNetwork"
     },
     "consignment-events": {
       "type": "array",

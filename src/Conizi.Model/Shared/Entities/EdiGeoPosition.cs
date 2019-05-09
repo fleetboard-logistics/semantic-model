@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Geo position")]
     [Description("Data about the current geo position")]
-    [JsonObject("geoPosition")]
+    
     [ConiziAdditionalProperties(false)]
     public class EdiGeoPosition
     {

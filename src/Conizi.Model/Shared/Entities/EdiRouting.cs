@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Information about the route take by this consignment/pickup order")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("routing")]
+    
     public class EdiRouting 
     {
         /// <summary>

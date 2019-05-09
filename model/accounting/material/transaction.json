@@ -4,8 +4,7 @@
   "title": "Material Accounting Transaction",
   "description": "Transaction of material for accounting purpose",
   "definitions": {
-    "messageRouting": {
-      "$id": "messageRouting",
+    "EdiMessageRouting": {
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -32,8 +31,7 @@
         "\\$.*": {}
       }
     },
-    "network": {
-      "$id": "network",
+    "EdiNetwork": {
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -77,13 +75,13 @@
       "type": "string"
     },
     "receiver": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "network": {
-      "$ref": "network"
+      "$ref": "#/definitions/EdiNetwork"
     },
     "id": {
       "title": "Unique booking id",

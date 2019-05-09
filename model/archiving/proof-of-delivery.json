@@ -4,70 +4,13 @@
   "title": "Proof of Delivery",
   "description": "Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender",
   "definitions": {
-    "binaryData": {
-      "$id": "binaryData",
-      "title": "Binary Data",
-      "description": "The content/data of a file",
-      "type": "object",
-      "properties": {
-        "length": {
-          "title": "Data length",
-          "description": "The length (bytes) of submitted data",
-          "type": "integer"
-        },
-        "data": {
-          "title": "Data bytes",
-          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
-          "type": "string"
-        }
-      },
-      "required": [
-        "data"
-      ]
-    },
     "EdiAddress": {
       "title": "Address fields",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$id": "geoPosition",
-          "title": "Geo position",
-          "description": "Data about the current geo position",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "longitude": {
-              "title": "Longitude",
-              "description": "East–west position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "latitude": {
-              "title": "Latitude",
-              "description": "North–south position of a point on the Earth's surface",
-              "type": "number"
-            },
-            "placeName": {
-              "title": "Place name",
-              "description": "The place name of the current geo position",
-              "type": "string"
-            },
-            "w3WCoordinate": {
-              "title": "What3words coordinate",
-              "description": "A coordinate for the What3Words service like index.home.raft",
-              "type": "string"
-            },
-            "recordTime": {
-              "title": "Record time",
-              "description": "Time the GPS record was created",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "longitude",
-            "latitude"
-          ]
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -130,8 +73,27 @@
         "\\$.*": {}
       }
     },
-    "fileContent": {
-      "$id": "fileContent",
+    "EdiBinaryData": {
+      "title": "Binary Data",
+      "description": "The content/data of a file",
+      "type": "object",
+      "properties": {
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "data": {
+          "title": "Data bytes",
+          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "EdiFileContent": {
       "title": "File Content",
       "description": "Transfers file data like a picture, pdf, txt..",
       "type": "object",
@@ -148,45 +110,10 @@
           "type": "string"
         },
         "binaryData": {
-          "$ref": "binaryData"
+          "$ref": "#/definitions/EdiBinaryData"
         },
         "fileReference": {
-          "$id": "fileReference",
-          "title": "File Reference",
-          "description": "Reference to a file in an online storage",
-          "type": "object",
-          "properties": {
-            "fileId": {
-              "title": "File Id",
-              "description": "Unique Id for a file",
-              "type": "string"
-            },
-            "length": {
-              "title": "Data length",
-              "description": "The length (bytes) of submitted data",
-              "type": "integer"
-            },
-            "absoluteUri": {
-              "title": "Absolute Uri",
-              "description": "An absolute URL to a file on the online storage",
-              "type": "string"
-            },
-            "uriValidFrom": {
-              "title": "Uri Valid From",
-              "description": "The URL is valid from date",
-              "type": "string",
-              "format": "date-time"
-            },
-            "uriValidTo": {
-              "title": "Uri Valid To",
-              "description": "The URL is valid until date",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "absoluteUri"
-          ]
+          "$ref": "#/definitions/EdiFileReference"
         }
       },
       "patternProperties": {
@@ -194,14 +121,82 @@
         "\\$.*": {}
       }
     },
-    "fileReference": {
-      "$ref": "fileReference"
+    "EdiFileReference": {
+      "title": "File Reference",
+      "description": "Reference to a file in an online storage",
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "title": "File Id",
+          "description": "Unique Id for a file",
+          "type": "string"
+        },
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "absoluteUri": {
+          "title": "Absolute Uri",
+          "description": "An absolute URL to a file on the online storage",
+          "type": "string"
+        },
+        "uriValidFrom": {
+          "title": "Uri Valid From",
+          "description": "The URL is valid from date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "uriValidTo": {
+          "title": "Uri Valid To",
+          "description": "The URL is valid until date",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "absoluteUri"
+      ]
     },
-    "geoPosition": {
-      "$ref": "geoPosition"
+    "EdiGeoPosition": {
+      "title": "Geo position",
+      "description": "Data about the current geo position",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "longitude",
+        "latitude"
+      ]
     },
-    "messageRouting": {
-      "$id": "messageRouting",
+    "EdiMessageRouting": {
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -228,8 +223,7 @@
         "\\$.*": {}
       }
     },
-    "network": {
-      "$id": "network",
+    "EdiNetwork": {
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -252,15 +246,14 @@
         }
       }
     },
-    "partnerIdentification": {
-      "$id": "partnerIdentification",
+    "EdiPartnerIdentification": {
       "title": "Fields to identify the partner",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -338,8 +331,7 @@
         "\\$.*": {}
       }
     },
-    "signature": {
-      "$id": "signature",
+    "EdiSignature": {
       "title": "Signature",
       "description": "The signature of the recipient/person of interest",
       "type": "object",
@@ -362,7 +354,7 @@
           "format": "date-time"
         },
         "signatureContent": {
-          "$ref": "fileContent"
+          "$ref": "#/definitions/EdiFileContent"
         }
       },
       "required": [
@@ -394,13 +386,13 @@
       "type": "string"
     },
     "receiver": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "network": {
-      "$ref": "network"
+      "$ref": "#/definitions/EdiNetwork"
     },
     "id": {
       "title": "Id",
@@ -428,13 +420,13 @@
       "format": "date"
     },
     "shippingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "content": {
-      "$ref": "fileContent"
+      "$ref": "#/definitions/EdiFileContent"
     },
     "documentCreationDate": {
       "title": "Document creation date",
@@ -455,7 +447,7 @@
       "format": "date"
     },
     "signature": {
-      "$ref": "signature"
+      "$ref": "#/definitions/EdiSignature"
     }
   },
   "required": [

@@ -4,8 +4,7 @@
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
   "definitions": {
-    "emptyExtendableObject": {
-      "$id": "emptyExtendableObject",
+    "EdiEmptyExtendableObject": {
       "title": "Empty Extendable Object",
       "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
       "type": "object",
@@ -15,8 +14,7 @@
         "\\$.*": {}
       }
     },
-    "geoPosition": {
-      "$id": "geoPosition",
+    "EdiGeoPosition": {
       "title": "Geo position",
       "description": "Data about the current geo position",
       "type": "object",
@@ -54,8 +52,7 @@
         "latitude"
       ]
     },
-    "messageRouting": {
-      "$id": "messageRouting",
+    "EdiMessageRouting": {
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
@@ -82,8 +79,7 @@
         "\\$.*": {}
       }
     },
-    "network": {
-      "$id": "network",
+    "EdiNetwork": {
       "title": "Network",
       "description": "The network under which rules the consignment should be processed",
       "type": "object",
@@ -106,8 +102,7 @@
         }
       }
     },
-    "packageBulkiness": {
-      "$id": "packageBulkiness",
+    "EdiPackageBulkiness": {
       "title": "Bulkiness of the package",
       "description": "Bulkiness of the package (length / width / height)",
       "type": "object",
@@ -134,8 +129,7 @@
         "\\$.*": {}
       }
     },
-    "packageEvent": {
-      "$id": "packageEvent",
+    "EdiPackageEvent": {
       "title": "Package specific Event",
       "description": "Event to notify about package specific incidents",
       "type": "object",
@@ -189,7 +183,7 @@
           "type": "string"
         },
         "bulkiness": {
-          "$ref": "packageBulkiness"
+          "$ref": "#/definitions/EdiPackageBulkiness"
         },
         "bulkinessCategory": {
           "title": "Bulkiness category",
@@ -197,62 +191,7 @@
           "type": "string"
         },
         "exceptions": {
-          "$id": "packageEventExceptions",
-          "title": "Exceptions",
-          "description": "Detailed information about the exceptions that occured while processing / scanning the package",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "damaged": {
-              "$ref": "emptyExtendableObject"
-            },
-            "pressedIn": {
-              "$ref": "emptyExtendableObject"
-            },
-            "open": {
-              "$ref": "emptyExtendableObject"
-            },
-            "wet": {
-              "$ref": "emptyExtendableObject"
-            },
-            "leaked": {
-              "$ref": "emptyExtendableObject"
-            },
-            "rejected": {
-              "$ref": "emptyExtendableObject"
-            },
-            "damagedAfterPackagingRemoval": {
-              "$ref": "emptyExtendableObject"
-            },
-            "shrinkWrapped": {
-              "$ref": "emptyExtendableObject"
-            },
-            "damagedEmptiesContentOk": {
-              "$ref": "emptyExtendableObject"
-            },
-            "oversized": {
-              "$ref": "emptyExtendableObject"
-            },
-            "specialRun": {
-              "$ref": "emptyExtendableObject"
-            },
-            "spaceIssue": {
-              "$ref": "emptyExtendableObject"
-            },
-            "timeIssue": {
-              "$ref": "emptyExtendableObject"
-            },
-            "routingError": {
-              "$ref": "emptyExtendableObject"
-            },
-            "loadingError": {
-              "$ref": "emptyExtendableObject"
-            }
-          },
-          "patternProperties": {
-            "x-.*": {},
-            "\\$.*": {}
-          }
+          "$ref": "#/definitions/EdiPackageEventExceptions"
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -268,18 +207,71 @@
         "\\$.*": {}
       }
     },
-    "packageEventExceptions": {
-      "$ref": "packageEventExceptions"
+    "EdiPackageEventExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while processing / scanning the package",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "damaged": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "pressedIn": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "open": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "wet": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "leaked": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "rejected": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "damagedAfterPackagingRemoval": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "shrinkWrapped": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "damagedEmptiesContentOk": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "oversized": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "specialRun": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "spaceIssue": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "timeIssue": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "routingError": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "loadingError": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
-    "partnerIdentification": {
-      "$id": "partnerIdentification",
+    "EdiPartnerIdentification": {
       "title": "Fields to identify the partner",
       "description": "Routing information to identify the parties involved in the data transfer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "geoPosition": {
-          "$ref": "geoPosition"
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "name": {
           "title": "Name of the address",
@@ -378,22 +370,22 @@
       "type": "string"
     },
     "receiver": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "sender": {
-      "$ref": "messageRouting"
+      "$ref": "#/definitions/EdiMessageRouting"
     },
     "network": {
-      "$ref": "network"
+      "$ref": "#/definitions/EdiNetwork"
     },
     "shippingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "receivingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "reportingPartner": {
-      "$ref": "partnerIdentification"
+      "$ref": "#/definitions/EdiPartnerIdentification"
     },
     "consignmentNoShippingPartner": {
       "title": "Consignment number of the shipping partner",
@@ -406,76 +398,76 @@
       "type": "string"
     },
     "pickupSender": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "unloadingShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "loadingShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "entrySecurityAreaShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "exitSecurityAreaShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "stocktakingShippingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "unloadingGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "loadingGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "entrySecurityAreaGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "exitSecurityAreaGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "stocktakingGateway": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "unloadingHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "loadingHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "entrySecurityAreaHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "exitSecurityAreaHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "stocktakingHUB": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "unloadingReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "loadingReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "entrySecurityAreaReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "exitSecurityAreaReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "stocktakingReceivingPartner": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "deliveryReceiver": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "unloadingAfterDeliveryAttempt": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     },
     "unloadingExternalDeliverer": {
-      "$ref": "packageEvent"
+      "$ref": "#/definitions/EdiPackageEvent"
     }
   },
   "required": [

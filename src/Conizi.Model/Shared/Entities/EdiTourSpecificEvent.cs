@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Event to notify about tour specific incidents")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("tourSpecificEvent")]
+    
     public class EdiTourSpecificEvent : EdiTourEventBase
     {
         /// <summary>

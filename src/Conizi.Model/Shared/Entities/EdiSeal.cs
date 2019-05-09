@@ -7,7 +7,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Seals used to prevent tampering with the goods in the load unit
     /// </summary>
-    [JsonObject("seal")]
+    
     [DisplayName("Seal")]
     [Description("Seals used to prevent tampering with the goods in the load unit")]
     [ConiziAdditionalProperties(false)]

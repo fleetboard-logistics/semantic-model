@@ -21,7 +21,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The empty EmptyExtendableObject is used for non yet completed defined objects. ")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("emptyExtendableObject")]
+    
     public class EdiEmptyExtendableObject : EdiPatternPropertiesBase
     {
 

@@ -15,7 +15,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Event to notify about package specific incidents")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("packageEvent")]
+    
     public class EdiPackageEvent : EdiEventBase
     {
         /// <summary>
@@ -101,7 +101,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Bulkiness of the package (length / width / height)")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("packageBulkiness")]
+    
     public class EdiPackageBulkiness : EdiPatternPropertiesBase
     {
         /// <summary>
@@ -134,7 +134,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Detailed information about the exceptions that occured while processing / scanning the package")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    [JsonObject("packageEventExceptions")]
+    
     public class EdiPackageEventExceptions : EdiPatternPropertiesBase
     {
         /// <summary>

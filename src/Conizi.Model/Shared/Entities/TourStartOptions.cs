@@ -9,7 +9,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Tour start options")]
     [Description("Activities the driver is supposed to do before starting driving the tour")]
-    [JsonObject("tourStartOptions")]
+    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourStartOptions
