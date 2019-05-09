@@ -180,7 +180,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Special requirements for the handling of the goods at intermediate hubs / gateways")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiGateway : EdiPatternPropertiesBase
+    public class EdiGateway : EdiEventBase
     {
         /// <summary>
         /// The consignment must be processed with priority

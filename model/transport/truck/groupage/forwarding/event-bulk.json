@@ -146,6 +146,9 @@
         "invalidDangerousGoodInformation": {
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
+        "exceptions": {
+          "$ref": "#/definitions/EdiDataProcessingExceptions"
+        },
         "remarks": {
           "title": "Remarks (free form)",
           "description": "Additional remarks",
@@ -155,6 +158,27 @@
       "required": [
         "eventDateTime"
       ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDataProcessingExceptions": {
+      "title": "Exceptions",
+      "description": "Detailed information about the exceptions that occured while processing the data.Use (null) to report successful processing of the data",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "invalidData": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "invalidPackageType": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "invalidDangerousGoodInformation": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        }
+      },
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -784,12 +808,26 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
         "priority": {
           "title": "Priority",
           "description": "The consignment must be processed with priority",
           "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         }
       },
+      "required": [
+        "eventDateTime"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

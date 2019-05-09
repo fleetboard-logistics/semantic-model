@@ -860,12 +860,26 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
         "priority": {
           "title": "Priority",
           "description": "The consignment must be processed with priority",
           "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         }
       },
+      "required": [
+        "eventDateTime"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

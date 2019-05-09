@@ -34,5 +34,11 @@ namespace Conizi.Model.Shared.Entities
         //DisplayName("Invalid Dangerous good information")]
         //[Description("Wrong, incomplete or missing information about the dangerous goods")]
         public EdiEmptyExtendableObject InvalidDangerousGoodInformation { get; set; }
+
+        /// <summary>
+        /// Detailed information about the exceptions that occured while processing the data.
+        /// Use(null) to report successful processing of the data
+        /// </summary>
+        public EdiDataProcessingExceptions Exceptions { get; set; }
     }
 }

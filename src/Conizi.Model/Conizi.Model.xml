@@ -846,6 +846,12 @@
             Wrong, incomplete or missing package type information
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDataProcessing.Exceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the data.
+            Use(null) to report successful processing of the data
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryOptions">
             <summary>
             Requirements for special services or equipment for the delivery
@@ -1243,6 +1249,27 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiGatewayExceptions.Halted">
             <summary>
             The consignment did not arrive or parts of the consignment are missing
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiDataProcessingExceptions">
+            <summary>
+            Detailed information about the exceptions that occured while processing the data.
+            Use(null) to report successful processing of the data
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDataProcessingExceptions.InvalidData">
+            <summary>
+            The data is incomplete, missing or wrong
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDataProcessingExceptions.InvalidPackageType">
+            <summary>
+            Wrong, incomplete or missing package type information
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiDataProcessingExceptions.InvalidDangerousGoodInformation">
+            <summary>
+            Wrong, incomplete or missing information about the dangerous goods
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiDeliveryPlanningExceptions">

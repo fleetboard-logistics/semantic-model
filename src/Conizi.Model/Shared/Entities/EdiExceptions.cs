@@ -171,6 +171,34 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
+    /// Detailed information about the exceptions that occured while processing the data.
+    /// Use(null) to report successful processing of the data
+    /// </summary>
+    [DisplayName("Exceptions")]
+    [Description("Detailed information about the exceptions that occured while processing the data." +
+                 "Use (null) to report successful processing of the data")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiDataProcessingExceptions : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// The data is incomplete, missing or wrong
+        /// </summary>
+        public EdiEmptyExtendableObject InvalidData { get; set; }
+
+        /// <summary>
+        /// Wrong, incomplete or missing package type information
+        /// </summary>
+        public EdiEmptyExtendableObject InvalidPackageType { get; set; }
+
+        /// <summary>
+        /// Wrong, incomplete or missing information about the dangerous goods
+        /// </summary>
+        public EdiEmptyExtendableObject InvalidDangerousGoodInformation { get; set; }
+
+    }
+
+    /// <summary>
     /// Detailed information about the exceptions that occurred while planning the delivery of the consignment.
     /// Use (null) to report successful processing of the consignment
     /// </summary>
