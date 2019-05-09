@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Tools;
+using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Test.Library.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json.Schema;
@@ -158,6 +161,24 @@ namespace Conizi.Model.UnitTests.Generation
             Assert.True(prop.OneOf.Count == 2);
         }
 
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateAllModels_AssertSuccess()
+        {
+            var cSchemas =  Assembly.GetAssembly(typeof(Manifest)).GetExportedTypes().Where(t=>t.CustomAttributes.Any(x=>x.AttributeType == typeof(ConiziSchemaAttribute)));
+
+            foreach (var modelType in cSchemas)
+            {
+
+                var result = Generator.Generate(modelType);
+
+                Assert.IsType<GenerationResult>(result);
+
+                var schema = result.JSchema;
+
+                Assert.NotNull(schema);
+            }
+        }
     }
 }
 
