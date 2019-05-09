@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
@@ -80,6 +81,7 @@ namespace Conizi.Model.Archiving
         [Description("The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued")]
         [JsonProperty(Order = -4)]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [Required]
         public DateTime ShippingDate { get; set; }
 
@@ -101,6 +103,7 @@ namespace Conizi.Model.Archiving
         /// <summary>
         /// The planned date and time of shipping/transport
         /// </summary>
+        [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
         [DisplayName("Planned shipping date")]
         [Description("The planned date and time of shipping/transport")]

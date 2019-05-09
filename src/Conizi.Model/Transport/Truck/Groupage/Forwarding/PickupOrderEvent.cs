@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json;
@@ -35,6 +36,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("The date on which the pickup order was forwarded to the contracted partner")]
         [JsonProperty("pickupOrderDate", Order = -9)]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime PickupOrderDate { get; set; }
 
         /// <summary>

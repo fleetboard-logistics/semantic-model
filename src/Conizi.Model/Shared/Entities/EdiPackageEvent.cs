@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
@@ -43,6 +44,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Best before")]
         [Description("Best before")]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
         public DateTime BestBeforeDate { get; set; }
 

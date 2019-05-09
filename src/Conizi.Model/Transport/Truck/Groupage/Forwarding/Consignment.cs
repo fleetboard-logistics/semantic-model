@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json;
@@ -53,6 +54,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued")]
         [JsonProperty(Order = -7)]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [Required]
         public DateTime ShippingDate { get; set; }
 

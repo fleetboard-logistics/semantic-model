@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
@@ -217,6 +218,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Date")]
         [Description("Date")]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
         public DateTime Date { get; set; }
     }

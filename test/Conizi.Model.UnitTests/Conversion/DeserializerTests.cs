@@ -9,8 +9,6 @@ namespace Conizi.Model.UnitTests.Conversion
 {
     public class DeserializerTests
     {
-     
-
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void SerializerInvalidModel_AssertJsonSerializationException()
@@ -27,13 +25,11 @@ namespace Conizi.Model.UnitTests.Conversion
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void DeserializerBasicModel_AssertValidDeserialization()
         {
-          
             // Simple test model
             var m = new TestModel
             {
                 Receiver = new EdiPartnerIdentification
-                { 
-               
+                {
                     EdiId = "CONIZIVK"
                 },
                 Sender = new EdiPartnerIdentification
@@ -42,7 +38,6 @@ namespace Conizi.Model.UnitTests.Conversion
                 },
                 TestReceivingPartner = new EdiPartnerIdentification
                 {
-               
                     PartnerId = "2323",
                     Name = "Fleetboard Logistics",
                     Street = "Am Alten Bahnhof",
@@ -68,7 +63,6 @@ namespace Conizi.Model.UnitTests.Conversion
                         UriValidTo = DateTime.Now.AddDays(5)
                     }
                 }
-
             };
 
             var result = Converter.Serialize(m);
@@ -89,7 +83,6 @@ namespace Conizi.Model.UnitTests.Conversion
             {
                 Receiver = new EdiPartnerIdentification
                 {
-
                     EdiId = "CONIZIVK"
                 },
                 Sender = new EdiPartnerIdentification
@@ -98,7 +91,6 @@ namespace Conizi.Model.UnitTests.Conversion
                 },
                 TestReceivingPartner = new EdiPartnerIdentification
                 {
-
                     PartnerId = "2323",
                     Name = "Fleetboard Logistics",
                     Street = "Am Alten Bahnhof",
@@ -115,7 +107,6 @@ namespace Conizi.Model.UnitTests.Conversion
                 },
                 TestDateTime = DateTime.Parse(dateTimeString),
                 TestDateOnly = DateTime.Parse("2019-04-11")
-
             };
 
             var result = Converter.Serialize(m);
@@ -131,13 +122,11 @@ namespace Conizi.Model.UnitTests.Conversion
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void DeserializerBasicModel_AssertValidDeserializationWithXProps()
         {
-
             // Simple test model
             var m = new TestModel
             {
                 Receiver = new EdiPartnerIdentification
                 {
-
                     EdiId = "CONIZIVK"
                 },
                 Sender = new EdiPartnerIdentification
@@ -146,7 +135,6 @@ namespace Conizi.Model.UnitTests.Conversion
                 },
                 TestReceivingPartner = new EdiPartnerIdentification
                 {
-
                     PartnerId = "2323",
                     Name = "Fleetboard Logistics",
                     Street = "Am Alten Bahnhof",
@@ -160,15 +148,17 @@ namespace Conizi.Model.UnitTests.Conversion
                 Network = new EdiNetwork
                 {
                     NetworkId = "CL"
-                }, Services = new EdiServices
+                },
+                Services = new EdiServices
                 {
                     TimeOptions = new EdiTimeOptions
                     {
-                         Evening = new EdiEvening
-                         {
-                             TimeUntil = "19:00:00",
-                             TimeFrom = "18:00:00",
-                         }
+                        Evening = new EdiEvening
+                        {
+                            Date = DateTime.Now,
+                            TimeUntil = "19:00:00",
+                            TimeFrom = "18:00:00",
+                        }
                     }
                 },
                 TestFileContent = new EdiFileContent
@@ -182,10 +172,9 @@ namespace Conizi.Model.UnitTests.Conversion
                         UriValidTo = DateTime.Now.AddDays(5)
                     }
                 }
-
             };
 
-            m.TestReceivingPartner.AddPatternProperty("x-park-lane",37);
+            m.TestReceivingPartner.AddPatternProperty("x-park-lane", 37);
 
             m.Receiver.AddPatternProperty("x-conizi-special", "whats up");
             m.Services.TimeOptions.Evening.AddPatternProperty("x-dawn-service", "X");
@@ -201,8 +190,8 @@ namespace Conizi.Model.UnitTests.Conversion
 
             var prop3 = dm.Services.TimeOptions.Evening.GetPatternPropertyValue("x-dawn-service");
 
-            Assert.Equal( JTokenType.Integer, ((JValue)prop2).Type);
-            Assert.Equal(37, ((JValue)prop2).Value<Int32>());
+            Assert.Equal(JTokenType.Integer, ((JValue) prop2).Type);
+            Assert.Equal(37, ((JValue) prop2).Value<Int32>());
             Assert.Equal("X", prop3.Value<string>());
         }
     }

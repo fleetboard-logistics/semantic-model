@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json;
@@ -49,6 +50,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Shipping date")]
         [JsonProperty(PropertyName = "shippingDate")]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime ShippingDate { get; set; }
 
         /// <summary>

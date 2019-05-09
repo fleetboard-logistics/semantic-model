@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
@@ -211,6 +212,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Customs Goods resubmission date")]
         [Description("The resubmission date for the customs goods")]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
         public DateTime CustomsGoodsResubmissionDate { get; set; }
 

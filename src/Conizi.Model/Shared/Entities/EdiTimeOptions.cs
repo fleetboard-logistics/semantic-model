@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
@@ -77,6 +78,7 @@ namespace Conizi.Model.Shared.Entities
         /// Not after Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
     }
 
@@ -93,6 +95,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Not before Date (Day: yyyy-MM-dd => 2019-02-14)
         /// </summary>
+        [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
         public DateTime Date { get; set; }
     }
@@ -111,6 +114,7 @@ namespace Conizi.Model.Shared.Entities
         /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
        
         /// <summary>
@@ -164,6 +168,7 @@ namespace Conizi.Model.Shared.Entities
         /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
 
         /// <summary>
@@ -195,6 +200,7 @@ namespace Conizi.Model.Shared.Entities
         /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
 
         /// <summary>
@@ -226,6 +232,7 @@ namespace Conizi.Model.Shared.Entities
         /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
 
         /// <summary>
@@ -257,6 +264,7 @@ namespace Conizi.Model.Shared.Entities
         /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
 
         /// <summary>
@@ -288,6 +296,7 @@ namespace Conizi.Model.Shared.Entities
         /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
 
         /// <summary>
@@ -319,6 +328,7 @@ namespace Conizi.Model.Shared.Entities
         /// Date (Day)
         /// </summary>
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime Date { get; set; }
 
         /// <summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Entities;
@@ -79,6 +80,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("Day on which the tour is proccessed")]
         [JsonProperty("shippingDate", Order = -6)]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [Required]
         public DateTime ShippingDate { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
@@ -59,6 +60,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Shipping date")]
         [Description("The date of the manifest which contained the surplus goods")]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime ShippingDate { get; set; }
     }
 
@@ -86,6 +88,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Shipping date")]
         [Description("The date of the manifest which included the consignment")]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime ShippingDate { get; set; }
     }
 }
