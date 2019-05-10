@@ -56,13 +56,13 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Information about loading
         /// </summary>
-        [Required]
+        [JsonProperty(Required = Required.DisallowNull)]
         public TourLoadingInformation LoadingInformation { get; set; }
 
         /// <summary>
         /// Information about unloading
         /// </summary>
-        [Required]
+        [JsonProperty(Required = Required.DisallowNull)]
         public TourUnloadingInformation UnloadingInformation { get; set; }
     }
 
