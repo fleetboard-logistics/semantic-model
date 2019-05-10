@@ -156,7 +156,7 @@
             Indicates if X- Properties should allowed. Default true
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.Cancellation">
+        <member name="T:Conizi.Model.Shared.Entities.EdiEventCancellation">
             <summary>
             Events indicating the cancellation of the consignment
             </summary>
@@ -2574,17 +2574,17 @@
             Use (null) to report successful forwarding the pickup order
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiPickupCancellation">
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupEdiEventCancellation">
             <summary>
             Events indicating the cancellation of the pickup order
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiPickupCancellation.CancellationBySourcePartner">
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupEdiEventCancellation.EdiEventCancellationBySourcePartner">
             <summary>
             The pick-up order was cancelled by the sender (customer)
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiPickupCancellation.CancellationByContractPartner">
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupEdiEventCancellation.EdiEventCancellationByContractPartner">
             <summary>
             The pick-up order was cancelled by the shipping partner (carrier)
             </summary>
@@ -4541,7 +4541,7 @@
             Events occurred while forwarding the pickup order to the receiving partner
             </summary>
         </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.Cancellation">
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.EdiEventCancellation">
             <summary>
             Events indicating the cancellation of the pickup order
             </summary>

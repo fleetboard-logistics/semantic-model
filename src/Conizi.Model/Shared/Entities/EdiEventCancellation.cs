@@ -7,11 +7,11 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Events indicating the cancellation of the consignment
     /// </summary>
-    [DisplayName("Cancellation")]
+    [DisplayName("EdiEventCancellation")]
     [Description("Events indicating the cancellation of the consignment")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class Cancellation : EdiEventBase
+    public class EdiEventCancellation : EdiEventBase
     {
 
     }

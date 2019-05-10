@@ -139,6 +139,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiEventChangeRequest ChangeRequest { get; set; }
 
         /// <summary>
+        /// Events indicating new information that should be added/updated in the consignment
+        /// </summary>
+        public EdiEventCancellation Cancellation { get; set; }
+
+        /// <summary>
         /// Original event code
         /// </summary>
         [DisplayName("Original event code")]
