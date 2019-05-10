@@ -2028,7 +2028,9 @@
         }
       },
       "required": [
-        "stopId"
+        "stopId",
+        "loadingInformation",
+        "unloadingInformation"
       ],
       "patternProperties": {
         "x-.*": {},
@@ -2489,6 +2491,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "consignmentObjectIds"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

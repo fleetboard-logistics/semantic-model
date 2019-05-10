@@ -110,7 +110,7 @@
     },
     "cancellation": {
         "eventDateTime": "2017-12-31T08:15:12",
-        "message": ""
+        "remarks": "Problems with something"
     },
     "x-dummy": 1
 }

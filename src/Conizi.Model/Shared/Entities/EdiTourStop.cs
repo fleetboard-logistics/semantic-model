@@ -33,16 +33,36 @@ namespace Conizi.Model.Shared.Entities
         [JsonRequired]
         public string StopId { get; set; }
 
+        /// <summary>
+        /// The address information of the stop
+        /// </summary>
         public EdiAddress Address { get; set; }
 
+        /// <summary>
+        /// Stop to refuel the vehicle
+        /// </summary>
         public TourFuelStopInformation FuelStopInformation { get; set; }
 
+        /// <summary>
+        /// Way point information of the tour
+        /// </summary>
         public TourWayPointInformation WayPointInformation { get; set; }
 
+        /// <summary>
+        /// Information on border crossing
+        /// </summary>
         public TourBorderCrossInformation BorderCrossInformation { get; set; }
 
+        /// <summary>
+        /// Information about loading
+        /// </summary>
+        [Required]
         public TourLoadingInformation LoadingInformation { get; set; }
 
+        /// <summary>
+        /// Information about unloading
+        /// </summary>
+        [Required]
         public TourUnloadingInformation UnloadingInformation { get; set; }
     }
 
@@ -104,6 +124,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("References to the consignments")]
         [Description("References to the consignments, depending on this stop")]
+        [Required]
         public List<string> ConsignmentObjectIds { get; set; }
 
         [JsonProperty("bookedTimeslots")]

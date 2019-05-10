@@ -3529,6 +3529,36 @@
             Stop Id. Unique identifier for this stop within the tour
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.Address">
+            <summary>
+            The address information of the stop
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.FuelStopInformation">
+            <summary>
+            Stop to refuel the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.WayPointInformation">
+            <summary>
+            Way point information of the tour
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.BorderCrossInformation">
+            <summary>
+            Information on border crossing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.LoadingInformation">
+            <summary>
+            Information about loading
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.UnloadingInformation">
+            <summary>
+            Information about unloading
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.TourFuelStopInformation">
             <summary>
             Stop to refuel. Stop to refuel the vehicle

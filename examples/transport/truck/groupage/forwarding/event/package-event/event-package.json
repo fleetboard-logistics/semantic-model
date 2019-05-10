@@ -1,5 +1,5 @@
 {
-    "$schema": "http://bastian-spaeth.de/conizi/package-event.json",
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
     "sender": {
         "ediId": "EMP4888"
     },
@@ -17,8 +17,8 @@
     "reportingPartner": {
         "partnerId": "4888",
         "name": "Empfangpartner AG"
-        },
-    "networkId": {
+    },
+    "network": {
         "codelist": "CL",
         "networkId": "CL",
         "product": "CL"
@@ -26,12 +26,11 @@
     "consignmentNoShippingPartner": "4711",
     "packageNo": "00342602109172309393",
     "deliveryReceiver": {
-        "eventDateTime": "2018-05-23 17:23:20",
-        "remarks": "Packstück kaputt",
+        "eventDateTime": "2018-05-23T17:23:20",
+        "remarks": "Package is damaged!",
         "packageType": "FP",
         "exceptions": {
-            "damaged": {
-            }
+            "damaged": {}
         }
     }
 }
