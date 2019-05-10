@@ -2028,9 +2028,7 @@
         }
       },
       "required": [
-        "stopId",
-        "loadingInformation",
-        "unloadingInformation"
+        "stopId"
       ],
       "patternProperties": {
         "x-.*": {},
