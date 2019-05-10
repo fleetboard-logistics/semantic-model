@@ -23,8 +23,8 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Start an automatic notification (i.e. automatic notification system via email or SMS)
         /// </summary>
-        [DisplayName("Automatic")]
-        [Description("Start an automatic notification (i.e. automatic notification system via email or SMS)")]
-        public bool? Automatic { get; set; }
+        //[DisplayName("Automatic")]
+        //[Description("Start an automatic notification (i.e. automatic notification system via email or SMS)")]
+        public EdiEmptyExtendableObject Automatic { get; set; }
     }
 }

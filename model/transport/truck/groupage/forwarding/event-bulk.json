@@ -2216,9 +2216,7 @@
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "automatic": {
-          "title": "Automatic",
-          "description": "Start an automatic notification (i.e. automatic notification system via email or SMS)",
-          "type": "boolean"
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
       "patternProperties": {
