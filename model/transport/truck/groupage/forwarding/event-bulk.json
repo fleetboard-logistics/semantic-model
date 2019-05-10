@@ -474,6 +474,32 @@
         "\\$.*": {}
       }
     },
+    "EdiEventCancellation": {
+      "title": "EdiEventCancellation",
+      "description": "Events indicating the cancellation of the consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiEventChangeRequest": {
       "title": "Change request",
       "description": "A new delivery term that should be considered for billing",
@@ -1975,7 +2001,7 @@
           "title": "New delivery date / time",
           "description": "The new date / time when the delivery will be performed",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "patternProperties": {
@@ -2447,6 +2473,9 @@
         },
         "changeRequest": {
           "$ref": "event-bulk.json#/definitions/EdiEventChangeRequest"
+        },
+        "cancellation": {
+          "$ref": "event-bulk.json#/definitions/EdiEventCancellation"
         },
         "originalEventCode": {
           "title": "Original event code",

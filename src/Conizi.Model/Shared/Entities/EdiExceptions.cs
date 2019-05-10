@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
@@ -974,6 +975,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("New delivery date / time")]
         [Description("The new date / time when the delivery will be performed")]
+        [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime NewDeliveryDate { get; set; }
     }
 

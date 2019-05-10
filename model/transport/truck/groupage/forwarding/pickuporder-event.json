@@ -987,7 +987,7 @@
           "title": "New delivery date / time",
           "description": "The new date / time when the delivery will be performed",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "patternProperties": {

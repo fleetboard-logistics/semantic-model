@@ -156,11 +156,6 @@
             Indicates if X- Properties should allowed. Default true
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiEventCancellation">
-            <summary>
-            Events indicating the cancellation of the consignment
-            </summary>
-        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiAddress">
             <summary>
             Fields to save address relevant data
@@ -1011,6 +1006,11 @@
         <member name="T:Conizi.Model.Shared.Entities.EdiEventArrivalAtReceiver">
             <summary>
             Events indicating the start of the delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiEventCancellation">
+            <summary>
+            Events indicating the cancellation of the consignment
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiEventChangeRequest">
@@ -2574,17 +2574,17 @@
             Use (null) to report successful forwarding the pickup order
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiPickupEdiEventCancellation">
+        <member name="T:Conizi.Model.Shared.Entities.EdiPickupCancellation">
             <summary>
             Events indicating the cancellation of the pickup order
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiPickupEdiEventCancellation.EdiEventCancellationBySourcePartner">
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupCancellation.CancellationBySourcePartner">
             <summary>
             The pick-up order was cancelled by the sender (customer)
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiPickupEdiEventCancellation.EdiEventCancellationByContractPartner">
+        <member name="P:Conizi.Model.Shared.Entities.EdiPickupCancellation.CancellationByContractPartner">
             <summary>
             The pick-up order was cancelled by the shipping partner (carrier)
             </summary>
@@ -4081,6 +4081,11 @@
             Events indicating new information that should be added/updated in the consignment
             </summary>
         </member>
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.Cancellation">
+            <summary>
+            Events indicating new information that should be added/updated in the consignment
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.ConsignmentEvent.OriginalEventCode">
             <summary>
             Original event code
@@ -4541,7 +4546,7 @@
             Events occurred while forwarding the pickup order to the receiving partner
             </summary>
         </member>
-        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.EdiEventCancellation">
+        <member name="P:Conizi.Model.Transport.Truck.Groupage.Forwarding.PickupOrderEvent.Cancellation">
             <summary>
             Events indicating the cancellation of the pickup order
             </summary>
