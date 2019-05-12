@@ -1,3 +1,7 @@
+---
+uid: articles.index
+---
+
 ## Getting Started with conizi semantic models
 
 The conizi semantic models describe all business objects that can be used on the conizi platform. 

@@ -1,0 +1,8 @@
+apiRules:
+- exclude:
+    uidRegex: ^System\.Object
+    type: Type
+- include:
+    uidRegex: ^Conizi\.Model\.Examples\.Archiving
+- exclude:
+    uidRegex: ^Conizi\.Model\.Examples

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Conizi.Model.Examples</name>
+    </assembly>
+    <members>
+        <member name="T:Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample">
+            <summary>
+            Simple example for Proof of Delivery
+            </summary>
+        </member>
+    </members>
+</doc>
