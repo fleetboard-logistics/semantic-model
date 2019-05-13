@@ -27,11 +27,8 @@ items:
   remarks: Not yet implemented, coming soon...
   example: []
   syntax:
-    content: 'public class Client : object'
-    content.vb: >-
-      Public Class Client
-
-          Inherits Object
+    content: public class Client
+    content.vb: Public Class Client
   inheritance:
   - System.Object
   modifiers.csharp:
@@ -46,3 +43,16 @@ references:
   name: Conizi.Model.Core.Tools
   nameWithType: Conizi.Model.Core.Tools
   fullName: Conizi.Model.Core.Tools
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

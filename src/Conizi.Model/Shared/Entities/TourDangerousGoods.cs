@@ -27,6 +27,6 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Total Point ADR")]
         [Description("Total Point to ADR")]
         [JsonProperty("totalPointADR")]
-        public decimal? TotalPointAdr { get; set; }
+        public int? TotalPointAdr { get; set; }
     }
 }

@@ -66,14 +66,29 @@ namespace Conizi.Model.Shared.Entities
         //[Description("The delivery is obscure")]
         public EdiEmptyExtendableObject DeliveryObscure { get; set; }
 
+        /// <summary>
+        ///  Signing Information
+        /// </summary>
         public EdiSigningInformation SigningInformation { get; set; }
 
+        /// <summary>
+        /// Release authorization received
+        /// </summary>
         public EdiReleaseAuthorizationReceived ReleaseAuthorizationReceived { get; set; }
 
-        public EdiRedirectedTo EdiRedirectedTo { get; set; }
+        /// <summary>
+        /// The consignment is redirected to...
+        /// </summary>
+        public EdiRedirectedTo RedirectedTo { get; set; }
 
+        /// <summary>
+        /// Documents have been archived
+        /// </summary>
         public EdiArchived Archived { get; set; }
 
+        /// <summary>
+        /// Consignment was disposed
+        /// </summary>
         public EdiDisposed Disposed { get; set; }
     }
 

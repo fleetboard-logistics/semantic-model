@@ -1190,6 +1190,31 @@
             The delivery is obscure
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.SigningInformation">
+            <summary>
+             Signing Information
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.ReleaseAuthorizationReceived">
+            <summary>
+            Release authorization received
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.RedirectedTo">
+            <summary>
+            The consignment is redirected to...
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.Archived">
+            <summary>
+            Documents have been archived
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNotificationEventExceptions.Disposed">
+            <summary>
+            Consignment was disposed
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiUnloadingExceptions">
             <summary>
             Detailed information about the exceptions that occurred while processing the consignment
