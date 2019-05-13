@@ -2385,7 +2385,7 @@
         "totalPointADR": {
           "title": "Total Point ADR",
           "description": "Total Point to ADR",
-          "type": "number"
+          "type": "integer"
         }
       }
     },

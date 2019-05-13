@@ -1050,7 +1050,7 @@
         "releaseAuthorizationReceived": {
           "$ref": "#/definitions/EdiReleaseAuthorizationReceived"
         },
-        "ediRedirectedTo": {
+        "redirectedTo": {
           "$ref": "#/definitions/EdiRedirectedTo"
         },
         "archived": {
