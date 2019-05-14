@@ -2406,17 +2406,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2546,17 +2535,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2681,17 +2659,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2805,17 +2772,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2860,17 +2816,6 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema",
-      "type": "string"
-    },
-    "$createdAt": {
-      "title": "Created at date",
-      "description": "The message was created at date",
-      "type": "string",
-      "format": "date-time"
-    },
-    "$createdBy": {
-      "title": "Created by generator",
-      "description": "The message was created by",
       "type": "string"
     },
     "receiver": {

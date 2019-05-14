@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
@@ -27,22 +28,7 @@ namespace Conizi.Model.Shared.Entities
         [Required]
         public string Schema { get; internal set; }
 
-        /// <summary>
-        /// The message was created at date
-        /// </summary>
-        [JsonProperty("$createdAt", Required = Required.DisallowNull, Order = -997)]
-        [DisplayName("Created at date")]
-        [Description("The message was created at date")]
-        public DateTime CreatedAt { get; internal set; }
-
-        /// <summary>
-        /// The message was created by
-        /// </summary>
-        [JsonProperty("$createdBy", Required = Required.DisallowNull, Order = -995)]
-        [DisplayName("Created by generator")]
-        [Description("The message was created by")]
-        public string CreatedBy { get; internal set; }
-
+      
         /// <summary>
         /// The receiver of this message
         /// </summary>
@@ -68,5 +54,10 @@ namespace Conizi.Model.Shared.Entities
         [JsonProperty("network", Required = Required.DisallowNull, Order = -990)]
         public EdiNetwork Network { get; set; }
 
+        /// <summary>
+        /// Metadata for conizi routing etc. (Not be shown in Model definition)
+        /// </summary>
+        [JsonProperty("$metadata", Required = Required.DisallowNull)]
+        public EdiMetadata Metadata { get; set; }
     }
 }

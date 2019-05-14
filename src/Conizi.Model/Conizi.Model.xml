@@ -135,6 +135,25 @@
             <inheritdoc cref="T:Newtonsoft.Json.JsonConverter"/>
             </summary>
         </member>
+        <member name="T:Conizi.Model.Extensions.SchemaExtensions">
+            <summary>
+            Extensions for schema and models
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Extensions.SchemaExtensions.AddOrUpdateMetadata(Conizi.Model.Shared.Entities.EdiModel,Conizi.Model.Shared.Entities.EdiMetadata)">
+            <summary>
+            Add or update conizi metadata on model instance
+            </summary>
+            <param name="model">The model</param>
+            <param name="metadata">The metadata object</param>
+        </member>
+        <member name="M:Conizi.Model.Extensions.SchemaExtensions.GetMetadata(Conizi.Model.Shared.Entities.EdiModel)">
+            <summary>
+            Get Metadata from model instance
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="T:Conizi.Model.Shared.Attributes.ConiziAdditionalPropertiesAttribute">
             <summary>
             Indicates if Additional Properties should allowed. Default is false
@@ -2189,6 +2208,51 @@
             Total height (m)
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiMetadata">
+            <summary>
+            Addition conizi metadata for Routing purposes
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMetadata.Sender">
+            <summary>
+            The main sender
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMetadata.Receiver">
+            <summary>
+            The main receiver
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMetadata.TechnicalSender">
+            <summary>
+            The forwarder (Customer of App or Service)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMetadata.CreatedAt">
+            <summary>
+            The message was created at date
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMetadata.CreatedBy">
+            <summary>
+            The message was created by
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiMetadataEntity">
+            <summary>
+            Entity to use with conizi <see cref="T:Conizi.Model.Shared.Entities.EdiMetadata"/> 
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMetadataEntity.Tenant">
+            <summary>
+            The conizi id of the tenant
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiMetadataEntity.Party">
+            <summary>
+            The conizi id of the party
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiModel">
             <summary>
             Base model in the conizi context
@@ -2205,16 +2269,6 @@
              Please use the production branch to get a stable version.
              </remarks>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiModel.CreatedAt">
-            <summary>
-            The message was created at date
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiModel.CreatedBy">
-            <summary>
-            The message was created by
-            </summary>
-        </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiModel.Receiver">
             <summary>
             The receiver of this message
@@ -2228,6 +2282,11 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiModel.Network">
             <summary>
             The used network for this message
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiModel.Metadata">
+            <summary>
+            Metadata for conizi routing etc. (Not be shown in Model definition)
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiNotifications">

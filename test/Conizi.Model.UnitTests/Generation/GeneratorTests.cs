@@ -125,7 +125,6 @@ namespace Conizi.Model.UnitTests.Generation
             Assert.NotNull(schema);
         }
 
-
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
         public void GenerateTestModel_AssertValidDateFormats()
@@ -141,6 +140,21 @@ namespace Conizi.Model.UnitTests.Generation
             Assert.Equal("date", schema.Properties["testDateOnly"].Format);
             Assert.Equal("time", schema.Properties["testTimeOnly"].Format);
         }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void GenerateTestModel_AssertNoMedadataAfterGeneration()
+        {
+
+            var result = Generator.Generate<TestModel>();
+
+            Assert.IsType<GenerationResult>(result);
+
+            Assert.NotNull(result.ToString());
+
+            Assert.DoesNotContain("$metadata", result.ToString());
+        }
+
 
         [Fact(Skip = "Not longer used! (at the moment)")]
         [Trait("Category", TraitCategory.UNIT_TEST)]

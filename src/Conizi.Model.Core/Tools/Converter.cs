@@ -5,10 +5,12 @@ using System.Reflection;
 using System.Threading;
 using Conizi.Model.Core.Converters;
 using Conizi.Model.Core.Entities;
+using Conizi.Model.Extensions;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
 namespace Conizi.Model.Core.Tools
@@ -63,10 +65,15 @@ namespace Conizi.Model.Core.Tools
                 model.Schema = schemaAttribute.Id;
 
             var settings = SerializerSettings;
-            model.CreatedAt = DateTime.Now;
-            model.CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")";
+
+            model.AddOrUpdateMetadata(new EdiMetadata
+            {
+                CreatedAt = DateTime.Now,
+                CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")",
+            });
 
             var jsonString = JsonConvert.SerializeObject(model, settings);
+
 
             var conversionResult = new SerializationResult
             {
