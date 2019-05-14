@@ -7,9 +7,9 @@ items:
   children:
   - Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
   - Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)
-  - Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,IList{System.String}@)
-  - Conizi.Model.Core.Tools.Validator.ValidateSchema(Type,System.String,IList{System.String}@)
-  - Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,IList{System.String}@)
+  - Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)
+  - Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)
+  - Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,System.Collections.Generic.IList{System.String}@)
   langs:
   - csharp
   - vb
@@ -32,11 +32,8 @@ items:
   remarks: You can use this <a href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</a> for free in a small context, to validate a huge amount of messages, you must buy a license.
   example: []
   syntax:
-    content: 'public class Validator : object'
-    content.vb: >-
-      Public Class Validator
-
-          Inherits Object
+    content: public class Validator
+    content.vb: Public Class Validator
   inheritance:
   - System.Object
   modifiers.csharp:
@@ -114,26 +111,29 @@ items:
       type: System.String
       description: JSON message as string
     return:
-      type: Type
+      type: System.Type
       description: Type of the used model/class
     content.vb: Public Shared Function ParseModel(jsonMessage As String) As Type
   overload: Conizi.Model.Core.Tools.Validator.ParseModel*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
   modifiers.csharp:
   - public
   - static
   modifiers.vb:
   - Public
   - Shared
-- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,IList{System.String}@)
-  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,IList{System.String}@)
-  id: ValidateSchema(System.String,IList{System.String}@)
+- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)
+  id: ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)
   parent: Conizi.Model.Core.Tools.Validator
   langs:
   - csharp
   - vb
   name: ValidateSchema(String, out IList<String>)
   nameWithType: Validator.ValidateSchema(String, out IList<String>)
-  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String, out IList<System.String>)
+  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String, out System.Collections.Generic.IList<System.String>)
   type: Method
   source:
     remote:
@@ -155,7 +155,7 @@ items:
       type: System.String
       description: JSON message as string
     - id: validationErrors
-      type: IList{System.String}
+      type: System.Collections.Generic.IList{System.String}
       description: Possible validation errors as list of strings
     return:
       type: Conizi.Model.Core.Entities.ValidationResult
@@ -169,18 +169,18 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String, ByRef IList(Of System.String))
+  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String, ByRef System.Collections.Generic.IList(Of System.String))
   name.vb: ValidateSchema(String, ByRef IList(Of String))
-- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,IList{System.String}@)
-  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,IList{System.String}@)
-  id: ValidateSchema``1(System.String,IList{System.String}@)
+- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,System.Collections.Generic.IList{System.String}@)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,System.Collections.Generic.IList{System.String}@)
+  id: ValidateSchema``1(System.String,System.Collections.Generic.IList{System.String}@)
   parent: Conizi.Model.Core.Tools.Validator
   langs:
   - csharp
   - vb
   name: ValidateSchema<TModel>(String, out IList<String>)
   nameWithType: Validator.ValidateSchema<TModel>(String, out IList<String>)
-  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema<TModel>(System.String, out IList<System.String>)
+  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema<TModel>(System.String, out System.Collections.Generic.IList<System.String>)
   type: Method
   source:
     remote:
@@ -202,7 +202,7 @@ items:
       type: System.String
       description: JSON message as string
     - id: validationErrors
-      type: IList{System.String}
+      type: System.Collections.Generic.IList{System.String}
       description: Possible validation errors as list of strings
     typeParameters:
     - id: TModel
@@ -218,18 +218,18 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(Of TModel)(System.String, ByRef IList(Of System.String))
+  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(Of TModel)(System.String, ByRef System.Collections.Generic.IList(Of System.String))
   name.vb: ValidateSchema(Of TModel)(String, ByRef IList(Of String))
-- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema(Type,System.String,IList{System.String}@)
-  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema(Type,System.String,IList{System.String}@)
-  id: ValidateSchema(Type,System.String,IList{System.String}@)
+- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)
+  id: ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)
   parent: Conizi.Model.Core.Tools.Validator
   langs:
   - csharp
   - vb
   name: ValidateSchema(Type, String, out IList<String>)
   nameWithType: Validator.ValidateSchema(Type, String, out IList<String>)
-  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema(Type, System.String, out IList<System.String>)
+  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type, System.String, out System.Collections.Generic.IList<System.String>)
   type: Method
   source:
     remote:
@@ -248,13 +248,13 @@ items:
     content: public static ValidationResult ValidateSchema(Type model, string jsonMessage, out IList<string> validationErrors)
     parameters:
     - id: model
-      type: Type
+      type: System.Type
       description: Type of the used C# model
     - id: jsonMessage
       type: System.String
       description: JSON message as string
     - id: validationErrors
-      type: IList{System.String}
+      type: System.Collections.Generic.IList{System.String}
       description: Possible validation errors as list of strings
     return:
       type: Conizi.Model.Core.Entities.ValidationResult
@@ -268,7 +268,7 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(Type, System.String, ByRef IList(Of System.String))
+  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type, System.String, ByRef System.Collections.Generic.IList(Of System.String))
   name.vb: ValidateSchema(Type, String, ByRef IList(Of String))
 references:
 - uid: Conizi.Model.Core.Tools
@@ -276,26 +276,46 @@ references:
   name: Conizi.Model.Core.Tools
   nameWithType: Conizi.Model.Core.Tools
   fullName: Conizi.Model.Core.Tools
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense*
   commentId: Overload:Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense
   name: RegisterJsonSchemaLicense
   nameWithType: Validator.RegisterJsonSchemaLicense
   fullName: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
 - uid: Conizi.Model.Core.Tools.Validator.ParseModel*
   commentId: Overload:Conizi.Model.Core.Tools.Validator.ParseModel
   name: ParseModel
   nameWithType: Validator.ParseModel
   fullName: Conizi.Model.Core.Tools.Validator.ParseModel
-- uid: Type
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
   isExternal: true
   name: Type
   nameWithType: Type
-  fullName: Type
+  fullName: System.Type
 - uid: Conizi.Model.Core.Entities.ValidationResult
   commentId: T:Conizi.Model.Core.Entities.ValidationResult
   parent: Conizi.Model.Core.Entities
@@ -307,20 +327,21 @@ references:
   name: ValidateSchema
   nameWithType: Validator.ValidateSchema
   fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema
-- uid: IList{System.String}
-  commentId: '!:IList{System.String}'
-  definition: IList`1
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
   name: IList<String>
   nameWithType: IList<String>
-  fullName: IList<System.String>
+  fullName: System.Collections.Generic.IList<System.String>
   nameWithType.vb: IList(Of String)
-  fullName.vb: IList(Of System.String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
   name.vb: IList(Of String)
   spec.csharp:
-  - uid: IList`1
+  - uid: System.Collections.Generic.IList`1
     name: IList
     nameWithType: IList
-    fullName: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -334,10 +355,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IList`1
+  - uid: System.Collections.Generic.IList`1
     name: IList
     nameWithType: IList
-    fullName: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -355,41 +376,48 @@ references:
   name: Conizi.Model.Core.Entities
   nameWithType: Conizi.Model.Core.Entities
   fullName: Conizi.Model.Core.Entities
-- uid: IList`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: IList<>
-  nameWithType: IList<>
-  fullName: IList<>
-  nameWithType.vb: IList(Of )
-  fullName.vb: IList(Of )
-  name.vb: IList(Of )
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: IList`1
+  - uid: System.Collections.Generic.IList`1
     name: IList
     nameWithType: IList
-    fullName: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IList`1
+  - uid: System.Collections.Generic.IList`1
     name: IList
     nameWithType: IList
-    fullName: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

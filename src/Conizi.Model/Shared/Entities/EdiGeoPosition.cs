@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -52,5 +55,34 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Record time")]
         [Description("Time the GPS record was created")]
         public DateTimeOffset RecordTime { get; set; }
+
+        /// <summary>
+        /// GeoRadius on which this GeoPosition is considered as in range
+        /// </summary>
+        public EdiGeoRadius GeoRadius { get; set; }
+
+        /// <summary>
+        /// GeoRadius on which this GeoPosition is considered as in range containing measurement unit an the distance
+        /// </summary>
+        [DisplayName("GeoRadius for the accuracy")]
+        [Description("GeoRadius that describes when a Position is considered as in range")]
+        public class EdiGeoRadius
+        {
+            /// <summary>
+            /// GeoRadius on which this GeoPosition is considered as in range
+            /// </summary>
+            [DisplayName("GeoRadius for the Coordinates")]
+            [Description("GeoRadius that extends the range of the coordinates")]
+            public double? Radius { get; set; }
+
+            /// <summary>
+            /// Code that describes the unit in which the radius is measured
+            /// </summary>
+            [DisplayName("Unit Code for GeoRadius")]
+            [Description("Code that describes the unit in which the radius is measured")]
+            public MeasurementUnitCode? RadiusMeasurementUnitCode { get; set; }
+        }
+
+
     }
 }

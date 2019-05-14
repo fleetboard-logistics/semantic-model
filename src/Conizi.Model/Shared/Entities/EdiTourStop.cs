@@ -7,17 +7,16 @@ using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
-{/// <summary>
- /// Stop for delivering. Stop for delivering the actual goods
- /// </summary>
+{
+    /// <summary>
+    /// Stop for delivering. Stop for delivering the actual goods
+    /// </summary>
     [DisplayName("Stop for delivering")]
     [Description("Stop for delivering the actual goods")]
-    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class EdiTourStop
     {
-
         /// <summary>
         /// Stop number. The whole of the stop numbers in the right order defines the order of the stops
         /// </summary>
@@ -64,6 +63,12 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [JsonProperty(Required = Required.DisallowNull)]
         public TourUnloadingInformation UnloadingInformation { get; set; }
+
+        /// <summary>
+        /// Navigation information between two partners. Usually used in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" />
+        /// to extend the stops in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" /> with necessary information for the navigation on the yard (last mile)
+        /// </summary>
+        public List<EdiYardNavigationInformation> YardNavigationInformation { get; set; }
     }
 
     /// <summary>
@@ -71,12 +76,10 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Stop to refuel")]
     [Description("Stop to refuel the vehicle")]
-    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourFuelStopInformation : TourInformation
     {
-
     }
 
     /// <summary>
@@ -84,7 +87,6 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Way Point Information")]
     [Description("Way point information of the tour")]
-    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourWayPointInformation : TourFuelStopInformation
@@ -101,12 +103,10 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Border cross information")]
     [Description("Information on border crossing")]
-    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourBorderCrossInformation : TourInformation
     {
-
     }
 
     /// <summary>
@@ -114,7 +114,6 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Loading information")]
     [Description("Information about loading")]
-    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourLoadingInformation : TourInformation
@@ -127,8 +126,7 @@ namespace Conizi.Model.Shared.Entities
         [Required]
         public List<string> ConsignmentObjectIds { get; set; }
 
-        [JsonProperty("bookedTimeslots")]
-        public List<TourBookedTimeSlot> BookedTimeSlots { get; set; }
+        [JsonProperty("bookedTimeslots")] public List<TourBookedTimeSlot> BookedTimeSlots { get; set; }
 
         /// <summary>
         /// Booked time slot for the tour
@@ -143,7 +141,6 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Unloading information")]
     [Description("Information about unloading")]
-    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourUnloadingInformation : TourInformation
@@ -155,16 +152,14 @@ namespace Conizi.Model.Shared.Entities
         [Description("References to the consignments, depending on this stop")]
         public List<string> ConsignmentObjectIds { get; set; }
 
-        [JsonProperty("bookedTimeslots")]
-        public List<TourBookedTimeSlot> BookedTimeSlots { get; set; }
-        
+        [JsonProperty("bookedTimeslots")] public List<TourBookedTimeSlot> BookedTimeSlots { get; set; }
+
         /// <summary>
         /// Booked time slot for the tour
         /// </summary>
         [DisplayName("Booked Time Slots")]
         [Description("Booked time slots for the tour")]
         public List<TourWorkingHours> WorkingHours { get; set; }
-   
     }
 
     public class TourInformation : EdiPatternPropertiesBase
@@ -210,12 +205,10 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Booked Time Slots")]
     [Description("Booked time slots for the tour")]
-    
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     public class TourBookedTimeSlot : TourWorkingHours
     {
-     
         /// <summary>
         /// Gate to use
         /// </summary>
@@ -230,7 +223,6 @@ namespace Conizi.Model.Shared.Entities
     }
 
 
-    
     public class TourWorkingHours : EdiPatternPropertiesBase
     {
         /// <summary>
@@ -244,6 +236,5 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Until Date Time")]
         public DateTime UntilDateTime { get; set; }
-
     }
 }
