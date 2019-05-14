@@ -34,8 +34,11 @@ items:
   summary: "\nThe result object of a model generation by the <xref href=\"Conizi.Model.Core.Tools.Generator\" data-throw-if-not-resolved=\"false\"></xref>\n"
   example: []
   syntax:
-    content: public class GenerationResult
-    content.vb: Public Class GenerationResult
+    content: 'public class GenerationResult : object'
+    content.vb: >-
+      Public Class GenerationResult
+
+          Inherits Object
   inheritance:
   - System.Object
   modifiers.csharp:
@@ -69,22 +72,12 @@ items:
   summary: "\nThe schema Id\n"
   example: []
   syntax:
-    content: >-
-      [Required]
-
-      public string Id { get; set; }
+    content: public string Id { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: >-
-      <Required>
-
-      Public Property Id As String
+    content.vb: Public Property Id As String
   overload: Conizi.Model.Core.Entities.GenerationResult.Id*
-  attributes:
-  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
-    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
-    arguments: []
   modifiers.csharp:
   - public
   - get
@@ -264,22 +257,12 @@ items:
   summary: "\nThe version was used to generate the schema\n"
   example: []
   syntax:
-    content: >-
-      [Required]
-
-      public string Version { get; set; }
+    content: public string Version { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: >-
-      <Required>
-
-      Public Property Version As String
+    content.vb: Public Property Version As String
   overload: Conizi.Model.Core.Entities.GenerationResult.Version*
-  attributes:
-  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
-    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
-    arguments: []
   modifiers.csharp:
   - public
   - get
@@ -311,22 +294,12 @@ items:
   summary: "\nThe schema as JSchema\n"
   example: []
   syntax:
-    content: >-
-      [Required]
-
-      public JSchema JSchema { get; set; }
+    content: public JSchema JSchema { get; set; }
     parameters: []
     return:
-      type: Newtonsoft.Json.Schema.JSchema
-    content.vb: >-
-      <Required>
-
-      Public Property JSchema As JSchema
+      type: JSchema
+    content.vb: Public Property JSchema As JSchema
   overload: Conizi.Model.Core.Entities.GenerationResult.JSchema*
-  attributes:
-  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
-    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
-    arguments: []
   modifiers.csharp:
   - public
   - get
@@ -363,7 +336,6 @@ items:
       type: System.String
       description: ''
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Conizi.Model.Core.Entities.GenerationResult.ToString*
   modifiers.csharp:
   - public
@@ -382,27 +354,12 @@ references:
   name: Conizi.Model.Core.Entities
   nameWithType: Conizi.Model.Core.Entities
   fullName: Conizi.Model.Core.Entities
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Conizi.Model.Core.Entities.GenerationResult.Id*
   commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.Id
   name: Id
   nameWithType: GenerationResult.Id
   fullName: Conizi.Model.Core.Entities.GenerationResult.Id
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -437,50 +394,12 @@ references:
   name: JSchema
   nameWithType: GenerationResult.JSchema
   fullName: Conizi.Model.Core.Entities.GenerationResult.JSchema
-- uid: Newtonsoft.Json.Schema.JSchema
-  commentId: T:Newtonsoft.Json.Schema.JSchema
-  parent: Newtonsoft.Json.Schema
+- uid: JSchema
+  commentId: '!:JSchema'
   isExternal: true
   name: JSchema
   nameWithType: JSchema
-  fullName: Newtonsoft.Json.Schema.JSchema
-- uid: Newtonsoft.Json.Schema
-  commentId: N:Newtonsoft.Json.Schema
-  isExternal: true
-  name: Newtonsoft.Json.Schema
-  nameWithType: Newtonsoft.Json.Schema
-  fullName: Newtonsoft.Json.Schema
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
+  fullName: JSchema
 - uid: Conizi.Model.Core.Entities.GenerationResult.ToString*
   commentId: Overload:Conizi.Model.Core.Entities.GenerationResult.ToString
   name: ToString
