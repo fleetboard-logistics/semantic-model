@@ -158,7 +158,7 @@
         </member>
         <member name="T:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode">
             <summary>
-            Determines how the current message should be handled, e.g. whether the stops / consignments should be added removed, ..."
+            Determines how the current message should be handled, e.g. whether the stops / consignments should be added removed, ...
             </summary>
         </member>
         <member name="F:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode.Add">
@@ -3679,6 +3679,12 @@
             Information about unloading
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiTourStop.YardNavigationInformation">
+            <summary>
+            Navigation information between two partners. Usually used in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" />
+            to extend the stops in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" /> with necessary information for the navigation on the yard (last mile)
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.TourFuelStopInformation">
             <summary>
             Stop to refuel. Stop to refuel the vehicle
@@ -3930,22 +3936,22 @@
             The current calculated estimated arrival time (ETA)
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiYardNavigation">
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardNavigationInformation">
             <summary>
             A single Navigation between two partners. Usually used in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" /> to extend the stops in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" /> with necessary information for the navigation on the yard (last mile)
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigation.SequenceNumber">
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigationInformation.SequenceNumber">
             <summary>
             Number which defines the sequence of the Navigation
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigation.Instruction">
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigationInformation.Instruction">
             <summary>
             Instruction with a checkpoint on the route that the driver has to follow.
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigation.Status">
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigationInformation.Status">
             <summary>
             StatusCode that gets sent back when this position in the sequence is hit, usually with a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent" />
             </summary>
@@ -3967,7 +3973,7 @@
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiYardInstruction">
             <summary>
-            An Instruction for the driver. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiYardNavigation" />
+            An Instruction for the driver. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiYardNavigationInformation" />
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.TextInstruction">

@@ -5,7 +5,7 @@ using Conizi.Model.Shared.Attributes;
 namespace Conizi.Model.Shared.Definitions
 {
     /// <summary>
-    /// Determines how the current message should be handled, e.g. whether the stops / consignments should be added removed, ..."
+    /// Determines how the current message should be handled, e.g. whether the stops / consignments should be added removed, ...
     /// </summary>
     [Description(
         "Determines how the current message should be handled, e.g. whether the stops / consignments should be added removed, ...")]

@@ -16,7 +16,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("A single Yard Navigation which contains either an instruction or a status")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties(false)]
-    public class EdiYardNavigation
+    public class EdiYardNavigationInformation
     {
         /// <summary>
         /// Number which defines the sequence of the Navigation
@@ -61,7 +61,7 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
-    /// An Instruction for the driver. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiYardNavigation" />
+    /// An Instruction for the driver. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiYardNavigationInformation" />
     /// </summary>
     [DisplayName("Instruction for the driver")]
     [Description("Yard Instruction contains a Text Instruction and/or a Route with a gpx base64 file")]
