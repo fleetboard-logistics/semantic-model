@@ -1,0 +1,40 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Tools
+  commentId: N:Conizi.Model.Core.Tools
+  id: Conizi.Model.Core.Tools
+  children:
+  - Conizi.Model.Core.Tools.Client
+  - Conizi.Model.Core.Tools.Converter
+  - Conizi.Model.Core.Tools.Generator
+  - Conizi.Model.Core.Tools.Validator
+  langs:
+  - csharp
+  - vb
+  name: Conizi.Model.Core.Tools
+  nameWithType: Conizi.Model.Core.Tools
+  fullName: Conizi.Model.Core.Tools
+  type: Namespace
+  assemblies:
+  - Conizi.Model.Core
+references:
+- uid: Conizi.Model.Core.Tools.Client
+  commentId: T:Conizi.Model.Core.Tools.Client
+  name: Client
+  nameWithType: Client
+  fullName: Conizi.Model.Core.Tools.Client
+- uid: Conizi.Model.Core.Tools.Converter
+  commentId: T:Conizi.Model.Core.Tools.Converter
+  name: Converter
+  nameWithType: Converter
+  fullName: Conizi.Model.Core.Tools.Converter
+- uid: Conizi.Model.Core.Tools.Generator
+  commentId: T:Conizi.Model.Core.Tools.Generator
+  name: Generator
+  nameWithType: Generator
+  fullName: Conizi.Model.Core.Tools.Generator
+- uid: Conizi.Model.Core.Tools.Validator
+  commentId: T:Conizi.Model.Core.Tools.Validator
+  name: Validator
+  nameWithType: Validator
+  fullName: Conizi.Model.Core.Tools.Validator

@@ -1,0 +1,36 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
+    "sender": {
+        "ediId": "EMP4888"
+    },
+    "receiver": {
+        "ediId": "VER4999"
+    },
+    "shippingPartner": {
+        "partnerId": "4999",
+        "name": "Versandparter GmbH"
+    },
+    "receivingPartner": {
+        "partnerId": "4888",
+        "name": "Empfangpartner AG"
+    },
+    "reportingPartner": {
+        "partnerId": "4888",
+        "name": "Empfangpartner AG"
+    },
+    "network": {
+        "codelist": "CL",
+        "networkId": "CL",
+        "product": "CL"
+    },
+    "consignmentNoShippingPartner": "4711",
+    "packageNo": "00342602109172309393",
+    "deliveryReceiver": {
+        "eventDateTime": "2018-05-23T17:23:20",
+        "remarks": "Package is damaged!",
+        "packageType": "FP",
+        "exceptions": {
+            "damaged": {}
+        }
+    }
+}

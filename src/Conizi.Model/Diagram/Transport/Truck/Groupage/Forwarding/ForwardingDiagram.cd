@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">
+    <Position X="0.75" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>oAAgEAAAAgJQCAAAAAYAAAAgAAAQAAACAAAAEACBABA=</HashCode>
+      <FileName>Transport\Truck\Groupage\Forwarding\Consignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Conizi.Model.Shared.Entities.EdiDocument">
+    <Position X="5.25" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAAAAAAAAAAAAAAAAEAAAGAAAAAAAAAAQIAAA=</HashCode>
+      <FileName>Shared\Entities\EdiDocument.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour">
+    <Position X="9" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Transport\Truck\Groupage\Forwarding\Tour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Conizi.Model.Transport.Truck.Groupage.Forwarding.Manifest">
+    <Position X="4.5" Y="5.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>IAAwAgAAAABAgAAAAAAAAAAAAAAAAAACAAAAFACDAAA=</HashCode>
+      <FileName>Transport\Truck\Groupage\Forwarding\Manifest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,202 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Tools.Converter
+  commentId: T:Conizi.Model.Core.Tools.Converter
+  id: Converter
+  parent: Conizi.Model.Core.Tools
+  children:
+  - Conizi.Model.Core.Tools.Converter.Deserialize``1(System.String)
+  - Conizi.Model.Core.Tools.Converter.Serialize``1(``0,System.Boolean,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: Converter
+  nameWithType: Converter
+  fullName: Conizi.Model.Core.Tools.Converter
+  type: Class
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Converter.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Converter
+    path: ../src/Conizi.Model.Core/Tools/Converter.cs
+    startLine: 18
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nThe converter is used to serialize a C# conizi model to JSON or deserialize JSON to a C# model\n"
+  example: []
+  syntax:
+    content: 'public static class Converter : object'
+    content.vb: >-
+      Public Module Converter
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Conizi.Model.Core.Tools.Converter.Serialize``1(``0,System.Boolean,System.Boolean)
+  commentId: M:Conizi.Model.Core.Tools.Converter.Serialize``1(``0,System.Boolean,System.Boolean)
+  id: Serialize``1(``0,System.Boolean,System.Boolean)
+  parent: Conizi.Model.Core.Tools.Converter
+  langs:
+  - csharp
+  - vb
+  name: Serialize<TModel>(TModel, Boolean, Boolean)
+  nameWithType: Converter.Serialize<TModel>(TModel, Boolean, Boolean)
+  fullName: Conizi.Model.Core.Tools.Converter.Serialize<TModel>(TModel, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Converter.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Serialize
+    path: ../src/Conizi.Model.Core/Tools/Converter.cs
+    startLine: 53
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nSerialize a C# model instance to JSON\n"
+  example:
+  - "\nSerialize a model instance to JSON.\n<pre><code>var result = Converter.Serialize(m);</code></pre>\n"
+  syntax:
+    content: >-
+      public static SerializationResult Serialize<TModel>(TModel model, bool indented = false, bool ignoreValidation = false)
+
+          where TModel : EdiModel
+    parameters:
+    - id: model
+      type: '{TModel}'
+      description: The instance of the model, should be serialized
+    - id: indented
+      type: System.Boolean
+      description: Should the content well formatted?
+    - id: ignoreValidation
+      type: System.Boolean
+      description: Ignore the validation after serialization. May be helpful if no JSON Schema license is available
+    typeParameters:
+    - id: TModel
+      description: The model type should be serialized
+    return:
+      type: Conizi.Model.Core.Entities.SerializationResult
+      description: Instance of <xref href="Conizi.Model.Core.Entities.SerializationResult" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function Serialize(Of TModel As EdiModel)(model As TModel, indented As Boolean = False, ignoreValidation As Boolean = False) As SerializationResult
+  overload: Conizi.Model.Core.Tools.Converter.Serialize*
+  nameWithType.vb: Converter.Serialize(Of TModel)(TModel, Boolean, Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Conizi.Model.Core.Tools.Converter.Serialize(Of TModel)(TModel, System.Boolean, System.Boolean)
+  name.vb: Serialize(Of TModel)(TModel, Boolean, Boolean)
+- uid: Conizi.Model.Core.Tools.Converter.Deserialize``1(System.String)
+  commentId: M:Conizi.Model.Core.Tools.Converter.Deserialize``1(System.String)
+  id: Deserialize``1(System.String)
+  parent: Conizi.Model.Core.Tools.Converter
+  langs:
+  - csharp
+  - vb
+  name: Deserialize<TModel>(String)
+  nameWithType: Converter.Deserialize<TModel>(String)
+  fullName: Conizi.Model.Core.Tools.Converter.Deserialize<TModel>(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Converter.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Deserialize
+    path: ../src/Conizi.Model.Core/Tools/Converter.cs
+    startLine: 98
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nDeserialize a JSON file to an instance of a C# model.\n"
+  example:
+  - "\nDeserialize JSON to C# <xref href=\"Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent\" data-throw-if-not-resolved=\"false\"></xref> model instance.\n<pre><code>var m = Converter.Deserialize&lt;TourEvent>(content);</code></pre>\n"
+  syntax:
+    content: >-
+      public static TModel Deserialize<TModel>(string json)
+
+          where TModel : EdiModel
+    parameters:
+    - id: json
+      type: System.String
+      description: The JSON content as string
+    typeParameters:
+    - id: TModel
+      description: The target C# model in which the JSON is to be deserialized
+    return:
+      type: '{TModel}'
+      description: Instance of the set model type
+    content.vb: Public Shared Function Deserialize(Of TModel As EdiModel)(json As String) As TModel
+  overload: Conizi.Model.Core.Tools.Converter.Deserialize*
+  nameWithType.vb: Converter.Deserialize(Of TModel)(String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Conizi.Model.Core.Tools.Converter.Deserialize(Of TModel)(System.String)
+  name.vb: Deserialize(Of TModel)(String)
+references:
+- uid: Conizi.Model.Core.Tools
+  commentId: N:Conizi.Model.Core.Tools
+  name: Conizi.Model.Core.Tools
+  nameWithType: Conizi.Model.Core.Tools
+  fullName: Conizi.Model.Core.Tools
+- uid: Conizi.Model.Core.Entities.SerializationResult
+  commentId: T:Conizi.Model.Core.Entities.SerializationResult
+  parent: Conizi.Model.Core.Entities
+  name: SerializationResult
+  nameWithType: SerializationResult
+  fullName: Conizi.Model.Core.Entities.SerializationResult
+- uid: Conizi.Model.Core.Tools.Converter.Serialize*
+  commentId: Overload:Conizi.Model.Core.Tools.Converter.Serialize
+  name: Serialize
+  nameWithType: Converter.Serialize
+  fullName: Conizi.Model.Core.Tools.Converter.Serialize
+- uid: '{TModel}'
+  commentId: '!:TModel'
+  definition: TModel
+  name: TModel
+  nameWithType: TModel
+  fullName: TModel
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Conizi.Model.Core.Entities
+  commentId: N:Conizi.Model.Core.Entities
+  name: Conizi.Model.Core.Entities
+  nameWithType: Conizi.Model.Core.Entities
+  fullName: Conizi.Model.Core.Entities
+- uid: TModel
+  name: TModel
+  nameWithType: TModel
+  fullName: TModel
+- uid: Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent
+  commentId: T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent
+  isExternal: true
+- uid: Conizi.Model.Core.Tools.Converter.Deserialize*
+  commentId: Overload:Conizi.Model.Core.Tools.Converter.Deserialize
+  name: Deserialize
+  nameWithType: Converter.Deserialize
+  fullName: Conizi.Model.Core.Tools.Converter.Deserialize
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

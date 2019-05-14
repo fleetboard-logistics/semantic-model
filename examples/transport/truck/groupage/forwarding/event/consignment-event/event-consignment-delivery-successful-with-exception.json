@@ -1,0 +1,27 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
+    "sender": {
+        "ediId": "SCHAESW"
+    },
+    "receiver": {
+        "ediId": "KOCHMBH"
+    },
+    "shippingPartner": {
+        "partnerId": "1234"
+    },
+    "receivingPartner": {
+        "partnerId": "4321"
+    },
+    "reportingPartner": {
+        "partnerId": "4321"
+    },
+    "consignmentNoShippingPartner": "1234567890",
+    "consignmentNoReceivingPartner": "1234567890",
+    "deliverySuccessful": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "incomplete": {}
+        },
+        "remarks": "1 Package missing"
+    }
+}

@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Examples.Archiving
+  commentId: N:Conizi.Model.Examples.Archiving
+  id: Conizi.Model.Examples.Archiving
+  children:
+  - Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample
+  langs:
+  - csharp
+  - vb
+  name: Conizi.Model.Examples.Archiving
+  nameWithType: Conizi.Model.Examples.Archiving
+  fullName: Conizi.Model.Examples.Archiving
+  type: Namespace
+  assemblies:
+  - Conizi.Model.Examples
+references:
+- uid: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample
+  commentId: T:Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample
+  name: ProofOfDeliverySimpleExample
+  nameWithType: ProofOfDeliverySimpleExample
+  fullName: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample

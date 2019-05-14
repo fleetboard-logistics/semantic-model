@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Conizi.Model.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Conizi.Model.Core.Entities.ConverterResult">
+            <summary>
+            The base result class for converter related stuff.
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.ConverterResult.ValidationErrors">
+            <summary>
+            A list of validation errors
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.ConverterResult.Model">
+            <summary>
+            The type of the model was used during the processing
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors">
+            <summary>
+            Validation errors available
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.ConverterResult.Content">
+            <summary>
+            The content/result of the operation as string
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.ConverterResult.Schema">
+            <summary>
+            The JSON definition of the involved schema
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.ConverterResult.File">
+            <summary>
+            Filename or path of file was processed
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Core.Entities.GenerationResult">
+            <summary>
+            The result object of a model generation by the <see cref="T:Conizi.Model.Core.Tools.Generator"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.GenerationResult.Id">
+            <summary>
+            The schema Id
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.GenerationResult.Title">
+            <summary>
+            The schema title
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.GenerationResult.Description">
+            <summary>
+            The schema description
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.GenerationResult.File">
+            <summary>
+            The file the schema was stored
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.GenerationResult.Model">
+            <summary>
+            The model used to generate the schema
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.GenerationResult.Version">
+            <summary>
+            The version was used to generate the schema
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.GenerationResult.JSchema">
+            <summary>
+            The schema as JSchema
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Core.Entities.GenerationResult.ToString">
+            <summary>
+            The content of the generated schema as string. Generated in JSON Schema Draft 6 as default.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Conizi.Model.Core.Entities.SerializationResult">
+            <summary>
+            The result object of a serialization by the <see cref="T:Conizi.Model.Core.Tools.Converter"/>
+            <inheritdoc cref="T:Conizi.Model.Core.Entities.ConverterResult"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.SerializationResult.IsValidated">
+            <summary>
+            The instance of the model was validated during processing
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Core.Entities.SerializationResult.ToString">
+            <summary>
+            Get the content as string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Conizi.Model.Core.Entities.ValidationResult">
+            <summary>
+            The result object of validation by the <see cref="T:Conizi.Model.Core.Tools.Validator"/>
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Core.Entities.ValidationResult.IsValid">
+            <summary>
+            The validation of the model was successful
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Core.Entities.ValidationResult.ToString">
+            <summary>
+            The schema content as string
+            </summary>
+            <returns>JSON schema as string</returns>
+        </member>
+        <member name="T:Conizi.Model.Core.Extensions.ResultExtensions">
+            <summary>
+            Extension to create validation results in an easy way
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Core.Extensions.ResultExtensions.CreateError(Conizi.Model.Core.Entities.ValidationResult,System.String,System.Type,Newtonsoft.Json.Schema.JSchema,System.String)">
+            <summary>
+            Create an error validation result
+            </summary>
+            <param name="result">Instance of the ValidationResult</param>
+            <param name="message">The message should be set</param>
+            <param name="model">The model type should be set</param>
+            <param name="schema">The schema should be set</param>
+            <param name="file">The file was validated</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+        <member name="M:Conizi.Model.Core.Extensions.ResultExtensions.CreateError(Conizi.Model.Core.Entities.ValidationResult,System.Collections.Generic.IList{System.String},System.Type,Newtonsoft.Json.Schema.JSchema,System.String)">
+            <summary>
+            Create an error validation result
+            </summary>
+            <param name="result">Instance of the ValidationResult</param>
+            <param name="errorMessages">A list of error messages should be set</param>
+            <param name="model">The model type should be set</param>
+            <param name="schema">The schema should be set</param>
+            <param name="file">The file was validated</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+        <member name="M:Conizi.Model.Core.Extensions.ResultExtensions.CreateSuccess(Conizi.Model.Core.Entities.ValidationResult,Newtonsoft.Json.Schema.JSchema,System.Type,System.String)">
+            <summary>
+            Create a successful validation result
+            </summary>
+            <param name="result">Instance of the ValidationResult</param>
+            <param name="model">The model type should be set</param>
+            <param name="schema">The schema should be set</param>
+            <param name="file">The file was validated</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+        <member name="T:Conizi.Model.Core.Provider.ConiziDefaultGenerationProvider">
+            <summary>
+            The default conizi schema generation provider
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Core.Provider.ConiziExampleGenerationProvider">
+            <summary>
+            The example conizi schema generation provider
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Core.Tools.Client">
+            <summary>
+            A http client to send an instance of a C# model to conizi as JSON message.
+            Not yet implemented, coming soon...
+            </summary>
+            <remarks>Not yet implemented, coming soon...</remarks>
+        </member>
+        <member name="T:Conizi.Model.Core.Tools.Converter">
+            <summary>
+            The converter is used to serialize a C# conizi model to JSON or deserialize JSON to a C# model
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Core.Tools.Converter.SerializerSettings">
+            <summary>
+            Settings for the JSON serializer and deserializer
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Converter.Serialize``1(``0,System.Boolean,System.Boolean)">
+            <summary>
+            Serialize a C# model instance to JSON
+            </summary>
+            <typeparam name="TModel">The model type should be serialized</typeparam>
+            <param name="model">The instance of the model, should be serialized</param>
+            <param name="indented">Should the content well formatted?</param>
+            <param name="ignoreValidation">Ignore the validation after serialization. May be helpful if no JSON Schema license is available</param>
+            <returns>Instance of <see cref="T:Conizi.Model.Core.Entities.SerializationResult"/></returns>
+            <example>
+            Serialize a model instance to JSON.
+            <code>var result = Converter.Serialize(m);</code>
+            </example>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Converter.Deserialize``1(System.String)">
+            <summary>
+            Deserialize a JSON file to an instance of a C# model.
+            </summary>
+            <typeparam name="TModel">The target C# model in which the JSON is to be deserialized</typeparam>
+            <param name="json">The JSON content as string</param>
+            <returns>Instance of the set model type</returns>
+            <example>
+            Deserialize JSON to C# <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent"></see> model instance.
+            <code>var m = Converter.Deserialize&lt;TourEvent&gt;(content);</code>
+            </example>
+        </member>
+        <member name="T:Conizi.Model.Core.Tools.Generator">
+            <summary>
+            The conizi schema generator is used to generate a JSON Schema out of the conizi C# models
+            </summary>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Generator.RegisterJsonSchemaLicense(System.String)">
+            <summary>
+            Register a JsonSchema License if available
+            </summary>
+            <param name="license"><see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see> license as string</param>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Generator.Generate``1">
+            <summary>
+            Generate a JSON schema from the C# model of type T
+            </summary>
+            <typeparam name="TModel">The C# model type, should be generated to a JSON schema</typeparam>
+            <returns><see cref="T:Conizi.Model.Core.Entities.GenerationResult"/></returns>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Generator.Generate(System.Type)">
+            <summary>
+            Generate a JSON schema from the C# model instance type
+            </summary>
+            <param name="modelType">Type of the C# model instance</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.GenerationResult"/></returns>
+        </member>
+        <member name="T:Conizi.Model.Core.Tools.Validator">
+            <summary>
+            The conizi schema validator is used to validate a JSON message against the assigned Schema.
+            The validator is build around the C# library <see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see>.
+            </summary>
+            <remarks>You can use this <see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see> for free in a small context, to validate a huge amount of messages, you must buy a license.</remarks>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)">
+            <summary>
+            Register a JsonSchema License if available
+            </summary>
+            <param name="license"><see href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</see> license as string</param>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Validator.ParseModel(System.String)">
+            <summary>
+            Parse the JSON message and try to extract the model
+            </summary>
+            <param name="jsonMessage">JSON message as string</param>
+            <returns>Type of the used model/class</returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)">
+            <summary>
+            Validate a JSON message vs the specific JSON Schema. The method tries to extract the schema from the message.
+            </summary>
+            <param name="jsonMessage">JSON message as string</param>
+            <param name="validationErrors">Possible validation errors as list of strings</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,System.Collections.Generic.IList{System.String}@)">
+            <summary>
+            Validate a JSON message vs the specific JSON Schema by type.
+            </summary>
+            <param name="jsonMessage">JSON message as string</param>
+            <param name="validationErrors">Possible validation errors as list of strings</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+        <member name="M:Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)">
+            <summary>
+            Validate a JSON message vs the specific JSON Schema.
+            </summary>
+            <param name="model">Type of the used C# model</param>
+            <param name="jsonMessage">JSON message as string</param>
+            <param name="validationErrors">Possible validation errors as list of strings</param>
+            <returns><see cref="T:Conizi.Model.Core.Entities.ValidationResult"/></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,395 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Tools.Validator
+  commentId: T:Conizi.Model.Core.Tools.Validator
+  id: Validator
+  parent: Conizi.Model.Core.Tools
+  children:
+  - Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
+  - Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)
+  - Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,IList{System.String}@)
+  - Conizi.Model.Core.Tools.Validator.ValidateSchema(Type,System.String,IList{System.String}@)
+  - Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,IList{System.String}@)
+  langs:
+  - csharp
+  - vb
+  name: Validator
+  nameWithType: Validator
+  fullName: Conizi.Model.Core.Tools.Validator
+  type: Class
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Validator.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Validator
+    path: ../src/Conizi.Model.Core/Tools/Validator.cs
+    startLine: 16
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nThe conizi schema validator is used to validate a JSON message against the assigned Schema.\nThe validator is build around the C# library <a href=\"https://www.nuget.org/packages/Newtonsoft.Json.Schema/\">Newtonsoft.Json.Schema</a>.\n"
+  remarks: You can use this <a href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</a> for free in a small context, to validate a huge amount of messages, you must buy a license.
+  example: []
+  syntax:
+    content: 'public class Validator : object'
+    content.vb: >-
+      Public Class Validator
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)
+  commentId: M:Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)
+  id: RegisterJsonSchemaLicense(System.String)
+  parent: Conizi.Model.Core.Tools.Validator
+  langs:
+  - csharp
+  - vb
+  name: RegisterJsonSchemaLicense(String)
+  nameWithType: Validator.RegisterJsonSchemaLicense(String)
+  fullName: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Validator.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: RegisterJsonSchemaLicense
+    path: ../src/Conizi.Model.Core/Tools/Validator.cs
+    startLine: 23
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nRegister a JsonSchema License if available\n"
+  example: []
+  syntax:
+    content: public static void RegisterJsonSchemaLicense(string license)
+    parameters:
+    - id: license
+      type: System.String
+      description: <a href="https://www.nuget.org/packages/Newtonsoft.Json.Schema/">Newtonsoft.Json.Schema</a> license as string
+    content.vb: Public Shared Sub RegisterJsonSchemaLicense(license As String)
+  overload: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
+  id: ParseModel(System.String)
+  parent: Conizi.Model.Core.Tools.Validator
+  langs:
+  - csharp
+  - vb
+  name: ParseModel(String)
+  nameWithType: Validator.ParseModel(String)
+  fullName: Conizi.Model.Core.Tools.Validator.ParseModel(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Validator.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ParseModel
+    path: ../src/Conizi.Model.Core/Tools/Validator.cs
+    startLine: 34
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nParse the JSON message and try to extract the model\n"
+  example: []
+  syntax:
+    content: public static Type ParseModel(string jsonMessage)
+    parameters:
+    - id: jsonMessage
+      type: System.String
+      description: JSON message as string
+    return:
+      type: Type
+      description: Type of the used model/class
+    content.vb: Public Shared Function ParseModel(jsonMessage As String) As Type
+  overload: Conizi.Model.Core.Tools.Validator.ParseModel*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,IList{System.String}@)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,IList{System.String}@)
+  id: ValidateSchema(System.String,IList{System.String}@)
+  parent: Conizi.Model.Core.Tools.Validator
+  langs:
+  - csharp
+  - vb
+  name: ValidateSchema(String, out IList<String>)
+  nameWithType: Validator.ValidateSchema(String, out IList<String>)
+  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String, out IList<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Validator.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ValidateSchema
+    path: ../src/Conizi.Model.Core/Tools/Validator.cs
+    startLine: 61
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nValidate a JSON message vs the specific JSON Schema. The method tries to extract the schema from the message.\n"
+  example: []
+  syntax:
+    content: public static ValidationResult ValidateSchema(string jsonMessage, out IList<string> validationErrors)
+    parameters:
+    - id: jsonMessage
+      type: System.String
+      description: JSON message as string
+    - id: validationErrors
+      type: IList{System.String}
+      description: Possible validation errors as list of strings
+    return:
+      type: Conizi.Model.Core.Entities.ValidationResult
+      description: <xref href="Conizi.Model.Core.Entities.ValidationResult" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function ValidateSchema(jsonMessage As String, ByRef validationErrors As IList(Of String)) As ValidationResult
+  overload: Conizi.Model.Core.Tools.Validator.ValidateSchema*
+  nameWithType.vb: Validator.ValidateSchema(String, ByRef IList(Of String))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String, ByRef IList(Of System.String))
+  name.vb: ValidateSchema(String, ByRef IList(Of String))
+- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,IList{System.String}@)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,IList{System.String}@)
+  id: ValidateSchema``1(System.String,IList{System.String}@)
+  parent: Conizi.Model.Core.Tools.Validator
+  langs:
+  - csharp
+  - vb
+  name: ValidateSchema<TModel>(String, out IList<String>)
+  nameWithType: Validator.ValidateSchema<TModel>(String, out IList<String>)
+  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema<TModel>(System.String, out IList<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Validator.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ValidateSchema
+    path: ../src/Conizi.Model.Core/Tools/Validator.cs
+    startLine: 72
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nValidate a JSON message vs the specific JSON Schema by type.\n"
+  example: []
+  syntax:
+    content: public static ValidationResult ValidateSchema<TModel>(string jsonMessage, out IList<string> validationErrors)
+    parameters:
+    - id: jsonMessage
+      type: System.String
+      description: JSON message as string
+    - id: validationErrors
+      type: IList{System.String}
+      description: Possible validation errors as list of strings
+    typeParameters:
+    - id: TModel
+    return:
+      type: Conizi.Model.Core.Entities.ValidationResult
+      description: <xref href="Conizi.Model.Core.Entities.ValidationResult" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function ValidateSchema(Of TModel)(jsonMessage As String, ByRef validationErrors As IList(Of String)) As ValidationResult
+  overload: Conizi.Model.Core.Tools.Validator.ValidateSchema*
+  nameWithType.vb: Validator.ValidateSchema(Of TModel)(String, ByRef IList(Of String))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(Of TModel)(System.String, ByRef IList(Of System.String))
+  name.vb: ValidateSchema(Of TModel)(String, ByRef IList(Of String))
+- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema(Type,System.String,IList{System.String}@)
+  commentId: M:Conizi.Model.Core.Tools.Validator.ValidateSchema(Type,System.String,IList{System.String}@)
+  id: ValidateSchema(Type,System.String,IList{System.String}@)
+  parent: Conizi.Model.Core.Tools.Validator
+  langs:
+  - csharp
+  - vb
+  name: ValidateSchema(Type, String, out IList<String>)
+  nameWithType: Validator.ValidateSchema(Type, String, out IList<String>)
+  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema(Type, System.String, out IList<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Validator.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ValidateSchema
+    path: ../src/Conizi.Model.Core/Tools/Validator.cs
+    startLine: 84
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  summary: "\nValidate a JSON message vs the specific JSON Schema.\n"
+  example: []
+  syntax:
+    content: public static ValidationResult ValidateSchema(Type model, string jsonMessage, out IList<string> validationErrors)
+    parameters:
+    - id: model
+      type: Type
+      description: Type of the used C# model
+    - id: jsonMessage
+      type: System.String
+      description: JSON message as string
+    - id: validationErrors
+      type: IList{System.String}
+      description: Possible validation errors as list of strings
+    return:
+      type: Conizi.Model.Core.Entities.ValidationResult
+      description: <xref href="Conizi.Model.Core.Entities.ValidationResult" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function ValidateSchema(model As Type, jsonMessage As String, ByRef validationErrors As IList(Of String)) As ValidationResult
+  overload: Conizi.Model.Core.Tools.Validator.ValidateSchema*
+  nameWithType.vb: Validator.ValidateSchema(Type, String, ByRef IList(Of String))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Conizi.Model.Core.Tools.Validator.ValidateSchema(Type, System.String, ByRef IList(Of System.String))
+  name.vb: ValidateSchema(Type, String, ByRef IList(Of String))
+references:
+- uid: Conizi.Model.Core.Tools
+  commentId: N:Conizi.Model.Core.Tools
+  name: Conizi.Model.Core.Tools
+  nameWithType: Conizi.Model.Core.Tools
+  fullName: Conizi.Model.Core.Tools
+- uid: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense*
+  commentId: Overload:Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense
+  name: RegisterJsonSchemaLicense
+  nameWithType: Validator.RegisterJsonSchemaLicense
+  fullName: Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Conizi.Model.Core.Tools.Validator.ParseModel*
+  commentId: Overload:Conizi.Model.Core.Tools.Validator.ParseModel
+  name: ParseModel
+  nameWithType: Validator.ParseModel
+  fullName: Conizi.Model.Core.Tools.Validator.ParseModel
+- uid: Type
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: Type
+- uid: Conizi.Model.Core.Entities.ValidationResult
+  commentId: T:Conizi.Model.Core.Entities.ValidationResult
+  parent: Conizi.Model.Core.Entities
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: Conizi.Model.Core.Entities.ValidationResult
+- uid: Conizi.Model.Core.Tools.Validator.ValidateSchema*
+  commentId: Overload:Conizi.Model.Core.Tools.Validator.ValidateSchema
+  name: ValidateSchema
+  nameWithType: Validator.ValidateSchema
+  fullName: Conizi.Model.Core.Tools.Validator.ValidateSchema
+- uid: IList{System.String}
+  commentId: '!:IList{System.String}'
+  definition: IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: IList(Of System.String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Conizi.Model.Core.Entities
+  commentId: N:Conizi.Model.Core.Entities
+  name: Conizi.Model.Core.Entities
+  nameWithType: Conizi.Model.Core.Entities
+  fullName: Conizi.Model.Core.Entities
+- uid: IList`1
+  isExternal: true
+  name: IList<>
+  nameWithType: IList<>
+  fullName: IList<>
+  nameWithType.vb: IList(Of )
+  fullName.vb: IList(Of )
+  name.vb: IList(Of )
+  spec.csharp:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

@@ -1,0 +1,406 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Entities.ConverterResult
+  commentId: T:Conizi.Model.Core.Entities.ConverterResult
+  id: ConverterResult
+  parent: Conizi.Model.Core.Entities
+  children:
+  - Conizi.Model.Core.Entities.ConverterResult.Content
+  - Conizi.Model.Core.Entities.ConverterResult.File
+  - Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  - Conizi.Model.Core.Entities.ConverterResult.Model
+  - Conizi.Model.Core.Entities.ConverterResult.Schema
+  - Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: ConverterResult
+  nameWithType: ConverterResult
+  fullName: Conizi.Model.Core.Entities.ConverterResult
+  type: Class
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ConverterResult.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ConverterResult
+    path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
+    startLine: 10
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe base result class for converter related stuff.\n"
+  example: []
+  syntax:
+    content: 'public abstract class ConverterResult : object'
+    content.vb: >-
+      Public MustInherit Class ConverterResult
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Conizi.Model.Core.Entities.SerializationResult
+  - Conizi.Model.Core.Entities.ValidationResult
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  id: ValidationErrors
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  langs:
+  - csharp
+  - vb
+  name: ValidationErrors
+  nameWithType: ConverterResult.ValidationErrors
+  fullName: Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ConverterResult.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ValidationErrors
+    path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
+    startLine: 17
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nA list of validation errors\n"
+  example: []
+  syntax:
+    content: public IList<string> ValidationErrors { get; }
+    parameters: []
+    return:
+      type: IList{System.String}
+    content.vb: Public ReadOnly Property ValidationErrors As IList(Of String)
+  overload: Conizi.Model.Core.Entities.ConverterResult.ValidationErrors*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Conizi.Model.Core.Entities.ConverterResult.Model
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.Model
+  id: Model
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: ConverterResult.Model
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Model
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ConverterResult.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Model
+    path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
+    startLine: 30
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe type of the model was used during the processing\n"
+  example: []
+  syntax:
+    content: public Type Model { get; set; }
+    parameters: []
+    return:
+      type: Type
+    content.vb: Public Property Model As Type
+  overload: Conizi.Model.Core.Entities.ConverterResult.Model*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  id: HasValidationErrors
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  langs:
+  - csharp
+  - vb
+  name: HasValidationErrors
+  nameWithType: ConverterResult.HasValidationErrors
+  fullName: Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ConverterResult.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: HasValidationErrors
+    path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
+    startLine: 35
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nValidation errors available\n"
+  example: []
+  syntax:
+    content: public bool HasValidationErrors { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasValidationErrors As Boolean
+  overload: Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Conizi.Model.Core.Entities.ConverterResult.Content
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.Content
+  id: Content
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: ConverterResult.Content
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Content
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ConverterResult.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Content
+    path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
+    startLine: 40
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe content/result of the operation as string\n"
+  example: []
+  syntax:
+    content: public string Content { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Content As String
+  overload: Conizi.Model.Core.Entities.ConverterResult.Content*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.ConverterResult.Schema
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.Schema
+  id: Schema
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  langs:
+  - csharp
+  - vb
+  name: Schema
+  nameWithType: ConverterResult.Schema
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Schema
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ConverterResult.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: Schema
+    path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
+    startLine: 45
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nThe JSON definition of the involved schema\n"
+  example: []
+  syntax:
+    content: public string Schema { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Schema As String
+  overload: Conizi.Model.Core.Entities.ConverterResult.Schema*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Conizi.Model.Core.Entities.ConverterResult.File
+  commentId: P:Conizi.Model.Core.Entities.ConverterResult.File
+  id: File
+  parent: Conizi.Model.Core.Entities.ConverterResult
+  langs:
+  - csharp
+  - vb
+  name: File
+  nameWithType: ConverterResult.File
+  fullName: Conizi.Model.Core.Entities.ConverterResult.File
+  type: Property
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Entities/ConverterResult.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: File
+    path: ../src/Conizi.Model.Core/Entities/ConverterResult.cs
+    startLine: 50
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Entities
+  summary: "\nFilename or path of file was processed\n"
+  example: []
+  syntax:
+    content: public string File { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property File As String
+  overload: Conizi.Model.Core.Entities.ConverterResult.File*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Conizi.Model.Core.Entities
+  commentId: N:Conizi.Model.Core.Entities
+  name: Conizi.Model.Core.Entities
+  nameWithType: Conizi.Model.Core.Entities
+  fullName: Conizi.Model.Core.Entities
+- uid: Conizi.Model.Core.Entities.ConverterResult.ValidationErrors*
+  commentId: Overload:Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+  name: ValidationErrors
+  nameWithType: ConverterResult.ValidationErrors
+  fullName: Conizi.Model.Core.Entities.ConverterResult.ValidationErrors
+- uid: IList{System.String}
+  commentId: '!:IList{System.String}'
+  definition: IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: IList(Of System.String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IList`1
+  isExternal: true
+  name: IList<>
+  nameWithType: IList<>
+  fullName: IList<>
+  nameWithType.vb: IList(Of )
+  fullName.vb: IList(Of )
+  name.vb: IList(Of )
+  spec.csharp:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Conizi.Model.Core.Entities.ConverterResult.Model*
+  commentId: Overload:Conizi.Model.Core.Entities.ConverterResult.Model
+  name: Model
+  nameWithType: ConverterResult.Model
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Model
+- uid: Type
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: Type
+- uid: Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors*
+  commentId: Overload:Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+  name: HasValidationErrors
+  nameWithType: ConverterResult.HasValidationErrors
+  fullName: Conizi.Model.Core.Entities.ConverterResult.HasValidationErrors
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Conizi.Model.Core.Entities.ConverterResult.Content*
+  commentId: Overload:Conizi.Model.Core.Entities.ConverterResult.Content
+  name: Content
+  nameWithType: ConverterResult.Content
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Content
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Conizi.Model.Core.Entities.ConverterResult.Schema*
+  commentId: Overload:Conizi.Model.Core.Entities.ConverterResult.Schema
+  name: Schema
+  nameWithType: ConverterResult.Schema
+  fullName: Conizi.Model.Core.Entities.ConverterResult.Schema
+- uid: Conizi.Model.Core.Entities.ConverterResult.File*
+  commentId: Overload:Conizi.Model.Core.Entities.ConverterResult.File
+  name: File
+  nameWithType: ConverterResult.File
+  fullName: Conizi.Model.Core.Entities.ConverterResult.File

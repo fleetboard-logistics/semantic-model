@@ -1,5 +1,5 @@
 { 
-    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/groupage/forwarding/consignment.json#",
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
     "sender": {
         "ediId": "VER4999"
     },
@@ -73,7 +73,6 @@
         "areaPalletBays": 4,
         "chargeableWeightKilogram": 800,
         "grossWeightKilogram": 1200,
-        "highConsequencesDangerousGoods": true,
         "highValueGoods": false,
         "insuranceValue": {
             "amount": 4500,

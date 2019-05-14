@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Conizi.Model</id>
+    <version>1.0.21-alpha</version>
+    <title>Conizi.Model</title>
+    <authors>Fleetboard Logistics GmbH</authors>
+    <owners>fleetboard-logistics</owners>
+    <summary>The conizi semantic models, implemented in C# as .NET library.</summary>
+    <license type="expression">MIT</license>
+    <projectUrl>https://fleetboard-logistics.github.io/docs/conizi/semantic-models/site/articles/index.html</projectUrl>
+    <iconUrl>https://www.conizi.com/wp-content/themes/fob-orange-child/favicon.ico</iconUrl>
+    <repository url="https://github.com/fleetboard-logistics/semantic-model" type="git"></repository>
+    <language>en</language>
+    <serviceable>true</serviceable>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Pre-Release of the conizi semantic models implemented in C#. Please use this library with care. It is not yet stable!</description>
+    <releaseNotes>Add further models and comments.</releaseNotes>
+    <copyright>Copyright Fleetboard Logistics GmbH 2019</copyright>
+    <tags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model, interfaces</tags>
+     <dependencies>
+      <dependency id="Newtonsoft.Json" version="12.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\net452\Conizi.Model.dll" target="lib\net452"></file>
+    <file src="Conizi.Model.xml" target="lib\net452"></file>
+    <file src="bin\Debug\netstandard2.0\Conizi.Model.dll" target="lib\netstandard2.0"></file>
+    <file src="Conizi.Model.xml" target="lib\netstandard2.0"></file>
+  </files>
+  <!-- <files>
+    <file src="readme.txt" />
+    <file src="transforms\web.config.install.xdt" target="content\web.config.install.xdt" />
+    <file src="transforms\views.web.config.install.xdt" target="content\Views\web.config.install.xdt" />
+    <file src="App_Data\Models\**" target="content\App_Data\Models" />
+    <file src="Controllers\**" target="content\Controllers" />
+    <file src="Models\**" target="content\Models" />
+    <file src="Views\**" target="content\Views" />
+    <file src="Helpers\**" target="content\Helpers" />
+    <file src="Content\**" target="content\Content" />
+  </files> -->
+</package>
