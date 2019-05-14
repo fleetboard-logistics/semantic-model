@@ -42,6 +42,8 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Status")]
     [Description("Yard Status contains information that has so get sent back as part of a TourEvent")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
     public class EdiYardStatus
     {
         /// <summary>
@@ -63,6 +65,8 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Instruction for the driver")]
     [Description("Yard Instruction contains a Text Instruction and/or a Route with a gpx base64 file")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
     public class EdiYardInstruction
     {
         /// <summary>
@@ -80,6 +84,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("A Text instruction for the driver")]
         [Description("A Text instruction for the driver ")]
+        [ConiziAdditionalProperties(false)]
+        [ConiziAllowXProperties(false)]
         public class EdiTextInstruction
         {
             /// <summary>
@@ -121,6 +127,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Reporting Point")]
         [Description("Reporting Point")]
+        [ConiziAdditionalProperties(false)]
+        [ConiziAllowXProperties(false)]
         public class EdiReportingPoint
         {
             /// <summary>
@@ -141,6 +149,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Standard Text with parameters")]
         [Description("Standard Text can be used to fill pre-defined text-snippets")]
+        [ConiziAdditionalProperties(false)]
+        [ConiziAllowXProperties(false)]
         public class EdiStandardText
         {
             /// <summary>
@@ -170,6 +180,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Gpx File Content")]
         [Description("Gpx File that contains checkpoints and a destination")]
+        [ConiziAdditionalProperties(false)]
+        [ConiziAllowXProperties(false)]
         public class EdiGpxFile
         {
             /// <summary>
@@ -191,6 +203,8 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("remark (free form)")]
     [Description("remark (free form)")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
     public class EdiFreeText
     {
         /// <summary>

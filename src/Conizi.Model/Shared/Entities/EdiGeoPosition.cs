@@ -57,28 +57,28 @@ namespace Conizi.Model.Shared.Entities
         public DateTimeOffset RecordTime { get; set; }
 
         /// <summary>
-        /// Radius on which this GeoPosition is considered as in range
+        /// GeoRadius on which this GeoPosition is considered as in range
         /// </summary>
-        public EdiRadius Radius { get; set; }
+        public EdiGeoRadius GeoRadius { get; set; }
 
         /// <summary>
-        /// Radius on which this GeoPosition is considered as in range containing measurement unit an the distance
+        /// GeoRadius on which this GeoPosition is considered as in range containing measurement unit an the distance
         /// </summary>
-        [DisplayName("Radius for the accuracy")]
-        [Description("Radius that describes when a Position is considered as in range")]
-        public class EdiRadius
+        [DisplayName("GeoRadius for the accuracy")]
+        [Description("GeoRadius that describes when a Position is considered as in range")]
+        public class EdiGeoRadius
         {
             /// <summary>
-            /// Radius on which this GeoPosition is considered as in range
+            /// GeoRadius on which this GeoPosition is considered as in range
             /// </summary>
-            [DisplayName("Radius for the Coordinates")]
-            [Description("Radius that extends the range of the coordinates")]
+            [DisplayName("GeoRadius for the Coordinates")]
+            [Description("GeoRadius that extends the range of the coordinates")]
             public double? Radius { get; set; }
 
             /// <summary>
             /// Code that describes the unit in which the radius is measured
             /// </summary>
-            [DisplayName("Unit Code for Radius")]
+            [DisplayName("Unit Code for GeoRadius")]
             [Description("Code that describes the unit in which the radius is measured")]
             public MeasurementUnitCode? RadiusMeasurementUnitCode { get; set; }
         }
