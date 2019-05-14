@@ -939,12 +939,37 @@
           "description": "Time the GPS record was created",
           "type": "string",
           "format": "date-time"
+        },
+        "geoRadius": {
+          "$ref": "#/definitions/EdiGeoRadius"
         }
       },
       "required": [
         "longitude",
         "latitude"
       ]
+    },
+    "EdiGeoRadius": {
+      "title": "GeoRadius for the accuracy",
+      "description": "GeoRadius that describes when a Position is considered as in range",
+      "type": "object",
+      "properties": {
+        "radius": {
+          "title": "GeoRadius for the Coordinates",
+          "description": "GeoRadius that extends the range of the coordinates",
+          "type": "number"
+        },
+        "radiusMeasurementUnitCode": {
+          "title": "Unit Code for GeoRadius",
+          "description": "Code that describes the unit in which the radius is measured",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      }
     },
     "EdiLoadingEquipmentExchange": {
       "title": "Loading equipment exchange",

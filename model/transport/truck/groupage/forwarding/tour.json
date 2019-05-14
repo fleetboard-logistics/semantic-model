@@ -818,6 +818,43 @@
         "\\$.*": {}
       }
     },
+    "EdiFileReference": {
+      "title": "File Reference",
+      "description": "Reference to a file in an online storage",
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "title": "File Id",
+          "description": "Unique Id for a file",
+          "type": "string"
+        },
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "absoluteUri": {
+          "title": "Absolute Uri",
+          "description": "An absolute URL to a file on the online storage",
+          "type": "string"
+        },
+        "uriValidFrom": {
+          "title": "Uri Valid From",
+          "description": "The URL is valid from date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "uriValidTo": {
+          "title": "Uri Valid To",
+          "description": "The URL is valid until date",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "absoluteUri"
+      ]
+    },
     "EdiFixedDay": {
       "title": "Fixed day",
       "description": "The consignment must be delivered at the given date (and in the given time window)",
@@ -881,6 +918,33 @@
         "\\$.*": {}
       }
     },
+    "EdiFreeText": {
+      "title": "remark (free form)",
+      "description": "remark (free form)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "qualifierCode": {
+          "title": "Qualifier for a Category",
+          "description": "Category that the Content belongs to e.g. dangerous goods, special instructions, delivery condition",
+          "type": "string"
+        },
+        "language": {
+          "title": "Language Code",
+          "description": "Language Code for the Text",
+          "type": "string"
+        },
+        "content": {
+          "title": "Text Content",
+          "description": "Content contains the actual remark",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiGateway": {
       "title": "Gateway-Options",
       "description": "Special requirements for the handling of the goods at intermediate hubs / gateways",
@@ -929,12 +993,57 @@
           "description": "Time the GPS record was created",
           "type": "string",
           "format": "date-time"
+        },
+        "geoRadius": {
+          "$ref": "#/definitions/EdiGeoRadius"
         }
       },
       "required": [
         "longitude",
         "latitude"
       ]
+    },
+    "EdiGeoRadius": {
+      "title": "GeoRadius for the accuracy",
+      "description": "GeoRadius that describes when a Position is considered as in range",
+      "type": "object",
+      "properties": {
+        "radius": {
+          "title": "GeoRadius for the Coordinates",
+          "description": "GeoRadius that extends the range of the coordinates",
+          "type": "number"
+        },
+        "radiusMeasurementUnitCode": {
+          "title": "Unit Code for GeoRadius",
+          "description": "Code that describes the unit in which the radius is measured",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      }
+    },
+    "EdiGpxFile": {
+      "title": "Gpx File Content",
+      "description": "Gpx File that contains checkpoints and a destination",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "title": "Gpx File Data",
+          "description": "Data of the Gpx-File",
+          "type": "string"
+        },
+        "destination": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
     "EdiHandlingInstructions": {
       "title": "Handling instructions",
@@ -1656,6 +1765,26 @@
         "\\$.*": {}
       }
     },
+    "EdiReportingPoint": {
+      "title": "Reporting Point",
+      "description": "Reporting Point",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Reporting Point Name",
+          "description": "Name of the Reporting Point",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiReturnOfGoods": {
       "title": "Return of goods",
       "description": "Services for the return of goods",
@@ -1864,6 +1993,36 @@
         "\\$.*": {}
       }
     },
+    "EdiStandardText": {
+      "title": "Standard Text with parameters",
+      "description": "Standard Text can be used to fill pre-defined text-snippets",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentCode": {
+          "title": "Code of the snippet",
+          "description": "Code for the specific snippet that shall be used for this standard Text e.g  001",
+          "type": "string"
+        },
+        "filledText": {
+          "title": "Filled in snippet",
+          "description": "Filled in snippet, if parameters can not be separated",
+          "type": "string"
+        },
+        "parameters": {
+          "title": "Parameters for a snippet",
+          "description": "Parameters that are filled in a pre-defined snippet. The Receiver has the snippet",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiSubsequentDelivery": {
       "title": "Subsequent Delivery",
       "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
@@ -1905,6 +2064,47 @@
           "title": "Maximum temperature (°C)",
           "description": "The temperature must not get greater than the given value",
           "type": "number"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiTextInstruction": {
+      "title": "A Text instruction for the driver",
+      "description": "A Text instruction for the driver ",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "urgency": {
+          "title": "Urgency Code",
+          "description": "Urgency Code that can be set to signalize high/low priority. Default is normal",
+          "type": "string",
+          "default": 0,
+          "enum": [
+            "normal",
+            "high",
+            "low"
+          ]
+        },
+        "standardText": {
+          "$ref": "#/definitions/EdiStandardText"
+        },
+        "freeText": {
+          "$ref": "#/definitions/EdiFreeText"
+        },
+        "contact": {
+          "$ref": "#/definitions/EdiAddress"
+        },
+        "reportingPoint": {
+          "$ref": "#/definitions/EdiReportingPoint"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileReference"
+          }
         }
       },
       "patternProperties": {
@@ -2025,6 +2225,12 @@
         },
         "unloadingInformation": {
           "$ref": "#/definitions/TourUnloadingInformation"
+        },
+        "yardNavigationInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiYardNavigationInformation"
+          }
         }
       },
       "required": [
@@ -2183,6 +2389,70 @@
           "type": "string"
         }
       },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiYardInstruction": {
+      "title": "Instruction for the driver",
+      "description": "Yard Instruction contains a Text Instruction and/or a Route with a gpx base64 file",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "textInstruction": {
+          "$ref": "#/definitions/EdiTextInstruction"
+        },
+        "route": {
+          "$ref": "#/definitions/EdiGpxFile"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiYardNavigationInformation": {
+      "title": "Yard-Navigation",
+      "description": "A single Yard Navigation which contains either an instruction or a status",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sequenceNumber": {
+          "title": "Position in the sequence",
+          "description": "Number which defines the position in the sequence of the instructions/status",
+          "type": "integer"
+        },
+        "instruction": {
+          "$ref": "#/definitions/EdiYardInstruction"
+        },
+        "status": {
+          "$ref": "#/definitions/EdiYardStatus"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiYardStatus": {
+      "title": "Status",
+      "description": "Yard Status contains information that has so get sent back as part of a TourEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "statusCode": {
+          "title": "StatusCode",
+          "description": "StatusCode that gets sent back",
+          "type": "string"
+        },
+        "freeText": {
+          "$ref": "#/definitions/EdiFreeText"
+        }
+      },
+      "required": [
+        "statusCode"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -2657,9 +2927,7 @@
     },
     "messageFunctionCode": {
       "title": "Message function code",
-      "description": "Determines how the current message should be handled, e.g. whether the stops / consignments should be added removed, ...",
       "type": "string",
-      "additionalProperties": false,
       "enum": [
         "add",
         "update",
