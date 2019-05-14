@@ -28,4 +28,31 @@ namespace Conizi.Model.Shared.Definitions
         [EnumMember(Value = "remove_partial")]
         RemovePartial = 13
     }
+
+    [Description("Determines the unit of a given property")]
+    [ConiziAdditionalProperties(false)]
+    public enum MeasurementUnitCode
+    {
+        [Description("Distance Values are measured in kilometres")]
+        [EnumMember(Value = "KMT")]
+        Kilometer,
+        [Description("Distance Values are measured in nautical miles")]
+        [EnumMember(Value = "NMI")]
+        NauticalMile,
+        [Description("Distance Values are measured in (Statute/English) Mile")]
+        [EnumMember(Value = "SMI")]
+        StatuteMile
+    }
+
+    [Description("Determines a priority of a given message")]
+    [ConiziAdditionalProperties(false)]
+    public enum UrgencyCode
+    {
+        [EnumMember(Value = "normal")]
+        Normal,
+        [EnumMember(Value = "high")]
+        High,
+        [EnumMember(Value = "low")]
+        Low,
+    }
 }
