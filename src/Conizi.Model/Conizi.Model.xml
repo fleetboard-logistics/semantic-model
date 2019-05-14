@@ -156,6 +156,81 @@
             Indicates if X- Properties should allowed. Default true
             </summary>
         </member>
+        <member name="T:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode">
+            <summary>
+            Determines how the current message should be handled, e.g. whether the stops / consignments should be added removed, ..."
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode.Add">
+            <summary>
+            Add a new tour
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode.Update">
+            <summary>
+            Update a tour
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode.Remove">
+            <summary>
+            Remove a tour
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode.AddPartial">
+            <summary>
+            Add a part of a tour
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode.UpdatePartial">
+            <summary>
+            Update a part of a tour
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.EdiMessageFunctionCode.RemovePartial">
+            <summary>
+            Remove a part of a tour
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Definitions.MeasurementUnitCode">
+            <summary>
+            Determines the unit in which a given property is measured
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.MeasurementUnitCode.Kilometer">
+            <summary>
+            Values are measured in kilometers
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.MeasurementUnitCode.NauticalMile">
+            <summary>
+            Values are measured in nautical miles
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.MeasurementUnitCode.StatuteMile">
+            <summary>
+            Values are measured in miles
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Definitions.UrgencyCode">
+            <summary>
+            Determines a priority of a given message
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.UrgencyCode.Normal">
+            <summary>
+            Describes a normal priority
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.UrgencyCode.High">
+            <summary>
+            Describes a high priority
+            </summary>
+        </member>
+        <member name="F:Conizi.Model.Shared.Definitions.UrgencyCode.Low">
+            <summary>
+            Describes a low priority
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiAddress">
             <summary>
             Fields to save address relevant data
@@ -1937,6 +2012,26 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.RecordTime">
             <summary>
             Time the GPS record was created
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.GeoRadius">
+            <summary>
+            GeoRadius on which this GeoPosition is considered as in range
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiGeoPosition.EdiGeoRadius">
+            <summary>
+            GeoRadius on which this GeoPosition is considered as in range containing measurement unit an the distance
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.EdiGeoRadius.Radius">
+            <summary>
+            GeoRadius on which this GeoPosition is considered as in range
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.EdiGeoRadius.RadiusMeasurementUnitCode">
+            <summary>
+            Code that describes the unit in which the radius is measured
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiInformation">
@@ -3833,6 +3928,161 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiVehicleSpecificEvent.EstimatedArrivalTime">
             <summary>
             The current calculated estimated arrival time (ETA)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardNavigation">
+            <summary>
+            A single Navigation between two partners. Usually used in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" /> to extend the stops in a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" /> with necessary information for the navigation on the yard (last mile)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigation.SequenceNumber">
+            <summary>
+            Number which defines the sequence of the Navigation
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigation.Instruction">
+            <summary>
+            Instruction with a checkpoint on the route that the driver has to follow.
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardNavigation.Status">
+            <summary>
+            StatusCode that gets sent back when this position in the sequence is hit, usually with a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.TourEvent" />
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardStatus">
+            <summary>
+            Status that gets sent back, usually with a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Tour" />
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardStatus.StatusCode">
+            <summary>
+            The actual StatusCode that gets sent back
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardStatus.FreeText">
+            <summary>
+            FreeText contains additional information for the status
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardInstruction">
+            <summary>
+            An Instruction for the driver. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiYardNavigation" />
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.TextInstruction">
+            <summary>
+            A Text Instruction to describe the driver specific instructions e.g. Report to Gate 4
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.Route">
+            <summary>
+            A Route that contains a gpx byte array and a destination
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction">
+            <summary>
+            A Text Instruction to describe the driver specific instructions eg. Report to Gate 4. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiTextInstruction" />
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.Urgency">
+            <summary>
+            Urgency Code that can be used to signalize high-priority deliveries
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.StandardText">
+            <summary>
+            Standard text that is used to fill predefined text-snippets
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.FreeText">
+            <summary>
+            FreeText that contains remarks (free form)
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.Contact">
+            <summary>
+            The Address of a contact
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.ReportingPoint">
+            <summary>
+            The ReportingPoint where the driver has to report on arrival 
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.Attachments">
+            <summary>
+            Attachments that can be added to the Instruction, can only contain references
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiReportingPoint">
+            <summary>
+            Reporting point, usually used in a <see cref="T:Conizi.Model.Shared.Entities.EdiTextInstruction" />
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiReportingPoint.Name">
+            <summary>
+            Name of the Reporting Point
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiReportingPoint.GeoPosition">
+            <summary>
+            GeoPosition of the Reporting Point
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiStandardText">
+            <summary>
+            Standard Text contains predefined Text snippets that can be filled with parameters
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiStandardText.ContentCode">
+            <summary>
+            Code for a specific text snippet
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiStandardText.FilledText">
+            <summary>
+            Optional: The snippet with the filled in parameters if parameters can not be separated
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiStandardText.Parameters">
+            <summary>
+            Parameters which replace the placeholders in the called snippet
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiGpxFile">
+            <summary>
+            Gpx File for a route that contains multiple checkpoints and a destination
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiGpxFile.Data">
+            <summary>
+            Data of the GpxFile as a byte-array
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiGpxFile.Destination">
+            <summary>
+            GeoPosition of the Destination Point of the route
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiFreeText">
+            <summary>
+            Free Text with a optional category
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFreeText.QualifierCode">
+            <summary>
+            Category that the Content belongs to e.g. dangerous goods, special instructions, delivery condition
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFreeText.Language">
+            <summary>
+            Language that the Content is written in, receiver needs to know the expression
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiFreeText.Content">
+            <summary>
+            The Content contains the actual message
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.TourDangerousGoods">

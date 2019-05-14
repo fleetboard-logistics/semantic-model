@@ -42,4 +42,64 @@ namespace Conizi.Model.Shared.Definitions
         /// </summary>
         [EnumMember(Value = "remove_partial")] RemovePartial = 13
     }
+
+    /// <summary>
+    /// Determines the unit in which a given property is measured
+    /// </summary>
+    [Description("Determines the unit of a given property")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
+    public enum MeasurementUnitCode
+    {
+        /// <summary>
+        /// Values are measured in kilometers
+        /// </summary>
+        [Description("Distance Values are measured in kilometers")]
+        [EnumMember(Value = "KMT")]
+        Kilometer,
+
+        /// <summary>
+        /// Values are measured in nautical miles
+        /// </summary>
+        [Description("Distance Values are measured in nautical miles")]
+        [EnumMember(Value = "NMI")]
+        NauticalMile,
+
+        /// <summary>
+        /// Values are measured in miles
+        /// </summary>
+        [Description("Distance Values are measured in (Statute/English) miles")]
+        [EnumMember(Value = "SMI")]
+        StatuteMile
+    }
+
+    /// <summary>
+    /// Determines a priority of a given message
+    /// </summary>
+    [Description("Determines a priority of a given message")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
+    public enum UrgencyCode
+    {
+        /// <summary>
+        /// Describes a normal priority
+        /// </summary>
+        [Description("Message has a normal priority")]
+        [EnumMember(Value = "normal")]
+        Normal,
+
+        /// <summary>
+        /// Describes a high priority
+        /// </summary>
+        [Description("Message has a high priority")]
+        [EnumMember(Value = "high")]
+        High,
+
+        /// <summary>
+        /// Describes a low priority
+        /// </summary>
+        [Description("Message has a low priority")]
+        [EnumMember(Value = "low")]
+        Low,
+    }
 }
