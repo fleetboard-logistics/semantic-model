@@ -80,6 +80,14 @@ namespace Conizi.Model.Shared.Entities
         public EdiGpxFile Route { get; set; }
 
         /// <summary>
+        /// Urgency Code that can be used to signalize high-priority deliveries
+        /// </summary>
+        [DisplayName("Urgency Code")]
+        [Description("Urgency Code that can be set to signalize high/low priority. Default is normal")]
+        [DefaultValue(UrgencyCode.Normal)]
+        public UrgencyCode? Urgency { get; set; }
+
+        /// <summary>
         /// A Text Instruction to describe the driver specific instructions eg. Report to Gate 4. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiTextInstruction" />
         /// </summary>
         [DisplayName("A Text instruction for the driver")]
@@ -88,14 +96,6 @@ namespace Conizi.Model.Shared.Entities
         [ConiziAllowXProperties(false)]
         public class EdiTextInstruction
         {
-            /// <summary>
-            /// Urgency Code that can be used to signalize high-priority deliveries
-            /// </summary>
-            [DisplayName("Urgency Code")]
-            [Description("Urgency Code that can be set to signalize high/low priority. Default is normal")]
-            [DefaultValue(UrgencyCode.Normal)]
-            public UrgencyCode? Urgency { get; set; }
-
             /// <summary>
             /// Standard text that is used to fill predefined text-snippets
             /// </summary>
@@ -114,7 +114,7 @@ namespace Conizi.Model.Shared.Entities
             /// <summary>
             /// The ReportingPoint where the driver has to report on arrival 
             /// </summary>
-            public EdiReportingPoint ReportingPoint { get; set; }
+            public List<EdiReportingPoint> ReportingPoints { get; set; }
 
             /// <summary>
             /// Attachments that can be added to the Instruction, can only contain references
