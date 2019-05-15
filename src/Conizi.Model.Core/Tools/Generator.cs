@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using Conizi.Model.Core.Entities;
 using Conizi.Model.Core.Provider;
+using Conizi.Model.Core.Resolvers;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
@@ -54,7 +55,7 @@ namespace Conizi.Model.Core.Tools
                 SchemaReferenceHandling = SchemaReferenceHandling.Objects,
                 SchemaPropertyOrderHandling = SchemaPropertyOrderHandling.Default,
                 SchemaLocationHandling = SchemaLocationHandling.Definitions,
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
+                ContractResolver = new ConiziDefaultResolver()
             };
 
             generator.GenerationProviders.Add(new ConiziDefaultGenerationProvider());

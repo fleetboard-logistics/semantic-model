@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using Conizi.Model.Core.Extensions;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
