@@ -22,7 +22,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Generator
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -58,7 +58,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: RegisterJsonSchemaLicense
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -96,7 +96,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Generate
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
-    startLine: 31
+    startLine: 32
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -139,7 +139,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Generate
     path: ../src/Conizi.Model.Core/Tools/Generator.cs
-    startLine: 41
+    startLine: 42
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools

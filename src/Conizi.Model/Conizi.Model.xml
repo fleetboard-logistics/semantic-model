@@ -4045,14 +4045,14 @@
             A Route that contains a gpx byte array and a destination
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.Urgency">
+            <summary>
+            Urgency Code that can be used to signalize high-priority deliveries
+            </summary>
+        </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction">
             <summary>
             A Text Instruction to describe the driver specific instructions eg. Report to Gate 4. Usually part of a <see cref="T:Conizi.Model.Shared.Entities.EdiTextInstruction" />
-            </summary>
-        </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.Urgency">
-            <summary>
-            Urgency Code that can be used to signalize high-priority deliveries
             </summary>
         </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.StandardText">
@@ -4070,7 +4070,7 @@
             The Address of a contact
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.ReportingPoint">
+        <member name="P:Conizi.Model.Shared.Entities.EdiYardInstruction.EdiTextInstruction.ReportingPoints">
             <summary>
             The ReportingPoint where the driver has to report on arrival 
             </summary>

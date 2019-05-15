@@ -6,6 +6,8 @@ using System.Runtime.Serialization;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -85,6 +87,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Urgency Code")]
         [Description("Urgency Code that can be set to signalize high/low priority. Default is normal")]
         [DefaultValue(UrgencyCode.Normal)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public UrgencyCode? Urgency { get; set; }
 
         /// <summary>
