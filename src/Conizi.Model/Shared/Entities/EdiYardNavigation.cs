@@ -114,7 +114,7 @@ namespace Conizi.Model.Shared.Entities
             /// <summary>
             /// The ReportingPoint where the driver has to report on arrival 
             /// </summary>
-            public EdiReportingPoint ReportingPoint { get; set; }
+            public List<EdiReportingPoint> ReportingPoints { get; set; }
 
             /// <summary>
             /// Attachments that can be added to the Instruction, can only contain references
