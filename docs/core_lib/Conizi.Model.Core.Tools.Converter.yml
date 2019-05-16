@@ -21,7 +21,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Converter
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -57,7 +57,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Serialize
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
-    startLine: 55
+    startLine: 56
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -113,7 +113,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Deserialize
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
-    startLine: 105
+    startLine: 102
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
