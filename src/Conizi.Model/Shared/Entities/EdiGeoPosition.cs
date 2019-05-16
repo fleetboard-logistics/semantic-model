@@ -26,7 +26,7 @@ namespace Conizi.Model.Shared.Entities
         [JsonRequired]
         [DisplayName("Longitude")]
         [Description("East–west position of a point on the Earth's surface")]
-        public decimal? Longitude { get; set; }
+        public decimal Longitude { get; set; }
 
         /// <summary>
         /// North–south position of a point on the Earth's surface
@@ -34,7 +34,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Latitude")]
         [Description("North–south position of a point on the Earth's surface")]
         [JsonRequired]
-        public decimal? Latitude { get; set; }
+        public decimal Latitude { get; set; }
 
         /// <summary>
         /// The place name of the current geo position
@@ -58,33 +58,71 @@ namespace Conizi.Model.Shared.Entities
         public DateTimeOffset RecordTime { get; set; }
 
         /// <summary>
+        /// The angle is the direction that the vehicle is moving in
+        /// </summary>
+        [DisplayName("Angle")]
+        [Description("The angle is the direction that the vehicle is moving in")]
+        public decimal Angle { get; set; }
+
+        /// <summary>
+        /// The current speed of the vehicle in a defined measurement
+        /// </summary>
+        public EdiGeoSpeed Speed { get; set; }
+
+        /// <summary>
         /// GeoRadius on which this GeoPosition is considered as in range
         /// </summary>
         public EdiGeoRadius GeoRadius { get; set; }
+    }
+
+    /// <summary>
+    /// The current speed of the vehicle in a defined measurement
+    /// </summary>
+    [DisplayName("Speed")]
+    [Description("The current speed of the vehicle")]
+    public class EdiGeoSpeed
+    {
+        /// <summary>
+        /// The current speed of the vehicle
+        /// </summary>
+        [DisplayName("Speed")]
+        [Description("The current speed of the vehicle")]
+        [Required]
+        public decimal Speed { get; set; }
 
         /// <summary>
-        /// GeoRadius on which this GeoPosition is considered as in range containing measurement unit an the distance
+        /// Code that describes the unit in which the speed is measured
+        /// Default Kilometer per hour
         /// </summary>
-        [DisplayName("GeoRadius for the accuracy")]
-        [Description("GeoRadius that describes when a Position is considered as in range")]
-        public class EdiGeoRadius
-        {
-            /// <summary>
-            /// GeoRadius on which this GeoPosition is considered as in range
-            /// </summary>
-            [DisplayName("GeoRadius for the Coordinates")]
-            [Description("GeoRadius that extends the range of the coordinates")]
-            public double? Radius { get; set; }
+        [DisplayName("Unit Code for Speed")]
+        [Description("Code that describes the unit in which the Speed is measured. Default kilometers (KMT)")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public MeasurementUnitCode? SpeedMeasurementUnitCode { get; set; }
 
-            /// <summary>
-            /// Code that describes the unit in which the radius is measured
-            /// </summary>
-            [DisplayName("Unit Code for GeoRadius")]
-            [Description("Code that describes the unit in which the radius is measured")]
-            [JsonConverter(typeof(StringEnumConverter))]
-            public MeasurementUnitCode? RadiusMeasurementUnitCode { get; set; }
-        }
+    }
 
+    /// <summary>
+    /// GeoRadius on which this GeoPosition is considered as in range containing measurement unit an the distance
+    /// </summary>
+    [DisplayName("GeoRadius for the accuracy")]
+    [Description("GeoRadius that describes when a Position is considered as in range")]
+    public class EdiGeoRadius
+    {
+        /// <summary>
+        /// GeoRadius on which this GeoPosition is considered as in range
+        /// </summary>
+        [DisplayName("GeoRadius for the Coordinates")]
+        [Description("GeoRadius that extends the range of the coordinates")]
+        [Required]
+        public decimal Radius { get; set; }
 
+        /// <summary>
+        /// Code that describes the unit in which the radius is measured
+        /// Default Kilometer per hour
+        /// </summary>
+        [DisplayName("Unit Code for GeoRadius")]
+        [Description("Code that describes the unit in which the Speed is measured. Default kilometers (KMT)")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public MeasurementUnitCode? RadiusMeasurementUnitCode { get; set; }
     }
 }

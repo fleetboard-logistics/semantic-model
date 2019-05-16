@@ -2,6 +2,8 @@ apiRules:
 - include:
     uidRegex: ^Conizi\.Model\.Transport\.Truck
 - include:
+    uidRegex: ^Conizi\.Model\.Telematics
+- include:
     uidRegex: ^Conizi\.Model\.Archiving
 - include:
     uidRegex: ^Conizi\.Model\.Accounting

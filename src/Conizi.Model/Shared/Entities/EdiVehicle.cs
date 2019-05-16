@@ -32,6 +32,6 @@ namespace Conizi.Model.Shared.Entities
         /// The truck type
         /// </summary>
         [DisplayName("Truck type")]
-        public object TruckType { get; set; }
+        public EdiEmptyExtendableObject TruckType { get; set; }
     }
 }

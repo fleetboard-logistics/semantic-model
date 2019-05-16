@@ -49,7 +49,7 @@
         },
         "product": {
           "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "description": "The product allows to distinguish different processes within one network, effectively sub classing the network",
           "type": "string"
         }
       }

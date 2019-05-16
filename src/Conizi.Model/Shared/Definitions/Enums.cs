@@ -45,8 +45,9 @@ namespace Conizi.Model.Shared.Definitions
 
     /// <summary>
     /// Determines the unit in which a given property is measured
+    /// Default kilometers per hour
     /// </summary>
-    [Description("Determines the unit of a given property")]
+    [Description("Determines the unit of a given property. Default kilometers per hour")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties(false)]
     public enum MeasurementUnitCode

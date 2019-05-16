@@ -1,0 +1,258 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://model.conizi.io/v1/telematics/geolocation.json",
+  "title": "Geo Location",
+  "description": "A single geo location which is transferred between two partners. Also vehicle and driver data could be included",
+  "definitions": {
+    "EdiDriver": {
+      "title": "Driver",
+      "description": "Information about the drivers of the vehicles",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "driverId": {
+          "title": "Diver Id",
+          "description": "The id of the driver",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name of the driver",
+          "description": "The name of the driver",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number",
+          "description": "The phone number of the driver",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEmptyExtendableObject": {
+      "title": "Truck type",
+      "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiEmptyExtendableObject-1": {
+      "$ref": "#/definitions/EdiEmptyExtendableObject"
+    },
+    "EdiGeoPosition": {
+      "title": "Geo position",
+      "description": "Data about the current geo position",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "angle": {
+          "title": "Angle",
+          "description": "The angle is the direction that the vehicle is moving in",
+          "type": "number"
+        },
+        "speed": {
+          "$ref": "#/definitions/EdiGeoSpeed"
+        },
+        "geoRadius": {
+          "$ref": "#/definitions/EdiGeoRadius"
+        }
+      },
+      "required": [
+        "longitude",
+        "latitude"
+      ]
+    },
+    "EdiGeoRadius": {
+      "title": "GeoRadius for the accuracy",
+      "description": "GeoRadius that describes when a Position is considered as in range",
+      "type": "object",
+      "properties": {
+        "radius": {
+          "title": "GeoRadius for the Coordinates",
+          "description": "GeoRadius that extends the range of the coordinates",
+          "type": "number"
+        },
+        "radiusMeasurementUnitCode": {
+          "title": "Unit Code for GeoRadius",
+          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "radius"
+      ]
+    },
+    "EdiGeoSpeed": {
+      "title": "Speed",
+      "description": "The current speed of the vehicle",
+      "type": "object",
+      "properties": {
+        "speed": {
+          "title": "Speed",
+          "description": "The current speed of the vehicle",
+          "type": "number"
+        },
+        "speedMeasurementUnitCode": {
+          "title": "Unit Code for Speed",
+          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "speed"
+      ]
+    },
+    "EdiMessageRouting": {
+      "title": "Routing information of the message",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNetwork": {
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distinguish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
+    },
+    "EdiVehicle": {
+      "title": "Vehicle",
+      "description": "Information about the vehicles used in the transport",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "vehicleId": {
+          "title": "The vehicle id",
+          "type": "string"
+        },
+        "registration": {
+          "title": "Registration",
+          "description": "Official registration of the vehicle (e.g. license plate number)",
+          "type": "string"
+        },
+        "truckType": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "title": "Json schema",
+      "description": "The used json schema",
+      "type": "string"
+    },
+    "receiver": {
+      "$ref": "#/definitions/EdiMessageRouting"
+    },
+    "sender": {
+      "$ref": "#/definitions/EdiMessageRouting"
+    },
+    "network": {
+      "$ref": "#/definitions/EdiNetwork"
+    },
+    "geoPosition": {
+      "$ref": "#/definitions/EdiGeoPosition"
+    },
+    "vehicle": {
+      "$ref": "#/definitions/EdiVehicle"
+    },
+    "driver": {
+      "$ref": "#/definitions/EdiDriver"
+    }
+  },
+  "required": [
+    "$schema",
+    "receiver",
+    "geoPosition",
+    "vehicle"
+  ],
+  "patternProperties": {
+    "x-.*": {},
+    "\\$.*": {}
+  }
+}
