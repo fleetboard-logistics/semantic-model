@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
@@ -14,6 +16,19 @@ namespace Conizi.Model.Shared.Entities
     public class 
         EdiModel : EdiPatternPropertiesBase
     {
+        /// <summary>
+        /// The EdiModel default Constructor
+        /// </summary>
+        public EdiModel()
+        {
+            var att = this.GetType().GetCustomAttribute<ConiziSchemaAttribute>();
+
+            if (att == null || !string.IsNullOrEmpty(this.Schema))
+                return;
+
+            this.Schema = att.Id;
+        }
+        
         /// <summary>
         /// The id (URI) of the model
         /// </summary>

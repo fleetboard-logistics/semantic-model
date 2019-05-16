@@ -2077,17 +2077,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "urgency": {
-          "title": "Urgency Code",
-          "description": "Urgency Code that can be set to signalize high/low priority. Default is normal",
-          "type": "string",
-          "default": 0,
-          "enum": [
-            "normal",
-            "high",
-            "low"
-          ]
-        },
         "standardText": {
           "$ref": "#/definitions/EdiStandardText"
         },
@@ -2097,8 +2086,11 @@
         "contact": {
           "$ref": "#/definitions/EdiAddress"
         },
-        "reportingPoint": {
-          "$ref": "#/definitions/EdiReportingPoint"
+        "reportingPoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiReportingPoint"
+          }
         },
         "attachments": {
           "type": "array",
@@ -2405,6 +2397,17 @@
         },
         "route": {
           "$ref": "#/definitions/EdiGpxFile"
+        },
+        "urgency": {
+          "title": "Urgency Code",
+          "description": "Urgency Code that can be set to signalize high/low priority. Default is normal",
+          "type": "string",
+          "default": 0,
+          "enum": [
+            "normal",
+            "high",
+            "low"
+          ]
         }
       },
       "patternProperties": {

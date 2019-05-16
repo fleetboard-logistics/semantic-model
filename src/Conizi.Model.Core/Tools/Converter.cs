@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using Conizi.Model.Core.Converters;
@@ -61,9 +62,6 @@ namespace Conizi.Model.Core.Tools
             if (schemaAttribute == null)
                 throw new InvalidOperationException("Class is no valid conizi model!");
 
-            if (string.IsNullOrEmpty(model.Schema))
-                model.Schema = schemaAttribute.Id;
-
             var settings = SerializerSettings;
 
             model.AddOrUpdateMetadata(new EdiMetadata
@@ -71,10 +69,9 @@ namespace Conizi.Model.Core.Tools
                 CreatedAt = DateTime.Now,
                 CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")",
             });
-
+            
             var jsonString = JsonConvert.SerializeObject(model, settings);
-
-
+            
             var conversionResult = new SerializationResult
             {
                 Content = jsonString

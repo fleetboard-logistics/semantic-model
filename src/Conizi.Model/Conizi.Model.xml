@@ -2259,6 +2259,11 @@
             </summary>
             <remarks>Every conizi model must inherit from this class to be serialized correctly</remarks>
         </member>
+        <member name="M:Conizi.Model.Shared.Entities.EdiModel.#ctor">
+            <summary>
+            The EdiModel default Constructor
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiModel.Schema">
              <summary>
              The id (URI) of the model
