@@ -939,11 +939,39 @@
           "description": "Time the GPS record was created",
           "type": "string",
           "format": "date-time"
+        },
+        "geoRadius": {
+          "$ref": "#/definitions/EdiGeoRadius"
         }
       },
       "required": [
         "longitude",
         "latitude"
+      ]
+    },
+    "EdiGeoRadius": {
+      "title": "GeoRadius for the accuracy",
+      "description": "GeoRadius that describes when a Position is considered as in range",
+      "type": "object",
+      "properties": {
+        "radius": {
+          "title": "GeoRadius for the Coordinates",
+          "description": "GeoRadius that extends the range of the coordinates",
+          "type": "number"
+        },
+        "radiusMeasurementUnitCode": {
+          "title": "Unit Code for GeoRadius",
+          "description": "Code that describes the unit in which the Radius is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "radius"
       ]
     },
     "EdiLoadingEquipmentExchange": {
@@ -2381,17 +2409,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2521,17 +2538,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2656,17 +2662,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2780,17 +2775,6 @@
           "description": "The used json schema",
           "type": "string"
         },
-        "$createdAt": {
-          "title": "Created at date",
-          "description": "The message was created at date",
-          "type": "string",
-          "format": "date-time"
-        },
-        "$createdBy": {
-          "title": "Created by generator",
-          "description": "The message was created by",
-          "type": "string"
-        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2835,17 +2819,6 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema",
-      "type": "string"
-    },
-    "$createdAt": {
-      "title": "Created at date",
-      "description": "The message was created at date",
-      "type": "string",
-      "format": "date-time"
-    },
-    "$createdBy": {
-      "title": "Created by generator",
-      "description": "The message was created by",
       "type": "string"
     },
     "receiver": {

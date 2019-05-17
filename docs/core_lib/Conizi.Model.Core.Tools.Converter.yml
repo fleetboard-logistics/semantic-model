@@ -21,18 +21,15 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Converter
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
-    startLine: 18
+    startLine: 21
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
   summary: "\nThe converter is used to serialize a C# conizi model to JSON or deserialize JSON to a C# model\n"
   example: []
   syntax:
-    content: 'public static class Converter : object'
-    content.vb: >-
-      Public Module Converter
-
-          Inherits Object
+    content: public static class Converter
+    content.vb: Public Module Converter
   inheritance:
   - System.Object
   modifiers.csharp:
@@ -60,7 +57,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Serialize
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
-    startLine: 53
+    startLine: 56
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -117,7 +114,7 @@ items:
       repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
     id: Deserialize
     path: ../src/Conizi.Model.Core/Tools/Converter.cs
-    startLine: 98
+    startLine: 102
   assemblies:
   - Conizi.Model.Core
   namespace: Conizi.Model.Core.Tools
@@ -156,6 +153,19 @@ references:
   name: Conizi.Model.Core.Tools
   nameWithType: Conizi.Model.Core.Tools
   fullName: Conizi.Model.Core.Tools
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Conizi.Model.Core.Entities.SerializationResult
   commentId: T:Conizi.Model.Core.Entities.SerializationResult
   parent: Conizi.Model.Core.Entities
@@ -174,6 +184,8 @@ references:
   nameWithType: TModel
   fullName: TModel
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -196,6 +208,8 @@ references:
   nameWithType: Converter.Deserialize
   fullName: Conizi.Model.Core.Tools.Converter.Deserialize
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String

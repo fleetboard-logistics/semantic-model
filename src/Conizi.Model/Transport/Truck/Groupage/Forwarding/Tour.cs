@@ -30,7 +30,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("messageFunctionCode", Order = -11)]
         [DisplayName("Message function code")]
-        public EdiMessageFunctionCode MessageFunctionCode { get; set; }
+        public EdiMessageFunctionCode? MessageFunctionCode { get; set; }
 
         /// <summary>
         /// The Tour Id. A unique identifier assigned to this tour by the devlivering company

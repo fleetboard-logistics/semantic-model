@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Conizi.Model.Core.Tools;
+using Conizi.Model.Extensions;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Test.Library.Entities;
 using Xunit;
@@ -204,6 +206,111 @@ namespace Conizi.Model.UnitTests.Conversion
             var result = Converter.Serialize(m);
             Assert.True(result.HasValidationErrors);
             Assert.Contains("Required properties are missing", result.ValidationErrors[0]);
+        }
+
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTestModel_AssertAddMetadata()
+        {
+            var m = new TestModel
+            {
+                Receiver = new EdiPartnerIdentification
+                {
+                    EdiId = "KLMN01",
+                },
+                Sender = new EdiPartnerIdentification
+                {
+                    PartnerId = "4711"
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
+                    EdiId = "KLMN01",
+                    Name = "Franz Kafka",
+                    City = "Kafka City"
+                },
+                TestShippingPartner = new EdiPartnerIdentification
+                {
+                    EdiId = "4712"
+                }
+            };
+
+            // Add the metadata
+            m.AddOrUpdateMetadata(new EdiMetadata
+            {
+                Receiver = new EdiMetadataEntity
+                {
+                    Party = "MY-CONIZI-PARTY-ID",
+                    Tenant = "MY-CONIZI-SENDER-TENANT"
+                }
+            });
+
+            Assert.Equal( "MY-CONIZI-PARTY-ID", m.Metadata.Receiver.Party);
+
+            var result = Converter.Serialize(m);
+
+            Assert.False(result.HasValidationErrors);
+
+            var metadata = m.GetMetadata();
+
+            Assert.NotNull(metadata);
+
+            Assert.Equal("MY-CONIZI-SENDER-TENANT", metadata.Receiver.Tenant);
+
+            Assert.Contains("MY-CONIZI-SENDER-TENANT", result.Content);
+            Assert.Contains("MY-CONIZI-PARTY-ID", result.Content);
+            Assert.Contains("$createdAt", result.Content);
+        }
+
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTestModel_AssertGenerateSubModelsSuccessful()
+        {
+            var m = new TestModel
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "KLMN01",
+                },
+                Sender = new EdiMessageRouting
+                {
+                    PartnerId = "4711"
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
+                    EdiId = "KLMN01",
+                    Name = "Franz Kafka",
+                    City = "Kafka City"
+                },
+                TestShippingPartner = new EdiPartnerIdentification
+                {
+                    EdiId = "OIJE234",
+                    City = "Mary Town"
+                },
+                TestDateTime = DateTime.Now,
+                TestDateOnly = DateTime.Now,
+                TestTimeOnly = "14:12:23",
+                SubModels = new List<TestSubModel> {
+                    new TestSubModel {
+                        Receiver = new EdiMessageRouting
+                        {
+                            EdiId = "44511"
+                        },
+                        MyProp = "11"
+                    },
+                    new TestSubModel {
+                        Receiver = new EdiMessageRouting
+                        {
+                            EdiId = "44844"
+                        },
+                        MyProp = "12"
+                    }
+                }
+            };
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
         }
 
         [Fact]
