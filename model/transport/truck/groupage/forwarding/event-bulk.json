@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Generated: 2019-05-17T16:56:52.2378348+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -2439,7 +2440,7 @@
       "properties": {
         "$schema": {
           "title": "Json schema",
-          "description": "The used json schema",
+          "description": "The used json schema (url/version)",
           "type": "string"
         },
         "receiver": {
@@ -2568,7 +2569,7 @@
       "properties": {
         "$schema": {
           "title": "Json schema",
-          "description": "The used json schema",
+          "description": "The used json schema (url/version)",
           "type": "string"
         },
         "receiver": {
@@ -2692,7 +2693,7 @@
       "properties": {
         "$schema": {
           "title": "Json schema",
-          "description": "The used json schema",
+          "description": "The used json schema (url/version)",
           "type": "string"
         },
         "receiver": {
@@ -2805,7 +2806,7 @@
       "properties": {
         "$schema": {
           "title": "Json schema",
-          "description": "The used json schema",
+          "description": "The used json schema (url/version)",
           "type": "string"
         },
         "receiver": {
@@ -2851,7 +2852,7 @@
   "properties": {
     "$schema": {
       "title": "Json schema",
-      "description": "The used json schema",
+      "description": "The used json schema (url/version)",
       "type": "string"
     },
     "receiver": {
