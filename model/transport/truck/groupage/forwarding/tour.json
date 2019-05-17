@@ -227,6 +227,26 @@
         "\\$.*": {}
       }
     },
+    "EdiBinaryData": {
+      "title": "Binary Data",
+      "description": "The content/data of a file",
+      "type": "object",
+      "properties": {
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "data": {
+          "title": "Data bytes",
+          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
     "EdiCashOnDelivery": {
       "title": "Cash on delivery",
       "description": "The goods must only be delivered if the recipient pays the given amount",
@@ -824,6 +844,34 @@
       "properties": {
         "archive": {
           "$ref": "#/definitions/EdiArchive"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileContent": {
+      "title": "File Content",
+      "description": "Transfers file data like a picture, pdf, txt..",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "title": "File Name",
+          "description": "The file name",
+          "type": "string"
+        },
+        "contentType": {
+          "title": "Content Type",
+          "description": "The content type like application/pdf, image/png...",
+          "type": "string"
+        },
+        "binaryData": {
+          "$ref": "#/definitions/EdiBinaryData"
+        },
+        "fileReference": {
+          "$ref": "#/definitions/EdiFileReference"
         }
       },
       "patternProperties": {
@@ -2141,10 +2189,16 @@
             "$ref": "#/definitions/EdiReportingPoint"
           }
         },
-        "attachments": {
+        "fileReferences": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/EdiFileReference"
+          }
+        },
+        "fileContents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileContent"
           }
         }
       },
@@ -2449,6 +2503,18 @@
             "high",
             "low"
           ]
+        },
+        "fileReferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileReference"
+          }
+        },
+        "fileContents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiFileContent"
+          }
         }
       },
       "patternProperties": {

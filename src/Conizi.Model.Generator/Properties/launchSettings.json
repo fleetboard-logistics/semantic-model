@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Conizi.Model.Generator": {
-      "commandName": "Project",
-      "commandLineArgs": "validate -m Manifest-f C:\\temp\\schemagenerator\\sorted\\MANIFEST\\BORD512_190309024300711_3643.json"
-    }
-  }
-}

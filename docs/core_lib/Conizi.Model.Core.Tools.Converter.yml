@@ -67,6 +67,7 @@ items:
   syntax:
     content: >-
       public static SerializationResult Serialize<TModel>(TModel model, bool indented = false, bool ignoreValidation = false)
+
           where TModel : EdiModel
     parameters:
     - id: model
@@ -123,6 +124,7 @@ items:
   syntax:
     content: >-
       public static TModel Deserialize<TModel>(string json)
+
           where TModel : EdiModel
     parameters:
     - id: json

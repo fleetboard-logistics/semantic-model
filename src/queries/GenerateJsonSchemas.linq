@@ -1,6 +1,6 @@
 <Query Kind="Statements">
-  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\sematicmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
-  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\sematicmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\semanticmodel-telematic\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\semanticmodel-telematic\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
   <NuGetReference>Newtonsoft.Json</NuGetReference>
   <NuGetReference>Newtonsoft.Json.Schema</NuGetReference>
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
@@ -29,6 +29,7 @@
   <Namespace>Serilog</Namespace>
   <Namespace>Serilog.Configuration</Namespace>
   <Namespace>System.Security.Cryptography</Namespace>
+  <Namespace>Conizi.Model.Telematics</Namespace>
 </Query>
 
 Generator.RegisterJsonSchemaLicense(Environment.GetEnvironmentVariable("Generator:JsonSchemaLicense"));
@@ -45,12 +46,14 @@ var models = new List<Type> {
 	 typeof(ConsignmentEvent),
 	 typeof(PackageEvent),
 	 typeof(Manifest),
+	 
 	 typeof(EventBulk),
 	 typeof(PickupOrderEvent),
 	 typeof(PickupOrder),
 	 typeof(PickupOrderBulk),
 	 typeof(ProofOfDelivery),
-	 typeof(MaterialTransaction)
+	 typeof(MaterialTransaction),
+	 typeof(GeoLocation)
 };
 
 foreach (var model in models)

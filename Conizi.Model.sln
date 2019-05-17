@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Core", "src\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Test.Library", "test\Conizi.Model.Test.Library\Conizi.Model.Test.Library.csproj", "{D70178CC-A257-4C3F-B5C8-8948A69B5561}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conizi.Model.Tooling", "src\Conizi.Model.Tooling\Conizi.Model.Tooling.csproj", "{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,12 @@ Global
 		{D70178CC-A257-4C3F-B5C8-8948A69B5561}.NetCore|Any CPU.ActiveCfg = Debug|Any CPU
 		{D70178CC-A257-4C3F-B5C8-8948A69B5561}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D70178CC-A257-4C3F-B5C8-8948A69B5561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD}.NetCore|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD}.NetCore|Any CPU.Build.0 = Debug|Any CPU
+		{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,7 @@ Global
 		{34EC1440-8785-4370-9B27-08F7F48A8D93} = {74413E7C-4AB2-4186-9A54-58AA4303B0B9}
 		{5DCFF446-B5DE-4DCB-8A61-A9CF79DF4C8D} = {07D7C77C-D400-4F1F-83D6-1835967D4707}
 		{D70178CC-A257-4C3F-B5C8-8948A69B5561} = {74413E7C-4AB2-4186-9A54-58AA4303B0B9}
+		{7E8EF9E1-3961-448C-9B5D-AAFA8B5CA5BD} = {07D7C77C-D400-4F1F-83D6-1835967D4707}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73A9C851-69E8-4BE0-B70A-2199F87F0DAB}
