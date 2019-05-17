@@ -1,9 +1,10 @@
-![conizi](D:/projects/conizi/git/ocora-sematicmodel/doc/conizi.png)
+![conizi](conizi.png)
 
 <div style="text-align: center;">
 	<h1> Mapping Guideline for FORTRAS ENTL512 to Conizi Event Bulk format</h1>
-	<strong>v1.0 - 2019-MAY-14</strong>
+	<strong>v1.1 - 2019-MAY-16</strong>
 </div>
+
 
 ## Introduction
 
@@ -27,13 +28,24 @@ Please refer to [Appendix 1.](#Appendix 1. FORTRAS REL100 ENTL512 Record Referen
 
 ## Conizi Event Bulk Message Overview
 
+FORTRAS ENTL512 messages need to be mapped to Conizi Event Bulk JSON message format. This schema has a few fields on root level and it can contain multiple consignment-event, pickuporder-event and package-event sub items. All fields of ENTL512 messages need to be mapped against consignment-events sub item. Every N00 record could contain 4 different status codes (N00/statusCodes[X]), therefore one consignment-events item needs to be generated from all status codes of all N00 records.
+
+The schema must be referenced from each level of the message. To better understand this concept, check for the $schema tags in the [Appendix 3.](#appendix-3-sample-conizi-format-event-bulk-file).
+
+The following schema references must be added for different message sections, levels:
+
+|Message section / level|schema reference|
+|----|----|
+|Root level|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/event-bulk|
+|consignment-event|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/consignment-event|
+
+
 ## Mapping
 
 In the mapping description we use the path notation to refer to source and target fields. Source field path consists of the record type and the field of that record. Eg.: M00/waybillConsignorId
 
 ### Event bulk Level
 
-FORTRAS ENTL512 messages need to be mapped to Conizi Event Bulk JSON message format. This schema has a few fields on root level and it can contain multiple consignment-event, pickuporder-event and package-event sub items. All fields of ENTL512 messages need to be mapped against consignment-events sub item. Every N00 record could contain 4 different status codes (N00/statusCodes[X]), therefore one consignment-events item needs to be generated from all status codes of all N00 records.
 
 | conizi event bulk field | FORTRAS ENTL512 field                                   | Description                                                  |
 | ----------------------- | ------------------------------------------------------- | ------------------------------------------------------------ |

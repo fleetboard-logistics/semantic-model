@@ -3,7 +3,7 @@
 
 <div style="text-align: center;">
 	<h1>Mapping Guideline for FORTRAS BORD512 to conizi manifest format</h1>
-	<strong>v1.1 - 2019-MAR-19</strong>
+	<strong>v1.2 - 2019-MAY-17</strong>
 </div>
 
 ## Introduction
@@ -41,6 +41,15 @@ The conizi manifest message consists of 3 levels: manifest, consignment, positio
 ![manifest](conizi_manifest_structure.png)
 
 Please also refer to [Appendix 3.](#appendix-3-sample-conizi-format-manifest-file), where a complete conizi format manifest file can be found. This is how the result of the conversion, mapping should look like in JSON format.
+
+The schema must be referenced from each level of the message. To better understand this concept, check for the $schema tags in the [Appendix 3.](#appendix-3-sample-conizi-format-manifest-file).
+
+The following schema references must be added for different message sections, levels:
+
+|Message section / level|schema reference|
+|----|----|
+|Root level|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/manifest|
+|consignment|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/consignment|
 
 ## Mapping
 
@@ -90,7 +99,7 @@ Addresses are mapped from different qualifier B00 / B10 records. The main addres
 |zipCode|B00/postcode||
 |city|B00/place||
 |townArea|B00/townArea||
-|referenceNumber|B00/partnerId||
+|reference|B00/partnerId||
 |contactPerson|B10/content from B10 record, where communicationTypeQualifier = KPE|Can be more, separated by comma.|
 |phoneNumber|B10/content from B10 record, where communicationTypeQualifier = TEL|Can be more, separated by comma.|
 |emailAddress|B10/content from B10 record, where communicationTypeQualifier = EMA|Can be more, separated by comma.|
@@ -802,6 +811,7 @@ This sample can be used to get a hint on how the resulting file should look like
 
 ```json
 {
+    "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/manifest",
 	"manifestId": "123456",
 	"manifestType": "STD",
 	"shippingDate": "2018-08-15",
@@ -849,6 +859,7 @@ This sample can be used to get a hint on how the resulting file should look like
 	"lines": [{
 		"lineNo": 1,
 		"consignment": {
+            "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/consignment",
 			"consignmentNoShippingPartner": "01234555555",
 			"consignmentNoReceivingPartner": "",
 			"shippingDate": "2019-08-15",
@@ -894,7 +905,7 @@ This sample can be used to get a hint on how the resulting file should look like
 					"zipCode": "97332",
 					"city": "Volkach",
 					"townArea": "",
-					"referenceNumber": "33066"
+					"reference": "33066"
 				},
 				"consignee": {
 					"name": "MUSTER CONSIGNEE GMBH",
@@ -903,7 +914,7 @@ This sample can be used to get a hint on how the resulting file should look like
 					"zipCode": "97333",
 					"city": "Volkach",
 					"townArea": "",
-					"referenceNumber": ""
+					"reference": ""
 				}
 			},
 			"content": {
@@ -962,6 +973,7 @@ This sample can be used to get a hint on how the resulting file should look like
 	{
 		"lineNo": 2,
 		"consignment": {
+            "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/consignment",
 			"consignmentNoShippingPartner": "0123456789987",
 			"consignmentNoReceivingPartner": "",
 			"shippingDate": "2018-08-15",
@@ -1006,7 +1018,7 @@ This sample can be used to get a hint on how the resulting file should look like
 					"zipCode": "32654",
 					"city": "TEST",
 					"townArea": "",
-					"referenceNumber": "33068"
+					"reference": "33068"
 				},
 				"consignee": {
 					"name": "SAMPLE CONSIGNEE GMBH",
@@ -1017,7 +1029,7 @@ This sample can be used to get a hint on how the resulting file should look like
 					"zipCode": "321654",
 					"city": "NUERNBERG",
 					"townArea": "",
-					"referenceNumber": ""
+					"reference": ""
 				}
 			},
 			"content": {
@@ -1085,6 +1097,7 @@ This sample can be used to get a hint on how the resulting file should look like
 	{
 		"lineNo": 3,
 		"consignment": {
+            "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/consignment",
 			"consignmentNoShippingPartner": "0123456789888",
 			"consignmentNoReceivingPartner": "",
 			"shippingDate": "2018-08-15",
@@ -1130,7 +1143,7 @@ This sample can be used to get a hint on how the resulting file should look like
 					"zipCode": "1236549",
 					"city": "MUENCHEN",
 					"townArea": "",
-					"referenceNumber": "889955"
+					"reference": "889955"
 				},
 				"consignee": {
 					"name": "GRUNDSCHULE",
@@ -1139,7 +1152,7 @@ This sample can be used to get a hint on how the resulting file should look like
 					"zipCode": "90999",
 					"city": "FRANKFURT",
 					"townArea": "",
-					"referenceNumber": ""
+					"reference": ""
 				}
 			},
 			"content": {

@@ -2,7 +2,7 @@
 
 <div style="text-align: center;">
 	<h1>Mapping Guideline for FORTRAS BORD512 to conizi pickup order format</h1>
-	<strong>v1.0 - 2019-MAR-26</strong>
+	<strong>v1.1 - 2019-MAY-17</strong>
 </div>
 
 
@@ -41,6 +41,16 @@ The conizi pickup order message consists of 2 levels: pickup order (consignment)
 ![manifest](conizi_pickup_order_structure.png)
 
 Please also refer to [Appendix 3.](#appendix-3-sample-conizi-format-manifest-file), where a complete conizi format pickup order file can be found. This is how the result of the conversion, mapping should look like in JSON format.
+
+The schema must be referenced from each level of the message. To better understand this concept, check for the $schema tags in the [Appendix 3.](#appendix-3-sample-conizi-format-manifest-file).
+
+The following schema references must be added for different message sections, levels:
+
+|Message section / level|schema reference|
+|----|----|
+|pickuporder level|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder|
+|pickuporder bulk level|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder-bulk|
+|consignment|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/consignment|
 
 ## Mapping
 
@@ -98,7 +108,7 @@ Addresses are mapped from different qualifier B00 / B10 records. The main addres
 |zipCode|B00/postcode||
 |city|B00/place||
 |townArea|B00/townArea||
-|referenceNumber|B00/partnerId||
+|reference|B00/partnerId||
 |contactPerson|B10/content from B10 record, where communicationTypeQualifier = KPE|Can be more, separated by comma.|
 |phoneNumber|B10/content from B10 record, where communicationTypeQualifier = TEL|Can be more, separated by comma.|
 |emailAddress|B10/content from B10 record, where communicationTypeQualifier = EMA|Can be more, separated by comma.|
@@ -223,7 +233,7 @@ Fields discussed in this chapter are all under the */content/lines* path. The li
 |loadingMeter|D00/loadingMeters|Length of the area occupied on a 2.4 m wide container|
 |grossWeightKilogram|D00/actualWeight|Weight of the line including all packaging|
 |areaPalletBays|D00/numberOfPalletLocations|Area used by the line in terms of standard EUR pallet bays (120 x 80 cm)|
-|chargeableWeightKilogram|D00/chargeableWeight|Virtual weight of the line used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums.|
+|chargeableWeightKilogram|D00/chargeableWeight|Virtual weight of the line used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums.|
 |lengthMeter|D00/lengthInMeters|Total length of the line|
 |widthMeter|D00/widthInMeters|Total width of the line|
 |heightMeter|D00/heightInMeters|Total height of the line|
@@ -771,8 +781,11 @@ The below sample conizi format manifest message was created based on a real life
 
 This sample can be used to get a hint on how the resulting file should look like after the conversion from FORTRAS format. 
 
+### Single pickup order
+
 ```json
 {
+    "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/pickuporder",
 	"pickupOrderNo": "PIO123456",
 	"pickupOrderDate": "2019-02-12",
 	"pickupDate": {
@@ -862,6 +875,7 @@ This sample can be used to get a hint on how the resulting file should look like
 			"currency": "EUR"
 		},
 		"lines": [{
+            "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/consignment",
 			"lineNo": 1,
 			"handlingUnitCount": 1,
 			"handlingUnitType": "FP",
@@ -887,3 +901,255 @@ This sample can be used to get a hint on how the resulting file should look like
 }
 ```
 
+### Bulk pickup order
+
+```json
+{
+	"$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder-bulk",
+	"sender": {
+		"ediId": "SENDER"
+	},
+	"receiver": {
+		"ediId": "RECEIVER"
+	},
+	"network": {
+		"networkId": "NET",
+		"codelist": "CL",
+		"product": "CL"
+	},
+	"pickuporders": [
+		{
+			"$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder",
+			"pickupOrderNo": "PO321654",
+			"pickupOrderDate": "2019-04-26",
+			"pickupDate": {
+				"date": "2019-04-26",
+				"timeFrom": "08:00:00",
+				"timeUntil": "14:00:00"
+			},
+			"sender": {
+				"ediId": "SENDER"
+			},
+			"receiver": {
+				"ediId": "RECEIVER"
+			},
+			"network": {
+				"networkId": "NET",
+				"codelist": "CL",
+				"product": "CL"
+			},
+			"orderingParty": {
+				"name": "TEST LOGISTICS GMBH",
+				"street": "MUSTERSTRASSE 45",
+				"countryCode": "DE",
+				"zipCode": "99999",
+				"city": "MUSTERCITY",
+				"townArea": "",
+				"reference": "REF001"
+			},
+			"orderingPartner": {
+				"partnerId": "9999"
+			},
+			"contractedPartner": {
+				"partnerId": "9998"
+			},
+			"information": {},
+			"services": {
+				"loadingOptions": {
+					"receivingPartnerDisposal": {
+						"partnerId": "9997"
+					}
+				},
+				"timeOptions": {
+					"notAfter": {
+						"date": "2019-04-30"
+					}
+				}
+			},
+			"references": {
+				"customerOrderNo": "CORD3214555",
+				"x-customerOrderNo2": "513599"
+			},
+			"routing": {
+				"shipper": {
+					"name": "TEST GMBH",
+					"x-name2": "",
+					"x-name3": "",
+					"street": "TEST STR. 12",
+					"countryCode": "DE",
+					"zipCode": "98888",
+					"city": "VOLKACH",
+					"townArea": "",
+					"reference": "REF5081"
+				},
+				"consignee": {
+					"name": "SAMPLE GMBH",
+					"x-name2": "",
+					"x-name3": "",
+					"street": "SAMPLE STR. 2",
+					"countryCode": "NL",
+					"zipCode": "654987",
+					"city": "AMSTERDAM",
+					"townArea": "",
+					"reference": "REF471",
+				}
+			},
+			"billing": {
+				"deliveryTerms": "2"
+			},
+			"content": {
+				"volumeCubicmeter": 0,
+				"loadingMeter": 0,
+				"grossWeightKilogram": 320,
+				"areaPalletBays": 0,
+				"chargeableWeightKilogram": 320,
+				"insuranceValue": {
+					"amount": 0,
+					"currency": "EUR"
+				},
+				"lines": [
+					{
+						"lineNo": 1,
+						"handlingUnitCount": 1,
+						"handlingUnitType": "EP",
+						"innerPackageCount": 0,
+						"innerPackageType": "",
+						"content": "SMART TV",
+						"refNo": "",
+						"volumeCubicmeter": 0,
+						"loadingMeter": 0,
+						"grossWeightKilogram": 320,
+						"areaPalletBays": 0,
+						"chargeableWeightKilogram": 320,
+						"lengthMeter": 0,
+						"widthMeter": 0,
+						"heightMeter": 0,
+						"barcodes": []
+					}
+				],
+				"additionalLoadingEquipment": {
+					"eurPallets": 0,
+					"eurBoxes": 0
+				}
+			}
+		},
+		{
+			"$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder",
+			"pickupOrderNo": "PO458787",
+			"pickupOrderDate": "2019-04-26",
+			"pickupDate": {
+				"date": "2019-04-26",
+				"timeFrom": "08:00:00",
+				"timeUntil": "14:00:00"
+			},
+			"sender": {
+				"ediId": "SENDER"
+			},
+			"receiver": {
+				"ediId": "RECEIVER"
+			},
+			"network": {
+				"networkId": "NET",
+				"codelist": "CL",
+				"product": "CL"
+			},
+			"orderingParty": {
+				"name": "TEST LOGISTICS GMBH",
+				"street": "MUSTERSTRASSE 45",
+				"countryCode": "DE",
+				"zipCode": "99999",
+				"city": "MUSTERCITY",
+				"townArea": "",
+				"reference": "REF001"
+			},
+			"orderingPartner": {
+				"partnerId": "9999"
+			},
+			"contractedPartner": {
+				"partnerId": "9989"
+			},
+			"information": {},
+			"services": {
+				"loadingOptions": {
+					"receivingPartnerDisposal": {
+						"partnerId": "9997"
+					}
+				},
+				"deliveryOptions": {
+					"x-priorityCustomer": true
+				},
+				"timeOptions": {
+					"notAfter": {
+						"date": "2019-04-30"
+					}
+				}
+			},
+			"references": {
+				"customerOrderNo": "CUST-89797",
+			},
+			"routing": {
+				"shipper": {
+					"name": "TEST GMBH",
+					"x-name2": "",
+					"x-name3": "",
+					"street": "TEST STR. 12",
+					"countryCode": "DE",
+					"zipCode": "98888",
+					"city": "VOLKACH",
+					"townArea": "",
+					"reference": "REF5081"
+				},
+				"consignee": {
+					"name": "SAMPLE GMBH",
+					"x-name2": "",
+					"x-name3": "",
+					"street": "SAMPLE STR. 2",
+					"countryCode": "NL",
+					"zipCode": "654987",
+					"city": "AMSTERDAM",
+					"townArea": "",
+					"reference": "REF471",
+				}
+			},
+			"billing": {
+				"deliveryTerms": "2"
+			},
+			"content": {
+				"volumeCubicmeter": 0,
+				"loadingMeter": 0,
+				"grossWeightKilogram": 40,
+				"areaPalletBays": 0,
+				"chargeableWeightKilogram": 40,
+				"insuranceValue": {
+					"amount": 15480,
+					"currency": "EUR"
+				},
+				"lines": [
+					{
+						"lineNo": 1,
+						"handlingUnitCount": 1,
+						"handlingUnitType": "EP",
+						"innerPackageCount": 0,
+						"innerPackageType": "",
+						"content": "LAPTOP",
+						"refNo": "",
+						"volumeCubicmeter": 0,
+						"loadingMeter": 0,
+						"grossWeightKilogram": 40,
+						"areaPalletBays": 0,
+						"chargeableWeightKilogram": 40,
+						"lengthMeter": 0,
+						"widthMeter": 0,
+						"heightMeter": 0,
+						"barcodes": []
+					}
+				],
+				"additionalLoadingEquipment": {
+					"eurPallets": 0,
+					"eurBoxes": 0
+				}
+			}
+		}
+	]
+}
+```
