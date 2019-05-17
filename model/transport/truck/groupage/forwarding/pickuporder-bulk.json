@@ -924,7 +924,7 @@
         },
         "radiusMeasurementUnitCode": {
           "title": "Unit Code for GeoRadius",
-          "description": "Code that describes the unit in which the radius is measured",
+          "description": "Code that describes the unit in which the Radius is measured. Default kilometers (KMT)",
           "type": "string",
           "enum": [
             "KMT",
@@ -932,7 +932,10 @@
             "SMI"
           ]
         }
-      }
+      },
+      "required": [
+        "radius"
+      ]
     },
     "EdiHandlingInstructions": {
       "title": "Handling instructions",
