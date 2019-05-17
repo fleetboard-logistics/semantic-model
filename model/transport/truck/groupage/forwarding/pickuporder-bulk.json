@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T16:56:53.2493801+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-17T18:23:35.1335727+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",

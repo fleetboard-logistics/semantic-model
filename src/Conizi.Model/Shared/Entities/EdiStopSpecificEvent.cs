@@ -97,5 +97,10 @@ namespace Conizi.Model.Shared.Entities
         /// Information on loading equipment exchange at this stop
         /// </summary>
         public EdiLoadingEquipmentExchange LoadingEquipmentExchange { get; set; }
+
+        /// <summary>
+        /// ETA (Estimated time of arrival)
+        /// </summary>
+        public EdiGeoEta Eta { get; set; }
     }
 }

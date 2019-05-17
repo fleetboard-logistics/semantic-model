@@ -16,7 +16,6 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Geo position")]
     [Description("Data about the current geo position")]
-    
     [ConiziAdditionalProperties(false)]
     public class EdiGeoPosition
     {
@@ -98,7 +97,6 @@ namespace Conizi.Model.Shared.Entities
         [Description("Code that describes the unit in which the Speed is measured. Default kilometers (KMT)")]
         [JsonConverter(typeof(StringEnumConverter))]
         public MeasurementUnitCode? SpeedMeasurementUnitCode { get; set; }
-
     }
 
     /// <summary>
@@ -124,5 +122,43 @@ namespace Conizi.Model.Shared.Entities
         [Description("Code that describes the unit in which the Speed is measured. Default kilometers (KMT)")]
         [JsonConverter(typeof(StringEnumConverter))]
         public MeasurementUnitCode? RadiusMeasurementUnitCode { get; set; }
+    }
+
+    /// <summary>
+    /// The estimated time of arrival (ETA) is the time when a ship, vehicle, aircraft, cargo, emergency service or person is expected to arrive at a certain place
+    /// </summary>
+    ///<remarks> The ETA should always be used in conjunction with a GPS position <see cref="EdiGeoPosition"/>.</remarks>
+    [DisplayName("ETA (Estimated time of arrival)")]
+    [Description(
+        "The estimated time of arrival (ETA) is the time when a ship, vehicle, aircraft, cargo, emergency service or person is expected to arrive at a certain place. " +
+        "The ETA should always be used in conjunction with a GPS position")]
+    public class EdiGeoEta
+    {
+        /// <summary>
+        /// ETA (Estimated time of arrival) absolute as time string (e.g. 14:12:33)
+        /// </summary>
+        /// <remarks>If no date component is specified <see cref="EtaDateAbsolute"/>, the current day applies.</remarks>
+        [DisplayName("ETA (Estimated time of arrival)")]
+        [Description("ETA (Estimated time of arrival) absolute as time string (e.g. 14:12:33)")]
+        [Required]
+        [ConiziTimeOnly]
+        public string EtaTimeAbsolute { get; set; }
+
+        /// <summary>
+        /// ETA (Estimated time of arrival) date component date (e.g. 2019-05-17)
+        /// </summary>
+        /// <remarks>The date component is only required if it is not the current day.</remarks>
+        [DisplayName("ETA (Estimated time of arrival) date component")]
+        [Description("ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). " +
+                     "The date component is only required if it is not the current day.")]
+        [ConiziDateOnly]
+        public DateTime EtaDateAbsolute { get; set; }
+
+        /// <summary>
+        /// ETE (estimated time enroute, estimated time elapsed) in seconds
+        /// </summary>
+        [DisplayName("Estimated time elapsed")]
+        [Description("ETE (estimated time enroute, estimated time elapsed) in seconds")]
+        public int? Ete { get; set; }
     }
 }

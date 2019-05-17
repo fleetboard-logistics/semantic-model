@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T16:56:52.2378348+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-17T18:29:34.1268467+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -908,6 +908,33 @@
         "x-.*": {},
         "\\$.*": {}
       }
+    },
+    "EdiGeoEta": {
+      "title": "ETA (Estimated time of arrival)",
+      "description": "The estimated time of arrival (ETA) is the time when a ship, vehicle, aircraft, cargo, emergency service or person is expected to arrive at a certain place. The ETA should always be used in conjunction with a GPS position",
+      "type": "object",
+      "properties": {
+        "etaTimeAbsolute": {
+          "title": "ETA (Estimated time of arrival)",
+          "description": "ETA (Estimated time of arrival) absolute as time string (e.g. 14:12:33)",
+          "type": "string",
+          "format": "time"
+        },
+        "etaDateAbsolute": {
+          "title": "ETA (Estimated time of arrival) date component",
+          "description": "ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). The date component is only required if it is not the current day.",
+          "type": "string",
+          "format": "date"
+        },
+        "ete": {
+          "title": "Estimated time elapsed",
+          "description": "ETE (estimated time enroute, estimated time elapsed) in seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "etaTimeAbsolute"
+      ]
     },
     "EdiGeoPosition": {
       "title": "Geo position",
@@ -2037,6 +2064,9 @@
         },
         "loadingEquipmentExchange": {
           "$ref": "#/definitions/EdiLoadingEquipmentExchange"
+        },
+        "eta": {
+          "$ref": "#/definitions/EdiGeoEta"
         },
         "remarks": {
           "title": "Remarks (free form)",
