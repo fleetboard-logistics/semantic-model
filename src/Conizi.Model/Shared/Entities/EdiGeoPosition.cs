@@ -7,6 +7,7 @@ using System.Text;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -80,6 +81,7 @@ namespace Conizi.Model.Shared.Entities
             /// </summary>
             [DisplayName("Unit Code for GeoRadius")]
             [Description("Code that describes the unit in which the radius is measured")]
+            [JsonConverter(typeof(StringEnumConverter))]
             public MeasurementUnitCode? RadiusMeasurementUnitCode { get; set; }
         }
 

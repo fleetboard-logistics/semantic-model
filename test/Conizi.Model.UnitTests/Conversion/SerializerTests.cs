@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Conizi.Model.Core.Tools;
 using Conizi.Model.Extensions;
@@ -261,6 +262,56 @@ namespace Conizi.Model.UnitTests.Conversion
             Assert.Contains("$createdAt", result.Content);
         }
 
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTestModel_AssertGenerateSubModelsSuccessful()
+        {
+            var m = new TestModel
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "KLMN01",
+                },
+                Sender = new EdiMessageRouting
+                {
+                    PartnerId = "4711"
+                },
+                TestReceivingPartner = new EdiPartnerIdentification
+                {
+                    EdiId = "KLMN01",
+                    Name = "Franz Kafka",
+                    City = "Kafka City"
+                },
+                TestShippingPartner = new EdiPartnerIdentification
+                {
+                    EdiId = "OIJE234",
+                    City = "Mary Town"
+                },
+                TestDateTime = DateTime.Now,
+                TestDateOnly = DateTime.Now,
+                TestTimeOnly = "14:12:23",
+                SubModels = new List<TestSubModel> {
+                    new TestSubModel {
+                        Receiver = new EdiMessageRouting
+                        {
+                            EdiId = "44511"
+                        },
+                        MyProp = "11"
+                    },
+                    new TestSubModel {
+                        Receiver = new EdiMessageRouting
+                        {
+                            EdiId = "44844"
+                        },
+                        MyProp = "12"
+                    }
+                }
+            };
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
