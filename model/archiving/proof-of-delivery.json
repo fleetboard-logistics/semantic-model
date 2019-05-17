@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Generated: 2019-05-17T16:56:53.3902901+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/archiving/proof-of-delivery.json",
   "title": "Proof of Delivery",
   "description": "Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender",
@@ -399,7 +400,7 @@
   "properties": {
     "$schema": {
       "title": "Json schema",
-      "description": "The used json schema",
+      "description": "The used json schema (url/version)",
       "type": "string"
     },
     "receiver": {

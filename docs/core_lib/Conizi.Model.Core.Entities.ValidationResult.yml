@@ -31,7 +31,6 @@ items:
     content: 'public class ValidationResult : ConverterResult'
     content.vb: >-
       Public Class ValidationResult
-
           Inherits ConverterResult
   inheritance:
   - System.Object
