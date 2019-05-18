@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T18:23:35.3695730+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-18T13:45:05.6833663+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/telematics/geolocation.json",
   "title": "Geo Location",
   "description": "A single geo location which is transferred between two partners. Also vehicle and driver data could be included",
@@ -31,19 +31,6 @@
         "x-.*": {},
         "\\$.*": {}
       }
-    },
-    "EdiEmptyExtendableObject": {
-      "title": "Truck type",
-      "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
-      "type": "object",
-      "additionalProperties": false,
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiEmptyExtendableObject-1": {
-      "$ref": "#/definitions/EdiEmptyExtendableObject"
     },
     "EdiGeoPosition": {
       "title": "Geo position",
@@ -210,7 +197,15 @@
           "type": "string"
         },
         "truckType": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
+          "title": "Truck type",
+          "type": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array"
+          ]
         }
       },
       "patternProperties": {

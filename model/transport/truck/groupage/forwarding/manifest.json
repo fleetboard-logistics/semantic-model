@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T18:23:33.4544745+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-18T13:45:04.3683737+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -751,19 +751,6 @@
         "\\$.*": {}
       }
     },
-    "EdiEmptyExtendableObject": {
-      "title": "Truck type",
-      "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
-      "type": "object",
-      "additionalProperties": false,
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiEmptyExtendableObject-1": {
-      "$ref": "#/definitions/EdiEmptyExtendableObject"
-    },
     "EdiEvening": {
       "title": "Evening",
       "description": "The consignment must be delivered in the evening hours",
@@ -1278,6 +1265,11 @@
             "network": {
               "$ref": "manifest.json#/definitions/EdiNetwork"
             },
+            "consignmentObjectId": {
+              "title": "Unique central consignment number",
+              "description": "Unique identification for the consignment in a central system",
+              "type": "string"
+            },
             "consignmentNoShippingPartner": {
               "title": "Consignment number of the shipping partner",
               "description": "Unique identification for the consignment within the transport management system of the shipping partner",
@@ -1347,11 +1339,6 @@
             },
             "content": {
               "$ref": "manifest.json#/definitions/EdiContent"
-            },
-            "consignmentObjectId": {
-              "title": "Unique central consignment number",
-              "description": "Unique identification for the consignment in a central system",
-              "type": "string"
             }
           },
           "required": [
@@ -2240,7 +2227,15 @@
           "type": "string"
         },
         "truckType": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
+          "title": "Truck type",
+          "type": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "object",
+            "array"
+          ]
         }
       },
       "patternProperties": {

@@ -22,10 +22,10 @@ namespace Conizi.Model.Shared.Entities
     [Description("The empty EmptyExtendableObject is used for non yet completed defined objects. ")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    
+    [Obsolete("For compatibility reasons, will no longer be used in future versions")]
     public class EdiEmptyExtendableObject : EdiPatternPropertiesBase
     {
-
+        
     }
 
     /// <summary>

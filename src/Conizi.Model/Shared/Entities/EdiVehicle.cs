@@ -2,6 +2,7 @@
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -32,6 +33,6 @@ namespace Conizi.Model.Shared.Entities
         /// The truck type
         /// </summary>
         [DisplayName("Truck type")]
-        public EdiEmptyExtendableObject TruckType { get; set; }
+        public string TruckType { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T18:23:32.5614761+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-18T13:27:27.9373023+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -2106,6 +2106,11 @@
     "network": {
       "$ref": "#/definitions/EdiNetwork"
     },
+    "consignmentObjectId": {
+      "title": "Unique central consignment number",
+      "description": "Unique identification for the consignment in a central system",
+      "type": "string"
+    },
     "consignmentNoShippingPartner": {
       "title": "Consignment number of the shipping partner",
       "description": "Unique identification for the consignment within the transport management system of the shipping partner",
@@ -2175,11 +2180,6 @@
     },
     "content": {
       "$ref": "#/definitions/EdiContent"
-    },
-    "consignmentObjectId": {
-      "title": "Unique central consignment number",
-      "description": "Unique identification for the consignment in a central system",
-      "type": "string"
     }
   },
   "required": [
