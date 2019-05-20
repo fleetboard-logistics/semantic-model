@@ -1,6 +1,6 @@
 <Query Kind="Statements">
-  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\sematicmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
-  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\sematicmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\semanticmodel-master\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\semanticmodel-master\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
   <NuGetReference>Newtonsoft.Json</NuGetReference>
   <NuGetReference>Newtonsoft.Json.Schema</NuGetReference>
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
@@ -37,8 +37,8 @@ Log.Logger = new LoggerConfiguration()
 	.CreateLogger();
 
 var modelSrcPath = Path.Combine(Path.GetDirectoryName(Util.CurrentQueryPath), @"..\..\model").Replace('\\', '/');
-
-var models = new List<Type> {
+var assembly = typeof(Conizi.Model.Core.Tools.Generator).Assembly.GetName();
+var models = new List<Type> { 
 	 typeof(Tour),
 	 typeof(TourEvent),
 	 typeof(Consignment),
@@ -57,6 +57,7 @@ foreach (var model in models)
 {
 	try
 	{
+		bool isNewModel = true;
 		
 		//(Generated: {DateTime.Now} - {assembly.Name} v:{assembly.Version})
 		var result = Generator.Generate(model);
@@ -64,10 +65,28 @@ foreach (var model in models)
 
 		var outFile = Path.Combine(modelSrcPath, result.Id.Replace("https://model.conizi.io/v1/", string.Empty));
 		var fileInfo = new FileInfo(outFile);
+		var currentModelJson = string.Empty;
+		JObject curModel = null;
 
-		if (ModelHashChanged(result.ToString(), outFile))
+		if (File.Exists(outFile))
 		{
-			File.WriteAllBytes(fileInfo.FullName, Encoding.UTF8.GetBytes(result.ToString()));
+			isNewModel = false;
+			currentModelJson = File.ReadAllText(outFile, Encoding.UTF8);
+			curModel = JObject.Parse(currentModelJson);
+			curModel.Remove("$comment");
+		}
+		
+		if (isNewModel || ModelHashChanged(result.ToString(), curModel.ToString()))
+		{
+			var message = $"Generated: {DateTime.Now.ToString("o")} - {assembly.Name} v:{assembly.Version}"
+			var newModel = JObject.Parse(result.ToString());
+			
+			if(newModel.SelectToken("$comment") == null)
+				newModel.First.AddAfterSelf(new JProperty("$comment", message));
+			else 
+				newModel.SelectToken("$comment").Replace(message);
+				
+			File.WriteAllBytes(fileInfo.FullName, Encoding.UTF8.GetBytes(newModel.ToString()));
 			Log.Information("Model {model} was successfully generated to {file}", result.Model, fileInfo.FullName);
 			continue;
 		}
@@ -80,19 +99,14 @@ foreach (var model in models)
 	}
 }
 
-bool ModelHashChanged(string newModelJson, string currentModelPath)
+bool ModelHashChanged(string newModelJson, string currentModelJson)
 {
-
 	if (string.IsNullOrEmpty(newModelJson))
 		throw new ArgumentNullException(nameof(newModelJson));
 
-	//Maybe a new model?!
-	if (!File.Exists(currentModelPath))
-		return true;
-
 	using (var hashCalc = SHA256.Create())
-	{
-		var currentModelContent = File.ReadAllBytes(currentModelPath);
+	{		
+		var currentModelContent = Encoding.UTF8.GetBytes(currentModelJson);
 		var currentModelHash = hashCalc.ComputeHash(currentModelContent);
 
 		var newModelContent = Encoding.UTF8.GetBytes(newModelJson);

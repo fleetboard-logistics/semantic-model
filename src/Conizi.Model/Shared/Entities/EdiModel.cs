@@ -17,7 +17,7 @@ namespace Conizi.Model.Shared.Entities
         EdiModel : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// The EdiModel default Constructor
+        /// The EdiModel default Constructor, used to set the schema during serialization.
         /// </summary>
         public EdiModel()
         {
@@ -39,7 +39,7 @@ namespace Conizi.Model.Shared.Entities
         /// </remarks>
         [JsonProperty("$schema", Order = -999)]
         [DisplayName("Json schema")]
-        [Description("The used json schema")]
+        [Description("The used json schema (url/version)")]
         [Required]
         public string Schema { get; internal set; }
 

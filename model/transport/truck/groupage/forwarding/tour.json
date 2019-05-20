@@ -1,8 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Generated: 2019-05-17T16:56:50.4802208+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
-  "description": "A tour describes a amount of stops given an explicit stop order, containing all information about activities to be done, e.g.loading and unloading information about consignments or maintenance stops",
+  "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
   "definitions": {
     "CostsAndCharges": {
       "title": "Costs and charges",
@@ -2539,7 +2540,7 @@
       "properties": {
         "$schema": {
           "title": "Json schema",
-          "description": "The used json schema",
+          "description": "The used json schema (url/version)",
           "type": "string"
         },
         "receiver": {
@@ -2963,7 +2964,7 @@
   "properties": {
     "$schema": {
       "title": "Json schema",
-      "description": "The used json schema",
+      "description": "The used json schema (url/version)",
       "type": "string"
     },
     "receiver": {
@@ -2988,7 +2989,7 @@
       ]
     },
     "tourId": {
-      "title": "Tour id",
+      "title": "Tour Id",
       "description": "A unique identifier assigned to this tour by the devlivering company",
       "type": "string"
     },

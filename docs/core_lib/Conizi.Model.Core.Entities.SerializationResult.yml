@@ -31,7 +31,6 @@ items:
     content: 'public class SerializationResult : ConverterResult'
     content.vb: >-
       Public Class SerializationResult
-
           Inherits ConverterResult
   inheritance:
   - System.Object
