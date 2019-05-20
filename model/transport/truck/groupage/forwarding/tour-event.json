@@ -1,10 +1,79 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T15:51:59.3191851+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T18:15:12.6600716+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
   "definitions": {
+    "EdiAddress": {
+      "title": "Address fields",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference number for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiBinaryData": {
       "title": "Binary Data",
       "description": "The content/data of a file",
@@ -318,8 +387,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for this stop. References the stop within the tour",
+          "type": "string"
         },
         "eventDateTime": {
           "title": "Event Date-time",
@@ -327,10 +398,11 @@
           "type": "string",
           "format": "date-time"
         },
-        "stopId": {
-          "title": "Stop Id",
-          "description": "Unique identifier for this stop. References the stop within the tour",
-          "type": "string"
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "address": {
+          "$ref": "#/definitions/EdiAddress"
         },
         "onWayLoadingPoint": {
           "title": "On the way to loading point",
@@ -395,8 +467,8 @@
         }
       },
       "required": [
-        "eventDateTime",
-        "stopId"
+        "stopId",
+        "eventDateTime"
       ],
       "patternProperties": {
         "x-.*": {},
@@ -409,14 +481,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "signature": {
           "type": "array",
@@ -477,14 +549,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "tourScheduled": {
           "title": "Tour scheduled",
@@ -606,14 +678,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "weight": {
           "title": "Weight of vehicle",
@@ -659,12 +731,6 @@
           "title": "Trailer Registration Number",
           "description": "Registration number of the trailer",
           "type": "string"
-        },
-        "estimatedArrivalTime": {
-          "title": "Estimated Arrival Time",
-          "description": "The current calculated estimated arrival time (ETA)",
-          "type": "string",
-          "format": "date-time"
         },
         "remarks": {
           "title": "Remarks (free form)",

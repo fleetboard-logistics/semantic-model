@@ -21,7 +21,13 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Stop Id")]
         [Description("Unique identifier for this stop. References the stop within the tour")]
         [JsonRequired]
+        [JsonProperty(Order = -20)]
         public string StopId { get; set; }
+
+        /// <summary>
+        /// The address of the stop, if differs from <see cref="EdiTourStop"/>
+        /// </summary>
+        public EdiAddress Address { get; set; }
 
         /// <summary>
         /// Vehicle is on the way to loading point

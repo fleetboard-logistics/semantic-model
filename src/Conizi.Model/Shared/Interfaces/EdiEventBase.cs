@@ -16,7 +16,7 @@ namespace Conizi.Model.Shared.Interfaces
         /// </summary>
         [DisplayName("Event Date-time")]
         [Description("Date and time when the event occurred")]
-        [JsonProperty("eventDateTime", Order = -8, Required = Required.Always)]
+        [JsonProperty("eventDateTime", Order = -16, Required = Required.Always)]
         public DateTime EventDateTime { get; set; }
 
         /// <summary>

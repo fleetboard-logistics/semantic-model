@@ -7,6 +7,5 @@ namespace Conizi.Model.Examples.Interfaces
     public  interface IModelCreateFactory<out TModel>
     {
         TModel Create();
-        
     }
 }

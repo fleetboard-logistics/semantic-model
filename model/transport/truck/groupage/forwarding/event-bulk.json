@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T15:52:00.6755046+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T18:15:13.7400231+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -2014,8 +2014,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for this stop. References the stop within the tour",
+          "type": "string"
         },
         "eventDateTime": {
           "title": "Event Date-time",
@@ -2023,10 +2025,11 @@
           "type": "string",
           "format": "date-time"
         },
-        "stopId": {
-          "title": "Stop Id",
-          "description": "Unique identifier for this stop. References the stop within the tour",
-          "type": "string"
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "address": {
+          "$ref": "#/definitions/EdiAddress"
         },
         "onWayLoadingPoint": {
           "title": "On the way to loading point",
@@ -2091,8 +2094,8 @@
         }
       },
       "required": [
-        "eventDateTime",
-        "stopId"
+        "stopId",
+        "eventDateTime"
       ],
       "patternProperties": {
         "x-.*": {},
@@ -2123,14 +2126,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "signature": {
           "type": "array",
@@ -2191,14 +2194,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "tourScheduled": {
           "title": "Tour scheduled",
@@ -2403,14 +2406,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "weight": {
           "title": "Weight of vehicle",
@@ -2456,12 +2459,6 @@
           "title": "Trailer Registration Number",
           "description": "Registration number of the trailer",
           "type": "string"
-        },
-        "estimatedArrivalTime": {
-          "title": "Estimated Arrival Time",
-          "description": "The current calculated estimated arrival time (ETA)",
-          "type": "string",
-          "format": "date-time"
         },
         "remarks": {
           "title": "Remarks (free form)",

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+  "receiver": {
+      "ediId": "C2PO"
+  },
+  "tourId": "20191234567",
+  "tour": {
+      "geoPosition": {
+          "latitude": 49.8629167,
+          "longitude": 10.2259302702594,
+          "placeName": "Fleetboard Logistics GmbH"
+      },
+      "eventDateTime": "2019-05-20T16:20:39+02:00",
+      "tourAccepted": true
+  },
+  "vehicle": {
+      "eventDateTime": "2019-05-20T16:20:39+02:00",
+      "driverName": "Alexander Kruger",
+      "mileageStart": 83654.0,
+      "truckRegistrationNumber": "WÜ CP 4711",
+      "trailerRegistrationNumber": "WÜ CT 1511"
+  }
+}

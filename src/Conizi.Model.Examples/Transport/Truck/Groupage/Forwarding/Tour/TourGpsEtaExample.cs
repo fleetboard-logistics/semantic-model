@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Conizi.Model.Examples.Interfaces;
 using Conizi.Model.Examples.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json.Linq;
@@ -409,6 +410,158 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
             };
 
             return m;
+        }
+    }
+
+    /// <summary>
+    /// Simple example for a <see cref="TourEvent"/> to demonstrate ETA and GPS usage
+    /// </summary>
+    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.Tour))]
+    public class
+        SimpleTourEventForEtaExampleAccepted : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
+    {
+        public TourEvent Create()
+        {
+            var me = new TourEvent()
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "C2PO"
+                },
+                TourId = "20191234567",
+                Vehicle = new EdiVehicleSpecificEvent
+                {
+                    EventDateTime = DateTime.Now.AddHours(-1),
+                    DriverName = "Alexander Kruger",
+                    TruckRegistrationNumber = "WÜ CP 4711",
+                    TrailerRegistrationNumber = "WÜ CT 1511",
+                    MileageStart = 83654
+                },
+                Tour = new EdiTourSpecificEvent
+                {
+                    EventDateTime = DateTime.Now.AddHours(-1),
+                    TourAccepted = true,
+                    GeoPosition = new EdiGeoPosition
+                    {
+                        Latitude = 49.8629167m,
+                        Longitude = 10.2259302702594m,
+                        PlaceName = "Fleetboard Logistics GmbH"
+                    }
+                },
+            };
+
+            return me;
+        }
+    }
+
+    /// <summary>
+    /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage
+    /// </summary>
+    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.Tour))]
+    public class
+        SimpleTourEventForEtaExampleStarted : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
+    {
+        public TourEvent Create()
+        {
+            var me = new TourEvent()
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "C2PO"
+                },
+                TourId = "20191234567",
+                Tour = new EdiTourSpecificEvent
+                {
+                    EventDateTime = DateTime.Now.AddHours(-1),
+                    TourStarted = true,
+                    GeoPosition = new EdiGeoPosition
+                    {
+                        Latitude = 49.8629167m,
+                        Longitude = 10.2259302702594m,
+                        PlaceName = "Fleetboard Logistics GmbH"
+                    }
+                }
+            };
+
+            return me;
+        }
+    }
+
+    /// <summary>
+    /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and ETA times
+    /// </summary>
+    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.Tour))]
+    public class SimpleTourEventForEtaExampleTourStop : IModelCreateFactory<TourEvent>
+    {
+        public TourEvent Create()
+        {
+            var eventDateTime = DateTime.Now.AddMinutes(-56);
+
+            var me = new TourEvent()
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "C2PO"
+                },
+                TourId = "20191234567",
+                Stop = new EdiStopSpecificEvent
+                {
+                    EventDateTime = eventDateTime,
+                    OnWayLoadingPoint = true,
+                    GeoPosition = new EdiGeoPosition
+                    {
+                        Latitude = 49.924783m,
+                        Longitude = 10.816709m,
+                        PlaceName = "Oberhaid"
+                    },
+                    StopId = "693e4c46-527a-44a2-b41a-cab42634e3bd",
+                    Eta = new EdiGeoEta
+                    {
+                        DistanceToDestination = 42.5m,
+                        DistanceMeasurementUnitCode = MeasurementUnitCode.Kilometer,
+                        EtaTimeAbsolute = DateTime.Now.AddMinutes(-2).ToString("HH:mm:ss"),
+                        Ete = (int)(DateTime.Now.AddMinutes(-2) - eventDateTime).TotalSeconds,
+                        StopsToDestination = 0
+                    }
+                }
+            };
+
+            return me;
+        }
+    }
+
+    /// <summary>
+    /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and ETA times
+    /// </summary>
+    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.Tour))]
+    public class SimpleTourEventForEtaExampleStopArrived : IModelCreateFactory<TourEvent>
+    {
+        public TourEvent Create()
+        {
+            var eventDateTime = DateTime.Now.AddMinutes(-56);
+
+            var me = new TourEvent()
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "C2PO"
+                },
+                TourId = "20191234567",
+                Stop = new EdiStopSpecificEvent
+                {
+                    EventDateTime = eventDateTime,
+                    ArrivedAtUnloadingPoint = true,
+                    GeoPosition = new EdiGeoPosition
+                    {
+                        Latitude = 49.910659m,
+                        Longitude = 10.8682589m,
+                        PlaceName = "Bamberger Rechenzentrum"
+                    },
+                    StopId = "693e4c46-527a-44a2-b41a-cab42634e3bd",
+                }
+            };
+
+            return me;
         }
     }
 }
