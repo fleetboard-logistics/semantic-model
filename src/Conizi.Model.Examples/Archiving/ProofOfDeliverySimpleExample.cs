@@ -1,40 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Conizi.Model.Archiving;
+using Conizi.Model.Examples.Interfaces;
 using Conizi.Model.Examples.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
 
 namespace Conizi.Model.Examples.Archiving
 {
     /// <summary>
-    /// Simple example for Proof of Delivery
+    /// Simple example for Proof of Delivery <see cref="ProofOfDelivery"/>
     /// </summary>
     [ExampleFor(typeof(ProofOfDelivery))]
-    public class ProofOfDeliverySimpleExample : ProofOfDelivery
+    public class ProofOfDeliverySimpleExample : IModelCreateFactory<ProofOfDelivery>
     {
-        public ProofOfDeliverySimpleExample()
+
+        public ProofOfDelivery Create()
         {
-            this.Id = "12345678";
-            this.DocumentCreationDate = DateTime.Now.AddHours(-2);
-            this.ArrivalDate = DateTime.Now.AddDays(-1);
-            this.PlannedShippingDate = DateTime.Now.AddDays(-1);
-            this.ShippingDate = DateTime.Now;
-            // The receiver of data and this message
-            this.Receiver = new EdiMessageRouting
+           var m = new ProofOfDelivery();
+
+            m.Id = "12345678";
+            m.DocumentCreationDate = DateTime.Now.AddHours(-2);
+            m.ArrivalDate = DateTime.Now.AddDays(-1);
+            m.PlannedShippingDate = DateTime.Now.AddDays(-1);
+            m.ShippingDate = DateTime.Now;
+            // The receiver of data and m message
+            m.Receiver = new EdiMessageRouting
             {
                 ConiziId = "4545454545454545454"
             };
-            this.RefNo = "12312313";
+            m.RefNo = "12312313";
             // Shipping partner of the goods, Sender
-            this.ShippingPartner = new EdiPartnerIdentification
+            m.ShippingPartner = new EdiPartnerIdentification
             {
                 PartnerId = "MAINP",
                 Name = "My Shipping Partner"
             };
             // Receiver of the goods for further delivery
-            this.ReceivingPartner = new EdiPartnerIdentification
+            m.ReceivingPartner = new EdiPartnerIdentification
             {
                 Name = "Max Mustermann",
                 Street = "Musterstraße 1",
@@ -43,7 +45,7 @@ namespace Conizi.Model.Examples.Archiving
                 CountryCode = "DE"
             };
             // The client, sender of the goods
-            this.Shipper = new EdiAddress
+            m.Shipper = new EdiAddress
             {
                 Name = "Zombie Inc.",
                 Street = "Am düsteren Weg",
@@ -58,14 +60,14 @@ namespace Conizi.Model.Examples.Archiving
                 TownArea = "Hafen West",
             };
             // Receiver of the goods
-            this.Consignee = new EdiAddress
+            m.Consignee = new EdiAddress
             {
                 Name = "Umbrella Corp.",
                 City = "Racoon City",
                 Street = "Umbrella Str.",
                 HouseNumber = "1-20"
             };
-            this.Content = new EdiFileContent
+            m.Content = new EdiFileContent
             {
                 ContentType = "image/png",
                 FileName = "test-pod.png",
@@ -77,6 +79,8 @@ namespace Conizi.Model.Examples.Archiving
                     }
                 }
             };
+
+            return m;
         }
     }
 }

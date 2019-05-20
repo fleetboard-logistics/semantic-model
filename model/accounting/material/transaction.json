@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T16:56:53.4263282+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-17T18:23:35.3095733+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/accounting/material/transaction.json",
   "title": "Material Accounting Transaction",
   "description": "Transaction of material for accounting purpose",
@@ -50,7 +50,7 @@
         },
         "product": {
           "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "description": "The product allows to distinguish different processes within one network, effectively sub classing the network",
           "type": "string"
         }
       }

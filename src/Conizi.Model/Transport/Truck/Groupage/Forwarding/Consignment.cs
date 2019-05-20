@@ -29,7 +29,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Unique central consignment number")]
         [Description("Unique identification for the consignment in a central system")]
-        [JsonProperty(Order = 10)]
+        [JsonProperty(Order = -10)]
         public string ConsignmentObjectId { get; set; }
 
         /// <summary>
@@ -142,5 +142,10 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// Describes the nature and quantity of the goods in this consignment
         /// </summary>
         public EdiContent Content { get; set; }
+        
+        public override string ToString()
+        {
+            return this.ConsignmentObjectId ?? this.ConsignmentNoShippingPartner ?? base.ToString();
+        }
     }
 }

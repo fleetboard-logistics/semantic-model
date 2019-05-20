@@ -213,6 +213,7 @@
         <member name="T:Conizi.Model.Shared.Definitions.MeasurementUnitCode">
             <summary>
             Determines the unit in which a given property is measured
+            Default kilometers per hour
             </summary>
         </member>
         <member name="F:Conizi.Model.Shared.Definitions.MeasurementUnitCode.Kilometer">
@@ -2033,24 +2034,51 @@
             Time the GPS record was created
             </summary>
         </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.Angle">
+            <summary>
+            The angle is the direction that the vehicle is moving in
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.Speed">
+            <summary>
+            The current speed of the vehicle in a defined measurement
+            </summary>
+        </member>
         <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.GeoRadius">
             <summary>
             GeoRadius on which this GeoPosition is considered as in range
             </summary>
         </member>
-        <member name="T:Conizi.Model.Shared.Entities.EdiGeoPosition.EdiGeoRadius">
+        <member name="T:Conizi.Model.Shared.Entities.EdiGeoSpeed">
+            <summary>
+            The current speed of the vehicle in a defined measurement
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoSpeed.Speed">
+            <summary>
+            The current speed of the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoSpeed.SpeedMeasurementUnitCode">
+            <summary>
+            Code that describes the unit in which the speed is measured
+            Default Kilometer per hour
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiGeoRadius">
             <summary>
             GeoRadius on which this GeoPosition is considered as in range containing measurement unit an the distance
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.EdiGeoRadius.Radius">
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoRadius.Radius">
             <summary>
             GeoRadius on which this GeoPosition is considered as in range
             </summary>
         </member>
-        <member name="P:Conizi.Model.Shared.Entities.EdiGeoPosition.EdiGeoRadius.RadiusMeasurementUnitCode">
+        <member name="P:Conizi.Model.Shared.Entities.EdiGeoRadius.RadiusMeasurementUnitCode">
             <summary>
             Code that describes the unit in which the radius is measured
+            Default Kilometer per hour
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiInformation">
@@ -2292,6 +2320,26 @@
         <member name="P:Conizi.Model.Shared.Entities.EdiModel.Metadata">
             <summary>
             Metadata for conizi routing etc. (Not be shown in Model definition)
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Shared.Entities.EdiNetwork">
+            <summary>
+            The network under which rules the consignment should be processed
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNetwork.NetworkId">
+            <summary>
+            The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNetwork.Codelist">
+            <summary>
+            The name of the code list which specifies how the receiving system should interpret the codes used
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Shared.Entities.EdiNetwork.Product">
+            <summary>
+            The product allows to distinguish different processes within one network, effectively sub classing the network
             </summary>
         </member>
         <member name="T:Conizi.Model.Shared.Entities.EdiNotifications">
@@ -4240,6 +4288,29 @@
         <member name="P:Conizi.Model.Shared.Interfaces.IAddress.GeoPosition">
             <summary>
             The geo location, the event was recorded
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Telematics.GeoLocation">
+            <summary>
+            A single geo location which is transferred between two partners. Also vehicle and driver data could be included
+            </summary>
+            <remarks>
+            The geo location is the basic conizi object for geo location and telematics.
+            </remarks>
+        </member>
+        <member name="P:Conizi.Model.Telematics.GeoLocation.GeoPosition">
+            <summary>
+            Data about the current geo position
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Telematics.GeoLocation.Vehicle">
+            <summary>
+            Information about the vehicle
+            </summary>
+        </member>
+        <member name="P:Conizi.Model.Telematics.GeoLocation.Driver">
+            <summary>
+            Information about the driver
             </summary>
         </member>
         <member name="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment">

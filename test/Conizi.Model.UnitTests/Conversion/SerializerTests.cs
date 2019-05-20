@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Conizi.Model.Core.Tools;
+using Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding;
+using Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour;
 using Conizi.Model.Extensions;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Test.Library.Entities;
