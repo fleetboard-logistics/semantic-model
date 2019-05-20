@@ -62,7 +62,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Angle")]
         [Description("The angle is the direction that the vehicle is moving in")]
-        public decimal? Angle { get; set; }
+        public decimal Angle { get; set; }
 
         /// <summary>
         /// The current speed of the vehicle in a defined measurement
