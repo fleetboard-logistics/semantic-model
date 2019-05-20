@@ -29,6 +29,7 @@
   <Namespace>Serilog</Namespace>
   <Namespace>Serilog.Configuration</Namespace>
   <Namespace>System.Security.Cryptography</Namespace>
+  <Namespace>Conizi.Model.Telematics</Namespace>
 </Query>
 
 Generator.RegisterJsonSchemaLicense(Environment.GetEnvironmentVariable("Generator:JsonSchemaLicense"));
@@ -50,7 +51,8 @@ var models = new List<Type> {
 	 typeof(PickupOrder),
 	 typeof(PickupOrderBulk),
 	 typeof(ProofOfDelivery),
-	 typeof(MaterialTransaction)
+	 typeof(MaterialTransaction),
+	 typeof(GeoLocation)
 };
 
 foreach (var model in models)
@@ -78,7 +80,7 @@ foreach (var model in models)
 		
 		if (isNewModel || ModelHashChanged(result.ToString(), curModel.ToString()))
 		{
-			var message = $"Generated: {DateTime.Now.ToString("o")} - {assembly.Name} v:{assembly.Version}"
+			var message = $"Generated: {DateTime.Now.ToString("o")} - {assembly.Name} v:{assembly.Version}";
 			var newModel = JObject.Parse(result.ToString());
 			
 			if(newModel.SelectToken("$comment") == null)

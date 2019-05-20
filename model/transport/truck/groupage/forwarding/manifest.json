@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T16:56:51.8347660+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T11:50:57.6623049+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -878,14 +878,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "longitude": {
-          "title": "Longitude",
-          "description": "East–west position of a point on the Earth's surface",
-          "type": "number"
-        },
         "latitude": {
           "title": "Latitude",
           "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
           "type": "number"
         },
         "placeName": {
@@ -904,14 +904,18 @@
           "type": "string",
           "format": "date-time"
         },
+        "angle": {
+          "title": "Angle",
+          "description": "The angle is the direction that the vehicle is moving in",
+          "type": "number"
+        },
+        "speed": {
+          "$ref": "#/definitions/EdiGeoSpeed"
+        },
         "geoRadius": {
           "$ref": "#/definitions/EdiGeoRadius"
         }
-      },
-      "required": [
-        "longitude",
-        "latitude"
-      ]
+      }
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -925,7 +929,7 @@
         },
         "radiusMeasurementUnitCode": {
           "title": "Unit Code for GeoRadius",
-          "description": "Code that describes the unit in which the Radius is measured. Default kilometers (KMT)",
+          "description": "Code that describes the unit in which the radius is measured. Default kilometers (KMT)",
           "type": "string",
           "enum": [
             "KMT",
@@ -936,6 +940,31 @@
       },
       "required": [
         "radius"
+      ]
+    },
+    "EdiGeoSpeed": {
+      "title": "Speed",
+      "description": "The current speed of the vehicle",
+      "type": "object",
+      "properties": {
+        "speed": {
+          "title": "Speed",
+          "description": "The current speed of the vehicle",
+          "type": "number"
+        },
+        "speedMeasurementUnitCode": {
+          "title": "Unit Code for Speed",
+          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "speed"
       ]
     },
     "EdiHandlingInstructions": {
@@ -1232,6 +1261,11 @@
             "network": {
               "$ref": "manifest.json#/definitions/EdiNetwork"
             },
+            "consignmentObjectId": {
+              "title": "Unique central consignment number",
+              "description": "Unique identification for the consignment in a central system",
+              "type": "string"
+            },
             "consignmentNoShippingPartner": {
               "title": "Consignment number of the shipping partner",
               "description": "Unique identification for the consignment within the transport management system of the shipping partner",
@@ -1301,11 +1335,6 @@
             },
             "content": {
               "$ref": "manifest.json#/definitions/EdiContent"
-            },
-            "consignmentObjectId": {
-              "title": "Unique central consignment number",
-              "description": "Unique identification for the consignment in a central system",
-              "type": "string"
             }
           },
           "required": [
@@ -1394,7 +1423,7 @@
         },
         "product": {
           "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "description": "The product allows to distinguish different processes within one network, effectively sub classing the network",
           "type": "string"
         }
       }
@@ -2195,14 +2224,17 @@
         },
         "truckType": {
           "title": "Truck type",
-          "type": [
-            "string",
-            "number",
-            "integer",
-            "boolean",
-            "object",
-            "array"
-          ]
+          "type": "string"
+        },
+        "isTrailer": {
+          "title": "Is a trailer",
+          "description": "The vehicle is classified as trailer",
+          "type": "boolean"
+        },
+        "sendTelematics": {
+          "title": "Vehicle sends telematics",
+          "description": "The vehicle sends telematics data to a central instance",
+          "type": "boolean"
         }
       },
       "patternProperties": {

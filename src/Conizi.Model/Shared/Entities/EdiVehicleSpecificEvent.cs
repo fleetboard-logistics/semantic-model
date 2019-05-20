@@ -67,6 +67,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Registration number of the truck
         /// </summary>
+        /// <remarks>Should be similar to <see cref="EdiVehicle.Registration"/> of the <see cref="EdiDriver"/> entity</remarks>
         [DisplayName("Truck Registration Number")]
         [Description("The registration number of the truck")]
         public string TruckRegistrationNumber { get; set; }
@@ -74,15 +75,11 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Registration number of the trailer
         /// </summary>
+        /// <remarks> Should be similar to <see cref="EdiVehicle.Registration"/> of the <see cref="EdiDriver"/> entity, when a trailer is set</remarks>
         [DisplayName("Trailer Registration Number")]
         [Description("Registration number of the trailer")]
         public string TrailerRegistrationNumber { get; set; }
 
-        /// <summary>
-        /// The current calculated estimated arrival time (ETA)
-        /// </summary>
-        [DisplayName("Estimated Arrival Time")]
-        [Description("The current calculated estimated arrival time (ETA)")]
-        public DateTime EstimatedArrivalTime { get; set; }
+
     }
 }

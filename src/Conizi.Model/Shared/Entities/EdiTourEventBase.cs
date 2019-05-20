@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// The geo location, the event was recorded
         /// </summary>
-        [JsonProperty("geoPosition", Order = -9, Required = Required.DisallowNull)]
+        [JsonProperty("geoPosition", Order = -15, Required = Required.DisallowNull)]
         public EdiGeoPosition GeoPosition { get; set; }
     }
 }

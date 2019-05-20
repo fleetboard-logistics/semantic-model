@@ -1,10 +1,79 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-17T16:56:50.6941734+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T18:15:12.6600716+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
   "definitions": {
+    "EdiAddress": {
+      "title": "Address fields",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference number for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiBinaryData": {
       "title": "Binary Data",
       "description": "The content/data of a file",
@@ -90,20 +159,67 @@
         "absoluteUri"
       ]
     },
+    "EdiGeoEta": {
+      "title": "ETA (Estimated time of arrival)",
+      "description": "The estimated time of arrival (ETA) is the time when a ship, vehicle, aircraft, cargo, emergency service or person is expected to arrive at a certain place. The ETA should always be used in conjunction with a GPS position",
+      "type": "object",
+      "properties": {
+        "etaTimeAbsolute": {
+          "title": "ETA (Estimated time of arrival)",
+          "description": "ETA (Estimated time of arrival) absolute as time string (e.g. 14:12:33)",
+          "type": "string",
+          "format": "time"
+        },
+        "etaDateAbsolute": {
+          "title": "ETA (Estimated time of arrival) date component",
+          "description": "ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). The date component is only required if it is not the current day.",
+          "type": "string",
+          "format": "date"
+        },
+        "ete": {
+          "title": "Estimated time elapsed",
+          "description": "ETE (estimated time enroute, estimated time elapsed) in seconds",
+          "type": "integer"
+        },
+        "distanceToDestination": {
+          "title": "Distance to destination",
+          "description": "The distance to destination",
+          "type": "number"
+        },
+        "distanceMeasurementUnitCode": {
+          "title": "Unit Code for distance to destination",
+          "description": "Code that describes the unit in which the distance is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        },
+        "stopsToDestination": {
+          "title": "Stops to destination",
+          "description": "The number of stops to destination",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "etaTimeAbsolute"
+      ]
+    },
     "EdiGeoPosition": {
       "title": "Geo position",
       "description": "Data about the current geo position",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "longitude": {
-          "title": "Longitude",
-          "description": "East–west position of a point on the Earth's surface",
-          "type": "number"
-        },
         "latitude": {
           "title": "Latitude",
           "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
           "type": "number"
         },
         "placeName": {
@@ -122,14 +238,18 @@
           "type": "string",
           "format": "date-time"
         },
+        "angle": {
+          "title": "Angle",
+          "description": "The angle is the direction that the vehicle is moving in",
+          "type": "number"
+        },
+        "speed": {
+          "$ref": "#/definitions/EdiGeoSpeed"
+        },
         "geoRadius": {
           "$ref": "#/definitions/EdiGeoRadius"
         }
-      },
-      "required": [
-        "longitude",
-        "latitude"
-      ]
+      }
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -143,7 +263,7 @@
         },
         "radiusMeasurementUnitCode": {
           "title": "Unit Code for GeoRadius",
-          "description": "Code that describes the unit in which the Radius is measured. Default kilometers (KMT)",
+          "description": "Code that describes the unit in which the radius is measured. Default kilometers (KMT)",
           "type": "string",
           "enum": [
             "KMT",
@@ -154,6 +274,31 @@
       },
       "required": [
         "radius"
+      ]
+    },
+    "EdiGeoSpeed": {
+      "title": "Speed",
+      "description": "The current speed of the vehicle",
+      "type": "object",
+      "properties": {
+        "speed": {
+          "title": "Speed",
+          "description": "The current speed of the vehicle",
+          "type": "number"
+        },
+        "speedMeasurementUnitCode": {
+          "title": "Unit Code for Speed",
+          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "speed"
       ]
     },
     "EdiLoadingEquipmentExchange": {
@@ -231,7 +376,7 @@
         },
         "product": {
           "title": "Name of the product",
-          "description": "The product allows to distingish different processes within one network, effectively sub classing the network",
+          "description": "The product allows to distinguish different processes within one network, effectively sub classing the network",
           "type": "string"
         }
       }
@@ -242,8 +387,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for this stop. References the stop within the tour",
+          "type": "string"
         },
         "eventDateTime": {
           "title": "Event Date-time",
@@ -251,10 +398,11 @@
           "type": "string",
           "format": "date-time"
         },
-        "stopId": {
-          "title": "Stop Id",
-          "description": "Unique identifier for this stop. References the stop within the tour",
-          "type": "string"
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "address": {
+          "$ref": "#/definitions/EdiAddress"
         },
         "onWayLoadingPoint": {
           "title": "On the way to loading point",
@@ -309,6 +457,9 @@
         "loadingEquipmentExchange": {
           "$ref": "#/definitions/EdiLoadingEquipmentExchange"
         },
+        "eta": {
+          "$ref": "#/definitions/EdiGeoEta"
+        },
         "remarks": {
           "title": "Remarks (free form)",
           "description": "Additional remarks",
@@ -316,8 +467,8 @@
         }
       },
       "required": [
-        "eventDateTime",
-        "stopId"
+        "stopId",
+        "eventDateTime"
       ],
       "patternProperties": {
         "x-.*": {},
@@ -330,14 +481,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "signature": {
           "type": "array",
@@ -398,14 +549,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "tourScheduled": {
           "title": "Tour scheduled",
@@ -527,14 +678,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
         "eventDateTime": {
           "title": "Event Date-time",
           "description": "Date and time when the event occurred",
           "type": "string",
           "format": "date-time"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
         "weight": {
           "title": "Weight of vehicle",
@@ -580,12 +731,6 @@
           "title": "Trailer Registration Number",
           "description": "Registration number of the trailer",
           "type": "string"
-        },
-        "estimatedArrivalTime": {
-          "title": "Estimated Arrival Time",
-          "description": "The current calculated estimated arrival time (ETA)",
-          "type": "string",
-          "format": "date-time"
         },
         "remarks": {
           "title": "Remarks (free form)",

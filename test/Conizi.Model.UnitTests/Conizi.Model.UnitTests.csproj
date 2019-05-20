@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.0" />
     <PackageReference Include="Moq" Version="4.10.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Conizi.Model.Core\Conizi.Model.Core.csproj" />
+    <ProjectReference Include="..\..\src\Conizi.Model.Examples\Conizi.Model.Examples.csproj" />
     <ProjectReference Include="..\..\src\Conizi.Model\Conizi.Model.csproj" />
     <ProjectReference Include="..\Conizi.Model.Test.Library\Conizi.Model.Test.Library.csproj" />
   </ItemGroup>

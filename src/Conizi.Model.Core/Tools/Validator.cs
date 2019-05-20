@@ -108,7 +108,7 @@ namespace Conizi.Model.Core.Tools
             }
             catch (Exception ex)
             {
-                validationErrors.Add($"Schema Validation Error: Schema may be invalid for model {nameof(model)}");
+                validationErrors.Add($"Schema Validation Error: Schema may be invalid for model {model}");
                 validationErrors.Add(ex.Message);
                 var error = ex;
                 while (error.InnerException != null)
