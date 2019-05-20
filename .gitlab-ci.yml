@@ -80,5 +80,5 @@ deploy:
     dotnet test ./test/Conizi.Model.UnitTests/Conizi.Model.UnitTests.csproj --filter "Category=UnitTest" -v n 
   }
 
-# before_script:
-#   - *auto_devops
+before_script:
+  - *auto_devops
