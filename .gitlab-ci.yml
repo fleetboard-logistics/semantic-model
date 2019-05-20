@@ -46,10 +46,8 @@ deploy:
     - semantic
     - models
     - win
-  variables:
-
   script:
-    - powershell.exe ./build-ci.ps1
+    # - powershell.exe ./build-ci.ps1
   only:
     - master
   when: manual
