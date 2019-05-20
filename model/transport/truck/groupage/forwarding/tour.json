@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-18T13:45:03.0343399+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T11:50:56.5553088+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -1017,14 +1017,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "longitude": {
-          "title": "Longitude",
-          "description": "East–west position of a point on the Earth's surface",
-          "type": "number"
-        },
         "latitude": {
           "title": "Latitude",
           "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
           "type": "number"
         },
         "placeName": {
@@ -1054,11 +1054,7 @@
         "geoRadius": {
           "$ref": "#/definitions/EdiGeoRadius"
         }
-      },
-      "required": [
-        "longitude",
-        "latitude"
-      ]
+      }
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -1072,7 +1068,7 @@
         },
         "radiusMeasurementUnitCode": {
           "title": "Unit Code for GeoRadius",
-          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "description": "Code that describes the unit in which the radius is measured. Default kilometers (KMT)",
           "type": "string",
           "enum": [
             "KMT",
@@ -2419,14 +2415,17 @@
         },
         "truckType": {
           "title": "Truck type",
-          "type": [
-            "string",
-            "number",
-            "integer",
-            "boolean",
-            "object",
-            "array"
-          ]
+          "type": "string"
+        },
+        "isTrailer": {
+          "title": "Is a trailer",
+          "description": "The vehicle is classified as trailer",
+          "type": "boolean"
+        },
+        "sendTelematics": {
+          "title": "Vehicle sends telematics",
+          "description": "The vehicle sends telematics data to a central instance",
+          "type": "boolean"
         }
       },
       "patternProperties": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-18T13:42:33.1286277+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T11:50:58.0113245+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -930,6 +930,21 @@
           "title": "Estimated time elapsed",
           "description": "ETE (estimated time enroute, estimated time elapsed) in seconds",
           "type": "integer"
+        },
+        "distanceToDestination": {
+          "title": "Distance to destination",
+          "description": "The distance to destination",
+          "type": "number"
+        },
+        "distanceMeasurementUnitCode": {
+          "title": "Unit Code for distance to destination",
+          "description": "Code that describes the unit in which the distance is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
         }
       },
       "required": [
@@ -942,14 +957,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "longitude": {
-          "title": "Longitude",
-          "description": "East–west position of a point on the Earth's surface",
-          "type": "number"
-        },
         "latitude": {
           "title": "Latitude",
           "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
           "type": "number"
         },
         "placeName": {
@@ -979,11 +994,7 @@
         "geoRadius": {
           "$ref": "#/definitions/EdiGeoRadius"
         }
-      },
-      "required": [
-        "longitude",
-        "latitude"
-      ]
+      }
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -997,7 +1008,7 @@
         },
         "radiusMeasurementUnitCode": {
           "title": "Unit Code for GeoRadius",
-          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "description": "Code that describes the unit in which the radius is measured. Default kilometers (KMT)",
           "type": "string",
           "enum": [
             "KMT",

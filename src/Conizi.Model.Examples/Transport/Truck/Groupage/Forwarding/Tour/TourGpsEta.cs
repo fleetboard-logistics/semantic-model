@@ -18,8 +18,8 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
         {
             var m = new Model.Transport.Truck.Groupage.Forwarding.Tour
             {
-                Sender = new EdiMessageRouting { EdiId = "FBLVK" },
-                Receiver = new EdiMessageRouting { EdiId = "C2P0" },
+                Sender = new EdiMessageRouting {EdiId = "FBLVK"},
+                Receiver = new EdiMessageRouting {EdiId = "C2P0"},
                 Network = new EdiNetwork
                 {
                     NetworkId = "FBNET"
@@ -50,20 +50,11 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                         },
                         ShippingPartner = new EdiPartnerIdentification
                         {
-                            EdiId = "C2P0",
-                            Name = "Cargo Partner",
-                            City = "Würzburg"
+                            EdiId = "C2PO"
                         },
                         ReceivingPartner = new EdiPartnerIdentification
                         {
-                            EdiId = "C3P0",
-                            Name = "Cargo Partner",
-                            Street = "Gaustadter Hauptstraße",
-                            HouseNumber = "55",
-                            ZipCode = "96049",
-                            City = "Bamberg",
-                            EmailAddress = "c3po@cargo-partner.net",
-                            CountryCode = "DE"
+                            EdiId = "C3PO"
                         },
                         Routing = new EdiRouting
                         {
@@ -98,7 +89,7 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                             {
                                 EurPallets = 2
                             },
-                            LoadingMeter = 1.3m,
+                            LoadingMeter = 2.3m,
                             GrossWeightKilogram = 2432.5m,
                             Lines = new List<EdiLine>
                             {
@@ -131,6 +122,159 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                                 }
                             }
                         }
+                    },
+                    new Consignment
+                    {
+                        ConsignmentNoReceivingPartner = "201925878",
+                        ConsignmentObjectId = "201925878",
+                        ShippingDate = DateTime.Now.AddDays(1),
+                        Receiver = new EdiMessageRouting
+                        {
+                            EdiId = "C2PO"
+                        },
+                        ShippingPartner = new EdiPartnerIdentification
+                        {
+                            EdiId = "C2PO"
+                        },
+                        ReceivingPartner = new EdiPartnerIdentification
+                        {
+                            EdiId = "C3PO"
+                        },
+                        Routing = new EdiRouting
+                        {
+                            Shipper = new EdiAddress
+                            {
+                                Name = "Fleetboard Logistics GmbH",
+                                Reference = "FBLVK01",
+                                Street = "Am Alten Bahnhof",
+                                HouseNumber = "8",
+                                ZipCode = "97332",
+                                City = "Volkach",
+                                CountryCode = "DE",
+                                ContactPerson = "Frau Holle",
+                                EmailAddress = "f.holle@fleetboard-logistics.com"
+                            },
+                            Consignee = new EdiAddress
+                            {
+                                Name = "Freetime Schweinfurt",
+                                Street = "Industriestraße 24",
+                                ZipCode = "97469",
+                                City = "Gochsheim",
+                                ContactPerson = "Herr Franze"
+                            }
+                        },
+                        References = new EdiReferences
+                        {
+                            CustomerOrderDate = DateTime.Now.AddDays(-1)
+                        },
+                        Content = new EdiContent
+                        {
+                            AdditionalLoadingEquipment = new EdiAdditionalLoadingEquipment
+                            {
+                                EurPallets = 3
+                            },
+                            LoadingMeter = 3.8m,
+                            GrossWeightKilogram = 3250.5m,
+                            Lines = new List<EdiLine>
+                            {
+                                new EdiLine
+                                {
+                                    LineNo = 1,
+                                    HandlingUnitCount = 6,
+                                    LoadingMeter = 1.2m,
+                                    Content = "cable ducts",
+                                    GrossWeightKilogram = 2215,
+                                },
+                                new EdiLine
+                                {
+                                    LineNo = 2,
+                                    HandlingUnitCount = 64,
+                                    LoadingMeter = 2.6m,
+                                    Content = "Truck Hardware Controller",
+                                    GrossWeightKilogram = 1035.5m,
+                                    Barcodes = new List<EdiBarcode>
+                                    {
+                                        new EdiBarcode
+                                        {
+                                            Code = "003999999990000000620",
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    new Consignment
+                    {
+                        ConsignmentNoReceivingPartner = "201935866",
+                        ConsignmentObjectId = "201935866",
+                        ShippingDate = DateTime.Now.AddDays(1),
+                        Receiver = new EdiMessageRouting
+                        {
+                            EdiId = "C2PO"
+                        },
+                        ShippingPartner = new EdiPartnerIdentification
+                        {
+                            EdiId = "C2PO"
+                        },
+                        ReceivingPartner = new EdiPartnerIdentification
+                        {
+                            EdiId = "C3PO"
+                        },
+                        Routing = new EdiRouting
+                        {
+                            Shipper = new EdiAddress
+                            {
+                                Name = "Fleetboard Logistics GmbH",
+                                Reference = "FBLVK01",
+                                Street = "Am Alten Bahnhof",
+                                HouseNumber = "8",
+                                ZipCode = "97332",
+                                City = "Volkach",
+                                CountryCode = "DE",
+                                ContactPerson = "Frau Holle",
+                                EmailAddress = "f.holle@fleetboard-logistics.com"
+                            },
+                            Consignee = new EdiAddress
+                            {
+                                Name = "Truck & Co Würzburg",
+                                Street = "Gustav-Heinemann-Allee",
+                                ZipCode = "97204",
+                                City = "Höchberg",
+                                ContactPerson = "Frau Roth",
+                                EmailAddress = "f.roth@truckco.de"
+                            }
+                        },
+                        References = new EdiReferences
+                        {
+                            CustomerOrderDate = DateTime.Now.AddDays(-1)
+                        },
+                        Content = new EdiContent
+                        {
+                            AdditionalLoadingEquipment = new EdiAdditionalLoadingEquipment
+                            {
+                                EurPallets = 3
+                            },
+                            LoadingMeter = 2.8m,
+                            GrossWeightKilogram = 3250.5m,
+                            Lines = new List<EdiLine>
+                            {
+                                new EdiLine
+                                {
+                                    LineNo = 2,
+                                    HandlingUnitCount = 12,
+                                    LoadingMeter = 2.6m,
+                                    Content = "Truck Hardware Controller",
+                                    GrossWeightKilogram = 1013.54m,
+                                    Barcodes = new List<EdiBarcode>
+                                    {
+                                        new EdiBarcode
+                                        {
+                                            Code = "003999999990000000620",
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 Vehicles = new List<EdiVehicle>
@@ -139,13 +283,15 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                     {
                         VehicleId = "LKW10005424",
                         Registration = "WÜ CP 4711",
-                        TruckType = "Truck"
+                        TruckType = "Truck",
+                        SendTelematics = true
                     },
                     new EdiVehicle
                     {
                         VehicleId = "TRA10007454",
                         Registration = "WÜ CT 1511",
-                        TruckType = "Semi-Trailer"
+                        TruckType = "Semi-Trailer",
+                        IsTrailer = true
                     }
                 },
                 Stops = new List<EdiTourStop>
@@ -158,7 +304,9 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                         {
                             ConsignmentObjectIds = new List<string>
                             {
-                                "201914444"
+                                "201914444",
+                                "201925878",
+                                "201935866"
                             }
                         },
                         Address = new EdiAddress
@@ -168,19 +316,94 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                             Street = "Am Alten Bahnhof",
                             HouseNumber = "8",
                             ZipCode = "97332",
+
                             City = "Volkach",
-                            CountryCode = "DE"
+                            CountryCode = "DE",
+                            GeoPosition = new EdiGeoPosition
+                            {
+                                W3WCoordinate = "angreifenden.zögert.auslöser"
+                            }
                         }
                     },
                     new EdiTourStop
                     {
                         StopNo = 2000,
                         StopId = "693e4c46-527a-44a2-b41a-cab42634e3bd",
+                        UnloadingInformation = new TourUnloadingInformation
+                        {
+                            ConsignmentObjectIds = new List<string>
+                            {
+                                "201914444"
+                            }
+                        },
+                        Address = new EdiAddress
+                        {
+                            Name = "Bamberger RZ",
+                            Street = "Mainstraße",
+                            ZipCode = "96052",
+                            City = "Bamberg",
+                            ContactPerson = "Herr Rezi",
+                            EmailAddress = "rezi@rzb.com",
+                            CountryCode = "DE",
+                            GeoPosition = new EdiGeoPosition
+                            {
+                                Latitude = 49.910659m,
+                                Longitude = 10.8682589m
+                            }
+                        }
                     },
                     new EdiTourStop
                     {
                         StopNo = 3000,
                         StopId = "f58da879-7bc0-442d-9625-cc3daff33bed",
+                        UnloadingInformation = new TourUnloadingInformation
+                        {
+                            ConsignmentObjectIds = new List<string>
+                            {
+                                "201925878"
+                            }
+                        },
+                        Address = new EdiAddress
+                        {
+                            Name = "Freetime Schweinfurt",
+                            Street = "Industriestraße 24",
+                            ZipCode = "97469",
+                            City = "Gochsheim",
+                            ContactPerson = "Herr Franze",
+                            EmailAddress = "h.franze@freetime.net",
+                            CountryCode = "DE",
+                            AdditionalAddressLines = new List<string>
+                            {
+                                "Please use side entrance."
+                            }
+                        }
+                    },
+                    new EdiTourStop
+                    {
+                        StopNo = 4000,
+                        StopId = "4a4c3e88-5fd5-4174-a890-5ffc8e5c107f",
+                        UnloadingInformation = new TourUnloadingInformation
+                        {
+                            ConsignmentObjectIds = new List<string>
+                            {
+                                "201935866"
+                            }
+                        },
+                        Address = new EdiAddress
+                        {
+                            Name = "Truck & Co Würzburg",
+                            Street = "Gustav-Heinemann-Allee",
+                            ZipCode = "97204",
+                            City = "Höchberg",
+                            ContactPerson = "Frau Roth",
+                            EmailAddress = "f.roth@truckco.de",
+                            CountryCode = "DE",
+                            PhoneNumber = "+499314458454",
+                            GeoPosition = new EdiGeoPosition
+                            {
+                                W3WCoordinate = "haupt.handschuhe.haube"
+                            }
+                        }
                     }
                 }
             };

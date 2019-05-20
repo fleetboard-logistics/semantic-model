@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-18T13:42:33.3816216+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T11:50:58.1553588+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
@@ -220,14 +220,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "longitude": {
-          "title": "Longitude",
-          "description": "East–west position of a point on the Earth's surface",
-          "type": "number"
-        },
         "latitude": {
           "title": "Latitude",
           "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
           "type": "number"
         },
         "placeName": {
@@ -257,11 +257,7 @@
         "geoRadius": {
           "$ref": "#/definitions/EdiGeoRadius"
         }
-      },
-      "required": [
-        "longitude",
-        "latitude"
-      ]
+      }
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -275,7 +271,7 @@
         },
         "radiusMeasurementUnitCode": {
           "title": "Unit Code for GeoRadius",
-          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "description": "Code that describes the unit in which the radius is measured. Default kilometers (KMT)",
           "type": "string",
           "enum": [
             "KMT",

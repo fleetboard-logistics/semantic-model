@@ -19,21 +19,22 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAdditionalProperties(false)]
     public class EdiGeoPosition
     {
-        /// <summary>
-        /// East–west position of a point on the Earth's surface
-        /// </summary>
-        [JsonRequired]
-        [DisplayName("Longitude")]
-        [Description("East–west position of a point on the Earth's surface")]
-        public decimal Longitude { get; set; }
 
         /// <summary>
         /// North–south position of a point on the Earth's surface
         /// </summary>
         [DisplayName("Latitude")]
         [Description("North–south position of a point on the Earth's surface")]
-        [JsonRequired]
-        public decimal Latitude { get; set; }
+        [JsonProperty(Required = Required.DisallowNull, Order = -10)]
+        public decimal? Latitude { get; set; }
+
+        /// <summary>
+        /// East–west position of a point on the Earth's surface
+        /// </summary>
+        [DisplayName("Longitude")]
+        [Description("East–west position of a point on the Earth's surface")]
+        [JsonProperty(Required = Required.DisallowNull, Order = -9)]
+        public decimal? Longitude { get; set; }
 
         /// <summary>
         /// The place name of the current geo position
@@ -54,14 +55,14 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Record time")]
         [Description("Time the GPS record was created")]
-        public DateTimeOffset RecordTime { get; set; }
+        public DateTimeOffset? RecordTime { get; set; }
 
         /// <summary>
         /// The angle is the direction that the vehicle is moving in
         /// </summary>
         [DisplayName("Angle")]
         [Description("The angle is the direction that the vehicle is moving in")]
-        public decimal Angle { get; set; }
+        public decimal? Angle { get; set; }
 
         /// <summary>
         /// The current speed of the vehicle in a defined measurement
@@ -119,7 +120,7 @@ namespace Conizi.Model.Shared.Entities
         /// Default Kilometer per hour
         /// </summary>
         [DisplayName("Unit Code for GeoRadius")]
-        [Description("Code that describes the unit in which the Speed is measured. Default kilometers (KMT)")]
+        [Description("Code that describes the unit in which the radius is measured. Default kilometers (KMT)")]
         [JsonConverter(typeof(StringEnumConverter))]
         public MeasurementUnitCode? RadiusMeasurementUnitCode { get; set; }
     }
@@ -160,5 +161,21 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Estimated time elapsed")]
         [Description("ETE (estimated time enroute, estimated time elapsed) in seconds")]
         public int? Ete { get; set; }
+
+        /// <summary>
+        /// The distance to destination
+        /// </summary>
+        [DisplayName("Distance to destination")]
+        [Description("The distance to destination")]
+        public decimal? DistanceToDestination { get; set; }
+
+        /// <summary>
+        /// Code that describes the unit in which the distance is measured
+        /// Default Kilometer per hour
+        /// </summary>
+        [DisplayName("Unit Code for distance to destination")]
+        [Description("Code that describes the unit in which the distance is measured. Default kilometers (KMT)")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public MeasurementUnitCode? DistanceMeasurementUnitCode { get; set; }
     }
 }

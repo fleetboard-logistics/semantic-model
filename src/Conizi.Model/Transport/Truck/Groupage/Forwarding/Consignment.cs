@@ -142,5 +142,10 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// Describes the nature and quantity of the goods in this consignment
         /// </summary>
         public EdiContent Content { get; set; }
+        
+        public override string ToString()
+        {
+            return this.ConsignmentObjectId ?? this.ConsignmentNoShippingPartner ?? base.ToString();
+        }
     }
 }

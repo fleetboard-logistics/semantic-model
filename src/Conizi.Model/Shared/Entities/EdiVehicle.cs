@@ -34,5 +34,19 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Truck type")]
         public string TruckType { get; set; }
+
+        /// <summary>
+        /// The vehicle is classified as trailer
+        /// </summary>
+        [DisplayName("Is a trailer")]
+        [Description("The vehicle is classified as trailer")]
+        public bool? IsTrailer { get; set; }
+
+        /// <summary>
+        /// The vehicle sends telematics data to a central instance
+        /// </summary>
+        [DisplayName("Vehicle sends telematics")]
+        [Description("The vehicle sends telematics data to a central instance")]
+        public bool? SendTelematics { get; set; }
     }
 }
