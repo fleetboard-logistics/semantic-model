@@ -1,0 +1,328 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
+    "receiver": {
+        "ediId": "C2P0"
+    },
+    "sender": {
+        "ediId": "FBLVK"
+    },
+    "network": {
+        "networkId": "FBNET"
+    },
+    "tourId": "20191234567",
+    "shippingDate": "2019-05-21",
+    "carrier": {
+        "name": "Cargo Partner",
+        "street": "Franeknstraße",
+        "houseNumber": "7",
+        "zipCode": "97078",
+        "city": "Würzburg",
+        "countryCode": "DE",
+        "emailAddress": "c2po@cargo-partner.net",
+        "reference": "C2PO"
+    },
+    "vehicles": [
+        {
+            "vehicleId": "LKW10005424",
+            "registration": "WÜ CP 4711",
+            "truckType": "Truck",
+            "sendTelematics": true
+        },
+        {
+            "vehicleId": "TRA10007454",
+            "registration": "WÜ CT 1511",
+            "truckType": "Semi-Trailer",
+            "isTrailer": true
+        }
+    ],
+    "consignments": [
+        {
+            "$id": "1",
+            "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
+            "receiver": {
+                "ediId": "C2PO"
+            },
+            "consignmentObjectId": "201914444",
+            "consignmentNoReceivingPartner": "201914444",
+            "shippingDate": "2019-05-21",
+            "shippingPartner": {
+                "ediId": "C2PO"
+            },
+            "receivingPartner": {
+                "ediId": "C3PO"
+            },
+            "routing": {
+                "shipper": {
+                    "name": "Fleetboard Logistics GmbH",
+                    "street": "Am Alten Bahnhof",
+                    "houseNumber": "8",
+                    "zipCode": "97332",
+                    "city": "Volkach",
+                    "countryCode": "DE",
+                    "emailAddress": "f.holle@fleetboard-logistics.com",
+                    "reference": "FBLVK01",
+                    "contactPerson": "Frau Holle"
+                },
+                "consignee": {
+                    "name": "Bamberger RZ",
+                    "street": "Mainstraße",
+                    "zipCode": "96052",
+                    "city": "Bamberg",
+                    "contactPerson": "Herr Rezi"
+                }
+            },
+            "references": {
+                "customerOrderDate": "2019-05-19"
+            },
+            "content": {
+                "lines": [
+                    {
+                        "lineNo": 1,
+                        "handlingUnitCount": 2,
+                        "content": "cable ducts",
+                        "barcodes": [
+                            {
+                                "code": "003999999990000000034"
+                            },
+                            {
+                                "code": "003999999990000000036"
+                            }
+                        ],
+                        "loadingMeter": 1.2,
+                        "grossWeightKilogram": 1419.0
+                    },
+                    {
+                        "lineNo": 2,
+                        "handlingUnitCount": 16,
+                        "content": "magic cubes",
+                        "loadingMeter": 1.1,
+                        "grossWeightKilogram": 1013.54
+                    }
+                ],
+                "additionalLoadingEquipment": {
+                    "eurPallets": 2
+                },
+                "loadingMeter": 2.3,
+                "grossWeightKilogram": 2432.5
+            }
+        },
+        {
+            "$id": "2",
+            "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
+            "receiver": {
+                "ediId": "C2PO"
+            },
+            "consignmentObjectId": "201925878",
+            "consignmentNoReceivingPartner": "201925878",
+            "shippingDate": "2019-05-21",
+            "shippingPartner": {
+                "ediId": "C2PO"
+            },
+            "receivingPartner": {
+                "ediId": "C3PO"
+            },
+            "routing": {
+                "shipper": {
+                    "name": "Fleetboard Logistics GmbH",
+                    "street": "Am Alten Bahnhof",
+                    "houseNumber": "8",
+                    "zipCode": "97332",
+                    "city": "Volkach",
+                    "countryCode": "DE",
+                    "emailAddress": "f.holle@fleetboard-logistics.com",
+                    "reference": "FBLVK01",
+                    "contactPerson": "Frau Holle"
+                },
+                "consignee": {
+                    "name": "Freetime Schweinfurt",
+                    "street": "Industriestraße 24",
+                    "zipCode": "97469",
+                    "city": "Gochsheim",
+                    "contactPerson": "Herr Franze"
+                }
+            },
+            "references": {
+                "customerOrderDate": "2019-05-19"
+            },
+            "content": {
+                "lines": [
+                    {
+                        "lineNo": 1,
+                        "handlingUnitCount": 6,
+                        "content": "cable ducts",
+                        "loadingMeter": 1.2,
+                        "grossWeightKilogram": 2215.0
+                    },
+                    {
+                        "lineNo": 2,
+                        "handlingUnitCount": 64,
+                        "content": "Truck Hardware Controller",
+                        "barcodes": [
+                            {
+                                "code": "003999999990000000620"
+                            }
+                        ],
+                        "loadingMeter": 2.6,
+                        "grossWeightKilogram": 1035.5
+                    }
+                ],
+                "additionalLoadingEquipment": {
+                    "eurPallets": 3
+                },
+                "loadingMeter": 3.8,
+                "grossWeightKilogram": 3250.5
+            }
+        },
+        {
+            "$id": "3",
+            "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
+            "receiver": {
+                "ediId": "C2PO"
+            },
+            "consignmentObjectId": "201935866",
+            "consignmentNoReceivingPartner": "201935866",
+            "shippingDate": "2019-05-21",
+            "shippingPartner": {
+                "ediId": "C2PO"
+            },
+            "receivingPartner": {
+                "ediId": "C3PO"
+            },
+            "routing": {
+                "shipper": {
+                    "name": "Fleetboard Logistics GmbH",
+                    "street": "Am Alten Bahnhof",
+                    "houseNumber": "8",
+                    "zipCode": "97332",
+                    "city": "Volkach",
+                    "countryCode": "DE",
+                    "emailAddress": "f.holle@fleetboard-logistics.com",
+                    "reference": "FBLVK01",
+                    "contactPerson": "Frau Holle"
+                },
+                "consignee": {
+                    "name": "Truck & Co Würzburg",
+                    "street": "Gustav-Heinemann-Allee",
+                    "zipCode": "97204",
+                    "city": "Höchberg",
+                    "emailAddress": "f.roth@truckco.de",
+                    "contactPerson": "Frau Roth"
+                }
+            },
+            "references": {
+                "customerOrderDate": "2019-05-19"
+            },
+            "content": {
+                "lines": [
+                    {
+                        "lineNo": 2,
+                        "handlingUnitCount": 12,
+                        "content": "Truck Hardware Controller",
+                        "barcodes": [
+                            {
+                                "code": "003999999990000000620"
+                            }
+                        ],
+                        "loadingMeter": 2.6,
+                        "grossWeightKilogram": 1013.54
+                    }
+                ],
+                "additionalLoadingEquipment": {
+                    "eurPallets": 3
+                },
+                "loadingMeter": 2.8,
+                "grossWeightKilogram": 3250.5
+            }
+        }
+    ],
+    "stops": [
+        {
+            "stopNo": 1000,
+            "stopId": "d8a37e5e-e008-4959-b1c3-13f3c7de90b6",
+            "address": {
+                "geoPosition": {
+                    "w3WCoordinate": "angreifenden.zögert.auslöser"
+                },
+                "name": "Fleetboard Logistics GmbH",
+                "street": "Am Alten Bahnhof",
+                "houseNumber": "8",
+                "zipCode": "97332",
+                "city": "Volkach",
+                "countryCode": "DE",
+                "reference": "FBLVK01"
+            },
+            "loadingInformation": {
+                "consignmentObjectIds": [
+                    "201914444",
+                    "201925878",
+                    "201935866"
+                ]
+            }
+        },
+        {
+            "stopNo": 2000,
+            "stopId": "693e4c46-527a-44a2-b41a-cab42634e3bd",
+            "address": {
+                "geoPosition": {
+                    "latitude": 49.910659,
+                    "longitude": 10.8682589
+                },
+                "name": "Bamberger RZ",
+                "street": "Mainstraße",
+                "zipCode": "96052",
+                "city": "Bamberg",
+                "countryCode": "DE",
+                "emailAddress": "rezi@rzb.com",
+                "contactPerson": "Herr Rezi"
+            },
+            "unloadingInformation": {
+                "consignmentObjectIds": [
+                    "201914444"
+                ]
+            }
+        },
+        {
+            "stopNo": 3000,
+            "stopId": "f58da879-7bc0-442d-9625-cc3daff33bed",
+            "address": {
+                "name": "Freetime Schweinfurt",
+                "street": "Industriestraße 24",
+                "zipCode": "97469",
+                "city": "Gochsheim",
+                "countryCode": "DE",
+                "emailAddress": "h.franze@freetime.net",
+                "additionalAddressLines": [
+                    "Please use side entrance."
+                ],
+                "contactPerson": "Herr Franze"
+            },
+            "unloadingInformation": {
+                "consignmentObjectIds": [
+                    "201925878"
+                ]
+            }
+        },
+        {
+            "stopNo": 4000,
+            "stopId": "4a4c3e88-5fd5-4174-a890-5ffc8e5c107f",
+            "address": {
+                "geoPosition": {
+                    "w3WCoordinate": "haupt.handschuhe.haube"
+                },
+                "name": "Truck & Co Würzburg",
+                "street": "Gustav-Heinemann-Allee",
+                "zipCode": "97204",
+                "city": "Höchberg",
+                "countryCode": "DE",
+                "emailAddress": "f.roth@truckco.de",
+                "phoneNumber": "+499314458454",
+                "contactPerson": "Frau Roth"
+            },
+            "unloadingInformation": {
+                "consignmentObjectIds": [
+                    "201935866"
+                ]
+            }
+        }
+    ]
+}
