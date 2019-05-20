@@ -47,7 +47,7 @@ deploy:
     - models
     - win
   script:
-    # - powershell.exe ./build-ci.ps1
+    - powershell -noprofile -noninteractive -executionpolicy Bypass -command buildci.ps1
   only:
     - master
   when: manual
