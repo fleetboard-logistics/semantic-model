@@ -2,6 +2,7 @@ image: alpine:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  TEST_DISABLED: true
 
 stages:
   - build
