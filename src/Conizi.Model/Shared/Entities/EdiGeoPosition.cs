@@ -62,7 +62,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Angle")]
         [Description("The angle is the direction that the vehicle is moving in")]
-        public decimal Angle { get; set; }
+        public decimal? Angle { get; set; }
 
         /// <summary>
         /// The current speed of the vehicle in a defined measurement
@@ -117,7 +117,7 @@ namespace Conizi.Model.Shared.Entities
 
         /// <summary>
         /// Code that describes the unit in which the radius is measured
-        /// Default Kilometer per hour
+        /// Default kilometers (KMT)
         /// </summary>
         [DisplayName("Unit Code for GeoRadius")]
         [Description("Code that describes the unit in which the radius is measured. Default kilometers (KMT)")]
@@ -171,11 +171,18 @@ namespace Conizi.Model.Shared.Entities
 
         /// <summary>
         /// Code that describes the unit in which the distance is measured
-        /// Default Kilometer per hour
+        /// Default kilometers (KMT)
         /// </summary>
         [DisplayName("Unit Code for distance to destination")]
         [Description("Code that describes the unit in which the distance is measured. Default kilometers (KMT)")]
         [JsonConverter(typeof(StringEnumConverter))]
         public MeasurementUnitCode? DistanceMeasurementUnitCode { get; set; }
+
+        /// <summary>
+        /// The number of stops <see cref="EdiTourStop"/> to destination
+        /// </summary>
+        [DisplayName("Stops to destination")]
+        [Description("The number of stops to destination")]
+        public int? StopsToDestination { get; set; }
     }
 }

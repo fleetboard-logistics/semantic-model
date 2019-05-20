@@ -42,7 +42,7 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                     new Consignment
                     {
                         ConsignmentNoReceivingPartner = "201914444",
-                        ConsignmentObjectId = "20194444",
+                        ConsignmentObjectId = "201914444",
                         ShippingDate = DateTime.Now.AddDays(1),
                         Receiver = new EdiMessageRouting
                         {

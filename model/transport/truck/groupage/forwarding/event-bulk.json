@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T11:50:58.0113245+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T15:52:00.6755046+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -945,6 +945,11 @@
             "NMI",
             "SMI"
           ]
+        },
+        "stopsToDestination": {
+          "title": "Stops to destination",
+          "description": "The number of stops to destination",
+          "type": "integer"
         }
       },
       "required": [

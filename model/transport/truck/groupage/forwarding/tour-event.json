@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T11:50:56.7833067+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-20T15:51:59.3191851+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
@@ -126,6 +126,11 @@
             "NMI",
             "SMI"
           ]
+        },
+        "stopsToDestination": {
+          "title": "Stops to destination",
+          "description": "The number of stops to destination",
+          "type": "integer"
         }
       },
       "required": [
