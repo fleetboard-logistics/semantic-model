@@ -42,20 +42,16 @@ test:
 
 deploy:
   stage: deploy
-  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
   tags:
-    - docker
-  services:
-  - docker:dind
+    - semantic
+    - models
+    - win
   variables:
-    DOCKER_DRIVER: overlay2
+
   script:
-    - install_dependencies
-    - build
-    - deploy_nuget
+    - powershell.exe ./build-ci.ps1
   only:
-    - branches
-    - tags
+    - master
   when: manual
 
 .auto_devops: &auto_devops |
