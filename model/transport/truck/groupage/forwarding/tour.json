@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T11:50:56.5553088+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-21T14:15:40.8664413+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -3023,6 +3023,11 @@
     "tourId": {
       "title": "Tour Id",
       "description": "A unique identifier assigned to this tour by the devlivering company",
+      "type": "string"
+    },
+    "workflowId": {
+      "title": "Workflow Id",
+      "description": "Identifies the workflow to be used for this tour",
       "type": "string"
     },
     "description": {
