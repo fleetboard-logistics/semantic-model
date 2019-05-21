@@ -1,7 +1,7 @@
 image: alpine:latest
 
 variables:
-  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SUBMODULE_STRATEGY: "recursive"
 
 stages:
   - build
@@ -42,20 +42,14 @@ test:
 
 deploy:
   stage: deploy
-  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
   tags:
-    - docker
-  services:
-  - docker:dind
-  variables:
-    DOCKER_DRIVER: overlay2
+    - semantic
+    - models
+    - win
   script:
-    - install_dependencies
-    - build
-    - deploy_nuget
+    - powershell -noprofile -noninteractive -executionpolicy Bypass -command buildci.ps1
   only:
-    - branches
-    - tags
+    - master
   when: manual
 
 .auto_devops: &auto_devops |

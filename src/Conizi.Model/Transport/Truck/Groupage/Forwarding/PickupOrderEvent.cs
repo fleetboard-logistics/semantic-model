@@ -149,6 +149,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("Additional remarks (free form)")]
         public List<string> AdditionalRemarks { get; set; }
 
-
+        /// <summary>
+        /// Reference number of the parent <see cref="PickupOrder"/>
+        /// </summary>
+        [DisplayName("Reference number")]
+        [Description("Reference number")]
+        public string ReferenceNumber { get; set; }
     }
 }
