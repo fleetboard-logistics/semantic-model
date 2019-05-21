@@ -24,7 +24,7 @@ build:
     - branches
     - tags
   before_script:
-  - before
+  - .auto_devops
   # except:
   #   - master
   #   - production
@@ -42,7 +42,7 @@ test:
     - branches
     - tags
   before_script:
-  - before
+  - .auto_devops
 
 deploy:
   stage: deploy
