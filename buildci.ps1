@@ -21,8 +21,8 @@ echo "Running on $env:computername..."
     dotnet build 
 
     Write-Host building nuget packages -ForegroundColor DarkGreen
-    dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec -Version $env:CONIZI_CORE_VERSION 
-    dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec $env:CONIZI_CORE_VERSION
+    dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID
+    dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID
 
     # Write-Host building docfx docu... -ForegroundColor DarkGreen
     # C:\tmp\docfx\docfx docs/docfx.json
