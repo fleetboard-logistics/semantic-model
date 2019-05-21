@@ -11,5 +11,14 @@ namespace Conizi.Model.Core.Tools
     /// <remarks>Not yet implemented, coming soon...</remarks>
     public class Client
     {
+        public Client()
+        {
+            
+        }
+    }
+
+    public class ClientConfig
+    {
+
     }
 }
