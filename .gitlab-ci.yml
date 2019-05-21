@@ -24,7 +24,7 @@ build:
     - branches
     - tags
   before_script:
-  - auto_devops
+  - before
   # except:
   #   - master
   #   - production
@@ -42,7 +42,7 @@ test:
     - branches
     - tags
   before_script:
-  - auto_devops
+  - before
 
 deploy:
   stage: deploy
@@ -56,13 +56,14 @@ deploy:
     - master
   when: manual
 
-.auto_devops: &auto_devops |
-  [[ "$TRACE" ]] && set -x
-  export CI_APPLICATION_TAG=$CI_COMMIT_SHA
+  function before() { 
+    [[ "$TRACE" ]] && set -x
+    export CI_APPLICATION_TAG=$CI_COMMIT_SHA
+    
+    export TAG=$CI_APPLICATION_TAG
+    export GENERATOR__JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
+  }
   
-  export TAG=$CI_APPLICATION_TAG
-  export GENERATOR__JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
-
   function install_dependencies() {
     echo "Installing deps"
     apk add -U openssl curl tar gzip bash ca-certificates git
