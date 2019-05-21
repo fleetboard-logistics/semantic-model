@@ -23,6 +23,8 @@ build:
   only:
     - branches
     - tags
+  before_script:
+  - *auto_devops
   # except:
   #   - master
   #   - production
@@ -39,6 +41,8 @@ test:
   only:
     - branches
     - tags
+  before_script:
+  - *auto_devops
 
 deploy:
   stage: deploy
@@ -79,6 +83,3 @@ deploy:
     echo "Testing..."
     dotnet test ./test/Conizi.Model.UnitTests/Conizi.Model.UnitTests.csproj --filter "Category=UnitTest" -v n 
   }
-
-before_script:
-  - *auto_devops
