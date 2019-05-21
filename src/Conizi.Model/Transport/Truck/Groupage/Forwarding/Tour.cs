@@ -42,11 +42,19 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public string TourId { get; set; }
 
         /// <summary>
+        /// Identifies the workflow to be used for this tour
+        /// </summary>
+        [DisplayName("Workflow Id")]
+        [Description("Identifies the workflow to be used for this tour")]
+        [JsonProperty(Order = -9)]
+        public string WorkflowId { get; set; }
+
+        /// <summary>
         /// The Description. A description of the tour, maybe the occasion of the tour
         /// </summary>
         [DisplayName("Description")]
         [Description("A description of the tour, maybe the occasion of the tour")]
-        [JsonProperty("description", Order = -9)]
+        [JsonProperty("description", Order = -8)]
         public string Description { get; set; }
    
         /// <summary>
@@ -54,7 +62,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Route")]
         [Description("Information about the route to be driven or its identification")]
-        [JsonProperty("route", Order = -8)]
+        [JsonProperty("route", Order = -7)]
         public string Route { get; set; }
        
         /// <summary>
@@ -62,7 +70,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Driver Notes")]
         [Description("Notes which can be attached by the delivering driver")]
-        [JsonProperty("driverNotes", Order = -8)]
+        [JsonProperty("driverNotes", Order = -6)]
         public string DriverNotes { get; set; }
 
         /// <summary>
@@ -70,7 +78,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Carrier Notes")]
         [Description("Notes which can be attached by the carrier")]
-        [JsonProperty("carrierNotes", Order = -7)]
+        [JsonProperty("carrierNotes", Order = -5)]
         public string CarrierNotes { get; set; }
 
         /// <summary>
@@ -78,7 +86,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Shipping date")] 
         [Description("Day on which the tour is proccessed")]
-        [JsonProperty("shippingDate", Order = -6)]
+        [JsonProperty("shippingDate", Order = -4)]
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
         [Required]
@@ -89,7 +97,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         //[DisplayName("Carrier")]
         //[Description("Company responsible for the actual transport of the goods from the shipping partner to the recipient")]
-        [JsonProperty("carrier", Order = -5)]
+        [JsonProperty("carrier", Order = -3)]
         public EdiAddress Carrier { get; set; }
 
         /// <summary>
