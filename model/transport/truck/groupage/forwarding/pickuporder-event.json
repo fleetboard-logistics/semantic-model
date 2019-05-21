@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T11:50:58.1553588+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-05-21T11:25:26.8861152+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
@@ -1151,6 +1151,11 @@
       "items": {
         "type": "string"
       }
+    },
+    "referenceNumber": {
+      "title": "Reference number",
+      "description": "Reference number",
+      "type": "string"
     }
   },
   "required": [
