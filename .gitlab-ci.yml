@@ -47,7 +47,7 @@ deploy:
     - models
     - win
   script:
-    - & ./buildci.ps1
+    - "& ./buildci.ps1"
   only:
     - master
   when: manual
