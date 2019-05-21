@@ -56,7 +56,7 @@ deploy:
     - master
   when: manual
 
-   .auto_devops: &auto_devops |
+.auto_devops: &auto_devops |
   function before() { 
     [[ "$TRACE" ]] && set -x
     export CI_APPLICATION_TAG=$CI_COMMIT_SHA
