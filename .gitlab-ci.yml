@@ -51,7 +51,8 @@ deploy:
   only:
     - master
   when: manual
-  before_script:
+  before_script: 
+    - "echo Deploy..."
 
 .auto_devops: &auto_devops |
   [[ "$TRACE" ]] && set -x
