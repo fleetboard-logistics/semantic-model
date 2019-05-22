@@ -27,14 +27,17 @@ echo "Running on $env:computername..."
 
         "preproduction" {
             $vsuffix = "-beta"
+            break;
           }
         
         "production" {
             $vsuffix = ""
+            break;
           }
 
         Default {
             $vsuffix = "-alpha"
+            break;
         }
     }
 
