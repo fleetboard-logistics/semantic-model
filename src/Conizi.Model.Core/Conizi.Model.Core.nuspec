@@ -21,7 +21,7 @@
      <dependencies>
       <dependency id="Newtonsoft.Json" version="12.0" />
       <dependency id="Newtonsoft.Json.Schema" version="3.0.11" />
-      <dependency id="Conizi.Model" version="19.5.0.1-beta" />
+      <dependency id="Conizi.Model" version="19.5" />
      </dependencies>
   </metadata>
   <files>

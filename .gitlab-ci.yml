@@ -47,18 +47,21 @@ deploy:
     - models
     - win
   script:
-    - powershell -noprofile -noninteractive -executionpolicy Bypass -command buildci.ps1
+    - "& ./build-nuget-ci.ps1"
   only:
-    - master
+    - preproduction
+    - production
   when: manual
+  before_script: 
+    - "echo Deploy Nuget..."
 
 .auto_devops: &auto_devops |
   [[ "$TRACE" ]] && set -x
   export CI_APPLICATION_TAG=$CI_COMMIT_SHA
-  
+    
   export TAG=$CI_APPLICATION_TAG
   export GENERATOR__JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
-
+  
   function install_dependencies() {
     echo "Installing deps"
     apk add -U openssl curl tar gzip bash ca-certificates git

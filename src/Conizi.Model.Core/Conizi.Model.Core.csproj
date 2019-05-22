@@ -13,6 +13,7 @@
     <PackageTags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <NuspecProperties>version=$(Version)</NuspecProperties>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
