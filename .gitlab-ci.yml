@@ -41,18 +41,20 @@ test:
     - tags
 
 deploy:
-  stage: deploy
+  stage: deploy-nuget
   tags:
     - semantic
     - models
     - win
   script:
-    - "& ./buildci.ps1"
+    - "& ./build-nuget-ci.ps1"
   only:
     - master
+    - preproduction
+    - production
   when: manual
   before_script: 
-    - "echo Deploy..."
+    - "echo Deploy Nuget..."
 
 .auto_devops: &auto_devops |
   [[ "$TRACE" ]] && set -x

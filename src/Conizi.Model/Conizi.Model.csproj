@@ -8,6 +8,7 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Description>Pre-Release of the conizi semantic models implemented in C#. Please use this library with care. It is not yet stable!</Description>
+    <NuspecProperties>version=$(Version)</NuspecProperties>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
