@@ -49,7 +49,6 @@ deploy:
   script:
     - "& ./build-nuget-ci.ps1"
   only:
-    - master
     - preproduction
     - production
   when: manual
