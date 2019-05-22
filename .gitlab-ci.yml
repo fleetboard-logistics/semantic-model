@@ -41,7 +41,7 @@ test:
     - tags
 
 deploy:
-  stage: deploy-nuget
+  stage: nuget
   tags:
     - semantic
     - models
