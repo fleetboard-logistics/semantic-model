@@ -5,7 +5,7 @@ items:
   id: Generator
   parent: Conizi.Model.Core.Tools
   children:
-  - Conizi.Model.Core.Tools.Generator.Generate(System.Type)
+  - Conizi.Model.Core.Tools.Generator.Generate(Type)
   - Conizi.Model.Core.Tools.Generator.Generate``1
   - Conizi.Model.Core.Tools.Generator.RegisterJsonSchemaLicense(System.String)
   langs:
@@ -29,8 +29,10 @@ items:
   summary: "\nThe conizi schema generator is used to generate a JSON Schema out of the conizi C# models\n"
   example: []
   syntax:
-    content: public static class Generator
-    content.vb: Public Module Generator
+    content: 'public static class Generator : object'
+    content.vb: >-
+      Public Module Generator
+          Inherits Object
   inheritance:
   - System.Object
   modifiers.csharp:
@@ -121,16 +123,16 @@ items:
   - Shared
   fullName.vb: Conizi.Model.Core.Tools.Generator.Generate(Of TModel)()
   name.vb: Generate(Of TModel)()
-- uid: Conizi.Model.Core.Tools.Generator.Generate(System.Type)
-  commentId: M:Conizi.Model.Core.Tools.Generator.Generate(System.Type)
-  id: Generate(System.Type)
+- uid: Conizi.Model.Core.Tools.Generator.Generate(Type)
+  commentId: M:Conizi.Model.Core.Tools.Generator.Generate(Type)
+  id: Generate(Type)
   parent: Conizi.Model.Core.Tools.Generator
   langs:
   - csharp
   - vb
   name: Generate(Type)
   nameWithType: Generator.Generate(Type)
-  fullName: Conizi.Model.Core.Tools.Generator.Generate(System.Type)
+  fullName: Conizi.Model.Core.Tools.Generator.Generate(Type)
   type: Method
   source:
     remote:
@@ -149,7 +151,7 @@ items:
     content: public static GenerationResult Generate(Type modelType)
     parameters:
     - id: modelType
-      type: System.Type
+      type: Type
       description: Type of the C# model instance
     return:
       type: Conizi.Model.Core.Entities.GenerationResult
@@ -168,27 +170,12 @@ references:
   name: Conizi.Model.Core.Tools
   nameWithType: Conizi.Model.Core.Tools
   fullName: Conizi.Model.Core.Tools
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Conizi.Model.Core.Tools.Generator.RegisterJsonSchemaLicense*
   commentId: Overload:Conizi.Model.Core.Tools.Generator.RegisterJsonSchemaLicense
   name: RegisterJsonSchemaLicense
   nameWithType: Generator.RegisterJsonSchemaLicense
   fullName: Conizi.Model.Core.Tools.Generator.RegisterJsonSchemaLicense
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -209,10 +196,8 @@ references:
   name: Conizi.Model.Core.Entities
   nameWithType: Conizi.Model.Core.Entities
   fullName: Conizi.Model.Core.Entities
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
+- uid: Type
   isExternal: true
   name: Type
   nameWithType: Type
-  fullName: System.Type
+  fullName: Type
