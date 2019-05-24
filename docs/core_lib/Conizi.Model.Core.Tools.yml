@@ -5,6 +5,7 @@ items:
   id: Conizi.Model.Core.Tools
   children:
   - Conizi.Model.Core.Tools.Client
+  - Conizi.Model.Core.Tools.ClientConfig
   - Conizi.Model.Core.Tools.Converter
   - Conizi.Model.Core.Tools.Generator
   - Conizi.Model.Core.Tools.Validator
@@ -23,6 +24,11 @@ references:
   name: Client
   nameWithType: Client
   fullName: Conizi.Model.Core.Tools.Client
+- uid: Conizi.Model.Core.Tools.ClientConfig
+  commentId: T:Conizi.Model.Core.Tools.ClientConfig
+  name: ClientConfig
+  nameWithType: ClientConfig
+  fullName: Conizi.Model.Core.Tools.ClientConfig
 - uid: Conizi.Model.Core.Tools.Converter
   commentId: T:Conizi.Model.Core.Tools.Converter
   name: Converter
