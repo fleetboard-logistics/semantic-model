@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample
+  commentId: T:Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample
+  id: ProofOfDeliverySimpleExample
+  parent: Conizi.Model.Examples.Archiving
+  children:
+  - Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.#ctor
+  langs:
+  - csharp
+  - vb
+  name: ProofOfDeliverySimpleExample
+  nameWithType: ProofOfDeliverySimpleExample
+  fullName: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample
+  type: Class
+  source:
+    id: ProofOfDeliverySimpleExample
+    path: C:\src\sematicmodel\src\Conizi.Model.Examples\Archiving\ProofOfDeliverySimpleExample.cs
+    startLine: 13
+  assemblies:
+  - Conizi.Model.Examples
+  namespace: Conizi.Model.Examples.Archiving
+  summary: "\nSimple example for Proof of Delivery\n"
+  example: []
+  syntax:
+    content: >-
+      [ExampleFor(typeof(ProofOfDelivery))]
+
+      public class ProofOfDeliverySimpleExample : ProofOfDelivery
+    content.vb: >-
+      <ExampleFor(GetType(ProofOfDelivery))>
+
+      Public Class ProofOfDeliverySimpleExample
+          Inherits ProofOfDelivery
+  inheritance:
+  - System.Object
+  attributes:
+  - type: Conizi.Model.Examples.Shared.Attributes.ExampleForAttribute
+    ctor: Conizi.Model.Examples.Shared.Attributes.ExampleForAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: ProofOfDelivery
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.#ctor
+  commentId: M:Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.#ctor
+  id: '#ctor'
+  parent: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample
+  langs:
+  - csharp
+  - vb
+  name: ProofOfDeliverySimpleExample()
+  nameWithType: ProofOfDeliverySimpleExample.ProofOfDeliverySimpleExample()
+  fullName: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.ProofOfDeliverySimpleExample()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\src\sematicmodel\src\Conizi.Model.Examples\Archiving\ProofOfDeliverySimpleExample.cs
+    startLine: 16
+  assemblies:
+  - Conizi.Model.Examples
+  namespace: Conizi.Model.Examples.Archiving
+  syntax:
+    content: public ProofOfDeliverySimpleExample()
+    content.vb: Public Sub New
+  overload: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Conizi.Model.Examples.Archiving
+  commentId: N:Conizi.Model.Examples.Archiving
+  name: Conizi.Model.Examples.Archiving
+  nameWithType: Conizi.Model.Examples.Archiving
+  fullName: Conizi.Model.Examples.Archiving
+- uid: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.#ctor*
+  commentId: Overload:Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.#ctor
+  name: ProofOfDeliverySimpleExample
+  nameWithType: ProofOfDeliverySimpleExample.ProofOfDeliverySimpleExample
+  fullName: Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample.ProofOfDeliverySimpleExample

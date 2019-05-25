@@ -1,0 +1,37 @@
+{
+  "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+  "tourId": "123123123",
+  "receiver": {
+    "ediId": "DAIMLER"
+  },
+  "network": {
+    "networkId": "MBT"
+  },
+  "tour": {
+    "eventDateTime": "2019-02-20T12:45:25",
+    "tourAccepted": true
+  },
+  "vehicle": {
+    "eventDateTime": "2019-02-20T12:46:15",
+    "driverName": "Max Brummi",
+    "mileageStart": 125485,
+    "truckRegistrationNumber": "KT CO 123",
+    "geoPosition": {
+      "latitude": 49.8641,
+      "longitude": 10.2269
+    }
+  },
+  "documents": {
+    "eventDateTime": "2019-02-20T12:47:05",
+    "checklistDepartureControl": true,
+    "damages": [
+      {
+        "fileName": "damages.png",
+        "contentType": "image/png",
+        "binaryData": {
+          "data": "VGhpZSBpcyBteSBtYWduaWZpY2VudCBmaWxl"
+        }
+      }
+    ]
+  }
+}

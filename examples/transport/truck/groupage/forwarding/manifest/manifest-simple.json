@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/groupage/forwarding/manifest.json#",
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
     "manifestId": "A123456",
     "shippingDate": "2017-12-31",
     "shippingPartner": {
@@ -8,9 +8,13 @@
     "receivingPartner": {
         "partnerId": "4321"
     },
+    "receiver": {
+        "ediId": "KKH23"
+    },
     "carrier": {
         "name": "Frachführer GmbH"
     },
+    "manifestType": "STD",
     "vehicles": [
         {
             "registration": "KT EK 123"
@@ -30,6 +34,21 @@
         {
             "lineNo": 1,
             "consignment": {
+                "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
+                "receiver": {
+                    "ediId": "MARKWUE"
+                },
+                "network": {
+                    "networkId": "NET"
+                },
+                "shippingDate": "2019-03-08",
+                "shippingPartner": {
+                    "ediId": "SAG01"
+                },
+                "receivingPartner": {
+                    "ediId": "FRANS1",
+                    "name": "Franz Sachs"
+                },
                 "consignmentNoShippingPartner": "1234567890",
                 "routing": {
                     "shipper": {
@@ -50,7 +69,7 @@
                 "services": {
                     "timeOptions": {
                         "nextDay": {
-                            "timeFrom": "10:00"
+                            "timeFrom": "10:15:00"
                         }
                     }
                 },

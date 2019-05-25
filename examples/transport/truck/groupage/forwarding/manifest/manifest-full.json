@@ -1,6 +1,7 @@
 {
-    "$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/model/transport/truck/groupage/forwarding/manifest.json#",
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
     "manifestId": "A123456",
+    "manifestType": "STD",
     "shippingDate": "2017-12-31",
     "carrier": {
         "name": "Frachführer GmbH",
@@ -11,7 +12,7 @@
         "city": "Musterstadt",
         "zipCode": "12345",
         "countryCode": "DE",
-        "townarea": "Ortsteil"
+        "townArea": "Ortsteil"
     },
     "sender": {
         "ediId": "SCHAESW"
@@ -61,6 +62,7 @@
         {
             "lineNo": 1,
             "consignment": {
+                "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
                 "consignmentNoShippingPartner": "4564646426",
                 "consignmentNoReceivingPartner": "4564646426",
                 "shippingDate": "2017-12-31",
@@ -76,7 +78,7 @@
                 "receiver": {
                     "ediId": "HELLM00"
                 },
-                "networkId": {
+                "network": {
                     "networkId": "CL",
                     "product": "CL",
                     "codelist": "CL"
@@ -109,7 +111,7 @@
                         "beforeDelivery": {
                             "name": "Ansprechpartner",
                             "leadTimeSecondsMinimum": 3600,
-                            "leadTimeSecondsMaximum": null
+                            "leadTimeSecondsMaximum": 1800
                         },
                         "byDriver": {
                             "name": "Ansprechpartner"
@@ -126,9 +128,6 @@
                         }
                     },
                     "timeSlotBooking": {
-                        "byDeliveringPartner": {
-                            "name": "Info"
-                        },
                         "preBookedTimeslot": {
                             "info": "Info"
                         }
@@ -145,16 +144,16 @@
                             "weekOfYear": "30"
                         },
                         "weekendSaturday": {
-                            "timeFrom": "09:00",
-                            "timeUntil": "18:00"
+                            "timeFrom": "09:10:00",
+                            "timeUntil": "18:15:00"
                         },
                         "nextDay": {
-                            "timeFrom": "09:00",
-                            "timeUntil": "18:00"
+                            "timeFrom": "09:00:00",
+                            "timeUntil": "18:00:00"
                         },
                         "evening": {
-                            "timeFrom": "20:00",
-                            "timeUntil": "22:00"
+                            "timeFrom": "20:00:00",
+                            "timeUntil": "22:00:00"
                         }
                     },
                     "deliveryOptions": {
@@ -243,7 +242,7 @@
                     ]
                 },
                 "references": {
-                    "returnOfPreviousConsignent": {
+                    "returnOfPreviousConsignment": {
                         "consignmentNoShippingPartner": "4564646426",
                         "shippingDate": "2017-12-31",
                         "shippingPartner": {
@@ -255,7 +254,6 @@
                     },
                     "pickupOrder": {
                         "pickupOrderNo": "1545664",
-                        "partnerId": "4123"
                     },
                     "deliveryNote": "54564456",
                     "customerOrderNo": "45645646645",
@@ -275,11 +273,11 @@
                     "costsAndCharges": {}
                 },
                 "customsInformation": {
-                    "declaringPary": {
-                        "name": "asdasdad"
+                    "declaringParty": {
+                        "name": "the party"
                     },
                     "deliverAfterDutyPaid": {
-                        "name": "asdasdad"
+                        "name": "a-team"
                     },
                     "presentationDeadline": "2017-12-31",
                     "clearedForFreeTransitWithinEU": true,
@@ -319,7 +317,6 @@
                     "loadingAids": true,
                     "packagingPool": "ProviderId",
                     "highValueGoods": true,
-                    "highConsequencesDangerousGoods": true,
                     "insuranceValue": {
                         "amount": 0.0,
                         "currency": "EUR"
@@ -352,7 +349,7 @@
                             "customsInformation": {
                                 "goodsNo": "",
                                 "processCode": "",
-                                "netweightKilogram": 0.0,
+                                "netWeightKilogram": 0.0,
                                 "rawWeightKilogram": 0.0,
                                 "countryOfOrigin": "DE",
                                 "customsValue": {
@@ -362,14 +359,7 @@
                                 "statisticalValue": {
                                     "amount": 0.0,
                                     "currency": "EUR"
-                                },
-                                "documents": [
-                                    {
-                                        "type": "Name",
-                                        "number": "154564555",
-                                        "date": "2017-12-31"
-                                    }
-                                ]
+                                }
                             },
                             "barcodes": [
                                 {

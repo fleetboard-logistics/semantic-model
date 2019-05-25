@@ -1,0 +1,116 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
+    "sender": {
+        "ediId": "SCHAESW"
+    },
+    "receiver": {
+        "ediId": "KOCHMBH"
+    },
+    "shippingPartner": {
+        "partnerId": "1234"
+    },
+    "receivingPartner": {
+        "partnerId": "4321"
+    },
+    "reportingPartner": {
+        "partnerId": "4321"
+    },
+    "consignmentNoShippingPartner": "1234567890",
+    "consignmentNoReceivingPartner": "1234567890",
+    "dataProcessing": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "invalidData": {},
+            "invalidPackageType": {},
+            "invalidDangerousGoodInformation": {}
+        },
+        "remarks": ""
+    },
+    "generalProcessingNotification": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "incompatible": {},
+            "incomplete": {},
+            "ultimatelyLost": {},
+            "x-dummy": false
+        },
+        "remarks": ""
+    },
+    "unloading": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "lateArrival": {},
+            "missing": {},
+            "damaged": {},
+            "x-dummy": false
+        },
+        "remarks": ""
+    },
+    "deliveryPlanning": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "outsideDeliveryArea": {},
+            "plannedForSecondTour": {},
+            "notInDelivery": {},
+            "timeSlotFromConsignee": {
+                "newDeliveryDate": "2017-12-31"
+            },
+            "badWeatherConditions": {},
+            "x-dummy": {}
+        },
+        "remarks": ""
+    },
+    "deliveryStarted": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "noCapacity": {}
+        },
+        "remarks": ""
+    },
+    "deliveryAttemptFailed": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "abortedDueToLongWaitingTime": {},
+            "rejected": {
+                "damaged": {},
+                "incomplete": {},
+                "tooLate": {},
+                "missingDocumentation": {},
+                "notOrdered": {}
+            },
+            "closed": {},
+            "difficulties": {},
+            "x-dummy": {}
+        },
+        "returnConsignmentNo": "",
+        "remarks": ""
+    },
+    "deliverySuccessful": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "exceptions": {
+            "incomplete": {},
+            "damaged": {},
+            "partiallyRejected": {},
+            "x-dummy": {}
+        },
+        "remarks": ""
+    },
+    "completion": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "completedBy": {},
+        "forwarded": {},
+        "remarks": ""
+    },
+    "changeRequest": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "billingDeliveryTerm": {},
+        "billingAreaPalletBays": {},
+        "billingLoadingMeter": {},
+        "remarks": "This was a change request"
+    },
+    "cancellation": {
+        "eventDateTime": "2017-12-31T08:15:12",
+        "remarks": "Problems with something"
+    },
+    "x-dummy": 1
+}

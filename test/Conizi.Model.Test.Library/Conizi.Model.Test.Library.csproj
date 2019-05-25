@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Conizi.Model.Core\Conizi.Model.Core.csproj" />
+    <ProjectReference Include="..\..\src\Conizi.Model.Examples\Conizi.Model.Examples.csproj" />
+    <ProjectReference Include="..\..\src\Conizi.Model\Conizi.Model.csproj" />
+  </ItemGroup>
+
+</Project>

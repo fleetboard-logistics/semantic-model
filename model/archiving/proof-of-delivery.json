@@ -1,410 +1,512 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "@id": "http://conizi.io/model/archiving/proof-of-delivery.json",
-    "title": "Proof of Delivery",
-    "titleMap": {
-        "de": "Ablieferbeleg"
-    },
-    "type": "object",
-    "properties": {
-        "sender": {
-            "title": "Data Origin",
-            "titleMap": {
-                "de": "Daten-Quelle"
-            },
-            "description": "The sender of the current record.",
-            "descriptionMap": {
-                "de": "Der Versender des Datensatzes."
-            },
-            "$ref": "#/definitions/partnerIdentification"
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Generated: 2019-05-20T11:50:58.8883096+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$id": "https://model.conizi.io/v1/archiving/proof-of-delivery.json",
+  "title": "Proof of Delivery",
+  "description": "Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender",
+  "definitions": {
+    "EdiAddress": {
+      "title": "Address fields",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
         },
-        "receiver": {
-            "title": "Data Recipient",
-            "titleMap": {
-                "de": "Daten-Empfänger"
-            },
-            "description": "The intended recipient of the the current record.",
-            "descriptionMap": {
-                "de": "Der Empfänger des Datensatzes."
-            },
-            "$ref": "#/definitions/partnerIdentification"
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
         },
-        "shippingPartner": {
-            "title": "Shipping partner",
-            "titleMap": {
-                "de": "Versandpartner"
-            },
-            "description": "The partner which is sending the consignment to the receiving partner for further delivery.",
-            "descriptionMap": {
-                "de": "Der Partner, der die Sendung an den Empfangspartner für die weitere Zustellung sendet."
-            },
-            "examples": [
-                {
-                    "ediFormat": "REL100",
-                    "location": "Q00.10-44",
-                    "networkId": "CL",
-                    "value": "4974"
-                },
-                {
-                    "ediFormat": "REL100",
-                    "location": "Q00.10-44",
-                    "networkId": "SYA",
-                    "value": "3100"
-                },
-                {
-                    "ediFormat": "EDIFACT",
-                    "location": "SG1/NAD+CS/Field3035"
-                }
-            ],
-            "$ref": "#/definitions/partnerIdentification"
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
         },
-        "receivingPartner": {
-            "title": "Receiving partner",
-            "titleMap": {
-                "de": "Empfangspartner"
-            },
-            "description": "The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery.",
-            "descriptionMap": {
-                "de": "Der Partner, der die auf dem Bordero aufgelisteten Sendungen für die weitere Zustellung empfängt."
-            },
-            "examples": [
-                {
-                    "ediFormat": "REL100",
-                    "location": "Q00.45-79",
-                    "networkId": "CL",
-                    "value": "4974"
-                },
-                {
-                    "ediFormat": "REL100",
-                    "location": "Q00.45-79",
-                    "networkId": "SYA",
-                    "value": "3100"
-                },
-                {
-                    "ediFormat": "EDIFACT",
-                    "location": "SG1/NAD+CZ/Field3035"
-                }
-            ],
-            "$ref": "#/definitions/partnerIdentification"
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
         },
-        "reportingPartner": {
-            "title": "Reporting partner",
-            "titleMap": {
-                "de": "Meldender partner"
-            },
-            "description": "The partner which is reporting the event.",
-            "descriptionMap": {
-                "de": "Der Partner, der das Ereignis meldet."
-            },
-            "examples": [
-                {
-                    "ediFormat": "REL100",
-                    "location": "Q00.80-114",
-                    "networkId": "CL",
-                    "value": "4974"
-                },
-                {
-                    "ediFormat": "REL100",
-                    "location": "Q00.80-114",
-                    "networkId": "SYA",
-                    "value": "3100"
-                },
-                {
-                    "ediFormat": "EDIFACT",
-                    "location": "SG1/NAD+CS/Field3035"
-                }
-            ],
-            "$ref": "#/definitions/partnerIdentification"
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
         },
-        "shipper": {
-            "title": "Shipper",
-            "titleMap": {
-                "de": "Versender"
-            },
-            "description": "The address of the party which is sending the goods. This is usually the place where the transport originated",
-            "descriptionMap": {
-                "de": "Die Adresse des Warenversenders. In der Regel der Ort, an dem der Transport der Sendung beginnt."
-            },
-            "type": "object",
-            "$ref": "#/definitions/address"
+        "city": {
+          "title": "City of the address",
+          "type": "string"
         },
-        "consignee": {
-            "title": "Consignee",
-            "titleMap": {
-                "de": "Empfänger"
-            },
-            "description": "The address of the good's recipient",
-            "descriptionMap": {
-                "de": "Die Adresse des Warenempfängers."
-            },
-            "type": "object",
-            "$ref": "#/definitions/address"
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
         },
-        "signature": {
-            "type": "object",
-            "properties": {
-                "signatureAvailable": {
-                    "type": "boolean"
-                },
-                "signatureDate": {
-                    "type": "string"
-                },
-                "signeeName": {
-                    "type": "string"
-                },
-                "signatureContent": {
-                    "oneOf": [
-                        {
-                            "$ref": "#/definitions/fileData"
-                        },
-                        {
-                            "$ref": "#/definitions/fileReferences"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "signatureAvailable",
-                "signatureDate"
-            ]
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
         },
-        "carrier": {
-            "title": "Carrier",
-            "titleMap": {
-                "de": "Frachtführer"
-            },
-            "description": "Company responsible for the actual transport of the goods from the shipping partner to the recipient",
-            "descriptionMap": {
-                "de": "Firma, die für die Durchführung der Tour verantwortlich ist"
-            },
-            "$ref": "#/definitions/address",
-            "patternProperties": {
-                "x-.*": {},
-                "\\$.*": {}
-            }
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
         },
-        "id": {
-            "title": "Unique POD Id",
-            "titleMap": {
-                "de": "POD Id"
-            },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
             "type": "string"
+          }
         },
-        "documentCreationDate": {
-            "title": "Date this document was created",
-            "titleMap": {
-                "de": "Erstellenungsdatum dieses Documents"
-            },
-            "type": "string"
+        "reference": {
+          "title": "Reference number for an address",
+          "type": "string"
         },
-        "plannedShippingDate": {
-            "title": "The planned shipping date",
-            "titleMap": {
-                "de": "Das geplante Datum des Transports"
-            },
-            "type": "string"
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
         },
-        "shippingDate": {
-            "title": "The date of shipping/transport",
-            "titleMap": {
-                "de": "Das Datum an dem der Transport stattfindet"
-            },
-            "type": "string"
-        },
-        "arrivalDate": {
-            "title": "The date goods arrived",
-            "titleMap": {
-                "de": "Datum an dem die Ladung ankam"
-            },
-            "type": "string"
-        },
-        "refNo": {
-            "title": "Reference number",
-            "titleMap": {
-                "de": "Zeichen / Nummer"
-            },
-            "description": "A reference of the ordering party relating to the goods",
-            "descriptionMap": {
-                "de": "Eine Referenz-Nummer des Versenders für die Waren"
-            },
-            "type": "string"
-        },
-        "emptiesExchange": {
-            "title": "Empties exchange required",
-            "titleMap": {
-                "de": "Ladmittelausch"
-            },
-            "description": "Specifies whether empties should be exchanged with the consignee",
-            "descriptionMap": {
-                "de": "Sollen tauschpflichtige Lademittel beim Empfänger getauscht werden"
-            },
-            "type": "boolean"
-        },
-        "content": {
-            "title": "Content",
-            "titleMap": {
-                "de": "Inhalt"
-            },
-            "description": "The content as file.",
-            "descriptionMap": {
-                "de": "Der Inhalt als Datei."
-            },
-            "type": "object",
-            "oneOf": [
-                {
-                    "$ref": "#/definitions/fileData"
-                },
-                {
-                    "$ref": "#/definitions/fileReferences"
-                }
-            ]
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
         }
-    },
-    "required": [
-        "sender",
-        "receiver",
-        "shipper",
-        "consignee",
-        "id",
-        "refNo",
-        "documentCreationDate",
-        "content"
-    ],
-    "patternProperties": {
+      },
+      "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
+      }
     },
-    "additionalProperties": false,
-    "definitions": {
-        "partnerIdentification": {
-            "type": "object",
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/ediId"
-                },
-                {
-                    "$ref": "#/definitions/partnerId"
-                },
-                {
-                    "$ref": "#/definitions/address"
-                },
-                {
-                    "$ref": "#/definitions/coniziId"
-                }
-            ]
+    "EdiBinaryData": {
+      "title": "Binary Data",
+      "description": "The content/data of a file",
+      "type": "object",
+      "properties": {
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
         },
-        "coniziId": {
-            "type": "object",
-            "properties": {
-                "coniziId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "coniziId"
-            ]
+        "data": {
+          "title": "Data bytes",
+          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "EdiFileContent": {
+      "title": "File Content",
+      "description": "Transfers file data like a picture, pdf, txt..",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "title": "File Name",
+          "description": "The file name",
+          "type": "string"
+        },
+        "contentType": {
+          "title": "Content Type",
+          "description": "The content type like application/pdf, image/png...",
+          "type": "string"
+        },
+        "binaryData": {
+          "$ref": "#/definitions/EdiBinaryData"
+        },
+        "fileReference": {
+          "$ref": "#/definitions/EdiFileReference"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileReference": {
+      "title": "File Reference",
+      "description": "Reference to a file in an online storage",
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "title": "File Id",
+          "description": "Unique Id for a file",
+          "type": "string"
+        },
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "absoluteUri": {
+          "title": "Absolute Uri",
+          "description": "An absolute URL to a file on the online storage",
+          "type": "string"
+        },
+        "uriValidFrom": {
+          "title": "Uri Valid From",
+          "description": "The URL is valid from date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "uriValidTo": {
+          "title": "Uri Valid To",
+          "description": "The URL is valid until date",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "absoluteUri"
+      ]
+    },
+    "EdiGeoPosition": {
+      "title": "Geo position",
+      "description": "Data about the current geo position",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "angle": {
+          "title": "Angle",
+          "description": "The angle is the direction that the vehicle is moving in",
+          "type": "number"
+        },
+        "speed": {
+          "$ref": "#/definitions/EdiGeoSpeed"
+        },
+        "geoRadius": {
+          "$ref": "#/definitions/EdiGeoRadius"
+        }
+      }
+    },
+    "EdiGeoRadius": {
+      "title": "GeoRadius for the accuracy",
+      "description": "GeoRadius that describes when a Position is considered as in range",
+      "type": "object",
+      "properties": {
+        "radius": {
+          "title": "GeoRadius for the Coordinates",
+          "description": "GeoRadius that extends the range of the coordinates",
+          "type": "number"
+        },
+        "radiusMeasurementUnitCode": {
+          "title": "Unit Code for GeoRadius",
+          "description": "Code that describes the unit in which the radius is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "radius"
+      ]
+    },
+    "EdiGeoSpeed": {
+      "title": "Speed",
+      "description": "The current speed of the vehicle",
+      "type": "object",
+      "properties": {
+        "speed": {
+          "title": "Speed",
+          "description": "The current speed of the vehicle",
+          "type": "number"
+        },
+        "speedMeasurementUnitCode": {
+          "title": "Unit Code for Speed",
+          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "speed"
+      ]
+    },
+    "EdiMessageRouting": {
+      "title": "Routing information of the message",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
         },
         "ediId": {
-            "type": "object",
-            "properties": {
-                "ediId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "ediId"
-            ]
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNetwork": {
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distinguish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
+    },
+    "EdiPartnerIdentification": {
+      "title": "Fields to identify the partner",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "name": {
+          "title": "Name of the address",
+          "type": "string"
+        },
+        "street": {
+          "title": "Street of the address",
+          "type": "string"
+        },
+        "houseNumber": {
+          "title": "House number of the address",
+          "type": "string"
+        },
+        "zipCode": {
+          "title": "Zip code of the Address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City of the address",
+          "type": "string"
+        },
+        "townArea": {
+          "title": "Town area address",
+          "type": "string"
+        },
+        "countryCode": {
+          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "title": "Email of the address",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "Phone number of the address",
+          "type": "string"
+        },
+        "additionalAddressLines": {
+          "title": "Additional address lines of the address",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "title": "Reference for an address",
+          "type": "string"
+        },
+        "contactPerson": {
+          "title": "The contact person",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "The Fax number",
+          "type": "string"
         },
         "partnerId": {
-            "type": "object",
-            "properties": {
-                "partnerId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "partnerId"
-            ]
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
         },
-        "address": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "additionalAddressLines": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "street": {
-                    "type": "string"
-                },
-                "countryCode": {
-                    "type": "string"
-                },
-                "zipCode": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "townArea": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "name"
-            ]
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
         },
-        "fileData": {
-            "type": "object",
-            "required": [
-                "data"
-            ],
-            "properties": {
-                "contentType": {
-                    "type": "string"
-                },
-                "fileName": {
-                    "type": "string"
-                },
-                "creationDate": {
-                    "type": "string"
-                },
-                "data": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "fileReferences": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "required": [
-                    "absoluteUri"
-                ],
-                "properties": {
-                    "contentType": {
-                        "type": "string"
-                    },
-                    "fileName": {
-                        "type": "string"
-                    },
-                    "absoluteUri": {
-                        "type": "string"
-                    },
-                    "uriValidFrom": {
-                        "type": "string"
-                    },
-                    "uriValidTo": {
-                        "type": "string"
-                    }
-                },
-                "additionalProperties": false
-            }
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
         }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiSignature": {
+      "title": "Signature",
+      "description": "The signature of the recipient/person of interest",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signatureAvailable": {
+          "title": "Signature available",
+          "description": "Is a signature available",
+          "type": "boolean"
+        },
+        "signeeName": {
+          "title": "Signee name",
+          "description": "Name of the signee",
+          "type": "string"
+        },
+        "signatureDate": {
+          "title": "Signature date",
+          "description": "The date and time of signature",
+          "type": "string",
+          "format": "date-time"
+        },
+        "signatureContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        }
+      },
+      "required": [
+        "signatureAvailable",
+        "signatureDate"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     }
+  },
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "title": "Json schema",
+      "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "receiver": {
+      "$ref": "#/definitions/EdiMessageRouting"
+    },
+    "sender": {
+      "$ref": "#/definitions/EdiMessageRouting"
+    },
+    "network": {
+      "$ref": "#/definitions/EdiNetwork"
+    },
+    "id": {
+      "title": "Id",
+      "description": "The unique id of the POD",
+      "type": "string"
+    },
+    "refNo": {
+      "title": "Reference Number",
+      "description": "A reference of the ordering party relating to the goods",
+      "type": "string"
+    },
+    "shipper": {
+      "$ref": "#/definitions/EdiAddress"
+    },
+    "consignee": {
+      "$ref": "#/definitions/EdiAddress"
+    },
+    "carrier": {
+      "$ref": "#/definitions/EdiAddress"
+    },
+    "shippingDate": {
+      "title": "Shipping date",
+      "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
+      "type": "string",
+      "format": "date"
+    },
+    "shippingPartner": {
+      "$ref": "#/definitions/EdiPartnerIdentification"
+    },
+    "receivingPartner": {
+      "$ref": "#/definitions/EdiPartnerIdentification"
+    },
+    "content": {
+      "$ref": "#/definitions/EdiFileContent"
+    },
+    "documentCreationDate": {
+      "title": "Document creation date",
+      "description": "The Date this document was created",
+      "type": "string",
+      "format": "date-time"
+    },
+    "arrivalDate": {
+      "title": "Arrival date",
+      "description": "The date and time goods arrived",
+      "type": "string",
+      "format": "date-time"
+    },
+    "plannedShippingDate": {
+      "title": "Planned shipping date",
+      "description": "The planned date and time of shipping/transport",
+      "type": "string",
+      "format": "date"
+    },
+    "signature": {
+      "$ref": "#/definitions/EdiSignature"
+    }
+  },
+  "required": [
+    "$schema",
+    "receiver",
+    "id",
+    "refNo",
+    "shipper",
+    "consignee",
+    "shippingDate",
+    "shippingPartner",
+    "receivingPartner",
+    "documentCreationDate"
+  ]
 }

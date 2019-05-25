@@ -1,0 +1,148 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
+    "sender": {
+        "ediId": "FLELO"
+    },
+    "receiver": {
+        "ediId": "EIKONA"
+    },
+    "network": {
+        "networkId": "FLEKONA"
+    },
+    "messageFunctionCode": "add",
+    "tourId": "6991257",
+    "shippingDate": "2019-05-02",
+    "carrier": {
+        "reference": "EIKONA"
+    },
+    "consignments": [
+        {
+            "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
+            "receiver": {
+                "ediId": "EIK100"
+            },
+            "consignmentObjectId": "97000027",
+            "consignmentNoShippingPartner": "97000027",
+            "shippingDate": "2019-04-17",
+            "shippingPartner": {
+                "partnerId": "EIKONA"
+            },
+            "receivingPartner": {
+                "partnerId": "KOVOFEI"
+            },
+            "routing": {
+                "shipper": {
+                    "name": "Hansls Wurst GmbH",
+                    "street": "Am Sandhügelweg 2",
+                    "countryCode": "DE",
+                    "zipCode": "97209",
+                    "city": "Veitshöchheim",
+                    "reference": "HANWUR",
+                    "contactPerson": "Johann Würster",
+                    "phoneNumber": "+4917131942434",
+                    "emailAddress": "info@hansls-wurst.de"
+                },
+                "consignee": {
+                    "name": "Kost vom Feinsten",
+                    "street": "Am Alten Bahnhof 8",
+                    "countryCode": "DE",
+                    "zipCode": "97332",
+                    "city": "Volkach",
+                    "reference": "KOVOFEI",
+                    "contactPerson": "John Doe",
+                    "phoneNumber": "+49938171779",
+                    "emailAddress": "vertrieb@kost-vom-feinsten.com"
+                }
+            },
+            "references": {
+                "deliveryNote": "48633",
+                "customerOrderNo": "1234"
+            },
+            "content": {
+                "volumeCubicmeter": 0.78,
+                "loadingMeter": 1.00,
+                "grossWeightKilogram": 110.00,
+                "chargeableWeightKilogram": 130.00,
+                "lines": [
+                    {
+                        "lineNo": 1,
+                        "handlingUnitCount": 10,
+                        "handlingUnitType": "Fleischerkiste",
+                        "innerPackageCount": 20,
+                        "content": "Leberwurst",
+                        "refNo": "1",
+                        "volumeCubicmeter": 0.31,
+                        "loadingMeter": 1.00,
+                        "grossWeightKilogram": 45,
+                        "widthMeter": 1.00,
+                        "heightMeter": 0.30,
+                        "barcodes": [
+                            {
+                                "code": "003999999990000000034"
+                            },
+                            {
+                                "code": "003999999990000000043"
+                            }
+                        ]
+                    },
+                    {
+                        "lineNo": 2,
+                        "handlingUnitCount": 12,
+                        "handlingUnitType": "Fleischerkiste",
+                        "innerPackageCount": 20,
+                        "content": "Blutwurst",
+                        "refNo": "2",
+                        "volumeCubicmeter": 0.47,
+                        "loadingMeter": 1.00,
+                        "grossWeightKilogram": 65,
+                        "lengthMeter": 1.00,
+                        "widthMeter": 0.48
+                    }
+                ]
+            }
+        }
+    ],
+    "vehicles": [
+        {
+            "vehicleId": "WÜ-K-3355"
+        }
+    ],
+    "stops": [
+        {
+            "stopNo": 0,
+            "stopId": "AZKJLM1",
+            "loadingInformation": {
+                "consignmentObjectIds": [
+                    "97000027"
+                ]
+            },
+            "address": {
+                "name": "Hansls Wurst GmbH",
+                "street": "Am Sandhügelweg 2",
+                "countryCode": "DE",
+                "zipCode": "97209",
+                "city": "Veitshöchheim",
+                "reference": "HANWUR",
+                "phoneNumber": "+4917131942434"
+            }
+        },
+        {
+            "stopNo": 1,
+            "stopId": "AZKJLM2",
+            "unloadingInformation": {
+                "consignmentObjectIds": [
+                    "97000027"
+                ]
+            },
+            "address": {
+                "name": "Kost vom Feinsten",
+                "street": "Am Alten Bahnhof 8",
+                "countryCode": "DE",
+                "zipCode": "97332",
+                "city": "Volkach",
+                "reference": "KOVOFEI",
+                "phoneNumber": "+49938171779"
+            }
+        }
+    ]
+}

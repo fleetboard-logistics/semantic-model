@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Conizi.Model.Examples</name>
+    </assembly>
+    <members>
+        <member name="T:Conizi.Model.Examples.Archiving.ProofOfDeliverySimpleExample">
+            <summary>
+            Simple example for Proof of Delivery
+            </summary>
+        </member>
+        <member name="T:Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.ConsignmentSimpleExample">
+            <summary>
+            Simple example for a <see cref="T:Conizi.Model.Transport.Truck.Groupage.Forwarding.Consignment"/>
+            </summary>
+        </member>
+    </members>
+</doc>

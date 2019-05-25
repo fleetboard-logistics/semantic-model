@@ -1,0 +1,24 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+    "receiver": {
+        "ediId": "C2PO"
+    },
+    "tourId": "20191234567",
+    "stop": {
+        "stopId": "693e4c46-527a-44a2-b41a-cab42634e3bd",
+        "eventDateTime": "2019-05-20T16:08:23",
+        "onWayLoadingPoint": true,
+        "geoPosition": {
+            "latitude": 49.8629167,
+            "longitude": 10.2259302702594,
+            "placeName": "Fleetboard Logistics GmbH"
+        },
+        "eta": {
+            "etaTimeAbsolute": "17:06:34",
+            "ete": 3240,
+            "distanceToDestination": 42.5,
+            "distanceMeasurementUnitCode": "KMT",
+            "stopsToDestination": 1
+        }
+    }
+}

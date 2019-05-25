@@ -1,0 +1,24 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+    "tourId": "123123123",
+    "receiver": {
+        "ediId": "DAIMLER"
+    },
+    "network": {
+        "networkId": "MBT"
+    },
+    "stop": {
+        "eventDateTime": "2019-02-20T17:03:27",
+        "unloadingCompleted": true,
+        "stopId": "ABCDEFGHIJ12213",
+        "loadingEquipmentExchange": {
+            "exchanged": true,
+            "amountEurPallets": -2,
+            "amountEurBoxes": 1
+        },
+        "geoPosition": {
+            "latitude": 49.8641,
+            "longitude": 10.2269
+        }
+    }
+}

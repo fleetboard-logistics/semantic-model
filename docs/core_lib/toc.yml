@@ -1,0 +1,23 @@
+### YamlMime:TableOfContent
+- uid: Conizi.Model.Core.Entities
+  name: Conizi.Model.Core.Entities
+  items:
+  - uid: Conizi.Model.Core.Entities.ConverterResult
+    name: ConverterResult
+  - uid: Conizi.Model.Core.Entities.GenerationResult
+    name: GenerationResult
+  - uid: Conizi.Model.Core.Entities.SerializationResult
+    name: SerializationResult
+  - uid: Conizi.Model.Core.Entities.ValidationResult
+    name: ValidationResult
+- uid: Conizi.Model.Core.Tools
+  name: Conizi.Model.Core.Tools
+  items:
+  - uid: Conizi.Model.Core.Tools.Client
+    name: Client
+  - uid: Conizi.Model.Core.Tools.Converter
+    name: Converter
+  - uid: Conizi.Model.Core.Tools.Generator
+    name: Generator
+  - uid: Conizi.Model.Core.Tools.Validator
+    name: Validator

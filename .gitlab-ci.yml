@@ -1,0 +1,87 @@
+image: alpine:latest
+
+variables:
+  GIT_SUBMODULE_STRATEGY: "recursive"
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+  tags:
+    - docker
+  services:
+  - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+  script:
+    - install_dependencies
+    - build
+  only:
+    - branches
+    - tags
+  # except:
+  #   - master
+  #   - production
+  #   - preproduction
+
+test:
+  stage: test
+  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+  tags:
+    - docker
+  script:
+    - install_dependencies
+    - test
+  only:
+    - branches
+    - tags
+
+deploy:
+  stage: deploy
+  tags:
+    - semantic
+    - models
+    - win
+  script:
+    - "& ./build-nuget-ci.ps1"
+  only:
+    - preproduction
+    - production
+  when: manual
+  before_script: 
+    - "echo Deploy Nuget..."
+
+.auto_devops: &auto_devops |
+  [[ "$TRACE" ]] && set -x
+  export CI_APPLICATION_TAG=$CI_COMMIT_SHA
+    
+  export TAG=$CI_APPLICATION_TAG
+  export GENERATOR__JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
+  
+  function install_dependencies() {
+    echo "Installing deps"
+    apk add -U openssl curl tar gzip bash ca-certificates git
+  }
+
+  function build() {
+    echo "Building..."
+    dotnet build ./Conizi.Model.sln --configuration NetCore -f netstandard2.0
+  }
+
+  function deploy_nuget() {
+    echo "Deploy to nuget..."   
+    dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:TargetFrameworks=netstandard2.0
+    dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:TargetFrameworks=netstandard2.0
+  }
+  
+  function test() {
+    echo "Testing..."
+    dotnet test ./test/Conizi.Model.UnitTests/Conizi.Model.UnitTests.csproj --filter "Category=UnitTest" -v n 
+  }
+
+before_script:
+  - *auto_devops
