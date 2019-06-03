@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: Conizi.Model.Core.Tools.ClientConfig
+  commentId: T:Conizi.Model.Core.Tools.ClientConfig
+  id: ClientConfig
+  parent: Conizi.Model.Core.Tools
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ClientConfig
+  nameWithType: ClientConfig
+  fullName: Conizi.Model.Core.Tools.ClientConfig
+  type: Class
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Client.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: ClientConfig
+    path: ../src/Conizi.Model.Core/Tools/Client.cs
+    startLine: 19
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  syntax:
+    content: 'public class ClientConfig : object'
+    content.vb: >-
+      Public Class ClientConfig
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: Conizi.Model.Core.Tools
+  commentId: N:Conizi.Model.Core.Tools
+  name: Conizi.Model.Core.Tools
+  nameWithType: Conizi.Model.Core.Tools
+  fullName: Conizi.Model.Core.Tools

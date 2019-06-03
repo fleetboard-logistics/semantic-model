@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Conizi.Model.Core</id>
-    <version>19.5.0.1-beta</version>
+    <version>19.6</version>
     <title>Conizi.Model.Core</title>
     <authors>Fleetboard Logistics GmbH</authors>
     <owners>fleetboard-logistics</owners>
@@ -21,7 +21,7 @@
      <dependencies>
       <dependency id="Newtonsoft.Json" version="12.0" />
       <dependency id="Newtonsoft.Json.Schema" version="3.0.11" />
-      <dependency id="Conizi.Model" version="19.5" />
+      <dependency id="Conizi.Model" version="19.6" />
      </dependencies>
   </metadata>
   <files>

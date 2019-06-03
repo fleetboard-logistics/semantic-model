@@ -13,6 +13,7 @@ build:
   image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
   tags:
     - docker
+    - linux
   services:
   - docker:dind
   variables:
@@ -33,6 +34,9 @@ test:
   image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
   tags:
     - docker
+    - linux
+  services:
+    - docker:dind
   script:
     - install_dependencies
     - test
@@ -40,20 +44,39 @@ test:
     - branches
     - tags
 
-deploy:
+deploy:nuget:
+  image: mcr.microsoft.com/dotnet/framework/sdk:4.8
   stage: deploy
   tags:
-    - semantic
-    - models
-    - win
+    - docker
+    - windows
   script:
     - "& ./build-nuget-ci.ps1"
   only:
+    - master
     - preproduction
     - production
   when: manual
   before_script: 
     - "echo Deploy Nuget..."
+
+deploy:docu:
+  stage: deploy
+  image: 
+    name: registry-git.fleetboard-logistics.com/conizi/plattform/semanticmodel/docfx-build:2
+    entrypoint: [""]
+  tags:
+    - docker
+    - linux
+  script:
+     - setup_ssh
+     - docfx ./docs/docfx.json
+     - deploy_docs
+  only:
+    - master
+    - preproduction
+    - production
+  when: manual
 
 .auto_devops: &auto_devops |
   [[ "$TRACE" ]] && set -x
@@ -61,7 +84,15 @@ deploy:
     
   export TAG=$CI_APPLICATION_TAG
   export GENERATOR__JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
-  
+  export BRANCH=$CI_COMMIT_REF_NAME
+
+  function setup_ssh() {
+    eval $(ssh-agent -s) 
+    echo "$DK_GITHUB_RUNNER_PK" | tr -d '\r' | ssh-add - >/dev/null
+    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+    echo "Agent configured"
+  }
+
   function install_dependencies() {
     echo "Installing deps"
     apk add -U openssl curl tar gzip bash ca-certificates git
@@ -72,10 +103,35 @@ deploy:
     dotnet build ./Conizi.Model.sln --configuration NetCore -f netstandard2.0
   }
 
-  function deploy_nuget() {
-    echo "Deploy to nuget..."   
-    dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:TargetFrameworks=netstandard2.0
-    dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:TargetFrameworks=netstandard2.0
+  function deploy_docs() {
+    echo "Deploy to docs..."   
+    USE_DIR="test"
+    case $BRANCH in
+     master)
+          USE_DIR="site-test"
+          ;;
+     preproduction)
+          USE_DIR="site-test"
+          ;;
+     production)
+          USE_DIR="site"
+          ;; 
+     *)
+        USE_DIR="site-test"
+        ;;
+    esac
+
+    echo "Deploy docs to $USE_DIR" 
+
+    mkdir ./tmp
+    cd ./tmp
+    git clone git@github.com:fleetboard-logistics/fleetboard-logistics.github.io.git
+    rm -f ./fleetboard-logistics.github.io/docs/conizi/semantic-models/$USE_DIR/ -r
+    mv ../docs/_site ./fleetboard-logistics.github.io/docs/conizi/semantic-models/$USE_DIR
+    cd ./fleetboard-logistics.github.io
+    git add ./docs/conizi/semantic-models/$USE_DIR
+    git commit ./docs/conizi/semantic-models/$USE_DIR -m "Update docu for $BRANCH"
+    git push
   }
   
   function test() {
