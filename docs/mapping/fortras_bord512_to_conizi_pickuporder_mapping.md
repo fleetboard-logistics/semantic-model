@@ -1,16 +1,16 @@
 ![conizi](conizi.png)
 
-
 <div style="text-align: center;">
-	<h1>Mapping Guideline for FORTRAS BORD512 to conizi manifest format</h1>
-	<strong>v1.1 - 2019-MAR-19</strong>
+	<h1>Mapping Guideline for FORTRAS BORD512 to conizi pickup order format</h1>
+	<strong>v1.1 - 2019-MAY-17</strong>
 </div>
+
 
 ## Introduction
 
 This documentation is a part of the Mapping Guideline series for [conizi](https://www.conizi.de) semantic model. The messages described here are used for communicating with conizi applications, such as Track and Trace and Order Management, and other partners connected to the conizi network.
 
-The structure of manifest (bordero) and the content of the fields and message parts will be described in this document.
+The structure of pickup order and the content of the fields and message parts will be described in this document.
 
 The standard of the source message format is FORTRAS and the version used here is release 100. The message format is often just referred to as REL100.
 
@@ -34,13 +34,23 @@ Please refer to [Appendix 1.](#appendix-1-fortras-rel100-bord512-record-referenc
 
 The FORTRAS standard allows creating custom records on row type id 99 (e.g.: D99). These records are not in the scope of this mapping documentation.
 
-## Conizi Manifest Message Overview
+## Conizi Pickup Order Message Overview
 
-The conizi manifest message consists of 3 levels: manifest, consignment, position. The drawing below shows how the parts are related to each other and what is the connection between them and the FORTRAS message records.
+The conizi pickup order message consists of 2 levels: pickup order (consignment), position. The drawing below shows how the parts are related to each other and what is the connection between them and the FORTRAS message records.
 
-![manifest](conizi_manifest_structure.png)
+![manifest](conizi_pickup_order_structure.png)
 
-Please also refer to [Appendix 3.](#appendix-3-sample-conizi-format-manifest-file), where a complete conizi format manifest file can be found. This is how the result of the conversion, mapping should look like in JSON format.
+Please also refer to [Appendix 3.](#appendix-3-sample-conizi-format-manifest-file), where a complete conizi format pickup order file can be found. This is how the result of the conversion, mapping should look like in JSON format.
+
+The schema must be referenced from each level of the message. To better understand this concept, check for the $schema tags in the [Appendix 3.](#appendix-3-sample-conizi-format-manifest-file).
+
+The following schema references must be added for different message sections, levels:
+
+|Message section / level|schema reference|
+|----|----|
+|pickuporder level|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder|
+|pickuporder bulk level|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder-bulk|
+|consignment|https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/consignment|
 
 ## Mapping
 
@@ -48,33 +58,41 @@ In the mapping description we use the path notation to refer to source and targe
 
 There are some fields in the documentation starting with "x-". These are temporary fields that are currently working, but are subject to change in the near future. These fields are not included in the schema.
 
-### Manifest Level
+### Pickup Order Level
 
-This is the main level of the manifest message. For each BORD512 file this is mapped only once. It contains lines with an array of consignment data.
+This is the main level of the pickup order message. For each BORD512 file this is mapped only once.
 
-| conizi manifest field         | FORTRAS BORD512 field         | Description |
+One pickup order message can contain only one consignment, starting with B00 (address) record.
+
+So the pickup order level is also the consignment level as opposed to manifest file format, where a manifest can contain multiple consignments.
+
+The pickup order and the consignment is described by these record types: A00, B00, B10, C00, D00, D10, E00, E10, F00, G00, H00, H10 and I00.
+
+The lines/lineNo field should be filled with sequentialWaybillItem of the given consignment. This value is the same for each FORTRAS record of the consignment and can be taken from any record type inside the consignment level. 
+
+| conizi pickup order field | FORTRAS BORD512 field         | Description |
 |-------------------------------|-------------------------------|-------------|
-|manifestId                     |A00/waybillNumber|A unique identifier assigned to this cargo manifest by the shipping partner|
-|manifestType                   |A00/dataType|Type of the manifest (STD, INF, AVI)|
-|shippingDate                   |A00/waybillDate|The date on which the manifest was issued|
-|transportType                  |A00/transportType|Information about the way of production of that transport (i.e. by HUB, by direct transport, ...)|
+|pickupOrderNo                     |G00/consignmentNumberSendingDepot|**Mandatory.** Unique identification for the pickup order within the transport management system of the ordering / contracting partner|
+|pickupOrderDate                   |A00/waybillDate|**Mandatory.** The date on which the pickup order was sent from ordering partner to contracted partner.|
+|pickupDate/date                  |G00/pickupDate|**Mandatory.** The date on which the pickup order should be processed by the contracted partner.|
+|pickupDate/timeFrom |G00/pickupTimeFrom||
+|pickupDate/timeUntil |G00/pickupTimeTo||
 |sender/ediId                         |header/senderId|The sender of the current record. This usually equals to the ordering party unless the record is a copy that was generated by some other component. In this case the sender can be different from the ordering party|
-|receiver/ediId                       |header/receiverId|The intended recipient of the the current record. This usually equals to the contracted party unless the record is intentionally sent to another system.|
+|receiver/ediId                       |header/receiverId|The intended recipient / contracted party of the the current record. This usually equals to the shipping party unless the record is intentionally sent to another system.|
 |network/product                        |A00/product|The product allows to distingish different processes within one network, effectively sub classing the network.|
-|network/networkId |Network id assigned by conizi for the given business case.|The network under which rules the consignment should be processed|
-|isPreAdvice                    |true, if A00/dataType is AVI or INF, otherwise false|Adds the possibility of sending the manifest (after saving, before approval) to e.g. a TMS|
-|additionalPartners             |See [Address Mapping](#address-mapping)|Additional partners (e.g. gateways or hubs) which are also involved in forwarding this consignment|
-|shippingPartner/partnerId                |A00/waybillConsignorId|The partner which is sending the consignment to the receiving partner for further delivery.|
-|receivingPartner/partnerId               |A00/waybillConsigneeId|The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery.|
-|carrier/name                        |A00/freightOperator|Company responsible for the actual transport of the goods from the shipping partner to the receiving partner|
-|carrier/countryCode |A00/freightOperatorCountry||
-|carrier/zipCode |A00/freightOperatorPostcode||
-|carrier/city |A00/freightOperatorTown||
-|vehicles/registration                       |A00/vehicleLicenseNumber[n]|Information about the vehicles used in the transport|
-|loadUnits                      |See [Load Units Mapping](#load-units-mapping)|Load units (containers, swap bodies, ...) used to transport the goods|
-|additionalLoadingEquipment/eurPallets     |J00/numberOfEuroFlatPallets|Additional loading equipment used to securely load the goods into for the passage|
-|additionalLoadingEquipment/eurBoxes |J00/numberOfBoxPallets||
-|lines/consignment|See [Consignment Level](#consignment-level)|Lines of the manifest|
+|network/networkId |Network id assigned by conizi for the given business case.|The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network.|
+|additionalPartners             |See [Address Mapping](#address-mapping)|Additional partners which are also involved in processing this pickup order|
+|orderingParty/partnerId                |B00/addressTypeQualifier = ORD<br />See [Address Mapping](#address-mapping)|**Mandatory.** Person or company that ordered the pickup. Often identical to the receiver of the goods|
+|orderingPartner/partnerId               |A00/waybillConsignorId|The partner which is sending the pickup order to the contracted partner for pickup.|
+|contractedPartner/partnerId                        |A00/waybillConsigneeId|**Mandatory.** The partner which is receiving the pickup order from the ordering partner for pickup.|
+|services|See [Services Mapping](#services-mapping) and [Text Codes](#text-codes)|Special services which can be requested by the ordering party (or the ordering partner).|
+|routing|See [Routing Mapping](#routing-mapping)|Information about the route taken by this consignment|
+|information|See [Information Mapping](#information-mapping)|General information about the pickup order|
+|references|See [References Mapping](#references-mapping)|Numbers of various sources identifing this pickup order or references from this pickup to other business processes|
+|billing|See [Billing Mapping](#billing-mapping)|Information for invoicing and clearing|
+|customsInformation|See [Customs Information Mapping](#customs-information-mapping)|Used to specifiy information necessary in the customs process|
+|content|See [Pickup Order Content Mapping](#pickup-order-content-mapping)|Describes the nature and quantity of the goods in this pickup order|
+
 
 #### Address Mapping
 
@@ -90,54 +108,15 @@ Addresses are mapped from different qualifier B00 / B10 records. The main addres
 |zipCode|B00/postcode||
 |city|B00/place||
 |townArea|B00/townArea||
-|referenceNumber|B00/partnerId||
+|reference|B00/partnerId||
 |contactPerson|B10/content from B10 record, where communicationTypeQualifier = KPE|Can be more, separated by comma.|
 |phoneNumber|B10/content from B10 record, where communicationTypeQualifier = TEL|Can be more, separated by comma.|
 |emailAddress|B10/content from B10 record, where communicationTypeQualifier = EMA|Can be more, separated by comma.|
 |faxNumber|B10/content from B10 record, where communicationTypeQualifier = FAX|Can be more, separated by comma.|
 
-#### Load Units Mapping
-
-Under the loadUnits tag there is an array of objects for each A10/loadingUnitsNo[n]. Inside that object there is an *identification* tag that contains the given A10/loadingUnitsNo[n] tag and an array of *seals*. In the seals array each item is a code mapped from A10/leadSealNumber[m]LU[n]. Where *m* is the position of the current seal number and *n* is the position of the loading unit. In tabular format:
-
-| conizi manifest field         | FORTRAS BORD512 field         |
-|-------------------------------|-------------------------------|
-|loadingUnits[]/identification|A10/loadingUnitsNo[n]|
-|loadingUnits[]/seals[]/code|A10/leadSealNumber[m]LU[n]|
-
-### Consignment Level
-
-This chapter describes the consignment level mapping. One manifest message can contain multiple consignments, each starting with B00 (address) records.
-
-A consignment is described by these record types: B00, B10, C00, D00, D10, E00, E10, F00, G00, H00, H10 and I00.
-
-The *lines* tag of the manifest contains an array of objects which has 2 members: lineNo and consignment.
-
-The lines/lineNo field should be filled with sequentialWaybillItem of the given consignment. This value is the same for each FORTRAS record of the consignment and can be taken from any record type inside the consignment level. 
-
-The below fields are members of the object referenced by the *consignment* tag.
-
-| conizi manifest field         | FORTRAS BORD512 field         | Description |
-|-------------------------------|-------------------------------|-------------|
-|consignmentNoShippingPartner|G00/consignmentNumberSendingDepot|Unique identification for the consignment within the transport management system of the shipping partner|
-|consignmentNoReceivingPartner|G00/consignmentNumberReceivingDepot|Unique identification for the consignment within the transport management system of the receiving partner|
-|shippingDate|A00/waybillDate|The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued|
-|manifestId|A00/waybillNumber|Unique identification for the manifest on which the shipment was loaded in the transport management system of the shipping partner.|
-|sender|header/senderId|The sender of the current record. This usually equals to the ordering party unless the record is a copy that was generated by some other component. In this case the sender can be different from the ordering party|
-|receiver|header/receiverId|The intended recipient of the the current record. This usually equals to the contracted party unless the record is intentionally sent to another system.|
-|orderingParty|B00/addressTypeQualifier = ORD<br />See [Address Mapping](#address-mapping)|Person or company that ordered the transport of the consignment. Often identical to the shipper|
-|shippingPartner|A00/waybillConsignorId|The partner which is sending the consignment to the receiving partner for further delivery.|
-|receivingPartner|A00/waybillConsigneeId|The partner which is receiving the goods declared on the manifest from the shipping partner for further delivery.|
-|services|See [Services Mapping](#services-mapping) and [Text Codes](#text-codes)|Special services which can be requested by the ordering party (or the shipping partner).|
-|information|See [Information Mapping](#information-mapping)|General information about the consignment|
-|references|See [References Mapping](#references-mapping)|Numbers of various sources identiyfing this consignment or references from this consignment to other business processes|
-|billing|See [Billing Mapping](#billing-mapping)|Information for invoicing and clearing|
-|customsInformation|See [Customs Information Mapping](#customs-information-mapping)|Used to specifiy information necessary in the customs process|
-|content|See [Content Mapping](#content-mapping)|Describes the nature and quantity of the goods in this consignment|
-
 #### Routing Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/routing path.
+Fields discussed in this chapter are all under the */routing* path.
 
 |conizi manifest field|FORTRAS BORD512 field|Description|
 |----|----|----|
@@ -146,7 +125,7 @@ Fields discussed in this chapter are all under the lines/consignment/routing pat
 
 #### Services Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/services path.
+Fields discussed in this chapter are all under the */services* path.
 
 The majority of the services element mapping is done from the H00 text code, see [Text Codes](#text-codes).
 
@@ -156,12 +135,14 @@ The majority of the services element mapping is done from the H00 text code, see
 |anonymity||Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods.|
 |anonymity/neutralShipper|B00/addressTypeQualifier = NES<br />See [Address Mapping](#address-mapping)|An address to be shown to the consignee instead of the actual shipper when delivering the goods|
 |anonymity/neutralConsignee|B00/addressTypeQualifier = NEC<br />See [Address Mapping](#address-mapping)|An address to be shown to the shipper instead of the actual address the consignee when picking up the goods|
-|services/unloadingOptions/directDelivery|if G00/directDelivery = 'Y', then true|The goods are to be deliverd without unloading them at the receiving partners warehouse|
+|services/unloadingOptions/directDelivery|if G00/directDelivery = 'Y', then true|The goods are to be delivered without unloading them at the receiving partners warehouse|
+|services/loadingOptions/receivingPartnerDisposal|B00/addressTypeQualifier = DLF<br />See [Address Mapping](#address-mapping)|The partner which should get the goods after pickup from the contracted partners. If not set the receiving partner usually is determined by the networks routing rules.|
+|services/loadingOptions/gatewayDisposal||The gateway / HUB to which the goods should send after pickup from the contracted partners. If not set the route usually is determined by the networks routing rules.|
 
 
 #### Information Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/information path.
+Fields discussed in this chapter are all under the */information* path.
 
 |conizi manifest field|FORTRAS BORD512 field|Description|
 |----|----|----|
@@ -172,28 +153,28 @@ Fields discussed in this chapter are all under the lines/consignment/information
 
 #### References Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/references path.
+Fields discussed in this chapter are all under the */references* path.
 
 All of these fields are usually mapped from H00 text codes. See [Text Codes](#text-codes).
 
 #### Billing Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/billing path.
+Fields discussed in this chapter are all under the */billing* path.
 
 |conizi manifest field|FORTRAS BORD512 field|Description|
 |----|----|----|
 |freightPayer|B00/addressTypeQualifier = INV<br />See [Address Mapping](#address-mapping)|The party which receives the invoice (if different from the shipper).|
-|tariff||Use to specify a special tariff to be used for freight calculation (e.g. heady goods, ...)|
-|routingOrder||Use to specify that the consignment results of a standing pickup order and specifies the partner which issued this pickup order and thus should be billed.|
-|deliveryTerms|G00/deliveryTerm|Use to specify under which terms the consignment is process and which legs are billed to whom|
+|tariff||Use to specify a special tariff to be used for freight calculation (e.g. heavy goods, ...)|
+|deliveryTerms|G00/deliveryTerm|Use to specify under which terms the consignment followed by this pickup order is processed and which legs are billed to whom|
 |logisticModel|G00/logisticsModel|Used to active special billing and clearing conditions the partners have agreed on|
 
 #### Customs Information Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/customsInformation path.
+Fields discussed in this chapter are all under the */customsInformation* path.
 
 |conizi manifest field|FORTRAS BORD512 field|
 |----|----|
+|clearedForFreeTransitWithinEU|See [Text Codes Mapping](#text-codes)|
 |valueAtBorderCrossing/amount|C00/transitValue|
 |valueAtBorderCrossing/currency|C00/transitValueCurrency|
 |cityUnloading|C00/pointOfDelivery|
@@ -216,28 +197,28 @@ Fields discussed in this chapter are all under the lines/consignment/customsInfo
 |documents/number|C00/appendixNumber|
 |documents/date|C00/appendixDate|
 
-#### Consignment Content Mapping
+#### Pickup Order Content Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/content path.
+Fields discussed in this chapter are all under the */content* path.
 
 |conizi manifest field|FORTRAS BORD512 field|Description|
 |----|----|----|
 |nonHazardousWaste|See [Text Codes Mapping](#text-codes)|The content has no value and is not dangerous|
-|loadingAids|See [Text Codes Mapping](#text-codes)|The consignment only consists of loading aids which are transported and does not contain real goods|
-|highValueGoods|G00/materialGroup = 002 or from <br/>See also [Text Codes Mapping](#text-codes)|This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft|
-|highConsequencesDangerousGoods|See [Text Codes Mapping](#text-codes)|This consignment contains dangerous goods which must be handeled unter the terms of HCDG|
+|loadingAids|See [Text Codes Mapping](#text-codes)|The pickup only consists of loading aids which are picked up and does not contain real goods|
+|highValueGoods|G00/materialGroup = 002 or from <br/>See also [Text Codes Mapping](#text-codes)| This pickup contains goods of high value which are subject to higher insure fees and a higher risk of theft |
+|highConsequencesDangerousGoods|See [Text Codes Mapping](#text-codes)| This pickup contains dangerous goods which must be handeled unter the terms of HCDG |
 |insuranceValue/amount|G00/goodsValue<br/>See also [Text Codes Mapping](#text-codes)|Value of the goods, used for insurance purposes|
 |insuranceValue/currency|G00/currencyOfGoodsValue||
 |volumeCubicmeter|G00/cubicMeters|Total volume of the consignment|
 |loadingMeter|G00/loadingMeters|Length of the area occupied on a 2.4 m wide container|
-|grossWeightKilogram|G00/actualConsignmentGrossWeightInKg|Weight of the consignment including all packaging|
-|areaPalletBays|G00/numberOfPalletLocations|Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)|
-|chargeableWeightKilogram|G00/chargeableConsignmentWeightInKg|Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums.|
+|grossWeightKilogram|G00/actualConsignmentGrossWeightInKg| Weight of the pickup order including all packaging           |
+|areaPalletBays|G00/numberOfPalletLocations| Area used by the pickup order in terms of standard EUR pallet bays (120 x 80 cm) |
+|chargeableWeightKilogram|G00/chargeableConsignmentWeightInKg| Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums. |
 |lines|See [Position Level](#position-level) Mapping|Lines are describing handling units of similar sizes and content for brevity|
 
 ### Position Level
 
-Fields discussed in this chapter are all under the lines/consignment/content/lines path. The lines tag contains an array of objects of which these fields are members of. 
+Fields discussed in this chapter are all under the */content/lines* path. The lines tag contains an array of objects of which these fields are members of. 
 
 |conizi manifest field|FORTRAS BORD512 field|Description|
 |----|----|----|
@@ -252,7 +233,7 @@ Fields discussed in this chapter are all under the lines/consignment/content/lin
 |loadingMeter|D00/loadingMeters|Length of the area occupied on a 2.4 m wide container|
 |grossWeightKilogram|D00/actualWeight|Weight of the line including all packaging|
 |areaPalletBays|D00/numberOfPalletLocations|Area used by the line in terms of standard EUR pallet bays (120 x 80 cm)|
-|chargeableWeightKilogram|D00/chargeableWeight|Virtual weight of the line used for billing purposes. Used to take the bulkyness of goods into account or to enforce minimums.|
+|chargeableWeightKilogram|D00/chargeableWeight|Virtual weight of the line used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums.|
 |lengthMeter|D00/lengthInMeters|Total length of the line|
 |widthMeter|D00/widthInMeters|Total width of the line|
 |heightMeter|D00/heightInMeters|Total height of the line|
@@ -262,7 +243,7 @@ Fields discussed in this chapter are all under the lines/consignment/content/lin
 
 #### Position Level Customs Information Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/content/lines/customsInformation path. 
+Fields discussed in this chapter are all under the */content/lines/customsInformation* path. 
 
 |conizi manifest field|FORTRAS BORD512 field|
 |----|----|
@@ -281,7 +262,7 @@ Fields discussed in this chapter are all under the lines/consignment/content/lin
 
 #### Barcodes Mapping
 
-Fields discussed in this chapter are all under the lines/consignment/content/lines/barcodes path. The barcodes tag contains an array of objects of which these fields are members of. An array element must be created for each F00 record.
+Fields discussed in this chapter are all under the */content/lines/barcodes* path. The barcodes tag contains an array of objects of which these fields are members of. An array element must be created for each F00 record.
 
 |conizi manifest field|FORTRAS BORD512 field|Description|
 |----|----|----|
@@ -292,7 +273,7 @@ Fields discussed in this chapter are all under the lines/consignment/content/lin
 
 #### Dangerous Goods Information
 
-Fields discussed in this chapter are all under the lines/consignment/content/lines/dangerousGoods path. The dangerousGoods tag contains an array of objects of which these fields are members of. An array element must be created for each E00 record.
+Fields discussed in this chapter are all under the */content/lines/dangerousGoods* path. The dangerousGoods tag contains an array of objects of which these fields are members of. An array element must be created for each E00 record.
 
 |conizi manifest field|FORTRAS BORD512 field|
 |----|----|
@@ -328,13 +309,13 @@ Fields discussed in this chapter are all under the lines/consignment/content/lin
 
 The H00 records in the FORTRAS manifest messages provides very flexible data transfer possibilities. Using these fields a partner can specify its own coding standard to include arbitrary information about the consignment in the message.
 
-In FORTRAS standard H00 records belong to the consignment level and mapped into the conizi manifest message on consignment level too, with a very rare exception.
+In FORTRAS standard H00 records belong to the consignment level and mapped into the conizi pickup order message on consignment level too, with a very rare exception.
 
 In this chapter we list the fields that can be mapped from H00 fields. The structure and the usage of H00/additionalText fields must be specified by the partner and used in the mapping to provide the necessary consignment data .
 
 ### Content Fields
 
-The conizi manifest tags are below /lines/consingment/content. This root path won't be repeated for each item in the table.
+The conizi manifest tags are below */content*. This root path won't be repeated for each item in the table.
 
 | Manifest field  | Description |
 |-------------|-------------|
@@ -345,33 +326,47 @@ The conizi manifest tags are below /lines/consingment/content. This root path wo
 
 ### Service Fields
 
-The conizi manifest tags are below /lines/consingment/services. This root path won't be repeated for each item in the table.
+The conizi manifest tags are below */services*. This root path won't be repeated for each item in the table.
 
 | Manifest field  | Description |
 |-------------|-------------|
+| ***pickupOptions*** | Special services which can be requested by the ordering party (or the ordering partner). |
+| liftingPlatform | The pickup order can only be picked up with a vehicle equipped with a lifting platform |
+| deliveryNoteFollowingByPost | Delivery Note is following later by post or driver post. |
+| emptyPallets | Driver has to bring empty pallets for exchange. |
+| unknownDangerousGoods | The pickup contains unknown dangerous goods. |
+| pointOfUsePickup1Person | The goods must be picked up from the point of use with one man handling. Usually in case of returning old goods. |
+| pointOfUsePickup2Persons | The goods must be picked up from the point of use with two man handling. Usually in case of returning old goods. |
+| useSpecificLastMileProvider/name | A given last mile provider must be used |
+| forAttentionOf | The pickup is for attention of the given company |
 | ***packagingOptions*** |  |
 |packagingOptions/return|Packaging material return|
 |packagingOptions/correction|Packaging correction for your Bordero from: ... (Additional description)|
 |packagingOptions/thirdPartyDelivery|Delivery of packaging by third parties on: ... (Additional description)|
 |packagingOptions/pickup|Package pickup|
-|specialRun|The transport is produced via special run (and with special fares)|
+|***specialRun***|The transport is produced via special run (and with special fares)|
 |***notifications***|*Notifications which should be sent while processing the shipment, e.g. notifications about successful delivery, advance notifications, ...*|
 |notifications/generalNotificationAddress|An address and associated contact information which should be kept in the loop|
+|notifications/beforePickup|Before a pickup is attempted the address noted here should be contacted within the given time frame. See [Address Mapping](#address-mapping).|
+|notifications/afterPickup|Information about successful pickup should be given to this address. See [Address Mapping](#address-mapping).|
 |notifications/afterDelivery|Information about successful delivery should be given to this address. See [Address Mapping](#address-mapping).|
 |notifications/beforeDelivery|Before a delivery is attempted the person noted here should be contacted within the given time frame. See [Address Mapping](#address-mapping).|
 |notifications/byDriver|The driver should call the given contact before delivery. See [Address Mapping](#address-mapping).|
+|notifications/byDriverBeforePickup|The driver should call the given contact before pickup. See [Address Mapping](#address-mapping).|
 |***timeSlotBooking***|*Information about time slots which need to be booked or are already booked for this consignment*|
-|timeSlotBooking/byDeliveringPartner|A time slot must be book by the delivering partner before making a delivery attempt|
-|timeSlotBooking/preBookedTimeslot|A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot|
+|timeSlotBooking/byDeliveringPartner|A time slot must be booked by the delivering partner before making a delivery attempt.|
+|timeSlotBooking/byContractedPartner|A time slot must be booked by the contracted partner before making the pickup attempt.|
+|timeSlotBooking/preBookedTimeslot|A time slot has already been booked for the delivery of this consignment. Delivery must be attempted within this time slot.|
 |***timeOptions***|*Requirements for the delivery or pickup time*|
 |timeOptions/notAfter/date|The consignment must be delivered until the given date|
 |timeOptions/notBefore/date|The consignment must not be delivered before the given date|
 |timeOptions/fixedDay/date (timeFrom, timeUntil)|The consignment must be delivered at the given date (and in the given time window).|
-|timeOptions/fixedWeek/year, weekOfYear|The consignment must be deliverd within the given week of the year|
+|timeOptions/fixedWeek/year, weekOfYear|The consignment must be delivered within the given week of the year|
 |timeOptions/weekendSaturday/timeFrom, timeUntil|The consignment should be delivered on a Saturday|
 |timeOptions/nextDay/timeFrom, timeUntil|The consignment must be delivered on the next working day|
 |timeOptions/sameDay/timeFrom, timeUntil|The consignment must be delivered on the same day|
 |timeOptions/evening/timeFrom, timeUntil|The consignment must be delivered in the evening hours|
+|timeOptions/sameDayPickup/timeFrom, timeUntil|The goods must be picked up on the same day|
 |***deliveryOptions***|Requirements for special services or equipment for the delivery|
 |deliveryOptions/liftingPlatform|The consignment can only be delivered with a vehicle equipped with a lifting platform|
 |deliveryOptions/pointOfUseDelivery1Person|The goods must be delivered to the point of use with one man handling|
@@ -395,20 +390,12 @@ The conizi manifest tags are below /lines/consingment/services. This root path w
 |***loadingOptions***|Information about the loading of the main haul|
 |loadingOptions/directPickup|The goods picked up by the line haul and are not loaded by the shipping partners warehouse|
 |***unloadingOptions***||
-|unloadingOptions/directDelivery|The goods are to be deliverd without unloading them at the receiving partners warehouse|
-|*unloadingOptions/alreadyReceived*|*The goods are already at the receicing partners warehouse, because they have been reported as surplus eaelier on*|
-|unloadingOptions/alreadyReceived/surplusConsignmentNo|The reference number under which the surplus consignment had been reported by the receiving partner|
-|unloadingOptions/alreadyReceived/shippingDate|The date of the manifest which contained the surplus goods|
-|*unloadingOptions/missingFromPreviousManifest*|*The goods for a consigment which already was part of another manifest and had been reported missing on that manifest*|
-|unloadingOptions/missingFromPreviousManifest/manifestId|The manifest which first included the consignment|
-|unloadingOptions/missingFromPreviousManifest/shippingDate|The date of the manifest which included the consignment|
+|unloadingOptions/directDelivery|The goods are to be delivered without unloading them at the receiving partners warehouse|
 |***gateway***|Special requirements for the handling of the goods at intermediate hubs / gateways|
 |gateway/priority|The consignment must be processed with priority|
 |***handlingInstructions***|Handling instructions for the goods, e.g. to prevent damage|
 |handlingInstructions/customsGoods|The goods are subject to customs processing and must be processed according the rules of the local authorities|
-|handlingInstructions/customsGoodsResubmissionDate|The resubmission date for the customs goods|
 |handlingInstructions/handleWithCare|The goods must be handled with care to prevent damage|
-|handlingInstructions/emptiesExchange|Specifies whether empties should be exchanged with the consignee|
 |handlingInstructions/orientation (/vertical, /horizontal)|The goods must be transported in a given orientation and may not be flipped over|
 |handlingInstructions/stacking (/allowed, /forbidden)|Indicated whether the goods may or may not be stacked|
 |handlingInstructions/temperatureRestrictions (/temperatureMinCelsius, /temperatureMaxCelsius)|Restrictions about the minimum and maximum temperature during the transport and special equipment to be used|
@@ -418,24 +405,27 @@ The conizi manifest tags are below /lines/consingment/services. This root path w
 
 ### References Fields
 
-The conizi manifest tags are below /lines/consingment/references. This root path won't be repeated for each item in the table.
+The conizi manifest tags are below */references*. This root path won't be repeated for each item in the table.
 
 | Manifest field  | Description |
 |-------------|-------------|
-|returnOfPreviousConsignment|Reference to another consignment which content is return using this consignment|
-|returnOfPreviousConsignment/consignmentNoShippingPartner|The consignment number of the original consignment being returned|
-|returnOfPreviousConsignment/shippingDate|The date when the original shipment was forwarded|
-|returnOfPreviousConsignment/shippingPartner|The partner which originally forwarded the consignment|
-|forwardedFor|The partner for which the consignment was processed by the shipping partner (e.g. routing order)|
+|returnOfPreviousConsignment|Reference to another consignment which content is return using this pickup order|
 |subsequentDelivery|Additional delivery to our Bordero from: ... (additional text) (Shipment-no. of the dispatching and receiving partner are to be transferred additionally)|
 |subsequentDelivery/consignmentNoShippingPartner|The consignment number of the original consignment|
 |subsequentDelivery/shippingDate|The date when the original shipment was forwarded|
 |subsequentDelivery/shippingPartner|The partner which originally forwarded the consignment|
-|pickupOrder/pickupOrderNo<br/>references/pickupOrder/orderingParty|Reference to a pickup order which resulted in this consignment|
-|deliveryNote|The delivery note of the shipper which describes the content of this consignment|
+|deliveryNote|The delivery note of the shipper which describes the content of this pickup order|
 |customerOrderNo|A reference of the shipper for this consignment|
-|customerOrderDate|Date when the order was places with the shipping partner|
+|customerOrderDate|Date when the order was placed with the shipping partner|
 |orderEntrySystemReference|A unque reference number from the system which was used to enter the order details|
+
+### CustomsInfo fields
+
+The conizi manifest tags are below */customsinfo*. This root path won't be repeated for each item in the table.
+
+| Manifest field  | Description |
+|-------------|-------------|
+|clearedForFreeTransitWithinEU| |
 
 ## Appendix 1. FORTRAS REL100 BORD512 Record References
 
@@ -479,7 +469,7 @@ will be just described with leadSealNumber[n]LU[m]
 |Field reference|Length|From|Notes|
 |---------------|------|----|-----|
 |recordType|4|1|fix '@@PH'|
-|type|7|5|fix 'STAT512'|
+|type|7|5|fix 'BORD512'|
 |empty|1|12||
 |rowLength|4|13|0512|
 |empty|2|17|00|
@@ -494,10 +484,10 @@ will be just described with leadSealNumber[n]LU[m]
 Examples:
 
 ```
-@@PHSTAT512 0512003500107 AAAAAAA BBBBBBB
+@@PHBORD512 0512003500107 AAAAAAA BBBBBBB
 ```
 ```
-@@PHSTAT512 05120044001018LONGSENDERHEADER LONGRECEIVERHEADER
+@@PHBORD512 05120044001018LONGSENDERHEADER LONGRECEIVERHEADER
 ```
 
 ### A00 - Consignment Data Head
@@ -791,384 +781,375 @@ The below sample conizi format manifest message was created based on a real life
 
 This sample can be used to get a hint on how the resulting file should look like after the conversion from FORTRAS format. 
 
+### Single pickup order
+
 ```json
 {
-	"manifestId": "123456",
-	"manifestType": "STD",
-	"shippingDate": "2018-08-15",
-	"transportType": "L",
+    "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/pickuporder",
+	"pickupOrderNo": "PIO123456",
+	"pickupOrderDate": "2019-02-12",
+	"pickupDate": {
+		"date": "2019-03-10",
+		"timeFrom": "10:00:00",
+		"timeUntil": "12:30:00"
+	},
 	"sender": {
-		"ediId": "EDDI001"
+		"ediId": "9998"
 	},
 	"receiver": {
-		"ediId": "EDIREC001"
+		"ediId": "9999"
+	},
+	"network": {
+		"networkId": "NET",
+		"codelist": "COD",
+		"product": "PRD"
+	},
+	"orderingParty": {
+		"name": "Auftraggeber ABH",
+		"street": "Hauptstraße 1",
+		"countryCode": "DE",
+		"zipCode": "10119",
+		"city": "Berlin",
+		"townArea": "",
+		"referenceNumber": "9",
+		"emailAddress": "eqr@fsdf"
+	},
+	"orderingPartner": {
+		"partnerId": "1234"
+	},
+	"contractedPartner": {
+		"partnerId": "4321"
+	},
+	"information": {
+		"remarksDelivery": ["ANMERKUNGEN ZUR LIEFERUNG:",
+		"ANMERKUNGEN ZUR LIEFERUNG:"],
+		"remarksPickup": ["ANMERKUNGEN ZUR ABHOLUNG"]
+	},
+	"services": {
+		"timeOptions": {
+			"fixedDay": {
+				"date": "2019-03-10"
+			}
+		},
+		"deliveryOptions": {
+			"cashOnDelivery": {
+				"acceptCash": true
+			}
+		}
+	},
+	"references": {
+		"deliveryNote": "456",
+		"customerOrderNo": "123"
+	},
+	"routing": {
+		"shipper": {
+			"name": "Versender",
+			"street": "Hauptstraße 1",
+			"countryCode": "DE",
+			"zipCode": "10119",
+			"city": "Berlin",
+			"referenceNumber": "10",
+			"faxNumber": "0261850"
+		},
+		"consignee": {
+			"name": "Empfänger",
+			"street": "Hauptstraße 1",
+			"countryCode": "DE",
+			"zipCode": "10119",
+			"city": "Berlin",
+			"townArea": "",
+			"referenceNumber": "3",
+			"phoneNumber": "2680891"
+		}
+	},
+	"billing": {
+		"deliveryTerms": "0"
+	},
+	"content": {
+		"volumeCubicmeter": 0.77,
+		"loadingMeter": 1.2,
+		"grossWeightKilogram": 200,
+		"chargeableWeightKilogram": 0,
+		"insuranceValue": {
+			"amount": 200,
+			"currency": "EUR"
+		},
+		"lines": [{
+            "$schema" : "https:\/\/raw.githubusercontent.com\/conizi\/semantic-model\/master\/transport\/truck\/groupage\/forwarding\/consignment",
+			"lineNo": 1,
+			"handlingUnitCount": 1,
+			"handlingUnitType": "FP",
+			"innerPackageCount": 10,
+			"innerPackageType": "",
+			"content": "Fernseher",
+			"refNo": "1",
+			"volumeCubicmeter": 0.77,
+			"loadingMeter": 1.2,
+			"grossWeightKilogram": 200,
+			"areaPalletBays": 1,
+			"lengthMeter": 1.2,
+			"widthMeter": 0.8,
+			"heightMeter": 0.8,
+			"barcodes": [{
+				"code": "003999999990000000210"
+			}]
+		}],
+		"additionalLoadingEquipment": {
+			
+		}
+	}
+}
+```
+
+### Bulk pickup order
+
+```json
+{
+	"$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder-bulk",
+	"sender": {
+		"ediId": "SENDER"
+	},
+	"receiver": {
+		"ediId": "RECEIVER"
 	},
 	"network": {
 		"networkId": "NET",
 		"codelist": "CL",
-		"product": "SY"
+		"product": "CL"
 	},
-	"isPreAdvice": false,
-	"shippingPartner": {
-		"partnerId": "9999"
-	},
-	"receivingPartner": {
-		"partnerId": "9988"
-	},
-	"carrier": {
-		"name": "CARRIER SPEDITION LTD",
-		"countryCode": "DE",
-		"zipCode": "989898",
-		"city": "BERLIN"
-	},
-	"vehicles": [{
-		"registration": "KGM 787"
-	},
-	{
-		"registration": "JTH 701"
-	}],
-	"loadUnits": [{
-		"identification": ".",
-		"seals": [{
-			"code": "123456789012365498"
-		}]
-	}],
-	"additionalLoadingEquipment": {
-		"eurPallets": 9,
-		"eurBoxes": 0
-	},
-	"lines": [{
-		"lineNo": 1,
-		"consignment": {
-			"consignmentNoShippingPartner": "01234555555",
-			"consignmentNoReceivingPartner": "",
-			"shippingDate": "2019-08-15",
+	"pickuporders": [
+		{
+			"$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder",
+			"pickupOrderNo": "PO321654",
+			"pickupOrderDate": "2019-04-26",
+			"pickupDate": {
+				"date": "2019-04-26",
+				"timeFrom": "08:00:00",
+				"timeUntil": "14:00:00"
+			},
 			"sender": {
-				"ediId": "EDDI001"
+				"ediId": "SENDER"
 			},
 			"receiver": {
-				"ediId": "EDIREC001"
+				"ediId": "RECEIVER"
 			},
-			"shippingPartner": {
+			"network": {
+				"networkId": "NET",
+				"codelist": "CL",
+				"product": "CL"
+			},
+			"orderingParty": {
+				"name": "TEST LOGISTICS GMBH",
+				"street": "MUSTERSTRASSE 45",
+				"countryCode": "DE",
+				"zipCode": "99999",
+				"city": "MUSTERCITY",
+				"townArea": "",
+				"reference": "REF001"
+			},
+			"orderingPartner": {
 				"partnerId": "9999"
 			},
-			"receivingPartner": {
-				"partnerId": "9988"
+			"contractedPartner": {
+				"partnerId": "9998"
 			},
-			"information": {
-				"remarksGeneral": [
-				"FIX 16.08.; BIS 12 UHR; HB+HUBW.; 0172-3584781 HR. SCHMIDT"]
-			},
+			"information": {},
 			"services": {
-				"timeOptions": {
-					"nextDay": {
-						"timeFrom": "12:00",
-						"timeUntil": "12:00"
+				"loadingOptions": {
+					"receivingPartnerDisposal": {
+						"partnerId": "9997"
 					}
 				},
-				"deliveryOptions": {
-					"liftingPlatform": true,
-					"deliveryNoteOnGoods": true
+				"timeOptions": {
+					"notAfter": {
+						"date": "2019-04-30"
+					}
 				}
 			},
 			"references": {
-				"customerOrderNo": "3216549871"
-			},
-			"billing": {
-				"deliveryTerms": "100"
+				"customerOrderNo": "CORD3214555",
+				"x-customerOrderNo2": "513599"
 			},
 			"routing": {
 				"shipper": {
-					"name": "SAMPLE SHIPPER LTD",
-					"street": "Am Alten Bahnhof 8",
-					"countryCode": "DE",
-					"zipCode": "97332",
-					"city": "Volkach",
-					"townArea": "",
-					"referenceNumber": "33066"
-				},
-				"consignee": {
-					"name": "MUSTER CONSIGNEE GMBH",
-					"street": "BAHNHOF. 8",
-					"countryCode": "DE",
-					"zipCode": "97333",
-					"city": "Volkach",
-					"townArea": "",
-					"referenceNumber": ""
-				}
-			},
-			"content": {
-				"volumeCubicmeter": 0,
-				"loadingMeter": 0,
-				"grossWeightKilogram": 1103,
-				"areaPalletBays": 0,
-				"chargeableWeightKilogram": 0,
-				"insuranceValue": {
-					"amount": 0,
-					"currency": ""
-				},
-				"lines": [{
-					"lineNo": 1,
-					"handlingUnitCount": 2,
-					"handlingUnitType": "FP",
-					"innerPackageCount": 44,
-					"innerPackageType": "SA",
-					"content": "PCI PRODUKTE",
-					"refNo": "123456789987456321",
-					"volumeCubicmeter": 0,
-					"loadingMeter": 0,
-					"grossWeightKilogram": 1103,
-					"areaPalletBays": 0,
-					"chargeableWeightKilogram": 0,
-					"lengthMeter": 0,
-					"widthMeter": 0,
-					"heightMeter": 0,
-					"barcodes": [{
-						"code": "00123456789987456321"
-					},
-					{
-						"code": "00123456789987456300"
-					}]
-				},
-				{
-					"lineNo": 2,
-					"handlingUnitCount": 0,
-					"innerPackageCount": 0,
-					"innerPackageType": "",
-					"content": "PCI PRODUKTE",
-					"refNo": "123456789987456301",
-					"volumeCubicmeter": 0,
-					"loadingMeter": 0,
-					"grossWeightKilogram": 0,
-					"areaPalletBays": 0,
-					"chargeableWeightKilogram": 0,
-					"lengthMeter": 0,
-					"widthMeter": 0,
-					"heightMeter": 0,
-					"barcodes": []
-				}]
-			}
-		}
-	},
-	{
-		"lineNo": 2,
-		"consignment": {
-			"consignmentNoShippingPartner": "0123456789987",
-			"consignmentNoReceivingPartner": "",
-			"shippingDate": "2018-08-15",
-			"sender": {
-				"ediId": "EDDI001"
-			},
-			"receiver": {
-				"ediId": "EDIREC001"
-			},
-			"shippingPartner": {
-				"partnerId": "9999"
-			},
-			"receivingPartner": {
-				"partnerId": "9988"
-			},
-			"information": {
-				"remarksGeneral": [
-				"WA: MO-DO 9-12 UHR + 13-14:30 UHR \/ FR 9-10:30 UHR LT 16.08.20",
-				"18"]
-			},
-			"services": {
-				"timeOptions": {
-					"fixedDay": {
-						"date": "2018-08-16"
-					}
-				},
-				"deliveryOptions": {
-					"deliveryNoteOnGoods": true
-				}
-			},
-			"references": {
-				"customerOrderNo": "321654987"
-			},
-			"billing": {
-				"deliveryTerms": "100"
-			},
-			"routing": {
-				"shipper": {
-					"name": "TEST SHIPPER GMBH",
-					"street": "MUSTERWEG 16",
-					"countryCode": "DE",
-					"zipCode": "32654",
-					"city": "TEST",
-					"townArea": "",
-					"referenceNumber": "33068"
-				},
-				"consignee": {
-					"name": "SAMPLE CONSIGNEE GMBH",
+					"name": "TEST GMBH",
 					"x-name2": "",
 					"x-name3": "",
-					"street": "SAMPLE STR. 20",
+					"street": "TEST STR. 12",
 					"countryCode": "DE",
-					"zipCode": "321654",
-					"city": "NUERNBERG",
+					"zipCode": "98888",
+					"city": "VOLKACH",
 					"townArea": "",
-					"referenceNumber": ""
+					"reference": "REF5081"
+				},
+				"consignee": {
+					"name": "SAMPLE GMBH",
+					"x-name2": "",
+					"x-name3": "",
+					"street": "SAMPLE STR. 2",
+					"countryCode": "NL",
+					"zipCode": "654987",
+					"city": "AMSTERDAM",
+					"townArea": "",
+					"reference": "REF471",
 				}
+			},
+			"billing": {
+				"deliveryTerms": "2"
 			},
 			"content": {
 				"volumeCubicmeter": 0,
 				"loadingMeter": 0,
-				"grossWeightKilogram": 4712,
+				"grossWeightKilogram": 320,
 				"areaPalletBays": 0,
-				"chargeableWeightKilogram": 0,
+				"chargeableWeightKilogram": 320,
 				"insuranceValue": {
 					"amount": 0,
-					"currency": ""
+					"currency": "EUR"
 				},
-				"lines": [{
-					"lineNo": 1,
-					"handlingUnitCount": 5,
-					"handlingUnitType": "FP",
-					"innerPackageCount": 0,
-					"innerPackageType": "",
-					"content": "PCI PRODUKTE",
-					"refNo": "3216549876544444",
-					"volumeCubicmeter": 0,
-					"loadingMeter": 0,
-					"grossWeightKilogram": 4712,
-					"areaPalletBays": 0,
-					"chargeableWeightKilogram": 0,
-					"lengthMeter": 0,
-					"widthMeter": 0,
-					"heightMeter": 0,
-					"barcodes": [{
-						"code": "00112255566655555588"
-					},
+				"lines": [
 					{
-						"code": "00112255566655555599"
-					},
-					{
-						"code": "00112255566655555544"
-					},
-					{
-						"code": "00112255566655555533"
-					},
-					{
-						"code": "00112255566655555522"
-					}]
-				},
-				{
-					"lineNo": 2,
-					"handlingUnitCount": 0,
-					"innerPackageCount": 0,
-					"innerPackageType": "",
-					"content": "DIVERSE WAREN",
-					"refNo": "321654987444",
-					"volumeCubicmeter": 0,
-					"loadingMeter": 0,
-					"grossWeightKilogram": 0,
-					"areaPalletBays": 0,
-					"chargeableWeightKilogram": 0,
-					"lengthMeter": 0,
-					"widthMeter": 0,
-					"heightMeter": 0,
-					"barcodes": []
-				}]
+						"lineNo": 1,
+						"handlingUnitCount": 1,
+						"handlingUnitType": "EP",
+						"innerPackageCount": 0,
+						"innerPackageType": "",
+						"content": "SMART TV",
+						"refNo": "",
+						"volumeCubicmeter": 0,
+						"loadingMeter": 0,
+						"grossWeightKilogram": 320,
+						"areaPalletBays": 0,
+						"chargeableWeightKilogram": 320,
+						"lengthMeter": 0,
+						"widthMeter": 0,
+						"heightMeter": 0,
+						"barcodes": []
+					}
+				],
+				"additionalLoadingEquipment": {
+					"eurPallets": 0,
+					"eurBoxes": 0
+				}
 			}
-		}
-	},
-	{
-		"lineNo": 3,
-		"consignment": {
-			"consignmentNoShippingPartner": "0123456789888",
-			"consignmentNoReceivingPartner": "",
-			"shippingDate": "2018-08-15",
+		},
+		{
+			"$schema": "https://raw.githubusercontent.com/conizi/semantic-model/master/transport/truck/groupage/forwarding/pickuporder",
+			"pickupOrderNo": "PO458787",
+			"pickupOrderDate": "2019-04-26",
+			"pickupDate": {
+				"date": "2019-04-26",
+				"timeFrom": "08:00:00",
+				"timeUntil": "14:00:00"
+			},
 			"sender": {
-				"ediId": "EDDI001"
+				"ediId": "SENDER"
 			},
 			"receiver": {
-				"ediId": "EDIREC"
+				"ediId": "RECEIVER"
 			},
-			"shippingPartner": {
+			"network": {
+				"networkId": "NET",
+				"codelist": "CL",
+				"product": "CL"
+			},
+			"orderingParty": {
+				"name": "TEST LOGISTICS GMBH",
+				"street": "MUSTERSTRASSE 45",
+				"countryCode": "DE",
+				"zipCode": "99999",
+				"city": "MUSTERCITY",
+				"townArea": "",
+				"reference": "REF001"
+			},
+			"orderingPartner": {
 				"partnerId": "9999"
 			},
-			"receivingPartner": {
-				"partnerId": "9988"
+			"contractedPartner": {
+				"partnerId": "9989"
 			},
-			"information": {
-				"remarksGeneral": [
-				"FIX MIT HB BIS 12 UHR 0173-9986728 HR. SCHMIDT"]
-			},
+			"information": {},
 			"services": {
-				"timeOptions": {
-					"nextDay": {
-						"timeFrom": "12:00",
-						"timeUntil": "12:00"
+				"loadingOptions": {
+					"receivingPartnerDisposal": {
+						"partnerId": "9997"
 					}
 				},
 				"deliveryOptions": {
-					"liftingPlatform": true,
-					"deliveryNoteOnGoods": true
+					"x-priorityCustomer": true
+				},
+				"timeOptions": {
+					"notAfter": {
+						"date": "2019-04-30"
+					}
 				}
 			},
 			"references": {
-				"customerOrderNo": "3216547888"
-			},
-			"billing": {
-				"deliveryTerms": "100"
+				"customerOrderNo": "CUST-89797",
 			},
 			"routing": {
 				"shipper": {
-					"name": "SAMPLE SHIPPER GMBH",
-					"street": "BAHNHOF 16",
+					"name": "TEST GMBH",
+					"x-name2": "",
+					"x-name3": "",
+					"street": "TEST STR. 12",
 					"countryCode": "DE",
-					"zipCode": "1236549",
-					"city": "MUENCHEN",
+					"zipCode": "98888",
+					"city": "VOLKACH",
 					"townArea": "",
-					"referenceNumber": "889955"
+					"reference": "REF5081"
 				},
 				"consignee": {
-					"name": "GRUNDSCHULE",
-					"street": "MUSTERWEG 21",
-					"countryCode": "DE",
-					"zipCode": "90999",
-					"city": "FRANKFURT",
+					"name": "SAMPLE GMBH",
+					"x-name2": "",
+					"x-name3": "",
+					"street": "SAMPLE STR. 2",
+					"countryCode": "NL",
+					"zipCode": "654987",
+					"city": "AMSTERDAM",
 					"townArea": "",
-					"referenceNumber": ""
+					"reference": "REF471",
 				}
+			},
+			"billing": {
+				"deliveryTerms": "2"
 			},
 			"content": {
 				"volumeCubicmeter": 0,
 				"loadingMeter": 0,
-				"grossWeightKilogram": 2106,
+				"grossWeightKilogram": 40,
 				"areaPalletBays": 0,
-				"chargeableWeightKilogram": 0,
+				"chargeableWeightKilogram": 40,
 				"insuranceValue": {
-					"amount": 0,
-					"currency": ""
+					"amount": 15480,
+					"currency": "EUR"
 				},
-				"lines": [{
-					"lineNo": 1,
-					"handlingUnitCount": 2,
-					"handlingUnitType": "FP",
-					"innerPackageCount": 84,
-					"innerPackageType": "SA",
-					"content": "PCI PRODUKTE",
-					"refNo": "32165498765411",
-					"volumeCubicmeter": 0,
-					"loadingMeter": 0,
-					"grossWeightKilogram": 2106,
-					"areaPalletBays": 0,
-					"chargeableWeightKilogram": 0,
-					"lengthMeter": 0,
-					"widthMeter": 0,
-					"heightMeter": 0,
-					"barcodes": [{
-						"code": "32165498765411000011"
-					},
+				"lines": [
 					{
-						"code": "32165498765411000012"
-					}]
-				}]
+						"lineNo": 1,
+						"handlingUnitCount": 1,
+						"handlingUnitType": "EP",
+						"innerPackageCount": 0,
+						"innerPackageType": "",
+						"content": "LAPTOP",
+						"refNo": "",
+						"volumeCubicmeter": 0,
+						"loadingMeter": 0,
+						"grossWeightKilogram": 40,
+						"areaPalletBays": 0,
+						"chargeableWeightKilogram": 40,
+						"lengthMeter": 0,
+						"widthMeter": 0,
+						"heightMeter": 0,
+						"barcodes": []
+					}
+				],
+				"additionalLoadingEquipment": {
+					"eurPallets": 0,
+					"eurBoxes": 0
+				}
 			}
 		}
-	}]
+	]
 }
 ```
-
