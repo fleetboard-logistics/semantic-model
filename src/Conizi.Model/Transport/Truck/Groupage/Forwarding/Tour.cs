@@ -47,7 +47,6 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Tour Reference")]
         [Description("A unique identifier for dispatching purposes (Communication between dispatcher and driver)")]
         [JsonProperty("tourReference", Order = -9)]
-        [Required]
         public string TourReference { get; set; }
 
         /// <summary>
