@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T11:50:57.2603392+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-06-26T13:49:09.8019926+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
@@ -118,14 +118,8 @@
           "type": "string",
           "format": "date-time"
         },
-        "invalidData": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
-        },
-        "invalidPackageType": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
-        },
-        "invalidDangerousGoodInformation": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        "documentDataReceived": {
+          "type": "boolean"
         },
         "exceptions": {
           "$ref": "#/definitions/EdiDataProcessingExceptions"
@@ -297,6 +291,9 @@
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "damaged": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "missing": {
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "returnAccordingToDisposal": {

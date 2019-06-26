@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-21T11:25:26.6658327+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-06-26T13:49:10.5449963+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -138,14 +138,8 @@
           "type": "string",
           "format": "date-time"
         },
-        "invalidData": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
-        },
-        "invalidPackageType": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
-        },
-        "invalidDangerousGoodInformation": {
-          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        "documentDataReceived": {
+          "type": "boolean"
         },
         "exceptions": {
           "$ref": "#/definitions/EdiDataProcessingExceptions"
@@ -317,6 +311,9 @@
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "damaged": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "missing": {
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "returnAccordingToDisposal": {
@@ -1363,6 +1360,9 @@
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "loadingError": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "lost": {
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },
