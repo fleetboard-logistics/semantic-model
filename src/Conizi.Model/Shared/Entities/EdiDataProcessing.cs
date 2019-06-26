@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
+using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -15,25 +16,10 @@ namespace Conizi.Model.Shared.Entities
     public class EdiDataProcessing : EdiEventBase
     {
         /// <summary>
-        /// The data is incomplete, missing or wrong
+        /// The data for <see cref="PickupOrder"/> or <see cref="Consignment"/> were received
         /// </summary>
-        //DisplayName("Wrong data")]
-        //[Description("The data is incomplete, missing or wrong")]
-        public EdiEmptyExtendableObject InvalidData { get; set; }
+        public bool DocumentDataReceived { get; set; }
 
-        /// <summary>
-        /// Wrong, incomplete or missing package type information
-        /// </summary>
-        //DisplayName("Wrong package type")]
-        //[Description("Wrong, incomplete or missing package type information")]
-        public EdiEmptyExtendableObject InvalidPackageType { get; set; }
-
-        /// <summary>
-        /// Wrong, incomplete or missing package type information
-        /// </summary>
-        //DisplayName("Invalid Dangerous good information")]
-        //[Description("Wrong, incomplete or missing information about the dangerous goods")]
-        public EdiEmptyExtendableObject InvalidDangerousGoodInformation { get; set; }
 
         /// <summary>
         /// Detailed information about the exceptions that occured while processing the data.
