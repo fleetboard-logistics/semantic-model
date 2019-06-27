@@ -242,5 +242,12 @@ namespace Conizi.Model.Shared.Entities
         //[DisplayName("Loading error")]
         //[Description("Error when loading the package")]
         public EdiEmptyExtendableObject LoadingError { get; set; }
+
+        /// <summary>
+        /// The package was lost
+        /// </summary>
+        //[DisplayName("Lost")]
+        //[Description("The package was lost")]
+        public EdiEmptyExtendableObject Lost { get; set; }
     }
 }

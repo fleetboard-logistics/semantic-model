@@ -15,6 +15,8 @@
   items:
   - uid: Conizi.Model.Core.Tools.Client
     name: Client
+  - uid: Conizi.Model.Core.Tools.ClientConfig
+    name: ClientConfig
   - uid: Conizi.Model.Core.Tools.Converter
     name: Converter
   - uid: Conizi.Model.Core.Tools.Generator

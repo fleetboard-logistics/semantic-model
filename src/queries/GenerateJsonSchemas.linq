@@ -1,6 +1,6 @@
 <Query Kind="Statements">
-  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\semanticmodel-master\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
-  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\semanticmodel-master\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\semanticmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
+  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\semanticmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
   <NuGetReference>Newtonsoft.Json</NuGetReference>
   <NuGetReference>Newtonsoft.Json.Schema</NuGetReference>
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
@@ -8,7 +8,6 @@
   <Namespace>Conizi.Model.Accounting.Material</Namespace>
   <Namespace>Conizi.Model.Archiving</Namespace>
   <Namespace>Conizi.Model.Converters</Namespace>
-  <Namespace>Conizi.Model.Core</Namespace>
   <Namespace>Conizi.Model.Core.Entities</Namespace>
   <Namespace>Conizi.Model.Core.Extensions</Namespace>
   <Namespace>Conizi.Model.Core.Tools</Namespace>
@@ -18,6 +17,7 @@
   <Namespace>Conizi.Model.Shared.Entities</Namespace>
   <Namespace>Conizi.Model.Shared.Helper</Namespace>
   <Namespace>Conizi.Model.Shared.Interfaces</Namespace>
+  <Namespace>Conizi.Model.Telematics</Namespace>
   <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding</Namespace>
   <Namespace>Newtonsoft.Json</Namespace>
   <Namespace>Newtonsoft.Json.Bson</Namespace>
@@ -29,7 +29,6 @@
   <Namespace>Serilog</Namespace>
   <Namespace>Serilog.Configuration</Namespace>
   <Namespace>System.Security.Cryptography</Namespace>
-  <Namespace>Conizi.Model.Telematics</Namespace>
 </Query>
 
 Generator.RegisterJsonSchemaLicense(Environment.GetEnvironmentVariable("Generator:JsonSchemaLicense"));

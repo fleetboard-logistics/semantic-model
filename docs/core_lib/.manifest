@@ -24,17 +24,19 @@
   "Conizi.Model.Core.Entities.ValidationResult.ToString": "Conizi.Model.Core.Entities.ValidationResult.yml",
   "Conizi.Model.Core.Tools": "Conizi.Model.Core.Tools.yml",
   "Conizi.Model.Core.Tools.Client": "Conizi.Model.Core.Tools.Client.yml",
+  "Conizi.Model.Core.Tools.Client.#ctor": "Conizi.Model.Core.Tools.Client.yml",
+  "Conizi.Model.Core.Tools.ClientConfig": "Conizi.Model.Core.Tools.ClientConfig.yml",
   "Conizi.Model.Core.Tools.Converter": "Conizi.Model.Core.Tools.Converter.yml",
   "Conizi.Model.Core.Tools.Converter.Deserialize``1(System.String)": "Conizi.Model.Core.Tools.Converter.yml",
   "Conizi.Model.Core.Tools.Converter.Serialize``1(``0,System.Boolean,System.Boolean)": "Conizi.Model.Core.Tools.Converter.yml",
   "Conizi.Model.Core.Tools.Generator": "Conizi.Model.Core.Tools.Generator.yml",
-  "Conizi.Model.Core.Tools.Generator.Generate(System.Type)": "Conizi.Model.Core.Tools.Generator.yml",
+  "Conizi.Model.Core.Tools.Generator.Generate(Type)": "Conizi.Model.Core.Tools.Generator.yml",
   "Conizi.Model.Core.Tools.Generator.Generate``1": "Conizi.Model.Core.Tools.Generator.yml",
   "Conizi.Model.Core.Tools.Generator.RegisterJsonSchemaLicense(System.String)": "Conizi.Model.Core.Tools.Generator.yml",
   "Conizi.Model.Core.Tools.Validator": "Conizi.Model.Core.Tools.Validator.yml",
   "Conizi.Model.Core.Tools.Validator.ParseModel(System.String)": "Conizi.Model.Core.Tools.Validator.yml",
   "Conizi.Model.Core.Tools.Validator.RegisterJsonSchemaLicense(System.String)": "Conizi.Model.Core.Tools.Validator.yml",
-  "Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,System.Collections.Generic.IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml",
-  "Conizi.Model.Core.Tools.Validator.ValidateSchema(System.Type,System.String,System.Collections.Generic.IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml",
-  "Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,System.Collections.Generic.IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml"
+  "Conizi.Model.Core.Tools.Validator.ValidateSchema(System.String,IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml",
+  "Conizi.Model.Core.Tools.Validator.ValidateSchema(Type,System.String,IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml",
+  "Conizi.Model.Core.Tools.Validator.ValidateSchema``1(System.String,IList{System.String}@)": "Conizi.Model.Core.Tools.Validator.yml"
 }

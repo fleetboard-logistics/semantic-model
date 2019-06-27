@@ -4,7 +4,8 @@ items:
   commentId: T:Conizi.Model.Core.Tools.Client
   id: Client
   parent: Conizi.Model.Core.Tools
-  children: []
+  children:
+  - Conizi.Model.Core.Tools.Client.#ctor
   langs:
   - csharp
   - vb
@@ -27,8 +28,10 @@ items:
   remarks: Not yet implemented, coming soon...
   example: []
   syntax:
-    content: public class Client
-    content.vb: Public Class Client
+    content: 'public class Client : object'
+    content.vb: >-
+      Public Class Client
+          Inherits Object
   inheritance:
   - System.Object
   modifiers.csharp:
@@ -37,22 +40,44 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: Conizi.Model.Core.Tools.Client.#ctor
+  commentId: M:Conizi.Model.Core.Tools.Client.#ctor
+  id: '#ctor'
+  parent: Conizi.Model.Core.Tools.Client
+  langs:
+  - csharp
+  - vb
+  name: Client()
+  nameWithType: Client.Client()
+  fullName: Conizi.Model.Core.Tools.Client.Client()
+  type: Constructor
+  source:
+    remote:
+      path: src/Conizi.Model.Core/Tools/Client.cs
+      branch: master
+      repo: https://git.fleetboard-logistics.com/conizi/plattform/semanticmodel.git
+    id: .ctor
+    path: ../src/Conizi.Model.Core/Tools/Client.cs
+    startLine: 13
+  assemblies:
+  - Conizi.Model.Core
+  namespace: Conizi.Model.Core.Tools
+  syntax:
+    content: public Client()
+    content.vb: Public Sub New
+  overload: Conizi.Model.Core.Tools.Client.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 references:
 - uid: Conizi.Model.Core.Tools
   commentId: N:Conizi.Model.Core.Tools
   name: Conizi.Model.Core.Tools
   nameWithType: Conizi.Model.Core.Tools
   fullName: Conizi.Model.Core.Tools
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
+- uid: Conizi.Model.Core.Tools.Client.#ctor*
+  commentId: Overload:Conizi.Model.Core.Tools.Client.#ctor
+  name: Client
+  nameWithType: Client.Client
+  fullName: Conizi.Model.Core.Tools.Client.Client

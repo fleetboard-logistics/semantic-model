@@ -115,7 +115,6 @@ items:
       type: System.String
       description: ''
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Conizi.Model.Core.Entities.SerializationResult.ToString*
   modifiers.csharp:
   - public
@@ -134,13 +133,6 @@ references:
   name: Conizi.Model.Core.Entities
   nameWithType: Conizi.Model.Core.Entities
   fullName: Conizi.Model.Core.Entities
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
 - uid: Conizi.Model.Core.Entities.ConverterResult
   commentId: T:Conizi.Model.Core.Entities.ConverterResult
   parent: Conizi.Model.Core.Entities
@@ -183,63 +175,22 @@ references:
   name: File
   nameWithType: ConverterResult.File
   fullName: Conizi.Model.Core.Entities.ConverterResult.File
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Conizi.Model.Core.Entities.SerializationResult.IsValidated*
   commentId: Overload:Conizi.Model.Core.Entities.SerializationResult.IsValidated
   name: IsValidated
   nameWithType: SerializationResult.IsValidated
   fullName: Conizi.Model.Core.Entities.SerializationResult.IsValidated
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Conizi.Model.Core.Entities.SerializationResult.ToString*
   commentId: Overload:Conizi.Model.Core.Entities.SerializationResult.ToString
   name: ToString
   nameWithType: SerializationResult.ToString
   fullName: Conizi.Model.Core.Entities.SerializationResult.ToString
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String

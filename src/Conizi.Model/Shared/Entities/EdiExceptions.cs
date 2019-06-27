@@ -269,6 +269,13 @@ namespace Conizi.Model.Shared.Entities
         public EdiEmptyExtendableObject Damaged { get; set; }
 
         /// <summary>
+        /// Not in delivery - goods missing
+        /// </summary>
+        //[DisplayName("Missing")]
+        //[Description("Not in delivery - goods missing")]
+        public EdiEmptyExtendableObject Missing { get; set; }
+
+        /// <summary>
         /// Not delivered - refused consignment, return according to disposal
         /// </summary>
         //[DisplayName("Return according to disposal")]
