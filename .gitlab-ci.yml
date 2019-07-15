@@ -44,6 +44,21 @@ test:
     - branches
     - tags
 
+deploy:models:
+  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+  stage: deploy
+  tags:
+    - docker
+    - linux
+  script:
+    - install_dependencies
+    - deploy_models
+  only:
+    - branches
+    - tags
+  before_script: 
+    - "echo Generate/Deploy models..."
+
 deploy:nuget:
   image: mcr.microsoft.com/dotnet/framework/sdk:4.8
   stage: deploy
@@ -101,6 +116,15 @@ deploy:docu:
   function build() {
     echo "Building..."
     dotnet build ./Conizi.Model.sln --configuration NetCore -f netstandard2.0
+  }
+
+  function deploy_models() {
+    echo "Building tooling..."
+    dotnet build ./Conizi.Model.sln --configuration NetCore
+
+    echo "Generating models..."
+    cd ./src/Conizi.Model.Tooling/bin/Debug/netcoreapp2.2
+    dotnet Conizi.Model.Core.dll ./model 
   }
 
   function deploy_docs() {
