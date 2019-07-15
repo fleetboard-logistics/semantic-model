@@ -120,7 +120,7 @@ deploy:docu:
 
   function deploy_models() {
     echo "Building tooling..."
-    dotnet build ./Conizi.Model.sln --configuration NetCore
+    dotnet build ./src/Conizi.Model.Tooling
 
     echo "Generating models..."
     cd ./src/Conizi.Model.Tooling/bin/Debug/netcoreapp2.2
