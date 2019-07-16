@@ -1,24 +1,36 @@
 {
     "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
-    "tourId": "123123123",
     "receiver": {
         "ediId": "DAIMLER"
     },
     "network": {
         "networkId": "MBT"
     },
+    "tourId": "123123123",
     "stop": {
-        "eventDateTime": "2019-02-20T17:03:27",
+        "stopId": "45745378753079860978",
+        "eventDateTime": "2019-07-16T14:58:01.2999402+02:00",
+        "geoPosition": {
+            "latitude": 49.8629167,
+            "longitude": 10.2259302702594,
+            "placeName": "Fleetboard Logistics GmbH"
+        },
         "unloadingCompleted": true,
-        "stopId": "ABCDEFGHIJ12213",
         "loadingEquipmentExchange": {
             "exchanged": true,
-            "amountEurPallets": -2,
-            "amountEurBoxes": 1
-        },
-        "geoPosition": {
-            "latitude": 49.8641,
-            "longitude": 10.2269
+            "loadingEquipment": [
+                {
+                    "equipmentType": "eurPallets",
+                    "amountLoaded": 4,
+                    "amountUnloaded": 3,
+                    "remarks": "One was lost..."
+                },
+                {
+                    "equipmentType": "oneWayPallets",
+                    "amountLoaded": 6,
+                    "amountUnloaded": 2
+                }
+            ]
         }
     }
 }

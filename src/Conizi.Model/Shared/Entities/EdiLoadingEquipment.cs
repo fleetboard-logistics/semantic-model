@@ -1,8 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -53,7 +55,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Information about the type of loading equipment and the amount
         /// </summary>
-        public EdiLoadingEquipment LoadingEquipment{ get; set; }
+        public List<EdiLoadingEquipment> LoadingEquipment { get; set; }
 
     }
 
@@ -71,6 +73,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Loading Equipment Type")]
         [Description("Type of loading equipment like eur pallets, euro boxes...")]
+        [DefaultValue(LoadingEquipmentType.EurBoxes)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public LoadingEquipmentType EquipmentType { get; set; }
 
         /// <summary>
@@ -84,7 +88,7 @@ namespace Conizi.Model.Shared.Entities
         /// Remove/Unload amount of loading equipment
         /// </summary>
         [DisplayName("Amount Unloaded")]
-        [Description("Remove/Unload amount equipment")]
+        [Description("Remove/Unload amount of equipment")]
         public int? AmountUnloaded { get; set; }
 
         /// <summary>
