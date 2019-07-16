@@ -22,8 +22,8 @@ build:
     - install_dependencies
     - build
   except:
-    changes:
-      - "model/*"
+    variables:
+      - $CI_COMMIT_MESSAGE = "Update models"
   only:
     - branches
     - tags
@@ -44,8 +44,8 @@ test:
     - install_dependencies
     - test
   except:
-    changes:
-      - "model/**/*"
+    variables:
+      - $CI_COMMIT_MESSAGE = "Update models"
   only:
     - branches
     - tags
@@ -62,8 +62,8 @@ deploy:models:
     - install_dependencies
     - deploy_models
   except:
-    changes:
-      - "model/**/*"
+    variables:
+      - $CI_COMMIT_MESSAGE = "Update models"
   only:
     - branches
     - tags
@@ -80,6 +80,9 @@ deploy:nuget:
     - master
     - preproduction
     - production
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE = "Update models"
   when: manual
   before_script: 
     - "echo Deploy Nuget..."
@@ -96,6 +99,9 @@ deploy:docu:
      - setup_ssh
      - docfx ./docs/docfx.json
      - deploy_docs
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE = "Update models"
   only:
     - master
     - preproduction
@@ -142,7 +148,7 @@ deploy:docu:
     git remote set-url --push origin https://ConiziDeploy:$GIT_ACCESS_TOKEN@git.fleetboard-logistics.com/conizi/plattform/semanticmodel
     cd ../../../../../
     git add ./model || true
-    git commit ./model -m "Update models for $BRANCH" || true
+    git commit ./model -m "Update models" || true
     git remote -v
     git push origin HEAD:$BRANCH || true
   }
