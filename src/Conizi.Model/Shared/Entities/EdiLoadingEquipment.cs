@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
@@ -50,19 +51,47 @@ namespace Conizi.Model.Shared.Entities
         public bool? Exchanged { get; set; }
 
         /// <summary>
-        /// Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)
+        /// Information about the type of loading equipment and the amount
         /// </summary>
-        [DisplayName("Amount Euro Pallets")]
-        [Description("Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)")]
-        public int? AmountEurPallets { get; set; }
+        public EdiLoadingEquipment LoadingEquipment{ get; set; }
+
+    }
+
+    /// <summary>
+    /// Loading equipment
+    /// </summary>
+    [DisplayName("Loading equipment")]
+    [Description("Loading equipment used for transportation")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiLoadingEquipment : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [DisplayName("Loading Equipment Type")]
+        [Description("Type of loading equipment like eur pallets, euro boxes...")]
+        public LoadingEquipmentType EquipmentType { get; set; }
 
         /// <summary>
-        /// Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)
+        /// Add/Load amount of loading equipment
         /// </summary>
-        [DisplayName("AmountEuro Boxes")]
-        [Description("Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)")]
-        public int? AmountEurBoxes { get; set; }
+        [DisplayName("Amount Loaded")]
+        [Description("Add/Load amount of equipment")]
+        public int? AmountLoaded { get; set; }
 
-        
+        /// <summary>
+        /// Remove/Unload amount of loading equipment
+        /// </summary>
+        [DisplayName("Amount Unloaded")]
+        [Description("Remove/Unload amount equipment")]
+        public int? AmountUnloaded { get; set; }
+
+        /// <summary>
+        /// Additional remarks
+        /// </summary>
+        [DisplayName("Remarks (free form)")]
+        [Description("Additional remarks")]
+        public string Remarks { get; set; }
     }
 }
