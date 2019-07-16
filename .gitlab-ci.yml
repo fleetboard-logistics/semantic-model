@@ -63,7 +63,7 @@ deploy:models:
     - deploy_models
   except:
     changes:
-      - "model/*"
+      - "model/**/*"
   only:
     - branches
     - tags
