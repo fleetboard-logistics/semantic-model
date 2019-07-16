@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-07-16T13:11:59.3837139+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4102 - conizi-638-extend-tour",
+  "$comment": "Generated: 2019-07-16T14:02:13.7591087+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4105 - conizi-638-extend-tour",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1058,6 +1058,7 @@
           "title": "Loading Equipment Type",
           "description": "Type of loading equipment like eur pallets, euro boxes...",
           "type": "string",
+          "default": 1,
           "additionalProperties": false,
           "patternProperties": {
             "x-.*": {},
@@ -1078,7 +1079,7 @@
         },
         "amountUnloaded": {
           "title": "Amount Unloaded",
-          "description": "Remove/Unload amount equipment",
+          "description": "Remove/Unload amount of equipment",
           "type": "integer"
         },
         "remarks": {
@@ -1104,7 +1105,10 @@
           "type": "boolean"
         },
         "loadingEquipment": {
-          "$ref": "#/definitions/EdiLoadingEquipment"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiLoadingEquipment"
+          }
         }
       },
       "required": [
