@@ -23,7 +23,7 @@ build:
     - build
   except:
     variables:
-      - $CI_COMMIT_MESSAGE = "Update models"
+      - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
     - branches
     - tags
@@ -45,7 +45,7 @@ test:
     - test
   except:
     variables:
-      - $CI_COMMIT_MESSAGE = "Update models"
+       - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
     - branches
     - tags
@@ -63,7 +63,7 @@ deploy:models:
     - deploy_models
   except:
     variables:
-      - $CI_COMMIT_MESSAGE = "Update models"
+      - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
     - branches
     - tags
@@ -82,7 +82,7 @@ deploy:nuget:
     - production
   except:
     variables:
-      - $CI_COMMIT_MESSAGE = "Update models"
+      - $CI_COMMIT_MESSAGE =~ /Update models/
   when: manual
   before_script: 
     - "echo Deploy Nuget..."
@@ -101,7 +101,7 @@ deploy:docu:
      - deploy_docs
   except:
     variables:
-      - $CI_COMMIT_MESSAGE = "Update models"
+      - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
     - master
     - preproduction
