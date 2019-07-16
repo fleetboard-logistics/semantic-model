@@ -21,6 +21,9 @@ build:
   script:
     - install_dependencies
     - build
+  except:
+    changes:
+      - "model/**/*"
   only:
     - branches
     - tags
@@ -40,24 +43,30 @@ test:
   script:
     - install_dependencies
     - test
+  except:
+    changes:
+      - "model/**/*"
   only:
     - branches
     - tags
 
 deploy:models:
-  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
   stage: deploy
+  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
   tags:
     - docker
     - linux
+  services:
+    - docker:dind
   script:
     - install_dependencies
     - deploy_models
+  except:
+    changes:
+      - "model/**/*"
   only:
     - branches
     - tags
-  before_script: 
-    - "echo Generate/Deploy models..."
 
 deploy:nuget:
   image: mcr.microsoft.com/dotnet/framework/sdk:4.8
@@ -100,6 +109,7 @@ deploy:docu:
   export TAG=$CI_APPLICATION_TAG
   export GENERATOR__JSONSCHEMALICENSE="$GENERATOR_JSONSCHEMALICENSE"
   export BRANCH=$CI_COMMIT_REF_NAME
+  export PIPELINE=$CI_PIPELINE_ID
 
   function setup_ssh() {
     eval $(ssh-agent -s) 
@@ -110,7 +120,7 @@ deploy:docu:
 
   function install_dependencies() {
     echo "Installing deps"
-    apk add -U openssl curl tar gzip bash ca-certificates git
+    apk add -U openssl curl tar gzip bash ca-certificates git openssh perl
   }
 
   function build() {
@@ -121,10 +131,20 @@ deploy:docu:
   function deploy_models() {
     echo "Building tooling..."
     dotnet build ./src/Conizi.Model.Tooling
-
+    export TMP_BRANCH=$(date +%s%3N)
     echo "Generating models..."
     cd ./src/Conizi.Model.Tooling/bin/Debug/netcoreapp2.2
-    dotnet Conizi.Model.Core.dll ./model 
+    dotnet Conizi.Model.Tooling.dll ../../../../../model 
+    echo "Add and commit models..."
+    git checkout -b $TMP_BRANCH
+    git config --global user.email "gitlab@fleetboard-logistics.com"
+    git config --global user.name "Fleetboard Logistics CI"
+    git remote set-url --push origin https://ConiziDeploy:$GIT_ACCESS_TOKEN@git.fleetboard-logistics.com/conizi/plattform/semanticmodel
+    cd ../../../../../
+    git add ./model || true
+    git commit ./model -m "Update models for $BRANCH" || true
+    git remote -v
+    git push origin HEAD:$BRANCH || true
   }
 
   function deploy_docs() {

@@ -51,6 +51,10 @@ namespace Conizi.Model.Tooling.Generate
                     bool isNewModel = true;
 
                     //(Generated: {DateTime.Now} - {assembly.Name} v:{assembly.Version})
+                    Core.Tools.Generator.RegisterJsonSchemaLicense(
+                        Environment.GetEnvironmentVariable("GENERATOR_JSONSCHEMALICENSE"));
+                    var pipeline = Environment.GetEnvironmentVariable("PIPELINE") ?? "0";
+                    var branch = Environment.GetEnvironmentVariable("BRANCH") ?? "n/a";
                     var result = Core.Tools.Generator.Generate(model);
 
                     var outFile = Path.Combine(modelPath, result.Id.Replace("https://model.conizi.io/v1/", string.Empty));
@@ -69,7 +73,7 @@ namespace Conizi.Model.Tooling.Generate
 
                     if (isNewModel || ModelHashChanged(result.ToString(), curModel.ToString()))
                     {
-                        var message = $"Generated: {DateTime.Now.ToString("o")} - {Assembly.GetExecutingAssembly().GetName().Name} v:{Assembly.GetExecutingAssembly().GetName().Version}";
+                        var message = $"Generated: {DateTime.Now.ToString("o")} - {Assembly.GetExecutingAssembly().GetName().Name} v:{Assembly.GetExecutingAssembly().GetName().Version} p:{pipeline} - {branch}";
                         var newModel = JObject.Parse(result.ToString());
 
                         if (newModel.SelectToken("$comment") == null)
@@ -82,7 +86,7 @@ namespace Conizi.Model.Tooling.Generate
                         continue;
                     }
 
-                    Log.Warning("Model {model} is equal to the new generated content, skip writting to file {file}", result.Model, fileInfo.FullName);
+                    Log.Debug("Model {model} is equal to the new generated content, skip writting to file {file}", result.Model, fileInfo.FullName);
                 }
                 catch (Exception ex)
                 {
