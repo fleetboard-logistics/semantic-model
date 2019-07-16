@@ -23,7 +23,7 @@ build:
     - build
   except:
     changes:
-      - "model/**/*"
+      - "model/*"
   only:
     - branches
     - tags

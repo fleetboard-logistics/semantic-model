@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T18:15:12.6600716+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-07-16T14:02:12.1805077+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4105 - conizi-638-extend-tour",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
@@ -301,6 +301,51 @@
         "speed"
       ]
     },
+    "EdiLoadingEquipment": {
+      "title": "Loading equipment",
+      "description": "Loading equipment used for transportation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "equipmentType": {
+          "title": "Loading Equipment Type",
+          "description": "Type of loading equipment like eur pallets, euro boxes...",
+          "type": "string",
+          "default": 1,
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "eurPallets",
+            "eurBoxes",
+            "h1Pallets",
+            "e2Pallets",
+            "oneWayPallets"
+          ]
+        },
+        "amountLoaded": {
+          "title": "Amount Loaded",
+          "description": "Add/Load amount of equipment",
+          "type": "integer"
+        },
+        "amountUnloaded": {
+          "title": "Amount Unloaded",
+          "description": "Remove/Unload amount of equipment",
+          "type": "integer"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiLoadingEquipmentExchange": {
       "title": "Loading equipment exchange",
       "description": "Information about loading equipment exchange",
@@ -312,15 +357,11 @@
           "description": "Loading Equipment was exchanged",
           "type": "boolean"
         },
-        "amountEurPallets": {
-          "title": "Amount Euro Pallets",
-          "description": "Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)",
-          "type": "integer"
-        },
-        "amountEurBoxes": {
-          "title": "AmountEuro Boxes",
-          "description": "Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)",
-          "type": "integer"
+        "loadingEquipment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiLoadingEquipment"
+          }
         }
       },
       "required": [

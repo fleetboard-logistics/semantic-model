@@ -103,4 +103,48 @@ namespace Conizi.Model.Shared.Definitions
         [EnumMember(Value = "low")]
         Low,
     }
+
+    /// <summary>
+    /// Types of loading equipment
+    /// </summary>
+    [Description("Types of loading equipment")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
+    public enum LoadingEquipmentType
+    {
+        /// <summary>
+        /// EUR Pallets as defined by European Pallet Association (EPAL)
+        /// </summary>
+        [Description("EUR Pallets as defined by European Pallet Association (EPAL)")]
+        [EnumMember(Value = "eurPallets")]
+        EurPallets,
+
+        /// <summary>
+        /// EUR Boxes as defined by European Pallet Association (EPAL)
+        /// </summary>
+        [Description("EUR Boxes as defined by European Pallet Association (EPAL)")]
+        [EnumMember(Value = "eurBoxes")]
+        EurBoxes,
+
+        /// <summary>
+        /// H1 Pallets
+        /// </summary>
+        [Description("H1 Pallets")]
+        [EnumMember(Value = "h1Pallets")]
+        H1Pallets,
+
+        /// <summary>
+        /// E2 Pallets
+        /// </summary>
+        [Description("E2 Pallets")]
+        [EnumMember(Value = "e2Pallets")]
+        E2Pallets,
+
+        /// <summary>
+        /// OneWayPallets like Chep pallets
+        /// </summary>
+        [Description("OneWayPallets like Chep pallets")]
+        [EnumMember(Value = "oneWayPallets")]
+        OneWayPallets,
+    }
 }
