@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-07-16T14:02:12.1805077+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4105 - conizi-638-extend-tour",
+  "$comment": "Generated: 2019-07-17T08:02:14.2654478+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4116 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
@@ -311,7 +311,6 @@
           "title": "Loading Equipment Type",
           "description": "Type of loading equipment like eur pallets, euro boxes...",
           "type": "string",
-          "default": 1,
           "additionalProperties": false,
           "patternProperties": {
             "x-.*": {},
@@ -322,7 +321,9 @@
             "eurBoxes",
             "h1Pallets",
             "e2Pallets",
-            "oneWayPallets"
+            "oneWayPallets",
+            "knaufPallets",
+            "DuesseldorferPallets"
           ]
         },
         "amountLoaded": {
@@ -341,6 +342,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "equipmentType"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
