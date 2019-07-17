@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Interfaces;
@@ -73,8 +74,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Loading Equipment Type")]
         [Description("Type of loading equipment like eur pallets, euro boxes...")]
-        [DefaultValue(LoadingEquipmentType.EurBoxes)]
         [JsonConverter(typeof(StringEnumConverter))]
+        [Required]
         public LoadingEquipmentType EquipmentType { get; set; }
 
         /// <summary>
