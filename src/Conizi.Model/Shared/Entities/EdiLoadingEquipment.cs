@@ -70,7 +70,7 @@ namespace Conizi.Model.Shared.Entities
     public class EdiLoadingEquipment : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// 
+        /// Type of loading equipment like eur pallets, euro boxes...
         /// </summary>
         [DisplayName("Loading Equipment Type")]
         [Description("Type of loading equipment like eur pallets, euro boxes...")]

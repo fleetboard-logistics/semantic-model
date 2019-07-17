@@ -117,48 +117,48 @@ namespace Conizi.Model.Shared.Definitions
         /// </summary>
         [Description("EUR Pallets as defined by European Pallet Association (EPAL)")]
         [EnumMember(Value = "eurPallets")]
-        EurPallets,
+        EurPallets = 1,
 
         /// <summary>
         /// EUR Boxes as defined by European Pallet Association (EPAL)
         /// </summary>
         [Description("EUR Boxes as defined by European Pallet Association (EPAL)")]
         [EnumMember(Value = "eurBoxes")]
-        EurBoxes,
+        EurBoxes = 2,
 
         /// <summary>
         /// H1 Pallets
         /// </summary>
         [Description("H1 Pallets")]
         [EnumMember(Value = "h1Pallets")]
-        H1Pallets,
+        H1Pallets = 3,
 
         /// <summary>
         /// E2 Pallets
         /// </summary>
         [Description("E2 Pallets")]
         [EnumMember(Value = "e2Pallets")]
-        E2Pallets,
+        E2Pallets = 4,
 
         /// <summary>
         /// OneWayPallets like Chep pallets
         /// </summary>
         [Description("OneWayPallets like Chep pallets")]
         [EnumMember(Value = "oneWayPallets")]
-        OneWayPallets,
+        OneWayPallets = 5,
 
         /// <summary>
         /// Knauf Pallets
         /// </summary>
         [Description("Knauf Pallets")]
         [EnumMember(Value = "knaufPallets")]
-        KnaufPallets,
+        KnaufPallets = 6,
 
         /// <summary>
         /// Düsseldorfer Pallets
         /// </summary>
         [Description("Düsseldorfer Pallets")]
         [EnumMember(Value = "DuesseldorferPallets")]
-        DuesseldorferPallets,
+        DuesseldorferPallets = 7,
     }
 }
