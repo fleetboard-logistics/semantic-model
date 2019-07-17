@@ -158,7 +158,7 @@ namespace Conizi.Model.Shared.Definitions
         /// Düsseldorfer Pallets
         /// </summary>
         [Description("Düsseldorfer Pallets")]
-        [EnumMember(Value = "DuesseldorferPallets")]
+        [EnumMember(Value = "duesseldorferPallets")]
         DuesseldorferPallets = 7,
     }
 }
