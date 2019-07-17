@@ -146,5 +146,19 @@ namespace Conizi.Model.Shared.Definitions
         [Description("OneWayPallets like Chep pallets")]
         [EnumMember(Value = "oneWayPallets")]
         OneWayPallets,
+
+        /// <summary>
+        /// Knauf Pallets
+        /// </summary>
+        [Description("Knauf Pallets")]
+        [EnumMember(Value = "knaufPallets")]
+        KnaufPallets,
+
+        /// <summary>
+        /// Düsseldorfer Pallets
+        /// </summary>
+        [Description("Düsseldorfer Pallets")]
+        [EnumMember(Value = "DuesseldorferPallets")]
+        DuesseldorferPallets,
     }
 }
