@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "Conizi.Model.Generator": {
+    "Tooling": {
       "commandName": "Project",
-      "commandLineArgs": "validate -m Manifest-f C:\\temp\\schemagenerator\\sorted\\MANIFEST\\BORD512_190309024300711_3643.json"
+      "commandLineArgs": "C:\\src\\semanticmodel\\model"
     }
   }
 }
