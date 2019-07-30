@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-06-26T13:49:09.9040417+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-07-30T12:56:23.3490785+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4235 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
@@ -449,6 +449,11 @@
     },
     "pickupSender": {
       "$ref": "#/definitions/EdiPackageEvent"
+    },
+    "consignmentObjectId": {
+      "title": "Unique central consignment number",
+      "description": "Unique identification for the consignment in a central system",
+      "type": "string"
     },
     "unloadingShippingPartner": {
       "$ref": "#/definitions/EdiPackageEvent"
