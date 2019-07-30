@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-07-17T08:02:16.1022543+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4116 - master",
+  "$comment": "Generated: 2019-07-17T09:41:25.5525557+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4119 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1070,7 +1070,7 @@
             "e2Pallets",
             "oneWayPallets",
             "knaufPallets",
-            "DuesseldorferPallets"
+            "duesseldorferPallets"
           ]
         },
         "amountLoaded": {

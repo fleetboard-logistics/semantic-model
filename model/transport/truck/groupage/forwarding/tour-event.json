@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-07-17T08:02:14.2654478+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4116 - master",
+  "$comment": "Generated: 2019-07-17T09:41:23.9761980+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4119 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
@@ -323,7 +323,7 @@
             "e2Pallets",
             "oneWayPallets",
             "knaufPallets",
-            "DuesseldorferPallets"
+            "duesseldorferPallets"
           ]
         },
         "amountLoaded": {
