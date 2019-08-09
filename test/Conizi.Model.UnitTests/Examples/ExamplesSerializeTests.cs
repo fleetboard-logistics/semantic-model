@@ -45,5 +45,15 @@ namespace Conizi.Model.UnitTests.Examples
             var result = Converter.Serialize(m);
             Assert.False(result.HasValidationErrors);
         }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTourEventLoadingEquipment_AssertSerializationValid()
+        {
+            var m = new TourLoadingEquipmentExchangeExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
     }
 }

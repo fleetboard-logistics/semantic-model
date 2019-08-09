@@ -60,6 +60,13 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiPackageEvent PickupSender { get; set; }
 
         /// <summary>
+        /// Unique identification for the consignment in a central system
+        /// </summary>
+        [DisplayName("Unique central consignment number")]
+        [Description("Unique identification for the consignment in a central system")]
+        public string ConsignmentObjectId { get; set; }
+
+        /// <summary>
         /// Events occurred while unloading the package by the shipping partner
         /// </summary>
         //[DisplayName("Unloading by the shipping partner")]

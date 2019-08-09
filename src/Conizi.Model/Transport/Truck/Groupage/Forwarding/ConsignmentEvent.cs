@@ -45,6 +45,13 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public string ConsignmentNoDeliveringPartner { get; set; }
 
         /// <summary>
+        /// Unique identification for the consignment in a central system
+        /// </summary>
+        [DisplayName("Unique central consignment number")]
+        [Description("Unique identification for the consignment in a central system")]
+        public string ConsignmentObjectId { get; set; }
+
+        /// <summary>
         /// Shipping date
         /// </summary>
         [DisplayName("Shipping date")]

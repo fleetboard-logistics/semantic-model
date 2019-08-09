@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-06-26T13:49:10.5449963+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-07-30T12:56:24.2700439+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4235 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1048,6 +1048,55 @@
         "speed"
       ]
     },
+    "EdiLoadingEquipment": {
+      "title": "Loading equipment",
+      "description": "Loading equipment used for transportation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "equipmentType": {
+          "title": "Loading Equipment Type",
+          "description": "Type of loading equipment like eur pallets, euro boxes...",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "eurPallets",
+            "eurBoxes",
+            "h1Pallets",
+            "e2Pallets",
+            "oneWayPallets",
+            "knaufPallets",
+            "duesseldorferPallets"
+          ]
+        },
+        "amountLoaded": {
+          "title": "Amount Loaded",
+          "description": "Add/Load amount of equipment",
+          "type": "integer"
+        },
+        "amountUnloaded": {
+          "title": "Amount Unloaded",
+          "description": "Remove/Unload amount of equipment",
+          "type": "integer"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "equipmentType"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiLoadingEquipmentExchange": {
       "title": "Loading equipment exchange",
       "description": "Information about loading equipment exchange",
@@ -1059,15 +1108,11 @@
           "description": "Loading Equipment was exchanged",
           "type": "boolean"
         },
-        "amountEurPallets": {
-          "title": "Amount Euro Pallets",
-          "description": "Add/Remove amount of EUR pallets as defined by European Pallet Association (EPAL)",
-          "type": "integer"
-        },
-        "amountEurBoxes": {
-          "title": "AmountEuro Boxes",
-          "description": "Add/Remove amount EUR Box pallets as defined by European Pallet Association (EPAL)",
-          "type": "integer"
+        "loadingEquipment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiLoadingEquipment"
+          }
         }
       },
       "required": [
@@ -2510,6 +2555,11 @@
           "description": "Unique identification for the consignment within the transport management system of the delivering partner",
           "type": "string"
         },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
+        },
         "shippingDate": {
           "title": "Shipping date",
           "type": "string",
@@ -2645,6 +2695,11 @@
         },
         "pickupSender": {
           "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
+        },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
         },
         "unloadingShippingPartner": {
           "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
