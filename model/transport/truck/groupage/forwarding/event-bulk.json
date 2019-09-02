@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-07-17T09:41:25.5525557+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4119 - master",
+  "$comment": "Generated: 2019-07-30T12:56:24.2700439+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4235 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -2555,6 +2555,11 @@
           "description": "Unique identification for the consignment within the transport management system of the delivering partner",
           "type": "string"
         },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
+        },
         "shippingDate": {
           "title": "Shipping date",
           "type": "string",
@@ -2690,6 +2695,11 @@
         },
         "pickupSender": {
           "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
+        },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
         },
         "unloadingShippingPartner": {
           "$ref": "event-bulk.json#/definitions/EdiPackageEvent"

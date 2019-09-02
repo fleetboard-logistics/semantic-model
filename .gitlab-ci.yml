@@ -77,7 +77,6 @@ deploy:nuget:
   script:
     - "& ./build-nuget-ci.ps1"
   only:
-    - master
     - preproduction
     - production
   except:
@@ -103,7 +102,6 @@ deploy:docu:
     variables:
       - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
-    - master
     - preproduction
     - production
   when: manual

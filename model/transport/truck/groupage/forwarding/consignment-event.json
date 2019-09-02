@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-06-26T13:49:09.8019926+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-07-30T12:56:23.1031019+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4235 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
@@ -1302,6 +1302,11 @@
     "consignmentNoDeliveringPartner": {
       "title": "Consignment number of the delivering partner",
       "description": "Unique identification for the consignment within the transport management system of the delivering partner",
+      "type": "string"
+    },
+    "consignmentObjectId": {
+      "title": "Unique central consignment number",
+      "description": "Unique identification for the consignment in a central system",
       "type": "string"
     },
     "shippingDate": {
