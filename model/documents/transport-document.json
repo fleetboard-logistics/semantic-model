@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T11:50:58.8883096+02:00 - Conizi.Model.Core v:1.0.0.0",
-  "$id": "https://model.conizi.io/v1/archiving/proof-of-delivery.json",
-  "title": "Proof of Delivery",
-  "description": "Proof of delivery (POD) is a method/document to establish the fact that the recipient received the contents sent by the sender",
+  "$comment": "Generated: 2019-09-11T15:58:08.2282748+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4407 - CONIZI-678-POD",
+  "$id": "https://model.conizi.io/v1/documents/transport-document.json",
+  "title": "Transport Document",
+  "description": "A transport document is a kind of document used to convey information about cargo that is being transported",
   "definitions": {
     "EdiAddress": {
       "title": "Address fields",
@@ -93,6 +93,199 @@
       "required": [
         "data"
       ]
+    },
+    "EdiDocumentArchive": {
+      "title": "Archive",
+      "description": "All object to archive the document",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shipper": {
+          "$ref": "#/definitions/EdiAddress"
+        },
+        "consignee": {
+          "$ref": "#/definitions/EdiAddress"
+        },
+        "shippingPartner": {
+          "$ref": "#/definitions/EdiPartnerIdentification"
+        },
+        "receivingPartner": {
+          "$ref": "#/definitions/EdiPartnerIdentification"
+        }
+      },
+      "required": [
+        "shipper",
+        "consignee",
+        "shippingPartner",
+        "receivingPartner"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDocumentItem": {
+      "title": "Document",
+      "description": "All kind of documents used for transports",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "documentType": {
+          "title": "Document type",
+          "description": "The document type",
+          "type": "string",
+          "additionalProperties": false,
+          "enum": [
+            "unknown",
+            "proof_of_delivery",
+            "waybill",
+            "delivery_note",
+            "packaging_list",
+            "other_document"
+          ]
+        },
+        "documentCreator": {
+          "title": "Document creator",
+          "description": "The creator of the document",
+          "type": "string"
+        },
+        "documentDateTime": {
+          "title": "Document item creation date and time",
+          "description": "The date and time this document item was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "documentContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiSignature"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "angle": {
+          "title": "Angle",
+          "description": "The angle is the direction that the vehicle is moving in",
+          "type": "number"
+        },
+        "speed": {
+          "$ref": "#/definitions/EdiGeoSpeed"
+        },
+        "geoRadius": {
+          "$ref": "#/definitions/EdiGeoRadius"
+        }
+      },
+      "required": [
+        "documentType",
+        "documentDateTime",
+        "documentContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDocumentReferences": {
+      "title": "References",
+      "description": "All references to the linked documents, systems and devices",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The unique id of the document",
+          "type": "string"
+        },
+        "referenceNumber": {
+          "title": "Reference number",
+          "description": "The reference number (e.g. delivery note",
+          "type": "string"
+        },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
+        },
+        "consignmentNoShippingPartner": {
+          "title": "Consignment number of the shipping partner",
+          "description": "Unique identification for the consignment within the transport management system of the shipping partner",
+          "type": "string"
+        },
+        "consignmentNoReceivingPartner": {
+          "title": "Consignment number of the receiving partner",
+          "description": "Unique identification for the consignment within the transport management system of the receiving partner",
+          "type": "string"
+        },
+        "tourId": {
+          "title": "Tour Id",
+          "description": "A unique identifier assigned to the tour by the devlivering company",
+          "type": "string"
+        },
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for the stop within the tour",
+          "type": "string"
+        },
+        "driverId": {
+          "title": "Diver Id",
+          "description": "The id of the driver",
+          "type": "string"
+        },
+        "vehicleId": {
+          "title": "The vehicle id",
+          "type": "string"
+        },
+        "deviceId": {
+          "title": "Device Id",
+          "description": " The id of the used device",
+          "type": "string"
+        },
+        "carrier": {
+          "$ref": "#/definitions/EdiAddress"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
     "EdiFileContent": {
       "title": "File Content",
@@ -395,18 +588,13 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "signatureAvailable": {
-          "title": "Signature available",
-          "description": "Is a signature available",
-          "type": "boolean"
-        },
         "signeeName": {
           "title": "Signee name",
           "description": "Name of the signee",
           "type": "string"
         },
-        "signatureDate": {
-          "title": "Signature date",
+        "signatureDateTime": {
+          "title": "Signature date and time",
           "description": "The date and time of signature",
           "type": "string",
           "format": "date-time"
@@ -416,8 +604,8 @@
         }
       },
       "required": [
-        "signatureAvailable",
-        "signatureDate"
+        "signatureDateTime",
+        "signatureContent"
       ],
       "patternProperties": {
         "x-.*": {},
@@ -441,72 +629,42 @@
     "network": {
       "$ref": "#/definitions/EdiNetwork"
     },
-    "id": {
-      "title": "Id",
-      "description": "The unique id of the POD",
-      "type": "string"
-    },
-    "refNo": {
-      "title": "Reference Number",
-      "description": "A reference of the ordering party relating to the goods",
-      "type": "string"
-    },
-    "shipper": {
-      "$ref": "#/definitions/EdiAddress"
-    },
-    "consignee": {
-      "$ref": "#/definitions/EdiAddress"
-    },
-    "carrier": {
-      "$ref": "#/definitions/EdiAddress"
-    },
     "shippingDate": {
       "title": "Shipping date",
       "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
       "type": "string",
       "format": "date"
     },
-    "shippingPartner": {
-      "$ref": "#/definitions/EdiPartnerIdentification"
+    "references": {
+      "$ref": "#/definitions/EdiDocumentReferences"
     },
-    "receivingPartner": {
-      "$ref": "#/definitions/EdiPartnerIdentification"
+    "archive": {
+      "$ref": "#/definitions/EdiDocumentArchive"
     },
-    "content": {
-      "$ref": "#/definitions/EdiFileContent"
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiDocumentItem"
+      }
     },
-    "documentCreationDate": {
-      "title": "Document creation date",
-      "description": "The Date this document was created",
+    "documentCreationDateTime": {
+      "title": "Document creation date and time",
+      "description": "The date and time this document was created",
       "type": "string",
       "format": "date-time"
     },
-    "arrivalDate": {
-      "title": "Arrival date",
-      "description": "The date and time goods arrived",
-      "type": "string",
-      "format": "date-time"
-    },
-    "plannedShippingDate": {
-      "title": "Planned shipping date",
-      "description": "The planned date and time of shipping/transport",
-      "type": "string",
-      "format": "date"
-    },
-    "signature": {
-      "$ref": "#/definitions/EdiSignature"
+    "remarks": {
+      "title": "Remarks (free form)",
+      "description": "Additional remarks",
+      "type": "string"
     }
   },
   "required": [
     "$schema",
     "receiver",
-    "id",
-    "refNo",
-    "shipper",
-    "consignee",
     "shippingDate",
-    "shippingPartner",
-    "receivingPartner",
-    "documentCreationDate"
+    "references",
+    "documents",
+    "documentCreationDateTime"
   ]
 }
