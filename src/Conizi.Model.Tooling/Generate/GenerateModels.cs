@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using Conizi.Model.Accounting.Material;
-using Conizi.Model.Archiving;
+using Conizi.Model.Documents;
 using Conizi.Model.Telematics;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Microsoft.Extensions.Logging;
@@ -38,7 +38,8 @@ namespace Conizi.Model.Tooling.Generate
                 typeof(PickupOrderEvent),
                 typeof(PickupOrder),
                 typeof(PickupOrderBulk),
-                typeof(ProofOfDelivery),
+                typeof(TransportDocument),
+                typeof(StatusImage),
                 typeof(MaterialTransaction),
                 typeof(GeoLocation)
             };
