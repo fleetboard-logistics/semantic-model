@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-09-11T15:58:08.3713408+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4407 - CONIZI-678-POD",
+  "$comment": "Generated: 2019-09-12T09:50:08.3947554+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4411 - master",
   "$id": "https://model.conizi.io/v1/documents/status-image.json",
   "title": "Status Image",
   "description": "A status image is a kind of document to document a process",
@@ -591,18 +591,6 @@
     "network": {
       "$ref": "#/definitions/EdiNetwork"
     },
-    "shippingDate": {
-      "title": "Shipping date",
-      "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
-      "type": "string",
-      "format": "date"
-    },
-    "references": {
-      "$ref": "#/definitions/EdiDocumentReferences"
-    },
-    "archive": {
-      "$ref": "#/definitions/EdiDocumentArchive"
-    },
     "images": {
       "type": "array",
       "items": {
@@ -615,6 +603,18 @@
       "type": "string",
       "format": "date-time"
     },
+    "shippingDate": {
+      "title": "Shipping date",
+      "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
+      "type": "string",
+      "format": "date"
+    },
+    "references": {
+      "$ref": "#/definitions/EdiDocumentReferences"
+    },
+    "archive": {
+      "$ref": "#/definitions/EdiDocumentArchive"
+    },
     "remarks": {
       "title": "Remarks (free form)",
       "description": "Additional remarks",
@@ -624,9 +624,8 @@
   "required": [
     "$schema",
     "receiver",
-    "shippingDate",
-    "references",
     "images",
-    "documentCreationDateTime"
+    "documentCreationDateTime",
+    "references"
   ]
 }
