@@ -55,22 +55,19 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// Values are measured in kilometers
         /// </summary>
-        [Description("Distance Values are measured in kilometers")]
-        [EnumMember(Value = "KMT")]
+        [Description("Distance Values are measured in kilometers")] [EnumMember(Value = "KMT")]
         Kilometer,
 
         /// <summary>
         /// Values are measured in nautical miles
         /// </summary>
-        [Description("Distance Values are measured in nautical miles")]
-        [EnumMember(Value = "NMI")]
+        [Description("Distance Values are measured in nautical miles")] [EnumMember(Value = "NMI")]
         NauticalMile,
 
         /// <summary>
         /// Values are measured in miles
         /// </summary>
-        [Description("Distance Values are measured in (Statute/English) miles")]
-        [EnumMember(Value = "SMI")]
+        [Description("Distance Values are measured in (Statute/English) miles")] [EnumMember(Value = "SMI")]
         StatuteMile
     }
 
@@ -85,22 +82,19 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// Describes a normal priority
         /// </summary>
-        [Description("Message has a normal priority")]
-        [EnumMember(Value = "normal")]
+        [Description("Message has a normal priority")] [EnumMember(Value = "normal")]
         Normal,
 
         /// <summary>
         /// Describes a high priority
         /// </summary>
-        [Description("Message has a high priority")]
-        [EnumMember(Value = "high")]
+        [Description("Message has a high priority")] [EnumMember(Value = "high")]
         High,
 
         /// <summary>
         /// Describes a low priority
         /// </summary>
-        [Description("Message has a low priority")]
-        [EnumMember(Value = "low")]
+        [Description("Message has a low priority")] [EnumMember(Value = "low")]
         Low,
     }
 
@@ -115,50 +109,118 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// EUR Pallets as defined by European Pallet Association (EPAL)
         /// </summary>
-        [Description("EUR Pallets as defined by European Pallet Association (EPAL)")]
-        [EnumMember(Value = "eurPallets")]
+        [Description("EUR Pallets as defined by European Pallet Association (EPAL)")] [EnumMember(Value = "eurPallets")]
         EurPallets = 1,
 
         /// <summary>
         /// EUR Boxes as defined by European Pallet Association (EPAL)
         /// </summary>
-        [Description("EUR Boxes as defined by European Pallet Association (EPAL)")]
-        [EnumMember(Value = "eurBoxes")]
+        [Description("EUR Boxes as defined by European Pallet Association (EPAL)")] [EnumMember(Value = "eurBoxes")]
         EurBoxes = 2,
 
         /// <summary>
         /// H1 Pallets
         /// </summary>
-        [Description("H1 Pallets")]
-        [EnumMember(Value = "h1Pallets")]
+        [Description("H1 Pallets")] [EnumMember(Value = "h1Pallets")]
         H1Pallets = 3,
 
         /// <summary>
         /// E2 Pallets
         /// </summary>
-        [Description("E2 Pallets")]
-        [EnumMember(Value = "e2Pallets")]
+        [Description("E2 Pallets")] [EnumMember(Value = "e2Pallets")]
         E2Pallets = 4,
 
         /// <summary>
         /// OneWayPallets like Chep pallets
         /// </summary>
-        [Description("OneWayPallets like Chep pallets")]
-        [EnumMember(Value = "oneWayPallets")]
+        [Description("OneWayPallets like Chep pallets")] [EnumMember(Value = "oneWayPallets")]
         OneWayPallets = 5,
 
         /// <summary>
         /// Knauf Pallets
         /// </summary>
-        [Description("Knauf Pallets")]
-        [EnumMember(Value = "knaufPallets")]
+        [Description("Knauf Pallets")] [EnumMember(Value = "knaufPallets")]
         KnaufPallets = 6,
 
         /// <summary>
         /// Düsseldorfer Pallets
         /// </summary>
-        [Description("Düsseldorfer Pallets")]
-        [EnumMember(Value = "duesseldorferPallets")]
+        [Description("Düsseldorfer Pallets")] [EnumMember(Value = "duesseldorferPallets")]
         DuesseldorferPallets = 7,
+    }
+
+    /// <summary>
+    /// Defines the type of a document
+    /// </summary>
+    [Description(
+        "Defines the type of a document")]
+    [ConiziAdditionalProperties(false)]
+    public enum EdiDocumentType
+    {
+        /// <summary>
+        /// An unknown document
+        /// </summary>
+        [EnumMember(Value = "unknown")] Unknown = 0,
+
+        /// <summary>
+        /// A Proof of Delivery (POD)
+        /// </summary>
+        [EnumMember(Value = "proof_of_delivery")]
+        ProofOfDelivery = 1,
+
+        /// <summary>
+        /// A Waybill
+        /// </summary>
+        [EnumMember(Value = "waybill")] Waybill = 2,
+
+        /// <summary>
+        /// Delivery Note
+        /// </summary>
+        [EnumMember(Value = "delivery_note")] DeliveryNote = 3,
+
+        /// <summary>
+        /// Packaging List
+        /// </summary>
+        [EnumMember(Value = "packaging_list")] PackagingList = 4,
+
+        /// <summary>
+        /// Other Document
+        /// </summary>
+        [EnumMember(Value = "other_document")] OtherDocument = 99,
+    }
+
+    /// <summary>
+    /// Defines the type of a document
+    /// </summary>
+    [Description(
+        "Defines the type of a document")]
+    [ConiziAdditionalProperties(false)]
+    public enum EdiImageType
+    {
+        /// <summary>
+        /// An unknown image type
+        /// </summary>
+        [EnumMember(Value = "unknown")] Unknown = 0,
+
+        /// <summary>
+        /// An image of damaged goods
+        /// </summary>
+        [EnumMember(Value = "damage")]
+        Damage = 1,
+
+        /// <summary>
+        /// An image of load securing
+        /// </summary>
+        [EnumMember(Value = "load_securing")] LoadSecuring = 2,
+
+        /// <summary>
+        /// An image of an accident
+        /// </summary>
+        [EnumMember(Value = "accident")] Accident = 3,
+
+        /// <summary>
+        /// Other image
+        /// </summary>
+        [EnumMember(Value = "other_image")] OtherDocument = 99,
     }
 }
