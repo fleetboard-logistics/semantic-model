@@ -35,23 +35,19 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Shipping date")]
         [Description("The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued")]
-        [JsonProperty(Order = -4)]
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        [Required]
         public DateTime ShippingDate { get; set; }
 
         /// <summary>
         /// All references to the linked documents, systems and devices
         /// </summary>
-        [JsonProperty(Order = -3)]
         [Required]
         public EdiDocumentReferences References { get; set; }
 
         /// <summary>
         ///  All object to archive the document
         /// </summary>
-        [JsonProperty(Order = -2)]
         public EdiDocumentArchive Archive { get; set; }
 
         
