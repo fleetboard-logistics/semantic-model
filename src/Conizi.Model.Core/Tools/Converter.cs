@@ -69,7 +69,10 @@ namespace Conizi.Model.Core.Tools
                 CreatedAt = DateTime.Now,
                 CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")",
             });
-            
+
+            if (!indented)
+                settings.Formatting = Formatting.None;
+
             var jsonString = JsonConvert.SerializeObject(model, settings);
             
             var conversionResult = new SerializationResult
