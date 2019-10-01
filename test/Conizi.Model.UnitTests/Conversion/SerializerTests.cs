@@ -354,11 +354,11 @@ namespace Conizi.Model.UnitTests.Conversion
             Assert.NotNull(content);
 
             var validTestDateTime = Regex.IsMatch(content,
-                "\"testDateTime\": \"\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d.*\"");
+                "\"testDateTime\":\"\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d.*\"");
             Assert.True(validTestDateTime, "Invalid DateTime format!");
 
             var validTestDateOnly = Regex.IsMatch(content,
-                "\"testDateOnly\": \"\\d\\d\\d\\d-\\d\\d-\\d\\d\"");
+                "\"testDateOnly\":\"\\d\\d\\d\\d-\\d\\d-\\d\\d\"");
             Assert.True(validTestDateOnly, "Invalid Date format!");
 
 
