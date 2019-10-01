@@ -1,0 +1,74 @@
+{
+    "$schema": "https://model.conizi.io/v1/documents/transport-document.json",
+    "receiver": {
+        "coniziId": "4545454545454545454"
+    },
+    "shippingDate": "2019-09-11",
+    "references": {
+        "id": "12345678",
+        "referenceNumber": "12312313"
+    },
+    "archive": {
+        "shipper": {
+            "name": "Zombie Inc.",
+            "street": "Am düsteren Weg",
+            "houseNumber": "3a",
+            "zipCode": "97424",
+            "city": "Würzburg",
+            "townArea": "Hafen West",
+            "countryCode": "DE",
+            "additionalAddressLines": [
+                "Gate 2"
+            ]
+        },
+        "consignee": {
+            "name": "Umbrella Corp.",
+            "street": "Umbrella Str.",
+            "houseNumber": "1-20",
+            "city": "Racoon City"
+        },
+        "shippingPartner": {
+            "name": "My Shipping Partner",
+            "partnerId": "MAINP"
+        },
+        "receivingPartner": {
+            "name": "Max Mustermann",
+            "street": "Musterstraße 1",
+            "zipCode": "97082",
+            "city": "Würzburg",
+            "countryCode": "DE"
+        }
+    },
+    "documents": [
+        {
+            "documentType": "proof_of_delivery",
+            "documentCreator": "Hans Z.",
+            "documentDateTime": "2019-09-11T14:28:27.7104811+02:00",
+            "documentContent": {
+                "fileName": "hans_waybill_doc.pdf",
+                "contentType": "application/pdf",
+                "binaryData": {
+                    "data": "AQAAAQ=="
+                }
+            },
+            "signatures": [
+                {
+                    "signeeName": "Hans Z.",
+                    "signatureDateTime": "2019-09-11T14:26:27.7128145+02:00",
+                    "signatureContent": {
+                        "fileName": "hans_signature.png",
+                        "contentType": "image/png",
+                        "binaryData": {
+                            "data": "AQEBAQ=="
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "documentCreationDateTime": "2019-09-11T14:30:27.7077295+02:00",
+    "$metadata": {
+        "$createdAt": "2019-09-11T16:30:27.7168527+02:00",
+        "$createdBy": "Conizi.Model.Core.Tools (1.0.0.0)"
+    }
+}

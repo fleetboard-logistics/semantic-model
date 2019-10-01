@@ -17,14 +17,7 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiSignature : EdiPatternPropertiesBase
     {
-        /// <summary>
-        /// Is a signature available
-        /// </summary>
-        [DisplayName("Signature available")]
-        [Description("Is a signature available")]
-        [Required]
-        public bool? SignatureAvailable { get; set; }
-
+      
         /// <summary>
         /// Name of the signee
         /// </summary>
@@ -36,13 +29,14 @@ namespace Conizi.Model.Shared.Entities
         /// The date and time of signature
         /// </summary>
         [Required]
-        [DisplayName("Signature date")]
+        [DisplayName("Signature date and time")]
         [Description("The date and time of signature")]
-        public DateTime SignatureDate { get; set; }
+        public DateTime SignatureDateTime { get; set; }
 
         /// <summary>
         /// The signature as a file (image, reference)
         /// </summary>
+        [Required]
         public EdiFileContent SignatureContent { get; set; }
     }
 }
