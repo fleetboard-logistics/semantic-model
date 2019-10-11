@@ -72,7 +72,6 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// All references to the linked documents, systems and devices
         /// </summary>
-        [Required]
         public EdiDocumentReferences References { get; set; }
 
         /// <summary>

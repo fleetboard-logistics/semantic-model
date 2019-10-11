@@ -18,7 +18,8 @@ namespace Conizi.Model.Examples.Documents
         {
             var m = new TransportDocument
             {
-                References = {Id = "12345678"},
+                References = new EdiDocumentReferencesExtended {Id = "12345678"},
+                Archive = new EdiDocumentArchive(),
                 DocumentCreationDateTime = DateTime.Now.AddHours(-2),
                 ShippingDate = DateTime.Now,
                 Receiver = new EdiMessageRouting {ConiziId = "4545454545454545454"}
