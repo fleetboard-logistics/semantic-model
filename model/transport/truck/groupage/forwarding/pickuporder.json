@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-05-20T11:50:58.4733407+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-10-11T10:28:24.7435474+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
   "title": "Pickup order",
   "description": "A single pickup order which is transferred between two partners",
@@ -746,6 +746,75 @@
           "type": "string"
         }
       },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDocumentReferences": {
+      "title": "References",
+      "description": "All references to the linked documents, systems and devices",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The unique id of the document",
+          "type": "string"
+        },
+        "referenceNumber": {
+          "title": "Reference number",
+          "description": "The reference number (e.g. delivery note",
+          "type": "string"
+        },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
+        },
+        "consignmentNoShippingPartner": {
+          "title": "Consignment number of the shipping partner",
+          "description": "Unique identification for the consignment within the transport management system of the shipping partner",
+          "type": "string"
+        },
+        "consignmentNoReceivingPartner": {
+          "title": "Consignment number of the receiving partner",
+          "description": "Unique identification for the consignment within the transport management system of the receiving partner",
+          "type": "string"
+        },
+        "tourId": {
+          "title": "Tour Id",
+          "description": "A unique identifier assigned to the tour by the devlivering company",
+          "type": "string"
+        },
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for the stop within the tour",
+          "type": "string"
+        },
+        "driverId": {
+          "title": "Diver Id",
+          "description": "The id of the driver",
+          "type": "string"
+        },
+        "vehicleId": {
+          "title": "The vehicle id",
+          "type": "string"
+        },
+        "deviceId": {
+          "title": "Device Id",
+          "description": " The id of the used device",
+          "type": "string"
+        },
+        "systemReferences": {
+          "title": "Device Id",
+          "description": "A reference to an IT system like TMS, etc.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -1765,6 +1834,9 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "documentReferences": {
+          "$ref": "#/definitions/EdiDocumentReferences"
+        },
         "returnOfPreviousConsignment": {
           "$ref": "#/definitions/EdiReturnOfPreviousConsignment"
         },

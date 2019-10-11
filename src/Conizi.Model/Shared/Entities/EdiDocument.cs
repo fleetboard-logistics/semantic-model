@@ -14,15 +14,6 @@ namespace Conizi.Model.Shared.Entities
     public class EdiDocument : EdiModel
     {
         /// <summary>
-        /// Default constructor
-        /// </summary>
-        public EdiDocument()
-        {
-            References = new EdiDocumentReferences();
-            Archive = new EdiDocumentArchive();
-        }
-
-        /// <summary>
         /// The date and time this document was created
         /// </summary>
         [DisplayName("Document creation date and time")]
@@ -43,13 +34,12 @@ namespace Conizi.Model.Shared.Entities
         /// All references to the linked documents, systems and devices
         /// </summary>
         [Required]
-        public EdiDocumentReferences References { get; set; }
+        public EdiDocumentReferencesExtended References { get; set; }
 
         /// <summary>
         ///  All object to archive the document
         /// </summary>
         public EdiDocumentArchive Archive { get; set; }
-
         
         /// <summary>
         /// Additional remarks (free form)
@@ -58,6 +48,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("Additional remarks")]
         public string Remarks { get; set; }
     }
+
 
     /// <summary>
     ///  All references to the linked documents, systems and devices
@@ -139,9 +130,11 @@ namespace Conizi.Model.Shared.Entities
         public string DeviceId { get; set; }
 
         /// <summary>
-        /// Company responsible for the actual transport of the goods from the shipping partner to the recipient
+        /// A reference to an IT system
         /// </summary>
-        public EdiAddress Carrier { get; set; }
+        [DisplayName("Device Id")]
+        [Description("A reference to an IT system like TMS, etc.")]
+        public string SystemReferences { get; set; }
 
     }
 
@@ -293,4 +286,19 @@ namespace Conizi.Model.Shared.Entities
         public EdiGeoPosition GeoPosition { get; set; }
 
     }
+
+    /// <summary>
+    /// Extended Reference properties for document types
+    /// </summary>
+    public class EdiDocumentReferencesExtended : EdiDocumentReferences {
+        
+        /// <summary>
+        /// Company responsible for the actual transport of the goods from the shipping partner to the recipient
+        /// </summary>
+        [JsonProperty("carrier", Order = -2)]
+        public EdiAddress Carrier { get; set; }
+    }
+
+
+    
 }

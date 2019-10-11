@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-09-12T09:50:08.3947554+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4411 - master",
+  "$comment": "Generated: 2019-10-11T10:28:25.3225476+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/documents/status-image.json",
   "title": "Status Image",
   "description": "A status image is a kind of document to document a process",
@@ -124,12 +124,14 @@
         "\\$.*": {}
       }
     },
-    "EdiDocumentReferences": {
+    "EdiDocumentReferencesExtended": {
       "title": "References",
       "description": "All references to the linked documents, systems and devices",
       "type": "object",
-      "additionalProperties": false,
       "properties": {
+        "carrier": {
+          "$ref": "#/definitions/EdiAddress"
+        },
         "id": {
           "title": "Id",
           "description": "The unique id of the document",
@@ -179,17 +181,15 @@
           "description": " The id of the used device",
           "type": "string"
         },
-        "carrier": {
-          "$ref": "#/definitions/EdiAddress"
+        "systemReferences": {
+          "title": "Device Id",
+          "description": "A reference to an IT system like TMS, etc.",
+          "type": "string"
         }
       },
       "required": [
         "id"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      ]
     },
     "EdiFileContent": {
       "title": "File Content",
@@ -610,7 +610,7 @@
       "format": "date"
     },
     "references": {
-      "$ref": "#/definitions/EdiDocumentReferences"
+      "$ref": "#/definitions/EdiDocumentReferencesExtended"
     },
     "archive": {
       "$ref": "#/definitions/EdiDocumentArchive"

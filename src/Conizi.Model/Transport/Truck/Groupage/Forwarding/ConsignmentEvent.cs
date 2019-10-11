@@ -177,5 +177,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Wait/Downtime in minute")]
         [Description("Wait/Downtime in minute")]
         public int? WaitDowntimeMinutes { get; set; }
+
+        /// <summary>
+        /// The geo position
+        /// </summary>
+        [JsonProperty("geoPosition", Order = -15, Required = Required.DisallowNull)]
+        public EdiGeoPosition GeoPosition { get; set; }
     }
 }

@@ -233,7 +233,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         //[Description("Events occurred while unloading the package by an external deliverer")]
         public EdiPackageEvent UnloadingExternalDeliverer { get; set; }
 
-
+        /// <summary>
+        /// The geo position
+        /// </summary>
+        [JsonProperty("geoPosition", Order = -15, Required = Required.DisallowNull)]
+        public EdiGeoPosition GeoPosition { get; set; }
     }
 
 }
