@@ -29,6 +29,7 @@
   <Namespace>Serilog</Namespace>
   <Namespace>Serilog.Configuration</Namespace>
   <Namespace>System.Security.Cryptography</Namespace>
+  <Namespace>Conizi.Model.Documents</Namespace>
 </Query>
 
 Generator.RegisterJsonSchemaLicense(Environment.GetEnvironmentVariable("Generator:JsonSchemaLicense"));
@@ -49,7 +50,8 @@ var models = new List<Type> {
 	 typeof(PickupOrderEvent),
 	 typeof(PickupOrder),
 	 typeof(PickupOrderBulk),
-	 typeof(ProofOfDelivery),
+	 typeof(TransportDocument),
+	 typeof(StatusImage),
 	 typeof(MaterialTransaction),
 	 typeof(GeoLocation)
 };
