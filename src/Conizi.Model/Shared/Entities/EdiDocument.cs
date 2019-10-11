@@ -39,17 +39,11 @@ namespace Conizi.Model.Shared.Entities
         [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime ShippingDate { get; set; }
 
-        /// <summary>
-        /// All references to the linked documents, systems and devices
-        /// </summary>
-        [Required]
-        public EdiDocumentReferences References { get; set; }
 
         /// <summary>
         ///  All object to archive the document
         /// </summary>
         public EdiDocumentArchive Archive { get; set; }
-
         
         /// <summary>
         /// Additional remarks (free form)
@@ -137,6 +131,13 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Device Id")]
         [Description(" The id of the used device")]
         public string DeviceId { get; set; }
+
+        /// <summary>
+        /// A reference to an IT system
+        /// </summary>
+        [DisplayName("Device Id")]
+        [Description("A reference to an IT system like TMS, etc.")]
+        public string SystemReference { get; set; }
 
         /// <summary>
         /// Company responsible for the actual transport of the goods from the shipping partner to the recipient
