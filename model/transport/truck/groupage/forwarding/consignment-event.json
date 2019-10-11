@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-10-11T10:28:23.4350844+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-10-11T10:58:26.8111149+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
@@ -1357,6 +1357,9 @@
     },
     "network": {
       "$ref": "#/definitions/EdiNetwork"
+    },
+    "geoPosition": {
+      "$ref": "#/definitions/EdiGeoPosition"
     },
     "consignmentNoShippingPartner": {
       "title": "Consignment number of the shipping partner",
