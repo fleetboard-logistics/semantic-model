@@ -20,6 +20,11 @@ namespace Conizi.Model.Shared.Entities
     public class EdiReferences : EdiPatternPropertiesBase
     {
         /// <summary>
+        /// All references to the linked documents, systems and devices
+        /// </summary>
+        public EdiDocumentReferences DocumentReferences { get; set; }
+
+        /// <summary>
         /// Reference to another consignment which content is return using this pickup order
         /// </summary>
         public EdiReturnOfPreviousConsignment ReturnOfPreviousConsignment { get; set; }

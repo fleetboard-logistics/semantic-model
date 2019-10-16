@@ -70,6 +70,11 @@ namespace Conizi.Model.Shared.Entities
         public EdiNetwork Network { get; set; }
 
         /// <summary>
+        /// All references to the linked documents, systems and devices
+        /// </summary>
+        public EdiDocumentReferences References { get; set; }
+
+        /// <summary>
         /// Metadata for conizi routing etc. (Not be shown in Model definition)
         /// </summary>
         [JsonProperty("$metadata", Required = Required.DisallowNull)]
