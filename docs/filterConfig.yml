@@ -8,6 +8,8 @@ apiRules:
 - include:
     uidRegex: ^Conizi\.Model\.Accounting
 - include:
+    uidRegex: ^Conizi\.Model\.Documents
+- include:
     uidRegex: ^Conizi\.Model\.Shared\.Entities
 - include:
     uidRegex: ^Conizi\.Model\.Shared\.Definitions
