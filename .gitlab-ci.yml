@@ -69,7 +69,7 @@ deploy:models:
     - tags
 
 deploy:nuget:
-  image: mcr.microsoft.com/dotnet/framework/sdk:4.8
+  image: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-1803
   stage: deploy
   tags:
     - docker
