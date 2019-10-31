@@ -69,7 +69,7 @@ deploy:models:
     - tags
 
 deploy:nuget:
-  image: mcr.microsoft.com/dotnet/framework/sdk:4.7.2
+  image: mcr.microsoft.com/dotnet/framework/sdk:4.7.1
   stage: deploy
   tags:
     - docker
