@@ -14,12 +14,12 @@
     <language>en</language>
     <serviceable>true</serviceable>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>Pre-Release of the conizi semantic models implemented in C#. Please use this library with care. It is not yet stable!</description>
+    <description>Release of the conizi semantic models implemented in C#.</description>
     <releaseNotes>Add further models and comments.</releaseNotes>
     <copyright>Copyright Fleetboard Logistics GmbH 2019</copyright>
     <tags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model, interfaces</tags>
      <dependencies>
-      <dependency id="Newtonsoft.Json" version="12.0.1" />
+      <dependency id="Newtonsoft.Json" version="12.0.3" />
     </dependencies>
   </metadata>
   <files>

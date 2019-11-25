@@ -73,7 +73,6 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Id")]
         [Description("The unique id of the document")]
-        [Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -143,6 +142,13 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public EdiAddress Carrier { get; set; }
 
+        /// <summary>
+        /// Unique identification for the package. This is often an SSCC / NVE barcode number.
+        /// </summary>
+        [DisplayName("Package number / Barcode of the package")]
+        [Description(
+            "Unique identification for the package. This is often an SSCC / NVE barcode number")]
+        public string PackageNo { get; set; }
     }
 
     /// <summary>
