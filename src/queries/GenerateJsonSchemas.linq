@@ -6,11 +6,11 @@
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
   <NuGetReference>System.Security.Cryptography.Algorithms</NuGetReference>
   <Namespace>Conizi.Model.Accounting.Material</Namespace>
-  <Namespace>Conizi.Model.Archiving</Namespace>
   <Namespace>Conizi.Model.Converters</Namespace>
   <Namespace>Conizi.Model.Core.Entities</Namespace>
   <Namespace>Conizi.Model.Core.Extensions</Namespace>
   <Namespace>Conizi.Model.Core.Tools</Namespace>
+  <Namespace>Conizi.Model.Documents</Namespace>
   <Namespace>Conizi.Model.Extensions</Namespace>
   <Namespace>Conizi.Model.Shared.Attributes</Namespace>
   <Namespace>Conizi.Model.Shared.Definitions</Namespace>
@@ -49,7 +49,8 @@ var models = new List<Type> {
 	 typeof(PickupOrderEvent),
 	 typeof(PickupOrder),
 	 typeof(PickupOrderBulk),
-	 typeof(ProofOfDelivery),
+	 typeof(TransportDocument),
+	 typeof(StatusImage),
 	 typeof(MaterialTransaction),
 	 typeof(GeoLocation)
 };

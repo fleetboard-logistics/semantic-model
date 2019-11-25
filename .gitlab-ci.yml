@@ -69,8 +69,8 @@ deploy:models:
     - tags
 
 deploy:nuget:
-  image: mcr.microsoft.com/dotnet/framework/sdk:4.8
   stage: deploy
+  image: mcr.microsoft.com/dotnet/framework/sdk:4.8
   tags:
     - docker
     - windows

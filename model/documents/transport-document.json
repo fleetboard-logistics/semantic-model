@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-09-12T09:50:08.2307431+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4411 - master",
+  "$comment": "Generated: 2019-10-11T10:28:25.2125492+02:00 - Conizi.Model.Core v:1.0.0.0",
   "$id": "https://model.conizi.io/v1/documents/transport-document.json",
   "title": "Transport Document",
   "description": "A transport document is a kind of document used to convey information about cargo that is being transported",
@@ -220,12 +220,14 @@
         "\\$.*": {}
       }
     },
-    "EdiDocumentReferences": {
+    "EdiDocumentReferencesExtended": {
       "title": "References",
       "description": "All references to the linked documents, systems and devices",
       "type": "object",
-      "additionalProperties": false,
       "properties": {
+        "carrier": {
+          "$ref": "#/definitions/EdiAddress"
+        },
         "id": {
           "title": "Id",
           "description": "The unique id of the document",
@@ -275,17 +277,15 @@
           "description": " The id of the used device",
           "type": "string"
         },
-        "carrier": {
-          "$ref": "#/definitions/EdiAddress"
+        "systemReferences": {
+          "title": "Device Id",
+          "description": "A reference to an IT system like TMS, etc.",
+          "type": "string"
         }
       },
       "required": [
         "id"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
+      ]
     },
     "EdiFileContent": {
       "title": "File Content",
@@ -648,7 +648,7 @@
       "format": "date"
     },
     "references": {
-      "$ref": "#/definitions/EdiDocumentReferences"
+      "$ref": "#/definitions/EdiDocumentReferencesExtended"
     },
     "archive": {
       "$ref": "#/definitions/EdiDocumentArchive"
