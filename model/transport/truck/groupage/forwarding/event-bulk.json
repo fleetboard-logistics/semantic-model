@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-10-11T10:58:27.6221743+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-11-25T22:10:19.3929214+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -495,11 +495,13 @@
           "title": "Device Id",
           "description": "A reference to an IT system like TMS, etc.",
           "type": "string"
+        },
+        "packageNo": {
+          "title": "Package number / Barcode of the package",
+          "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
         }
       },
-      "required": [
-        "id"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

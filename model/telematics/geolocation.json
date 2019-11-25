@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-10-11T10:28:25.4105486+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-11-25T22:10:20.6518179+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
   "$id": "https://model.conizi.io/v1/telematics/geolocation.json",
   "title": "Geo Location",
   "description": "A single geo location which is transferred between two partners. Also vehicle and driver data could be included",
@@ -64,11 +64,13 @@
           "title": "Device Id",
           "description": "A reference to an IT system like TMS, etc.",
           "type": "string"
+        },
+        "packageNo": {
+          "title": "Package number / Barcode of the package",
+          "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
         }
       },
-      "required": [
-        "id"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
