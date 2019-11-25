@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-10-11T10:28:25.3225476+02:00 - Conizi.Model.Core v:1.0.0.0",
+  "$comment": "Generated: 2019-11-25T22:10:20.5725017+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
   "$id": "https://model.conizi.io/v1/documents/status-image.json",
   "title": "Status Image",
   "description": "A status image is a kind of document to document a process",
@@ -185,11 +185,13 @@
           "title": "Device Id",
           "description": "A reference to an IT system like TMS, etc.",
           "type": "string"
+        },
+        "packageNo": {
+          "title": "Package number / Barcode of the package",
+          "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
         }
-      },
-      "required": [
-        "id"
-      ]
+      }
     },
     "EdiFileContent": {
       "title": "File Content",
