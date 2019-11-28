@@ -26,6 +26,12 @@ namespace Conizi.Model.Shared.Entities
         public string Name { get; set; }
 
         /// <summary>
+        /// Name2 of the address
+        /// </summary>
+        [DisplayName("Name2 of the address")]
+        public string Name2 { get; set; }
+
+        /// <summary>
         /// Street of the address
         /// </summary>
         [DisplayName("Street of the address")]

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-25T22:10:18.2323962+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
+  "$comment": "Generated: 2019-11-28T08:52:12.2041908+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -47,6 +47,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {
@@ -1455,6 +1459,10 @@
           "title": "Name of the address",
           "type": "string"
         },
+        "name2": {
+          "title": "Name2 of the address",
+          "type": "string"
+        },
         "street": {
           "title": "Street of the address",
           "type": "string"
@@ -1576,6 +1584,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {

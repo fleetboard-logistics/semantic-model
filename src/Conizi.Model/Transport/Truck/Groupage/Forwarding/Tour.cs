@@ -109,6 +109,14 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiAddress Carrier { get; set; }
 
         /// <summary>
+        /// Person responsible for dispatching the transport
+        /// </summary>
+        //[DisplayName("Dispatcher")]
+        //[Description("Person responsible for dispatching the transport")]
+        [JsonProperty("dispatcher", Order = -1)]
+        public EdiAddress Dispatcher { get; set; }
+
+        /// <summary>
         /// Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
         /// </summary>
         public EdiAdditionalLoadingEquipment AdditionalLoadingEquipment { get; set; }
@@ -162,5 +170,13 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         ///  Stops for delivering the actual goods
         /// </summary>
         public List<EdiTourStop> Stops { get; set; }
+
+        /// <summary>
+        /// Additional remarks (free form)
+        /// </summary>
+        [DisplayName("Remarks (free form)")]
+        [Description("Additional remarks")]
+        [StringLength(512)]
+        public string Remarks { get; set; }
     }
 }

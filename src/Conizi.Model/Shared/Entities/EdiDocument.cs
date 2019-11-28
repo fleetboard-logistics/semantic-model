@@ -185,7 +185,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("All kind of documents used for transports")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDocumentItem : EdiGeoPosition
+    public class EdiDocumentItem
     {
         /// <summary>
         ///  The document type
