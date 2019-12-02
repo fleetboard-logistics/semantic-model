@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-09-12T09:50:08.2307431+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4411 - master",
+  "$comment": "Generated: 2019-11-28T08:52:14.8076342+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
   "$id": "https://model.conizi.io/v1/documents/transport-document.json",
   "title": "Transport Document",
   "description": "A transport document is a kind of document used to convey information about cargo that is being transported",
@@ -15,6 +15,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {
@@ -130,16 +134,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "latitude": {
-          "title": "Latitude",
-          "description": "North–south position of a point on the Earth's surface",
-          "type": "number"
-        },
-        "longitude": {
-          "title": "Longitude",
-          "description": "East–west position of a point on the Earth's surface",
-          "type": "number"
-        },
         "documentType": {
           "title": "Document type",
           "description": "The document type",
@@ -181,33 +175,6 @@
         },
         "geoPosition": {
           "$ref": "#/definitions/EdiGeoPosition"
-        },
-        "placeName": {
-          "title": "Place name",
-          "description": "The place name of the current geo position",
-          "type": "string"
-        },
-        "w3WCoordinate": {
-          "title": "What3words coordinate",
-          "description": "A coordinate for the What3Words service like index.home.raft",
-          "type": "string"
-        },
-        "recordTime": {
-          "title": "Record time",
-          "description": "Time the GPS record was created",
-          "type": "string",
-          "format": "date-time"
-        },
-        "angle": {
-          "title": "Angle",
-          "description": "The angle is the direction that the vehicle is moving in",
-          "type": "number"
-        },
-        "speed": {
-          "$ref": "#/definitions/EdiGeoSpeed"
-        },
-        "geoRadius": {
-          "$ref": "#/definitions/EdiGeoRadius"
         }
       },
       "required": [
@@ -220,12 +187,14 @@
         "\\$.*": {}
       }
     },
-    "EdiDocumentReferences": {
+    "EdiDocumentReferencesExtended": {
       "title": "References",
       "description": "All references to the linked documents, systems and devices",
       "type": "object",
-      "additionalProperties": false,
       "properties": {
+        "carrier": {
+          "$ref": "#/definitions/EdiAddress"
+        },
         "id": {
           "title": "Id",
           "description": "The unique id of the document",
@@ -275,16 +244,16 @@
           "description": " The id of the used device",
           "type": "string"
         },
-        "carrier": {
-          "$ref": "#/definitions/EdiAddress"
+        "systemReferences": {
+          "title": "Device Id",
+          "description": "A reference to an IT system like TMS, etc.",
+          "type": "string"
+        },
+        "packageNo": {
+          "title": "Package number / Barcode of the package",
+          "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
         }
-      },
-      "required": [
-        "id"
-      ],
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
       }
     },
     "EdiFileContent": {
@@ -510,6 +479,10 @@
           "title": "Name of the address",
           "type": "string"
         },
+        "name2": {
+          "title": "Name2 of the address",
+          "type": "string"
+        },
         "street": {
           "title": "Street of the address",
           "type": "string"
@@ -648,7 +621,7 @@
       "format": "date"
     },
     "references": {
-      "$ref": "#/definitions/EdiDocumentReferences"
+      "$ref": "#/definitions/EdiDocumentReferencesExtended"
     },
     "archive": {
       "$ref": "#/definitions/EdiDocumentArchive"

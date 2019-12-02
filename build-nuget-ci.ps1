@@ -46,11 +46,11 @@ echo "Running on $env:computername..."
     dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
 
     Write-Host deploying nuget... -ForegroundColor DarkGreen
-    $modelPackage = "src/Conizi.Model/nupkgs/Conizi.Model.$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix.nupkg"
+    $modelPackage = "nupkgs/Conizi.Model.$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix.nupkg"
     Write-Host deploying package $modelPackage... -ForegroundColor DarkGreen 
     dotnet nuget push $modelPackage -s nuget.org -k  $env:CONIZI_NUGET_API_KEY
 
-    $corePackage = "src/Conizi.Model.Core/nupkgs/Conizi.Model.Core.$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix.nupkg"
+    $corePackage = "nupkgs/Conizi.Model.Core.$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix.nupkg"
     Write-Host deploying package $corePackage... -ForegroundColor DarkGreen 
     dotnet nuget push $corePackage -s nuget.org -k  $env:CONIZI_NUGET_API_KEY
 }

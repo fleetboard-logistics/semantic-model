@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-07-30T12:56:24.2700439+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4235 - master",
+  "$comment": "Generated: 2019-11-28T08:52:13.6706699+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -15,6 +15,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {
@@ -431,6 +435,77 @@
       "description": "Consignment was disposed",
       "type": "object",
       "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDocumentReferences": {
+      "title": "References",
+      "description": "All references to the linked documents, systems and devices",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The unique id of the document",
+          "type": "string"
+        },
+        "referenceNumber": {
+          "title": "Reference number",
+          "description": "The reference number (e.g. delivery note",
+          "type": "string"
+        },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
+        },
+        "consignmentNoShippingPartner": {
+          "title": "Consignment number of the shipping partner",
+          "description": "Unique identification for the consignment within the transport management system of the shipping partner",
+          "type": "string"
+        },
+        "consignmentNoReceivingPartner": {
+          "title": "Consignment number of the receiving partner",
+          "description": "Unique identification for the consignment within the transport management system of the receiving partner",
+          "type": "string"
+        },
+        "tourId": {
+          "title": "Tour Id",
+          "description": "A unique identifier assigned to the tour by the devlivering company",
+          "type": "string"
+        },
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for the stop within the tour",
+          "type": "string"
+        },
+        "driverId": {
+          "title": "Diver Id",
+          "description": "The id of the driver",
+          "type": "string"
+        },
+        "vehicleId": {
+          "title": "The vehicle id",
+          "type": "string"
+        },
+        "deviceId": {
+          "title": "Device Id",
+          "description": " The id of the used device",
+          "type": "string"
+        },
+        "systemReferences": {
+          "title": "Device Id",
+          "description": "A reference to an IT system like TMS, etc.",
+          "type": "string"
+        },
+        "packageNo": {
+          "title": "Package number / Barcode of the package",
+          "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
+        }
+      },
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -1427,6 +1502,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {
@@ -2540,6 +2619,9 @@
         "network": {
           "$ref": "event-bulk.json#/definitions/EdiNetwork"
         },
+        "geoPosition": {
+          "$ref": "event-bulk.json#/definitions/EdiGeoPosition"
+        },
         "consignmentNoShippingPartner": {
           "title": "Consignment number of the shipping partner",
           "description": "Unique identification for the consignment within the transport management system of the shipping partner",
@@ -2641,6 +2723,9 @@
           "title": "Wait/Downtime in minute",
           "description": "Wait/Downtime in minute",
           "type": "integer"
+        },
+        "references": {
+          "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
       },
       "required": [
@@ -2673,6 +2758,9 @@
         },
         "network": {
           "$ref": "event-bulk.json#/definitions/EdiNetwork"
+        },
+        "geoPosition": {
+          "$ref": "event-bulk.json#/definitions/EdiGeoPosition"
         },
         "shippingPartner": {
           "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
@@ -2769,6 +2857,9 @@
         },
         "unloadingExternalDeliverer": {
           "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
+        },
+        "references": {
+          "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
       },
       "required": [
@@ -2888,6 +2979,9 @@
           "title": "Reference number",
           "description": "Reference number",
           "type": "string"
+        },
+        "references": {
+          "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
       },
       "required": [
@@ -2937,6 +3031,9 @@
         },
         "documents": {
           "$ref": "event-bulk.json#/definitions/EdiTourDocuments"
+        },
+        "references": {
+          "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
       },
       "required": [
@@ -2990,6 +3087,9 @@
       "items": {
         "$ref": "tour-event.json"
       }
+    },
+    "references": {
+      "$ref": "#/definitions/EdiDocumentReferences"
     }
   },
   "required": [
