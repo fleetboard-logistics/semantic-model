@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-25T22:10:17.6696123+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
+  "$comment": "Generated: 2019-11-28T08:52:11.5883312+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -47,6 +47,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {
@@ -1637,6 +1641,10 @@
           "title": "Name of the address",
           "type": "string"
         },
+        "name2": {
+          "title": "Name2 of the address",
+          "type": "string"
+        },
         "street": {
           "title": "Street of the address",
           "type": "string"
@@ -1758,6 +1766,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {
@@ -3138,6 +3150,9 @@
     "carrier": {
       "$ref": "#/definitions/EdiAddress"
     },
+    "dispatcher": {
+      "$ref": "#/definitions/EdiAddress"
+    },
     "additionalLoadingEquipment": {
       "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
     },
@@ -3187,6 +3202,11 @@
       "items": {
         "$ref": "#/definitions/EdiTourStop"
       }
+    },
+    "remarks": {
+      "title": "Remarks (free form)",
+      "description": "Additional remarks",
+      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"

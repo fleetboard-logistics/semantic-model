@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-25T22:10:18.9442314+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
+  "$comment": "Generated: 2019-11-28T08:52:13.1725347+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -47,6 +47,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {
@@ -1604,6 +1608,10 @@
           "title": "Name of the address",
           "type": "string"
         },
+        "name2": {
+          "title": "Name2 of the address",
+          "type": "string"
+        },
         "street": {
           "title": "Street of the address",
           "type": "string"
@@ -1725,6 +1733,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {

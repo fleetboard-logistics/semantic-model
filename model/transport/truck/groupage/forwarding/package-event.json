@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-25T22:10:18.5594066+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
+  "$comment": "Generated: 2019-11-28T08:52:12.6924045+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
@@ -407,6 +407,10 @@
         },
         "name": {
           "title": "Name of the address",
+          "type": "string"
+        },
+        "name2": {
+          "title": "Name2 of the address",
           "type": "string"
         },
         "street": {

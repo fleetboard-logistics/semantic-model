@@ -13,6 +13,9 @@ namespace Conizi.Model.Shared.Interfaces
 
         [DisplayName("Name of the address")]
         string Name { get; set; }
+
+        [DisplayName("Name2 of the address")]
+        string Name2 { get; set; }
         [DisplayName("Street of the address")]
         string Street { get; set; }
         [DisplayName("House number of the address")]
