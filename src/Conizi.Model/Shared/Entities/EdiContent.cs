@@ -170,6 +170,11 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public EdiAdditionalLoadingEquipment AdditionalLoadingEquipment { get; set; }
 
+        /// <summary>
+        /// List of packages in the current line
+        /// </summary>
+        public List<EdiPackage> Packages { get; set; }
+
     }
 
     /// <summary>

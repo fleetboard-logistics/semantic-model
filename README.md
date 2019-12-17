@@ -2,7 +2,7 @@
 
 The conizi semantic model describes the logistic entities used to exchange information between the parties working together in logistic processes. Unklike the
 formats used for file exchange these models are driven by business cases and not by technical requirements such as segment types. The models are very explicit about
-additional information required to fulfill a service and explicitly do not try to generalize away properties into generalized fields.
+additional information required to fulfill a service and explicitly do not try to generalize away properties into generalized fields. 
 
 # Conventions
 
