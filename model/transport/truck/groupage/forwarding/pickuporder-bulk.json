@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-28T08:52:14.6925018+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
+  "$comment": "Generated: 2019-12-17T17:23:38.4329683+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5053 - conizi-753-package-info",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",
@@ -1212,6 +1212,12 @@
         "additionalLoadingEquipment": {
           "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
         },
+        "packages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiPackage"
+          }
+        },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
           "description": "Total volume of the consignment",
@@ -1511,6 +1517,58 @@
           "title": "Horizontal",
           "description": "The goods must be transported flat down",
           "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiPackage": {
+      "title": "Package",
+      "description": "Information about the individual package",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "referenceNumber": {
+          "title": "Reference number",
+          "description": "The reference number",
+          "type": "string"
+        },
+        "packagingType": {
+          "title": "Packaging Type",
+          "description": "The packaging type",
+          "type": "string"
+        },
+        "barCode": {
+          "title": "Bar code / SSCC / NVE",
+          "description": "Scan id of the package, usually printed as machine readable bar code on the package",
+          "type": "string"
+        },
+        "weight": {
+          "title": "Weight of package (kg)",
+          "description": "Weight of the package in kg",
+          "type": "number"
+        },
+        "height": {
+          "title": "Height (m)",
+          "description": "Height in meter",
+          "type": "number"
+        },
+        "width": {
+          "title": "Width (m)",
+          "description": "Width in meter",
+          "type": "number"
+        },
+        "length": {
+          "title": "Length (m)",
+          "description": "Length in meter",
+          "type": "number"
+        },
+        "volume": {
+          "title": "Volume (m³)",
+          "description": "Total volume of the package",
+          "type": "number"
         }
       },
       "patternProperties": {
