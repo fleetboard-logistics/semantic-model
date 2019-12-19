@@ -32,7 +32,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Bar code / SSCC / NVE")]
         [Description("Scan id of the package, usually printed as machine readable bar code on the package")]
-        public string BarCode { get; set; }
+        public string Barcode { get; set; }
 
         /// <summary>
         /// Weight of the package in kg
