@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-17T17:23:36.9605188+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5053 - conizi-753-package-info",
+  "$comment": "Generated: 2019-12-19T13:59:30.3439939+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5075 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -1713,7 +1713,7 @@
           "description": "The packaging type",
           "type": "string"
         },
-        "barCode": {
+        "barcode": {
           "title": "Bar code / SSCC / NVE",
           "description": "Scan id of the package, usually printed as machine readable bar code on the package",
           "type": "string"

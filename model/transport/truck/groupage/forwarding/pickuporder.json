@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-17T17:23:38.0299048+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5053 - conizi-753-package-info",
+  "$comment": "Generated: 2019-12-19T13:59:31.6387825+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5075 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
   "title": "Pickup order",
   "description": "A single pickup order which is transferred between two partners",
@@ -1540,7 +1540,7 @@
           "description": "The packaging type",
           "type": "string"
         },
-        "barCode": {
+        "barcode": {
           "title": "Bar code / SSCC / NVE",
           "description": "Scan id of the package, usually printed as machine readable bar code on the package",
           "type": "string"

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-17T17:23:35.6258309+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5053 - conizi-753-package-info",
+  "$comment": "Generated: 2019-12-19T13:59:28.7855719+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5075 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -1746,7 +1746,7 @@
           "description": "The packaging type",
           "type": "string"
         },
-        "barCode": {
+        "barcode": {
           "title": "Bar code / SSCC / NVE",
           "description": "Scan id of the package, usually printed as machine readable bar code on the package",
           "type": "string"

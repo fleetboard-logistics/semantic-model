@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-17T17:23:38.4329683+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5053 - conizi-753-package-info",
+  "$comment": "Generated: 2019-12-19T13:59:32.1456441+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5075 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",
@@ -1540,7 +1540,7 @@
           "description": "The packaging type",
           "type": "string"
         },
-        "barCode": {
+        "barcode": {
           "title": "Bar code / SSCC / NVE",
           "description": "Scan id of the package, usually printed as machine readable bar code on the package",
           "type": "string"
