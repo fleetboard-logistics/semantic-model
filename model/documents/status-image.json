@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-28T08:52:14.9474737+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
+  "$comment": "Generated: 2019-12-17T11:29:13.2363210+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5046 - conizi-753-package-info",
   "$id": "https://model.conizi.io/v1/documents/status-image.json",
   "title": "Status Image",
   "description": "A status image is a kind of document to document a process",
