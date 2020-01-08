@@ -75,7 +75,7 @@ deploy:nuget:
     - docker
     - windows
   script:
-    - "& ./build-nuget-ci.ps1"
+    - "./build-nuget-ci.ps1"
   only:
     - preproduction
     - production
