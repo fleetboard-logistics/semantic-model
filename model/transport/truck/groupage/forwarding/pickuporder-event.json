@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-28T08:52:13.8930048+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4903 - conizi-737-dispatcher",
+  "$comment": "Generated: 2019-12-17T11:29:12.2083654+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5046 - conizi-753-package-info",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
