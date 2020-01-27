@@ -1,10 +1,89 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-17T11:29:11.1101137+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5046 - conizi-753-package-info",
+  "$comment": "Generated: 2020-01-27T22:44:37.9291386+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
   "definitions": {
+    "EdiBinaryData": {
+      "title": "Binary Data",
+      "description": "The content/data of a file",
+      "type": "object",
+      "properties": {
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "data": {
+          "title": "Data bytes",
+          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "EdiDocumentItem": {
+      "title": "Document",
+      "description": "All kind of documents used for transports",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentType": {
+          "title": "Document type",
+          "description": "The document type",
+          "type": "string",
+          "additionalProperties": false,
+          "enum": [
+            "unknown",
+            "proof_of_delivery",
+            "waybill",
+            "delivery_note",
+            "packaging_list",
+            "other_document"
+          ]
+        },
+        "documentCreator": {
+          "title": "Document creator",
+          "description": "The creator of the document",
+          "type": "string"
+        },
+        "documentDateTime": {
+          "title": "Document item creation date and time",
+          "description": "The date and time this document item was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "documentContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiSignature"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "required": [
+        "documentType",
+        "documentDateTime",
+        "documentContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiDocumentReferences": {
       "title": "References",
       "description": "All references to the linked documents, systems and devices",
@@ -85,6 +164,71 @@
         "x-.*": {},
         "\\$.*": {}
       }
+    },
+    "EdiFileContent": {
+      "title": "File Content",
+      "description": "Transfers file data like a picture, pdf, txt..",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "title": "File Name",
+          "description": "The file name",
+          "type": "string"
+        },
+        "contentType": {
+          "title": "Content Type",
+          "description": "The content type like application/pdf, image/png...",
+          "type": "string"
+        },
+        "binaryData": {
+          "$ref": "#/definitions/EdiBinaryData"
+        },
+        "fileReference": {
+          "$ref": "#/definitions/EdiFileReference"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileReference": {
+      "title": "File Reference",
+      "description": "Reference to a file in an online storage",
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "title": "File Id",
+          "description": "Unique Id for a file",
+          "type": "string"
+        },
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "absoluteUri": {
+          "title": "Absolute Uri",
+          "description": "An absolute URL to a file on the online storage",
+          "type": "string"
+        },
+        "uriValidFrom": {
+          "title": "Uri Valid From",
+          "description": "The URL is valid from date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "uriValidTo": {
+          "title": "Uri Valid To",
+          "description": "The URL is valid until date",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "absoluteUri"
+      ]
     },
     "EdiGeoPosition": {
       "title": "Geo position",
@@ -484,6 +628,36 @@
         "x-.*": {},
         "\\$.*": {}
       }
+    },
+    "EdiSignature": {
+      "title": "Signature",
+      "description": "The signature of the recipient/person of interest",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signeeName": {
+          "title": "Signee name",
+          "description": "Name of the signee",
+          "type": "string"
+        },
+        "signatureDateTime": {
+          "title": "Signature date and time",
+          "description": "The date and time of signature",
+          "type": "string",
+          "format": "date-time"
+        },
+        "signatureContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        }
+      },
+      "required": [
+        "signatureDateTime",
+        "signatureContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     }
   },
   "type": "object",
@@ -601,6 +775,12 @@
     },
     "unloadingExternalDeliverer": {
       "$ref": "#/definitions/EdiPackageEvent"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiDocumentItem"
+      }
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"

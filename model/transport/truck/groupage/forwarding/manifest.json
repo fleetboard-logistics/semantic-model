@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-19T13:59:30.3439939+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5075 - master",
+  "$comment": "Generated: 2020-01-27T22:44:38.3506886+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -2359,6 +2359,10 @@
       "properties": {
         "vehicleId": {
           "title": "The vehicle id",
+          "type": "string"
+        },
+        "vehicleIdentificationNumber": {
+          "title": "The vehicle identification number",
           "type": "string"
         },
         "registration": {

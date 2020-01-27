@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-17T11:29:11.9970195+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5046 - conizi-753-package-info",
+  "$comment": "Generated: 2020-01-27T22:44:38.8416727+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -435,6 +435,65 @@
       "description": "Consignment was disposed",
       "type": "object",
       "additionalProperties": false,
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDocumentItem": {
+      "title": "Document",
+      "description": "All kind of documents used for transports",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentType": {
+          "title": "Document type",
+          "description": "The document type",
+          "type": "string",
+          "additionalProperties": false,
+          "enum": [
+            "unknown",
+            "proof_of_delivery",
+            "waybill",
+            "delivery_note",
+            "packaging_list",
+            "other_document"
+          ]
+        },
+        "documentCreator": {
+          "title": "Document creator",
+          "description": "The creator of the document",
+          "type": "string"
+        },
+        "documentDateTime": {
+          "title": "Document item creation date and time",
+          "description": "The date and time this document item was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "documentContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiSignature"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "required": [
+        "documentType",
+        "documentDateTime",
+        "documentContent"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -2122,6 +2181,36 @@
         "\\$.*": {}
       }
     },
+    "EdiSignature": {
+      "title": "Signature",
+      "description": "The signature of the recipient/person of interest",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signeeName": {
+          "title": "Signee name",
+          "description": "Name of the signee",
+          "type": "string"
+        },
+        "signatureDateTime": {
+          "title": "Signature date and time",
+          "description": "The date and time of signature",
+          "type": "string",
+          "format": "date-time"
+        },
+        "signatureContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        }
+      },
+      "required": [
+        "signatureDateTime",
+        "signatureContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiSigningInformation": {
       "title": "Signing Information",
       "description": "Transmission of the receipt, the delivery date and the delivery time",
@@ -2297,6 +2386,12 @@
           "title": "ChecklistVehicle Inspection",
           "description": "A checklist of vehicle inspection is available",
           "type": "boolean"
+        },
+        "otherDocuments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiDocumentItem"
+          }
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -2724,6 +2819,12 @@
           "description": "Wait/Downtime in minute",
           "type": "integer"
         },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
+          }
+        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -2857,6 +2958,12 @@
         },
         "unloadingExternalDeliverer": {
           "$ref": "event-bulk.json#/definitions/EdiPackageEvent"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
+          }
         },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"

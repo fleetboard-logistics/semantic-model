@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-25T22:10:20.6518179+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
+  "$comment": "Generated: 2020-01-27T22:44:40.0789767+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
   "$id": "https://model.conizi.io/v1/telematics/geolocation.json",
   "title": "Geo Location",
   "description": "A single geo location which is transferred between two partners. Also vehicle and driver data could be included",
@@ -256,6 +256,10 @@
       "properties": {
         "vehicleId": {
           "title": "The vehicle id",
+          "type": "string"
+        },
+        "vehicleIdentificationNumber": {
+          "title": "The vehicle identification number",
           "type": "string"
         },
         "registration": {
