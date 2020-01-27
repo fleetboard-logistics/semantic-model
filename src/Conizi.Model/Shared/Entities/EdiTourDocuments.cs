@@ -55,5 +55,10 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("ChecklistVehicle Inspection")]
         [Description("A checklist of vehicle inspection is available")]
         public bool? ChecklistVehicleInspection { get; set; }
+
+        /// <summary>
+        /// A list of further document items
+        /// </summary>
+        public List<EdiDocumentItem> OtherDocuments { get; set; }
     }
 }

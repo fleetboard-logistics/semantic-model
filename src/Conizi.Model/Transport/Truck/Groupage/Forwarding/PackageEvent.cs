@@ -238,6 +238,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [JsonProperty("geoPosition", Order = -15, Required = Required.DisallowNull)]
         public EdiGeoPosition GeoPosition { get; set; }
+
+        /// <summary>
+        /// A list of document items
+        /// </summary>
+        public List<EdiDocumentItem> Documents { get; set; }
     }
 
 }
