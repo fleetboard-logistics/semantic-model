@@ -188,5 +188,10 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// A list of document items
         /// </summary>
         public List<EdiDocumentItem> Documents { get; set; }
+
+        /// <summary>
+        /// A list of status images
+        /// </summary>
+        public List<EdiStatusImage> Images { get; set; }
     }
 }

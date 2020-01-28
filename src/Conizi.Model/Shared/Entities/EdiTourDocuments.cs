@@ -60,5 +60,10 @@ namespace Conizi.Model.Shared.Entities
         /// A list of further document items
         /// </summary>
         public List<EdiDocumentItem> OtherDocuments { get; set; }
+
+        /// <summary>
+        /// A list of status images
+        /// </summary>
+        public List<EdiStatusImage> OtherImages { get; set; }
     }
 }
