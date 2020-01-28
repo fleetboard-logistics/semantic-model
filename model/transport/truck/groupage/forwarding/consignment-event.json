@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-01-27T22:44:37.7950428+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
+  "$comment": "Generated: 2020-01-28T16:07:30.7506813+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5169 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
@@ -1423,6 +1423,64 @@
         "\\$.*": {}
       }
     },
+    "EdiStatusImage": {
+      "title": "Status image",
+      "description": "All kind of status images, used for documentation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imageType": {
+          "title": "Image type",
+          "description": "The image type",
+          "type": "string",
+          "additionalProperties": false,
+          "enum": [
+            "unknown",
+            "damage",
+            "load_securing",
+            "accident",
+            "other_image"
+          ]
+        },
+        "imageCreator": {
+          "title": "Image creator",
+          "description": "The creator of the image (photographer)",
+          "type": "string"
+        },
+        "imageDateTime": {
+          "title": "Document item creation date and time",
+          "description": "The date and time this status image was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "imageContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiSignature"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "required": [
+        "imageType",
+        "imageDateTime",
+        "imageContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiTimeSlotConsignee": {
       "title": "Time slot from consignee",
       "description": "The consignee has provided a time slot for delivery",
@@ -1651,6 +1709,12 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/EdiDocumentItem"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiStatusImage"
       }
     },
     "references": {

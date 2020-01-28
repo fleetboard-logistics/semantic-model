@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-01-27T22:44:38.8416727+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
+  "$comment": "Generated: 2020-01-28T16:07:31.7734350+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5169 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -2221,6 +2221,64 @@
         "\\$.*": {}
       }
     },
+    "EdiStatusImage": {
+      "title": "Status image",
+      "description": "All kind of status images, used for documentation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imageType": {
+          "title": "Image type",
+          "description": "The image type",
+          "type": "string",
+          "additionalProperties": false,
+          "enum": [
+            "unknown",
+            "damage",
+            "load_securing",
+            "accident",
+            "other_image"
+          ]
+        },
+        "imageCreator": {
+          "title": "Image creator",
+          "description": "The creator of the image (photographer)",
+          "type": "string"
+        },
+        "imageDateTime": {
+          "title": "Document item creation date and time",
+          "description": "The date and time this status image was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "imageContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiSignature"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "required": [
+        "imageType",
+        "imageDateTime",
+        "imageContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiStopSpecificEvent": {
       "title": "Stop specific Event",
       "description": "Event to notify about stop specific incidents",
@@ -2391,6 +2449,12 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/EdiDocumentItem"
+          }
+        },
+        "otherImages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiStatusImage"
           }
         },
         "remarks": {
@@ -2825,6 +2889,12 @@
             "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
           }
         },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiStatusImage"
+          }
+        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -2963,6 +3033,12 @@
           "type": "array",
           "items": {
             "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiStatusImage"
           }
         },
         "references": {
