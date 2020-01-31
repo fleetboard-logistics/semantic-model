@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-19T13:59:28.7855719+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5075 - master",
+  "$comment": "Generated: 2020-01-27T22:44:36.9164890+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -2550,6 +2550,10 @@
       "properties": {
         "vehicleId": {
           "title": "The vehicle id",
+          "type": "string"
+        },
+        "vehicleIdentificationNumber": {
+          "title": "The vehicle identification number",
           "type": "string"
         },
         "registration": {
