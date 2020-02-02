@@ -79,6 +79,14 @@ namespace Conizi.Model.Shared.Entities
         public LoadingEquipmentType EquipmentType { get; set; }
 
         /// <summary>
+        /// Custom Loading Equipment Name, like specialCoolingBox...
+        /// </summary>
+        /// <remarks>Should only be used, if the EquipmentType is set to CustomLoadingEquipment!</remarks>
+        [DisplayName("Custom Loading Equipment Name")]
+        [Description("Custom Loading Equipment Name, like specialCoolingBox...")]
+        public string CustomLoadingEquipmentName { get; set; }
+
+        /// <summary>
         /// Add/Load amount of loading equipment
         /// </summary>
         [DisplayName("Amount Loaded")]
