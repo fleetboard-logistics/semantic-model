@@ -147,6 +147,14 @@ namespace Conizi.Model.Shared.Definitions
         /// </summary>
         [Description("Düsseldorfer Pallets")] [EnumMember(Value = "duesseldorferPallets")]
         DuesseldorferPallets = 7,
+
+
+        /// <summary>
+        /// Custom Loading Equipment, for custom boxes, pallets and other equipment
+        /// </summary>
+        [Description("Custom Loading Equipment")]
+        [EnumMember(Value = "customLoadingEquipment")]
+        CustomLoadingEquipment = 99,
     }
 
     /// <summary>
