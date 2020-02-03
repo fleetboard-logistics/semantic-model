@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-01-28T16:07:31.7734350+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5169 - master",
+  "$comment": "Generated: 2020-02-02T07:57:22.0423998+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5196 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1051,6 +1051,18 @@
           "type": "string",
           "format": "time"
         },
+        "etaTimePeriodStart": {
+          "title": "ETA (Estimated time of arrival) period start",
+          "description": "ETA (Estimated time of arrival) period start as time string (e.g. 15:30:00)",
+          "type": "string",
+          "format": "time"
+        },
+        "etaTimePeriodEnd": {
+          "title": "ETA (Estimated time of arrival) period end",
+          "description": "ETA (Estimated time of arrival) period end as time string (e.g. 16:15:00)",
+          "type": "string",
+          "format": "time"
+        },
         "etaDateAbsolute": {
           "title": "ETA (Estimated time of arrival) date component",
           "description": "ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). The date component is only required if it is not the current day.",
@@ -1204,8 +1216,14 @@
             "e2Pallets",
             "oneWayPallets",
             "knaufPallets",
-            "duesseldorferPallets"
+            "duesseldorferPallets",
+            "customLoadingEquipment"
           ]
+        },
+        "customLoadingEquipmentName": {
+          "title": "Custom Loading Equipment Name",
+          "description": "Custom Loading Equipment Name, like specialCoolingBox...",
+          "type": "string"
         },
         "amountLoaded": {
           "title": "Amount Loaded",
