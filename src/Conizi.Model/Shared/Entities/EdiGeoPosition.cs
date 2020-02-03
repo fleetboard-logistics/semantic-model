@@ -58,10 +58,10 @@ namespace Conizi.Model.Shared.Entities
         public DateTimeOffset? RecordTime { get; set; }
 
         /// <summary>
-        /// The angle is the direction that the vehicle is moving in
+        /// The angle is the direction that the vehicle is moving in (Heading)
         /// </summary>
         [DisplayName("Angle")]
-        [Description("The angle is the direction that the vehicle is moving in")]
+        [Description("The angle is the direction that the vehicle is moving in (Heading)")]
         public decimal? Angle { get; set; }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Speed")]
         [Description("The current speed of the vehicle")]
-        [Required]
+        [JsonProperty(Required = Required.Always, DefaultValueHandling = DefaultValueHandling.Include)]
         public decimal Speed { get; set; }
 
         /// <summary>

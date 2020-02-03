@@ -131,7 +131,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// A reference to an IT system
         /// </summary>
-        [DisplayName("Device Id")]
+        [DisplayName("A reference to an IT system")]
         [Description("A reference to an IT system like TMS, etc.")]
         public string SystemReferences { get; set; }
 

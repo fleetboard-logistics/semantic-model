@@ -1,0 +1,25 @@
+{
+    "$schema": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
+    "receiver": {
+        "coniziId": "4545454545454545454"
+    },
+    "vehicle": {
+        "vehicleId": "4711",
+        "vehicleIdentificationNumber": "AS1254856454545451",
+        "registration": "KT FL 1111",
+        "truckType": "Box Truck",
+        "sendTelematics": true
+    },
+    "geoLocationEvent": {
+        "eventDateTime": "2020-02-02T20:45:45.0321981+01:00",
+        "geoPosition": {
+            "latitude": 49.8639895,
+            "longitude": 10.2309327,
+            "placeName": "Volkach",
+            "speed": {
+                "speed": 53.0,
+                "speedMeasurementUnitCode": "KMT"
+            }
+        }
+    }
+}

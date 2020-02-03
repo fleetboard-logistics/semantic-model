@@ -53,21 +53,21 @@ namespace Conizi.Model.Shared.Definitions
     public enum MeasurementUnitCode
     {
         /// <summary>
-        /// Values are measured in kilometers
+        /// Values are measured in kilometers / Speed in Kilometers per Hour
         /// </summary>
-        [Description("Distance Values are measured in kilometers")] [EnumMember(Value = "KMT")]
+        [Description("Distance Values are measured in kilometers / Speed in Kilometers per Hour")] [EnumMember(Value = "KMT")]
         Kilometer,
 
         /// <summary>
-        /// Values are measured in nautical miles
+        /// Values are measured in nautical miles / Speed in nautical miles per Hour
         /// </summary>
         [Description("Distance Values are measured in nautical miles")] [EnumMember(Value = "NMI")]
         NauticalMile,
 
         /// <summary>
-        /// Values are measured in miles
+        /// Values are measured in miles / Speed in miles per Hour
         /// </summary>
-        [Description("Distance Values are measured in (Statute/English) miles")] [EnumMember(Value = "SMI")]
+        [Description("Distance Values are measured in (Statute/English) miles / Speed in miles per Hour")] [EnumMember(Value = "SMI")]
         StatuteMile
     }
 
