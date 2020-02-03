@@ -42,7 +42,7 @@ namespace Conizi.Model.Tooling.Generate
                 typeof(TransportDocument),
                 typeof(StatusImage),
                 typeof(MaterialTransaction),
-                typeof(EdiGeoLocationEvent)
+                typeof(GroundTelematicsEvent)
             };
 
 
