@@ -1,4 +1,4 @@
-# conizi Semantic model
+# conizi Semantic models
 
 The conizi semantic model describes the logistic entities used to exchange information between the parties working together in logistic processes. Unklike the
 formats used for file exchange these models are driven by business cases and not by technical requirements such as segment types. The models are very explicit about
@@ -15,4 +15,4 @@ document are to be interpreted as described in [RFC2119].
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
               
-Fleetboard Logistics 2019-2020
+conizi models - Fleetboard Logistics 2018-2020

@@ -17,10 +17,16 @@ namespace Conizi.Model.Shared.Entities
     public class EdiVehicle : EdiPatternPropertiesBase
     {
         /// <summary>
-        /// The Id of the vehicle
+        /// The system wide id of the vehicle
         /// </summary>
         [DisplayName("The vehicle id")]
         public string VehicleId { get; set; }
+
+        /// <summary>
+        /// The unique vehicle identification number (VIN)
+        /// </summary>
+        [DisplayName("The vehicle identification number")]
+        public string VehicleIdentificationNumber { get; set; }
 
         /// <summary>
         /// Official registration of the vehicle (e.g. license plate number
