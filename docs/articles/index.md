@@ -78,6 +78,8 @@ This serialized tour-event JSON message is ready to send to conizi Input HTTP AP
 
 ### Further information
 
+#### Heads up. If a connection in the habbl context is developed by the customer himself, please clarify with the responsible consultant on Fleetboard Logistics which Ids should be used as sender in multiple cases.
+
 In the following some scenarios are listed, which should help in working with conizi.
 
 * Working with a [consignment](consignment.md)
