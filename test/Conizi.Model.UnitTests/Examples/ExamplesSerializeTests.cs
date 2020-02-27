@@ -99,5 +99,26 @@ namespace Conizi.Model.UnitTests.Examples
             Assert.False(result.HasValidationErrors);
         }
 
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTourEventWithReferencedFiles_AssertSerializationValid()
+        {
+            var m = new SimpleTourEventForPodTourCompleted().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SimpleTourEventForChecklistImageTourStarted_AssertSerializationValid()
+        {
+            var m = new SimpleTourEventForChecklistTourStarted().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
     }
 }
