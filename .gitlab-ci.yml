@@ -102,7 +102,7 @@ deploy:docu:
     variables:
       - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
-    - staging
+    - master
     - preproduction
     - production
   when: manual
