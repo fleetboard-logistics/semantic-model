@@ -105,7 +105,8 @@ deploy:docu:
     - master
     - preproduction
     - production
-  when: manual
+  when: delayed
+  start_in: '5 minutes'
 
 .auto_devops: &auto_devops |
   [[ "$TRACE" ]] && set -x
