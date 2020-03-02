@@ -1,0 +1,35 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+    "receiver": {
+        "ediId": "C2PO"
+    },
+    "tourId": "20191234567",
+    "tour": {
+        "eventDateTime": "2020-02-27T14:47:03.5592577+01:00",
+        "geoPosition": {
+            "latitude": 49.910659,
+            "longitude": 10.8682589,
+            "placeName": "RZ BA"
+        },
+        "tourCompleted": true,
+        "remarks": "The tour was completed, POD link attached."
+    },
+    "documents": {
+        "eventDateTime": "2020-02-27T14:46:03.5592577+01:00",
+        "otherDocuments": [
+            {
+                "documentType": "proof_of_delivery",
+                "documentDateTime": "2020-02-27T14:46:03.5592577+01:00",
+                "documentContent": {
+                    "fileName": "my-pod.pdf",
+                    "contentType": "application/pdf",
+                    "fileReference": {
+                        "absoluteUri": "https://my-super-file-storage.io/docs/my-pod.pdf",
+                        "uriValidFrom": "2020-02-27T14:47:03.5592577+01:00",
+                        "uriValidTo": "2020-03-05T14:47:03.5592577+01:00"
+                    }
+                }
+            }
+        ]
+    }
+}

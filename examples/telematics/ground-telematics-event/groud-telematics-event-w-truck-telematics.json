@@ -1,0 +1,50 @@
+{
+    "$schema": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
+    "receiver": {
+        "coniziId": "4545454545454545454"
+    },
+    "sender": {
+        "coniziId": "2856454"
+    },
+    "vehicle": {
+        "vehicleId": "4711",
+        "vehicleIdentificationNumber": "AS1254856454545451",
+        "registration": "KT FL 1111",
+        "truckType": "Box Truck",
+        "sendTelematics": true
+    },
+    "driver": {
+        "driverId": "D12345678999977",
+        "name": "Mister T.",
+        "phoneNumber": "0152887545454"
+    },
+    "coDriver": {
+        "driverId": "D52347548973939",
+        "name": "Franz K.",
+        "phoneNumber": "0162877535352"
+    },
+    "geoLocationEvent": {
+        "eventDateTime": "2020-02-03T12:03:21.4656635+01:00",
+        "geoPosition": {
+            "latitude": 49.8639895,
+            "longitude": 10.2309327,
+            "placeName": "Volkach",
+            "recordTime": "2020-02-03T12:01:21.4660499+01:00",
+            "angle": 12.0,
+            "speed": {
+                "speed": 0.0
+            }
+        },
+        "remarks": "Parking in Volkach..."
+    },
+    "truckTelematicsEvent": {
+        "eventDateTime": "2020-02-03T12:03:21.4665329+01:00",
+        "truckTelematics": {
+            "recordTime": "2020-02-03T12:02:21.4665865+01:00",
+            "totalDrivenDistance": 25000000,
+            "weight": 18600,
+            "totalFuelConsumption": 12548000
+        },
+        "remarks": "Truck telematics information"
+    }
+}

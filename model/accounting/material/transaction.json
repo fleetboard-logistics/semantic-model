@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-11-25T22:10:20.6057497+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:4882 - master",
+  "$comment": "Generated: 2020-02-03T13:13:33.9421852+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
   "$id": "https://model.conizi.io/v1/accounting/material/transaction.json",
   "title": "Material Accounting Transaction",
   "description": "Transaction of material for accounting purpose",
@@ -61,7 +61,7 @@
           "type": "string"
         },
         "systemReferences": {
-          "title": "Device Id",
+          "title": "A reference to an IT system",
           "description": "A reference to an IT system like TMS, etc.",
           "type": "string"
         },

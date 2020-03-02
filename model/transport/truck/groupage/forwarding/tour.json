@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-01-27T22:44:36.9164890+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
+  "$comment": "Generated: 2020-02-03T13:13:30.2599631+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -831,7 +831,7 @@
           "type": "string"
         },
         "systemReferences": {
-          "title": "Device Id",
+          "title": "A reference to an IT system",
           "description": "A reference to an IT system like TMS, etc.",
           "type": "string"
         },
@@ -1120,7 +1120,7 @@
         },
         "angle": {
           "title": "Angle",
-          "description": "The angle is the direction that the vehicle is moving in",
+          "description": "The angle is the direction that the vehicle is moving in (Heading)",
           "type": "number"
         },
         "speed": {
@@ -1462,6 +1462,58 @@
           "items": {
             "$ref": "#/definitions/EdiSeal"
           }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiMeasures": {
+      "title": "Measures",
+      "description": "Measures of the unit",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "volumeCubicmeter": {
+          "title": "Volume (m³)",
+          "description": "Total volume of the consignment",
+          "type": "number"
+        },
+        "loadingMeter": {
+          "title": "Loading meters (m)",
+          "description": "Length of the area occupied on a 2.4 m wide container",
+          "type": "number"
+        },
+        "grossWeightKilogram": {
+          "title": "Gross weight (kg)",
+          "description": "Weight of the consignment including all packaging",
+          "type": "number"
+        },
+        "areaPalletBays": {
+          "title": "Pallet bays",
+          "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
+          "type": "number"
+        },
+        "chargeableWeightKilogram": {
+          "title": "Chargeable weight (kg)",
+          "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
+          "type": "number"
+        },
+        "lengthMeter": {
+          "title": "Length (m)",
+          "description": "Total length",
+          "type": "number"
+        },
+        "widthMeter": {
+          "title": "Width (m)",
+          "description": "Total width",
+          "type": "number"
+        },
+        "heightMeter": {
+          "title": "Height (m)",
+          "description": "Total height",
+          "type": "number"
         }
       },
       "patternProperties": {
@@ -2574,6 +2626,17 @@
           "title": "Vehicle sends telematics",
           "description": "The vehicle sends telematics data to a central instance",
           "type": "boolean"
+        },
+        "deviceIds": {
+          "title": "Device Ids",
+          "description": "List of device ids, are part of this vehicle",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dimensions": {
+          "$ref": "#/definitions/EdiMeasures"
         }
       },
       "patternProperties": {

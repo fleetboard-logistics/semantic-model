@@ -100,13 +100,13 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Uri Valid From")]
         [Description("The URL is valid from date")]
-        public DateTime UriValidFrom { get; set; }
+        public DateTime? UriValidFrom { get; set; }
 
         /// <summary>
         /// The URL is valid until date
         /// </summary>
         [DisplayName("Uri Valid To")]
         [Description("The URL is valid until date")]
-        public DateTime UriValidTo { get; set; }
+        public DateTime? UriValidTo { get; set; }
     }
 }

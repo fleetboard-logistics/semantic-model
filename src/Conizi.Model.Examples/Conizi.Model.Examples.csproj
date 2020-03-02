@@ -12,8 +12,4 @@
     <ProjectReference Include="..\Conizi.Model\Conizi.Model.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Telematics\" />
-  </ItemGroup>
-
 </Project>

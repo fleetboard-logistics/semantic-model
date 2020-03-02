@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using Conizi.Model.Core.Tools;
 using Conizi.Model.Examples.Documents;
+using Conizi.Model.Examples.Telematics;
 using Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding;
 using Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour;
+using Conizi.Model.Telematics;
 using Xunit;
 
 namespace Conizi.Model.UnitTests.Examples
@@ -66,5 +68,57 @@ namespace Conizi.Model.UnitTests.Examples
             var result = Converter.Serialize(m);
             Assert.False(result.HasValidationErrors);
         }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeSimpleGroundTelematicsEvent_AssertSerializationValid()
+        {
+            var m = new GroundTelematicsEventExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTruckTelematicsGroundTelematicsEvent_AssertSerializationValid()
+        {
+            var m = new GroundTelematicsEventTruckTelematicsExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTrailerTelematicsGroundTelematicsEvent_AssertSerializationValid()
+        {
+            var m = new GroundTelematicsEventTrailerTelematicsExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTourEventWithReferencedFiles_AssertSerializationValid()
+        {
+            var m = new SimpleTourEventForPodTourCompleted().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SimpleTourEventForChecklistImageTourStarted_AssertSerializationValid()
+        {
+            var m = new SimpleTourEventForChecklistTourStarted().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
     }
 }

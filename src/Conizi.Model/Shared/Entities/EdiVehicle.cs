@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
@@ -54,5 +55,19 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Vehicle sends telematics")]
         [Description("The vehicle sends telematics data to a central instance")]
         public bool? SendTelematics { get; set; }
+
+        /// <summary>
+        /// List of device ids, are part of this vehicle
+        /// </summary>
+        [DisplayName("Device Ids")]
+        [Description("List of device ids, are part of this vehicle")]
+        public List<string> DeviceIds { get; set; }
+
+        /// <summary>
+        /// Dimensions of the vehicle
+        /// </summary>
+        public EdiMeasures Dimensions { get; set; }
+
+
     }
 }

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-01-27T22:44:40.0789767+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5163 - master",
-  "$id": "https://model.conizi.io/v1/telematics/geolocation.json",
-  "title": "Geo Location",
-  "description": "A single geo location which is transferred between two partners. Also vehicle and driver data could be included",
+  "$comment": "Generated: 2020-02-03T13:13:34.0339280+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
+  "$id": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
+  "title": "Ground telematics event",
+  "description": "A single telematics event message for ground vehicles which is transferred between two partners.",
   "definitions": {
     "EdiDocumentReferences": {
       "title": "References",
@@ -61,7 +61,7 @@
           "type": "string"
         },
         "systemReferences": {
-          "title": "Device Id",
+          "title": "A reference to an IT system",
           "description": "A reference to an IT system like TMS, etc.",
           "type": "string"
         },
@@ -103,6 +103,41 @@
         "\\$.*": {}
       }
     },
+    "EdiGeoLocationEvent": {
+      "title": "Geo Location",
+      "description": "A geo location event which is transferred between two partners",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "deviceId": {
+          "title": "Device Id",
+          "description": "The id of the used device, should be used if the vehicle is not the unique asset for the geo location",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime",
+        "geoPosition"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiGeoPosition": {
       "title": "Geo position",
       "description": "Data about the current geo position",
@@ -137,7 +172,7 @@
         },
         "angle": {
           "title": "Angle",
-          "description": "The angle is the direction that the vehicle is moving in",
+          "description": "The angle is the direction that the vehicle is moving in (Heading)",
           "type": "number"
         },
         "speed": {
@@ -198,6 +233,58 @@
         "speed"
       ]
     },
+    "EdiMeasures": {
+      "title": "Measures",
+      "description": "Measures of the unit",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "volumeCubicmeter": {
+          "title": "Volume (m³)",
+          "description": "Total volume of the consignment",
+          "type": "number"
+        },
+        "loadingMeter": {
+          "title": "Loading meters (m)",
+          "description": "Length of the area occupied on a 2.4 m wide container",
+          "type": "number"
+        },
+        "grossWeightKilogram": {
+          "title": "Gross weight (kg)",
+          "description": "Weight of the consignment including all packaging",
+          "type": "number"
+        },
+        "areaPalletBays": {
+          "title": "Pallet bays",
+          "description": "Area used by the consignment in terms of standard EUR pallet bays (120 x 80 cm)",
+          "type": "number"
+        },
+        "chargeableWeightKilogram": {
+          "title": "Chargeable weight (kg)",
+          "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
+          "type": "number"
+        },
+        "lengthMeter": {
+          "title": "Length (m)",
+          "description": "Total length",
+          "type": "number"
+        },
+        "widthMeter": {
+          "title": "Width (m)",
+          "description": "Total width",
+          "type": "number"
+        },
+        "heightMeter": {
+          "title": "Height (m)",
+          "description": "Total height",
+          "type": "number"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiMessageRouting": {
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
@@ -248,6 +335,150 @@
         }
       }
     },
+    "EdiTrailerTelematics": {
+      "title": "Trailers Telematics",
+      "description": "Telematics data about the trailer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the measurement was recored",
+          "type": "string",
+          "format": "date-time"
+        },
+        "temperature": {
+          "title": "Temperature in Celsius",
+          "description": "The trailer temperature in degree Celsius",
+          "type": "number"
+        }
+      },
+      "required": [
+        "recordTime"
+      ]
+    },
+    "EdiTrailerTelematicsEvent": {
+      "title": "Trailer Telematics Event",
+      "description": "A trailer telematics event which is transferred between two partners",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "deviceId": {
+          "title": "Device Id",
+          "description": "The id of the used device, should be used if the vehicle is not the unique asset for the geo location",
+          "type": "string"
+        },
+        "trailerTelematics": {
+          "$ref": "#/definitions/EdiTrailerTelematics"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime",
+        "trailerTelematics"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiTruckTelematics": {
+      "title": "Truck Telematics",
+      "description": "Telematics data about the truck",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the measurement was recored",
+          "type": "string",
+          "format": "date-time"
+        },
+        "speed": {
+          "title": "Speed in KM/h",
+          "description": "The speed of the vehicle in KM/h",
+          "type": "integer"
+        },
+        "totalDrivenDistance": {
+          "title": "Total Driven Distance in meter",
+          "description": "The Total Driven Distance in meter",
+          "type": "integer"
+        },
+        "engineSpeed": {
+          "title": "Engine Speed",
+          "description": "The engine Speed (UpM/RpM)",
+          "type": "integer"
+        },
+        "weight": {
+          "title": "Weight",
+          "description": "The weight of the vehicle in Kg",
+          "type": "integer"
+        },
+        "totalFuelConsumption": {
+          "title": "Total Fuel Consumption",
+          "description": "The Total Fuel Consumption in ML",
+          "type": "integer"
+        },
+        "totalAdBlueUsed": {
+          "title": "Total AdBlue Used",
+          "description": "The Total AdBlue Used in ML",
+          "type": "integer"
+        },
+        "totalOperatingTime": {
+          "title": "Total Operation Time",
+          "description": "The Total Operating Time in seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "recordTime"
+      ]
+    },
+    "EdiTruckTelematicsEvent": {
+      "title": "Truck Telematics Event",
+      "description": "A truck telematics event which is transferred between two partners",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "deviceId": {
+          "title": "Device Id",
+          "description": "The id of the used device, should be used if the vehicle is not the unique asset for the geo location",
+          "type": "string"
+        },
+        "truckTelematics": {
+          "$ref": "#/definitions/EdiTruckTelematics"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime",
+        "truckTelematics"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiVehicle": {
       "title": "Vehicle",
       "description": "Information about the vehicles used in the transport",
@@ -280,6 +511,17 @@
           "title": "Vehicle sends telematics",
           "description": "The vehicle sends telematics data to a central instance",
           "type": "boolean"
+        },
+        "deviceIds": {
+          "title": "Device Ids",
+          "description": "List of device ids, are part of this vehicle",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dimensions": {
+          "$ref": "#/definitions/EdiMeasures"
         }
       },
       "patternProperties": {
@@ -305,14 +547,23 @@
     "network": {
       "$ref": "#/definitions/EdiNetwork"
     },
-    "geoPosition": {
-      "$ref": "#/definitions/EdiGeoPosition"
-    },
     "vehicle": {
       "$ref": "#/definitions/EdiVehicle"
     },
     "driver": {
       "$ref": "#/definitions/EdiDriver"
+    },
+    "coDriver": {
+      "$ref": "#/definitions/EdiDriver"
+    },
+    "geoLocationEvent": {
+      "$ref": "#/definitions/EdiGeoLocationEvent"
+    },
+    "truckTelematicsEvent": {
+      "$ref": "#/definitions/EdiTruckTelematicsEvent"
+    },
+    "trailerTelematicsEvent": {
+      "$ref": "#/definitions/EdiTrailerTelematicsEvent"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
@@ -321,8 +572,8 @@
   "required": [
     "$schema",
     "receiver",
-    "geoPosition",
-    "vehicle"
+    "vehicle",
+    "geoLocationEvent"
   ],
   "patternProperties": {
     "x-.*": {},

@@ -520,7 +520,7 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                         DistanceToDestination = 42.5m,
                         DistanceMeasurementUnitCode = MeasurementUnitCode.Kilometer,
                         EtaTimeAbsolute = DateTime.Now.AddMinutes(-2).ToString("HH:mm:ss"),
-                        Ete = (int)(DateTime.Now.AddMinutes(-2) - eventDateTime).TotalSeconds,
+                        Ete = (int) (DateTime.Now.AddMinutes(-2) - eventDateTime).TotalSeconds,
                         StopsToDestination = 0
                     }
                 }
@@ -533,7 +533,7 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
     /// <summary>
     /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and ETA times
     /// </summary>
-    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.Tour))]
+    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.TourEvent))]
     public class SimpleTourEventForEtaExampleStopArrived : IModelCreateFactory<TourEvent>
     {
         public TourEvent Create()
@@ -558,6 +558,120 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                         PlaceName = "Bamberger Rechenzentrum"
                     },
                     StopId = "693e4c46-527a-44a2-b41a-cab42634e3bd",
+                }
+            };
+
+            return me;
+        }
+    }
+
+    /// <summary>
+    /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and external referenced files
+    /// </summary>
+    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.TourEvent))]
+    public class SimpleTourEventForPodTourCompleted : IModelCreateFactory<TourEvent>
+    {
+        public TourEvent Create()
+        {
+            var eventDateTime = DateTime.Now.AddMinutes(-56);
+
+            var me = new TourEvent()
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "C2PO"
+                },
+                TourId = "20191234567",
+                Tour = new EdiTourSpecificEvent
+                {
+                    EventDateTime = eventDateTime,
+                    GeoPosition = new EdiGeoPosition
+                    {
+                        Latitude = 49.910659m,
+                        Longitude = 10.8682589m,
+                        PlaceName = "RZ BA"
+                    },
+                    TourCompleted = true,
+                    Remarks = "The tour was completed, POD link attached."
+                },
+                Documents = new EdiTourDocuments
+                {
+                    EventDateTime = eventDateTime.AddMinutes(-1),
+
+                    OtherDocuments = new List<EdiDocumentItem>
+                    {
+                        new EdiDocumentItem
+                        {
+                            DocumentDateTime = eventDateTime.AddMinutes(-1),
+                            DocumentType = EdiDocumentType.ProofOfDelivery,
+                            DocumentContent = new EdiFileContent
+                            {
+                                ContentType = "application/pdf",
+                                FileName = "my-pod.pdf",
+                                FileReference = new EdiFileReference
+                                {
+                                    UriValidFrom = eventDateTime,
+                                    UriValidTo = eventDateTime.AddDays(7),
+                                    AbsoluteUri = "https://my-super-file-storage.io/docs/my-pod.pdf"
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            return me;
+        }
+    }
+
+    /// <summary>
+    /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and external referenced files
+    /// </summary>
+    [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.TourEvent))]
+    public class SimpleTourEventForChecklistTourStarted : IModelCreateFactory<TourEvent>
+    {
+        public TourEvent Create()
+        {
+            var eventDateTime = DateTime.Now.AddMinutes(-56);
+
+            var me = new TourEvent()
+            {
+                Receiver = new EdiMessageRouting
+                {
+                    EdiId = "C2PO"
+                },
+                TourId = "20191234567",
+                Tour = new EdiTourSpecificEvent
+                {
+                    EventDateTime = eventDateTime,
+                    GeoPosition = new EdiGeoPosition
+                    {
+                        Latitude = 49.910659m,
+                        Longitude = 10.8682589m,
+                        PlaceName = "RZ BA"
+                    },
+                    TourStarted = true,
+                    Remarks = "The tour was started, checklist attached."
+                },
+                Documents = new EdiTourDocuments
+                {
+                    EventDateTime = eventDateTime.AddMinutes(-1),
+                    ChecklistDepartureControl = true,
+                    LoadSecuring = new List<EdiFileContent>
+                    {
+                        new EdiFileContent
+                        {
+                            ContentType = "image/png",
+                            FileName = "load-secure.png",
+                            BinaryData = new EdiBinaryData
+                            {
+                                Data = new byte[]
+                                {
+                                    1, 0, 0, 1
+                                }
+                            }
+                        }
+                    }
                 }
             };
 

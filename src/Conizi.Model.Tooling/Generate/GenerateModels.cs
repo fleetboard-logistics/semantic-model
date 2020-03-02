@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Conizi.Model.Accounting.Material;
 using Conizi.Model.Documents;
+using Conizi.Model.Shared.Entities;
 using Conizi.Model.Telematics;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Microsoft.Extensions.Logging;
@@ -41,7 +42,7 @@ namespace Conizi.Model.Tooling.Generate
                 typeof(TransportDocument),
                 typeof(StatusImage),
                 typeof(MaterialTransaction),
-                typeof(GeoLocation)
+                typeof(GroundTelematicsEvent)
             };
 
 

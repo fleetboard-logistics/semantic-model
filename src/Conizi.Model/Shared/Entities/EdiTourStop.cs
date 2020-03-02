@@ -229,12 +229,12 @@ namespace Conizi.Model.Shared.Entities
         /// From Date Time
         /// </summary>
         [DisplayName("From Date Time")]
-        public DateTime FromDateTime { get; set; }
+        public DateTime? FromDateTime { get; set; }
 
         /// <summary>
         /// Until Date Time
         /// </summary>
         [DisplayName("Until Date Time")]
-        public DateTime UntilDateTime { get; set; }
+        public DateTime? UntilDateTime { get; set; }
     }
 }

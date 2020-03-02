@@ -30,6 +30,6 @@ namespace Conizi.Model.Shared.Helper
 
         [DisplayName("Conversion date")]
         [Description("The date of conversion")]
-        public DateTime ConversionDate { get; set; }
+        public DateTime? ConversionDate { get; set; }
     }
 }
