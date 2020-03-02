@@ -28,7 +28,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued")]
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime ShippingDate { get; set; }
+        public DateTime? ShippingDate { get; set; }
 
         /// <summary>
         /// All references to the linked documents, systems and devices

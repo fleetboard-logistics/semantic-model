@@ -43,7 +43,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [Description("The date on which the manifest was issued")]
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime ShippingDate { get; set; }
+        public DateTime? ShippingDate { get; set; }
 
         /// <summary>
         /// Information about the way of production of that transport (i.e. by HUB, by direct transport, ...)

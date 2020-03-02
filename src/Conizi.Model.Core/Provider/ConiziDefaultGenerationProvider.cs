@@ -111,7 +111,7 @@ namespace Conizi.Model.Core.Provider
             //    return schema;
             //}
 
-            if (context.ObjectType == typeof(DateTime))
+            if (context.ObjectType == typeof(DateTime) || context.ObjectType == typeof(DateTime?))
             {
                 if (context.MemberProperty.AttributeProvider.GetAttributes(typeof(ConiziDateOnlyAttribute), true).Any())
                 {

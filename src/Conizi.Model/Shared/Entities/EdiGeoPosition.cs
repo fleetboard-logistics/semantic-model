@@ -171,7 +171,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). " +
                      "The date component is only required if it is not the current day.")]
         [ConiziDateOnly]
-        public DateTime EtaDateAbsolute { get; set; }
+        public DateTime? EtaDateAbsolute { get; set; }
 
         /// <summary>
         /// ETE (estimated time enroute, estimated time elapsed) in seconds
