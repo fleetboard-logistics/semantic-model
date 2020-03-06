@@ -143,7 +143,6 @@ namespace Conizi.Model.Shared.Entities
             "Unique identification for the package. This is often an SSCC / NVE barcode number")]
         public string PackageNo { get; set; }
 
-
         /// <summary>
         /// Commission number under which the commission is managed in the master data
         /// </summary>
