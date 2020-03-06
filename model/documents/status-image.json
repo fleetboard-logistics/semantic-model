@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-02-03T13:13:33.9056221+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
+  "$comment": "Generated: 2020-03-06T12:29:34.0557288+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
   "$id": "https://model.conizi.io/v1/documents/status-image.json",
   "title": "Status Image",
   "description": "A status image is a kind of document to document a process",
@@ -193,6 +193,11 @@
         "packageNo": {
           "title": "Package number / Barcode of the package",
           "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
+        },
+        "commissionNo": {
+          "title": "Commission Number",
+          "description": "Commission number under which the commission is managed in the master data",
           "type": "string"
         }
       }
@@ -628,6 +633,9 @@
     "remarks": {
       "title": "Remarks (free form)",
       "description": "Additional remarks",
+      "type": "string"
+    },
+    "modelType": {
       "type": "string"
     }
   },

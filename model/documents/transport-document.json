@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-02-03T13:13:33.7922865+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
+  "$comment": "Generated: 2020-03-06T12:29:33.9338012+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
   "$id": "https://model.conizi.io/v1/documents/transport-document.json",
   "title": "Transport Document",
   "description": "A transport document is a kind of document used to convey information about cargo that is being transported",
@@ -252,6 +252,11 @@
         "packageNo": {
           "title": "Package number / Barcode of the package",
           "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
+        },
+        "commissionNo": {
+          "title": "Commission Number",
+          "description": "Commission number under which the commission is managed in the master data",
           "type": "string"
         }
       }
@@ -629,6 +634,9 @@
     "remarks": {
       "title": "Remarks (free form)",
       "description": "Additional remarks",
+      "type": "string"
+    },
+    "modelType": {
       "type": "string"
     }
   },

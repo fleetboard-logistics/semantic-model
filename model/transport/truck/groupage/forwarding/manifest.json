@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-02-03T13:13:32.0279377+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
+  "$comment": "Generated: 2020-03-06T12:29:32.3226597+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -819,6 +819,11 @@
           "title": "Package number / Barcode of the package",
           "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
           "type": "string"
+        },
+        "commissionNo": {
+          "title": "Commission Number",
+          "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -1416,6 +1421,9 @@
             },
             "content": {
               "$ref": "manifest.json#/definitions/EdiContent"
+            },
+            "modelType": {
+              "type": "string"
             }
           },
           "required": [
@@ -2578,6 +2586,9 @@
       "items": {
         "$ref": "#/definitions/EdiManifestLine"
       }
+    },
+    "modelType": {
+      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
