@@ -136,12 +136,21 @@ namespace Conizi.Model.Shared.Entities
         public string SystemReferences { get; set; }
 
         /// <summary>
-        /// Unique identification for the package. This is often an SSCC / NVE barcode number.
+        /// Unique identification for the package. This is often an SSCC / NVE barcode number
         /// </summary>
         [DisplayName("Package number / Barcode of the package")]
         [Description(
             "Unique identification for the package. This is often an SSCC / NVE barcode number")]
         public string PackageNo { get; set; }
+
+
+        /// <summary>
+        /// Commission number under which the commission is managed in the master data
+        /// </summary>
+        [DisplayName("Commission Number")]
+        [Description(
+            "Commission number under which the commission is managed in the master data")]
+        public string CommissionNo { get; set; }
     }
 
     /// <summary>
