@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:29:30.8935200+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
+  "$comment": "Generated: 2020-03-06T12:53:49.2921179+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5464 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -757,6 +757,11 @@
         "podOnOriginalDeliveryNote": {
           "title": "PoD on original delivery note",
           "description": "The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner",
+          "type": "boolean"
+        },
+        "returnOriginalDeliveryNote": {
+          "title": "Original delivery note must be returned as paper",
+          "description": "Original delivery note must be returned with the signature of the recipient to the shipping partner as paper (i.e. not in electronic form)",
           "type": "boolean"
         },
         "deliveryWithoutReceiptAllowed": {

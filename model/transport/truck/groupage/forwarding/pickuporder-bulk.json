@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:29:33.8178820+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
+  "$comment": "Generated: 2020-03-06T12:53:52.4448451+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5464 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",
@@ -737,6 +737,11 @@
         "podOnOriginalDeliveryNote": {
           "title": "PoD on original delivery note",
           "description": "The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner",
+          "type": "boolean"
+        },
+        "returnOriginalDeliveryNote": {
+          "title": "Original delivery note must be returned as paper",
+          "description": "Original delivery note must be returned with the signature of the recipient to the shipping partner as paper (i.e. not in electronic form)",
           "type": "boolean"
         },
         "deliveryWithoutReceiptAllowed": {

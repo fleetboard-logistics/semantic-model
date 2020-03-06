@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:29:31.5068517+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
+  "$comment": "Generated: 2020-03-06T12:53:50.0160715+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5464 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -737,6 +737,11 @@
         "podOnOriginalDeliveryNote": {
           "title": "PoD on original delivery note",
           "description": "The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner",
+          "type": "boolean"
+        },
+        "returnOriginalDeliveryNote": {
+          "title": "Original delivery note must be returned as paper",
+          "description": "Original delivery note must be returned with the signature of the recipient to the shipping partner as paper (i.e. not in electronic form)",
           "type": "boolean"
         },
         "deliveryWithoutReceiptAllowed": {
