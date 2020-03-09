@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2019-12-19T13:59:29.4390387+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5075 - master",
+  "$comment": "Generated: 2020-02-03T13:13:30.9254439+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -811,7 +811,7 @@
           "type": "string"
         },
         "systemReferences": {
-          "title": "Device Id",
+          "title": "A reference to an IT system",
           "description": "A reference to an IT system like TMS, etc.",
           "type": "string"
         },
@@ -981,7 +981,7 @@
         },
         "angle": {
           "title": "Angle",
-          "description": "The angle is the direction that the vehicle is moving in",
+          "description": "The angle is the direction that the vehicle is moving in (Heading)",
           "type": "number"
         },
         "speed": {

@@ -1,0 +1,30 @@
+{
+    "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+    "receiver": {
+        "ediId": "C2PO"
+    },
+    "tourId": "20191234567",
+    "tour": {
+        "eventDateTime": "2020-02-27T14:56:01.2833106+01:00",
+        "geoPosition": {
+            "latitude": 49.910659,
+            "longitude": 10.8682589,
+            "placeName": "RZ BA"
+        },
+        "tourStarted": true,
+        "remarks": "The tour was started, image attached."
+    },
+    "documents": {
+        "eventDateTime": "2020-02-27T14:55:01.2833106+01:00",
+        "loadSecuring": [
+            {
+                "fileName": "load-secure.png",
+                "contentType": "image/png",
+                "binaryData": {
+                    "data": "AQAAAQ=="
+                }
+            }
+        ],
+        "checklistDepartureControl": true
+    }
+}

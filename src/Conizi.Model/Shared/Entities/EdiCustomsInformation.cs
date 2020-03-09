@@ -220,6 +220,6 @@ namespace Conizi.Model.Shared.Entities
         [Description("Date")]
         [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
     }
 }

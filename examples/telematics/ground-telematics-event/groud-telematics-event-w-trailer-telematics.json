@@ -1,0 +1,43 @@
+{
+    "$schema": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
+    "receiver": {
+        "coniziId": "4545454545454545454"
+    },
+    "sender": {
+        "coniziId": "2856454"
+    },
+    "vehicle": {
+        "vehicleId": "4711",
+        "vehicleIdentificationNumber": "TS1254856454545451",
+        "registration": "KT FL 234",
+        "truckType": "Flatbed Trailer",
+        "isTrailer": true,
+        "sendTelematics": true,
+        "dimensions": {
+            "lengthMeter": 12.1,
+            "widthMeter": 2.8
+        }
+    },
+    "geoLocationEvent": {
+        "eventDateTime": "2020-02-03T13:49:03.1195004+01:00",
+        "geoPosition": {
+            "latitude": 49.8639895,
+            "longitude": 10.2309327,
+            "placeName": "Volkach",
+            "recordTime": "2020-02-03T13:47:03.1199378+01:00",
+            "angle": 12.0,
+            "speed": {
+                "speed": 53.8
+            }
+        },
+        "remarks": "On the Road..."
+    },
+    "trailerTelematicsEvent": {
+        "eventDateTime": "2020-02-03T13:49:03.120467+01:00",
+        "trailerTelematics": {
+            "recordTime": "2020-02-03T13:48:03.1205301+01:00",
+            "temperature": -8.6
+        },
+        "remarks": "Truck telematics information"
+    }
+}

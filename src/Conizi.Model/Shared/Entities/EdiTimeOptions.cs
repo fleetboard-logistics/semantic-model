@@ -79,7 +79,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
     }
 
     /// <summary>
@@ -115,7 +115,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
        
         /// <summary>
         /// From time (HH:mm:ss)
@@ -169,7 +169,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// From time (HH:mm:ss)
@@ -201,7 +201,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime?Date { get; set; }
 
         /// <summary>
         /// From time (HH:mm:ss)
@@ -233,7 +233,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// From time (HH:mm:ss)
@@ -265,7 +265,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// From time (HH:mm:ss)
@@ -297,7 +297,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// From time (HH:mm:ss)
@@ -329,7 +329,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// From time (HH:mm:ss)

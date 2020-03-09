@@ -999,7 +999,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("The new date / time when the delivery will be performed")]
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime NewDeliveryDate { get; set; }
+        public DateTime? NewDeliveryDate { get; set; }
     }
 
     /// <summary>

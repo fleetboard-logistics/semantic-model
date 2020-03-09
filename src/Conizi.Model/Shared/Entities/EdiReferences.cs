@@ -65,7 +65,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("Date when the order was places with the shipping partner")]
         [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
-        public DateTime CustomerOrderDate { get; set; }
+        public DateTime? CustomerOrderDate { get; set; }
 
         /// <summary>
         /// An unique reference number from the system which was used to enter the order details
@@ -99,7 +99,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("The date when the original shipment was forwarded")]
         [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
-        public DateTime ShippingDate { get; set; }
+        public DateTime? ShippingDate { get; set; }
 
         /// <summary>
         /// The partner which originally forwarded the consignment
@@ -131,7 +131,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("The date when the original shipment was forwarded")]
         [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
-        public DateTime ShippingDate { get; set; }
+        public DateTime? ShippingDate { get; set; }
 
         /// <summary>
         /// The partner which originally forwarded the consignment

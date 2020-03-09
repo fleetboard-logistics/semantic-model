@@ -46,7 +46,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("Best before")]
         [JsonConverter(typeof(ConiziDateConverter))]
         [ConiziDateOnly]
-        public DateTime BestBeforeDate { get; set; }
+        public DateTime? BestBeforeDate { get; set; }
 
         /// <summary>
         /// Transport Unit Number

@@ -37,7 +37,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [JsonProperty("pickupOrderDate", Order = -9)]
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
-        public DateTime PickupOrderDate { get; set; }
+        public DateTime? PickupOrderDate { get; set; }
 
         /// <summary>
         /// Person or company that ordered the transport of the consignment. Often identical to the shipper
