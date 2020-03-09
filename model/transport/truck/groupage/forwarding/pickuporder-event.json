@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-02-03T13:13:32.8008177+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
+  "$comment": "Generated: 2020-03-06T12:29:33.0143654+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
@@ -236,6 +236,11 @@
         "packageNo": {
           "title": "Package number / Barcode of the package",
           "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
+        },
+        "commissionNo": {
+          "title": "Commission Number",
+          "description": "Commission number under which the commission is managed in the master data",
           "type": "string"
         }
       },
@@ -1228,6 +1233,9 @@
     "referenceNumber": {
       "title": "Reference number",
       "description": "Reference number",
+      "type": "string"
+    },
+    "modelType": {
       "type": "string"
     },
     "references": {

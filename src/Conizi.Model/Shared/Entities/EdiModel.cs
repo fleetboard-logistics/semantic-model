@@ -13,8 +13,8 @@ namespace Conizi.Model.Shared.Entities
     /// Base model in the conizi context
     /// </summary>
     /// <remarks>Every conizi model must inherit from this class to be serialized correctly</remarks>
-    public class 
-        EdiModel : EdiPatternPropertiesBase
+    public class
+        EdiModel : EdiPatternPropertiesBase, IModel
     {
         /// <summary>
         /// The EdiModel default Constructor, used to set the schema during serialization.
@@ -28,7 +28,7 @@ namespace Conizi.Model.Shared.Entities
 
             this.Schema = att.Id;
         }
-        
+
         /// <summary>
         /// The id (URI) of the model
         /// </summary>
@@ -43,7 +43,12 @@ namespace Conizi.Model.Shared.Entities
         [Required]
         public string Schema { get; internal set; }
 
-      
+
+        /// <summary>
+        /// Type of the model
+        /// </summary>
+        public Type ModelType { get; set; }
+
         /// <summary>
         /// The receiver of this message
         /// </summary>

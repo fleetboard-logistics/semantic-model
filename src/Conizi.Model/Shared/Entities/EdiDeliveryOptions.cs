@@ -95,6 +95,13 @@ namespace Conizi.Model.Shared.Entities
         public bool? PodOnOriginalDeliveryNote { get; set; }
 
         /// <summary>
+        /// Original delivery note must be returned with the signature of the recipient to the shipping partner as paper (i.e. not in electronic form)
+        /// </summary>
+        [DisplayName("Original delivery note must be returned as paper")]
+        [Description("Original delivery note must be returned with the signature of the recipient to the shipping partner as paper (i.e. not in electronic form)")]
+        public bool? ReturnOriginalDeliveryNote { get; set; }
+
+        /// <summary>
         /// The goods may be dropped at the designated location without a signature
         /// </summary>
         [DisplayName("Delivery without receipt allowed")]
