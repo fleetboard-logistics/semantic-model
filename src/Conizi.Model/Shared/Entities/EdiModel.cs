@@ -82,7 +82,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Metadata for conizi routing etc. (Not be shown in Model definition)
         /// </summary>
-        [JsonProperty("$metadata", Required = Required.DisallowNull)]
+        [JsonProperty("$metadata", Required = Required.DisallowNull, Order = 9999)]
         public EdiMetadata Metadata { get; set; }
     }
 }

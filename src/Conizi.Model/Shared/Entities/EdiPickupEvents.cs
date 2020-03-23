@@ -154,6 +154,22 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
+    /// Events indicating a successful pickup
+    /// </summary>
+    [DisplayName("Pickup for tour successful")]
+    [Description("Events indicating a successful pickup")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiTourPickupSuccessful : EdiEventBase
+    {
+        /// <summary>
+        /// Detailed information about the exceptions that occured while pickup the pickup order.
+        /// Use (null) to report successful pickup.
+        /// </summary>
+        public EdiTourPickupSuccessfulExceptions Exceptions { get; set; }
+    }
+
+    /// <summary>
     /// Events occured while unloading the pickup order at the plant of the shipping partner
     /// </summary>
     [DisplayName("Unloading")]

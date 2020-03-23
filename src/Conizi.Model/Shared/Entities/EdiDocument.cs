@@ -25,7 +25,8 @@ namespace Conizi.Model.Shared.Entities
         /// The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued
         /// </summary>
         [DisplayName("Shipping date")]
-        [Description("The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued")]
+        [Description(
+            "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued")]
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime? ShippingDate { get; set; }
@@ -40,7 +41,7 @@ namespace Conizi.Model.Shared.Entities
         ///  All object to archive the document
         /// </summary>
         public EdiDocumentArchive Archive { get; set; }
-        
+
         /// <summary>
         /// Additional remarks (free form)
         /// </summary>
@@ -70,7 +71,7 @@ namespace Conizi.Model.Shared.Entities
         /// The reference number (e.g. delivery note")
         /// </summary>
         [DisplayName("Reference number")]
-        [Description("The reference number (e.g. delivery note")]
+        [Description("The reference number (e.g. delivery note)")]
         public string ReferenceNumber { get; set; }
 
         /// <summary>
@@ -84,14 +85,16 @@ namespace Conizi.Model.Shared.Entities
         /// Unique identification for the consignment within the transport management system of the shipping partner
         /// </summary>
         [DisplayName("Consignment number of the shipping partner")]
-        [Description("Unique identification for the consignment within the transport management system of the shipping partner")]
+        [Description(
+            "Unique identification for the consignment within the transport management system of the shipping partner")]
         public string ConsignmentNoShippingPartner { get; set; }
 
         /// <summary>
         /// Unique identification for the consignment within the transport management system of the receiving partner
         /// </summary>
         [DisplayName("Consignment number of the receiving partner")]
-        [Description("Unique identification for the consignment within the transport management system of the receiving partner")]
+        [Description(
+            "Unique identification for the consignment within the transport management system of the receiving partner")]
         public string ConsignmentNoReceivingPartner { get; set; }
 
         /// <summary>
@@ -100,6 +103,34 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Tour Id")]
         [Description("A unique identifier assigned to the tour by the devlivering company")]
         public string TourId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DisplayName("Tour Reference")]
+        [Description("")]
+        public string TourReference { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DisplayName("Workflow Id")]
+        [Description("")]
+        public string WorkflowId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DisplayName("Transport Order Id")]
+        [Description("")]
+        public string TransportOrderId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DisplayName("Transport Order No")]
+        [Description("")]
+        public string TransportOrderNo { get; set; }
 
         /// <summary>
         /// Stop Id. Unique identifier for the stop within the tour
@@ -116,9 +147,10 @@ namespace Conizi.Model.Shared.Entities
         public string DriverId { get; set; }
 
         /// <summary>
-        /// The Id of the vehicle
+        /// The unique Id of the vehicle (Truck/Trailer/Train)
         /// </summary>
         [DisplayName("The vehicle id")]
+        [Description("The unique Id of the vehicle (Truck/Trailer/Train)")]
         public string VehicleId { get; set; }
 
         /// <summary>
@@ -298,21 +330,17 @@ namespace Conizi.Model.Shared.Entities
         /// The geo position, image was taken
         /// </summary>
         public EdiGeoPosition GeoPosition { get; set; }
-
     }
 
     /// <summary>
     /// Extended Reference properties for document types
     /// </summary>
-    public class EdiDocumentReferencesExtended : EdiDocumentReferences {
-        
+    public class EdiDocumentReferencesExtended : EdiDocumentReferences
+    {
         /// <summary>
         /// Company responsible for the actual transport of the goods from the shipping partner to the recipient
         /// </summary>
         [JsonProperty("carrier", Order = -2)]
         public EdiAddress Carrier { get; set; }
     }
-
-
-    
 }

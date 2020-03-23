@@ -82,6 +82,13 @@ namespace Conizi.Model.Shared.Entities
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// The mobile phone number
+        /// </summary>
+        [Phone]
+        [DisplayName("The mobile phone number")]
+        public string MobilePhoneNumber { get; set; }
+
+        /// <summary>
         /// Additional address lines of the address
         /// </summary>
         [DisplayName("Additional address lines of the address")]
@@ -111,5 +118,19 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [JsonProperty("geoPosition", Order = -9, Required = Required.DisallowNull)]
         public EdiGeoPosition GeoPosition { get; set; }
+
+        /// <summary>
+        /// The gate to use
+        /// </summary>
+        [DisplayName("Gate")]
+        [Description("The gate to use")]
+        public string Gate { get; set; }
+
+        /// <summary>
+        /// Additional remarks (free form)
+        /// </summary>
+        [DisplayName("Remarks (free form)")]
+        [Description("Additional remarks")]
+        public string Remarks { get; set; }
     }
 }

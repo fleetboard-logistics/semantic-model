@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
-    <Authors>fleetobard-logistics / André Rüb (sdc4)</Authors>
+    <Authors>Fleetboard-logistics / André Rüb (sdc4)</Authors>
     <PackageTags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model, interfaces</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -21,7 +21,7 @@
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
 

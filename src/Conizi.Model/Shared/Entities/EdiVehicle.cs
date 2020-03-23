@@ -68,6 +68,20 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public EdiMeasures Dimensions { get; set; }
 
+        /// <summary>
+        /// The Manufacturer of the vehicle
+        /// </summary>
+        [DisplayName("Device Ids")]
+        [Description("List of device ids, are part of this vehicle")]
+        public string Manufacturer{ get; set; }
+
+        /// <summary>
+        /// Further Vehicle Information
+        /// </summary>
+        [DisplayName("Information")]
+        [Description("Further Vehicle Information")]
+        public string Information { get; set; }
+
 
     }
 }

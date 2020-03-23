@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Runtime.Serialization;
 using Conizi.Model.Shared.Attributes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Definitions
 {
@@ -55,7 +57,8 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// Values are measured in kilometers / Speed in Kilometers per Hour
         /// </summary>
-        [Description("Distance Values are measured in kilometers / Speed in Kilometers per Hour")] [EnumMember(Value = "KMT")]
+        [Description("Distance Values are measured in kilometers / Speed in Kilometers per Hour")]
+        [EnumMember(Value = "KMT")]
         Kilometer,
 
         /// <summary>
@@ -67,7 +70,8 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// Values are measured in miles / Speed in miles per Hour
         /// </summary>
-        [Description("Distance Values are measured in (Statute/English) miles / Speed in miles per Hour")] [EnumMember(Value = "SMI")]
+        [Description("Distance Values are measured in (Statute/English) miles / Speed in miles per Hour")]
+        [EnumMember(Value = "SMI")]
         StatuteMile
     }
 
@@ -152,8 +156,7 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// Custom Loading Equipment, for custom boxes, pallets and other equipment
         /// </summary>
-        [Description("Custom Loading Equipment")]
-        [EnumMember(Value = "customLoadingEquipment")]
+        [Description("Custom Loading Equipment")] [EnumMember(Value = "customLoadingEquipment")]
         CustomLoadingEquipment = 99,
     }
 
@@ -168,7 +171,7 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// An unknown document
         /// </summary>
-        [EnumMember(Value = "unknown")] Unknown = 0,
+        [EnumMember(Value = "unknown")] Unknown = -1,
 
         /// <summary>
         /// A Proof of Delivery (POD)
@@ -208,7 +211,7 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// An unknown image type
         /// </summary>
-        [EnumMember(Value = "unknown")] Unknown = 0,
+        [EnumMember(Value = "unknown")] Unknown = -1,
 
         /// <summary>
         /// An image of damaged goods
