@@ -1,6 +1,6 @@
 <Query Kind="Statements">
   <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll">C:\src\semanticmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.Core.dll</Reference>
-  <Reference Relative="..\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\semanticmodel\src\Conizi.Model.Core\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
+  <Reference Relative="..\Conizi.Model\bin\Debug\netstandard2.0\Conizi.Model.dll">C:\src\semanticmodel\src\Conizi.Model\bin\Debug\netstandard2.0\Conizi.Model.dll</Reference>
   <NuGetReference>Newtonsoft.Json</NuGetReference>
   <NuGetReference>Newtonsoft.Json.Schema</NuGetReference>
   <NuGetReference>Serilog.Sinks.LINQPad</NuGetReference>
@@ -18,6 +18,7 @@
   <Namespace>Conizi.Model.Shared.Helper</Namespace>
   <Namespace>Conizi.Model.Shared.Interfaces</Namespace>
   <Namespace>Conizi.Model.Telematics</Namespace>
+  <Namespace>Conizi.Model.Telematics.Truck</Namespace>
   <Namespace>Conizi.Model.Transport.Truck.Groupage.Forwarding</Namespace>
   <Namespace>Newtonsoft.Json</Namespace>
   <Namespace>Newtonsoft.Json.Bson</Namespace>
@@ -52,7 +53,10 @@ var models = new List<Type> {
 	 typeof(TransportDocument),
 	 typeof(StatusImage),
 	 typeof(MaterialTransaction),
-	 typeof(GeoLocation)
+	 typeof(TruckTour),
+	 typeof(TruckTransportOrder),
+	 typeof(TruckStopEvent)
+	 
 };
 
 foreach (var model in models)

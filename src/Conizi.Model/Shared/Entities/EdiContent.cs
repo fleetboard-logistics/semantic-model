@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Describes the nature and quantity of the goods in this consignment
     /// </summary>
-    
+
     [DisplayName("Content")]
     [Description("Describes the nature and quantity of the goods in this consignment")]
     [ConiziAdditionalProperties(false)]
@@ -61,15 +61,20 @@ namespace Conizi.Model.Shared.Entities
         public List<EdiLine> Lines { get; set; }
 
         /// <summary>
-        /// 
+        /// Additional loading aids which are not part of the consignment but which have been added to safely transport the goods
         /// </summary>
         public EdiAdditionalLoadingEquipment AdditionalLoadingEquipment { get; set; }
+
+        /// <summary>
+        /// Flags for content and goods
+        /// </summary>
+        public EdiContentFlag ContentFlag { get; set; }
     }
 
     /// <summary>
     /// Value of the goods, used for insurance purposes
     /// </summary>
-    
+
     [DisplayName("Insurance value")]
     [Description("Value of the goods, used for insurance purposes")]
     [ConiziAdditionalProperties(false)]
@@ -94,7 +99,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Lines are describing handling units of similar sizes and content for brevity
     /// </summary>
-    
+
     [DisplayName("Line")]
     [Description("Lines are describing handling units of similar sizes and content for brevity")]
     [ConiziAdditionalProperties(false)]
@@ -127,7 +132,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Inner package count")]
         [Description("Used to specify the number of inner packages (e.g. the number of boxes on a pallet)")]
-        public int?  InnerPackageCount { get; set; }
+        public int? InnerPackageCount { get; set; }
 
         /// <summary>
         /// The type of packaging of the inner packages
@@ -175,12 +180,19 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public List<EdiPackage> Packages { get; set; }
 
+        /// <summary>
+        /// Additional remarks (free form)
+        /// </summary>
+        [DisplayName("Remarks (free form)")]
+        [Description("Additional remarks")]
+        public string Remarks { get; set; }
+
     }
 
     /// <summary>
     /// Used to specify information necessary in the customs process
     /// </summary>
-    
+
     [DisplayName("Customs information")]
     [Description("Used to specifiy information necessary in the customs process")]
     [ConiziAdditionalProperties(false)]
@@ -236,10 +248,34 @@ namespace Conizi.Model.Shared.Entities
         public EdiCustomsDocuments Documents { get; set; }
     }
 
+
+    /// <summary>
+    /// Flags for content and goods
+    /// </summary>
+    [DisplayName("Content Flags")]
+    [Description("Flags for content and goods")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiContentFlag
+    {
+        /// <summary>
+        /// Description for dangerous goods
+        /// </summary>
+        public TourDangerousGoods DangerousGoods { get; set; }
+
+        /// <summary>
+        /// Customs goods on the tour
+        /// </summary>
+        [DisplayName("Customs Goods")]
+        [Description("Customs goods on the tour")]
+        public bool? CustomsGoods { get; set; }
+
+    }
+
     /// <summary>
     /// Amount value type
     /// </summary>
-    
+
     [DisplayName("Customs value")]
     [Description("Amount value type")]
     [ConiziAdditionalProperties(false)]
@@ -258,4 +294,6 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Currency")]
         public string Currency { get; set; }
     }
+
+
 }

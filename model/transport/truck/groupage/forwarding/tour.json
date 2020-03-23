@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:53:49.2921179+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5464 - master",
+  "$comment": "Generated: 2020-03-23T14:40:40.7127957+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -85,6 +85,10 @@
           "title": "Phone number of the address",
           "type": "string"
         },
+        "mobilePhoneNumber": {
+          "title": "The mobile phone number",
+          "type": "string"
+        },
         "additionalAddressLines": {
           "title": "Additional address lines of the address",
           "type": "array",
@@ -102,6 +106,16 @@
         },
         "faxNumber": {
           "title": "The Fax number",
+          "type": "string"
+        },
+        "gate": {
+          "title": "Gate",
+          "description": "The gate to use",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
           "type": "string"
         }
       },
@@ -322,6 +336,9 @@
         "additionalLoadingEquipment": {
           "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
         },
+        "contentFlag": {
+          "$ref": "#/definitions/EdiContentFlag"
+        },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
           "description": "Total volume of the consignment",
@@ -405,6 +422,26 @@
         },
         "documents": {
           "$ref": "#/definitions/EdiCustomsDocuments"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiContentFlag": {
+      "title": "Content Flags",
+      "description": "Flags for content and goods",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dangerousGoods": {
+          "$ref": "#/definitions/TourDangerousGoods"
+        },
+        "customsGoods": {
+          "title": "Customs Goods",
+          "description": "Customs goods on the tour",
+          "type": "boolean"
         }
       },
       "patternProperties": {
@@ -793,7 +830,7 @@
         },
         "referenceNumber": {
           "title": "Reference number",
-          "description": "The reference number (e.g. delivery note",
+          "description": "The reference number (e.g. delivery note)",
           "type": "string"
         },
         "consignmentObjectId": {
@@ -816,6 +853,26 @@
           "description": "A unique identifier assigned to the tour by the devlivering company",
           "type": "string"
         },
+        "tourReference": {
+          "title": "Tour Reference",
+          "description": "",
+          "type": "string"
+        },
+        "workflowId": {
+          "title": "Workflow Id",
+          "description": "",
+          "type": "string"
+        },
+        "transportOrderId": {
+          "title": "Transport Order Id",
+          "description": "",
+          "type": "string"
+        },
+        "transportOrderNo": {
+          "title": "Transport Order No",
+          "description": "",
+          "type": "string"
+        },
         "stopId": {
           "title": "Stop Id",
           "description": "Unique identifier for the stop within the tour",
@@ -828,6 +885,7 @@
         },
         "vehicleId": {
           "title": "The vehicle id",
+          "description": "The unique Id of the vehicle (Truck/Trailer/Train)",
           "type": "string"
         },
         "deviceId": {
@@ -875,6 +933,11 @@
         "phoneNumber": {
           "title": "Phone number",
           "description": "The phone number of the driver",
+          "type": "string"
+        },
+        "vehicleId": {
+          "title": "The vehicle id",
+          "description": "The system wide id of the vehicle, the driver is connected",
           "type": "string"
         }
       },
@@ -1249,6 +1312,11 @@
         },
         "temperatureRestrictions": {
           "$ref": "#/definitions/EdiTemperatureRestrictions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -1386,6 +1454,11 @@
           "items": {
             "$ref": "#/definitions/EdiPackage"
           }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
@@ -1745,6 +1818,10 @@
           "title": "Phone number of the address",
           "type": "string"
         },
+        "mobilePhoneNumber": {
+          "title": "The mobile phone number",
+          "type": "string"
+        },
         "additionalAddressLines": {
           "title": "Additional address lines of the address",
           "type": "array",
@@ -1762,6 +1839,16 @@
         },
         "faxNumber": {
           "title": "The Fax number",
+          "type": "string"
+        },
+        "gate": {
+          "title": "Gate",
+          "description": "The gate to use",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
           "type": "string"
         }
       },
@@ -2647,6 +2734,16 @@
         },
         "dimensions": {
           "$ref": "#/definitions/EdiMeasures"
+        },
+        "manufacturer": {
+          "title": "Device Ids",
+          "description": "List of device ids, are part of this vehicle",
+          "type": "string"
+        },
+        "information": {
+          "title": "Information",
+          "description": "Further Vehicle Information",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -2987,6 +3084,11 @@
           "title": "Write Down Mileage",
           "description": "Write down the mileage",
           "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -3100,6 +3202,11 @@
           "title": "Write Down Mileage",
           "description": "Write down the mileage",
           "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         }
       },
       "patternProperties": {

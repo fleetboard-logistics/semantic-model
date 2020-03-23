@@ -615,7 +615,23 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                                     AbsoluteUri = "https://my-super-file-storage.io/docs/my-pod.pdf"
                                 }
                             }
+                        },
+                        new EdiDocumentItem
+                        {
+                        DocumentDateTime = eventDateTime.AddMinutes(-1),
+                        DocumentType = EdiDocumentType.Unknown,
+                        DocumentContent = new EdiFileContent
+                        {
+                            ContentType = "application/pdf",
+                            FileName = "my-unknown.pdf",
+                            FileReference = new EdiFileReference
+                            {
+                                UriValidFrom = eventDateTime,
+                                UriValidTo = eventDateTime.AddDays(14),
+                                AbsoluteUri = "https://my-super-file-storage.io/docs/my-unknown.pdf"
+                            }
                         }
+                    }
                     }
                 }
             };

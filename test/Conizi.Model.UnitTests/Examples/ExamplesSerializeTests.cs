@@ -81,6 +81,16 @@ namespace Conizi.Model.UnitTests.Examples
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeSimpleGroundTelematicsEvent_AssertGpsValid()
+        {
+            var m = new GroundTelematicsEventExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
         public void SerializeTruckTelematicsGroundTelematicsEvent_AssertSerializationValid()
         {
             var m = new GroundTelematicsEventTruckTelematicsExample().Create();
