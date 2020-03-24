@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T15:45:40.3043854+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-03-24T15:53:53.3624746+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5728 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -1077,8 +1077,7 @@
           }
         },
         "unitType": {
-          "title": "Loading Equipment Type",
-          "description": "Type of loading equipment like eur pallets, euro boxes...",
+          "description": "Types of loading unites",
           "type": "string",
           "additionalProperties": false,
           "patternProperties": {
