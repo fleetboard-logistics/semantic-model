@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:41.7817289+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T15:45:37.4965442+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
@@ -132,12 +132,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -871,9 +871,6 @@
       "items": {
         "$ref": "#/definitions/EdiStatusImage"
       }
-    },
-    "modelType": {
-      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"

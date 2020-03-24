@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:40.7127957+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T15:45:36.4628241+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -324,6 +324,14 @@
           "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
           "type": "boolean"
         },
+        "dangerousGoods": {
+          "$ref": "#/definitions/TourDangerousGoods"
+        },
+        "customsGoods": {
+          "title": "Customs Goods",
+          "description": "Customs goods on the tour",
+          "type": "boolean"
+        },
         "insuranceValue": {
           "$ref": "#/definitions/EdiInsuranceValue"
         },
@@ -335,9 +343,6 @@
         },
         "additionalLoadingEquipment": {
           "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
-        },
-        "contentFlag": {
-          "$ref": "#/definitions/EdiContentFlag"
         },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
@@ -422,26 +427,6 @@
         },
         "documents": {
           "$ref": "#/definitions/EdiCustomsDocuments"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiContentFlag": {
-      "title": "Content Flags",
-      "description": "Flags for content and goods",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "dangerousGoods": {
-          "$ref": "#/definitions/TourDangerousGoods"
-        },
-        "customsGoods": {
-          "title": "Customs Goods",
-          "description": "Customs goods on the tour",
-          "type": "boolean"
         }
       },
       "patternProperties": {
@@ -865,12 +850,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -1545,6 +1530,29 @@
           "items": {
             "$ref": "#/definitions/EdiSeal"
           }
+        },
+        "unitType": {
+          "title": "Loading Equipment Type",
+          "description": "Type of loading equipment like eur pallets, euro boxes...",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "swapBody",
+            "container",
+            "frame",
+            "silo",
+            "tank",
+            "customLoadingUnit"
+          ]
+        },
+        "customLoadingUnitName": {
+          "title": "Custom Loading Type Name",
+          "description": "Custom Loading Type Name, like specialContainers or trailer formats",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -2976,9 +2984,6 @@
         },
         "content": {
           "$ref": "tour.json#/definitions/EdiContent"
-        },
-        "modelType": {
-          "type": "string"
         }
       },
       "required": [
@@ -3451,9 +3456,6 @@
     "remarks": {
       "title": "Remarks (free form)",
       "description": "Additional remarks",
-      "type": "string"
-    },
-    "modelType": {
       "type": "string"
     },
     "references": {

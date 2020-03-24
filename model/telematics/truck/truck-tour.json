@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:44.5885234+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T15:45:40.3043854+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -114,6 +114,24 @@
         "\\$.*": {}
       }
     },
+    "EdiAnonymity": {
+      "title": "Anonymity services",
+      "description": "Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "neutralShipper": {
+          "$ref": "#/definitions/EdiAddress"
+        },
+        "neutralConsignee": {
+          "$ref": "#/definitions/EdiAddress"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiBarcode": {
       "title": "Bar codes / SSCC number",
       "description": "Detailed information about the individual handling units",
@@ -192,6 +210,14 @@
           "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
           "type": "boolean"
         },
+        "dangerousGoods": {
+          "$ref": "#/definitions/TourDangerousGoods"
+        },
+        "customsGoods": {
+          "title": "Customs Goods",
+          "description": "Customs goods on the tour",
+          "type": "boolean"
+        },
         "insuranceValue": {
           "$ref": "#/definitions/EdiInsuranceValue"
         },
@@ -203,9 +229,6 @@
         },
         "additionalLoadingEquipment": {
           "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
-        },
-        "contentFlag": {
-          "$ref": "#/definitions/EdiContentFlag"
         },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
@@ -290,26 +313,6 @@
         },
         "documents": {
           "$ref": "#/definitions/EdiCustomsDocuments"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiContentFlag": {
-      "title": "Content Flags",
-      "description": "Flags for content and goods",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "dangerousGoods": {
-          "$ref": "#/definitions/TourDangerousGoods"
-        },
-        "customsGoods": {
-          "title": "Customs Goods",
-          "description": "Customs goods on the tour",
-          "type": "boolean"
         }
       },
       "patternProperties": {
@@ -563,12 +566,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -1072,6 +1075,29 @@
           "items": {
             "$ref": "#/definitions/EdiSeal"
           }
+        },
+        "unitType": {
+          "title": "Loading Equipment Type",
+          "description": "Type of loading equipment like eur pallets, euro boxes...",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "swapBody",
+            "container",
+            "frame",
+            "silo",
+            "tank",
+            "customLoadingUnit"
+          ]
+        },
+        "customLoadingUnitName": {
+          "title": "Custom Loading Type Name",
+          "description": "Custom Loading Type Name, like specialContainers or trailer formats",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -1558,6 +1584,48 @@
         "\\$.*": {}
       }
     },
+    "EdiSpecialEquipment": {
+      "title": "Additional loading equipment",
+      "description": "Special loading equipment, like a fork lift, crane...",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "forkLift": {
+          "title": "ForkLift",
+          "description": "A forklift is needed for the transport",
+          "type": "boolean"
+        },
+        "liftingPlatform": {
+          "title": "LiftingPlatform",
+          "description": "A lifting platform is needed for the transport",
+          "type": "boolean"
+        },
+        "crane": {
+          "title": "Crane",
+          "description": "A crane is needed for the transport",
+          "type": "boolean"
+        },
+        "handLifter": {
+          "title": "HandLifter",
+          "description": "A hand lifter is needed for the transport",
+          "type": "boolean"
+        },
+        "refrigeratedTruck": {
+          "title": "Refrigerated Truck",
+          "description": "A refrigerated truck is needed for the transport",
+          "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiStacking": {
       "title": "Stacking",
       "description": "Indicated whether the goods may or may not be stacked",
@@ -1869,10 +1937,7 @@
         "remarksPickup": {
           "title": "Pickup remarks",
           "description": "Free text information about the pick up",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "type": "string"
         },
         "remarksDelivery": {
           "title": "Delivery Remarks",
@@ -1895,11 +1960,50 @@
         "\\$.*": {}
       }
     },
+    "EdiTransportNotification": {
+      "title": "TransportNotification",
+      "description": "General notifications about the transport",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoFence": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "contactNotification": {
+          "$ref": "#/definitions/EdiAddress"
+        },
+        "byDriver": {
+          "title": "By driver",
+          "description": "Notification by driver",
+          "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks",
+          "description": "Free text information about the transport",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiTransportServices": {
       "title": "Transport Services",
       "description": "",
       "type": "object",
       "additionalProperties": false,
+      "properties": {
+        "anonymity": {
+          "$ref": "#/definitions/EdiAnonymity"
+        },
+        "notification": {
+          "$ref": "#/definitions/EdiTransportNotification"
+        },
+        "specialEquipment": {
+          "$ref": "#/definitions/EdiSpecialEquipment"
+        }
+      },
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -2111,6 +2215,18 @@
         "network": {
           "$ref": "truck-tour.json#/definitions/EdiNetwork"
         },
+        "messageFunctionCode": {
+          "title": "Message function code",
+          "type": "string",
+          "enum": [
+            "add",
+            "update",
+            "remove",
+            "add_partial",
+            "update_partial",
+            "remove_partial"
+          ]
+        },
         "shippingDate": {
           "title": "Shipping date",
           "description": "Day on which the tour is proccessed",
@@ -2118,7 +2234,7 @@
           "format": "date"
         },
         "references": {
-          "$ref": "truck-tour.json#/definitions/EdiReferences"
+          "$ref": "truck-tour.json#/definitions/EdiDocumentReferences"
         },
         "orderer": {
           "$ref": "truck-tour.json#/definitions/EdiAddress"
@@ -2143,9 +2259,6 @@
         },
         "billing": {
           "$ref": "truck-tour.json#/definitions/EdiTransportBilling"
-        },
-        "modelType": {
-          "type": "string"
         }
       },
       "required": [
@@ -2561,9 +2674,6 @@
         "$ref": "#/definitions/EdiTourStop"
       }
     },
-    "flags": {
-      "$ref": "#/definitions/EdiContentFlag"
-    },
     "loadUnits": {
       "type": "array",
       "items": {
@@ -2589,9 +2699,6 @@
       "items": {
         "type": "string"
       }
-    },
-    "modelType": {
-      "type": "string"
     }
   },
   "required": [
