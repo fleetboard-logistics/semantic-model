@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T13:32:15.7507835+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
+  "$comment": "Generated: 2020-03-24T15:45:40.5305651+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -613,8 +613,8 @@
       }
     },
     "EdiGeoPosition": {
-      "title": "Geo Fence",
-      "description": "A geo-fence is a virtual perimeter for a real-world geographic area",
+      "title": "Geo position",
+      "description": "Data about the current geo position",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -656,9 +656,6 @@
           "$ref": "#/definitions/EdiGeoRadius"
         }
       }
-    },
-    "EdiGeoPosition-1": {
-      "$ref": "#/definitions/EdiGeoPosition"
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",

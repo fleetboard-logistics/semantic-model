@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T13:32:11.4790836+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
+  "$comment": "Generated: 2020-03-24T15:45:36.7086463+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
