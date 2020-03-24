@@ -33,8 +33,6 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Type of loading equipment like eur pallets, euro boxes...
         /// </summary>
-        [DisplayName("Loading Equipment Type")]
-        [Description("Type of loading equipment like eur pallets, euro boxes...")]
         [JsonConverter(typeof(StringEnumConverter))]
         public LoadingUnitType UnitType { get; set; }
 
