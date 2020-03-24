@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:44.8383576+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T13:32:15.7507835+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -114,6 +114,24 @@
         "\\$.*": {}
       }
     },
+    "EdiAnonymity": {
+      "title": "Anonymity services",
+      "description": "Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "neutralShipper": {
+          "$ref": "#/definitions/EdiAddress"
+        },
+        "neutralConsignee": {
+          "$ref": "#/definitions/EdiAddress"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiBarcode": {
       "title": "Bar codes / SSCC number",
       "description": "Detailed information about the individual handling units",
@@ -172,6 +190,14 @@
           "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
           "type": "boolean"
         },
+        "dangerousGoods": {
+          "$ref": "#/definitions/TourDangerousGoods"
+        },
+        "customsGoods": {
+          "title": "Customs Goods",
+          "description": "Customs goods on the tour",
+          "type": "boolean"
+        },
         "insuranceValue": {
           "$ref": "#/definitions/EdiInsuranceValue"
         },
@@ -183,9 +209,6 @@
         },
         "additionalLoadingEquipment": {
           "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
-        },
-        "contentFlag": {
-          "$ref": "#/definitions/EdiContentFlag"
         },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
@@ -270,26 +293,6 @@
         },
         "documents": {
           "$ref": "#/definitions/EdiCustomsDocuments"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiContentFlag": {
-      "title": "Content Flags",
-      "description": "Flags for content and goods",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "dangerousGoods": {
-          "$ref": "#/definitions/TourDangerousGoods"
-        },
-        "customsGoods": {
-          "title": "Customs Goods",
-          "description": "Customs goods on the tour",
-          "type": "boolean"
         }
       },
       "patternProperties": {
@@ -543,12 +546,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -610,8 +613,8 @@
       }
     },
     "EdiGeoPosition": {
-      "title": "Geo position",
-      "description": "Data about the current geo position",
+      "title": "Geo Fence",
+      "description": "A geo-fence is a virtual perimeter for a real-world geographic area",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -653,6 +656,9 @@
           "$ref": "#/definitions/EdiGeoRadius"
         }
       }
+    },
+    "EdiGeoPosition-1": {
+      "$ref": "#/definitions/EdiGeoPosition"
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -1016,189 +1022,6 @@
         "\\$.*": {}
       }
     },
-    "EdiPartnerIdentification": {
-      "title": "Fields to identify the partner",
-      "description": "Routing information to identify the parties involved in the data transfer",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
-        "name": {
-          "title": "Name of the address",
-          "type": "string"
-        },
-        "name2": {
-          "title": "Name2 of the address",
-          "type": "string"
-        },
-        "street": {
-          "title": "Street of the address",
-          "type": "string"
-        },
-        "houseNumber": {
-          "title": "House number of the address",
-          "type": "string"
-        },
-        "zipCode": {
-          "title": "Zip code of the Address",
-          "type": "string"
-        },
-        "city": {
-          "title": "City of the address",
-          "type": "string"
-        },
-        "townArea": {
-          "title": "Town area address",
-          "type": "string"
-        },
-        "countryCode": {
-          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
-          "type": "string"
-        },
-        "emailAddress": {
-          "title": "Email of the address",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "Phone number of the address",
-          "type": "string"
-        },
-        "additionalAddressLines": {
-          "title": "Additional address lines of the address",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "reference": {
-          "title": "Reference for an address",
-          "type": "string"
-        },
-        "contactPerson": {
-          "title": "The contact person",
-          "type": "string"
-        },
-        "faxNumber": {
-          "title": "The Fax number",
-          "type": "string"
-        },
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiPickupOrder": {
-      "title": "Pickup order",
-      "description": "Reference to a pickup order which resulted in this consignment",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "pickupOrderNo": {
-          "title": "Number of the Pickup order",
-          "description": "Number to the referenced pickup order",
-          "type": "string"
-        },
-        "orderingParty": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiReferences": {
-      "title": "References",
-      "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "documentReferences": {
-          "$ref": "#/definitions/EdiDocumentReferences"
-        },
-        "returnOfPreviousConsignment": {
-          "$ref": "#/definitions/EdiReturnOfPreviousConsignment"
-        },
-        "forwardedFor": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
-        },
-        "subsequentDelivery": {
-          "$ref": "#/definitions/EdiSubsequentDelivery"
-        },
-        "pickupOrder": {
-          "$ref": "#/definitions/EdiPickupOrder"
-        },
-        "deliveryNote": {
-          "title": "Delivery note",
-          "description": "The delivery note of the shipper which describes the content of this consignment",
-          "type": "string"
-        },
-        "customerOrderNo": {
-          "title": "Customer order no",
-          "description": "A reference of the shipper for this consignment",
-          "type": "string"
-        },
-        "customerOrderDate": {
-          "title": "Customer order date",
-          "description": "Date when the order was places with the shipping partner",
-          "type": "string",
-          "format": "date"
-        },
-        "orderEntrySystemReference": {
-          "title": "Order entry system reference",
-          "description": "A unique reference number from the system which was used to enter the order details",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiReturnOfPreviousConsignment": {
-      "title": "Return of previous consignment",
-      "description": "Reference to another consignment which content is return using this consignment",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "consignmentNoShippingPartner": {
-          "title": "Consignment number of the consignment being returned",
-          "description": "The consignment number of the original consignment being returned",
-          "type": "string"
-        },
-        "shippingDate": {
-          "title": "Shipping date",
-          "description": "The date when the original shipment was forwarded",
-          "type": "string",
-          "format": "date"
-        },
-        "shippingPartner": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
     "EdiRouting": {
       "title": "Routing",
       "description": "Information about the route take by this consignment/pickup order",
@@ -1223,6 +1046,48 @@
         "\\$.*": {}
       }
     },
+    "EdiSpecialEquipment": {
+      "title": "Additional loading equipment",
+      "description": "Special loading equipment, like a fork lift, crane...",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "forkLift": {
+          "title": "ForkLift",
+          "description": "A forklift is needed for the transport",
+          "type": "boolean"
+        },
+        "liftingPlatform": {
+          "title": "LiftingPlatform",
+          "description": "A lifting platform is needed for the transport",
+          "type": "boolean"
+        },
+        "crane": {
+          "title": "Crane",
+          "description": "A crane is needed for the transport",
+          "type": "boolean"
+        },
+        "handLifter": {
+          "title": "HandLifter",
+          "description": "A hand lifter is needed for the transport",
+          "type": "boolean"
+        },
+        "refrigeratedTruck": {
+          "title": "Refrigerated Truck",
+          "description": "A refrigerated truck is needed for the transport",
+          "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiStacking": {
       "title": "Stacking",
       "description": "Indicated whether the goods may or may not be stacked",
@@ -1238,32 +1103,6 @@
           "title": "Stacking possible",
           "description": "Stacking of the goods is safely possible",
           "type": "boolean"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiSubsequentDelivery": {
-      "title": "Subsequent Delivery",
-      "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "consignmentNoShippingPartner": {
-          "title": "Consignment number of the consignment for that the subsequent delivery is",
-          "description": "The consignment number of the original consignment",
-          "type": "string"
-        },
-        "shippingDate": {
-          "title": "Shipping date",
-          "description": "The date when the original shipment was forwarded",
-          "type": "string",
-          "format": "date"
-        },
-        "shippingPartner": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
         }
       },
       "patternProperties": {
@@ -1336,10 +1175,7 @@
         "remarksPickup": {
           "title": "Pickup remarks",
           "description": "Free text information about the pick up",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "type": "string"
         },
         "remarksDelivery": {
           "title": "Delivery Remarks",
@@ -1362,11 +1198,50 @@
         "\\$.*": {}
       }
     },
+    "EdiTransportNotification": {
+      "title": "TransportNotification",
+      "description": "General notifications about the transport",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geoFence": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "contactNotification": {
+          "$ref": "#/definitions/EdiAddress"
+        },
+        "byDriver": {
+          "title": "By driver",
+          "description": "Notification by driver",
+          "type": "boolean"
+        },
+        "remarks": {
+          "title": "Remarks",
+          "description": "Free text information about the transport",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiTransportServices": {
       "title": "Transport Services",
       "description": "",
       "type": "object",
       "additionalProperties": false,
+      "properties": {
+        "anonymity": {
+          "$ref": "#/definitions/EdiAnonymity"
+        },
+        "notification": {
+          "$ref": "#/definitions/EdiTransportNotification"
+        },
+        "specialEquipment": {
+          "$ref": "#/definitions/EdiSpecialEquipment"
+        }
+      },
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -1476,6 +1351,18 @@
     "network": {
       "$ref": "#/definitions/EdiNetwork"
     },
+    "messageFunctionCode": {
+      "title": "Message function code",
+      "type": "string",
+      "enum": [
+        "add",
+        "update",
+        "remove",
+        "add_partial",
+        "update_partial",
+        "remove_partial"
+      ]
+    },
     "shippingDate": {
       "title": "Shipping date",
       "description": "Day on which the tour is proccessed",
@@ -1483,7 +1370,7 @@
       "format": "date"
     },
     "references": {
-      "$ref": "#/definitions/EdiReferences"
+      "$ref": "#/definitions/EdiDocumentReferences"
     },
     "orderer": {
       "$ref": "#/definitions/EdiAddress"
@@ -1508,9 +1395,6 @@
     },
     "billing": {
       "$ref": "#/definitions/EdiTransportBilling"
-    },
-    "modelType": {
-      "type": "string"
     }
   },
   "required": [

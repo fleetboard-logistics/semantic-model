@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:41.6359805+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T13:32:12.1660074+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
@@ -561,12 +561,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -1756,9 +1756,6 @@
       "items": {
         "$ref": "#/definitions/EdiStatusImage"
       }
-    },
-    "modelType": {
-      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"

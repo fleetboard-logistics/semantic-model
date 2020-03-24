@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:43.9192312+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T13:32:14.7446183+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
   "$id": "https://model.conizi.io/v1/documents/transport-document.json",
   "title": "Transport Document",
   "description": "A transport document is a kind of document used to convey information about cargo that is being transported",
@@ -251,12 +251,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -669,9 +669,6 @@
     "remarks": {
       "title": "Remarks (free form)",
       "description": "Additional remarks",
-      "type": "string"
-    },
-    "modelType": {
       "type": "string"
     }
   },
