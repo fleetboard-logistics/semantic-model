@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:41.3650007+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T13:32:11.8855197+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -304,6 +304,14 @@
           "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
           "type": "boolean"
         },
+        "dangerousGoods": {
+          "$ref": "#/definitions/TourDangerousGoods"
+        },
+        "customsGoods": {
+          "title": "Customs Goods",
+          "description": "Customs goods on the tour",
+          "type": "boolean"
+        },
         "insuranceValue": {
           "$ref": "#/definitions/EdiInsuranceValue"
         },
@@ -315,9 +323,6 @@
         },
         "additionalLoadingEquipment": {
           "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
-        },
-        "contentFlag": {
-          "$ref": "#/definitions/EdiContentFlag"
         },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
@@ -402,26 +407,6 @@
         },
         "documents": {
           "$ref": "#/definitions/EdiCustomsDocuments"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiContentFlag": {
-      "title": "Content Flags",
-      "description": "Flags for content and goods",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "dangerousGoods": {
-          "$ref": "#/definitions/TourDangerousGoods"
-        },
-        "customsGoods": {
-          "title": "Customs Goods",
-          "description": "Customs goods on the tour",
-          "type": "boolean"
         }
       },
       "patternProperties": {
@@ -845,12 +830,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -2430,9 +2415,6 @@
     },
     "content": {
       "$ref": "#/definitions/EdiContent"
-    },
-    "modelType": {
-      "type": "string"
     }
   },
   "required": [

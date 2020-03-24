@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-23T14:40:42.7509828+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5693 - feature/CONIZI-580-telematic-base-model",
+  "$comment": "Generated: 2020-03-24T13:32:13.5385409+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -561,12 +561,12 @@
         },
         "transportOrderId": {
           "title": "Transport Order Id",
-          "description": "",
+          "description": "Transport Order Id",
           "type": "string"
         },
         "transportOrderNo": {
           "title": "Transport Order No",
-          "description": "",
+          "description": "Transport Order No",
           "type": "string"
         },
         "stopId": {
@@ -2953,9 +2953,6 @@
             "$ref": "event-bulk.json#/definitions/EdiStatusImage"
           }
         },
-        "modelType": {
-          "type": "string"
-        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -3102,9 +3099,6 @@
             "$ref": "event-bulk.json#/definitions/EdiStatusImage"
           }
         },
-        "modelType": {
-          "type": "string"
-        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -3227,9 +3221,6 @@
           "description": "Reference number",
           "type": "string"
         },
-        "modelType": {
-          "type": "string"
-        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -3281,9 +3272,6 @@
         },
         "documents": {
           "$ref": "event-bulk.json#/definitions/EdiTourDocuments"
-        },
-        "modelType": {
-          "type": "string"
         },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
@@ -3340,9 +3328,6 @@
       "items": {
         "$ref": "tour-event.json"
       }
-    },
-    "modelType": {
-      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
