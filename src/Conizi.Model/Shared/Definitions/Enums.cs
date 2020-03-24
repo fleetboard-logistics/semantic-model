@@ -160,6 +160,58 @@ namespace Conizi.Model.Shared.Definitions
         CustomLoadingEquipment = 99,
     }
 
+
+    /// <summary>
+    /// Types of loading unites
+    /// </summary>
+    [Description("Types of loading unites")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
+    public enum LoadingUnitType
+    {
+        /// <summary>
+        /// A swap body
+        /// </summary>
+        [Description("A swap body")]
+        [EnumMember(Value = "swapBody")]
+        SwapBody = 1,
+
+        /// <summary>
+        /// A container
+        /// </summary>
+        [Description("A container)")]
+        [EnumMember(Value = "container")]
+        Container = 2,
+
+        /// <summary>
+        /// A frame
+        /// </summary>
+        [Description("A frame")]
+        [EnumMember(Value = "frame")]
+        Frame = 3,
+
+        /// <summary>
+        /// A silo for concrete, etc...
+        /// </summary>
+        [Description("A silo for concrete, etc...")]
+        [EnumMember(Value = "silo")]
+        Silo = 4,
+
+        /// <summary>
+        /// A tank for liquids
+        /// </summary>
+        [Description("A tank for liquids")]
+        [EnumMember(Value = "tank")]
+        Tank = 5,
+
+        /// <summary>
+        /// Custom Loading Unit, for custom containers, tanks and other equipment
+        /// </summary>
+        [Description("Custom Loading Unit")]
+        [EnumMember(Value = "customLoadingUnit")]
+        CustomLoadingUnit = 99,
+    }
+
     /// <summary>
     /// Defines the type of a document
     /// </summary>
