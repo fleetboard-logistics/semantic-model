@@ -22,8 +22,6 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// A geo-fence is a virtual perimeter for a real-world geographic area
         /// </summary>
-        [DisplayName("Geo Fence")]
-        [Description("A geo-fence is a virtual perimeter for a real-world geographic area")]
         public EdiGeoPosition GeoFence { get; set; }
 
         /// <summary>
