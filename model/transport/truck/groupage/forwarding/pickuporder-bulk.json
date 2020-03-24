@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-02-03T13:13:33.6698730+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5201 - master",
+  "$comment": "Generated: 2020-03-06T12:53:52.4448451+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5464 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",
@@ -739,6 +739,11 @@
           "description": "The recipient must sign the original delivery note as proof of delivery. The signed document must be returned to the shipping partner",
           "type": "boolean"
         },
+        "returnOriginalDeliveryNote": {
+          "title": "Original delivery note must be returned as paper",
+          "description": "Original delivery note must be returned with the signature of the recipient to the shipping partner as paper (i.e. not in electronic form)",
+          "type": "boolean"
+        },
         "deliveryWithoutReceiptAllowed": {
           "title": "Delivery without receipt allowed",
           "description": "The goods may be dropped at the designated location without a signature",
@@ -818,6 +823,11 @@
         "packageNo": {
           "title": "Package number / Barcode of the package",
           "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
+        },
+        "commissionNo": {
+          "title": "Commission Number",
+          "description": "Commission number under which the commission is managed in the master data",
           "type": "string"
         }
       },
@@ -2391,6 +2401,9 @@
         },
         "content": {
           "$ref": "pickuporder-bulk.json#/definitions/EdiContent"
+        },
+        "modelType": {
+          "type": "string"
         }
       },
       "required": [
@@ -2429,6 +2442,9 @@
       "items": {
         "$ref": "pickuporder.json"
       }
+    },
+    "modelType": {
+      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"

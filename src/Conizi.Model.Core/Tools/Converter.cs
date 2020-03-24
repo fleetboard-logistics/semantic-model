@@ -9,6 +9,7 @@ using Conizi.Model.Core.Entities;
 using Conizi.Model.Extensions;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
+using Conizi.Model.Shared.Interfaces;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -108,6 +109,22 @@ namespace Conizi.Model.Core.Tools
             var result = JsonConvert.DeserializeObject<TModel>(json, SerializerSettings);
             
            return result;
+        }
+
+        /// <summary>
+        /// Deserialize a JSON file to an instance of a C# model.
+        /// </summary>
+        /// <param name="json">The JSON content as string</param>
+        /// <returns>IModel instance, could be cast into the right type if necessary</returns>
+        public static IModel Deserialize(string json)
+        {
+            var model =  Validator.ParseModel(json);
+
+            var result = (IModel) JsonConvert.DeserializeObject(json, model, SerializerSettings);
+            
+            result.ModelType = model;
+
+            return result;
         }
     }
 }
