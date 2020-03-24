@@ -16,6 +16,19 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAllowXProperties]
     public class EdiTransportServices : EdiPatternPropertiesBase
     {
-      
+        /// <summary>
+        /// Neutral addresses which are shown to the shipper or consignee in order to conceal the actual shipper or recipient of the goods
+        /// </summary>
+        public EdiAnonymity Anonymity { get; set; }
+
+        /// <summary>
+        /// General notifications about the transport
+        /// </summary>
+        public EdiTransportNotification Notification { get; set; }
+
+        /// <summary>
+        /// Special loading equipment, like a fork lift, crane...
+        /// </summary>
+        public EdiSpecialEquipment SpecialEquipment { get; set; }
     }
 }

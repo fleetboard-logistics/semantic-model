@@ -119,17 +119,17 @@ namespace Conizi.Model.Shared.Entities
         public string WorkflowId { get; set; }
 
         /// <summary>
-        /// 
+        /// Transport Order Id
         /// </summary>
         [DisplayName("Transport Order Id")]
-        [Description("")]
+        [Description("Transport Order Id")]
         public string TransportOrderId { get; set; }
 
         /// <summary>
-        /// 
+        /// Transport Order No
         /// </summary>
         [DisplayName("Transport Order No")]
-        [Description("")]
+        [Description("Transport Order No")]
         public string TransportOrderNo { get; set; }
 
         /// <summary>

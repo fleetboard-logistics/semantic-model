@@ -49,6 +49,18 @@ namespace Conizi.Model.Shared.Entities
         [Description(
             "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft")]
         public bool? HighValueGoods { get; set; }
+        
+        /// <summary>
+        ///  Dangerous goods to be declared contained in a consignment 
+        /// </summary>
+        public TourDangerousGoods DangerousGoods { get; set; }
+        
+        /// <summary>
+        /// Customs goods on the tour
+        /// </summary>
+        [DisplayName("Customs Goods")]
+        [Description("Customs goods on the tour")]
+        public bool? CustomsGoods { get; set; }
 
         /// <summary>
         /// Value of the goods, used for insurance purposes
@@ -65,10 +77,6 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public EdiAdditionalLoadingEquipment AdditionalLoadingEquipment { get; set; }
 
-        /// <summary>
-        /// Flags for content and goods
-        /// </summary>
-        public EdiContentFlag ContentFlag { get; set; }
     }
 
     /// <summary>
@@ -248,29 +256,6 @@ namespace Conizi.Model.Shared.Entities
         public EdiCustomsDocuments Documents { get; set; }
     }
 
-
-    /// <summary>
-    /// Flags for content and goods
-    /// </summary>
-    [DisplayName("Content Flags")]
-    [Description("Flags for content and goods")]
-    [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties]
-    public class EdiContentFlag
-    {
-        /// <summary>
-        /// Description for dangerous goods
-        /// </summary>
-        public TourDangerousGoods DangerousGoods { get; set; }
-
-        /// <summary>
-        /// Customs goods on the tour
-        /// </summary>
-        [DisplayName("Customs Goods")]
-        [Description("Customs goods on the tour")]
-        public bool? CustomsGoods { get; set; }
-
-    }
 
     /// <summary>
     /// Amount value type

@@ -31,7 +31,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Pickup remarks")]
         [Description("Free text information about the pick up")]
-        public List<string> RemarksPickup { get; set; }
+        public string RemarksPickup { get; set; }
 
         /// <summary>
         /// Free text information for the delivery

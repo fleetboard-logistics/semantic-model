@@ -97,12 +97,7 @@ namespace Conizi.Model.Telematics.Truck
         [JsonProperty(Order = -8)]
         public List<EdiTourStop> Stops { get; set; }
 
-        /// <summary>
-        ///  Flags indicating special goods within the tour
-        /// </summary>
-        [JsonProperty(Order = -7)]
-        public EdiContentFlag Flags { get; set; }
-
+        
         /// <summary>
         /// Load units (containers, swap bodies, ...) used to transport the goods
         /// </summary>

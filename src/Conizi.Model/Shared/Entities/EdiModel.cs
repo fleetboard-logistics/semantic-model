@@ -47,6 +47,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Type of the model
         /// </summary>
+        [JsonIgnore]
         public Type ModelType { get; set; }
 
         /// <summary>

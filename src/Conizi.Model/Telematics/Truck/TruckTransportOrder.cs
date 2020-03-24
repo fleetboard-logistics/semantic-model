@@ -3,8 +3,10 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Entities;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Telematics.Truck
 {
@@ -18,6 +20,14 @@ namespace Conizi.Model.Telematics.Truck
     [ConiziAllowXProperties]
     public class TruckTransportOrder : EdiModel
     {
+
+        /// <summary>
+        /// Message function code
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("messageFunctionCode", Order = -16)]
+        [DisplayName("Message function code")]
+        public EdiMessageFunctionCode? MessageFunctionCode { get; set; }
 
         /// <summary>
         /// Shipping date
@@ -34,7 +44,7 @@ namespace Conizi.Model.Telematics.Truck
         /// Numbers of various sources identifying this transport order or references from this tour to other business processes
         /// </summary>
         [JsonProperty(Order = -12)]
-        public new EdiReferences References { get; set; }
+        public new EdiDocumentReferences References { get; set; }
 
         /// <summary>
         /// Person or company who placed the order
