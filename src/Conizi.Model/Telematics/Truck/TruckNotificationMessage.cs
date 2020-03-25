@@ -23,9 +23,9 @@ namespace Conizi.Model.Telematics.Truck
         /// <summary>
         /// Date and time when the notification was sent
         /// </summary>
-        [DisplayName("Event Date-time")]
+        [DisplayName("Send Date-time")]
         [Description("Date and time when the notification was sent")]
-        [JsonProperty("eventDateTime", Order = -10, Required = Required.Always)]
+        [JsonProperty("sendDateTime", Order = -10, Required = Required.Always)]
         public DateTime SendDateTime { get; set; }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Conizi.Model.Telematics.Truck
         /// </summary>
         [DisplayName("Message")]
         [Description("The text message")]
-        [JsonProperty("eventDateTime", Order = -8, Required = Required.Always)]
+        [JsonProperty("message", Order = -8, Required = Required.Always)]
         public string Message { get; set; }
 
         /// <summary>
