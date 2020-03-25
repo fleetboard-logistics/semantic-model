@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T15:31:31.6857512+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5747 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-03-25T16:04:46.7041483+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5748 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
   "title": "Notification Message",
   "description": "A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System",
@@ -481,6 +481,7 @@
     }
   },
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "$schema": {
       "title": "Json schema",
@@ -529,5 +530,9 @@
     "sendDateTime",
     "message",
     "references"
-  ]
+  ],
+  "patternProperties": {
+    "x-.*": {},
+    "\\$.*": {}
+  }
 }
