@@ -1,0 +1,533 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Generated: 2020-03-25T15:31:31.6857512+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5747 - feature/conizi-826-notify-message",
+  "$id": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
+  "title": "Notification Message",
+  "description": "A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System",
+  "definitions": {
+    "EdiBinaryData": {
+      "title": "Binary Data",
+      "description": "The content/data of a file",
+      "type": "object",
+      "properties": {
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "data": {
+          "title": "Data bytes",
+          "description": "The submitted data as base64 string, be aware large files > 100KByte should be submitted as fileReference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "EdiDocumentItem": {
+      "title": "Document",
+      "description": "All kind of documents used for transports",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentType": {
+          "title": "Document type",
+          "description": "The document type",
+          "type": "string",
+          "additionalProperties": false,
+          "enum": [
+            "proof_of_delivery",
+            "waybill",
+            "delivery_note",
+            "packaging_list",
+            "other_document",
+            "unknown"
+          ]
+        },
+        "documentCreator": {
+          "title": "Document creator",
+          "description": "The creator of the document",
+          "type": "string"
+        },
+        "documentDateTime": {
+          "title": "Document item creation date and time",
+          "description": "The date and time this document item was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "documentContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiSignature"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "required": [
+        "documentType",
+        "documentDateTime",
+        "documentContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiDocumentReferences": {
+      "title": "References",
+      "description": "All references to the linked documents, systems and devices",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "description": "The unique id of the document",
+          "type": "string"
+        },
+        "referenceNumber": {
+          "title": "Reference number",
+          "description": "The reference number (e.g. delivery note)",
+          "type": "string"
+        },
+        "consignmentObjectId": {
+          "title": "Unique central consignment number",
+          "description": "Unique identification for the consignment in a central system",
+          "type": "string"
+        },
+        "consignmentNoShippingPartner": {
+          "title": "Consignment number of the shipping partner",
+          "description": "Unique identification for the consignment within the transport management system of the shipping partner",
+          "type": "string"
+        },
+        "consignmentNoReceivingPartner": {
+          "title": "Consignment number of the receiving partner",
+          "description": "Unique identification for the consignment within the transport management system of the receiving partner",
+          "type": "string"
+        },
+        "tourId": {
+          "title": "Tour Id",
+          "description": "A unique identifier assigned to the tour by the devlivering company",
+          "type": "string"
+        },
+        "tourReference": {
+          "title": "Tour Reference",
+          "description": "",
+          "type": "string"
+        },
+        "workflowId": {
+          "title": "Workflow Id",
+          "description": "",
+          "type": "string"
+        },
+        "transportOrderId": {
+          "title": "Transport Order Id",
+          "description": "Transport Order Id",
+          "type": "string"
+        },
+        "transportOrderNo": {
+          "title": "Transport Order No",
+          "description": "Transport Order No",
+          "type": "string"
+        },
+        "stopId": {
+          "title": "Stop Id",
+          "description": "Unique identifier for the stop within the tour",
+          "type": "string"
+        },
+        "driverId": {
+          "title": "Diver Id",
+          "description": "The id of the driver",
+          "type": "string"
+        },
+        "vehicleId": {
+          "title": "The vehicle id",
+          "description": "The unique Id of the vehicle (Truck/Trailer/Train)",
+          "type": "string"
+        },
+        "deviceId": {
+          "title": "Device Id",
+          "description": " The id of the used device",
+          "type": "string"
+        },
+        "systemReferences": {
+          "title": "A reference to an IT system",
+          "description": "A reference to an IT system like TMS, etc.",
+          "type": "string"
+        },
+        "packageNo": {
+          "title": "Package number / Barcode of the package",
+          "description": "Unique identification for the package. This is often an SSCC / NVE barcode number",
+          "type": "string"
+        },
+        "commissionNo": {
+          "title": "Commission Number",
+          "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileContent": {
+      "title": "File Content",
+      "description": "Transfers file data like a picture, pdf, txt..",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "title": "File Name",
+          "description": "The file name",
+          "type": "string"
+        },
+        "contentType": {
+          "title": "Content Type",
+          "description": "The content type like application/pdf, image/png...",
+          "type": "string"
+        },
+        "binaryData": {
+          "$ref": "#/definitions/EdiBinaryData"
+        },
+        "fileReference": {
+          "$ref": "#/definitions/EdiFileReference"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileReference": {
+      "title": "File Reference",
+      "description": "Reference to a file in an online storage",
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "title": "File Id",
+          "description": "Unique Id for a file",
+          "type": "string"
+        },
+        "length": {
+          "title": "Data length",
+          "description": "The length (bytes) of submitted data",
+          "type": "integer"
+        },
+        "absoluteUri": {
+          "title": "Absolute Uri",
+          "description": "An absolute URL to a file on the online storage",
+          "type": "string"
+        },
+        "uriValidFrom": {
+          "title": "Uri Valid From",
+          "description": "The URL is valid from date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "uriValidTo": {
+          "title": "Uri Valid To",
+          "description": "The URL is valid until date",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "absoluteUri"
+      ]
+    },
+    "EdiGeoPosition": {
+      "title": "Geo position",
+      "description": "Data about the current geo position",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "title": "Latitude",
+          "description": "North–south position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "description": "East–west position of a point on the Earth's surface",
+          "type": "number"
+        },
+        "placeName": {
+          "title": "Place name",
+          "description": "The place name of the current geo position",
+          "type": "string"
+        },
+        "w3WCoordinate": {
+          "title": "What3words coordinate",
+          "description": "A coordinate for the What3Words service like index.home.raft",
+          "type": "string"
+        },
+        "recordTime": {
+          "title": "Record time",
+          "description": "Time the GPS record was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "angle": {
+          "title": "Angle",
+          "description": "The angle is the direction that the vehicle is moving in (Heading)",
+          "type": "number"
+        },
+        "speed": {
+          "$ref": "#/definitions/EdiGeoSpeed"
+        },
+        "geoRadius": {
+          "$ref": "#/definitions/EdiGeoRadius"
+        }
+      }
+    },
+    "EdiGeoRadius": {
+      "title": "GeoRadius for the accuracy",
+      "description": "GeoRadius that describes when a Position is considered as in range",
+      "type": "object",
+      "properties": {
+        "radius": {
+          "title": "GeoRadius for the Coordinates",
+          "description": "GeoRadius that extends the range of the coordinates",
+          "type": "number"
+        },
+        "radiusMeasurementUnitCode": {
+          "title": "Unit Code for GeoRadius",
+          "description": "Code that describes the unit in which the radius is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "radius"
+      ]
+    },
+    "EdiGeoSpeed": {
+      "title": "Speed",
+      "description": "The current speed of the vehicle",
+      "type": "object",
+      "properties": {
+        "speed": {
+          "title": "Speed",
+          "description": "The current speed of the vehicle",
+          "type": "number"
+        },
+        "speedMeasurementUnitCode": {
+          "title": "Unit Code for Speed",
+          "description": "Code that describes the unit in which the Speed is measured. Default kilometers (KMT)",
+          "type": "string",
+          "enum": [
+            "KMT",
+            "NMI",
+            "SMI"
+          ]
+        }
+      },
+      "required": [
+        "speed"
+      ]
+    },
+    "EdiMessageRouting": {
+      "title": "Routing information of the message",
+      "description": "Routing information to identify the parties involved in the data transfer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partnerId": {
+          "title": "The PartnerId",
+          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
+          "type": "string"
+        },
+        "ediId": {
+          "title": "The Edi Id",
+          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
+          "type": "string"
+        },
+        "coniziId": {
+          "title": "The Conizi Id",
+          "description": "The conizi id for internal routing purposes",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiNetwork": {
+      "title": "Network",
+      "description": "The network under which rules the consignment should be processed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "networkId": {
+          "title": "Name of the network",
+          "description": "The name of the network. This is often identical to the name of the code list. Since the same code list may however be used outside the network, this field independently allows to specify the network",
+          "type": "string"
+        },
+        "codelist": {
+          "title": "Name of the code list used",
+          "description": "The name of the code list which specifies how the receiving system should interpret the codes used",
+          "type": "string"
+        },
+        "product": {
+          "title": "Name of the product",
+          "description": "The product allows to distinguish different processes within one network, effectively sub classing the network",
+          "type": "string"
+        }
+      }
+    },
+    "EdiSignature": {
+      "title": "Signature",
+      "description": "The signature of the recipient/person of interest",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signeeName": {
+          "title": "Signee name",
+          "description": "Name of the signee",
+          "type": "string"
+        },
+        "signatureDateTime": {
+          "title": "Signature date and time",
+          "description": "The date and time of signature",
+          "type": "string",
+          "format": "date-time"
+        },
+        "signatureContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        }
+      },
+      "required": [
+        "signatureDateTime",
+        "signatureContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiStatusImage": {
+      "title": "Status image",
+      "description": "All kind of status images, used for documentation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imageType": {
+          "title": "Image type",
+          "description": "The image type",
+          "type": "string",
+          "additionalProperties": false,
+          "enum": [
+            "damage",
+            "load_securing",
+            "accident",
+            "other_image",
+            "unknown"
+          ]
+        },
+        "imageCreator": {
+          "title": "Image creator",
+          "description": "The creator of the image (photographer)",
+          "type": "string"
+        },
+        "imageDateTime": {
+          "title": "Document item creation date and time",
+          "description": "The date and time this status image was created",
+          "type": "string",
+          "format": "date-time"
+        },
+        "imageContent": {
+          "$ref": "#/definitions/EdiFileContent"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiSignature"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "geoPosition": {
+          "$ref": "#/definitions/EdiGeoPosition"
+        }
+      },
+      "required": [
+        "imageType",
+        "imageDateTime",
+        "imageContent"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "title": "Json schema",
+      "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "receiver": {
+      "$ref": "#/definitions/EdiMessageRouting"
+    },
+    "sender": {
+      "$ref": "#/definitions/EdiMessageRouting"
+    },
+    "network": {
+      "$ref": "#/definitions/EdiNetwork"
+    },
+    "sendDateTime": {
+      "title": "Send Date-time",
+      "description": "Date and time when the notification was sent",
+      "type": "string",
+      "format": "date-time"
+    },
+    "message": {
+      "title": "Message",
+      "description": "The text message",
+      "type": "string"
+    },
+    "references": {
+      "$ref": "#/definitions/EdiDocumentReferences"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiStatusImage"
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiDocumentItem"
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "receiver",
+    "sendDateTime",
+    "message",
+    "references"
+  ]
+}
