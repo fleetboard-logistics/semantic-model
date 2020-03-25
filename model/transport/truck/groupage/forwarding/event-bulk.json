@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T15:23:49.3148519+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5746 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-03-25T17:06:32.7129153+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5749 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -953,6 +953,44 @@
         },
         "exceptions": {
           "$ref": "#/definitions/EdiNotificationExceptions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileAttachment": {
+      "title": "File Attachment",
+      "description": "Object to transmit file attachments",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiStatusImage"
+          }
         },
         "remarks": {
           "title": "Remarks (free form)",
@@ -2946,17 +2984,8 @@
           "description": "Wait/Downtime in minute",
           "type": "integer"
         },
-        "documents": {
-          "type": "array",
-          "items": {
-            "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
-          }
-        },
-        "images": {
-          "type": "array",
-          "items": {
-            "$ref": "event-bulk.json#/definitions/EdiStatusImage"
-          }
+        "fileAttachment": {
+          "$ref": "event-bulk.json#/definitions/EdiFileAttachment"
         },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
@@ -3150,6 +3179,12 @@
           "description": "The date on which the pickup order was forwarded to the contracted partner",
           "type": "string",
           "format": "date"
+        },
+        "geoPosition": {
+          "$ref": "event-bulk.json#/definitions/EdiGeoPosition"
+        },
+        "fileAttachment": {
+          "$ref": "event-bulk.json#/definitions/EdiFileAttachment"
         },
         "orderingParty": {
           "$ref": "event-bulk.json#/definitions/EdiAddress"
