@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T15:45:38.4341573+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-03-25T15:23:49.3148519+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5746 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -2368,6 +2368,11 @@
         "arrivedAtLoadingPoint": {
           "title": "Arrived at loading point",
           "description": "Vehicle is arrived at loading point",
+          "type": "boolean"
+        },
+        "arrived": {
+          "title": "Arrived at stop",
+          "description": "Vehicle is arrived at stop",
           "type": "boolean"
         },
         "loadingStarted": {
