@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T15:56:03.1343217+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5729 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-03-25T08:45:17.0001525+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5733 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -1384,9 +1384,9 @@
             "customLoadingUnit"
           ]
         },
-        "customLoadingUnitName": {
-          "title": "Custom Loading Unit Name",
-          "description": "Custom Loading Unit Name, like specialContainers or trailer formats",
+        "customLoadingUnitTypeName": {
+          "title": "Custom Loading Type Unit Name",
+          "description": "Custom Loading Unit Type Name, like specialContainers or trailer formats",
           "type": "string"
         }
       },
