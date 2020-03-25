@@ -38,6 +38,17 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [ConiziDateOnly]
         [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime? PickupOrderDate { get; set; }
+        
+        /// <summary>
+        /// The geo position
+        /// </summary>
+        [JsonProperty("geoPosition", Order = -8, Required = Required.DisallowNull)]
+        public EdiGeoPosition GeoPosition { get; set; }
+
+        /// <summary>
+        /// Object to transmit file attachments
+        /// </summary>
+        public EdiFileAttachment FileAttachment { get; set; }
 
         /// <summary>
         /// Person or company that ordered the transport of the consignment. Often identical to the shipper

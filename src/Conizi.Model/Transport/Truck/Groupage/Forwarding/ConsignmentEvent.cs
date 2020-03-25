@@ -185,13 +185,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiGeoPosition GeoPosition { get; set; }
 
         /// <summary>
-        /// A list of document items
+        /// Object to transmit file attachments
         /// </summary>
-        public List<EdiDocumentItem> Documents { get; set; }
-
-        /// <summary>
-        /// A list of status images
-        /// </summary>
-        public List<EdiStatusImage> Images { get; set; }
+        public EdiFileAttachment FileAttachment { get; set; }
     }
 }
