@@ -1,0 +1,15 @@
+{
+    "$schema": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
+    "sender": {
+        "coniziId": "habblConiziId"
+    },
+    "receiver": {
+        "coniziId": "carrierConiziId"
+    },
+    "references": {
+        "driverId": "DR124545454",
+        "vehicleId": "WAXXXXX1232422244",
+        "deviceId": "ASEEREREREWREWR"
+    },
+    "message": "This a message from habbl for you"
+}

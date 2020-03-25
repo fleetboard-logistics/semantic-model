@@ -18,6 +18,8 @@ namespace Conizi.Model.Telematics.Truck
     [DisplayName("Notification Message")]
     [Description("A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System")]
     [ConiziSchema("https://model.conizi.io/v1/telematics/truck/truck-notification-message.json", "truck-notification-message.json")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class TruckNotificationMessage : EdiModel
     {
         /// <summary>
