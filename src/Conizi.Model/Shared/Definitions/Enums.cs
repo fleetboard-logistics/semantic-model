@@ -172,44 +172,65 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// A swap body
         /// </summary>
-        [Description("A swap body")]
-        [EnumMember(Value = "swapBody")]
+        [Description("A swap body")] [EnumMember(Value = "swapBody")]
         SwapBody = 1,
 
         /// <summary>
         /// A container
         /// </summary>
-        [Description("A container)")]
-        [EnumMember(Value = "container")]
+        [Description("A container)")] [EnumMember(Value = "container")]
         Container = 2,
 
         /// <summary>
         /// A frame
         /// </summary>
-        [Description("A frame")]
-        [EnumMember(Value = "frame")]
+        [Description("A frame")] [EnumMember(Value = "frame")]
         Frame = 3,
 
         /// <summary>
         /// A silo for concrete, etc...
         /// </summary>
-        [Description("A silo for concrete, etc...")]
-        [EnumMember(Value = "silo")]
+        [Description("A silo for concrete, etc...")] [EnumMember(Value = "silo")]
         Silo = 4,
 
         /// <summary>
         /// A tank for liquids
         /// </summary>
-        [Description("A tank for liquids")]
-        [EnumMember(Value = "tank")]
+        [Description("A tank for liquids")] [EnumMember(Value = "tank")]
         Tank = 5,
 
         /// <summary>
         /// Custom Loading Unit, for custom containers, tanks and other equipment
         /// </summary>
-        [Description("Custom Loading Unit")]
-        [EnumMember(Value = "customLoadingUnit")]
+        [Description("Custom Loading Unit")] [EnumMember(Value = "customLoadingUnit")]
         CustomLoadingUnit = 99,
+    }
+    
+    /// <summary>
+    /// Types of the load (pickup, drop off)
+    /// </summary>
+    [Description("Types of the load (pickup, drop off)")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
+    public enum LoadType
+    {
+        /// <summary>
+        /// Unknown load
+        /// </summary>
+        [Description("Unknown load")] [EnumMember(Value = "unknown")]
+        Unknown = -1,
+
+        /// <summary>
+        /// A Pickup
+        /// </summary>
+        [Description("A pickup")] [EnumMember(Value = "pickup")]
+        Pickup = 1,
+
+        /// <summary>
+        /// A delivery
+        /// </summary>
+        [Description("A delivery")] [EnumMember(Value = "delivery")]
+        Delivery = 2
     }
 
     /// <summary>
@@ -268,8 +289,7 @@ namespace Conizi.Model.Shared.Definitions
         /// <summary>
         /// An image of damaged goods
         /// </summary>
-        [EnumMember(Value = "damage")]
-        Damage = 1,
+        [EnumMember(Value = "damage")] Damage = 1,
 
         /// <summary>
         /// An image of load securing
@@ -286,4 +306,5 @@ namespace Conizi.Model.Shared.Definitions
         /// </summary>
         [EnumMember(Value = "other_image")] OtherDocument = 99,
     }
+
 }
