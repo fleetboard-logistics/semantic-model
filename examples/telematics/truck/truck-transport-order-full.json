@@ -37,7 +37,7 @@
         "countryCode": "DE",
         "geoPosition": {
             "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
-        }            
+        }
     },
     "shippingDate": "2020-03-31",
     "routing": {
@@ -61,7 +61,7 @@
             "geoPosition": {
                 "latitude": 52.501846,
                 "longitude": 13.472254
-            }            
+            }
         },
         "consignee": {
             "name": "Empfänger",
@@ -82,7 +82,7 @@
             "geoPosition": {
                 "latitude": 49.862917,
                 "longitude": 10.22593
-            }            
+            }
         }
     },
     "timeSlot": {
@@ -158,9 +158,9 @@
         "loadingAids": true,
         "customsGoods": false,
         "dangerousGoods": {
-                "isADR": false,
-                "totalPointADR": 100
-            },
+            "isADR": false,
+            "totalPointADR": 100
+        },
         "lines": [
             {
                 "lineNo": 1,
@@ -219,7 +219,6 @@
                 ]
             }
         ]
-
     },
     "services": {
         "anonymity": {
@@ -238,19 +237,22 @@
                 "city": "Berlin"
             }
         },
-        "notification": {
-            "byDriver": false,
-            "geoFence": {
-                "geoRadius": {
-                    "radius": 50
+        "notifications": [
+            {
+                "byDriver": false,
+                "notifyAt": "pickup",
+                "geoFence": {
+                    "geoRadius": {
+                        "radius": 50
+                    },
+                    "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
                 },
-                "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
-            },
-            "contactNotification": {
-                "mobilePhoneNumber": "01701234657",
-                "contactPerson": "Meier"
+                "contactNotification": {
+                    "mobilePhoneNumber": "01701234657",
+                    "contactPerson": "Meier"
+                }
             }
-        },
+        ],
         "specialEquipment": {
             "forkLift": false,
             "crane": false,
@@ -259,5 +261,4 @@
             "refrigeratedTruck": false
         }
     }
-
-    }
+}

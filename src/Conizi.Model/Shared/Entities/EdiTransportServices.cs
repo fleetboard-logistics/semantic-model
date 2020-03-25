@@ -25,7 +25,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// General notifications about the transport
         /// </summary>
-        public List<EdiTransportNotification> Notification { get; set; }
+        public List<EdiTransportNotification> Notifications { get; set; }
 
         /// <summary>
         /// Special loading equipment, like a fork lift, crane...
