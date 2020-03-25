@@ -17,7 +17,7 @@ namespace Conizi.Model.Telematics.Truck
     /// </remarks>
     [DisplayName("Notification Message")]
     [Description("A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System")]
-    [ConiziSchema("https://model.conizi.io/v1/documents/truck-notification-message.json", "truck-notification-message.json")]
+    [ConiziSchema("https://model.conizi.io/v1/telematics/truck/truck-notification-message.json", "truck-notification-message.json")]
     public class TruckNotificationMessage : EdiModel
     {
         /// <summary>
@@ -25,7 +25,8 @@ namespace Conizi.Model.Telematics.Truck
         /// </summary>
         [DisplayName("Send Date-time")]
         [Description("Date and time when the notification was sent")]
-        [JsonProperty("sendDateTime", Order = -10, Required = Required.Always)]
+        [JsonProperty("sendDateTime", Order = -10)]
+        [Required]
         public DateTime SendDateTime { get; set; }
 
         /// <summary>
@@ -33,13 +34,15 @@ namespace Conizi.Model.Telematics.Truck
         /// </summary>
         [DisplayName("Message")]
         [Description("The text message")]
-        [JsonProperty("message", Order = -8, Required = Required.Always)]
+        [JsonProperty("message", Order = -8)]
+        [Required]
         public string Message { get; set; }
 
         /// <summary>
         /// Numbers of various sources identifying this transport order or references from this tour to other business processes
         /// </summary>
-        [JsonProperty("eventDateTime", Order = -5, Required = Required.Always)]
+        [JsonProperty("references", Order = -5)]
+        [Required]
         public new EdiDocumentReferences References { get; set; }
 
         /// <summary>
