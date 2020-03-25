@@ -44,6 +44,13 @@ namespace Conizi.Model.Shared.Entities
         public bool? ArrivedAtLoadingPoint { get; set; }
 
         /// <summary>
+        /// Arrived at stop
+        /// </summary>
+        [DisplayName("Arrived at stop")]
+        [Description("Vehicle is arrived at stop")]
+        public bool? Arrived { get; set; }
+
+        /// <summary>
         /// Loading of the vehicle has started
         /// </summary>
         [DisplayName("Loading Started")]
