@@ -37,7 +37,7 @@
         "countryCode": "DE",
         "geoPosition": {
             "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
-        }
+        }            
     },
     "shippingDate": "2020-03-31",
     "routing": {
@@ -61,7 +61,7 @@
             "geoPosition": {
                 "latitude": 52.501846,
                 "longitude": 13.472254
-            }
+            }            
         },
         "consignee": {
             "name": "Empfänger",
@@ -82,7 +82,7 @@
             "geoPosition": {
                 "latitude": 49.862917,
                 "longitude": 10.22593
-            }
+            }            
         }
     },
     "timeSlot": {
@@ -158,9 +158,9 @@
         "loadingAids": true,
         "customsGoods": false,
         "dangerousGoods": {
-            "isADR": false,
-            "totalPointADR": 100
-        },
+                "isADR": false,
+                "totalPointADR": 100
+            },
         "lines": [
             {
                 "lineNo": 1,
@@ -219,6 +219,7 @@
                 ]
             }
         ]
+
     },
     "services": {
         "anonymity": {
@@ -239,20 +240,34 @@
         },
         "notifications": [
             {
-                "byDriver": false,
-                "notifyAt": "pickup",
-                "geoFence": {
-                    "geoRadius": {
-                        "radius": 50
-                    },
-                    "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
+            "byDriver": false,
+            "geoFence": {
+                "geoRadius": {
+                    "radius": 50
                 },
+                "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
+            },
+            "contactNotification": {
+                "mobilePhoneNumber": "01701234657",
+                "contactPerson": "Meier"
+                }
+            },
+            {
+                "byDriver": true,
+                "notifyAt": "delivery",
                 "contactNotification": {
-                    "mobilePhoneNumber": "01701234657",
-                    "contactPerson": "Meier"
+                    "mobilePhoneNumber": "01709574125678"
+                }
+            },
+            {
+                "byDriver": false,
+                "notifyAt": "delivery",
+                "contactNotification": {
+                    "emailAddress": "info@umschlaglager.de"
                 }
             }
-        ],
+            
+    ],
         "specialEquipment": {
             "forkLift": false,
             "crane": false,
@@ -261,4 +276,5 @@
             "refrigeratedTruck": false
         }
     }
-}
+
+    }
