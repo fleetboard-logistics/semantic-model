@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T13:32:15.7507835+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
+  "$comment": "Generated: 2020-03-25T08:45:19.5815615+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5733 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -613,8 +613,8 @@
       }
     },
     "EdiGeoPosition": {
-      "title": "Geo Fence",
-      "description": "A geo-fence is a virtual perimeter for a real-world geographic area",
+      "title": "Geo position",
+      "description": "Data about the current geo position",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -656,9 +656,6 @@
           "$ref": "#/definitions/EdiGeoRadius"
         }
       }
-    },
-    "EdiGeoPosition-1": {
-      "$ref": "#/definitions/EdiGeoPosition"
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -1215,6 +1212,20 @@
           "description": "Notification by driver",
           "type": "boolean"
         },
+        "notifyAt": {
+          "description": "Types of the load (pickup, drop off)",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "pickup",
+            "delivery",
+            "unknown"
+          ]
+        },
         "remarks": {
           "title": "Remarks",
           "description": "Free text information about the transport",
@@ -1235,8 +1246,11 @@
         "anonymity": {
           "$ref": "#/definitions/EdiAnonymity"
         },
-        "notification": {
-          "$ref": "#/definitions/EdiTransportNotification"
+        "notifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiTransportNotification"
+          }
         },
         "specialEquipment": {
           "$ref": "#/definitions/EdiSpecialEquipment"

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T13:32:11.8855197+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
+  "$comment": "Generated: 2020-03-24T15:45:37.0931135+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",

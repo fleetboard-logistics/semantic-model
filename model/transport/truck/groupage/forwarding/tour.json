@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T13:32:11.2273612+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
+  "$comment": "Generated: 2020-03-25T08:45:15.4701004+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5733 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -1530,6 +1530,28 @@
           "items": {
             "$ref": "#/definitions/EdiSeal"
           }
+        },
+        "unitType": {
+          "description": "Types of loading unites",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "swapBody",
+            "container",
+            "frame",
+            "silo",
+            "tank",
+            "customLoadingUnit"
+          ]
+        },
+        "customLoadingUnitTypeName": {
+          "title": "Custom Loading Type Unit Name",
+          "description": "Custom Loading Unit Type Name, like specialContainers or trailer formats",
+          "type": "string"
         }
       },
       "patternProperties": {

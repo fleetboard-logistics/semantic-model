@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
@@ -22,8 +23,6 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// A geo-fence is a virtual perimeter for a real-world geographic area
         /// </summary>
-        [DisplayName("Geo Fence")]
-        [Description("A geo-fence is a virtual perimeter for a real-world geographic area")]
         public EdiGeoPosition GeoFence { get; set; }
 
         /// <summary>
@@ -37,7 +36,12 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("By driver")]
         [Description("Notification by driver")]
         public bool? ByDriver { get; set; }
-
+        
+        /// <summary>
+        /// Notification by load (pickup, delivery)
+        /// </summary>
+        public LoadType NotifyAt { get; set; }
+        
         /// <summary>
         /// Free text information about the transport
         /// </summary>

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T13:32:15.5024357+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5722 - master",
+  "$comment": "Generated: 2020-03-25T08:45:19.3521942+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5733 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -757,8 +757,8 @@
       }
     },
     "EdiGeoPosition": {
-      "title": "Geo Fence",
-      "description": "A geo-fence is a virtual perimeter for a real-world geographic area",
+      "title": "Geo position",
+      "description": "Data about the current geo position",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -800,9 +800,6 @@
           "$ref": "#/definitions/EdiGeoRadius"
         }
       }
-    },
-    "EdiGeoPosition-1": {
-      "$ref": "#/definitions/EdiGeoPosition"
     },
     "EdiGeoRadius": {
       "title": "GeoRadius for the accuracy",
@@ -1078,6 +1075,28 @@
           "items": {
             "$ref": "#/definitions/EdiSeal"
           }
+        },
+        "unitType": {
+          "description": "Types of loading unites",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "swapBody",
+            "container",
+            "frame",
+            "silo",
+            "tank",
+            "customLoadingUnit"
+          ]
+        },
+        "customLoadingUnitTypeName": {
+          "title": "Custom Loading Type Unit Name",
+          "description": "Custom Loading Unit Type Name, like specialContainers or trailer formats",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -1957,6 +1976,20 @@
           "description": "Notification by driver",
           "type": "boolean"
         },
+        "notifyAt": {
+          "description": "Types of the load (pickup, drop off)",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "pickup",
+            "delivery",
+            "unknown"
+          ]
+        },
         "remarks": {
           "title": "Remarks",
           "description": "Free text information about the transport",
@@ -1977,8 +2010,11 @@
         "anonymity": {
           "$ref": "#/definitions/EdiAnonymity"
         },
-        "notification": {
-          "$ref": "#/definitions/EdiTransportNotification"
+        "notifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiTransportNotification"
+          }
         },
         "specialEquipment": {
           "$ref": "#/definitions/EdiSpecialEquipment"
