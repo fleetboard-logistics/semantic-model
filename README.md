@@ -13,7 +13,7 @@ document are to be interpreted as described in [RFC2119].
 # Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119, March 1997. 
+              Requirement Levels", BCP 14, RFC 2119, March 1997.
               
               
 conizi semantic models - Fleetboard Logistics 2018-2020
