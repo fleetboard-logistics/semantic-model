@@ -37,12 +37,12 @@ namespace Conizi.Model.Shared.Entities
         public LoadingUnitType UnitType { get; set; }
 
         /// <summary>
-        /// Custom Loading Unit Name, like specialContainers or trailer formats
+        /// Custom Loading Unit Type Name, like specialContainers or trailer formats
         /// </summary>
         /// <remarks>Should only be used, if the UnitType is set to CustomLoadingUnit!</remarks>
-        [DisplayName("Custom Loading Unit Name")]
-        [Description("Custom Loading Unit Name, like specialContainers or trailer formats")]
-        public string CustomLoadingUnitName { get; set; }
+        [DisplayName("Custom Loading Type Unit Name")]
+        [Description("Custom Loading Unit Type Name, like specialContainers or trailer formats")]
+        public string CustomLoadingUnitTypeName { get; set; }
 
     }
 
