@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T17:06:32.9727730+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5749 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-03-26T09:34:02.8410952+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5757 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
@@ -368,44 +368,6 @@
       "description": "The empty EmptyExtendableObject is used for non yet completed defined objects. ",
       "type": "object",
       "additionalProperties": false,
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiFileAttachment": {
-      "title": "File Attachment",
-      "description": "Object to transmit file attachments",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "eventDateTime": {
-          "title": "Event Date-time",
-          "description": "Date and time when the event occurred",
-          "type": "string",
-          "format": "date-time"
-        },
-        "documents": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EdiDocumentItem"
-          }
-        },
-        "images": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EdiStatusImage"
-          }
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
-        }
-      },
-      "required": [
-        "eventDateTime"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -1468,8 +1430,17 @@
     "geoPosition": {
       "$ref": "#/definitions/EdiGeoPosition"
     },
-    "fileAttachment": {
-      "$ref": "#/definitions/EdiFileAttachment"
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiDocumentItem"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiStatusImage"
+      }
     },
     "orderingParty": {
       "$ref": "#/definitions/EdiAddress"
