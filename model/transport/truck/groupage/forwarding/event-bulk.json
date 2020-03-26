@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T17:06:32.7129153+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5749 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-03-26T09:34:02.5470866+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5757 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -3183,8 +3183,17 @@
         "geoPosition": {
           "$ref": "event-bulk.json#/definitions/EdiGeoPosition"
         },
-        "fileAttachment": {
-          "$ref": "event-bulk.json#/definitions/EdiFileAttachment"
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiStatusImage"
+          }
         },
         "orderingParty": {
           "$ref": "event-bulk.json#/definitions/EdiAddress"
