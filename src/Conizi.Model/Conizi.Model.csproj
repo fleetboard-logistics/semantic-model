@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <LangVersion>latestMajor</LangVersion>
     <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
     <Authors>Fleetboard-logistics / André Rüb (sdc4)</Authors>
     <PackageTags>semantic models, json schema, conizi, habbl, fleetboard logistics, logistics, model, interfaces</PackageTags>
