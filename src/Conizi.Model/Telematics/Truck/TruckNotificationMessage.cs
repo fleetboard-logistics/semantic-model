@@ -23,6 +23,24 @@ namespace Conizi.Model.Telematics.Truck
     public class TruckNotificationMessage : EdiModel
     {
         /// <summary>
+        /// An unique message id like a GUID
+        /// </summary>
+        [DisplayName("Message Id")]
+        [Description("An unique message id like a GUID")]
+        [JsonProperty("messageId", Order = -12)]
+        [Required]
+        public string MessageId { get; set; }
+
+        /// <summary>
+        /// The type of the message as free text... default is text-message
+        /// </summary>
+        [DisplayName("Message Type")]
+        [Description("The type of the message as free text... default is text-message")]
+        [JsonProperty("MessageType", Order = -11)]
+        [Required]
+        public string MessageType => "text-message";
+
+        /// <summary>
         /// Date and time when the notification was sent
         /// </summary>
         [DisplayName("Send Date-time")]
@@ -48,16 +66,9 @@ namespace Conizi.Model.Telematics.Truck
         public new EdiDocumentReferences References { get; set; }
 
         /// <summary>
-        /// A list of status images
+        /// Object to transmit file attachments
         /// </summary>
-        [JsonProperty(Order = -4)]
-        public List<EdiStatusImage> Images { get; set; }
-        
-        /// <summary>
-        /// A list of document items
-        /// </summary>
-        [JsonProperty(Order = -3)]
-        public List<EdiDocumentItem> Documents { get; set; }
+        public EdiFileAttachment FileAttachment { get; set; }
 
     }
 }
