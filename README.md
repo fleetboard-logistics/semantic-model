@@ -16,4 +16,4 @@ document are to be interpreted as described in [RFC2119].
               Requirement Levels", BCP 14, RFC 2119, March 1997.
               
               
-conizi semantic models - Fleetboard Logistics 2018-2020
+conizi semantic models - Fleetboard Logistics GmbH 2018-2020
