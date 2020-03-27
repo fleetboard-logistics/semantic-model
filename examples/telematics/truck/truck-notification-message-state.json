@@ -7,9 +7,18 @@
         "coniziId": "carrierConiziId"
     },
     "messageIdRef": "72b7f2ba3873488f8a54ef0bc54c9950",
-    "sendDateTime": "2020-03-27T15:39:51.3625637+01:00",
+    "sendDateTime": "2020-03-27T15:43:20.0153302+01:00",
     "states": {
         "delivered": true,
         "messageWasRead": true
+    },
+    "senderGeoPosition": {
+        "latitude": 49.864155,
+        "longitude": 10.226992,
+        "placeName": "Volkach",
+        "speed": {
+            "speed": 38.4,
+            "speedMeasurementUnitCode": "KMT"
+        }
     }
 }
