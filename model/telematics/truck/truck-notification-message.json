@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T16:04:46.7041483+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5748 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-03-27T08:46:56.7572479+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
   "title": "Notification Message",
   "description": "A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System",
@@ -176,6 +176,44 @@
           "type": "string"
         }
       },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiFileAttachment": {
+      "title": "File Attachment",
+      "description": "Object to transmit file attachments",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiStatusImage"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
@@ -497,6 +535,16 @@
     "network": {
       "$ref": "#/definitions/EdiNetwork"
     },
+    "messageId": {
+      "title": "Message Id",
+      "description": "An unique message id like a GUID",
+      "type": "string"
+    },
+    "messageType": {
+      "title": "Message Type",
+      "description": "The type of the message as free text... default is text-message",
+      "type": "string"
+    },
     "sendDateTime": {
       "title": "Send Date-time",
       "description": "Date and time when the notification was sent",
@@ -511,22 +559,15 @@
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
     },
-    "images": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/EdiStatusImage"
-      }
-    },
-    "documents": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/EdiDocumentItem"
-      }
+    "fileAttachment": {
+      "$ref": "#/definitions/EdiFileAttachment"
     }
   },
   "required": [
     "$schema",
     "receiver",
+    "messageId",
+    "messageType",
     "sendDateTime",
     "message",
     "references"
