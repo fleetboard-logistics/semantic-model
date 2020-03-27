@@ -71,6 +71,27 @@ namespace Conizi.Model.UnitTests.Examples
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeSimpleTruckNotificationMessage_ReturnValid()
+        {
+            var m = new TruckNotificationMessageSimpleExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTruckNotificationMessageState_ReturnValid()
+        {
+            var m = new TruckNotificationMessageStateExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
         public void SerializeSimpleGroundTelematicsEvent_AssertSerializationValid()
         {
             var m = new GroundTelematicsEventExample().Create();

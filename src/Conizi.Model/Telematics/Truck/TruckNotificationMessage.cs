@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Entities;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Telematics.Truck
@@ -38,8 +39,8 @@ namespace Conizi.Model.Telematics.Truck
         [Description("The type of the message as free text... default is text-message")]
         [JsonProperty("MessageType", Order = -11)]
         [Required]
-        public string MessageType => "text-message";
-
+        public string MessageType { get; set; } = "text";
+        
         /// <summary>
         /// Date and time when the notification was sent
         /// </summary>
@@ -69,6 +70,11 @@ namespace Conizi.Model.Telematics.Truck
         /// Object to transmit file attachments
         /// </summary>
         public EdiFileAttachment FileAttachment { get; set; }
+
+        /// <summary>
+        /// The current geo position of the sender
+        /// </summary>
+        public EdiGeoPosition SenderGeoPosition { get; set; } 
 
     }
 }

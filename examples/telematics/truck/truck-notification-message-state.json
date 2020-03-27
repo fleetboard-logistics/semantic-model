@@ -1,0 +1,15 @@
+{
+    "$schema": "https://model.conizi.io/v1/telematics/truck/truck-notification-message-state.json",
+    "receiver": {
+        "coniziId": "habblConiziId"
+    },
+    "sender": {
+        "coniziId": "carrierConiziId"
+    },
+    "messageIdRef": "72b7f2ba3873488f8a54ef0bc54c9950",
+    "sendDateTime": "2020-03-27T15:39:51.3625637+01:00",
+    "states": {
+        "delivered": true,
+        "messageWasRead": true
+    }
+}

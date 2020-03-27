@@ -26,7 +26,7 @@ namespace Conizi.Model.Telematics.Truck
         [Description("A reference to the original message (id)")]
         [JsonProperty(Order = -12)]
         [Required]
-        public string MessageIdReference { get; set; }
+        public string MessageIdRef { get; set; }
 
         /// <summary>Delivered
         /// Date and time when the response was sent
@@ -42,6 +42,11 @@ namespace Conizi.Model.Telematics.Truck
         /// </summary>
         [Required]
         public TruckNotificationMessageResponseStates States { get; set; }
+
+        /// <summary>
+        /// The current geo position of the sender
+        /// </summary>
+        public EdiGeoPosition SenderGeoPosition { get; set; }
     }
 
     /// <summary>
