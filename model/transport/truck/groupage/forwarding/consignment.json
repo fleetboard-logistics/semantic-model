@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T15:45:37.0931135+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-03-27T08:46:52.7152227+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -1670,6 +1670,11 @@
           "title": "Volume (m³)",
           "description": "Total volume of the package",
           "type": "number"
+        },
+        "content": {
+          "title": "Content",
+          "description": "The package content",
+          "type": "string"
         }
       },
       "patternProperties": {

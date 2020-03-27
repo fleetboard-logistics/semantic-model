@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T08:45:19.5815615+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5733 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-03-27T08:46:56.4733652+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -1012,6 +1012,11 @@
           "title": "Volume (m³)",
           "description": "Total volume of the package",
           "type": "number"
+        },
+        "content": {
+          "title": "Content",
+          "description": "The package content",
+          "type": "string"
         }
       },
       "patternProperties": {

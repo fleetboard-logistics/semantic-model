@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T08:45:19.3521942+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5733 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-03-27T08:46:56.2327321+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -1273,6 +1273,11 @@
           "title": "Volume (m³)",
           "description": "Total volume of the package",
           "type": "number"
+        },
+        "content": {
+          "title": "Content",
+          "description": "The package content",
+          "type": "string"
         }
       },
       "patternProperties": {
