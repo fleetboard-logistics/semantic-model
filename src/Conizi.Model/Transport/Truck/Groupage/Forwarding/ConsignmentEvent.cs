@@ -184,6 +184,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [JsonProperty("geoPosition", Order = -15, Required = Required.DisallowNull)]
         public EdiGeoPosition GeoPosition { get; set; }
 
+
         /// <summary>
         /// A list of document items
         /// </summary>

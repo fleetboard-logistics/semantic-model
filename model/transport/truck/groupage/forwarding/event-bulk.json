@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-25T12:46:03.2062622+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5740 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-03-26T09:36:48.2887690+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5758 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -3150,6 +3150,21 @@
           "description": "The date on which the pickup order was forwarded to the contracted partner",
           "type": "string",
           "format": "date"
+        },
+        "geoPosition": {
+          "$ref": "event-bulk.json#/definitions/EdiGeoPosition"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiStatusImage"
+          }
         },
         "orderingParty": {
           "$ref": "event-bulk.json#/definitions/EdiAddress"

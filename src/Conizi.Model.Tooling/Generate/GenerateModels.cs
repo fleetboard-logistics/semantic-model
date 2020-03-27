@@ -47,6 +47,8 @@ namespace Conizi.Model.Tooling.Generate
                 typeof(TruckTour),
                 typeof(TruckTransportOrder),
                 typeof(TruckStopEvent),
+                typeof(TruckNotificationMessage),
+                typeof(TruckNotificationMessageState)
 
             };
 

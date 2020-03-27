@@ -94,8 +94,8 @@ namespace Conizi.Model.Examples.Telematics
                     EventDateTime = DateTime.Now.AddMinutes(-20),
                     GeoPosition = new EdiGeoPosition
                     {
-                        Latitude = 249.8639895m,
-                        Longitude = -410.2309327m,
+                        Latitude = 49.8639895m,
+                        Longitude = 10.2309327m,
                         PlaceName = "Volkach",
                         Speed = new EdiGeoSpeed
                         {
