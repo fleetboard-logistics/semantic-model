@@ -20,7 +20,15 @@ namespace Conizi.Model.Telematics
     [ConiziAllowXProperties]
     public class GroundTelematicsEvent : EdiModel
     {
-        
+
+        /// <summary>
+        /// Date and time when the event occurred
+        /// </summary>
+        [DisplayName("Event Date-time")]
+        [Description("Date and time when the event occurred")]
+        [JsonProperty("eventDateTime", Order = -16, Required = Required.Always)]
+        public DateTime EventDateTime { get; set; }
+
         /// <summary>
         /// Information about the vehicle
         /// </summary>
@@ -54,7 +62,7 @@ namespace Conizi.Model.Telematics
         /// <summary>
         /// Event for trailer telematics data
         /// </summary>
-        [JsonProperty(Order = -1)]
+        [JsonProperty(Order = 0)]
         public EdiTrailerTelematicsEvent TrailerTelematicsEvent { get; set; }
     }
 }

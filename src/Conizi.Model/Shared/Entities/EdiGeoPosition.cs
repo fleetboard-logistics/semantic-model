@@ -26,6 +26,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Latitude")]
         [Description("North–south position of a point on the Earth's surface")]
         [JsonProperty(Required = Required.DisallowNull, Order = -10)]
+        [Range(-120.9762, 41.25, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public decimal? Latitude { get; set; }
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Longitude")]
         [Description("East–west position of a point on the Earth's surface")]
         [JsonProperty(Required = Required.DisallowNull, Order = -9)]
+        [Range(-31.96, 115.84, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public decimal? Longitude { get; set; }
 
         /// <summary>

@@ -78,5 +78,21 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Total Operation Time")]
         [Description("The Total Operating Time in seconds")]
         public int? TotalOperatingTime { get; set; }
+
+        /// <summary>
+        /// The current AdBlue level in percent (0-100)
+        /// </summary>
+        [DisplayName("AdBlue level")]
+        [Description("The current AdBlue level in percent (0-100)")]
+        [Range(0, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? AdBlueLevel { get; set; }
+
+        /// <summary>
+        /// The current Fuel level in percent (0-100)
+        /// </summary>
+        [DisplayName("Fuel level")]
+        [Description("The current Fuel level in percent (0-100)")]
+        [Range(0, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int? FuelLevel { get; set; }
     }
 }

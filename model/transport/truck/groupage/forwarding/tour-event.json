@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:29:31.1279288+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
+  "$comment": "Generated: 2020-03-25T15:23:47.5919935+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5746 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
@@ -53,6 +53,10 @@
           "title": "Phone number of the address",
           "type": "string"
         },
+        "mobilePhoneNumber": {
+          "title": "The mobile phone number",
+          "type": "string"
+        },
         "additionalAddressLines": {
           "title": "Additional address lines of the address",
           "type": "array",
@@ -70,6 +74,16 @@
         },
         "faxNumber": {
           "title": "The Fax number",
+          "type": "string"
+        },
+        "gate": {
+          "title": "Gate",
+          "description": "The gate to use",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
           "type": "string"
         }
       },
@@ -110,12 +124,12 @@
           "type": "string",
           "additionalProperties": false,
           "enum": [
-            "unknown",
             "proof_of_delivery",
             "waybill",
             "delivery_note",
             "packaging_list",
-            "other_document"
+            "other_document",
+            "unknown"
           ]
         },
         "documentCreator": {
@@ -170,7 +184,7 @@
         },
         "referenceNumber": {
           "title": "Reference number",
-          "description": "The reference number (e.g. delivery note",
+          "description": "The reference number (e.g. delivery note)",
           "type": "string"
         },
         "consignmentObjectId": {
@@ -193,6 +207,26 @@
           "description": "A unique identifier assigned to the tour by the devlivering company",
           "type": "string"
         },
+        "tourReference": {
+          "title": "Tour Reference",
+          "description": "",
+          "type": "string"
+        },
+        "workflowId": {
+          "title": "Workflow Id",
+          "description": "",
+          "type": "string"
+        },
+        "transportOrderId": {
+          "title": "Transport Order Id",
+          "description": "Transport Order Id",
+          "type": "string"
+        },
+        "transportOrderNo": {
+          "title": "Transport Order No",
+          "description": "Transport Order No",
+          "type": "string"
+        },
         "stopId": {
           "title": "Stop Id",
           "description": "Unique identifier for the stop within the tour",
@@ -205,6 +239,7 @@
         },
         "vehicleId": {
           "title": "The vehicle id",
+          "description": "The unique Id of the vehicle (Truck/Trailer/Train)",
           "type": "string"
         },
         "deviceId": {
@@ -625,11 +660,11 @@
           "type": "string",
           "additionalProperties": false,
           "enum": [
-            "unknown",
             "damage",
             "load_securing",
             "accident",
-            "other_image"
+            "other_image",
+            "unknown"
           ]
         },
         "imageCreator": {
@@ -702,6 +737,11 @@
         "arrivedAtLoadingPoint": {
           "title": "Arrived at loading point",
           "description": "Vehicle is arrived at loading point",
+          "type": "boolean"
+        },
+        "arrived": {
+          "title": "Arrived at stop",
+          "description": "Vehicle is arrived at stop",
           "type": "boolean"
         },
         "loadingStarted": {
@@ -1082,9 +1122,6 @@
     },
     "documents": {
       "$ref": "#/definitions/EdiTourDocuments"
-    },
-    "modelType": {
-      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"

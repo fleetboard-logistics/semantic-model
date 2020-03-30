@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:53:50.8950102+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5464 - master",
+  "$comment": "Generated: 2020-03-27T08:46:53.6179290+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -85,6 +85,10 @@
           "title": "Phone number of the address",
           "type": "string"
         },
+        "mobilePhoneNumber": {
+          "title": "The mobile phone number",
+          "type": "string"
+        },
         "additionalAddressLines": {
           "title": "Additional address lines of the address",
           "type": "array",
@@ -102,6 +106,16 @@
         },
         "faxNumber": {
           "title": "The Fax number",
+          "type": "string"
+        },
+        "gate": {
+          "title": "Gate",
+          "description": "The gate to use",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
           "type": "string"
         }
       },
@@ -288,6 +302,14 @@
         "highValueGoods": {
           "title": "High value goods",
           "description": "This consignment contains goods of high value which are subject to higher insure fees and a higher risk of theft",
+          "type": "boolean"
+        },
+        "dangerousGoods": {
+          "$ref": "#/definitions/TourDangerousGoods"
+        },
+        "customsGoods": {
+          "title": "Customs Goods",
+          "description": "Customs goods on the tour",
           "type": "boolean"
         },
         "insuranceValue": {
@@ -773,7 +795,7 @@
         },
         "referenceNumber": {
           "title": "Reference number",
-          "description": "The reference number (e.g. delivery note",
+          "description": "The reference number (e.g. delivery note)",
           "type": "string"
         },
         "consignmentObjectId": {
@@ -796,6 +818,26 @@
           "description": "A unique identifier assigned to the tour by the devlivering company",
           "type": "string"
         },
+        "tourReference": {
+          "title": "Tour Reference",
+          "description": "",
+          "type": "string"
+        },
+        "workflowId": {
+          "title": "Workflow Id",
+          "description": "",
+          "type": "string"
+        },
+        "transportOrderId": {
+          "title": "Transport Order Id",
+          "description": "Transport Order Id",
+          "type": "string"
+        },
+        "transportOrderNo": {
+          "title": "Transport Order No",
+          "description": "Transport Order No",
+          "type": "string"
+        },
         "stopId": {
           "title": "Stop Id",
           "description": "Unique identifier for the stop within the tour",
@@ -808,6 +850,7 @@
         },
         "vehicleId": {
           "title": "The vehicle id",
+          "description": "The unique Id of the vehicle (Truck/Trailer/Train)",
           "type": "string"
         },
         "deviceId": {
@@ -1090,6 +1133,11 @@
         },
         "temperatureRestrictions": {
           "$ref": "#/definitions/EdiTemperatureRestrictions"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -1228,6 +1276,11 @@
             "$ref": "#/definitions/EdiPackage"
           }
         },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
           "description": "Total volume of the consignment",
@@ -1313,6 +1366,28 @@
           "items": {
             "$ref": "#/definitions/EdiSeal"
           }
+        },
+        "unitType": {
+          "description": "Types of loading unites",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "swapBody",
+            "container",
+            "frame",
+            "silo",
+            "tank",
+            "customLoadingUnit"
+          ]
+        },
+        "customLoadingUnitTypeName": {
+          "title": "Custom Loading Type Unit Name",
+          "description": "Custom Loading Unit Type Name, like specialContainers or trailer formats",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -1426,9 +1501,6 @@
             },
             "content": {
               "$ref": "manifest.json#/definitions/EdiContent"
-            },
-            "modelType": {
-              "type": "string"
             }
           },
           "required": [
@@ -1715,6 +1787,10 @@
           "title": "Phone number of the address",
           "type": "string"
         },
+        "mobilePhoneNumber": {
+          "title": "The mobile phone number",
+          "type": "string"
+        },
         "additionalAddressLines": {
           "title": "Additional address lines of the address",
           "type": "array",
@@ -1732,6 +1808,16 @@
         },
         "faxNumber": {
           "title": "The Fax number",
+          "type": "string"
+        },
+        "gate": {
+          "title": "Gate",
+          "description": "The gate to use",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
           "type": "string"
         }
       },
@@ -1807,6 +1893,11 @@
           "title": "Volume (m³)",
           "description": "Total volume of the package",
           "type": "number"
+        },
+        "content": {
+          "title": "Content",
+          "description": "The package content",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -2459,6 +2550,16 @@
         },
         "dimensions": {
           "$ref": "#/definitions/EdiMeasures"
+        },
+        "manufacturer": {
+          "title": "Device Ids",
+          "description": "List of device ids, are part of this vehicle",
+          "type": "string"
+        },
+        "information": {
+          "title": "Information",
+          "description": "Further Vehicle Information",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -2511,6 +2612,24 @@
     },
     "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json": {
       "$ref": "consignment.json"
+    },
+    "TourDangerousGoods": {
+      "title": "Dangerous goods",
+      "description": "Dangerous goods to be declared contained in a consignment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "isADR": {
+          "title": "Is ADR",
+          "description": "Fits the European Agreement concerning the International Carriage of Dangerous Goods by Road",
+          "type": "boolean"
+        },
+        "totalPointADR": {
+          "title": "Total Point ADR",
+          "description": "Total Point to ADR",
+          "type": "integer"
+        }
+      }
     }
   },
   "type": "object",
@@ -2591,9 +2710,6 @@
       "items": {
         "$ref": "#/definitions/EdiManifestLine"
       }
-    },
-    "modelType": {
-      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"

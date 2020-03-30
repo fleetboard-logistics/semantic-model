@@ -23,6 +23,13 @@ namespace Conizi.Model.Shared.Entities
         public string DeviceId { get; set; }
 
         /// <summary>
+        /// The type or label for the event
+        /// </summary>
+        [DisplayName("Event Type")]
+        [Description("The type or label for the event")]
+        public string EventType { get; set; }
+
+        /// <summary>
         /// Data about the current trailer
         /// </summary>
         [Required]

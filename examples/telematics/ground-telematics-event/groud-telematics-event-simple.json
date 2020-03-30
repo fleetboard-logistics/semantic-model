@@ -3,6 +3,7 @@
     "receiver": {
         "coniziId": "4545454545454545454"
     },
+    "eventDateTime": "2020-03-23T14:45:26.3569895+01:00",
     "vehicle": {
         "vehicleId": "4711",
         "vehicleIdentificationNumber": "AS1254856454545451",

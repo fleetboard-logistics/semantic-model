@@ -8,6 +8,7 @@ using Conizi.Model.Accounting.Material;
 using Conizi.Model.Documents;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Telematics;
+using Conizi.Model.Telematics.Truck;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
@@ -42,7 +43,13 @@ namespace Conizi.Model.Tooling.Generate
                 typeof(TransportDocument),
                 typeof(StatusImage),
                 typeof(MaterialTransaction),
-                typeof(GroundTelematicsEvent)
+                typeof(GroundTelematicsEvent),
+                typeof(TruckTour),
+                typeof(TruckTransportOrder),
+                typeof(TruckStopEvent),
+                typeof(TruckNotificationMessage),
+                typeof(TruckNotificationMessageState)
+
             };
 
 

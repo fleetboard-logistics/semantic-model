@@ -21,5 +21,12 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Write Down Mileage")]
         [Description("Write down the mileage")]
         public bool? WriteDownMileage { get; set; }
+
+        /// <summary>
+        /// Additional remarks (free form)
+        /// </summary>
+        [DisplayName("Remarks (free form)")]
+        [Description("Additional remarks")]
+        public string Remarks { get; set; }
     }
 }

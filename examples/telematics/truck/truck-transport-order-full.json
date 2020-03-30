@@ -1,0 +1,280 @@
+{
+    "$schema": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
+    "sender": {
+        "ediId": "Sender der Nachricht"
+    },
+    "receiver": {
+        "ediId": "Empfänger der Nachricht"
+    },
+    "network": {
+        "networkId": "Netzwerk zum Datenrouting"
+    },
+    "messageFunctionCode": "update",
+    "references": {
+        "transportOrderId": "1",
+        "transportOrderNo": "2",
+        "commissionNo": "3",
+        "id": "4",
+        "referenceNumber": "5",
+        "stopId": "6",
+        "tourId": "7",
+        "systemReferences": "8",
+        "tourReference": "9"
+    },
+    "orderer": {
+        "name": "Auftraggeber",
+        "name2": "GmbH & Co KG",
+        "street": "Am Alten Bahnhof ",
+        "houseNumber": "8",
+        "zipCode": "97332",
+        "city": "Volkach",
+        "contactPerson": "Meier",
+        "emailAddress": "info@auftraggeber.de",
+        "phoneNumber": "0309812354",
+        "mobilePhoneNumber": "0170123456789",
+        "faxNumber": "0309812350",
+        "reference": "2589",
+        "countryCode": "DE",
+        "geoPosition": {
+            "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
+        }            
+    },
+    "shippingDate": "2020-03-31",
+    "routing": {
+        "shipper": {
+            "name": "Versender",
+            "name2": "GmbH & Co KG",
+            "street": "Hauptstraße",
+            "houseNumber": "1",
+            "zipCode": "10119",
+            "city": "Berlin",
+            "townArea": "Mitte",
+            "contactPerson": "Meier",
+            "emailAddress": "info@versender.de",
+            "phoneNumber": "0309812354",
+            "mobilePhoneNumber": "0170123456789",
+            "faxNumber": "0309812350",
+            "reference": "1011",
+            "countryCode": "DE",
+            "remarks": "Zusatzinformationen zur Versenderadresse",
+            "gate": "Tor 1",
+            "geoPosition": {
+                "latitude": 52.501846,
+                "longitude": 13.472254
+            }            
+        },
+        "consignee": {
+            "name": "Empfänger",
+            "name2": "GmbH & Co KG",
+            "street": "Am Alten Bahnhof ",
+            "houseNumber": "8",
+            "zipCode": "97332",
+            "city": "Volkach",
+            "contactPerson": "Meier",
+            "emailAddress": "info@empfaenger.de",
+            "phoneNumber": "0309812354",
+            "mobilePhoneNumber": "0170123456789",
+            "faxNumber": "0309812350",
+            "reference": "2589",
+            "countryCode": "DE",
+            "remarks": "Zusatzinformationen zur Empfängeradresse",
+            "gate": "Tor 5",
+            "geoPosition": {
+                "latitude": 49.862917,
+                "longitude": 10.22593
+            }            
+        }
+    },
+    "timeSlot": {
+        "delivery": {
+            "fromDateTime": "2020-03-24T10:00:00Z",
+            "untilDateTime": "2020-03-24T12:00:00Z",
+            "gate": "5",
+            "notes": "Zustellung zwischen 10 und 12 Uhr"
+        },
+        "pickup": {
+            "fromDateTime": "2020-03-24T03:00:00Z",
+            "untilDateTime": "2020-03-24T04:00:00Z",
+            "gate": "1",
+            "notes": "Abholung zwischen 3 und 4 Uhr"
+        }
+    },
+    "handlingInstructions": {
+        "emptiesExchange": true,
+        "stacking": {
+            "allowed": true,
+            "forbidden": false
+        },
+        "orientation": {
+            "horizontal": true,
+            "vertical": false
+        },
+        "temperatureRestrictions": {
+            "temperatureMinCelsius": 5,
+            "temperatureMaxCelsius": 50
+        },
+        "food": {
+            "haccp": true
+        },
+        "customsGoods": false,
+        "handleWithCare": true,
+        "remarks": "Verscheidene Behandlungshinweise für den Transportauftrag"
+    },
+    "billing": {
+        "freightPayer": {
+            "name": "Frachtzahler",
+            "reference": "9784",
+            "street": "Kaiserstraße 26",
+            "zipCode": "97070",
+            "city": "Würzburg"
+        },
+        "priceCarrier": {
+            "amount": 650,
+            "currency": "EUR"
+        },
+        "priceCustomer": {
+            "amount": 500,
+            "currency": "EUR"
+        },
+        "cashOnDelivery": false,
+        "valueGoods": {
+            "amount": 15000,
+            "currency": "EUR"
+        }
+    },
+    "information": {
+        "remarksDelivery": "Das Tor befidnet sich auf der Rückseite des Gebäudes",
+        "remarksPickup": "Bitte bei der Abholung Zustand der Ware dokumentieren",
+        "remarksGeneral": "Fahr vorsichtig!",
+        "remarksInvoice": "Rechnung wird nach Eingang des PODs gestellt",
+        "remarksContent": "Die Waren müssen gut gesichert werden"
+    },
+    "content": {
+        "grossWeightKilogram": 170,
+        "chargeableWeightKilogram": 160,
+        "heightMeter": 2,
+        "nonHazardousWaste": true,
+        "highValueGoods": true,
+        "loadingAids": true,
+        "customsGoods": false,
+        "dangerousGoods": {
+                "isADR": false,
+                "totalPointADR": 100
+            },
+        "lines": [
+            {
+                "lineNo": 1,
+                "refNo": "1234567890",
+                "handlingUnitCount": 2,
+                "handlingUnitType": "FP",
+                "loadingMeter": 1,
+                "areaPalletBays": 2,
+                "content": "Wareninhalt",
+                "chargeableWeightKilogram": 160,
+                "grossWeightKilogram": 170,
+                "lengthMeter": 1.2,
+                "widthMeter": 0.8,
+                "heightMeter": 2,
+                "innerPackageCount": 2,
+                "innerPackageType": "STK",
+                "volumeCubicmeter": 1.92,
+                "barcodes": [
+                    {
+                        "code": "1234567891234567"
+                    }
+                ],
+                "packages": [
+                    {
+                        "barcode": "1234567891234567",
+                        "height": 2,
+                        "length": 0.6,
+                        "width": 0.8,
+                        "packagingType": "STK",
+                        "weight": 40
+                    },
+                    {
+                        "barcode": "1234567891234568",
+                        "height": 2,
+                        "length": 0.6,
+                        "width": 0.8,
+                        "packagingType": "STK",
+                        "weight": 40
+                    },
+                    {
+                        "barcode": "1234567891234569",
+                        "height": 2,
+                        "length": 0.6,
+                        "width": 0.8,
+                        "packagingType": "STK",
+                        "weight": 40
+                    },
+                    {
+                        "barcode": "1234567891234570",
+                        "height": 2,
+                        "length": 0.6,
+                        "width": 0.8,
+                        "packagingType": "STK",
+                        "weight": 40
+                    }
+                ]
+            }
+        ]
+
+    },
+    "services": {
+        "anonymity": {
+            "neutralConsignee": {
+                "name": "Neutralempfänger",
+                "street": "Sommerrain",
+                "houseNumber": "5",
+                "zipCode": "97241",
+                "city": "Bergtheim"
+            },
+            "neutralShipper": {
+                "name": "Neutralversender",
+                "street": "Vulkanstraße",
+                "houseNumber": "25",
+                "zipCode": "10367",
+                "city": "Berlin"
+            }
+        },
+        "notifications": [
+            {
+            "byDriver": false,
+            "geoFence": {
+                "geoRadius": {
+                    "radius": 50
+                },
+                "w3WCoordinate": "mitgefühl.landkarten.hilfsmittel"
+            },
+            "contactNotification": {
+                "mobilePhoneNumber": "01701234657",
+                "contactPerson": "Meier"
+                }
+            },
+            {
+                "byDriver": true,
+                "notifyAt": "delivery",
+                "contactNotification": {
+                    "mobilePhoneNumber": "01709574125678"
+                }
+            },
+            {
+                "byDriver": false,
+                "notifyAt": "delivery",
+                "contactNotification": {
+                    "emailAddress": "info@umschlaglager.de"
+                }
+            }
+            
+    ],
+        "specialEquipment": {
+            "forkLift": false,
+            "crane": false,
+            "handLifter": true,
+            "liftingPlatform": true,
+            "refrigeratedTruck": false
+        }
+    }
+
+    }

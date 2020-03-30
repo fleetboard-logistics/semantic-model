@@ -19,10 +19,10 @@ namespace Conizi.Model.Shared.Entities
         public EdiDeliverySuccessfulExceptions Exceptions { get; set; }
 
         /// <summary>
-        /// Name of the person which rejected the consignment
+        /// Name of the person which accepted the consignment
         /// </summary>
         [DisplayName("Signee")]
-        [Description("Name of the person which rejected the consignment")]
+        [Description("Name of the person which accepted the consignment")]
         public string Signee { get; set; }
 
         /// <summary>

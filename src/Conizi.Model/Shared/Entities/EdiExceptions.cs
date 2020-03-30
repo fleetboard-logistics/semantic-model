@@ -963,6 +963,49 @@ namespace Conizi.Model.Shared.Entities
     }
 
     /// <summary>
+    /// Detailed information about the exceptions that occured while pickup the pickup order.
+    /// Use (null) to report successful pickup.
+    /// </summary>
+    [DisplayName("Exceptions")]
+    [Description("Detailed information about the exceptions that occured while pickup the pickup order." +
+                 "Use (null) to report successful pickup")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiTourPickupSuccessfulExceptions : EdiPatternPropertiesBase
+    {
+
+        /// <summary>
+        /// Some parts of the goods are missing
+        /// </summary>
+        [DisplayName("Incomplete")]
+        [Description("Some parts of the goods are missing")]
+        public bool? Incomplete { get; set; }
+
+        /// <summary>
+        /// The goods are damaged
+        /// </summary>
+        [DisplayName("Damaged")]
+        [Description("The goods are damaged")]
+        public bool? Damaged { get; set; }
+
+        /// <summary>
+        /// Delivery was too late
+        /// </summary>
+        [DisplayName("Too Late")]
+        [Description("Delivery was too late")]
+        public bool? TooLate { get; set; }
+
+        /// <summary>
+        /// No receipt available
+        /// </summary>
+        [DisplayName("No Receipt")]
+        [Description("No receipt available")]
+        public bool? NoReceipt { get; set; }
+
+
+    }
+
+    /// <summary>
     /// Detailed information about the exceptions that occured while unloading the pickup order.
     /// Use (null) to report successful unloading the pickup order
     /// </summary>

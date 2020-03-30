@@ -36,5 +36,12 @@ namespace Conizi.Model.Shared.Entities
         [Description("The phone number of the driver")]
         [Phone]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// The system wide id of the vehicle, the driver is connected
+        /// </summary>
+        [DisplayName("The vehicle id")]
+        [Description("The system wide id of the vehicle, the driver is connected")]
+        public string VehicleId { get; set; }
     }
 }

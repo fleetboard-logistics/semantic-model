@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:29:32.8031522+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
+  "$comment": "Generated: 2020-03-26T09:36:48.2887690+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5758 - feature/conizi-826-notify-message",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -53,6 +53,10 @@
           "title": "Phone number of the address",
           "type": "string"
         },
+        "mobilePhoneNumber": {
+          "title": "The mobile phone number",
+          "type": "string"
+        },
         "additionalAddressLines": {
           "title": "Additional address lines of the address",
           "type": "array",
@@ -70,6 +74,16 @@
         },
         "faxNumber": {
           "title": "The Fax number",
+          "type": "string"
+        },
+        "gate": {
+          "title": "Gate",
+          "description": "The gate to use",
+          "type": "string"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
           "type": "string"
         }
       },
@@ -452,12 +466,12 @@
           "type": "string",
           "additionalProperties": false,
           "enum": [
-            "unknown",
             "proof_of_delivery",
             "waybill",
             "delivery_note",
             "packaging_list",
-            "other_document"
+            "other_document",
+            "unknown"
           ]
         },
         "documentCreator": {
@@ -512,7 +526,7 @@
         },
         "referenceNumber": {
           "title": "Reference number",
-          "description": "The reference number (e.g. delivery note",
+          "description": "The reference number (e.g. delivery note)",
           "type": "string"
         },
         "consignmentObjectId": {
@@ -535,6 +549,26 @@
           "description": "A unique identifier assigned to the tour by the devlivering company",
           "type": "string"
         },
+        "tourReference": {
+          "title": "Tour Reference",
+          "description": "",
+          "type": "string"
+        },
+        "workflowId": {
+          "title": "Workflow Id",
+          "description": "",
+          "type": "string"
+        },
+        "transportOrderId": {
+          "title": "Transport Order Id",
+          "description": "Transport Order Id",
+          "type": "string"
+        },
+        "transportOrderNo": {
+          "title": "Transport Order No",
+          "description": "Transport Order No",
+          "type": "string"
+        },
         "stopId": {
           "title": "Stop Id",
           "description": "Unique identifier for the stop within the tour",
@@ -547,6 +581,7 @@
         },
         "vehicleId": {
           "title": "The vehicle id",
+          "description": "The unique Id of the vehicle (Truck/Trailer/Train)",
           "type": "string"
         },
         "deviceId": {
@@ -809,7 +844,7 @@
         },
         "signee": {
           "title": "Signee",
-          "description": "Name of the person which rejected the consignment",
+          "description": "Name of the person which accepted the consignment",
           "type": "string"
         },
         "waitTime": {
@@ -2256,11 +2291,11 @@
           "type": "string",
           "additionalProperties": false,
           "enum": [
-            "unknown",
             "damage",
             "load_securing",
             "accident",
-            "other_image"
+            "other_image",
+            "unknown"
           ]
         },
         "imageCreator": {
@@ -2333,6 +2368,11 @@
         "arrivedAtLoadingPoint": {
           "title": "Arrived at loading point",
           "description": "Vehicle is arrived at loading point",
+          "type": "boolean"
+        },
+        "arrived": {
+          "title": "Arrived at stop",
+          "description": "Vehicle is arrived at stop",
           "type": "boolean"
         },
         "loadingStarted": {
@@ -2918,9 +2958,6 @@
             "$ref": "event-bulk.json#/definitions/EdiStatusImage"
           }
         },
-        "modelType": {
-          "type": "string"
-        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -3067,9 +3104,6 @@
             "$ref": "event-bulk.json#/definitions/EdiStatusImage"
           }
         },
-        "modelType": {
-          "type": "string"
-        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -3116,6 +3150,21 @@
           "description": "The date on which the pickup order was forwarded to the contracted partner",
           "type": "string",
           "format": "date"
+        },
+        "geoPosition": {
+          "$ref": "event-bulk.json#/definitions/EdiGeoPosition"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "event-bulk.json#/definitions/EdiStatusImage"
+          }
         },
         "orderingParty": {
           "$ref": "event-bulk.json#/definitions/EdiAddress"
@@ -3192,9 +3241,6 @@
           "description": "Reference number",
           "type": "string"
         },
-        "modelType": {
-          "type": "string"
-        },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
         }
@@ -3246,9 +3292,6 @@
         },
         "documents": {
           "$ref": "event-bulk.json#/definitions/EdiTourDocuments"
-        },
-        "modelType": {
-          "type": "string"
         },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"
@@ -3305,9 +3348,6 @@
       "items": {
         "$ref": "tour-event.json"
       }
-    },
-    "modelType": {
-      "type": "string"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
