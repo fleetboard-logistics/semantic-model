@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-26T09:36:47.1759029+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5758 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T09:41:24.4952649+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
@@ -1531,7 +1531,7 @@
           "title": "New delivery date / time",
           "description": "The new date / time when the delivery will be performed",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         }
       },
       "patternProperties": {
@@ -1666,7 +1666,7 @@
     "shippingDate": {
       "title": "Shipping date",
       "type": "string",
-      "format": "date"
+      "format": "date-time"
     },
     "shippingPartner": {
       "$ref": "#/definitions/EdiPartnerIdentification"

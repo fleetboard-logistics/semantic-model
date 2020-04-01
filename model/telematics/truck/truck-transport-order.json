@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-27T08:46:56.4733652+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T09:41:27.7380727+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -342,7 +342,7 @@
           "title": "Date",
           "description": "Date",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         }
       }
     },
@@ -722,7 +722,7 @@
           "title": "Customs Goods resubmission date",
           "description": "The resubmission date for the customs goods",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "handleWithCare": {
           "title": "Handle with care",
@@ -1386,10 +1386,7 @@
       "title": "Shipping date",
       "description": "Day on which the tour is proccessed",
       "type": "string",
-      "format": "date"
-    },
-    "references": {
-      "$ref": "#/definitions/EdiDocumentReferences"
+      "format": "date-time"
     },
     "orderer": {
       "$ref": "#/definitions/EdiAddress"
@@ -1414,12 +1411,17 @@
     },
     "billing": {
       "$ref": "#/definitions/EdiTransportBilling"
+    },
+    "references": {
+      "$ref": "#/definitions/EdiDocumentReferences"
     }
   },
   "required": [
     "$schema",
     "receiver",
-    "shippingDate"
+    "shippingDate",
+    "orderer",
+    "content"
   ],
   "patternProperties": {
     "x-.*": {},

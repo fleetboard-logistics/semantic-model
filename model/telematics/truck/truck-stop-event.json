@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T15:45:40.7282092+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-04-01T09:41:27.9399736+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-stop-event.json",
   "title": "Stop Event",
   "description": "A (truck) stop event",
@@ -670,7 +670,7 @@
           "title": "ETA (Estimated time of arrival) date component",
           "description": "ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). The date component is only required if it is not the current day.",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "ete": {
           "title": "Estimated time elapsed",

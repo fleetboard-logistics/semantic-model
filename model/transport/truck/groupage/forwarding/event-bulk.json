@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-26T09:36:48.2887690+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5758 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T09:41:25.5903824+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1107,7 +1107,7 @@
           "title": "ETA (Estimated time of arrival) date component",
           "description": "ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). The date component is only required if it is not the current day.",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "ete": {
           "title": "Estimated time elapsed",
@@ -1501,7 +1501,7 @@
           "title": "Best before",
           "description": "Best before",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "transportUnitNo": {
           "title": "Transport Unit Number",
@@ -2446,7 +2446,7 @@
           "title": "New delivery date / time",
           "description": "The new date / time when the delivery will be performed",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         }
       },
       "patternProperties": {
@@ -2867,7 +2867,7 @@
         "shippingDate": {
           "title": "Shipping date",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "shippingPartner": {
           "$ref": "event-bulk.json#/definitions/EdiPartnerIdentification"
@@ -3149,7 +3149,7 @@
           "title": "Pickup order date",
           "description": "The date on which the pickup order was forwarded to the contracted partner",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "geoPosition": {
           "$ref": "event-bulk.json#/definitions/EdiGeoPosition"

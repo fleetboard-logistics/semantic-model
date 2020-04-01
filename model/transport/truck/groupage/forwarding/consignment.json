@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-27T08:46:52.7152227+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T09:41:24.2219454+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -139,7 +139,7 @@
           "title": "Shipping date",
           "description": "The date of the manifest which contained the surplus goods",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         }
       },
       "patternProperties": {
@@ -434,7 +434,7 @@
           "title": "Date",
           "description": "Date",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         }
       }
     },
@@ -1110,7 +1110,7 @@
           "title": "Customs Goods resubmission date",
           "description": "The resubmission date for the customs goods",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "handleWithCare": {
           "title": "Handle with care",
@@ -1392,7 +1392,7 @@
           "title": "Shipping date",
           "description": "The date of the manifest which included the consignment",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         }
       },
       "patternProperties": {
@@ -1877,7 +1877,7 @@
           "title": "Customer order date",
           "description": "Date when the order was places with the shipping partner",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "orderEntrySystemReference": {
           "title": "Order entry system reference",
@@ -1922,7 +1922,7 @@
           "title": "Shipping date",
           "description": "The date when the original shipment was forwarded",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "shippingPartner": {
           "$ref": "#/definitions/EdiPartnerIdentification"
@@ -2096,7 +2096,7 @@
           "title": "Shipping date",
           "description": "The date when the original shipment was forwarded",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "shippingPartner": {
           "$ref": "#/definitions/EdiPartnerIdentification"
@@ -2365,7 +2365,7 @@
       "title": "Shipping date",
       "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
       "type": "string",
-      "format": "date"
+      "format": "date-time"
     },
     "manifestId": {
       "title": "Manifest (Bordero) id of the shipping partner",

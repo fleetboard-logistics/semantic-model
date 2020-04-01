@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T15:45:39.7068768+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-04-01T09:41:26.9063766+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
   "$id": "https://model.conizi.io/v1/documents/status-image.json",
   "title": "Status Image",
   "description": "A status image is a kind of document to document a process",
@@ -657,7 +657,7 @@
       "title": "Shipping date",
       "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
       "type": "string",
-      "format": "date"
+      "format": "date-time"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferencesExtended"
