@@ -56,7 +56,7 @@ namespace Conizi.Model.Core.Tools
         /// <code>var result = Converter.Serialize(m);</code>
         /// </example>
         public static SerializationResult Serialize<TModel>(TModel model, bool indented = false,
-            bool ignoreValidation = false, bool writeMetadata = false) where TModel : EdiModel
+            bool ignoreValidation = false) where TModel : EdiModel
         {
             var schemaAttribute = typeof(TModel).GetCustomAttribute<ConiziSchemaAttribute>();
 
@@ -65,18 +65,17 @@ namespace Conizi.Model.Core.Tools
 
             var settings = SerializerSettings;
 
-            if (writeMetadata)
-                model.AddOrUpdateMetadata(new EdiMetadata
-                {
-                    CreatedAt = DateTime.Now,
-                    CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")",
-                });
+            model.AddOrUpdateMetadata(new EdiMetadata
+            {
+                CreatedAt = DateTime.Now,
+                CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")",
+            });
 
             if (!indented)
                 settings.Formatting = Formatting.None;
 
             var jsonString = JsonConvert.SerializeObject(model, settings);
-
+            
             var conversionResult = new SerializationResult
             {
                 Content = jsonString
@@ -108,8 +107,8 @@ namespace Conizi.Model.Core.Tools
         public static TModel Deserialize<TModel>(string json) where TModel : EdiModel
         {
             var result = JsonConvert.DeserializeObject<TModel>(json, SerializerSettings);
-
-            return result;
+            
+           return result;
         }
 
         /// <summary>
@@ -119,10 +118,10 @@ namespace Conizi.Model.Core.Tools
         /// <returns>IModel instance, could be cast into the right type if necessary</returns>
         public static IModel Deserialize(string json)
         {
-            var model = Validator.ParseModel(json);
+            var model =  Validator.ParseModel(json);
 
             var result = (IModel) JsonConvert.DeserializeObject(json, model, SerializerSettings);
-
+            
             result.ModelType = model;
 
             return result;

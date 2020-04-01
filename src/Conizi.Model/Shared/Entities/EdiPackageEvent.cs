@@ -44,6 +44,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Best before")]
         [Description("Best before")]
+        [JsonConverter(typeof(ConiziDateConverter))]
+        [ConiziDateOnly]
         public DateTime? BestBeforeDate { get; set; }
 
         /// <summary>

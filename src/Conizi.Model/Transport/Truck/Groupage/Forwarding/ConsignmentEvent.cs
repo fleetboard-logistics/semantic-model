@@ -56,6 +56,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// </summary>
         [DisplayName("Shipping date")]
         [JsonProperty(PropertyName = "shippingDate")]
+        [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime? ShippingDate { get; set; }
 
         /// <summary>
