@@ -60,13 +60,6 @@ namespace Conizi.Model.Telematics.Truck
         public string Message { get; set; }
 
         /// <summary>
-        /// Numbers of various sources identifying this transport order or references from this tour to other business processes
-        /// </summary>
-        [JsonProperty("references", Order = -5)]
-        [Required]
-        public new EdiDocumentReferences References { get; set; }
-
-        /// <summary>
         /// Object to transmit file attachments
         /// </summary>
         public EdiFileAttachment FileAttachment { get; set; }

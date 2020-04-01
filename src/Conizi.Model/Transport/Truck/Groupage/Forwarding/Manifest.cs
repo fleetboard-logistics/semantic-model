@@ -41,8 +41,7 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [JsonProperty(PropertyName = "shippingDate", Required = Required.Always)]
         [DisplayName("Shipping date")]
         [Description("The date on which the manifest was issued")]
-        [ConiziDateOnly]
-        [JsonConverter(typeof(ConiziDateConverter))]
+
         public DateTime? ShippingDate { get; set; }
 
         /// <summary>
