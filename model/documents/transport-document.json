@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T09:41:26.7952829+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
+  "$comment": "Generated: 2020-04-01T11:20:25.4680743+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
   "$id": "https://model.conizi.io/v1/documents/transport-document.json",
   "title": "Transport Document",
   "description": "A transport document is a kind of document used to convey information about cargo that is being transported",
@@ -658,7 +658,7 @@
       "title": "Shipping date",
       "description": "The date on which the consignment was forwarded to the receiving partner. If the consignment was part of a cargo manifest, this is the date on which the manifest was issued",
       "type": "string",
-      "format": "date-time"
+      "format": "date"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferencesExtended"

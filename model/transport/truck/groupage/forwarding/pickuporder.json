@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T09:41:26.2623907+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
+  "$comment": "Generated: 2020-04-01T11:20:24.9220818+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
   "title": "Pickup order",
   "description": "A single pickup order which is transferred between two partners",
@@ -139,7 +139,7 @@
           "title": "Shipping date",
           "description": "The date of the manifest which contained the surplus goods",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "patternProperties": {
@@ -434,7 +434,7 @@
           "title": "Date",
           "description": "Date",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       }
     },
@@ -1110,7 +1110,7 @@
           "title": "Customs Goods resubmission date",
           "description": "The resubmission date for the customs goods",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "handleWithCare": {
           "title": "Handle with care",
@@ -1392,7 +1392,7 @@
           "title": "Shipping date",
           "description": "The date of the manifest which included the consignment",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "patternProperties": {
@@ -2017,7 +2017,7 @@
           "title": "Customer order date",
           "description": "Date when the order was places with the shipping partner",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "orderEntrySystemReference": {
           "title": "Order entry system reference",
@@ -2062,7 +2062,7 @@
           "title": "Shipping date",
           "description": "The date when the original shipment was forwarded",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "shippingPartner": {
           "$ref": "#/definitions/EdiPartnerIdentification"
@@ -2186,7 +2186,7 @@
           "title": "Shipping date",
           "description": "The date when the original shipment was forwarded",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "shippingPartner": {
           "$ref": "#/definitions/EdiPartnerIdentification"
@@ -2445,7 +2445,7 @@
       "title": "Pickup order date",
       "description": "The date on which the pickup order was forwarded to the contracted partner",
       "type": "string",
-      "format": "date-time"
+      "format": "date"
     },
     "orderingPartner": {
       "$ref": "#/definitions/EdiPartnerIdentification"
