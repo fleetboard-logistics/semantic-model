@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:26.1455011+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-04-01T15:06:24.0782695+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5839 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -2254,9 +2254,6 @@
           "type": "string",
           "format": "date"
         },
-        "references": {
-          "$ref": "truck-tour.json#/definitions/EdiDocumentReferences"
-        },
         "orderer": {
           "$ref": "truck-tour.json#/definitions/EdiAddress"
         },
@@ -2280,12 +2277,17 @@
         },
         "billing": {
           "$ref": "truck-tour.json#/definitions/EdiTransportBilling"
+        },
+        "references": {
+          "$ref": "truck-tour.json#/definitions/EdiDocumentReferences"
         }
       },
       "required": [
         "$schema",
         "receiver",
-        "shippingDate"
+        "shippingDate",
+        "orderer",
+        "content"
       ],
       "patternProperties": {
         "x-.*": {},
