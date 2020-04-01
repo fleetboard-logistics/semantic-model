@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T09:41:25.8333082+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5834 - master",
+  "$comment": "Generated: 2020-04-01T11:20:24.5188743+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
@@ -1390,7 +1390,7 @@
           "title": "New delivery date / time",
           "description": "The new date / time when the delivery will be performed",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "patternProperties": {
@@ -1425,7 +1425,7 @@
       "title": "Pickup order date",
       "description": "The date on which the pickup order was forwarded to the contracted partner",
       "type": "string",
-      "format": "date-time"
+      "format": "date"
     },
     "geoPosition": {
       "$ref": "#/definitions/EdiGeoPosition"

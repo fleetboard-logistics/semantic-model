@@ -7,7 +7,6 @@ using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -37,11 +36,10 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("By driver")]
         [Description("Notification by driver")]
         public bool? ByDriver { get; set; }
-
+        
         /// <summary>
         /// Notification by load (pickup, delivery)
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
         public LoadType NotifyAt { get; set; }
         
         /// <summary>

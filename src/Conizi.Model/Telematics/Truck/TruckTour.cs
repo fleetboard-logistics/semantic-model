@@ -29,6 +29,8 @@ namespace Conizi.Model.Telematics.Truck
         [DisplayName("Shipping date")]
         [Description("Day on which the tour is proccessed")]
         [JsonProperty("shippingDate", Order = -17)]
+        [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [Required]
         public DateTime ShippingDate { get; set; }
 

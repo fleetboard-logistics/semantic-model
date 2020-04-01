@@ -35,13 +35,20 @@ namespace Conizi.Model.Telematics.Truck
         [DisplayName("Shipping date")]
         [Description("Day on which the tour is proccessed")]
         [JsonProperty("shippingDate", Order = -13)]
+        [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [Required]
         public DateTime ShippingDate { get; set; }
 
         /// <summary>
+        /// Numbers of various sources identifying this transport order or references from this tour to other business processes
+        /// </summary>
+        [JsonProperty(Order = -12)]
+        public new EdiDocumentReferences References { get; set; }
+
+        /// <summary>
         /// Person or company who placed the order
         /// </summary>
-        [Required]
         [JsonProperty(Order = -11)]
         public EdiAddress Orderer { get; set; }
 
@@ -55,7 +62,6 @@ namespace Conizi.Model.Telematics.Truck
         /// Describes the nature and quantity of the goods in this transport order
         /// </summary>
         [JsonProperty(Order = -9)]
-        [Required]
         public EdiContent Content { get; set; }
 
         /// <summary>

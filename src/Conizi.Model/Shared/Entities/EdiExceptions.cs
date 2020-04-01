@@ -1040,6 +1040,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("New delivery date / time")]
         [Description("The new date / time when the delivery will be performed")]
+        [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime? NewDeliveryDate { get; set; }
     }
 

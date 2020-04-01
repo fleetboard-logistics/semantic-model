@@ -212,6 +212,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Customs Goods resubmission date")]
         [Description("The resubmission date for the customs goods")]
+        [JsonConverter(typeof(ConiziDateConverter))]
+        [ConiziDateOnly]
         public DateTime? CustomsGoodsResubmissionDate { get; set; }
 
         /// <summary>

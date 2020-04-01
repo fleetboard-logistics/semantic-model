@@ -249,7 +249,7 @@ namespace Conizi.Model.UnitTests.Conversion
 
             Assert.Equal( "MY-CONIZI-PARTY-ID", m.Metadata.Receiver.Party);
 
-            var result = Converter.Serialize(m, writeMetadata: true);
+            var result = Converter.Serialize(m);
 
             Assert.False(result.HasValidationErrors);
 

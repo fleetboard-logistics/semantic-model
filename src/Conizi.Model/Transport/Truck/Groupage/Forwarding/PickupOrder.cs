@@ -38,6 +38,8 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         [DisplayName("Pickup order date")]
         [Description("The date on which the pickup order was forwarded to the contracted partner")]
         [JsonProperty("pickupOrderDate", Order = -9)]
+        [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         [Required]
         public DateTime PickupOrderDate { get; set; }
 
