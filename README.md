@@ -21,7 +21,7 @@ conizi semantic models - Fleetboard Logistics GmbH 2018-2020
 
 In order to create a valid message that can be processed on the conizi platform, it is necessary to work with the definition of the messages as JSON schema.
 
-These schema definitions can be found here in the repostitory
+These schema definitions can be found here in the repostitory:
 [Schema definitions](model/).
 
 Please remember that conizi has several environments. It is important to note that some of the schema definitions found on the development systems are not yet available in the production system. Therefore we recommend to always develop against the "preproduction" branch.
