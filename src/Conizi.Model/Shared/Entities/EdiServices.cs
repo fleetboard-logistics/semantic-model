@@ -249,6 +249,13 @@ namespace Conizi.Model.Shared.Entities
         /// Restrictions about the minimum and maximum temperature during the transport and special equipment to be used
         /// </summary>
         public EdiTemperatureRestrictions TemperatureRestrictions { get; set; }
+
+        /// <summary>
+        /// Additional remarks (free form)
+        /// </summary>
+        [DisplayName("Remarks (free form)")]
+        [Description("Additional remarks")]
+        public string Remarks { get; set; }
     }
 
     /// <summary>

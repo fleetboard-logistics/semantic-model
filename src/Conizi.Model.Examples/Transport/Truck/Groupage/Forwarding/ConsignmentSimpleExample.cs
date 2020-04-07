@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Conizi.Model.Examples.Interfaces;
@@ -23,7 +24,7 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding
             {
                 ConsignmentNoShippingPartner = "12345678",
                 ConsignmentObjectId = "12345678",
-                ShippingDate = DateTime.Now,
+                ShippingDate = DateTime.Parse("2020-03-31", new CultureInfo("us-US")),
                 Receiver = new EdiMessageRouting { ConiziId = "4545454545454545454" },
                 ShippingPartner = new EdiPartnerIdentification { PartnerId = "MAINP", Name = "My Shipping Partner" },
                 ReceivingPartner =

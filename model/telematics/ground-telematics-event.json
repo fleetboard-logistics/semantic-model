@@ -1,10 +1,37 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-06T12:29:34.1836798+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5463 - master",
+  "$comment": "Generated: 2020-03-24T15:45:39.8691336+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
   "$id": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
   "title": "Ground telematics event",
   "description": "A single telematics event message for ground vehicles which is transferred between two partners.",
   "definitions": {
+    "EdiBrakeSystemState": {
+      "title": "Brake system",
+      "description": "The state of the Brake system",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Signal name",
+          "description": "Name of the signal",
+          "type": "string"
+        },
+        "signalId": {
+          "title": "Signal Id",
+          "description": "The signal id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The value as number",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "signalId",
+        "value"
+      ]
+    },
     "EdiDocumentReferences": {
       "title": "References",
       "description": "All references to the linked documents, systems and devices",
@@ -18,7 +45,7 @@
         },
         "referenceNumber": {
           "title": "Reference number",
-          "description": "The reference number (e.g. delivery note",
+          "description": "The reference number (e.g. delivery note)",
           "type": "string"
         },
         "consignmentObjectId": {
@@ -41,6 +68,26 @@
           "description": "A unique identifier assigned to the tour by the devlivering company",
           "type": "string"
         },
+        "tourReference": {
+          "title": "Tour Reference",
+          "description": "",
+          "type": "string"
+        },
+        "workflowId": {
+          "title": "Workflow Id",
+          "description": "",
+          "type": "string"
+        },
+        "transportOrderId": {
+          "title": "Transport Order Id",
+          "description": "Transport Order Id",
+          "type": "string"
+        },
+        "transportOrderNo": {
+          "title": "Transport Order No",
+          "description": "Transport Order No",
+          "type": "string"
+        },
         "stopId": {
           "title": "Stop Id",
           "description": "Unique identifier for the stop within the tour",
@@ -53,6 +100,7 @@
         },
         "vehicleId": {
           "title": "The vehicle id",
+          "description": "The unique Id of the vehicle (Truck/Trailer/Train)",
           "type": "string"
         },
         "deviceId": {
@@ -81,6 +129,33 @@
         "\\$.*": {}
       }
     },
+    "EdiDoorState": {
+      "title": "Temperature in Celsius",
+      "description": "The trailer temperature in degree Celsius",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Door name",
+          "description": "Name of the door",
+          "type": "string"
+        },
+        "signalId": {
+          "title": "Signal Id",
+          "description": "The Signal Id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The value as integer",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "name",
+        "signalId",
+        "value"
+      ]
+    },
     "EdiDriver": {
       "title": "Driver",
       "description": "Information about the drivers of the vehicles",
@@ -100,6 +175,11 @@
         "phoneNumber": {
           "title": "Phone number",
           "description": "The phone number of the driver",
+          "type": "string"
+        },
+        "vehicleId": {
+          "title": "The vehicle id",
+          "description": "The system wide id of the vehicle, the driver is connected",
           "type": "string"
         }
       },
@@ -340,6 +420,33 @@
         }
       }
     },
+    "EdiTemperature": {
+      "title": "Temperature",
+      "description": "The temperature of the trailer",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Signal name",
+          "description": "Name of the signal",
+          "type": "string"
+        },
+        "signalId": {
+          "title": "Signal Id",
+          "description": "The signal id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The value as number",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "signalId",
+        "value"
+      ]
+    },
     "EdiTrailerTelematics": {
       "title": "Trailers Telematics",
       "description": "Telematics data about the trailer",
@@ -352,10 +459,23 @@
           "type": "string",
           "format": "date-time"
         },
-        "temperature": {
-          "title": "Temperature in Celsius",
-          "description": "The trailer temperature in degree Celsius",
-          "type": "number"
+        "temperatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiTemperature"
+          }
+        },
+        "doorStates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiDoorState"
+          }
+        },
+        "brakeSystemStates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiBrakeSystemState"
+          }
         }
       },
       "required": [
@@ -377,6 +497,11 @@
         "deviceId": {
           "title": "Device Id",
           "description": "The id of the used device, should be used if the vehicle is not the unique asset for the geo location",
+          "type": "string"
+        },
+        "eventType": {
+          "title": "Event Type",
+          "description": "The type or label for the event",
           "type": "string"
         },
         "trailerTelematics": {
@@ -442,6 +567,16 @@
         "totalOperatingTime": {
           "title": "Total Operation Time",
           "description": "The Total Operating Time in seconds",
+          "type": "integer"
+        },
+        "adBlueLevel": {
+          "title": "AdBlue level",
+          "description": "The current AdBlue level in percent (0-100)",
+          "type": "integer"
+        },
+        "fuelLevel": {
+          "title": "Fuel level",
+          "description": "The current Fuel level in percent (0-100)",
           "type": "integer"
         }
       },
@@ -527,6 +662,16 @@
         },
         "dimensions": {
           "$ref": "#/definitions/EdiMeasures"
+        },
+        "manufacturer": {
+          "title": "Device Ids",
+          "description": "List of device ids, are part of this vehicle",
+          "type": "string"
+        },
+        "information": {
+          "title": "Information",
+          "description": "Further Vehicle Information",
+          "type": "string"
         }
       },
       "patternProperties": {
@@ -552,6 +697,12 @@
     "network": {
       "$ref": "#/definitions/EdiNetwork"
     },
+    "eventDateTime": {
+      "title": "Event Date-time",
+      "description": "Date and time when the event occurred",
+      "type": "string",
+      "format": "date-time"
+    },
     "vehicle": {
       "$ref": "#/definitions/EdiVehicle"
     },
@@ -567,19 +718,17 @@
     "truckTelematicsEvent": {
       "$ref": "#/definitions/EdiTruckTelematicsEvent"
     },
-    "trailerTelematicsEvent": {
-      "$ref": "#/definitions/EdiTrailerTelematicsEvent"
-    },
-    "modelType": {
-      "type": "string"
-    },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
+    },
+    "trailerTelematicsEvent": {
+      "$ref": "#/definitions/EdiTrailerTelematicsEvent"
     }
   },
   "required": [
     "$schema",
     "receiver",
+    "eventDateTime",
     "vehicle",
     "geoLocationEvent"
   ],

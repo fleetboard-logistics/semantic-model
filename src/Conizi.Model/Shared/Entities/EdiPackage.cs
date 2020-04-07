@@ -68,5 +68,12 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Volume (m³)")]
         [Description("Total volume of the package")]
         public decimal? Volume { get; set; }
+
+        /// <summary>
+        /// The package content
+        /// </summary>
+        [DisplayName("Content")]
+        [Description("The package content")]
+        public string Content { get; set; }
     }
 }

@@ -6,6 +6,7 @@
     "sender": {
         "coniziId": "2856454"
     },
+    "eventDateTime": "2020-03-23T14:45:26.3569895+01:00",
     "vehicle": {
         "vehicleId": "4711",
         "vehicleIdentificationNumber": "TS1254856454545451",
@@ -19,12 +20,12 @@
         }
     },
     "geoLocationEvent": {
-        "eventDateTime": "2020-02-03T13:49:03.1195004+01:00",
+        "eventDateTime": "2020-03-23T14:45:26.3581533+01:00",
         "geoPosition": {
             "latitude": 49.8639895,
             "longitude": 10.2309327,
             "placeName": "Volkach",
-            "recordTime": "2020-02-03T13:47:03.1199378+01:00",
+            "recordTime": "2020-03-23T14:43:26.3585686+01:00",
             "angle": 12.0,
             "speed": {
                 "speed": 53.8
@@ -33,11 +34,45 @@
         "remarks": "On the Road..."
     },
     "trailerTelematicsEvent": {
-        "eventDateTime": "2020-02-03T13:49:03.120467+01:00",
+        "eventDateTime": "2020-03-23T14:45:26.3591879+01:00",
         "trailerTelematics": {
-            "recordTime": "2020-02-03T13:48:03.1205301+01:00",
-            "temperature": -8.6
+            "recordTime": "2020-03-23T14:44:26.3592448+01:00",
+            "temperatures": [
+                {
+                    "name": "Front",
+                    "signalId": "1454578454",
+                    "value": 5.5
+                },
+                {
+                    "name": "Back",
+                    "signalId": "145557878",
+                    "value": 4.9
+                }
+            ],
+            "doorStates": [
+                {
+                    "name": "Door Left",
+                    "signalId": "755",
+                    "value": 1
+                },
+                {
+                    "name": "Door Right",
+                    "signalId": "756",
+                    "value": 0
+                }
+            ],
+            "brakeSystemStates": [
+                {
+                    "name": "pressure",
+                    "signalId": "121",
+                    "value": 225.0
+                }
+            ]
         },
         "remarks": "Truck telematics information"
+    },
+    "$metadata": {
+        "$createdAt": "2020-03-23T14:50:26.3622818+01:00",
+        "$createdBy": "Conizi.Model.Core.Tools (1.0.0.0)"
     }
 }

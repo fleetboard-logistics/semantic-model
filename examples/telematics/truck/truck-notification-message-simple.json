@@ -1,0 +1,27 @@
+{
+    "$schema": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
+    "receiver": {
+        "coniziId": "carrierConiziId"
+    },
+    "sender": {
+        "coniziId": "habblConiziId"
+    },
+    "messageId": "72b7f2ba3873488f8a54ef0bc54c9950",
+    "messageType": "text",
+    "sendDateTime": "2020-03-27T15:24:43.6432915+01:00",
+    "message": "This a message from habbl for you",
+    "references": {
+        "driverId": "DR124545454",
+        "vehicleId": "WAXXXXX1232422244",
+        "deviceId": "ASEEREREREWREWR"
+    },
+    "senderGeoPosition": {
+        "latitude": 49.864159,
+        "longitude": 10.226990,
+        "placeName": "Volkach",
+        "speed": {
+            "speed": 5.9,
+            "speedMeasurementUnitCode": "KMT"
+        }
+    }
+}

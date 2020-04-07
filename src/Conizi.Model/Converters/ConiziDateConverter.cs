@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Conizi.Model.Shared.Attributes;
 using Newtonsoft.Json;
@@ -16,7 +17,7 @@ namespace Conizi.Model.Converters
         /// </summary>
         public override void WriteJson(JsonWriter writer, DateTime value, JsonSerializer serializer)
         {
-            writer.WriteValue(value.ToString("yyyy-MM-dd"));
+            writer.WriteValue(DateTime.SpecifyKind(value, DateTimeKind.Utc).ToString("yyyy-MM-dd")); 
         }
 
         /// <summary>
@@ -26,11 +27,13 @@ namespace Conizi.Model.Converters
             JsonSerializer serializer)
         {
             if (!hasExistingValue)
-                return default(DateTime);
+                return DateTime.SpecifyKind(default(DateTime), DateTimeKind.Utc);
+            
+            var utcDate = DateTime.SpecifyKind(DateTime.Parse(reader.Value.ToString(), new CultureInfo("us-US")), DateTimeKind.Utc);
 
-            return existingValue;
+            return utcDate;
         }
 
-        public override bool CanRead => false;
+        public override bool CanRead => true;
     }
 }

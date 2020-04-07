@@ -19,9 +19,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Return consignment no")]
         [Description("Number of the consignment which is used to return the goods to the shipper")]
         public string ReturnConsignmentNo { get; set; }
-
-
-
+        
         /// <summary>
         /// Name of the person which rejected the consignment
         /// </summary>
