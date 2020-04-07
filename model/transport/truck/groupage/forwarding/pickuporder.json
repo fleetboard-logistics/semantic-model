@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-27T08:46:54.9263352+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T11:20:24.9220818+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
   "title": "Pickup order",
   "description": "A single pickup order which is transferred between two partners",

@@ -62,6 +62,7 @@ namespace Conizi.Model.Core.Tools
             generator.GenerationProviders.Add(new StringEnumGenerationProvider());
 
             JSchema schema = generator.Generate(modelType);
+            schema.SchemaVersion = new Uri("http://json-schema.org/draft-07/schema#");
             var baseUri = "https://model.conizi.io/";
 
             // Get model shortcut from model id

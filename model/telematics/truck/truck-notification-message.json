@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-27T14:55:47.3591639+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5782 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T15:06:24.6334572+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5839 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
   "title": "Notification Message",
   "description": "A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System",
@@ -556,14 +556,14 @@
       "description": "The text message",
       "type": "string"
     },
-    "references": {
-      "$ref": "#/definitions/EdiDocumentReferences"
-    },
     "fileAttachment": {
       "$ref": "#/definitions/EdiFileAttachment"
     },
     "senderGeoPosition": {
       "$ref": "#/definitions/EdiGeoPosition"
+    },
+    "references": {
+      "$ref": "#/definitions/EdiDocumentReferences"
     }
   },
   "required": [
@@ -572,8 +572,7 @@
     "messageId",
     "messageType",
     "sendDateTime",
-    "message",
-    "references"
+    "message"
   ],
   "patternProperties": {
     "x-.*": {},

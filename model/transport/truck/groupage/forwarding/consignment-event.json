@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-26T09:36:47.1759029+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5758 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T11:20:23.1884290+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",

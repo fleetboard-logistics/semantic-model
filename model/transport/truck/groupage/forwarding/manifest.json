@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-27T08:46:53.6179290+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5764 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-01T11:20:23.7600309+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
