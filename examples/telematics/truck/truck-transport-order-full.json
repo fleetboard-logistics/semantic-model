@@ -139,7 +139,7 @@
         "cashOnDelivery": {
            "amount": 234.30,
            "currency": "EUR",
-           "acceptCash": true,
+           "acceptCash": true
         },
         "valueGoods": {
             "amount": 15000,
