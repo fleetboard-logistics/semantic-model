@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-07T12:51:05.9131516+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5871 - master",
+  "$comment": "Generated: 2020-04-07T14:45:12.2955690+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5880 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -1613,6 +1613,14 @@
           "title": "Barcode",
           "description": "Barcode for self-disposall",
           "type": "string"
+        },
+        "groupName": {
+          "title": "Group Name",
+          "description": "Name of the driver group, which is allowed to self-dispose the tour",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "patternProperties": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:22.2688884+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-04-07T14:45:08.3399531+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5880 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -2307,6 +2307,41 @@
         "\\$.*": {}
       }
     },
+    "EdiSelfDisposal": {
+      "title": "Self Disposal",
+      "description": "Information for the driver to assign the tour to himself",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "title": "Allowed",
+          "description": "Self-disposal allowed?",
+          "type": "boolean"
+        },
+        "barcodeOnly": {
+          "title": "Barcode Only",
+          "description": "Self-disposal only with barcode",
+          "type": "boolean"
+        },
+        "barcode": {
+          "title": "Barcode",
+          "description": "Barcode for self-disposall",
+          "type": "string"
+        },
+        "groupName": {
+          "title": "Group Name",
+          "description": "Name of the driver group, which is allowed to self-dispose the tour",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiServices": {
       "title": "Services",
       "description": "Special services which can be requested by the ordering party (or the shipping partner)",
@@ -3455,6 +3490,12 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/EdiTourStop"
+      }
+    },
+    "selfDisposal": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiSelfDisposal"
       }
     },
     "remarks": {
