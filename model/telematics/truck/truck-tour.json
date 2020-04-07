@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T15:06:24.0782695+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5839 - master",
+  "$comment": "Generated: 2020-04-07T12:51:05.9131516+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5871 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -183,6 +183,38 @@
       "required": [
         "data"
       ]
+    },
+    "EdiCashOnDelivery": {
+      "title": "Cash on delivery",
+      "description": "The goods must only be delivered if the recipient pays the given amount",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "title": "Amount",
+          "description": "The amount to be paid",
+          "type": "number"
+        },
+        "currency": {
+          "title": "Currency",
+          "description": "The currency of the given amount",
+          "type": "string"
+        },
+        "acceptCash": {
+          "title": "acceptCash",
+          "description": "Specifies if cash should be accepted (true) or rejected (false)",
+          "type": "boolean"
+        },
+        "acceptCheque": {
+          "title": "acceptCheque",
+          "description": "Specifies if cheques should be accepted",
+          "type": "boolean"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
     "EdiContent": {
       "title": "Content",
@@ -1905,9 +1937,7 @@
       "additionalProperties": false,
       "properties": {
         "cashOnDelivery": {
-          "title": "Cash on Delivery",
-          "description": "Cash is paid on Delivery",
-          "type": "boolean"
+          "$ref": "#/definitions/EdiCashOnDelivery"
         },
         "freightPayer": {
           "$ref": "#/definitions/EdiAddress"
