@@ -136,7 +136,11 @@
             "amount": 500,
             "currency": "EUR"
         },
-        "cashOnDelivery": false,
+        "cashOnDelivery": {
+           "amount": 234.30,
+           "currency": "EUR",
+           "acceptCash": true,
+        },
         "valueGoods": {
             "amount": 15000,
             "currency": "EUR"

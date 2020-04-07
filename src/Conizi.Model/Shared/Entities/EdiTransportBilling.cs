@@ -22,9 +22,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Cash is paid on Delivery
         /// </summary>
-        [DisplayName("Cash on Delivery")]
-        [Description("Cash is paid on Delivery")]
-        public bool? CashOnDelivery { get; set; }
+        public EdiCashOnDelivery CashOnDelivery { get; set; }
 
         /// <summary>
         /// Person / Company paying for the transport
