@@ -65,7 +65,7 @@ namespace Conizi.Model.UnitTests.Examples
         {
             var m = new TourLoadingEquipmentExchangeExample().Create();
 
-            var result = Converter.Serialize(m);
+            var result = Converter.Serialize(m, true);
             Assert.False(result.HasValidationErrors);
         }
 

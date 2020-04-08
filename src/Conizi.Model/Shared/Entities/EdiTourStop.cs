@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -31,6 +33,12 @@ namespace Conizi.Model.Shared.Entities
         [Description("Unique identifier for this stop within the tour")]
         [JsonRequired]
         public string StopId { get; set; }
+
+        /// <summary>
+        /// Type of a stop, like loading, unloading...
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public StopType StopType { get; set; }
 
         /// <summary>
         /// The address information of the stop
