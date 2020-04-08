@@ -157,6 +157,13 @@ namespace Conizi.Model.Shared.Entities
         public string Content { get; set; }
 
         /// <summary>
+        /// Volume liter of the position. Used for e.g. tank transportation
+        /// </summary>
+        [DisplayName("Volume liter")]
+        [Description("Volume liter of the position. Used for e.g. tank transportation")]
+        public decimal? VolumeLiter { get; set; }
+
+        /// <summary>
         /// A reference of the ordering party relating to the goods
         /// </summary>
         [DisplayName("Reference number")]

@@ -71,5 +71,12 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Height (m)")]
         [Description("Total height")]
         public decimal? HeightMeter { get; set; }
+
+        /// <summary>
+        /// Volume liter of the consignment. Used for e.g. tank transportation
+        /// </summary>
+        [DisplayName("Volume liter")]
+        [Description("Volume liter of the consignment. Used for e.g. tank transportation")]
+        public decimal? VolumeLiter { get; set; }
     }
 }
