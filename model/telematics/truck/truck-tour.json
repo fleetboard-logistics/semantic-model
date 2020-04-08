@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-08T10:00:27.7533970+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5888 - master",
+  "$comment": "Generated: 2020-04-08T10:33:39.5956001+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5889 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -287,6 +287,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -300,6 +315,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -1070,6 +1090,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -1083,6 +1118,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -1167,6 +1207,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -1180,6 +1235,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-24T15:45:39.8691336+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5727 - feature/conizi-779-new-tour-to",
+  "$comment": "Generated: 2020-04-08T10:33:39.1543848+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5889 - master",
   "$id": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
   "title": "Ground telematics event",
   "description": "A single telematics event message for ground vehicles which is transferred between two partners.",
@@ -349,6 +349,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -362,6 +377,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
