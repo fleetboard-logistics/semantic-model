@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-07T14:45:12.2955690+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5880 - master",
+  "$comment": "Generated: 2020-04-08T10:00:27.7533970+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5888 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -1904,6 +1904,23 @@
           "title": "Stop Id",
           "description": "Unique identifier for this stop within the tour",
           "type": "string"
+        },
+        "stopType": {
+          "description": "Types of different stops",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "loading",
+            "unloading",
+            "fuelStop",
+            "borderCross",
+            "wayPoint",
+            "yardNavigation"
+          ]
         },
         "address": {
           "$ref": "#/definitions/EdiAddress"
