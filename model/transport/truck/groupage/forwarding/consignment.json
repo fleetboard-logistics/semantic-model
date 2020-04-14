@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-08T10:33:36.3318099+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5889 - master",
+  "$comment": "Generated: 2020-04-14T07:54:38.9125164+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5918 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
   "title": "Consignment",
   "description": "A single consignment which is transferred between two partners. Usually used within the context a manifest",
@@ -360,7 +360,7 @@
           "type": "number"
         },
         "totalWeightKilogram": {
-          "title": "Empty weight (kg)",
+          "title": "Total weight (kg)",
           "description": "Total weight of the vehicle/shipment in kilogram",
           "type": "number"
         },
@@ -1272,6 +1272,11 @@
           "description": "A reference of the ordering party relating to the goods",
           "type": "string"
         },
+        "article": {
+          "title": "Article",
+          "description": "Article number of the goods contained within the packages",
+          "type": "string"
+        },
         "customsInformation": {
           "$ref": "#/definitions/EdiContentCustomsInformation"
         },
@@ -1337,7 +1342,7 @@
           "type": "number"
         },
         "totalWeightKilogram": {
-          "title": "Empty weight (kg)",
+          "title": "Total weight (kg)",
           "description": "Total weight of the vehicle/shipment in kilogram",
           "type": "number"
         },
