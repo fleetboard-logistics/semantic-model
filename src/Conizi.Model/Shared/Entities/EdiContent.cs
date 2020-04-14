@@ -164,6 +164,13 @@ namespace Conizi.Model.Shared.Entities
         public string RefNo { get; set; }
 
         /// <summary>
+        /// Article number of the goods contained within the packages
+        /// </summary>
+        [DisplayName("Article")]
+        [Description("Article number of the goods contained within the packages")]
+        public string Article { get; set; }
+
+        /// <summary>
         /// Used to specify information necessary in the customs process
         /// </summary>
         public EdiContentCustomsInformation CustomsInformation { get; set; }

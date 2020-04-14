@@ -68,7 +68,7 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Total weight of the vehicle/shipment in kilogram"
         /// </summary>
-        [DisplayName("Empty weight (kg)")]
+        [DisplayName("Total weight (kg)")]
         [Description("Total weight of the vehicle/shipment in kilogram")]
         public decimal? TotalWeightKilogram { get; set; }
 
