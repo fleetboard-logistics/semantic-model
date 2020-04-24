@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:24.2670908+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-04-08T10:00:25.8656617+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5888 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -2356,6 +2356,23 @@
         },
         "geoPosition": {
           "$ref": "#/definitions/EdiGeoPosition"
+        },
+        "stopType": {
+          "description": "Types of different stops",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "loading",
+            "unloading",
+            "fuelStop",
+            "borderCross",
+            "wayPoint",
+            "yardNavigation"
+          ]
         },
         "address": {
           "$ref": "#/definitions/EdiAddress"

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-07T12:51:05.9131516+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5871 - master",
+  "$comment": "Generated: 2020-04-14T07:54:42.7153065+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5918 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -287,6 +287,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -300,6 +315,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -1016,6 +1036,11 @@
           "description": "A reference of the ordering party relating to the goods",
           "type": "string"
         },
+        "article": {
+          "title": "Article",
+          "description": "Article number of the goods contained within the packages",
+          "type": "string"
+        },
         "customsInformation": {
           "$ref": "#/definitions/EdiContentCustomsInformation"
         },
@@ -1070,6 +1095,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -1083,6 +1123,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -1167,6 +1212,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -1180,6 +1240,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -1613,6 +1678,14 @@
           "title": "Barcode",
           "description": "Barcode for self-disposall",
           "type": "string"
+        },
+        "groupName": {
+          "title": "Group Name",
+          "description": "Name of the driver group, which is allowed to self-dispose the tour",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "patternProperties": {
@@ -1896,6 +1969,23 @@
           "title": "Stop Id",
           "description": "Unique identifier for this stop within the tour",
           "type": "string"
+        },
+        "stopType": {
+          "description": "Types of different stops",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "loading",
+            "unloading",
+            "fuelStop",
+            "borderCross",
+            "wayPoint",
+            "yardNavigation"
+          ]
         },
         "address": {
           "$ref": "#/definitions/EdiAddress"

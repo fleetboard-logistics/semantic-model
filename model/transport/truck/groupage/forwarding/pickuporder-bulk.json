@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:25.3353302+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-04-14T07:54:41.7006484+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5918 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",
@@ -349,6 +349,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -362,6 +377,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -1252,6 +1272,11 @@
           "description": "A reference of the ordering party relating to the goods",
           "type": "string"
         },
+        "article": {
+          "title": "Article",
+          "description": "Article number of the goods contained within the packages",
+          "type": "string"
+        },
         "customsInformation": {
           "$ref": "#/definitions/EdiContentCustomsInformation"
         },
@@ -1306,6 +1331,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -1319,6 +1359,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },

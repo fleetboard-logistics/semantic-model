@@ -117,7 +117,7 @@ namespace Conizi.Model.Telematics.Truck
         public TourEndOptions TourEndOptions { get; set; }
 
         /// <summary>
-        /// Tour end options. Activities the driver is supposed to do before starting driving the tour
+        /// Information for the driver to assign the tour to himself
         /// </summary>
         [JsonProperty(Order = -3)]
         public List<EdiSelfDisposal> SelfDisposal { get; set; }

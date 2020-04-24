@@ -102,7 +102,6 @@ deploy:docu:
     variables:
       - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
-    - master
     - preproduction
     - production
   when: delayed
