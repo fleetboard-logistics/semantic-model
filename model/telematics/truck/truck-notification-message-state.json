@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-03-27T14:55:47.4547668+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5782 - feature/conizi-826-notify-message",
+  "$comment": "Generated: 2020-04-27T16:03:37.4283979+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-notification-message-state.json",
   "title": "Notification Message Sate",
   "description": "A notification message response is used to send a state back to the original message state",
@@ -94,6 +94,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       },

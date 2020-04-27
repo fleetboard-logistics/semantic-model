@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:25.5753549+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-04-27T16:03:36.2334698+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
   "$id": "https://model.conizi.io/v1/documents/status-image.json",
   "title": "Status Image",
   "description": "A status image is a kind of document to document a process",
@@ -233,6 +233,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       }

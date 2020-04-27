@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-08T10:00:25.8656617+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5888 - master",
+  "$comment": "Generated: 2020-04-27T16:03:34.9121053+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -602,6 +602,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       },
