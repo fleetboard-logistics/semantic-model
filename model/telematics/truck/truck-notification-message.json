@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T15:06:24.6334572+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5839 - master",
+  "$comment": "Generated: 2020-04-27T16:03:37.3712871+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
   "title": "Notification Message",
   "description": "A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System",
@@ -173,6 +173,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       },

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-14T07:54:41.7006484+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5918 - master",
+  "$comment": "Generated: 2020-04-27T16:03:36.0100685+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",
@@ -891,6 +891,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       },

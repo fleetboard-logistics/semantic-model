@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:25.4680743+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-04-27T16:03:36.1273757+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
   "$id": "https://model.conizi.io/v1/documents/transport-document.json",
   "title": "Transport Document",
   "description": "A transport document is a kind of document used to convey information about cargo that is being transported",
@@ -292,6 +292,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       }

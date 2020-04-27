@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-14T07:54:42.7153065+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5918 - master",
+  "$comment": "Generated: 2020-04-27T16:03:36.8418535+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -659,6 +659,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       },
