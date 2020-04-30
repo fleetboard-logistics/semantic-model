@@ -121,6 +121,13 @@ namespace Conizi.Model.Shared.Entities
         public EdiLoadingEquipmentExchange LoadingEquipmentExchange { get; set; }
 
         /// <summary>
+        /// A geo fence was triggered (combined with geo position)
+        /// </summary>
+        [DisplayName("Geo fence triggered")]
+        [Description("A geo fence was triggered (combined with geo position)")]
+        public bool? GeoFenceTriggered { get; set; }
+        
+        /// <summary>
         /// ETA (Estimated time of arrival)
         /// </summary>
         public EdiGeoEta Eta { get; set; }
