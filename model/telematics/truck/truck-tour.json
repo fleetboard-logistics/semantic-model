@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-27T16:03:36.8418535+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
+  "$comment": "Generated: 2020-04-30T10:52:06.1616091+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6098 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -1387,163 +1387,6 @@
         "\\$.*": {}
       }
     },
-    "EdiPartnerIdentification": {
-      "title": "Fields to identify the partner",
-      "description": "Routing information to identify the parties involved in the data transfer",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "geoPosition": {
-          "$ref": "#/definitions/EdiGeoPosition"
-        },
-        "name": {
-          "title": "Name of the address",
-          "type": "string"
-        },
-        "name2": {
-          "title": "Name2 of the address",
-          "type": "string"
-        },
-        "street": {
-          "title": "Street of the address",
-          "type": "string"
-        },
-        "houseNumber": {
-          "title": "House number of the address",
-          "type": "string"
-        },
-        "zipCode": {
-          "title": "Zip code of the Address",
-          "type": "string"
-        },
-        "city": {
-          "title": "City of the address",
-          "type": "string"
-        },
-        "townArea": {
-          "title": "Town area address",
-          "type": "string"
-        },
-        "countryCode": {
-          "title": "Country code of the address Use ISO 3166-1 Alpha-2 codes.",
-          "type": "string"
-        },
-        "emailAddress": {
-          "title": "Email of the address",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "Phone number of the address",
-          "type": "string"
-        },
-        "additionalAddressLines": {
-          "title": "Additional address lines of the address",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "reference": {
-          "title": "Reference for an address",
-          "type": "string"
-        },
-        "contactPerson": {
-          "title": "The contact person",
-          "type": "string"
-        },
-        "faxNumber": {
-          "title": "The Fax number",
-          "type": "string"
-        },
-        "partnerId": {
-          "title": "The PartnerId",
-          "description": "The partner which is sending the message to the receiving partner for further actions (e.g. 1234)",
-          "type": "string"
-        },
-        "ediId": {
-          "title": "The Edi Id",
-          "description": "The Edi Id is the technical sender or receiver (e.g. CONIZVK)",
-          "type": "string"
-        },
-        "coniziId": {
-          "title": "The Conizi Id",
-          "description": "The conizi id for internal routing purposes",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiPickupOrder": {
-      "title": "Pickup order",
-      "description": "Reference to a pickup order which resulted in this consignment",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "pickupOrderNo": {
-          "title": "Number of the Pickup order",
-          "description": "Number to the referenced pickup order",
-          "type": "string"
-        },
-        "orderingParty": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiReferences": {
-      "title": "References",
-      "description": "Numbers of various sources identifing this consignment or references from this consignment to other business processes",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "documentReferences": {
-          "$ref": "#/definitions/EdiDocumentReferences"
-        },
-        "returnOfPreviousConsignment": {
-          "$ref": "#/definitions/EdiReturnOfPreviousConsignment"
-        },
-        "forwardedFor": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
-        },
-        "subsequentDelivery": {
-          "$ref": "#/definitions/EdiSubsequentDelivery"
-        },
-        "pickupOrder": {
-          "$ref": "#/definitions/EdiPickupOrder"
-        },
-        "deliveryNote": {
-          "title": "Delivery note",
-          "description": "The delivery note of the shipper which describes the content of this consignment",
-          "type": "string"
-        },
-        "customerOrderNo": {
-          "title": "Customer order no",
-          "description": "A reference of the shipper for this consignment",
-          "type": "string"
-        },
-        "customerOrderDate": {
-          "title": "Customer order date",
-          "description": "Date when the order was places with the shipping partner",
-          "type": "string",
-          "format": "date"
-        },
-        "orderEntrySystemReference": {
-          "title": "Order entry system reference",
-          "description": "A unique reference number from the system which was used to enter the order details",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
     "EdiReportingPoint": {
       "title": "Reporting Point",
       "description": "Reporting Point",
@@ -1557,32 +1400,6 @@
         },
         "geoPosition": {
           "$ref": "#/definitions/EdiGeoPosition"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
-    "EdiReturnOfPreviousConsignment": {
-      "title": "Return of previous consignment",
-      "description": "Reference to another consignment which content is return using this consignment",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "consignmentNoShippingPartner": {
-          "title": "Consignment number of the consignment being returned",
-          "description": "The consignment number of the original consignment being returned",
-          "type": "string"
-        },
-        "shippingDate": {
-          "title": "Shipping date",
-          "description": "The date when the original shipment was forwarded",
-          "type": "string",
-          "format": "date"
-        },
-        "shippingPartner": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
         }
       },
       "patternProperties": {
@@ -1792,32 +1609,6 @@
         "\\$.*": {}
       }
     },
-    "EdiSubsequentDelivery": {
-      "title": "Subsequent Delivery",
-      "description": "Additional delivery to our Bordero from: ... (additional text) (Shipment-no. Of the dispatching and receiving partner are to be transferred additionally)",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "consignmentNoShippingPartner": {
-          "title": "Consignment number of the consignment for that the subsequent delivery is",
-          "description": "The consignment number of the original consignment",
-          "type": "string"
-        },
-        "shippingDate": {
-          "title": "Shipping date",
-          "description": "The date when the original shipment was forwarded",
-          "type": "string",
-          "format": "date"
-        },
-        "shippingPartner": {
-          "$ref": "#/definitions/EdiPartnerIdentification"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
-      }
-    },
     "EdiTemperatureRestrictions": {
       "title": "Temperature restrictions",
       "description": "Restrictions about the minimum and maximum temperature during the transport and special equipment to be used",
@@ -1984,6 +1775,7 @@
             "\\$.*": {}
           },
           "enum": [
+            "unknown",
             "loading",
             "unloading",
             "fuelStop",
@@ -2771,9 +2563,6 @@
       "type": "string",
       "format": "date"
     },
-    "references": {
-      "$ref": "#/definitions/EdiReferences"
-    },
     "messageFunctionCode": {
       "title": "Message function code",
       "type": "string",
@@ -2847,6 +2636,17 @@
       "items": {
         "type": "string"
       }
+    },
+    "worfklowId": {
+      "description": "The Workflow Id (habbl, etc)",
+      "type": "string"
+    },
+    "tourName": {
+      "description": "Name of the tour",
+      "type": "string"
+    },
+    "references": {
+      "$ref": "#/definitions/EdiDocumentReferences"
     }
   },
   "required": [

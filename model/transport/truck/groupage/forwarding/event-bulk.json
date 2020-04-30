@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-27T16:03:34.9121053+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
+  "$comment": "Generated: 2020-04-30T10:52:04.2986149+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6098 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -2371,6 +2371,7 @@
             "\\$.*": {}
           },
           "enum": [
+            "unknown",
             "loading",
             "unloading",
             "fuelStop",
@@ -2439,6 +2440,11 @@
         },
         "loadingEquipmentExchange": {
           "$ref": "#/definitions/EdiLoadingEquipmentExchange"
+        },
+        "geoFenceTriggered": {
+          "title": "Geo fence triggered",
+          "description": "A geo fence was triggered (combined with geo position)",
+          "type": "boolean"
         },
         "eta": {
           "$ref": "#/definitions/EdiGeoEta"
