@@ -24,6 +24,18 @@ namespace Conizi.Model.Telematics.Truck
     {
 
         /// <summary>
+        /// The Workflow Id (habbl, ect)
+        /// </summary>
+        [Description("The Workflow Id (habbl, etc)")]
+        public string WorfklowId { get; set; }
+
+        /// <summary>
+        /// Name of the Tour
+        /// </summary>
+        [Description("Name of the tour")]
+        public string TourName { get; set; }
+
+        /// <summary>
         /// Shipping date
         /// </summary>
         [DisplayName("Shipping date")]
@@ -34,11 +46,11 @@ namespace Conizi.Model.Telematics.Truck
         [Required]
         public DateTime ShippingDate { get; set; }
 
-        /// <summary>
-        /// Numbers of various sources identifying this tour or references from this tour to other business processes
-        /// </summary>
-        [JsonProperty(Order = -17)]
-        public new EdiReferences References { get; set; }
+        ///// <summary>
+        ///// Numbers of various sources identifying this tour or references from this tour to other business processes
+        ///// </summary>
+        //[JsonProperty(Order = -17)]
+        //public new EdiReferences References { get; set; }
 
         /// <summary>
         /// Message function code

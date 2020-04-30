@@ -215,6 +215,13 @@ namespace Conizi.Model.Shared.Definitions
     public enum StopType
     {
         /// <summary>
+        /// A Unknown Stop
+        /// </summary>
+        [Description("A Unknown Stop")]
+        [EnumMember(Value = "unknown")]
+        Unknown = 0,
+
+        /// <summary>
         /// A Loading Stop
         /// </summary>
         [Description("A Loading Stop")]
