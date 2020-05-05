@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-05T12:57:15.6134162+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6136 - master",
+  "$comment": "Generated: 2020-05-05T13:39:44.2195711+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6143 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -1216,26 +1216,6 @@
         "\\$.*": {}
       }
     },
-    "EdiTimeSpan": {
-      "title": "Time span",
-      "description": "The time span for an activity",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "from": {
-          "title": "Time from",
-          "description": "Time span from",
-          "type": "string",
-          "format": "time"
-        },
-        "until": {
-          "title": "Time until",
-          "description": "Time span until",
-          "type": "string",
-          "format": "time"
-        }
-      }
-    },
     "EdiTransportBilling": {
       "title": "Transport Billing",
       "description": "Financial information about this transport",
@@ -1418,9 +1398,6 @@
           "title": "Notes",
           "type": "string"
         },
-        "wayPointInformation": {
-          "$ref": "#/definitions/TourWayPointInformation"
-        },
         "fromDateTime": {
           "title": "From Date Time",
           "type": "string",
@@ -1453,43 +1430,6 @@
           "description": "Total Point to ADR",
           "type": "integer"
         }
-      }
-    },
-    "TourWayPointInformation": {
-      "title": "Way Point Information",
-      "description": "Way point information of the tour",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "crossDocking": {
-          "title": "Cross Docking",
-          "type": "boolean"
-        },
-        "scheduledArrival": {
-          "$ref": "#/definitions/EdiTimeSpan"
-        },
-        "scheduledDeparture": {
-          "$ref": "#/definitions/EdiTimeSpan"
-        },
-        "scheduledWaitMinutes": {
-          "title": "Scheduled wait minutes",
-          "description": "Scheduled wait time in minutes to begin the activity",
-          "type": "integer"
-        },
-        "scheduledHandlingMinutes": {
-          "title": "Scheduled handling minutes",
-          "description": "Scheduled time for handling the activity",
-          "type": "integer"
-        },
-        "notes": {
-          "title": "Notes",
-          "description": "Notes on the Stop",
-          "type": "string"
-        }
-      },
-      "patternProperties": {
-        "x-.*": {},
-        "\\$.*": {}
       }
     }
   },
