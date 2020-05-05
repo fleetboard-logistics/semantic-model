@@ -104,6 +104,9 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Cross Docking")]
         public bool? CrossDocking { get; set; }
+
+        [JsonProperty("bookedTimeslots")] 
+        public List<TourBookedTimeSlot> BookedTimeSlots { get; set; }
     }
 
     /// <summary>
@@ -228,8 +231,6 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Notes")]
         public string Notes { get; set; }
-
-        public TourWayPointInformation WayPointInformation { get; set; }
     }
 
 
