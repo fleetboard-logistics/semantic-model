@@ -228,6 +228,8 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Notes")]
         public string Notes { get; set; }
+
+        public TourWayPointInformation WayPointInformation { get; set; }
     }
 
 
