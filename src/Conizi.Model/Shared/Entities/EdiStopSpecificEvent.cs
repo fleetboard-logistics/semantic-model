@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -23,6 +25,13 @@ namespace Conizi.Model.Shared.Entities
         [JsonRequired]
         [JsonProperty(Order = -20)]
         public string StopId { get; set; }
+
+        /// <summary>
+        /// Type of a stop, like loading, unloading...
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public StopType StopType { get; set; }
+
 
         /// <summary>
         /// The address of the stop, if differs from <see cref="EdiTourStop"/>
@@ -111,6 +120,13 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         public EdiLoadingEquipmentExchange LoadingEquipmentExchange { get; set; }
 
+        /// <summary>
+        /// A geo fence was triggered (combined with geo position)
+        /// </summary>
+        [DisplayName("Geo fence triggered")]
+        [Description("A geo fence was triggered (combined with geo position)")]
+        public bool? GeoFenceTriggered { get; set; }
+        
         /// <summary>
         /// ETA (Estimated time of arrival)
         /// </summary>

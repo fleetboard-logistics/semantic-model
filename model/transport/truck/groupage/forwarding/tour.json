@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:22.2688884+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-05-05T13:39:40.0688772+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6143 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -369,6 +369,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -382,6 +397,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -891,6 +911,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       },
@@ -1416,6 +1441,11 @@
           "description": "A reference of the ordering party relating to the goods",
           "type": "string"
         },
+        "article": {
+          "title": "Article",
+          "description": "Article number of the goods contained within the packages",
+          "type": "string"
+        },
         "customsInformation": {
           "$ref": "#/definitions/EdiContentCustomsInformation"
         },
@@ -1470,6 +1500,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -1483,6 +1528,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -1590,6 +1640,21 @@
           "description": "Virtual weight of the shipment used for billing purposes. Used to take the bulkiness of goods into account or to enforce minimums",
           "type": "number"
         },
+        "emptyWeightKilogram": {
+          "title": "Empty weight (kg)",
+          "description": "Empty weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
+        "loadingWeightKilogram": {
+          "title": "Loading weight (kg)",
+          "description": "Maximal loading capacity of the vehicle in kilogram",
+          "type": "number"
+        },
+        "totalWeightKilogram": {
+          "title": "Total weight (kg)",
+          "description": "Total weight of the vehicle/shipment in kilogram",
+          "type": "number"
+        },
         "lengthMeter": {
           "title": "Length (m)",
           "description": "Total length",
@@ -1603,6 +1668,11 @@
         "heightMeter": {
           "title": "Height (m)",
           "description": "Total height",
+          "type": "number"
+        },
+        "volumeLiter": {
+          "title": "Volume liter",
+          "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
         }
       },
@@ -2307,6 +2377,41 @@
         "\\$.*": {}
       }
     },
+    "EdiSelfDisposal": {
+      "title": "Self Disposal",
+      "description": "Information for the driver to assign the tour to himself",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "title": "Allowed",
+          "description": "Self-disposal allowed?",
+          "type": "boolean"
+        },
+        "barcodeOnly": {
+          "title": "Barcode Only",
+          "description": "Self-disposal only with barcode",
+          "type": "boolean"
+        },
+        "barcode": {
+          "title": "Barcode",
+          "description": "Barcode for self-disposall",
+          "type": "string"
+        },
+        "groupName": {
+          "title": "Group Name",
+          "description": "Name of the driver group, which is allowed to self-dispose the tour",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiServices": {
       "title": "Services",
       "description": "Special services which can be requested by the ordering party (or the shipping partner)",
@@ -2591,6 +2696,24 @@
           "title": "Stop Id",
           "description": "Unique identifier for this stop within the tour",
           "type": "string"
+        },
+        "stopType": {
+          "description": "Types of different stops",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "unknown",
+            "loading",
+            "unloading",
+            "fuelStop",
+            "borderCross",
+            "wayPoint",
+            "yardNavigation"
+          ]
         },
         "address": {
           "$ref": "#/definitions/EdiAddress"
@@ -3288,6 +3411,12 @@
           "title": "Cross Docking",
           "type": "boolean"
         },
+        "bookedTimeslots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TourBookedTimeSlot"
+          }
+        },
         "scheduledArrival": {
           "$ref": "#/definitions/EdiTimeSpan"
         },
@@ -3455,6 +3584,12 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/EdiTourStop"
+      }
+    },
+    "selfDisposal": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EdiSelfDisposal"
       }
     },
     "remarks": {

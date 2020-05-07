@@ -26,6 +26,14 @@ namespace Conizi.Model.Shared.Entities
         /// The forwarder (Customer of App or Service)
         /// </summary>
         public EdiMetadataEntity TechnicalSender { get; set; }
+        
+        /// <summary>
+        /// The intent for this message
+        /// </summary>
+        [JsonProperty("$intent", Required = Required.DisallowNull, Order = -994)]
+        [DisplayName("Intent")]
+        [Description(" The intent for this message")]
+        public string Intent { get; set; }
 
         /// <summary>
         /// The message was created at date

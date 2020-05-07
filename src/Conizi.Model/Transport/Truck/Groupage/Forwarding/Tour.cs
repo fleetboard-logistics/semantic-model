@@ -172,6 +172,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public List<EdiTourStop> Stops { get; set; }
 
         /// <summary>
+        /// Information for the driver to assign the tour to himself
+        /// </summary>
+        public List<EdiSelfDisposal> SelfDisposal { get; set; }
+
+        /// <summary>
         /// Additional remarks (free form)
         /// </summary>
         [DisplayName("Remarks (free form)")]

@@ -515,6 +515,7 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                         PlaceName = "Oberhaid"
                     },
                     StopId = "693e4c46-527a-44a2-b41a-cab42634e3bd",
+                    StopType = StopType.Loading,
                     Eta = new EdiGeoEta
                     {
                         DistanceToDestination = 42.5m,

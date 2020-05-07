@@ -205,7 +205,65 @@ namespace Conizi.Model.Shared.Definitions
         [Description("Custom Loading Unit")] [EnumMember(Value = "customLoadingUnit")]
         CustomLoadingUnit = 99,
     }
-    
+
+    /// <summary>
+    /// Types of different stops
+    /// </summary>
+    [Description("Types of different stops")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties(false)]
+    public enum StopType
+    {
+        /// <summary>
+        /// A Unknown Stop
+        /// </summary>
+        [Description("A Unknown Stop")]
+        [EnumMember(Value = "unknown")]
+        Unknown = 0,
+
+        /// <summary>
+        /// A Loading Stop
+        /// </summary>
+        [Description("A Loading Stop")]
+        [EnumMember(Value = "loading")]
+        Loading = 1,
+
+        /// <summary>
+        /// An Unloading Stop
+        /// </summary>
+        [Description("An Unloading Stop)")]
+        [EnumMember(Value = "unloading")]
+        Unloading = 2,
+
+        /// <summary>
+        /// A Fuel Stop 
+        /// </summary>
+        [Description("A Fuel Stop")]
+        [EnumMember(Value = "fuelStop")]
+        FuelStop = 3,
+
+        /// <summary>
+        /// A Border Cross
+        /// </summary>
+        [Description("A Border Cross")]
+        [EnumMember(Value = "borderCross")]
+        BorderCross = 4,
+
+        /// <summary>
+        /// A Way Point
+        /// </summary>
+        [Description("A Way Point")]
+        [EnumMember(Value = "wayPoint")]
+        WayPoint = 5,
+
+        /// <summary>
+        /// Yard Navigation Stop
+        /// </summary>
+        [Description("Yard Navigation Stop")]
+        [EnumMember(Value = "yardNavigation")]
+        YardNavigation = 6,
+    }
+
     /// <summary>
     /// Types of the load (pickup, drop off)
     /// </summary>

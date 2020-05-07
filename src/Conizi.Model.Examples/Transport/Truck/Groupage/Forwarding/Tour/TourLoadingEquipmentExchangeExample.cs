@@ -31,6 +31,7 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                 Stop = new EdiStopSpecificEvent()
                 {
                     StopId = "45745378753079860978",
+                    StopType = StopType.Unloading,
                     EventDateTime = DateTime.Now.AddHours(-1),
                     UnloadingCompleted = true,
                     LoadingEquipmentExchange = new EdiLoadingEquipmentExchange

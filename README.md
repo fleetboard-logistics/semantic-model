@@ -15,7 +15,7 @@ document are to be interpreted as described in [RFC2119].
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
               
-conizi semantic models - Fleetboard Logistics GmbH 2018-2020
+conizi semantic models - Fleetboard Logistics GmbH 2018-2020.
 
 # Usage
 
@@ -69,4 +69,4 @@ For development purposes it is still possible to adapt the $schema as follows:
         }
     }
 }
-````
+```

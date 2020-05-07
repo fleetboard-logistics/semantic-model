@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-01T11:20:24.2670908+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:5835 - revert-cd753002",
+  "$comment": "Generated: 2020-04-30T10:52:04.2986149+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6098 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -602,6 +602,11 @@
         "commissionNo": {
           "title": "Commission Number",
           "description": "Commission number under which the commission is managed in the master data",
+          "type": "string"
+        },
+        "deliveryNote": {
+          "title": "Delivery note",
+          "description": "The delivery note of the shipper which describes the content of this consignment",
           "type": "string"
         }
       },
@@ -2357,6 +2362,24 @@
         "geoPosition": {
           "$ref": "#/definitions/EdiGeoPosition"
         },
+        "stopType": {
+          "description": "Types of different stops",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "unknown",
+            "loading",
+            "unloading",
+            "fuelStop",
+            "borderCross",
+            "wayPoint",
+            "yardNavigation"
+          ]
+        },
         "address": {
           "$ref": "#/definitions/EdiAddress"
         },
@@ -2417,6 +2440,11 @@
         },
         "loadingEquipmentExchange": {
           "$ref": "#/definitions/EdiLoadingEquipmentExchange"
+        },
+        "geoFenceTriggered": {
+          "title": "Geo fence triggered",
+          "description": "A geo fence was triggered (combined with geo position)",
+          "type": "boolean"
         },
         "eta": {
           "$ref": "#/definitions/EdiGeoEta"

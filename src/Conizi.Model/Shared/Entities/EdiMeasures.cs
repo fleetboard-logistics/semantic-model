@@ -52,6 +52,27 @@ namespace Conizi.Model.Shared.Entities
         public decimal? ChargeableWeightKilogram { get; set; }
 
         /// <summary>
+        /// Empty weight of the vehicle/shipment in kilogram"
+        /// </summary>
+        [DisplayName("Empty weight (kg)")]
+        [Description("Empty weight of the vehicle/shipment in kilogram")]
+        public decimal? EmptyWeightKilogram { get; set; }
+        
+        /// <summary>
+        /// Maximal loading capacity of the vehicle in kilogram"
+        /// </summary>
+        [DisplayName("Loading weight (kg)")]
+        [Description("Maximal loading capacity of the vehicle in kilogram")]
+        public decimal? LoadingWeightKilogram { get; set; }
+
+        /// <summary>
+        /// Total weight of the vehicle/shipment in kilogram"
+        /// </summary>
+        [DisplayName("Total weight (kg)")]
+        [Description("Total weight of the vehicle/shipment in kilogram")]
+        public decimal? TotalWeightKilogram { get; set; }
+
+        /// <summary>
         /// Total length (m)
         /// </summary>
         [DisplayName("Length (m)")]
@@ -71,5 +92,12 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Height (m)")]
         [Description("Total height")]
         public decimal? HeightMeter { get; set; }
+
+        /// <summary>
+        /// Volume liter of the consignment/position. Used for e.g. tank transportation
+        /// </summary>
+        [DisplayName("Volume liter")]
+        [Description("Volume liter of the consignment/position. Used for e.g. tank transportation")]
+        public decimal? VolumeLiter { get; set; }
     }
 }
