@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-30T10:52:02.5100376+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6098 - master",
+  "$comment": "Generated: 2020-05-13T11:17:16.6628895+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
@@ -265,6 +265,11 @@
         "deliveryNote": {
           "title": "Delivery note",
           "description": "The delivery note of the shipper which describes the content of this consignment",
+          "type": "string"
+        },
+        "groupName": {
+          "title": "Group Name",
+          "description": "Name of the a referenced group",
           "type": "string"
         }
       },

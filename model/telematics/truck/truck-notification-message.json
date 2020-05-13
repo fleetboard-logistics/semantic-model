@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-04-27T16:03:37.3712871+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6063 - master",
+  "$comment": "Generated: 2020-05-13T11:17:21.2406287+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-notification-message.json",
   "title": "Notification Message",
   "description": "A notification message is a message that can be sent either by the driver, via a mobile application, or by the dispatcher, via the Transport Management System",
@@ -178,6 +178,11 @@
         "deliveryNote": {
           "title": "Delivery note",
           "description": "The delivery note of the shipper which describes the content of this consignment",
+          "type": "string"
+        },
+        "groupName": {
+          "title": "Group Name",
+          "description": "Name of the a referenced group",
           "type": "string"
         }
       },
@@ -559,6 +564,11 @@
     "message": {
       "title": "Message",
       "description": "The text message",
+      "type": "string"
+    },
+    "messageIdRef": {
+      "title": "Message Id Reference",
+      "description": "A reference to the original message (id)",
       "type": "string"
     },
     "fileAttachment": {

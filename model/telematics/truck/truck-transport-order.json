@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-05T13:39:44.2195711+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6143 - master",
+  "$comment": "Generated: 2020-05-13T11:17:20.9533695+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -644,6 +644,11 @@
         "deliveryNote": {
           "title": "Delivery note",
           "description": "The delivery note of the shipper which describes the content of this consignment",
+          "type": "string"
+        },
+        "groupName": {
+          "title": "Group Name",
+          "description": "Name of the a referenced group",
           "type": "string"
         }
       },
