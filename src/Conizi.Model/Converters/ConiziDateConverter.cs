@@ -29,7 +29,7 @@ namespace Conizi.Model.Converters
             if (!hasExistingValue)
                 return DateTime.SpecifyKind(default(DateTime), DateTimeKind.Utc);
             
-            var utcDate = DateTime.SpecifyKind(DateTime.Parse(reader.Value.ToString(), new CultureInfo("us-US")), DateTimeKind.Utc);
+            var utcDate = DateTime.SpecifyKind(DateTime.Parse(reader.Value.ToString(), new CultureInfo("en-US")), DateTimeKind.Utc);
 
             return utcDate;
         }
