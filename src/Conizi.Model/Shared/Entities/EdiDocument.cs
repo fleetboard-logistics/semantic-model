@@ -190,6 +190,13 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Delivery note")]
         [Description("The delivery note of the shipper which describes the content of this consignment")]
         public string DeliveryNote { get; set; }
+        
+        /// <summary>
+        /// Name of the a referenced group
+        /// </summary>
+        [DisplayName("Group Name")]
+        [Description("Name of the a referenced group")]
+        public string GroupName { get; set; }
     }
 
     /// <summary>
