@@ -182,8 +182,7 @@ namespace Conizi.Model.Shared.Entities
         [Description(
             "Commission number under which the commission is managed in the master data")]
         public string CommissionNo { get; set; }
-
-
+        
         /// <summary>
         /// The delivery note of the shipper which describes the content of this consignment
         /// </summary>

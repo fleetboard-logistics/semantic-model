@@ -33,15 +33,6 @@ namespace Conizi.Model.Telematics.Truck
         public string MessageId { get; set; }
 
         /// <summary>
-        /// A reference to the original message (id)
-        /// </summary>
-        [DisplayName("Message Id Reference")]
-        [Description("A reference to the original message (id)")]
-        [JsonProperty(Order = -12)]
-        [Required]
-        public string MessageIdRef { get; set; }
-
-        /// <summary>
         /// The type of the message as free text... default is text-message
         /// </summary>
         [DisplayName("Message Type")]
@@ -67,6 +58,14 @@ namespace Conizi.Model.Telematics.Truck
         [JsonProperty("message", Order = -8)]
         [Required]
         public string Message { get; set; }
+
+        /// <summary>
+        /// A reference to the original message (id)
+        /// </summary>
+        [DisplayName("Message Id Reference")]
+        [Description("A reference to the original message (id)")]
+        [JsonProperty(Order = -7)]
+        public string MessageIdRef { get; set; }
 
         /// <summary>
         /// Object to transmit file attachments
