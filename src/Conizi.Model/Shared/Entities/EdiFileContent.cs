@@ -14,7 +14,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Transfers file data like a picture, pdf, txt..")]
     
     [ConiziAdditionalProperties(false)]
-    [ConiziAllowXProperties()]
+    [ConiziAllowXProperties]
     public class EdiFileContent : EdiPatternPropertiesBase
     {
         /// <summary>

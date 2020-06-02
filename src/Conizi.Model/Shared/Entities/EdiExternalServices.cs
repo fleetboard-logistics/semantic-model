@@ -31,6 +31,7 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("Digital archive")]
     [Description("Functions provided by the digital archive systems")]
     [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class EdiArchive : EdiPatternPropertiesBase
     {
         /// <summary>
