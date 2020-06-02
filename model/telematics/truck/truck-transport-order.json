@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-13T11:17:20.9533695+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
+  "$comment": "Generated: 2020-06-02T09:53:38.3832394+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-transport-order.json",
   "title": "Transport Order",
   "description": "An optimized transport order for industry and FTL/LTL purpose",
@@ -548,6 +548,10 @@
           "description": "Fireworks Bam number",
           "type": "string"
         }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
       }
     },
     "EdiDocumentReferences": {

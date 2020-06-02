@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-13T11:17:20.6978577+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
+  "$comment": "Generated: 2020-06-02T09:53:38.1271483+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -568,6 +568,10 @@
           "description": "Fireworks Bam number",
           "type": "string"
         }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
       }
     },
     "EdiDocumentReferences": {
@@ -2537,6 +2541,7 @@
     },
     "TourWorkingHours": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "fromDateTime": {
           "title": "From Date Time",
@@ -2548,6 +2553,10 @@
           "type": "string",
           "format": "date-time"
         }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
       }
     }
   },
