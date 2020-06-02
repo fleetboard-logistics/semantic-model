@@ -28,6 +28,8 @@ Please remember that conizi has several environments. It is important to note th
 
 Please check for a productive operation whether the required features are also included in the "production" branch.
 
+Please keep in mind, to buy a pro license for Newtonsoft JSON Schema to use the validation features in an enterprise scope!
+
 Furthermore it is important that the conizi platform always treats dates that do not contain a time component as UTC date. See "shippingDate" in this example.
 
 For development purposes it is still possible to adapt the $schema as follows:

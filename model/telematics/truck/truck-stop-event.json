@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-13T11:17:21.1512469+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
+  "$comment": "Generated: 2020-06-02T09:53:38.5959580+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-stop-event.json",
   "title": "Stop Event",
   "description": "A (truck) stop event",
@@ -365,6 +365,10 @@
           "description": "Arrived at the wrong address",
           "type": "boolean"
         }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
       }
     },
     "EdiEventDeliveryAttemptFailed": {
@@ -968,6 +972,10 @@
           "description": "Another type of exception has occurred",
           "type": "boolean"
         }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
       }
     },
     "EdiPickupAttemptFailed": {
