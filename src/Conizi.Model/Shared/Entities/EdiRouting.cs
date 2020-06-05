@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -12,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     
-    public class EdiRouting 
+    public class EdiRouting : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The address of the party which is sending the goods. This is usually the place where the pickup originated

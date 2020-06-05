@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -12,7 +13,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Line of the manifest")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiManifestLine
+    public class EdiManifestLine : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The number of the line

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -13,7 +14,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Information for the driver to assign the tour to himself")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiSelfDisposal
+    public class EdiSelfDisposal : EdiPatternPropertiesBase
     {
         /// <summary>
         /// Self-disposal allowed?

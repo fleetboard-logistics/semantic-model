@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 
 namespace Conizi.Model.Shared.Entities
@@ -13,7 +14,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Time information of this transport")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiTransportTimeSlot
+    public class EdiTransportTimeSlot : EdiPatternPropertiesBase
     {
         /// <summary>
         /// Time slot for pickup of the order

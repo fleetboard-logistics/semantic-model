@@ -272,7 +272,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Amount value type")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiValue
+    public class EdiValue : EdiPatternPropertiesBase
     {
         /// <summary>
         /// Amount

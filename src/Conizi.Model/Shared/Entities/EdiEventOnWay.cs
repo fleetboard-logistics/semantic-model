@@ -31,6 +31,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("On Way Exception")]
     [Description("Detailed information about the exceptions that occurred while on the way to the referenced stop")]
+    [ConiziAllowXProperties]
     public class EdiOnWayEventExceptions : EdiPatternPropertiesBase
     {
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Conizi.Model.Shared.Attributes;
+using Conizi.Model.Shared.Interfaces;
 
 namespace Conizi.Model.Shared.Entities
 {
@@ -10,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("The consignment is redirected to...")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiRedirectedTo
+    public class EdiRedirectedTo :  EdiPatternPropertiesBase
     {
         /// <summary>
         /// Redirected to sender

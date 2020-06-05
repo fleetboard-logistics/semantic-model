@@ -30,6 +30,7 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [DisplayName("Arrived Exception")]
     [Description("Detailed information about the exceptions that occurred while arriving at the referenced stop. ")]
+    [ConiziAllowXProperties]
     public class EdiEventArrivedExceptions : EdiPatternPropertiesBase
     {
         /// <summary>
