@@ -60,6 +60,14 @@ namespace Conizi.Model.Telematics.Truck
         public string Message { get; set; }
 
         /// <summary>
+        /// A reference to the original message (id)
+        /// </summary>
+        [DisplayName("Message Id Reference")]
+        [Description("A reference to the original message (id)")]
+        [JsonProperty(Order = -7)]
+        public string MessageIdRef { get; set; }
+
+        /// <summary>
         /// Object to transmit file attachments
         /// </summary>
         public EdiFileAttachment FileAttachment { get; set; }

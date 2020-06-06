@@ -322,7 +322,7 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
     
-    public class EdiPickupDate
+    public class EdiPickupDate : EdiPatternPropertiesBase
     {
         /// <summary>
         /// Date (Day)

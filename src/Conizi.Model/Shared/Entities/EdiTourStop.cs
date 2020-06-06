@@ -17,7 +17,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Stop for delivering the actual goods")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiTourStop
+    public class EdiTourStop : EdiPatternPropertiesBase
     {
         /// <summary>
         /// Stop number. The whole of the stop numbers in the right order defines the order of the stops
@@ -173,6 +173,8 @@ namespace Conizi.Model.Shared.Entities
         public List<TourWorkingHours> WorkingHours { get; set; }
     }
 
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class TourInformation : EdiPatternPropertiesBase
     {
         /// <summary>
@@ -232,8 +234,9 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Notes")]
         public string Notes { get; set; }
     }
-
-
+    
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
     public class TourWorkingHours : EdiPatternPropertiesBase
     {
         /// <summary>

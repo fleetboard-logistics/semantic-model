@@ -12,7 +12,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Information about the current stop")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiStopInformation
+    public class EdiStopInformation : EdiPatternPropertiesBase
     {
         
         /// <summary>

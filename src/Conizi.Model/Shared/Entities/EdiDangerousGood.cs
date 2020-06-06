@@ -205,7 +205,8 @@ namespace Conizi.Model.Shared.Entities
     
     [DisplayName("Dangerous goods references")]
     [Description("Dangerous goods references")]
-    public class EdiDangerousGoodsReferences
+    [ConiziAllowXProperties]
+    public class EdiDangerousGoodsReferences : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The fireworks Bam number

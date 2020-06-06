@@ -6,6 +6,7 @@ using System.Text;
 using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
+using Conizi.Model.Shared.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -58,7 +59,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("All references to the linked documents, systems and devices")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDocumentReferences
+    public class EdiDocumentReferences : EdiPatternPropertiesBase
     {
         /// <summary>
         ///  The unique id of the document
@@ -182,14 +183,20 @@ namespace Conizi.Model.Shared.Entities
         [Description(
             "Commission number under which the commission is managed in the master data")]
         public string CommissionNo { get; set; }
-
-
+        
         /// <summary>
         /// The delivery note of the shipper which describes the content of this consignment
         /// </summary>
         [DisplayName("Delivery note")]
         [Description("The delivery note of the shipper which describes the content of this consignment")]
         public string DeliveryNote { get; set; }
+        
+        /// <summary>
+        /// Name of the a referenced group
+        /// </summary>
+        [DisplayName("Group Name")]
+        [Description("Name of the a referenced group")]
+        public string GroupName { get; set; }
     }
 
     /// <summary>
@@ -199,7 +206,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("All object to archive the document")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDocumentArchive
+    public class EdiDocumentArchive : EdiPatternPropertiesBase
     {
         /// <summary>
         /// The address of the party which is sending the goods. This is usually the place where the pickup originated
@@ -233,7 +240,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("All kind of documents used for transports")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiDocumentItem
+    public class EdiDocumentItem : EdiPatternPropertiesBase
     {
         /// <summary>
         ///  The document type
@@ -290,7 +297,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("All kind of status images, used for documentation")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    public class EdiStatusImage
+    public class EdiStatusImage : EdiPatternPropertiesBase
     {
         /// <summary>
         ///  The image type

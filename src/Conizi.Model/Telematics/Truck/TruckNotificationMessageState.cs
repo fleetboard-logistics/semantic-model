@@ -12,7 +12,7 @@ namespace Conizi.Model.Telematics.Truck
     /// <summary>
     /// A notification message state is used to send a state back to the original message sender
     /// </summary>
-    [DisplayName("Notification Message Sate")]
+    [DisplayName("Notification Message State")]
     [Description("A notification message response is used to send a state back to the original message state")]
     [ConiziSchema("https://model.conizi.io/v1/telematics/truck/truck-notification-message-state.json", "truck-notification-message-state.json")]
     [ConiziAdditionalProperties(false)]
