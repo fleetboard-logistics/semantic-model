@@ -16,7 +16,7 @@ namespace Conizi.Model.UnitTests.Conversion
         {
             var m = new InvalidModel();
 
-            var result = Converter.Serialize(m);
+            var result = Converter.Serialize(m, ignoreValidation: false);
 
             Assert.True(result.HasValidationErrors);
             Assert.Equal("Invalid URI: The format of the URI could not be determined.", result.ValidationErrors[1]);
@@ -66,7 +66,7 @@ namespace Conizi.Model.UnitTests.Conversion
                 }
             };
 
-            var result = Converter.Serialize(m);
+            var result = Converter.Serialize(m, ignoreValidation: false);
             Assert.False(result.HasValidationErrors);
 
             var dm = Converter.Deserialize<TestModel>(result.ToString());

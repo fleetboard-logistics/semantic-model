@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-06-02T09:53:38.5959580+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
+  "$comment": "Generated: 2020-06-08T09:46:20.0651795+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6582 - feature/conizi-902-loading",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-stop-event.json",
   "title": "Stop Event",
   "description": "A (truck) stop event",
@@ -827,6 +827,7 @@
             "\\$.*": {}
           },
           "enum": [
+            "unknown",
             "eurPallets",
             "eurBoxes",
             "h1Pallets",
@@ -834,6 +835,13 @@
             "oneWayPallets",
             "knaufPallets",
             "duesseldorferPallets",
+            "kdp",
+            "ibc",
+            "e3Pallets",
+            "chemicalPallets",
+            "chep",
+            "cc",
+            "gp",
             "customLoadingEquipment"
           ]
         },
