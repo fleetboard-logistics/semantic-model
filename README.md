@@ -35,6 +35,7 @@ Furthermore it is important that the conizi platform always treats dates that do
 For development purposes it is still possible to adapt the $schema as follows:
 [https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json?branch=preproduction](https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json?branch=preproduction), here the schema definitions for the pre-production environment are used. Possible values are "master", "preproduction", "production".
 
+
 ```JSON
 {
     "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json",
