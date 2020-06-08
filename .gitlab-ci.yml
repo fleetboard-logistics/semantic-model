@@ -65,8 +65,9 @@ deploy:models:
     variables:
       - $CI_COMMIT_MESSAGE =~ /Update models/
   only:
-    - branches
-    - tags
+    - master
+    - preproduction
+    - production
 
 deploy:nuget:
   stage: deploy
