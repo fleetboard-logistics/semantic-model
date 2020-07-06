@@ -29,6 +29,7 @@ namespace Conizi.Model.Extensions
             model.Metadata.Receiver = metadata.Receiver ?? model.Metadata.Receiver;
             model.Metadata.Sender = metadata.Sender ?? model.Metadata.Sender;
             model.Metadata.TechnicalSender = metadata.TechnicalSender ?? model.Metadata.TechnicalSender;
+            model.Metadata.Environment = metadata.Environment ?? model.Metadata.Environment;
             return metadata;
         }
 
