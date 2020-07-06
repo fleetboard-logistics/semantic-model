@@ -50,6 +50,14 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Created by generator")]
         [Description("The message was created by")]
         public string CreatedBy { get; internal set; }
+        
+        /// <summary>
+        /// The message was created on environment
+        /// </summary>
+        [JsonProperty("$environment", Required = Required.DisallowNull, Order = -999)]
+        [DisplayName("Created on environment")]
+        [Description("The message was created on environment")]
+        public string Environment { get; internal set; }
     }
 
     /// <summary>
