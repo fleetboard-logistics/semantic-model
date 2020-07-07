@@ -43,7 +43,14 @@ namespace Conizi.Model.Shared.Entities
         [Required]
         public string Schema { get; internal set; }
 
-
+        /// <summary>
+        /// The intent for this message
+        /// </summary>
+        [JsonProperty("$intent", Required = Required.DisallowNull, Order = -998)]
+        [DisplayName("Intent")]
+        [Description("The intent for this message")]
+        public string Intent { get; set; }
+        
         /// <summary>
         /// Type of the model
         /// </summary>

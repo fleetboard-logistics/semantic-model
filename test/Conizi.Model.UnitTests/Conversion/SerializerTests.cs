@@ -261,7 +261,8 @@ namespace Conizi.Model.UnitTests.Conversion
 
             Assert.Contains("MY-CONIZI-SENDER-TENANT", result.Content);
             Assert.Contains("MY-CONIZI-PARTY-ID", result.Content);
-            Assert.Contains("$createdAt", result.Content);
+            Assert.Contains("createdAt", result.Content);
+            Assert.Contains("environment", result.Content);
         }
 
 
