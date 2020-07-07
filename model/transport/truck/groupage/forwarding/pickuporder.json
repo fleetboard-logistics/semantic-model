@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-06-02T09:53:36.8239210+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
+  "$comment": "Generated: 2020-07-07T11:17:47.4227198+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
   "title": "Pickup order",
   "description": "A single pickup order which is transferred between two partners",
@@ -2488,6 +2488,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {

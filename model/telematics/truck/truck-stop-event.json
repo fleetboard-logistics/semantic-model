@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-06-08T09:46:20.0651795+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6582 - feature/conizi-902-loading",
+  "$comment": "Generated: 2020-07-07T11:17:49.2628395+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-stop-event.json",
   "title": "Stop Event",
   "description": "A (truck) stop event",
@@ -1273,6 +1273,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {

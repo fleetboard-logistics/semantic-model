@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-06-02T09:53:35.4966189+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
+  "$comment": "Generated: 2020-07-07T11:17:46.1598254+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/manifest.json",
   "title": "Manifest",
   "description": "A manifest describes multiple consignments which are forwarded from one partner to another at the same time",
@@ -1481,6 +1481,11 @@
               "description": "The used json schema (url/version)",
               "type": "string"
             },
+            "$intent": {
+              "title": "Intent",
+              "description": "The intent for this message",
+              "type": "string"
+            },
             "receiver": {
               "$ref": "manifest.json#/definitions/EdiMessageRouting"
             },
@@ -2721,6 +2726,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {
