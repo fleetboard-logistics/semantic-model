@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-13T11:17:18.8178019+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
+  "$comment": "Generated: 2020-07-07T11:17:46.9820773+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-event.json",
   "title": "Pickup order event",
   "description": "An event which occurred during the processing of the referenced pickup order",
@@ -1415,6 +1415,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {

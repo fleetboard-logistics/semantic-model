@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-06-02T09:53:37.2748440+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
+  "$comment": "Generated: 2020-07-07T11:17:47.8728646+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder-bulk.json",
   "title": "Pickup-order bulk",
   "description": "Pickup orders, that can be send in bulk",
@@ -2475,6 +2475,11 @@
           "description": "The used json schema (url/version)",
           "type": "string"
         },
+        "$intent": {
+          "title": "Intent",
+          "description": "The intent for this message",
+          "type": "string"
+        },
         "receiver": {
           "$ref": "pickuporder-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -2576,6 +2581,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-13T11:17:18.5141856+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
+  "$comment": "Generated: 2020-07-07T11:17:46.7031563+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1260,6 +1260,7 @@
             "\\$.*": {}
           },
           "enum": [
+            "unknown",
             "eurPallets",
             "eurBoxes",
             "h1Pallets",
@@ -1267,6 +1268,13 @@
             "oneWayPallets",
             "knaufPallets",
             "duesseldorferPallets",
+            "kdp",
+            "ibc",
+            "e3Pallets",
+            "chemicalPallets",
+            "chep",
+            "cc",
+            "gp",
             "customLoadingEquipment"
           ]
         },
@@ -2865,6 +2873,11 @@
           "description": "The used json schema (url/version)",
           "type": "string"
         },
+        "$intent": {
+          "title": "Intent",
+          "description": "The intent for this message",
+          "type": "string"
+        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -3017,6 +3030,11 @@
           "description": "The used json schema (url/version)",
           "type": "string"
         },
+        "$intent": {
+          "title": "Intent",
+          "description": "The intent for this message",
+          "type": "string"
+        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -3164,6 +3182,11 @@
           "description": "The used json schema (url/version)",
           "type": "string"
         },
+        "$intent": {
+          "title": "Intent",
+          "description": "The intent for this message",
+          "type": "string"
+        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -3300,6 +3323,11 @@
           "description": "The used json schema (url/version)",
           "type": "string"
         },
+        "$intent": {
+          "title": "Intent",
+          "description": "The intent for this message",
+          "type": "string"
+        },
         "receiver": {
           "$ref": "event-bulk.json#/definitions/EdiMessageRouting"
         },
@@ -3347,6 +3375,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {

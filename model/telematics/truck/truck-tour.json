@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-06-02T09:53:38.1271483+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6470 - CONIZI-901-add-further-x-props",
+  "$comment": "Generated: 2020-07-07T11:17:48.7765373+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-tour.json",
   "title": "Tour",
   "description": "A truck tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about transport orders or maintenance stops",
@@ -2153,6 +2153,11 @@
           "description": "The used json schema (url/version)",
           "type": "string"
         },
+        "$intent": {
+          "title": "Intent",
+          "description": "The intent for this message",
+          "type": "string"
+        },
         "receiver": {
           "$ref": "truck-tour.json#/definitions/EdiMessageRouting"
         },
@@ -2566,6 +2571,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {
