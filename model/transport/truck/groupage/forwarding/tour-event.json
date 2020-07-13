@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-05-13T11:17:16.6628895+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6233 - master",
+  "$comment": "Generated: 2020-07-07T11:17:44.6947235+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
   "title": "Tour event",
   "description": "An event which occurred during the processing of the referenced tour",
@@ -513,6 +513,7 @@
             "\\$.*": {}
           },
           "enum": [
+            "unknown",
             "eurPallets",
             "eurBoxes",
             "h1Pallets",
@@ -520,6 +521,13 @@
             "oneWayPallets",
             "knaufPallets",
             "duesseldorferPallets",
+            "kdp",
+            "ibc",
+            "e3Pallets",
+            "chemicalPallets",
+            "chep",
+            "cc",
+            "gp",
             "customLoadingEquipment"
           ]
         },
@@ -1128,6 +1136,11 @@
     "$schema": {
       "title": "Json schema",
       "description": "The used json schema (url/version)",
+      "type": "string"
+    },
+    "$intent": {
+      "title": "Intent",
+      "description": "The intent for this message",
       "type": "string"
     },
     "receiver": {

@@ -1,8 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Conizi.Model.Shared.Attributes;
+using System.ComponentModel;
 using System.Runtime.Serialization;
-using Conizi.Model.Shared.Attributes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Conizi.Model.Shared.Definitions
 {
@@ -111,6 +109,13 @@ namespace Conizi.Model.Shared.Definitions
     public enum LoadingEquipmentType
     {
         /// <summary>
+        /// Unknown loading equipment
+        /// </summary>
+        [Description("Unknown loading equipment")]
+        [EnumMember(Value = "unknown")]
+        Unknown = 0,
+
+        /// <summary>
         /// EUR Pallets as defined by European Pallet Association (EPAL)
         /// </summary>
         [Description("EUR Pallets as defined by European Pallet Association (EPAL)")] [EnumMember(Value = "eurPallets")]
@@ -152,7 +157,55 @@ namespace Conizi.Model.Shared.Definitions
         [Description("Düsseldorfer Pallets")] [EnumMember(Value = "duesseldorferPallets")]
         DuesseldorferPallets = 7,
 
+        /// <summary>
+        /// Düsseldorfer plastic Pallets
+        /// </summary>
+        [Description("Düsseldorfer plastic Pallets")]
+        [EnumMember(Value = "kdp")]
+        Kdp = 8,
 
+        /// <summary>
+        /// Intermediate bulk containers
+        /// </summary>
+        [Description("Intermediate bulk containers")]
+        [EnumMember(Value = "ibc")]
+        Ibc = 9,
+
+        /// <summary>
+        /// E2 Pallets
+        /// </summary>
+        [Description("E3 Pallets")]
+        [EnumMember(Value = "e3Pallets")]
+        E3Pallets = 10,
+
+        /// <summary>
+        /// Chemical pallets
+        /// </summary>
+        [Description("Chemical pallets")]
+        [EnumMember(Value = "chemicalPallets")]
+        Cp = 11,
+
+        /// <summary>
+        /// CHEP pallets
+        /// </summary>
+        [Description("CHEP pallets")]
+        [EnumMember(Value = "chep")]
+        Chep = 12,
+
+        /// <summary>
+        /// CC-Container
+        /// </summary>
+        [Description("CC-Container")]
+        [EnumMember(Value = "cc")]
+        Cc = 13,
+
+        /// <summary>
+        /// Lattice box
+        /// </summary>
+        [Description("Lattice box")]
+        [EnumMember(Value = "gp")]
+        Gp = 14,
+        
         /// <summary>
         /// Custom Loading Equipment, for custom boxes, pallets and other equipment
         /// </summary>

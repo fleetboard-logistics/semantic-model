@@ -19,7 +19,7 @@ namespace Conizi.Model.UnitTests.Conversion
         {
             var m = new InvalidModel();
 
-            var result = Converter.Serialize(m);
+            var result = Converter.Serialize(m, ignoreValidation: false);
 
             Assert.True(result.HasValidationErrors);
             Assert.Equal("Invalid URI: The format of the URI could not be determined.", result.ValidationErrors[1]);
@@ -205,7 +205,7 @@ namespace Conizi.Model.UnitTests.Conversion
                 },
             };
 
-            var result = Converter.Serialize(m);
+            var result = Converter.Serialize(m, ignoreValidation: false);
             Assert.True(result.HasValidationErrors);
             Assert.Contains("Required properties are missing", result.ValidationErrors[0]);
         }
@@ -261,7 +261,8 @@ namespace Conizi.Model.UnitTests.Conversion
 
             Assert.Contains("MY-CONIZI-SENDER-TENANT", result.Content);
             Assert.Contains("MY-CONIZI-PARTY-ID", result.Content);
-            Assert.Contains("$createdAt", result.Content);
+            Assert.Contains("createdAt", result.Content);
+            Assert.Contains("environment", result.Content);
         }
 
 
@@ -345,7 +346,7 @@ namespace Conizi.Model.UnitTests.Conversion
                 TestTimeOnly = "14:12:23"
             };
 
-            var result = Converter.Serialize(m);
+            var result = Converter.Serialize(m,ignoreValidation: false);
 
             var content = result.Content;
 

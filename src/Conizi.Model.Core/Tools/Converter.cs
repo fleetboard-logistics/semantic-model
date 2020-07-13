@@ -72,6 +72,7 @@ namespace Conizi.Model.Core.Tools
                 {
                     CreatedAt = DateTime.Now,
                     CreatedBy = typeof(Converter).Namespace + " (" + typeof(Converter).Assembly.GetName().Version + ")",
+                    Environment = "dev"
                 });
 
             if (!indented)
