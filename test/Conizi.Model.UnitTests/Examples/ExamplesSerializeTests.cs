@@ -151,5 +151,15 @@ namespace Conizi.Model.UnitTests.Examples
             Assert.False(result.HasValidationErrors);
         }
 
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializePostionEvent_AssertSerializationValid()
+        {
+            var m = new PoistionEventExample().Create();
+
+            var result = Converter.Serialize(m);
+            Assert.False(result.HasValidationErrors);
+        }
+
     }
 }
