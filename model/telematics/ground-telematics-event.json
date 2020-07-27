@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-07T11:17:48.3307031+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
+  "$comment": "Generated: 2020-07-27T12:22:47.2701101+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:7157 - master",
   "$id": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
   "title": "Ground telematics event",
   "description": "A single telematics event message for ground vehicles which is transferred between two partners.",
@@ -573,6 +573,16 @@
           "title": "Total Driven Distance in meter",
           "description": "The Total Driven Distance in meter",
           "type": "integer"
+        },
+        "engineOn": {
+          "title": "Engine On",
+          "description": "The engine is on",
+          "type": "boolean"
+        },
+        "ignitionOn": {
+          "title": "Ignition On",
+          "description": "The ignition is on",
+          "type": "boolean"
         },
         "engineSpeed": {
           "title": "Engine Speed",
