@@ -8,7 +8,7 @@ additional information required to fulfill a service and explicitly do not try t
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-document are to be interpreted as described in [RFC2119].
+document are to be interpreted as described in [RFC2119]. 
 
 # Normative References
 

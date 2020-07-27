@@ -48,8 +48,8 @@ namespace Conizi.Model.Tooling.Generate
                 typeof(TruckTransportOrder),
                 typeof(TruckStopEvent),
                 typeof(TruckNotificationMessage),
-                typeof(TruckNotificationMessageState)
-
+                typeof(TruckNotificationMessageState),
+                typeof(PositionEvent)
             };
 
 
