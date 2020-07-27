@@ -43,7 +43,7 @@ namespace Conizi.Model.Tooling.Generate
                 typeof(TransportDocument),
                 typeof(StatusImage),
                 typeof(MaterialTransaction),
-                typeof(GroundTelematicsEvent),
+                //typeof(GroundTelematicsEvent),
                 typeof(TruckTour),
                 typeof(TruckTransportOrder),
                 typeof(TruckStopEvent),
