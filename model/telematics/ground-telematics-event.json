@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-27T12:54:11.9314322+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:7160 - master",
+  "$comment": "Generated: 2020-07-27T13:09:17.7506068+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:7163 - master",
   "$id": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
-  "title": "Ground telematics event",
+  "title": "Ground telematics event (Attention not for production use!!!!",
   "description": "A single telematics event message for ground vehicles which is transferred between two partners.",
   "definitions": {
     "EdiBrakeSystemState": {
