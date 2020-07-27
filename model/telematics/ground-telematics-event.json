@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-27T12:22:47.2701101+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:7157 - master",
+  "$comment": "Generated: 2020-07-27T12:54:11.9314322+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:7160 - master",
   "$id": "https://model.conizi.io/v1/telematics/ground-telematics-event.json",
   "title": "Ground telematics event",
   "description": "A single telematics event message for ground vehicles which is transferred between two partners.",
@@ -485,9 +485,8 @@
       "properties": {
         "recordTime": {
           "title": "Record time",
-          "description": "Time the measurement was recored",
-          "type": "string",
-          "format": "date-time"
+          "description": "Time the measurement was recorded (Unix UTC Timestamp in milliseconds)",
+          "type": "integer"
         },
         "temperatures": {
           "type": "array",
@@ -560,9 +559,8 @@
       "properties": {
         "recordTime": {
           "title": "Record time",
-          "description": "Time the measurement was recored",
-          "type": "string",
-          "format": "date-time"
+          "description": "Time the measurement was recorded (Unix UTC Timestamp in milliseconds)",
+          "type": "integer"
         },
         "speed": {
           "title": "Speed in KM/h",
