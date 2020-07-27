@@ -43,6 +43,20 @@ namespace Conizi.Model.Shared.Entities
         [Description("The Total Driven Distance in meter")]
         [JsonProperty(Order = -9)]
         public int? TotalDrivenDistance { get; set; }
+        
+        /// <summary>
+        /// The engine is on
+        /// </summary>
+        [DisplayName("Engine On")]
+        [Description("The engine is on")]
+        public bool? EngineOn { get; set; }
+
+        /// <summary>
+        /// The ignition is on
+        /// </summary>
+        [DisplayName("Ignition On")]
+        [Description("The ignition is on")]
+        public bool? IgnitionOn { get; set; }
 
         /// <summary>
         /// The engine Speed (UpM/RpM)
