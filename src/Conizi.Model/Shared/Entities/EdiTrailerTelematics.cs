@@ -19,14 +19,13 @@ namespace Conizi.Model.Shared.Entities
     [ConiziAdditionalProperties(false)]
     public class EdiTrailerTelematics
     {
-
         /// <summary>
-        /// Time the measurement was created
+        /// Time the measurement was recorded (Unix UTC Timestamp in milliseconds)
         /// </summary>
         [DisplayName("Record time")]
-        [Description("Time the measurement was recored")]
+        [Description("Time the measurement was recorded (Unix UTC Timestamp in milliseconds)")]
         [JsonProperty(Required = Required.Always, Order = -11)]
-        public DateTimeOffset RecordTime { get; set; }
+        public long RecordTime { get; set; }
 
         /// <summary>
         /// The trailer temperature in degree Celsius
