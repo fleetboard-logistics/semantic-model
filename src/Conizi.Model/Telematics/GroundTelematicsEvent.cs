@@ -14,7 +14,7 @@ namespace Conizi.Model.Telematics
     /// A single telematics event message for ground vehicles which is transferred between two partners.
     /// </summary>
     [ConiziSchema("https://model.conizi.io/v1/telematics/ground-telematics-event.json", "ground-telematics-event.json")]
-    [DisplayName("Ground telematics event")]
+    [DisplayName("Ground telematics event (Attention not for production use!!!!")]
     [Description("A single telematics event message for ground vehicles which is transferred between two partners.")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
