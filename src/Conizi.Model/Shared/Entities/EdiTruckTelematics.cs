@@ -21,12 +21,12 @@ namespace Conizi.Model.Shared.Entities
     {
 
         /// <summary>
-        /// Time the measurement was created
+        /// Time the measurement was recorded (Unix UTC Timestamp in milliseconds)
         /// </summary>
         [DisplayName("Record time")]
-        [Description("Time the measurement was recored")]
+        [Description("Time the measurement was recorded (Unix UTC Timestamp in milliseconds)")]
         [JsonProperty(Required = Required.Always, Order = -11)]
-        public DateTimeOffset RecordTime { get; set; }
+        public long RecordTime { get; set; }
 
         /// <summary>
         /// The speed of the vehicle in KM/h
@@ -43,6 +43,20 @@ namespace Conizi.Model.Shared.Entities
         [Description("The Total Driven Distance in meter")]
         [JsonProperty(Order = -9)]
         public int? TotalDrivenDistance { get; set; }
+        
+        /// <summary>
+        /// The engine is on
+        /// </summary>
+        [DisplayName("Engine On")]
+        [Description("The engine is on")]
+        public bool? EngineOn { get; set; }
+
+        /// <summary>
+        /// The ignition is on
+        /// </summary>
+        [DisplayName("Ignition On")]
+        [Description("The ignition is on")]
+        public bool? IgnitionOn { get; set; }
 
         /// <summary>
         /// The engine Speed (UpM/RpM)

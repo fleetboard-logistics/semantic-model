@@ -169,7 +169,7 @@ namespace Conizi.Model.Examples.Telematics
                     EventDateTime = DateTime.Now.AddMinutes(-5),
                     TruckTelematics = new EdiTruckTelematics
                     {
-                        RecordTime = DateTimeOffset.Now.LocalDateTime.AddMinutes(-6),
+                        RecordTime = DateTimeOffset.Now.AddMinutes(-6).ToUnixTimeMilliseconds(),
                         TotalDrivenDistance = 25000000,
                         Weight = 18600,
                         TotalFuelConsumption = 12548000,
@@ -237,7 +237,7 @@ namespace Conizi.Model.Examples.Telematics
                     EventDateTime = DateTime.Now.AddMinutes(-5),
                     TrailerTelematics = new EdiTrailerTelematics
                     {
-                        RecordTime = DateTimeOffset.Now.LocalDateTime.AddMinutes(-6),
+                        RecordTime = DateTimeOffset.Now.AddMinutes(-6).ToUnixTimeMilliseconds(),
                         Temperatures = new List<EdiTemperature>
                         {
                             new EdiTemperature
