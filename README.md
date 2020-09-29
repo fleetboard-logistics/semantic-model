@@ -71,5 +71,4 @@ For development purposes it is still possible to adapt the $schema as follows:
         }
     }
 }
-``` 
-
+```
