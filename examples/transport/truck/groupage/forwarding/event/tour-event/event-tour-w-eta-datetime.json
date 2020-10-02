@@ -1,0 +1,24 @@
+{
+  "$schema": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour-event.json",
+  "receiver": {
+    "ediId": "DAIMLER"
+  },
+  "network": {
+    "networkId": "MBT"
+  },
+  "tourId": "123123123",
+  "stop": {
+    "stopId": "45745378753079860978",
+    "eventDateTime": "2020-09-30T05:28:57.9683728Z",
+    "geoPosition": {
+      "latitude": 49.8629167,
+      "longitude": 10.2259302702594,
+      "placeName": "Fleetboard Logistics GmbH"
+    },
+    "stopType": "loading",
+    "onWayLoadingPoint": true,
+    "eta": {
+      "etaDateTimeAbsolute": "2020-09-30T06:20:57.9687828Z"
+    }
+  }
+}

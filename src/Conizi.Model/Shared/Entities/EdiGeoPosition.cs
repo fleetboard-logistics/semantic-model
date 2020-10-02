@@ -143,7 +143,6 @@ namespace Conizi.Model.Shared.Entities
         /// <remarks>If no date component is specified <see cref="EtaDateAbsolute"/>, the current day applies.</remarks>
         [DisplayName("ETA (Estimated time of arrival)")]
         [Description("ETA (Estimated time of arrival) absolute as time string (e.g. 14:12:33)")]
-        [Required]
         [ConiziTimeOnly]
         public string EtaTimeAbsolute { get; set; }
 
@@ -164,6 +163,14 @@ namespace Conizi.Model.Shared.Entities
         [Description("ETA (Estimated time of arrival) period end as time string (e.g. 16:15:00)")]
         [ConiziTimeOnly]
         public string EtaTimePeriodEnd { get; set; }
+
+        /// <summary>
+        /// ETA (Estimated time of arrival) full date time (e.g. 2019-05-17T13:08:20Z)
+        /// </summary>
+        /// <remarks>The date component is only required if it is not the current day.</remarks>
+        [DisplayName("ETA (Estimated time of arrival) full date time")]
+        [Description("ETA (Estimated time of arrival) full date time (e.g. 2019-05-20T16:08:23Z)")]
+        public DateTime? EtaDateTimeAbsolute { get; set; }
 
         /// <summary>
         /// ETA (Estimated time of arrival) date component date (e.g. 2019-05-17)
