@@ -49,7 +49,7 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("VehicleEngineState")]
         [Description("The State of the Vehicle Ignition/Engine")]
-        public EdiVehicleEngineState? EngineOn { get; set; }
+        public EdiVehicleEngineState? EngineState { get; set; }
 
         /// <summary>
         /// The engine Speed (UpM/RpM)
