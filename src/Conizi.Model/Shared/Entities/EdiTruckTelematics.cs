@@ -34,7 +34,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Speed in KM/h")]
         [Description("The speed of the vehicle in KM/h")]
         [JsonProperty(Order = -10)]
-        public int? Speed { get; set; }
+        public double? Speed { get; set; }
 
         /// <summary>
         /// The Total Driven Distance in meter
@@ -42,7 +42,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Total Driven Distance in meter")]
         [Description("The Total Driven Distance in meter")]
         [JsonProperty(Order = -9)]
-        public int? TotalDrivenDistance { get; set; }
+        public double? TotalDrivenDistance { get; set; }
         
         /// <summary>
         /// The engine is on
@@ -63,28 +63,28 @@ namespace Conizi.Model.Shared.Entities
         /// </summary>
         [DisplayName("Engine Speed")]
         [Description("The engine Speed (UpM/RpM)")]
-        public int? EngineSpeed { get; set; }
+        public double? EngineSpeed { get; set; }
 
         /// <summary>
         /// The weight of the vehicle in Kg
         /// </summary>
         [DisplayName("Weight")]
         [Description("The weight of the vehicle in Kg")]
-        public int? Weight { get; set; }
+        public double? Weight { get; set; }
 
         /// <summary>
         /// The Total Fuel Consumption in ML
         /// </summary>
         [DisplayName("Total Fuel Consumption")]
         [Description("The Total Fuel Consumption in ML")]
-        public int? TotalFuelConsumption { get; set; }
+        public double? TotalFuelConsumption { get; set; }
 
         /// <summary>
         /// The Total AdBlue Used in ML
         /// </summary>
         [DisplayName("Total AdBlue Used")]
         [Description("The Total AdBlue Used in ML")]
-        public int? TotalAdBlueUsed { get; set; }
+        public double? TotalAdBlueUsed { get; set; }
 
         /// <summary>
         /// The Total Operating Time in seconds
@@ -99,7 +99,7 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("AdBlue level")]
         [Description("The current AdBlue level in percent (0-100)")]
         [Range(0, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-        public int? AdBlueLevel { get; set; }
+        public double? AdBlueLevel { get; set; }
 
         /// <summary>
         /// The current Fuel level in percent (0-100)
@@ -107,6 +107,6 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Fuel level")]
         [Description("The current Fuel level in percent (0-100)")]
         [Range(0, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-        public int? FuelLevel { get; set; }
+        public double? FuelLevel { get; set; }
     }
 }
