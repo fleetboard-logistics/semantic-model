@@ -418,4 +418,28 @@ namespace Conizi.Model.Shared.Definitions
         [EnumMember(Value = "other_image")] OtherDocument = 99,
     }
 
+    /// <summary>
+    /// Defines the state of the Vehicle Engine and Ignition
+    /// </summary>
+    [Description(
+        "Defines the state of a vehicle")]
+    [ConiziAdditionalProperties(false)]
+    public enum EdiVehicleEngineState
+    {
+        /// <summary>
+        /// Vehicle Ignition and Engine is off
+        /// </summary>
+        [EnumMember(Value = "off")] Off = -1,
+
+        /// <summary>
+        /// Vehicle Ignition is on, but Engine is off
+        /// </summary>
+        [EnumMember(Value = "ignition")] Ignition = 1,
+
+        /// <summary>
+        /// Vehicle Engine is on
+        /// </summary>
+        [EnumMember(Value = "on")] On = 2,
+    }
+
 }

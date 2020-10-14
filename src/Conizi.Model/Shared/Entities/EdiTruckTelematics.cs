@@ -47,16 +47,9 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// The engine is on
         /// </summary>
-        [DisplayName("Engine On")]
-        [Description("The engine is on")]
-        public bool? EngineOn { get; set; }
-
-        /// <summary>
-        /// The ignition is on
-        /// </summary>
-        [DisplayName("Ignition On")]
-        [Description("The ignition is on")]
-        public bool? IgnitionOn { get; set; }
+        [DisplayName("VehicleEngineState")]
+        [Description("The State of the Vehicle Ignition/Engine")]
+        public EdiVehicleEngineState? EngineOn { get; set; }
 
         /// <summary>
         /// The engine Speed (UpM/RpM)
