@@ -6,7 +6,7 @@
     "tourId": "20191234567",
     "stop": {
         "stopId": "693e4c46-527a-44a2-b41a-cab42634e3bd",
-        "eventDateTime": "2019-05-20T16:08:23",
+        "eventDateTime": "2019-05-20T16:08:23Z",
         "onWayLoadingPoint": true,
         "geoPosition": {
             "latitude": 49.8629167,

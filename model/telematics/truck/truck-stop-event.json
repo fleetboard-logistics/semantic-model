@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-07T11:17:49.2628395+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
+  "$comment": "Generated: 2020-11-19T17:41:01.1590365+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:9254 - master",
   "$id": "https://model.conizi.io/v1/telematics/truck/truck-stop-event.json",
   "title": "Stop Event",
   "description": "A (truck) stop event",
@@ -680,6 +680,12 @@
           "type": "string",
           "format": "time"
         },
+        "etaDateTimeAbsolute": {
+          "title": "ETA (Estimated time of arrival) full date time",
+          "description": "ETA (Estimated time of arrival) full date time (e.g. 2019-05-20T16:08:23Z)",
+          "type": "string",
+          "format": "date-time"
+        },
         "etaDateAbsolute": {
           "title": "ETA (Estimated time of arrival) date component",
           "description": "ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). The date component is only required if it is not the current day.",
@@ -711,10 +717,7 @@
           "description": "The number of stops to destination",
           "type": "integer"
         }
-      },
-      "required": [
-        "etaTimeAbsolute"
-      ]
+      }
     },
     "EdiGeoPosition": {
       "title": "Geo position",
@@ -866,9 +869,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "equipmentType"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

@@ -6,6 +6,7 @@ using Conizi.Model.Examples.Documents;
 using Conizi.Model.Examples.Telematics;
 using Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding;
 using Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour;
+using Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.TourEvent;
 using Conizi.Model.Telematics;
 using Xunit;
 
@@ -22,6 +23,7 @@ namespace Conizi.Model.UnitTests.Examples
             var result = Converter.Serialize(m);
             Assert.False(result.HasValidationErrors);
         }
+
 
         [Fact]
         [Trait("Category", TraitCategory.UNIT_TEST)]
@@ -64,6 +66,16 @@ namespace Conizi.Model.UnitTests.Examples
         public void SerializeTourEventLoadingEquipment_AssertSerializationValid()
         {
             var m = new TourLoadingEquipmentExchangeExample().Create();
+
+            var result = Converter.Serialize(m, true);
+            Assert.False(result.HasValidationErrors);
+        }
+
+        [Fact]
+        [Trait("Category", TraitCategory.UNIT_TEST)]
+        public void SerializeTourEventEtaFullDateTime_AssertSerializationValid()
+        {
+            var m = new TourEventEtaExample().Create();
 
             var result = Converter.Serialize(m, true);
             Assert.False(result.HasValidationErrors);

@@ -420,9 +420,9 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
     public class
         SimpleTourEventForEtaExampleAccepted : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
     {
-        public TourEvent Create()
+        public Model.Transport.Truck.Groupage.Forwarding.TourEvent Create()
         {
-            var me = new TourEvent()
+            var me = new Model.Transport.Truck.Groupage.Forwarding.TourEvent()
             {
                 Receiver = new EdiMessageRouting
                 {
@@ -461,9 +461,9 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
     public class
         SimpleTourEventForEtaExampleStarted : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
     {
-        public TourEvent Create()
+        public Model.Transport.Truck.Groupage.Forwarding.TourEvent Create()
         {
-            var me = new TourEvent()
+            var me = new Model.Transport.Truck.Groupage.Forwarding.TourEvent()
             {
                 Receiver = new EdiMessageRouting
                 {
@@ -491,13 +491,13 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
     /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and ETA times
     /// </summary>
     [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.Tour))]
-    public class SimpleTourEventForEtaExampleTourStop : IModelCreateFactory<TourEvent>
+    public class SimpleTourEventForEtaExampleTourStop : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
     {
-        public TourEvent Create()
+        public Model.Transport.Truck.Groupage.Forwarding.TourEvent Create()
         {
             var eventDateTime = DateTime.Now.AddMinutes(-56);
 
-            var me = new TourEvent()
+            var me = new Model.Transport.Truck.Groupage.Forwarding.TourEvent()
             {
                 Receiver = new EdiMessageRouting
                 {
@@ -535,13 +535,13 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
     /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and ETA times
     /// </summary>
     [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.TourEvent))]
-    public class SimpleTourEventForEtaExampleStopArrived : IModelCreateFactory<TourEvent>
+    public class SimpleTourEventForEtaExampleStopArrived : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
     {
-        public TourEvent Create()
+        public Model.Transport.Truck.Groupage.Forwarding.TourEvent Create()
         {
             var eventDateTime = DateTime.Now.AddMinutes(-56);
 
-            var me = new TourEvent()
+            var me = new Model.Transport.Truck.Groupage.Forwarding.TourEvent()
             {
                 Receiver = new EdiMessageRouting
                 {
@@ -570,13 +570,13 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
     /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and external referenced files
     /// </summary>
     [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.TourEvent))]
-    public class SimpleTourEventForPodTourCompleted : IModelCreateFactory<TourEvent>
+    public class SimpleTourEventForPodTourCompleted : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
     {
-        public TourEvent Create()
+        public Model.Transport.Truck.Groupage.Forwarding.TourEvent Create()
         {
             var eventDateTime = DateTime.Now.AddMinutes(-56);
 
-            var me = new TourEvent()
+            var me = new Model.Transport.Truck.Groupage.Forwarding.TourEvent()
             {
                 Receiver = new EdiMessageRouting
                 {
@@ -645,13 +645,13 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
     /// Simple example for a <see cref="TourEvent"/> to demonstrate GPS usage and external referenced files
     /// </summary>
     [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.TourEvent))]
-    public class SimpleTourEventForChecklistTourStarted : IModelCreateFactory<TourEvent>
+    public class SimpleTourEventForChecklistTourStarted : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
     {
-        public TourEvent Create()
+        public Model.Transport.Truck.Groupage.Forwarding.TourEvent Create()
         {
             var eventDateTime = DateTime.Now.AddMinutes(-56);
 
-            var me = new TourEvent()
+            var me = new Model.Transport.Truck.Groupage.Forwarding.TourEvent()
             {
                 Receiver = new EdiMessageRouting
                 {

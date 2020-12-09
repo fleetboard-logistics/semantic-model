@@ -7,13 +7,13 @@ using Conizi.Model.Shared.Definitions;
 using Conizi.Model.Shared.Entities;
 using Conizi.Model.Transport.Truck.Groupage.Forwarding;
 
-namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
+namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.TourEvent
 {
     /// <summary>
-    /// Simple example for a <see cref="TourEvent"/> to demonstrate Loading Equipment
+    /// Simple example for a <see cref="TourEvent"/> to demonstrate Eta
     /// </summary>
     [ExampleFor(typeof(Model.Transport.Truck.Groupage.Forwarding.TourEvent))]
-    public class TourLoadingEquipmentExchangeExample : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
+    public class TourEventEtaExample : IModelCreateFactory<Model.Transport.Truck.Groupage.Forwarding.TourEvent>
     {
         public Model.Transport.Truck.Groupage.Forwarding.TourEvent Create()
         {
@@ -31,28 +31,13 @@ namespace Conizi.Model.Examples.Transport.Truck.Groupage.Forwarding.Tour
                 Stop = new EdiStopSpecificEvent()
                 {
                     StopId = "45745378753079860978",
-                    StopType = StopType.Unloading,
+                    StopType = StopType.Loading,
                     EventDateTime = DateTime.Now.AddHours(-1),
-                    UnloadingCompleted = true,
-                    LoadingEquipmentExchange = new EdiLoadingEquipmentExchange
+                    OnWayLoadingPoint = true,
+                    Eta = new EdiGeoEta
                     {
-                        Exchanged = true,
-                        LoadingEquipment = new List<EdiLoadingEquipment>
-                        {
-                            new EdiLoadingEquipment
-                            {
-                                EquipmentType = LoadingEquipmentType.EurPallets,
-                                AmountLoaded = 4,
-                                AmountUnloaded = 3,
-                                Remarks = "One was lost..."
-                            },
-                            new EdiLoadingEquipment
-                            {
-                                EquipmentType = LoadingEquipmentType.OneWayPallets,
-                                AmountLoaded = 6,
-                                AmountUnloaded = 2
-                            }
-                        },
+                        EtaDateTimeAbsolute = DateTime.Now.AddMinutes(-8),
+
                     },
                     GeoPosition = new EdiGeoPosition
                     {
