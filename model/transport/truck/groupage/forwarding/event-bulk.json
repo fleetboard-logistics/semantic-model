@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-09-30T06:34:06.5751696+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:8331 - master",
+  "$comment": "Generated: 2020-11-19T17:40:58.8623434+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:9254 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1302,9 +1302,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "equipmentType"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

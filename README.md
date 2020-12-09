@@ -24,7 +24,7 @@ In order to create a valid message that can be processed on the conizi platform,
 These schema definitions can be found here in the repostitory:
 [Schema definitions](model/).
 
-Please remember that conizi has several environments. It is important to note that some of the schema definitions found on the development systems are not yet available in the production system. Therefore we recommend to always develop against the "preproduction" branch.
+Please remember that conizi has several environments. It is important to note that some of the schema definitions found on the development systems are not yet available in the production system. Therefore we recommend to always develop against the "preproduction" branch. 
 
 Please check for a productive operation whether the required features are also included in the "production" branch.
 
