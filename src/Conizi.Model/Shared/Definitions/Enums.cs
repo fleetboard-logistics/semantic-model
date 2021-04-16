@@ -386,9 +386,9 @@ namespace Conizi.Model.Shared.Definitions
     Additional = 5,
 
     /// <summary>
-    /// Scan Input
+    /// Barcode was entered via the keyboard
     /// </summary>
-    [Description("Scan Input")]
+    [Description("Barcode was entered via the keyboard")]
     [EnumMember(Value = "scanInput")]
     Scan_Input = 6,
   }
