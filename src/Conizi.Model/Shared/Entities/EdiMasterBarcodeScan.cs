@@ -62,6 +62,13 @@ namespace Conizi.Model.Shared.Entities
     public string SingleBarcode { get; set; }
 
     /// <summary>
+    /// Master barcode (i.e. Master colli)
+    /// </summary>
+    [DisplayName("Master barcode")]
+    [Description("Master barcode (i.e. Master colli)")]
+    public string MasterBarcode { get; set; }
+
+    /// <summary>
     /// Describes if a barcode is scanned or "un"-scanned
     /// </summary>
     [JsonProperty("scanned", Required = Required.Always)]
