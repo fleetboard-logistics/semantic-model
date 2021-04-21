@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-07T11:17:45.6119926+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
+  "$comment": "Generated: 2021-04-21T12:52:10.3317785+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12289 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
@@ -360,6 +360,107 @@
       "required": [
         "speed"
       ]
+    },
+    "EdiMasterBarcodeScan": {
+      "title": "Masterbarcodescan",
+      "description": "Describes the scan of a masterbarcode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "singleScans": {
+          "title": "Singlescans",
+          "description": "Contains the singlebarcodes that are associated to the masterbarcode",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiMasterBarcodeSingleScan"
+          }
+        },
+        "masterBarcodeStacking": {
+          "title": "MasterBarcodeStacking",
+          "description": "Describes stacking of the masterbarcodes",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiMasterBarcodeSingleScan": {
+      "title": "Masterbarcodescan",
+      "description": "Describes the scan of a masterbarcode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scanType": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "scan",
+            "manual",
+            "rule",
+            "geofence",
+            "additional",
+            "scanInput"
+          ]
+        },
+        "singleBarcode": {
+          "title": "Single Barcode",
+          "description": "SingleBarcode that is associated with the masterbarcode",
+          "type": "string"
+        },
+        "masterBarcode": {
+          "title": "Master barcode",
+          "description": "Master barcode (i.e. Master colli)",
+          "type": "string"
+        },
+        "scanned": {
+          "title": "Scanned",
+          "description": "Describes if a barcode is scanned or \"un\"-scanned",
+          "type": "boolean"
+        },
+        "pickupSender": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "unloadingShippingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "loadingShippingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "unloadingReceivingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "loadingReceivingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "deliveryReceiver": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiStatusImage"
+          }
+        }
+      },
+      "required": [
+        "singleBarcode",
+        "scanned"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
     },
     "EdiMessageRouting": {
       "title": "Routing information of the message",
@@ -886,6 +987,21 @@
       "items": {
         "$ref": "#/definitions/EdiStatusImage"
       }
+    },
+    "masterBarcodeScan": {
+      "$ref": "#/definitions/EdiMasterBarcodeScan"
+    },
+    "scanType": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "scan",
+        "manual",
+        "rule",
+        "geofence",
+        "additional",
+        "scanInput"
+      ]
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
