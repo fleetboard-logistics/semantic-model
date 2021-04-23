@@ -21,11 +21,11 @@ namespace Conizi.Model.Shared.Entities
   public class EdiMasterBarcodeScan : EdiPatternPropertiesBase
   {
     /// <summary>
-    /// Describes if a barcode is scanned or "un"-scanned
+    /// Describes if a master-barcode is scanned or not
     /// </summary>
     [JsonProperty("scanned", Required = Required.Always)]
     [DisplayName("Scanned")]
-    [Description("Describes if a barcode is scanned or \"un\"-scanned")]
+    [Description("Describes if a master-barcode is scanned or not")]
     public bool Scanned { get; set; }
 
     /// <summary>
