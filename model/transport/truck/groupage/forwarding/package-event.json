@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2021-04-21T12:52:10.3317785+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12289 - master",
+  "$comment": "Generated: 2021-04-26T09:32:22.8298572+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12437 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
@@ -367,6 +367,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "scanned": {
+          "title": "Scanned",
+          "description": "Describes if a master-barcode is scanned or not",
+          "type": "boolean"
+        },
         "singleScans": {
           "title": "Singlescans",
           "description": "Contains the singlebarcodes that are associated to the masterbarcode",
@@ -384,6 +389,9 @@
           }
         }
       },
+      "required": [
+        "scanned"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2021-04-21T12:52:11.4141684+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12289 - master",
+  "$comment": "Generated: 2021-04-26T09:32:23.9451214+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12437 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1339,6 +1339,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "scanned": {
+          "title": "Scanned",
+          "description": "Describes if a master-barcode is scanned or not",
+          "type": "boolean"
+        },
         "singleScans": {
           "title": "Singlescans",
           "description": "Contains the singlebarcodes that are associated to the masterbarcode",
@@ -1356,6 +1361,9 @@
           }
         }
       },
+      "required": [
+        "scanned"
+      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
