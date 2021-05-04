@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-11-19T17:40:58.8623434+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:9254 - master",
+  "$comment": "Generated: 2021-04-26T09:32:23.9451214+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12437 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1253,6 +1253,21 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "amountLoaded": {
+          "title": "Amount Loaded",
+          "description": "Add/Load amount of equipment",
+          "type": "integer"
+        },
+        "amountUnloaded": {
+          "title": "Amount Unloaded",
+          "description": "Remove/Unload amount of equipment",
+          "type": "integer"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
         "equipmentType": {
           "title": "Loading Equipment Type",
           "description": "Type of loading equipment like eur pallets, euro boxes...",
@@ -1285,21 +1300,6 @@
           "title": "Custom Loading Equipment Name",
           "description": "Custom Loading Equipment Name, like specialCoolingBox...",
           "type": "string"
-        },
-        "amountLoaded": {
-          "title": "Amount Loaded",
-          "description": "Add/Load amount of equipment",
-          "type": "integer"
-        },
-        "amountUnloaded": {
-          "title": "Amount Unloaded",
-          "description": "Remove/Unload amount of equipment",
-          "type": "integer"
-        },
-        "remarks": {
-          "title": "Remarks (free form)",
-          "description": "Additional remarks",
-          "type": "string"
         }
       },
       "patternProperties": {
@@ -1327,6 +1327,115 @@
       },
       "required": [
         "exchanged"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiMasterBarcodeScan": {
+      "title": "Masterbarcodescan",
+      "description": "Describes the scan of a masterbarcode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scanned": {
+          "title": "Scanned",
+          "description": "Describes if a master-barcode is scanned or not",
+          "type": "boolean"
+        },
+        "singleScans": {
+          "title": "Singlescans",
+          "description": "Contains the singlebarcodes that are associated to the masterbarcode",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiMasterBarcodeSingleScan"
+          }
+        },
+        "masterBarcodeStacking": {
+          "title": "MasterBarcodeStacking",
+          "description": "Describes stacking of the masterbarcodes",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "scanned"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiMasterBarcodeSingleScan": {
+      "title": "Masterbarcodescan",
+      "description": "Describes the scan of a masterbarcode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scanType": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "scan",
+            "manual",
+            "rule",
+            "geofence",
+            "additional",
+            "scanInput"
+          ]
+        },
+        "singleBarcode": {
+          "title": "Single Barcode",
+          "description": "SingleBarcode that is associated with the masterbarcode",
+          "type": "string"
+        },
+        "masterBarcode": {
+          "title": "Master barcode",
+          "description": "Master barcode (i.e. Master colli)",
+          "type": "string"
+        },
+        "scanned": {
+          "title": "Scanned",
+          "description": "Describes if a barcode is scanned or \"un\"-scanned",
+          "type": "boolean"
+        },
+        "pickupSender": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "unloadingShippingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "loadingShippingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "unloadingReceivingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "loadingReceivingPartner": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "deliveryReceiver": {
+          "$ref": "#/definitions/EdiPackageEvent"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiDocumentItem"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiStatusImage"
+          }
+        }
+      },
+      "required": [
+        "singleBarcode",
+        "scanned"
       ],
       "patternProperties": {
         "x-.*": {},
@@ -3154,6 +3263,21 @@
           "items": {
             "$ref": "event-bulk.json#/definitions/EdiStatusImage"
           }
+        },
+        "masterBarcodeScan": {
+          "$ref": "event-bulk.json#/definitions/EdiMasterBarcodeScan"
+        },
+        "scanType": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "scan",
+            "manual",
+            "rule",
+            "geofence",
+            "additional",
+            "scanInput"
+          ]
         },
         "references": {
           "$ref": "event-bulk.json#/definitions/EdiDocumentReferences"

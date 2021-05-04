@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-07T11:17:44.4043349+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
+  "$comment": "Generated: 2021-04-21T12:52:09.1436588+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12289 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -347,6 +347,9 @@
         },
         "additionalLoadingEquipment": {
           "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
+        },
+        "loadingEquipments": {
+          "$ref": "#/definitions/EdiLoadingEquipments"
         },
         "volumeCubicmeter": {
           "title": "Volume (m³)",
@@ -1547,6 +1550,97 @@
           "title": "Volume liter",
           "description": "Volume liter of the consignment/position. Used for e.g. tank transportation",
           "type": "number"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiLoadingEquipmentData": {
+      "title": "Loading equipment",
+      "description": "Loading equipment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "title": "Amount",
+          "description": "Amount of equipment",
+          "type": "integer"
+        },
+        "isExchangeReasonRequired": {
+          "title": "Exchange Reason required",
+          "description": "Marks an equipment-exchange to require an exchange reason, if exchange is not complete",
+          "type": "boolean"
+        },
+        "maxExchangeAmount": {
+          "title": "Maximum exchange amount",
+          "description": "Maximum exchange amount",
+          "type": "integer"
+        },
+        "equipmentType": {
+          "title": "Loading Equipment Type",
+          "description": "Type of loading equipment like eur pallets, euro boxes...",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "unknown",
+            "eurPallets",
+            "eurBoxes",
+            "h1Pallets",
+            "e2Pallets",
+            "oneWayPallets",
+            "knaufPallets",
+            "duesseldorferPallets",
+            "kdp",
+            "ibc",
+            "e3Pallets",
+            "chemicalPallets",
+            "chep",
+            "cc",
+            "gp",
+            "customLoadingEquipment"
+          ]
+        },
+        "customLoadingEquipmentName": {
+          "title": "Custom Loading Equipment Name",
+          "description": "Custom Loading Equipment Name, like specialCoolingBox...",
+          "type": "string"
+        }
+      },
+      "required": [
+        "isExchangeReasonRequired"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiLoadingEquipments": {
+      "title": "Loading equipment",
+      "description": "Loading equipment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "equipmentForExchange": {
+          "title": "Loading equipment for exchange",
+          "description": "Loading aids which need to be exchanged",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiLoadingEquipmentData"
+          }
+        },
+        "additionalEquipment": {
+          "title": "Additional loading equipment",
+          "description": "Additional loading aids which are not part of the consignment but which have been added to safely transport the goods",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiLoadingEquipmentData"
+          }
         }
       },
       "patternProperties": {
@@ -3566,6 +3660,9 @@
     },
     "additionalLoadingEquipment": {
       "$ref": "#/definitions/EdiAdditionalLoadingEquipment"
+    },
+    "loadingEquipments": {
+      "$ref": "#/definitions/EdiLoadingEquipments"
     },
     "loadUnits": {
       "type": "array",
