@@ -42,7 +42,41 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("MasterBarcodeStacking")]
     [Description("Describes stacking of the masterbarcodes")]
     [JsonProperty("masterBarcodeStacking")]
-    public List<string> MasterBarcodeStacking { get; set; }
+    public List<EdiMasterBarcodeStackingItem> MasterBarcodeStacking { get; set; }
+  }
+
+  /// <summary>
+  /// Describes stacking of the masterbarcodes
+  /// </summary>
+  [DisplayName("Masterbarcodescan")]
+  [Description("Describes the scan of a masterbarcode")]
+  [ConiziAdditionalProperties(false)]
+  [ConiziAllowXProperties]
+  public class EdiMasterBarcodeStackingItem : EdiPatternPropertiesBase
+  {
+    /// <summary>
+    /// Source masterbarcode
+    /// </summary>
+    [JsonProperty("source", Required = Required.Always)]
+    [DisplayName("Source Masterbarcode")]
+    [Description("Masterbarcode of the source")]
+    public string Source { get; set; }
+
+    /// <summary>
+    /// Source masterbarcode
+    /// </summary>
+    [JsonProperty("target", Required = Required.Always)]
+    [DisplayName("Target Masterbarcode")]
+    [Description("Masterbarcode of the target")]
+    public string Target { get; set; }
+
+    /// <summary>
+    /// Date and time of the stacking
+    /// </summary>
+    [DisplayName("Date-time")]
+    [Description("Date and time of the stacking")]
+    [JsonProperty("dateTime", Order = -16, Required = Required.Always)]
+    public DateTime DateTime { get; set; }
   }
 
   /// <summary>
