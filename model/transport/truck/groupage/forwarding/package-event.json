@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2021-04-26T09:32:22.8298572+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12437 - master",
+  "$comment": "Generated: 2021-05-27T14:39:19.3855525+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:13715 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
@@ -369,7 +369,7 @@
       "properties": {
         "scanned": {
           "title": "Scanned",
-          "description": "Describes if a master-barcode is scanned or not",
+          "description": "Describes if a master-barcode is scanned or \"un\"-scanned",
           "type": "boolean"
         },
         "singleScans": {
@@ -385,7 +385,7 @@
           "description": "Describes stacking of the masterbarcodes",
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/EdiMasterBarcodeStackingItem"
           }
         }
       },
@@ -463,7 +463,41 @@
       },
       "required": [
         "singleBarcode",
+        "masterBarcode",
         "scanned"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiMasterBarcodeStackingItem": {
+      "title": "Masterbarcodescan",
+      "description": "Describes the scan of a masterbarcode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dateTime": {
+          "title": "Date-time",
+          "description": "Date and time of the stacking",
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "title": "Source Masterbarcode",
+          "description": "Masterbarcode of the source",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target Masterbarcode",
+          "description": "Masterbarcode of the target",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dateTime",
+        "source",
+        "target"
       ],
       "patternProperties": {
         "x-.*": {},
