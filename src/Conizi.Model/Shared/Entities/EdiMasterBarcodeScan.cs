@@ -25,8 +25,8 @@ namespace Conizi.Model.Shared.Entities
     /// </summary>
     [JsonProperty("scanned", Required = Required.Always)]
     [DisplayName("Scanned")]
-    [Description("Describes if a master-barcode is scanned or not")]
-    public bool Scanned { get; set; }
+    [Description("Describes if a master-barcode is scanned or \"un\"-scanned")]
+    public bool? Scanned { get; set; }
 
     /// <summary>
     /// Contains the singlebarcodes that are associated to the masterbarcode
@@ -42,7 +42,41 @@ namespace Conizi.Model.Shared.Entities
     [DisplayName("MasterBarcodeStacking")]
     [Description("Describes stacking of the masterbarcodes")]
     [JsonProperty("masterBarcodeStacking")]
-    public List<string> MasterBarcodeStacking { get; set; }
+    public List<EdiMasterBarcodeStackingItem> MasterBarcodeStacking { get; set; }
+  }
+
+  /// <summary>
+  /// Describes stacking of the masterbarcodes
+  /// </summary>
+  [DisplayName("Masterbarcodescan")]
+  [Description("Describes the scan of a masterbarcode")]
+  [ConiziAdditionalProperties(false)]
+  [ConiziAllowXProperties]
+  public class EdiMasterBarcodeStackingItem : EdiPatternPropertiesBase
+  {
+    /// <summary>
+    /// Source masterbarcode
+    /// </summary>
+    [JsonProperty("source", Required = Required.Always)]
+    [DisplayName("Source Masterbarcode")]
+    [Description("Masterbarcode of the source")]
+    public string Source { get; set; }
+
+    /// <summary>
+    /// Source masterbarcode
+    /// </summary>
+    [JsonProperty("target", Required = Required.Always)]
+    [DisplayName("Target Masterbarcode")]
+    [Description("Masterbarcode of the target")]
+    public string Target { get; set; }
+
+    /// <summary>
+    /// Date and time of the stacking
+    /// </summary>
+    [DisplayName("Date-time")]
+    [Description("Date and time of the stacking")]
+    [JsonProperty("dateTime", Order = -16, Required = Required.Always)]
+    public DateTime DateTime { get; set; }
   }
 
   /// <summary>
@@ -72,6 +106,7 @@ namespace Conizi.Model.Shared.Entities
     /// <summary>
     /// Master barcode (i.e. Master colli)
     /// </summary>
+    [JsonProperty("masterBarcode", Required = Required.Always)]
     [DisplayName("Master barcode")]
     [Description("Master barcode (i.e. Master colli)")]
     public string MasterBarcode { get; set; }
@@ -82,7 +117,7 @@ namespace Conizi.Model.Shared.Entities
     [JsonProperty("scanned", Required = Required.Always)]
     [DisplayName("Scanned")]
     [Description("Describes if a barcode is scanned or \"un\"-scanned")]
-    public bool Scanned { get; set; }
+    public bool? Scanned { get; set; }
 
     /// <summary>
     /// Events occurred while pickup the package
