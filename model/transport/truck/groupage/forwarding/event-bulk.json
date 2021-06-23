@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2021-05-27T14:39:20.4633662+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:13715 - master",
+  "$comment": "Generated: 2021-06-23T09:00:33.6131249+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:14768 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/event-bulk.json",
   "title": "Bulk Event",
   "description": "Events for different consignments, pickup-orders, packages or tours, which occurred during the processing. The events can be send in bulk.",
@@ -1392,6 +1392,11 @@
           "description": "SingleBarcode that is associated with the masterbarcode",
           "type": "string"
         },
+        "packageReferenceNumber": {
+          "title": "Package-reference",
+          "description": "Referencenumber of the package that is related to the scanned singlebarcode",
+          "type": "string"
+        },
         "masterBarcode": {
           "title": "Master barcode",
           "description": "Master barcode (i.e. Master colli)",
@@ -2498,6 +2503,71 @@
         "\\$.*": {}
       }
     },
+    "EdiStopOrderingEvent": {
+      "title": "Stop specific Event",
+      "description": "Event to notify about stop specific incidents",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventDateTime": {
+          "title": "Event Date-time",
+          "description": "Date and time when the event occurred",
+          "type": "string",
+          "format": "date-time"
+        },
+        "handlingDone": {
+          "title": "Handling done",
+          "description": "Describes if the reordering has already been handled",
+          "type": "boolean"
+        },
+        "sorting": {
+          "title": "Sort items",
+          "description": "Sort-items of the stop-ordering event. Describes stacking and new stoporder",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiStopOrderingSortingItem"
+          }
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventDateTime"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiStopOrderingSortingItem": {
+      "title": "Sort item",
+      "description": "Sortitem of the stop-ordering event. Describes stacking and new stoporder",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stopId": {
+          "title": "StopId",
+          "description": "The (possibly new) StopId of the stop",
+          "type": "string"
+        },
+        "stopNo": {
+          "title": "StopNo new",
+          "description": "The new StopNo of the stop. Used for sorting",
+          "type": "integer"
+        },
+        "sourceStopIds": {
+          "title": "StopIds to merge",
+          "description": "Contains the StopIds of the stops that are merged together. If a SourceStopId is equals the StopId of the current EdiStopOrderingSortingItem it will not be included here.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "EdiStopSpecificEvent": {
       "title": "Stop specific Event",
       "description": "Event to notify about stop specific incidents",
@@ -2831,6 +2901,11 @@
         "readyToUnload": {
           "title": "Ready to unload",
           "description": "Vehicle is ready to unload",
+          "type": "boolean"
+        },
+        "stopSorting": {
+          "title": "Stops sorted",
+          "description": "The stops of the tour were reordered",
           "type": "boolean"
         },
         "remarks": {
@@ -3505,6 +3580,9 @@
         },
         "stop": {
           "$ref": "event-bulk.json#/definitions/EdiStopSpecificEvent"
+        },
+        "stopOrdering": {
+          "$ref": "event-bulk.json#/definitions/EdiStopOrderingEvent"
         },
         "vehicle": {
           "$ref": "event-bulk.json#/definitions/EdiVehicleSpecificEvent"

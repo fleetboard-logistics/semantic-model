@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2021-04-21T12:52:12.1452360+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:12289 - master",
+  "$comment": "Generated: 2021-06-23T09:00:34.3252950+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:14768 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/pickuporder.json",
   "title": "Pickup order",
   "description": "A single pickup order which is transferred between two partners",
@@ -1448,9 +1448,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "isExchangeReasonRequired"
-      ],
       "patternProperties": {
         "x-.*": {},
         "\\$.*": {}
