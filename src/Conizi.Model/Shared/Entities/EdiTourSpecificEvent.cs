@@ -11,7 +11,7 @@ namespace Conizi.Model.Shared.Entities
     [Description("Event to notify about tour specific incidents")]
     [ConiziAdditionalProperties(false)]
     [ConiziAllowXProperties]
-    
+
     public class EdiTourSpecificEvent : EdiTourEventBase
     {
         /// <summary>
@@ -153,5 +153,12 @@ namespace Conizi.Model.Shared.Entities
         [DisplayName("Ready to unload")]
         [Description("Vehicle is ready to unload")]
         public bool? ReadyToUnload { get; set; }
+
+        /// <summary>
+        /// The stops of the tour were reordered
+        /// </summary>
+        [DisplayName("Stops sorted")]
+        [Description("The stops of the tour were reordered")]
+        public bool? StopSorting { get; set; }
     }
 }

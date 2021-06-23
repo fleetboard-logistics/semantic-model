@@ -36,6 +36,11 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         public EdiStopSpecificEvent Stop { get; set; }
 
         /// <summary>
+        /// Event to notify about stop specific incidents
+        /// </summary>
+        public EdiStopOrderingEvent StopOrdering { get; set; }
+
+        /// <summary>
         /// Event to notify about vehicle specific incidents
         /// </summary>
         public EdiVehicleSpecificEvent Vehicle { get; set; }
