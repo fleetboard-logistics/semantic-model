@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Conizi.Model.Shared.Attributes;
@@ -128,10 +129,14 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Marks an equipment-exchange to require an exchange reason, if exchange is not complete
         /// </summary>
+        [Obsolete("Please use EdiPackExHandleChangeReason instead")]
         [DisplayName("Exchange Reason required")]
         [Description("Marks an equipment-exchange to require an exchange reason, if exchange is not complete")]
         public bool? IsExchangeReasonRequired { get; set; }
 
+        [DisplayName("Exchange Reason required")]
+        [Description("Defines whether a package exchange reason is required or not ")]
+        public EdiPackExHandleChangeReason? PackExHandleChangeReason { get; set; }
         /// <summary>
         /// Maximum exchange amount 
         /// </summary>
