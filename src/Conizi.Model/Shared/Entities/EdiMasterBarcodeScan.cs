@@ -43,8 +43,42 @@ namespace Conizi.Model.Shared.Entities
         [Description("Describes stacking of the masterbarcodes")]
         [JsonProperty("masterBarcodeStacking")]
         public List<EdiMasterBarcodeStackingItem> MasterBarcodeStacking { get; set; }
+        
+        /// <summary>
+        /// Membership of the masterbarcode
+        /// </summary>
+        [DisplayName("MasterBarcodeStacking")]
+        [Description("Describes stacking of the masterbarcodes")]
+        [JsonProperty("masterBarcodeStacking")]
+        public List<EdiMasterBarcodeMembership> Membership { get; set; }
     }
 
+    /// <summary>
+    /// Describes the membership of a masterbarcode
+    /// </summary>
+    [DisplayName("Masterbarcodemembership")]
+    [Description("Describes the membership of a masterbarcode")]
+    [ConiziAdditionalProperties(false)]
+    [ConiziAllowXProperties]
+    public class EdiMasterBarcodeMembership : EdiPatternPropertiesBase
+    {
+        /// <summary>
+        /// Key of the membership
+        /// </summary>
+        [JsonProperty("key", Required = Required.Always)]
+        [DisplayName("Membership Key")]
+        [Description("Key of the membership")]
+        public string Key { get; set; }
+
+        /// <summary>
+        /// Value of the membership
+        /// </summary>
+        [JsonProperty("value", Required = Required.Always)]
+        [DisplayName("Membership Value")]
+        [Description("Value of the membership")]
+        public string Value { get; set; }
+    }
+    
     /// <summary>
     /// Describes stacking of the masterbarcodes
     /// </summary>
