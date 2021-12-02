@@ -47,9 +47,9 @@ namespace Conizi.Model.Shared.Entities
         /// <summary>
         /// Membership of the masterbarcode
         /// </summary>
-        [DisplayName("MasterBarcodeStacking")]
-        [Description("Describes stacking of the masterbarcodes")]
-        [JsonProperty("masterBarcodeStacking")]
+        [DisplayName("Membership")]
+        [Description("Membership of the masterbarcode")]
+        [JsonProperty("membership")]
         public List<EdiMasterBarcodeMembership> Membership { get; set; }
     }
 
