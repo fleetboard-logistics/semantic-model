@@ -520,5 +520,25 @@ namespace Conizi.Model.Shared.Definitions
     /// </summary>
     [EnumMember(Value = "on")] On = 2,
   }
-
+  
+  /// <summary>
+  /// Defines whether a package exchange reason is required or not . This is important for HABBL
+  /// </summary>
+  [Description("Defines whether a package exchange reason is required or not ")]
+  [ConiziAdditionalProperties(false)]
+  public enum EdiPackExHandleChangeReason
+  {
+      /// <summary>
+      /// Reason is optional
+      /// </summary>
+      [EnumMember(Value = "reasonOptional")] ReasonOptional = 0,
+      /// <summary>
+      /// No reason allowed
+      /// </summary>
+      [EnumMember(Value = "reasonDisabled")] ReasonDisabled = 1,
+      /// <summary>
+      /// A reason is required
+      /// </summary>
+      [EnumMember(Value = "reasonRequired")] ReasonRequired = 2,
+    }
 }
