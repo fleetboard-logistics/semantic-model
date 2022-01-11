@@ -30,7 +30,7 @@ Please check for a productive operation whether the required features are also i
 
 Please keep in mind, to buy a pro license for Newtonsoft JSON Schema to use the validation features in an enterprise scope!
 
-Furthermore it is important that the conizi platform always treats dates that do not contain a time component as UTC date. See "shippingDate" in this example. 
+Furthermore it is important that the conizi platform always treats dates that do not contain a time component as UTC date. See "shippingDate" in this example.
 
 For development purposes it is still possible to adapt the $schema as follows:
 [https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json?branch=preproduction](https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment.json?branch=preproduction), here the schema definitions for the pre-production environment are used. Possible values are "master", "preproduction", "production". 

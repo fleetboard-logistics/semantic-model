@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2021-06-23T09:00:31.3571273+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:14768 - master",
+  "$comment": "Generated: 2021-12-06T10:10:48.8643764+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:25105 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/tour.json",
   "title": "Tour",
   "description": "A tour describes an amount of stops given an explicit stop order, containing all information about activities to be done, e.g. loading and unloading information about consignments or maintenance stops",
@@ -1570,8 +1570,18 @@
         },
         "isExchangeReasonRequired": {
           "title": "Exchange Reason required",
-          "description": "Marks an equipment-exchange to require an exchange reason, if exchange is not complete",
+          "description": "Obsolete. Please use EdiPackExHandleChangeReason instead! Marks an equipment-exchange to require an exchange reason, if exchange is not complete",
           "type": "boolean"
+        },
+        "packExHandleChangeReason": {
+          "title": "Exchange Reason required",
+          "description": "Defines whether a package exchange reason is required or not",
+          "type": "string",
+          "enum": [
+            "reasonOptional",
+            "reasonDisabled",
+            "reasonRequired"
+          ]
         },
         "maxExchangeAmount": {
           "title": "Maximum exchange amount",
