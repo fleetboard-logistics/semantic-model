@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2021-06-23T09:00:32.5370748+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:14768 - master",
+  "$comment": "Generated: 2021-12-06T10:10:50.1661880+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:25105 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/package-event.json",
   "title": "Package event",
   "description": "An event which occurred during the processing of the referenced package.",
@@ -361,6 +361,32 @@
         "speed"
       ]
     },
+    "EdiMasterBarcodeMembership": {
+      "title": "Masterbarcodemembership",
+      "description": "Describes the membership of a masterbarcode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "title": "Membership Key",
+          "description": "Key of the membership",
+          "type": "string"
+        },
+        "value": {
+          "title": "Membership Value",
+          "description": "Value of the membership",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiMasterBarcodeScan": {
       "title": "Masterbarcodescan",
       "description": "Describes the scan of a masterbarcode",
@@ -386,6 +412,14 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/EdiMasterBarcodeStackingItem"
+          }
+        },
+        "membership": {
+          "title": "Membership",
+          "description": "Membership of the masterbarcode",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiMasterBarcodeMembership"
           }
         }
       },
@@ -716,6 +750,9 @@
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         },
         "lost": {
+          "$ref": "#/definitions/EdiEmptyExtendableObject"
+        },
+        "belongsNot": {
           "$ref": "#/definitions/EdiEmptyExtendableObject"
         }
       },

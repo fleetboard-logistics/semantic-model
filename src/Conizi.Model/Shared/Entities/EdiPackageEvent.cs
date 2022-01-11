@@ -249,5 +249,12 @@ namespace Conizi.Model.Shared.Entities
         //[DisplayName("Lost")]
         //[Description("The package was lost")]
         public EdiEmptyExtendableObject Lost { get; set; }
+
+        /// <summary>
+        /// The package is not on consignment
+        /// </summary>
+        //[DisplayName("Belongs Not")]
+        //[Description("Package is not on consignment")]
+        public EdiEmptyExtendableObject BelongsNot { get; set; }
     }
 }
