@@ -22,11 +22,6 @@ namespace Conizi.Model.Core.Tools
     /// </summary>
     public static class Converter
     {
-        static Converter()
-        {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-        }
-
         /// <summary>
         /// Settings for the JSON serializer and deserializer
         /// </summary>
