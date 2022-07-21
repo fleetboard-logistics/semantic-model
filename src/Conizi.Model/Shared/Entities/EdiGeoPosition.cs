@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text;
+using Conizi.Model.Converters;
 using Conizi.Model.Shared.Attributes;
 using Conizi.Model.Shared.Definitions;
 using Newtonsoft.Json;
@@ -180,6 +181,7 @@ namespace Conizi.Model.Shared.Entities
         [Description("ETA (Estimated time of arrival) date component date (e.g. 2019-05-17). " +
                      "The date component is only required if it is not the current day.")]
         [ConiziDateOnly]
+        [JsonConverter(typeof(ConiziDateConverter))]
         public DateTime? EtaDateAbsolute { get; set; }
 
         /// <summary>
