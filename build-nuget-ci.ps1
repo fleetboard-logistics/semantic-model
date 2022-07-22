@@ -22,28 +22,37 @@ echo "Running on $env:computername..."
     switch ($env:CI_COMMIT_REF_NAME) {
         "master" {
             $vsuffix = "-alpha"
+            Write-Host building nuget... packages -ForegroundColor DarkGreen
+            dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
+            dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
             break;
           }
 
         "preproduction" {
             $vsuffix = "-beta"
+            Write-Host building nuget... packages -ForegroundColor DarkGreen
+            dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
+            dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
             break;
           }
         
         "production" {
             $vsuffix = ""
+            Write-Host building nuget... packages -ForegroundColor DarkGreen
+            dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID
+            dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID
             break;
           }
 
         Default {
             $vsuffix = "-alpha"
+            Write-Host building nuget... packages -ForegroundColor DarkGreen
+            dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
+            dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
             break;
         }
     }
 
-    Write-Host building nuget... packages -ForegroundColor DarkGreen
-    dotnet pack src/Conizi.Model/Conizi.Model.csproj --output nupkgs /p:NuspecFile=Conizi.Model.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
-    dotnet pack src/Conizi.Model.Core/Conizi.Model.Core.csproj --output nupkgs /p:NuspecFile=Conizi.Model.Core.nuspec /p:Version=$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix --version-suffix=$vsuffix
 
     Write-Host deploying nuget... -ForegroundColor DarkGreen
     $modelPackage = "nupkgs/Conizi.Model.$env:CONIZI_CORE_VERSION.$env:CI_PIPELINE_ID$vsuffix.nupkg"
