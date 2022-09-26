@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-20T18:37:16.7804586+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:7032 - master",
+  "$comment": "Generated: 2022-09-26T08:16:48.9591556+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:39637 - master",
   "$id": "https://model.conizi.io/v1/telematics/position-event.json",
   "title": "Position event",
   "description": "A single telematics event message for position data which is transferred between two partners.",
@@ -177,6 +177,14 @@
           "title": "Longitude",
           "description": "East–west position of a point on the Earth's surface",
           "type": "number"
+        },
+        "consignmentIds": {
+          "title": "Consignment Ids",
+          "description": "List of conizi consignment ids",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "tourIds": {
           "title": "Tour Ids",
