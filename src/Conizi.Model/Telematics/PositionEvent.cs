@@ -52,6 +52,14 @@ namespace Conizi.Model.Telematics
         [Description("List of conizi tour ids")]
         [JsonProperty(Required = Required.DisallowNull, Order = -1)]
         public List<string> TourIds { get; set; }
+
+        /// <summary>
+        /// List of conizi consignment ids
+        /// </summary>
+        [DisplayName("Consignment Ids")]
+        [Description("List of conizi consignment ids")]
+        [JsonProperty(Required = Required.DisallowNull, Order = -2)]
+        public List<string> ConsignmentIds { get; set; }
     }
 
 }
