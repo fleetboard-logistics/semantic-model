@@ -194,5 +194,10 @@ namespace Conizi.Model.Transport.Truck.Groupage.Forwarding
         /// A list of status images
         /// </summary>
         public List<EdiStatusImage> Images { get; set; }
+
+        /// <summary>
+        /// Information on loading equipment exchange at this consignment
+        /// </summary>
+        public EdiLoadingEquipmentExchange LoadingEquipmentExchange { get; set; }
     }
 }
