@@ -139,7 +139,7 @@ deploy:docu:
     dotnet build ./src/Conizi.Model.Tooling
     export TMP_BRANCH=$(date +%s%3N)
     echo "Generating models..."
-    cd ./src/Conizi.Model.Tooling/bin/Debug/net6
+    cd ./src/Conizi.Model.Tooling/bin/Debug/net6.0
     dotnet Conizi.Model.Tooling.dll ../../../../../model 
     echo "Add and commit models..."
     git checkout -b $TMP_BRANCH
