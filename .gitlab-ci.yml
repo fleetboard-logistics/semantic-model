@@ -10,7 +10,7 @@ stages:
 
 build:
   stage: build
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+  image: mcr.microsoft.com/dotnet/sdk:6.0-alpine
   tags:
     - docker
     - linux
@@ -34,7 +34,7 @@ build:
 
 test:
   stage: test
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+  image: mcr.microsoft.com/dotnet/sdk:6.0-alpine
   tags:
     - docker
     - linux
@@ -52,7 +52,7 @@ test:
 
 deploy:models:
   stage: deploy
-  image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+  image: mcr.microsoft.com/dotnet/sdk:6.0-alpine
   tags:
     - docker
     - linux
@@ -71,7 +71,7 @@ deploy:models:
 
 deploy:nuget:
   stage: deploy
-  image: mcr.microsoft.com/dotnet/framework/sdk:4.8
+  image: mcr.microsoft.com/dotnet/sdk:6.0-alpine
   tags:
     - docker
     - windows
@@ -139,7 +139,7 @@ deploy:docu:
     dotnet build ./src/Conizi.Model.Tooling
     export TMP_BRANCH=$(date +%s%3N)
     echo "Generating models..."
-    cd ./src/Conizi.Model.Tooling/bin/Debug/netcoreapp2.2
+    cd ./src/Conizi.Model.Tooling/bin/Debug/net6.0
     dotnet Conizi.Model.Tooling.dll ../../../../../model 
     echo "Add and commit models..."
     git checkout -b $TMP_BRANCH
