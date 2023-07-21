@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Generated: 2020-07-07T11:17:45.4320032+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:6884 - master",
+  "$comment": "Generated: 2023-06-13T13:20:55.8787066+00:00 - Conizi.Model.Tooling v:1.0.0.0 p:50648 - master",
   "$id": "https://model.conizi.io/v1/transport/truck/groupage/forwarding/consignment-event.json",
   "title": "Consignment event",
   "description": "An event which occurred during the processing of the referenced consignment",
@@ -1185,6 +1185,92 @@
         "speed"
       ]
     },
+    "EdiLoadingEquipment": {
+      "title": "Loading equipment",
+      "description": "Loading equipment used for transportation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amountLoaded": {
+          "title": "Amount Loaded",
+          "description": "Add/Load amount of equipment",
+          "type": "integer"
+        },
+        "amountUnloaded": {
+          "title": "Amount Unloaded",
+          "description": "Remove/Unload amount of equipment",
+          "type": "integer"
+        },
+        "remarks": {
+          "title": "Remarks (free form)",
+          "description": "Additional remarks",
+          "type": "string"
+        },
+        "equipmentType": {
+          "title": "Loading Equipment Type",
+          "description": "Type of loading equipment like eur pallets, euro boxes...",
+          "type": "string",
+          "additionalProperties": false,
+          "patternProperties": {
+            "x-.*": {},
+            "\\$.*": {}
+          },
+          "enum": [
+            "unknown",
+            "eurPallets",
+            "eurBoxes",
+            "h1Pallets",
+            "e2Pallets",
+            "oneWayPallets",
+            "knaufPallets",
+            "duesseldorferPallets",
+            "kdp",
+            "ibc",
+            "e3Pallets",
+            "chemicalPallets",
+            "chep",
+            "cc",
+            "gp",
+            "customLoadingEquipment"
+          ]
+        },
+        "customLoadingEquipmentName": {
+          "title": "Custom Loading Equipment Name",
+          "description": "Custom Loading Equipment Name, like specialCoolingBox...",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
+    "EdiLoadingEquipmentExchange": {
+      "title": "Loading equipment exchange",
+      "description": "Information about loading equipment exchange",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exchanged": {
+          "title": "Exchanged",
+          "description": "Loading Equipment was exchanged",
+          "type": "boolean"
+        },
+        "loadingEquipment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EdiLoadingEquipment"
+          }
+        }
+      },
+      "required": [
+        "exchanged"
+      ],
+      "patternProperties": {
+        "x-.*": {},
+        "\\$.*": {}
+      }
+    },
     "EdiMessageRouting": {
       "title": "Routing information of the message",
       "description": "Routing information to identify the parties involved in the data transfer",
@@ -1771,6 +1857,9 @@
       "items": {
         "$ref": "#/definitions/EdiStatusImage"
       }
+    },
+    "loadingEquipmentExchange": {
+      "$ref": "#/definitions/EdiLoadingEquipmentExchange"
     },
     "references": {
       "$ref": "#/definitions/EdiDocumentReferences"
